@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents — StepsAI | It answers. Then it acts.</title>
+<meta name="description" content="StepsAI's AI Agents answer customer questions on WhatsApp, Instagram and your website — then book the meeting, save the lead, or update the order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>StepsAI</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+            Product
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="#top" class="is-active" aria-current="page">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
+            <a href="product.html">Internal Copilot<span>AI assistant for your team</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="solutions.html">By Role<span>Marketing, Sales, Support, Ops</span></a>
+            <a href="industries.html">By Industry<span>E-commerce, Healthcare &amp; more</span></a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <span class="nav-mobile-label">Product</span>
+      <a href="#top" class="is-active" aria-current="page">AI Agents</a>
+      <a href="product.html">Internal Copilot</a>
+      <span class="nav-mobile-label">Solutions</span>
+      <a href="solutions.html">By Role</a>
+      <a href="industries.html">By Industry</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="nav-mobile-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO — simple text hero, not the morphing channel-card demo.
+         That demo is the homepage's unique hook and stays there so it
+         isn't shown twice; visitors who click through already saw it
+         and are here for the depth.
+         ============================================================ -->
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">AI AGENTS</p>
+        <h1 class="page-headline">It answers. Then it acts.</h1>
+        <p class="section-sub page-hero-sub">Answers customer questions on WhatsApp, Instagram and your website — then books the meeting, saves the lead, or updates the order. This is everything it does, in depth.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOUR AGENTS
+         ============================================================ -->
+    <section class="section section--raised four-agents" id="four-agents" data-section-boundary>
+      <div class="container">
+        <div class="agents-layout">
+
+          <div class="agents-copy reveal" data-reveal-group="agents-head">
+            <p class="kicker">FOUR AGENTS, ONE BRAIN</p>
+            <h2 class="section-title">Four jobs. One agent that knows your business.</h2>
+            <p class="section-sub">Each agent handles a different job. They share the same memory of your products, your customers, and your answers.</p>
+          </div>
+
+          <div class="agents-panel-wrap reveal" data-reveal-group="agents-head">
+            <div class="agents-panel" id="agentsStage">
+              <svg class="agents-connectors-svg" id="agentsConnectorsSvg" aria-hidden="true">
+                <line class="agents-connector" data-agent-index="0"></line>
+                <line class="agents-connector" data-agent-index="1"></line>
+                <line class="agents-connector" data-agent-index="2"></line>
+                <line class="agents-connector" data-agent-index="3"></line>
+              </svg>
+
+              <div class="brain-node" id="brainNode" aria-hidden="true">
+                <span class="brain-node-ring" id="brainNodeRing"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3C8 3 6 5.5 6 8.5C6 10.5 7 11.8 8 12.8V16H16V12.8C17 11.8 18 10.5 18 8.5C18 5.5 16 3 12 3Z" stroke="#1A56DB" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M9.5 19H14.5M10 21.5H14" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <div class="agents-mini-grid" id="agentsGrid">
+
+                <article class="agent-card is-heading" data-agent-index="0">
+                  <div class="agent-card-content">
+                    <span class="agent-heading-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="#fff" stroke-width="1.6"/></svg></span>
+                    <h3 class="agent-heading-title">Sales</h3>
+                  </div>
+                </article>
+
+                <article class="agent-card" data-agent-index="1">
+                  <div class="agent-card-content">
+                    <div class="industry-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="currentColor" stroke-width="1.6"/></svg><span>E-commerce</span></div>
+                    <div class="step-bubble agent">Reserved the linen shirt for you.</div>
+                    <span class="receipt receipt--mini">
+                      <svg class="receipt-check" width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <span class="receipt-source">SHOPIFY</span><span class="receipt-dot">·</span><span class="receipt-action">CART UPDATED</span>
+                    </span>
+                  </div>
+                </article>
+
+                <article class="agent-card" data-agent-index="2">
+                  <div class="agent-card-content">
+                    <div class="industry-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="currentColor" stroke-width="1.6"/></svg><span>Real Estate</span></div>
+                    <div class="step-bubble agent">Sent you the 3BHK details.</div>
+                    <span class="receipt receipt--mini">
+                      <svg class="receipt-check" width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <span class="receipt-source">CRM</span><span class="receipt-dot">·</span><span class="receipt-action">SITE VISIT SCHEDULED</span>
+                    </span>
+                  </div>
+                </article>
+
+                <article class="agent-card" data-agent-index="3">
+                  <div class="agent-card-content">
+                    <div class="industry-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4L22 9L12 14L2 9L12 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11V17C6 17 8.5 19.5 12 19.5C15.5 19.5 18 17 18 17V11" stroke="currentColor" stroke-width="1.6"/></svg><span>Education</span></div>
+                    <div class="step-bubble agent">Here's the course fee and dates.</div>
+                    <span class="receipt receipt--mini">
+                      <svg class="receipt-check" width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <span class="receipt-source">CRM</span><span class="receipt-dot">·</span><span class="receipt-action">ENQUIRY CAPTURED</span>
+                    </span>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INDUSTRIES
+         ============================================================ -->
+    <section class="section section--base industries" id="industries" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="industries-head">BUILT FOR YOUR BUSINESS</p>
+        <h2 class="section-title reveal" data-reveal-group="industries-head">It already knows how your industry sells.</h2>
+        <p class="section-sub reveal" data-reveal-group="industries-head">The questions change. The answers change. The agent adapts to what your customers actually ask.</p>
+
+        <div class="industries-tabs-wrap">
+          <div class="industries-tabs" id="industriesTabs" role="tablist" aria-label="Industries">
+            <button class="industries-tab is-active" data-industry="0" role="tab" aria-selected="true">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>E-commerce</span>
+            </button>
+            <button class="industries-tab" data-industry="1" role="tab" aria-selected="false">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span>Healthcare &amp; Wellness</span>
+            </button>
+            <button class="industries-tab" data-industry="2" role="tab" aria-selected="false">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Real Estate</span>
+            </button>
+            <button class="industries-tab" data-industry="3" role="tab" aria-selected="false">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4L22 9L12 14L2 9L12 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11V17C6 17 8.5 19.5 12 19.5C15.5 19.5 18 17 18 17V11" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Education</span>
+            </button>
+            <button class="industries-tab" data-industry="4" role="tab" aria-selected="false">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17C4.8 17 3 15.2 3 13C3 11 4.5 9.4 6.4 9.1C6.8 6.2 9.2 4 12 4C15 4 17.4 6.3 17.6 9.1C19.5 9.3 21 11 21 13C21 15.2 19.2 17 17 17H7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <span>SaaS &amp; Technology</span>
+            </button>
+            <button class="industries-tab" data-industry="5" role="tab" aria-selected="false">
+              <svg class="industries-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 14L9 13L12 5H14L11 13L20 11V13L11 16L12 21H10L7 15L3 16.5L3 14Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <span>Travel &amp; Hospitality</span>
+            </button>
+            <span class="industries-tab-indicator" id="industriesTabIndicator"></span>
+          </div>
+        </div>
+
+        <div class="industries-stage" id="industriesStage" data-industry="0">
+          <div class="industries-bullets" id="industriesBullets">
+            <p class="industries-bullet"><span>Answers size, stock and shipping questions instantly.</span></p>
+            <p class="industries-bullet"><span>Recommends the right product from your catalog.</span></p>
+            <p class="industries-bullet"><span>Adds items to cart and shares checkout.</span></p>
+          </div>
+
+          <div class="industries-screen-wrap" id="industriesScreens">
+
+            <div class="industries-screen is-active" data-industry="0">
+              <div class="industry-bubble customer">Does this come in size M?</div>
+              <div class="industry-bubble agent">Yes — 3 left. Want me to add it to your cart?</div>
+              <div class="industry-product-card">
+                <span class="industry-product-thumb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="#8B95A9" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="#8B95A9" stroke-width="1.5"/></svg></span>
+                <div class="industry-product-info">
+                  <span class="industry-product-name">Linen Shirt · Medium</span>
+                  <span class="industry-product-price">₹2,400</span>
+                </div>
+                <span class="industry-product-cta">Add to cart</span>
+              </div>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">SHOPIFY</span><span class="receipt-dot">·</span><span class="receipt-action">ORDER PLACED</span></span>
+            </div>
+
+            <div class="industries-screen" data-industry="1">
+              <div class="industry-doctor-card">
+                <span class="industry-avatar">DR</span>
+                <div class="industry-doctor-info">
+                  <span class="industry-doctor-name">Dr. Meera Iyer</span>
+                  <span class="industry-doctor-role">Dermatologist · 12 yrs</span>
+                </div>
+              </div>
+              <div class="industry-chips">
+                <span class="industry-chip">Thu 11:00</span>
+                <span class="industry-chip is-selected">Thu 4:30</span>
+                <span class="industry-chip">Fri 10:00</span>
+              </div>
+              <div class="industry-bubble agent">Booked with Dr. Iyer — Thursday 4:30 PM.</div>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">CALENDAR</span><span class="receipt-dot">·</span><span class="receipt-action">APPOINTMENT BOOKED</span></span>
+            </div>
+
+            <div class="industries-screen" data-industry="2">
+              <div class="industry-property-card">
+                <span class="industry-property-thumb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="#8B95A9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="#8B95A9" stroke-width="1.5"/></svg></span>
+                <div class="industry-property-info">
+                  <span class="industry-property-name">Skyline Homes · Whitefield</span>
+                  <span class="industry-property-meta">3 BHK · ₹1.2 Cr</span>
+                </div>
+              </div>
+              <span class="industry-cta-btn">Book a site visit</span>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">CRM</span><span class="receipt-dot">·</span><span class="receipt-action">SITE VISIT SCHEDULED</span></span>
+            </div>
+
+            <div class="industries-screen" data-industry="3">
+              <div class="industry-course-card">
+                <span class="industry-course-name">UI/UX Design — Cohort 14</span>
+                <span class="industry-course-meta">12 weeks · ₹28,000</span>
+              </div>
+              <div class="industry-form-row"><span>Name</span><strong>Rhea Kapoor</strong></div>
+              <div class="industry-form-row"><span>Phone</span><strong>+91 98••• •• 21</strong></div>
+              <span class="industry-cta-btn">Request callback</span>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">CRM</span><span class="receipt-dot">·</span><span class="receipt-action">ENQUIRY CAPTURED</span></span>
+            </div>
+
+            <div class="industries-screen" data-industry="4">
+              <div class="industry-plans">
+                <div class="industry-plan-card">
+                  <span class="industry-plan-name">Starter</span>
+                  <span class="industry-plan-price">₹2,999<small>/mo</small></span>
+                  <span class="industry-plan-feature">1,000 conversations</span>
+                </div>
+                <div class="industry-plan-card is-selected">
+                  <span class="industry-plan-name">Pro</span>
+                  <span class="industry-plan-price">₹7,999<small>/mo</small></span>
+                  <span class="industry-plan-feature">Unlimited + integrations</span>
+                </div>
+              </div>
+              <div class="industry-doc-row"><span>Integrates with your CRM in minutes</span><span class="industry-doc-link">View docs →</span></div>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">HUBSPOT</span><span class="receipt-dot">·</span><span class="receipt-action">TRIAL STARTED</span></span>
+            </div>
+
+            <div class="industries-screen" data-industry="5">
+              <div class="industry-room-card">
+                <span class="industry-room-thumb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="9" rx="1.5" stroke="#8B95A9" stroke-width="1.5"/><path d="M3 10V7C3 5.9 3.9 5 5 5H19C20.1 5 21 5.9 21 7V10" stroke="#8B95A9" stroke-width="1.5"/></svg></span>
+                <div class="industry-room-info">
+                  <span class="industry-room-name">Deluxe Sea View</span>
+                  <span class="industry-room-meta">₹8,400 / night</span>
+                </div>
+              </div>
+              <div class="industry-doc-row"><span>Check-in Fri 12 · Check-out Sun 14</span></div>
+              <div class="industry-bubble agent">2 rooms available — confirming your booking.</div>
+              <span class="receipt receipt--industry"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">PMS</span><span class="receipt-dot">·</span><span class="receipt-action">BOOKING CONFIRMED</span></span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CHANNELS
+         ============================================================ -->
+    <section class="section section--raised channels" id="channels" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="channels-head">EVERY CHANNEL</p>
+        <h2 class="section-title reveal" data-reveal-group="channels-head">Same agent. Different rules for every channel.</h2>
+        <p class="section-sub reveal" data-reveal-group="channels-head">An Instagram comment is not a WhatsApp message. It knows the difference.</p>
+
+        <div class="channel-row" data-channel-row="0">
+          <div class="channel-row-text reveal" data-reveal-group="channel-row-0">
+            <h3 class="channel-row-title">Instagram — comment to DM</h3>
+            <p class="channel-row-desc">A public comment on your post becomes a private conversation automatically — no chatbot can do this, because it isn't a chat at all until the agent makes it one.</p>
+            <span class="receipt receipt--channel"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">INSTAGRAM</span><span class="receipt-dot">·</span><span class="receipt-action">COMMENT CONVERTED TO DM</span></span>
+          </div>
+          <div class="channel-row-visual reveal" data-reveal-group="channel-row-0">
+            <div class="ig-post-panel">
+              <div class="ig-post-header"><span class="ig-post-avatar">N</span><span class="ig-post-handle">nyra.store</span></div>
+              <div class="ig-post-image"></div>
+              <div class="ig-post-comment"><strong>aarav.k</strong> is this available in size M? 😍</div>
+            </div>
+            <svg class="ig-arrow" id="igArrow" width="56" height="24" viewBox="0 0 56 24" fill="none" aria-hidden="true">
+              <path class="ig-arrow-path" d="M2 12H48M48 12L38 4M48 12L38 20" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="ig-dm-panel">
+              <div class="ig-dm-header">nyra.store</div>
+              <div class="ig-dm-time">Today 2:14 PM</div>
+              <div class="ig-bubble incoming">Is this available in size M? 😍</div>
+              <div class="ig-bubble outgoing">Yes — want me to hold one for you?</div>
+              <div class="ig-dm-seen">Seen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="channel-row channel-row--reverse" data-channel-row="1">
+          <div class="channel-row-text reveal" data-reveal-group="channel-row-1">
+            <h3 class="channel-row-title">WhatsApp — booking, then broadcast</h3>
+            <p class="channel-row-desc">One-to-one booking conversations and one-to-many segment broadcasts, in the same channel, with the same memory of who's already a customer.</p>
+            <span class="receipt receipt--channel"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">WHATSAPP</span><span class="receipt-dot">·</span><span class="receipt-action">1,240 CUSTOMERS REACHED</span></span>
+          </div>
+          <div class="channel-row-visual reveal" data-reveal-group="channel-row-1">
+            <div class="wa-panel">
+              <div class="wa-header"><span class="wa-avatar">N</span><div><span class="wa-name">Nyra Store</span><span class="wa-status">online</span></div></div>
+              <div class="wa-body">
+                <div class="wa-bubble incoming">Do you have slots open this weekend?<span class="wa-time">10:41 PM</span></div>
+                <div class="wa-bubble outgoing">Saturday 11 AM is open — want me to book it?<span class="wa-time">10:42 PM<svg class="wa-tick" width="14" height="10" viewBox="0 0 16 11" fill="none"><path d="M1 5.5L4.5 9L11 1.5" stroke="#53BDEB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 5.5L9 9L15.5 1.5" stroke="#53BDEB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              </div>
+              <div class="wa-broadcast">
+                <span class="wa-broadcast-label">Broadcast — segment: Booked before, inactive 60d+</span>
+                <span class="wa-broadcast-msg">"It's been a while — here's 15% off your next visit."</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="channel-row" data-channel-row="2">
+          <div class="channel-row-text reveal" data-reveal-group="channel-row-2">
+            <h3 class="channel-row-title">Website — the widget itself</h3>
+            <p class="channel-row-desc">Right on your site, in your brand colors, capturing a lead inline without sending anyone to a separate contact page.</p>
+            <span class="receipt receipt--channel"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">HUBSPOT</span><span class="receipt-dot">·</span><span class="receipt-action">LEAD CAPTURED FROM WEBSITE</span></span>
+          </div>
+          <div class="channel-row-visual reveal" data-reveal-group="channel-row-2">
+            <div class="browser-frame">
+              <div class="browser-frame-bar"><span></span><span></span><span></span></div>
+              <div class="browser-frame-body">
+                <div class="site-widget-launcher">
+                  <div class="site-widget-header">Nyra Store<span>Typically replies instantly</span></div>
+                  <div class="site-widget-body">
+                    <div class="site-bubble agent">Want us to reach out with today's offers?</div>
+                    <div class="site-lead-form">
+                      <div class="site-lead-row"><span>Email</span><strong>aarav@nyra.co</strong></div>
+                      <span class="site-lead-submit">Notify me</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SETUP
+         ============================================================ -->
+    <section class="section section--base setup" id="setup" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="setup-head">LIVE IN AN AFTERNOON</p>
+        <h2 class="section-title reveal" data-reveal-group="setup-head">Paste your website link. That's step one.</h2>
+        <p class="section-sub reveal" data-reveal-group="setup-head">No developer. No training data. No three-month rollout.</p>
+
+        <div class="setup-tabs-wrap">
+          <div class="setup-tabs" id="setupTabs" role="tablist" aria-label="Setup steps">
+            <button class="setup-tab is-active" data-setup="0" role="tab" aria-selected="true">Teach it</button>
+            <button class="setup-tab" data-setup="1" role="tab" aria-selected="false">Make it yours</button>
+            <button class="setup-tab" data-setup="2" role="tab" aria-selected="false">Connect it</button>
+            <button class="setup-tab" data-setup="3" role="tab" aria-selected="false">Go live</button>
+            <span class="setup-tab-indicator" id="setupTabIndicator"></span>
+          </div>
+        </div>
+
+        <div class="setup-stage" id="setupStage">
+
+          <div class="setup-panel is-active" data-setup="0">
+            <div class="setup-teach">
+              <span class="setup-teach-label">Website URL</span>
+              <div class="setup-teach-input"><span>https://nyrastore.com</span></div>
+              <div class="setup-teach-row"><strong>47 pages found</strong><span class="setup-teach-ready">Ready</span></div>
+            </div>
+          </div>
+
+          <div class="setup-panel" data-setup="1">
+            <div class="setup-brand">
+              <div class="setup-brand-controls">
+                <span class="setup-brand-label">Agent name</span>
+                <div class="setup-brand-field">Nyra Store Assistant</div>
+                <span class="setup-brand-label">Accent color</span>
+                <div class="setup-brand-swatches">
+                  <span class="setup-swatch is-active" data-swatch="#1A56DB" style="background:#1A56DB"></span>
+                  <span class="setup-swatch" data-swatch="#0B9E58" style="background:#0B9E58"></span>
+                  <span class="setup-swatch" data-swatch="#D97917" style="background:#D97917"></span>
+                </div>
+                <span class="setup-brand-label">Welcome message</span>
+                <div class="setup-brand-field">Hi! Ask me anything about Nyra Store.</div>
+              </div>
+              <div class="setup-brand-preview">
+                <div class="setup-preview-header" id="setupPreviewHeader">Nyra Store Assistant</div>
+                <div class="setup-preview-bubble" id="setupPreviewBubble">Hi! Ask me anything about Nyra Store.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="setup-panel" data-setup="2">
+            <div class="setup-integrations">
+              <div class="setup-integration-card">
+                <span class="setup-integration-name">Shopify</span>
+                <span class="setup-integration-state">Connected</span>
+                <span class="setup-integration-unlocks">Unlocks cart &amp; order actions</span>
+              </div>
+              <div class="setup-integration-card">
+                <span class="setup-integration-name">Calendly</span>
+                <span class="setup-integration-state">Connected</span>
+                <span class="setup-integration-unlocks">Unlocks real slot booking</span>
+              </div>
+              <div class="setup-integration-card">
+                <span class="setup-integration-name">HubSpot</span>
+                <span class="setup-integration-state">Connected</span>
+                <span class="setup-integration-unlocks">Unlocks lead capture</span>
+              </div>
+              <div class="setup-integration-card">
+                <span class="setup-integration-name">Inbox</span>
+                <span class="setup-integration-state">Connected</span>
+                <span class="setup-integration-unlocks">Unlocks handover to your team</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="setup-panel" data-setup="3">
+            <div class="setup-golive">
+              <div class="setup-golive-test">
+                <span class="setup-bubble">Where's my order?</span>
+                <span class="setup-golive-chip">Passed</span>
+              </div>
+              <div class="setup-golive-channels">
+                <div class="setup-channel-toggle"><span>Website</span><span class="setup-toggle is-on"></span></div>
+                <div class="setup-channel-toggle"><span>Instagram</span><span class="setup-toggle is-on"></span></div>
+                <div class="setup-channel-toggle"><span>WhatsApp</span><span class="setup-toggle is-on"></span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <span class="receipt receipt--channel setup-receipt"><svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="receipt-source">AGENT</span><span class="receipt-dot">·</span><span class="receipt-action">LIVE ON 3 CHANNELS</span></span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AUTOMATED WORKFLOWS
+         ============================================================ -->
+    <section class="section section--raised workflows" id="workflows" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="workflows-head">AUTOMATED WORKFLOWS</p>
+        <h2 class="section-title reveal" data-reveal-group="workflows-head">When the customer stops, it keeps going.</h2>
+        <p class="section-sub reveal" data-reveal-group="workflows-head">Carts get abandoned. Leads go quiet. Appointments get forgotten. It follows up so you don't have to.</p>
+
+        <div class="workflow-tabs-wrap">
+          <div class="workflow-tabs" id="workflowTabs" role="tablist" aria-label="Workflow examples">
+            <button class="workflow-tab is-active" data-workflow="0" role="tab" aria-selected="true">Recover carts</button>
+            <button class="workflow-tab" data-workflow="1" role="tab" aria-selected="false">Follow up leads</button>
+            <button class="workflow-tab" data-workflow="2" role="tab" aria-selected="false">Remind customers</button>
+            <button class="workflow-tab" data-workflow="3" role="tab" aria-selected="false">Re-engage</button>
+            <span class="workflow-tab-indicator" id="workflowTabIndicator"></span>
+          </div>
+        </div>
+
+        <span class="workflow-example-label">Example workflow</span>
+
+        <div class="workflow-stage" id="workflowStage">
+          <div class="workflow-builder" id="workflowBuilder">
+            <div class="workflow-rail" aria-hidden="true"></div>
+            <div class="workflow-node" data-node="0"><span class="workflow-node-dot">1</span><span class="workflow-node-label">Cart left behind · ₹2,400</span></div>
+            <div class="workflow-node" data-node="1"><span class="workflow-node-dot">2</span><span class="workflow-node-label">Wait 30 minutes</span></div>
+            <div class="workflow-node" data-node="2"><span class="workflow-node-dot">3</span><span class="workflow-node-label">Check — order not placed</span></div>
+            <div class="workflow-node" data-node="3"><span class="workflow-node-dot">4</span><span class="workflow-node-label">Send WhatsApp message</span></div>
+            <div class="workflow-node" data-node="4"><span class="workflow-node-dot">5</span><span class="workflow-node-label">Answer questions, share checkout</span></div>
+          </div>
+          <div class="workflow-result" id="workflowResult">
+            <div class="wa-panel wa-panel--compact">
+              <div class="wa-header"><span class="wa-avatar">N</span><div><span class="wa-name">Nyra Store</span><span class="wa-status">online</span></div></div>
+              <div class="wa-body" id="workflowConversation">
+                <div class="wa-bubble incoming">You left a linen shirt in your cart — still want it?<span class="wa-time">9:02 PM</span></div>
+                <div class="wa-bubble outgoing">Can it still arrive by Friday?<span class="wa-time">9:04 PM</span></div>
+                <div class="wa-bubble incoming">Yes — here's your checkout link.<span class="wa-time">9:04 PM</span></div>
+              </div>
+            </div>
+            <span class="receipt receipt--channel" id="workflowReceipt">
+              <svg class="receipt-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.16"/><path d="M4 7.2L6 9L10 4.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="receipt-action">CHECKOUT REOPENED</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ONE INBOX
+         ============================================================ -->
+    <section class="section section--base one-inbox" id="one-inbox" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="inbox-head">YOU STAY IN CONTROL</p>
+        <h2 class="section-title reveal" data-reveal-group="inbox-head">It handles what it can. You handle what matters.</h2>
+        <p class="section-sub reveal" data-reveal-group="inbox-head">Every conversation lands in one inbox. Step in whenever you want — the agent hands over cleanly, with full context.</p>
+
+        <div class="inbox-controls reveal" data-reveal-group="inbox-head">
+          <span class="inbox-control"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>You decide what it answers.</span>
+          <span class="inbox-control"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>You decide when it stops.</span>
+          <span class="inbox-control"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Every conversation is visible.</span>
+          <span class="inbox-control"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Handover keeps the full history.</span>
+        </div>
+
+        <div class="browser-frame inbox-frame reveal" data-reveal-group="inbox-frame">
+          <div class="browser-frame-bar"><span></span><span></span><span></span></div>
+          <div class="browser-frame-body">
+            <div class="inbox-row" style="transition-delay:0ms">
+              <span class="inbox-row-channel">WA</span>
+              <span class="inbox-row-name">Aarav Shah</span>
+              <span class="inbox-row-preview">Yes please, size M works</span>
+              <span class="inbox-row-time">10:43 PM</span>
+              <span class="inbox-row-status is-success">Resolved</span>
+            </div>
+            <div class="inbox-row" style="transition-delay:50ms">
+              <span class="inbox-row-channel">IG</span>
+              <span class="inbox-row-name">nyra.fan22</span>
+              <span class="inbox-row-preview">Is the 3BHK still available?</span>
+              <span class="inbox-row-time">9:16 PM</span>
+              <span class="inbox-row-status is-accent">Booked</span>
+            </div>
+            <div class="inbox-row is-handover" style="transition-delay:100ms">
+              <span class="inbox-row-channel">Web</span>
+              <span class="inbox-row-name">Meera R.</span>
+              <span class="inbox-row-preview">Can I speak to someone about a refund?</span>
+              <span class="inbox-row-time">8:52 PM</span>
+              <span class="inbox-row-status is-muted">With Priya</span>
+            </div>
+            <div class="inbox-row" style="transition-delay:150ms">
+              <span class="inbox-row-channel">WA</span>
+              <span class="inbox-row-name">Karthik V.</span>
+              <span class="inbox-row-preview">Got it, thank you!</span>
+              <span class="inbox-row-time">7:30 PM</span>
+              <span class="inbox-row-status is-accent">Lead saved</span>
+            </div>
+            <div class="inbox-row" style="transition-delay:200ms">
+              <span class="inbox-row-channel">Web</span>
+              <span class="inbox-row-name">Divya S.</span>
+              <span class="inbox-row-preview">Where's my order #2453?</span>
+              <span class="inbox-row-time">6:58 PM</span>
+              <span class="inbox-row-status is-success">Answered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ANALYTICS
+         ============================================================ -->
+    <section class="section section--raised analytics" id="analytics" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="analytics-head">SEE WHAT IT DID</p>
+        <h2 class="section-title reveal" data-reveal-group="analytics-head">Every answer, every action, in plain English.</h2>
+        <p class="section-sub reveal" data-reveal-group="analytics-head">Not a wall of charts. A weekly summary of what your agent actually handled — and what needs you.</p>
+
+        <div class="analytics-summary reveal" data-reveal-group="analytics-body">
+          <span class="analytics-summary-label">Example account</span>
+          <p class="analytics-summary-text" id="analyticsSummaryText"></p>
+        </div>
+
+        <p class="analytics-honesty">Every number on this page is from a real account or clearly marked as an example. We don't publish numbers we can't show you.</p>
+
+        <div class="browser-frame analytics-frame reveal" data-reveal-group="analytics-body">
+          <div class="browser-frame-bar"><span></span><span></span><span></span></div>
+          <div class="browser-frame-body analytics-dash">
+            <div class="analytics-stat"><strong>412</strong><span>Conversations</span></div>
+            <div class="analytics-stat"><strong>358</strong><span>Answered solo</span></div>
+            <div class="analytics-stat"><strong>24</strong><span>Meetings booked</span></div>
+            <div class="analytics-stat"><strong>30</strong><span>Passed to team</span></div>
+            <div class="analytics-bars" aria-hidden="true">
+              <span style="height:38%"></span><span style="height:62%"></span><span style="height:44%"></span><span style="height:71%"></span><span style="height:55%"></span><span style="height:80%"></span><span style="height:60%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         REAL PROOF — unhide only when real, attributed material is
+         available. Do not populate with placeholder logos, invented
+         quotes, or sample customers.
+         ============================================================ -->
+    <section class="section section--base real-proof" id="real-proof" data-section-boundary style="display:none;">
+      <div class="container">
+        <p class="kicker">REAL RESULTS</p>
+        <h2 class="section-title">Real businesses. Real numbers.</h2>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="section section--raised faq" id="faq" data-section-boundary>
+      <div class="container">
+        <p class="kicker reveal" data-reveal-group="faq-head">QUESTIONS</p>
+        <h2 class="section-title reveal" data-reveal-group="faq-head">Everything else.</h2>
+
+        <div class="faq-grid" id="faqGrid">
+          <div class="faq-item">
+            <button class="faq-question">Is this just a chatbot?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>No. A chatbot answers from a script. This reads your actual products, stock, and calendar, then takes the action itself — books, saves, updates.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Will it sound like a robot?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>You write its tone and welcome message. Most customers don't realize they're talking to an agent until it tells them.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do I need a developer?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>No. Paste your URL, connect the tools you already use, and it's live — no code, no training data to prepare.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What if it doesn't know an answer?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>It says so, and hands the conversation to your team with full context — it never guesses at something it isn't sure of.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can I see what it's saying to customers?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Every conversation lands in one inbox, visible in real time, across every channel.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What happens when I want to take over?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Step in any time. The agent hands over cleanly, with the full conversation history intact.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Which languages does it speak?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Whatever language your customer writes in first — it matches them, not the other way around.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How long until it's live?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Most businesses are live the same afternoon they paste in their website link.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA + FOOTER
+         ============================================================ -->
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Paste your website link. Watch it start answering.</h2>
+        <p class="final-cta-sub">Same afternoon setup. Live on WhatsApp, Instagram, and your website.</p>
+        <a href="pricing.html" class="btn btn-cta">Start free trial</a>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html#top" class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>StepsAI</span>
+          </a>
+          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="#four-agents">Four Agents</a>
+            <a href="product.html">Internal Copilot</a>
+            <a href="#channels">Channels</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Industries</span>
+            <a href="industry-real-estate.html">Real Estate</a>
+            <a href="industry-healthcare.html">Healthcare</a>
+            <a href="industry-edtech.html">EdTech</a>
+            <a href="industries.html">All industries</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="index.html#top">About</a>
+            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Careers</a>
+            <a href="index.html#top">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="index.html#top">Privacy</a>
+            <a href="index.html#top">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 StepsAI. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="agents.js"></script>
+</body>
+</html>

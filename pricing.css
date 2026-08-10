@@ -1,0 +1,284 @@
+/* ============================================================
+   STEPSAI — PRICING PAGE
+   Page-specific styles only. Shared tokens, nav, buttons, section,
+   kicker, faq, final-cta and footer classes all come from styles.css
+   so the two pages stay one visual system — nothing here redefines
+   those. Kept in its own file (not appended to styles.css, and this
+   page does not load script.js) so the homepage's animation-heavy
+   script isn't shipped to a page that doesn't use it.
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.pricing-hero {
+  padding-top: 116px;
+  padding-bottom: 48px;
+  overflow: hidden;
+  text-align: center;
+}
+.pricing-hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+.pricing-hero .kicker { text-align: center; }
+.pricing-headline {
+  font-size: clamp(36px, 4.4vw, 52px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  max-width: 680px;
+}
+.pricing-hero-sub { margin-left: auto; margin-right: auto; text-align: center; }
+
+.billing-toggle {
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+}
+.billing-toggle-option {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background-color 200ms var(--ease), color 200ms var(--ease);
+}
+.billing-toggle-option:hover { color: var(--text-primary); }
+.billing-toggle-option.is-active { background: var(--accent); color: #fff; }
+.billing-toggle-save {
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--success-tint);
+  color: var(--success);
+}
+.billing-toggle-option.is-active .billing-toggle-save { background: rgba(255,255,255,.2); color: #fff; }
+
+.credit-explainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  max-width: 100%;
+}
+.credit-explainer p { font-size: 13px; color: var(--text-secondary); text-align: left; }
+.credit-explainer strong { color: var(--text-primary); }
+.credit-explainer-icon { flex-shrink: 0; display: flex; }
+
+@media (max-width: 640px) {
+  .pricing-hero { padding-top: 100px; }
+  .credit-explainer { padding: 10px 14px; text-align: left; }
+  .credit-explainer p { font-size: 12.5px; }
+}
+
+/* ---------- Pricing cards ---------- */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 22px;
+}
+.pricing-card--popular {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+.pricing-card-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pricing-card-name { font-size: 20px; font-weight: 650; color: var(--text-primary); }
+.pricing-card-desc { margin-top: 6px; font-size: 14px; color: var(--text-secondary); min-height: 30px; }
+
+.pricing-card-price { margin-top: 14px; display: flex; align-items: baseline; gap: 4px; }
+.pricing-price-monthly, .pricing-price-annual, .pricing-card-custom {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.pricing-price-annual { display: none; }
+#pricingStage.is-annual .pricing-price-monthly { display: none; }
+#pricingStage.is-annual .pricing-price-annual { display: inline; }
+.pricing-card-period { font-size: 14px; font-weight: 500; color: var(--text-secondary); align-self: flex-end; padding-bottom: 5px; }
+
+.pricing-card-billing-note { margin-top: 4px; font-size: 12px; color: var(--text-tertiary); }
+.note-annual { display: none; }
+#pricingStage.is-annual .note-monthly { display: none; }
+#pricingStage.is-annual .note-annual { display: inline; }
+
+.pricing-card-credits {
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+.pricing-card-cta { margin-top: 18px; width: 100%; }
+.pricing-card-cta-note { margin-top: 8px; font-size: 12px; color: var(--text-tertiary); text-align: center; }
+
+.pricing-card-features {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  flex: 1;
+}
+.pricing-card-features li { display: flex; align-items: flex-start; gap: 8px; }
+.pricing-card-features li::before {
+  content: '✓';
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+}
+.pricing-card-features li.pricing-feature-heading {
+  font-weight: 600;
+  color: var(--text-primary);
+  padding-top: 2px;
+}
+.pricing-card-features li.pricing-feature-heading::before { content: none; }
+
+.pricing-card--enterprise .pricing-card-features { border-top: 1px solid var(--line); }
+
+@media (max-width: 1023px) {
+  .pricing-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-card--popular { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+  .pricing-card--popular { grid-column: auto; }
+}
+
+/* ---------- Add-on credits ---------- */
+.addon-cards {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.addon-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+}
+.addon-card-credits { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.addon-card-price { font-size: 26px; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; }
+.addon-card-note { font-size: 12px; color: var(--text-tertiary); }
+.addon-card--locked { opacity: .7; }
+.addon-card--locked .addon-card-price { color: var(--text-secondary); font-size: 18px; }
+.addon-fineprint { margin-top: 20px; font-size: 13px; color: var(--text-tertiary); }
+
+@media (max-width: 640px) {
+  .addon-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- Feature comparison table ---------- */
+.comparison-scroll-hint { display: none; margin-top: 16px; font-size: 12px; color: var(--text-tertiary); }
+.comparison-table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.comparison-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; }
+.comparison-table thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.comparison-table thead th:not(:first-child) { text-align: center; }
+.comparison-table thead th:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--bg-surface);
+  z-index: 2;
+}
+.comparison-table tbody th[scope="row"] {
+  text-align: left;
+  padding: 13px 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  left: 0;
+  background: var(--bg-surface);
+  z-index: 1;
+}
+.comparison-table tbody td {
+  padding: 13px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.comparison-table tbody td.is-check { color: var(--accent); font-weight: 700; font-size: 15px; }
+.comparison-table tr.comparison-category th {
+  background: var(--bg-surface-2);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 11px 20px;
+  position: static;
+}
+
+@media (max-width: 860px) {
+  .comparison-scroll-hint { display: block; }
+}
+
+/* ============================================================
+   Reduced motion — this page has no scroll-linked or continuous
+   animation, but keep smooth-scroll consistent with the rest of
+   the site's reduced-motion behavior.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

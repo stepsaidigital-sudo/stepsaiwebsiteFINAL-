@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — StepsAI | Plans that scale with every reply</title>
+<meta name="description" content="Simple, credit-based pricing for the StepsAI agent. Every plan includes every channel — you only pay when it actually answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pricing.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV — identical structure/markup to index.html so the two
+       pages read as one site. Product/Industries/How it works route
+       back into the homepage's sections; Pricing is this page.
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>StepsAI</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Product
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="agents.html">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
+            <a href="product.html">Internal Copilot<span>AI assistant for your team</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="solutions.html">By Role<span>Marketing, Sales, Support, Ops</span></a>
+            <a href="industries.html">By Industry<span>E-commerce, Healthcare &amp; more</span></a>
+          </div>
+        </div>
+        <a href="#top" class="is-active" aria-current="page">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- No auth flow exists yet — intentionally inert, not a dead link. -->
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="#plans" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <span class="nav-mobile-label">Product</span>
+      <a href="agents.html">AI Agents</a>
+      <a href="product.html">Internal Copilot</a>
+      <span class="nav-mobile-label">Solutions</span>
+      <a href="solutions.html">By Role</a>
+      <a href="industries.html">By Industry</a>
+      <a href="#top" class="is-active" aria-current="page">Pricing</a>
+      <div class="nav-mobile-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="#plans" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================================================
+         PRICING HERO
+         ============================================================ -->
+    <section class="section section--base pricing-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container pricing-hero-inner">
+        <p class="kicker">PRICING</p>
+        <h1 class="pricing-headline">Plans that scale with every reply.</h1>
+        <p class="section-sub pricing-hero-sub">Pick the credit volume you need — from a single storefront to a multi-brand support desk. Billed monthly or annually. Every plan includes every channel.</p>
+
+        <div class="billing-toggle" role="tablist" aria-label="Billing period" id="billingToggle">
+          <button class="billing-toggle-option is-active" role="tab" aria-selected="true" data-period="monthly" type="button">Monthly</button>
+          <button class="billing-toggle-option" role="tab" aria-selected="false" data-period="annual" type="button">Annual <span class="billing-toggle-save">Save 20%</span></button>
+        </div>
+
+        <div class="credit-explainer">
+          <span class="credit-explainer-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1A56DB" stroke-width="1.6"/><path d="M12 8V12L14.5 14.5" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <p><strong>1 credit = 1 AI reply.</strong> Customer messages are always free — you only pay when the agent actually answers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING CARDS
+         ============================================================ -->
+    <section class="section section--raised pricing-plans" id="plans">
+      <div class="container" id="pricingStage">
+
+        <div class="pricing-cards">
+
+          <article class="pricing-card">
+            <h2 class="pricing-card-name">Starter</h2>
+            <p class="pricing-card-desc">For small teams testing the water.</p>
+            <div class="pricing-card-price">
+              <span class="pricing-price-monthly">₹2,499</span>
+              <span class="pricing-price-annual">₹1,999</span>
+              <span class="pricing-card-period">/mo</span>
+            </div>
+            <p class="pricing-card-billing-note">
+              <span class="note-monthly">Billed monthly</span>
+              <span class="note-annual">Billed annually</span>
+            </p>
+            <p class="pricing-card-credits">1,000 credits / month</p>
+            <!-- No signup backend yet — button intentionally inert. -->
+            <button class="btn btn-accent btn-sm pricing-card-cta" type="button">Start 7-day free trial</button>
+            <p class="pricing-card-cta-note">No credit card required</p>
+            <ul class="pricing-card-features">
+              <li>50MB storage</li>
+              <li>20 web crawls / month</li>
+              <li>Basic analytics</li>
+              <li>Product recommendations</li>
+              <li>Order tracking</li>
+              <li>Custom AI persona</li>
+              <li>Human handoff</li>
+              <li>All channels — WhatsApp, Instagram, Website</li>
+              <li>Email support</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card pricing-card--popular">
+            <span class="pricing-card-badge">Most popular</span>
+            <h2 class="pricing-card-name">Growth</h2>
+            <p class="pricing-card-desc">For teams past "just testing."</p>
+            <div class="pricing-card-price">
+              <span class="pricing-price-monthly">₹6,999</span>
+              <span class="pricing-price-annual">₹5,599</span>
+              <span class="pricing-card-period">/mo</span>
+            </div>
+            <p class="pricing-card-billing-note">
+              <span class="note-monthly">Billed monthly</span>
+              <span class="note-annual">Billed annually</span>
+            </p>
+            <p class="pricing-card-credits">4,000 credits / month</p>
+            <button class="btn btn-accent btn-sm pricing-card-cta" type="button">Start 7-day free trial</button>
+            <p class="pricing-card-cta-note">No credit card required</p>
+            <ul class="pricing-card-features">
+              <li class="pricing-feature-heading">Everything in Starter, plus:</li>
+              <li>500MB storage</li>
+              <li>100 web crawls / month</li>
+              <li>Ticketing system</li>
+              <li>Ticket &amp; lead management</li>
+              <li>Cart abandonment recovery</li>
+              <li>Priority support</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card">
+            <h2 class="pricing-card-name">Scale</h2>
+            <p class="pricing-card-desc">For teams running the business on it.</p>
+            <div class="pricing-card-price">
+              <span class="pricing-price-monthly">₹18,999</span>
+              <span class="pricing-price-annual">₹15,199</span>
+              <span class="pricing-card-period">/mo</span>
+            </div>
+            <p class="pricing-card-billing-note">
+              <span class="note-monthly">Billed monthly</span>
+              <span class="note-annual">Billed annually</span>
+            </p>
+            <p class="pricing-card-credits">15,000 credits / month</p>
+            <button class="btn btn-accent btn-sm pricing-card-cta" type="button">Start 7-day free trial</button>
+            <p class="pricing-card-cta-note">No credit card required</p>
+            <ul class="pricing-card-features">
+              <li class="pricing-feature-heading">Everything in Growth, plus:</li>
+              <li>2GB storage</li>
+              <li>250 web crawls / month</li>
+              <li>White-label platform</li>
+              <li>Remove "Powered by StepsAI"</li>
+              <li>SSO / SAML</li>
+              <li>Custom SLA &amp; 99.9% uptime</li>
+              <li>Multi-brand management</li>
+              <li>Custom integrations &amp; API</li>
+              <li>Dedicated engineering + phone &amp; Slack support</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card pricing-card--enterprise">
+            <h2 class="pricing-card-name">Enterprise</h2>
+            <p class="pricing-card-desc">Custom solutions for large organizations.</p>
+            <div class="pricing-card-price">
+              <span class="pricing-card-custom">Custom</span>
+            </div>
+            <p class="pricing-card-billing-note">Talk to sales for a quote</p>
+            <p class="pricing-card-credits">50,000+ credits / month</p>
+            <!-- Routes into the site's real conversion path (no separate sales-contact page exists yet). -->
+            <a href="#pricing-faq" class="btn btn-outline btn-sm pricing-card-cta">Talk to sales</a>
+            <ul class="pricing-card-features">
+              <li class="pricing-feature-heading">Everything in Scale, plus:</li>
+              <li>Unlimited storage &amp; crawls</li>
+              <li>Dedicated account manager</li>
+              <li>Custom integrations &amp; API</li>
+              <li>Volume-based credit pricing</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ADD-ON CREDITS
+         ============================================================ -->
+    <section class="section section--base addon-credits">
+      <div class="container">
+        <p class="kicker">ADD-ON CREDITS</p>
+        <h2 class="section-title">Need more credits for a busy month?</h2>
+        <p class="section-sub">Buy additional credit packs any time. They work with any plan and let you handle bursts without jumping tiers.</p>
+
+        <div class="addon-cards">
+          <div class="addon-card">
+            <span class="addon-card-credits">500 credits</span>
+            <span class="addon-card-price">₹999</span>
+            <span class="addon-card-note">One-time purchase</span>
+          </div>
+          <div class="addon-card">
+            <span class="addon-card-credits">1,000 credits</span>
+            <span class="addon-card-price">₹1,799</span>
+            <span class="addon-card-note">One-time purchase</span>
+          </div>
+          <div class="addon-card addon-card--locked">
+            <span class="addon-card-credits">2,500 credits</span>
+            <span class="addon-card-price">Contact us</span>
+            <span class="addon-card-note">Available on Scale &amp; Enterprise</span>
+          </div>
+        </div>
+        <p class="addon-fineprint">Add-on credits expire at the end of the billing cycle. Works with any plan.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURE COMPARISON
+         ============================================================ -->
+    <section class="section section--raised feature-comparison">
+      <div class="container">
+        <p class="kicker">COMPARE PLANS</p>
+        <h2 class="section-title">Full feature comparison.</h2>
+        <p class="section-sub">See how each plan expands your channels, analytics, automation, and support.</p>
+
+        <p class="comparison-scroll-hint" aria-hidden="true">Swipe to compare plans →</p>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Starter</th>
+                <th scope="col">Growth</th>
+                <th scope="col">Scale</th>
+                <th scope="col">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">AI &amp; Credits</th></tr>
+              <tr><th scope="row">AI message credits / month</th><td>1,000</td><td>4,000</td><td>15,000</td><td>50,000+</td></tr>
+              <tr><th scope="row">Storage</th><td>50MB</td><td>500MB</td><td>2GB</td><td>Unlimited</td></tr>
+              <tr><th scope="row">Web crawls / month</th><td>20</td><td>100</td><td>250</td><td>Unlimited</td></tr>
+              <tr><th scope="row">AI sales agent</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Custom AI persona</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">Ticketing &amp; Support</th></tr>
+              <tr><th scope="row">Unified chat inbox</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Ticketing system</th><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Enhanced CRM &amp; lead scoring</th><td>—</td><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Human handoff</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">E-Commerce</th></tr>
+              <tr><th scope="row">Product cards &amp; recommendations in chat</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Order tracking</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Cart abandonment recovery</th><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">Channels &amp; Integrations</th></tr>
+              <tr><th scope="row">WhatsApp, Instagram &amp; Website</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Integrations</th><td>Core</td><td>All</td><td>All</td><td>Custom &amp; API</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">Analytics</th></tr>
+              <tr><th scope="row">Basic analytics</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Advanced &amp; website analytics</th><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">Support</th></tr>
+              <tr><th scope="row">Email support</th><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Priority support</th><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Dedicated account &amp; engineering manager</th><td>—</td><td>—</td><td>—</td><td class="is-check">✓</td></tr>
+
+              <tr class="comparison-category"><th scope="colgroup" colspan="5">Platform &amp; Enterprise</th></tr>
+              <tr><th scope="row">White-label platform, remove branding</th><td>—</td><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">SSO / SAML</th><td>—</td><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Custom SLA &amp; 99.9% uptime</th><td>—</td><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Multi-brand management</th><td>—</td><td>—</td><td class="is-check">✓</td><td class="is-check">✓</td></tr>
+              <tr><th scope="row">Custom integrations &amp; API</th><td>—</td><td>—</td><td>—</td><td class="is-check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING FAQ
+         ============================================================ -->
+    <section class="section section--base faq" id="pricing-faq">
+      <div class="container">
+        <p class="kicker">QUESTIONS</p>
+        <h2 class="section-title">Questions about plans, billing, and credits.</h2>
+        <p class="section-sub">Everything you need to know before you launch, upgrade, or scale your agent.</p>
+
+        <div class="faq-grid" id="pricingFaqGrid">
+          <div class="faq-item">
+            <button class="faq-question">What happens when my plan expires?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Your agent keeps running until the end of the billing period you've already paid for. If it isn't renewed, the agent pauses — it doesn't delete your data or history.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What happens if I exceed my message limit?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>We'll notify you before you run out. You can top up with an add-on credit pack any time, or upgrade a tier — nothing shuts off mid-conversation.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can I upgrade or downgrade my plan any time?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes, any time. Upgrades apply immediately; downgrades take effect at the start of your next billing cycle so you keep what you paid for.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How does billing work?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Monthly plans bill every 30 days. Annual plans bill once a year at 20% off the monthly rate. Add-on credit packs are billed once, on purchase.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer refunds?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Every paid plan starts with a 7-day free trial, so you can test it before you're billed. Once billed, we don't offer pro-rated refunds for partial months.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What's included in the Starter plan?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Everything you need to launch on one storefront or site: 1,000 credits, all three channels, order tracking, and a custom AI persona — see the full comparison table above.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What's the difference between support levels?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Starter gets email support. Growth and Scale get priority response times. Scale adds a dedicated account manager; Enterprise adds dedicated engineering plus phone and Slack support.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer enterprise custom pricing?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes — for 50,000+ credits a month, multi-brand accounts, or white-label deployments, we price by volume and use case. Talk to sales for a quote.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is there a setup fee?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>No. Paste your website link and connect the tools you already use — no setup fee on any plan, including Enterprise.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA + FOOTER — same dark section as the homepage; the
+         only dark section on this page too.
+         ============================================================ -->
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Not sure which plan? Let's figure it out.</h2>
+        <p class="final-cta-sub">Start with a free trial. No credit card required. Upgrade when you're ready.</p>
+        <div class="final-cta-btn-row">
+          <button class="btn btn-cta" type="button">Start Free Trial</button>
+          <button class="btn btn-cta-outline" type="button">Book a Demo</button>
+        </div>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html#top" class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>StepsAI</span>
+          </a>
+          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="agents.html">Four Agents</a>
+            <a href="product.html">Internal Copilot</a>
+            <a href="agents.html#channels">Channels</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Industries</span>
+            <a href="industry-real-estate.html">Real Estate</a>
+            <a href="industry-healthcare.html">Healthcare</a>
+            <a href="industry-edtech.html">EdTech</a>
+            <a href="industries.html">All industries</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="index.html#top">About</a>
+            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Careers</a>
+            <a href="index.html#top">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="index.html#top">Privacy</a>
+            <a href="index.html#top">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 StepsAI. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="pricing.js"></script>
+</body>
+</html>

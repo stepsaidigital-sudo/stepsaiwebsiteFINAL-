@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal Copilot — StepsAI | An AI assistant for your team</title>
+<meta name="description" content="Internal Copilot is the StepsAI assistant for your own team — it answers from your docs and CRM, drafts replies, and automates the busywork between your tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>StepsAI</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+            Product
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="agents.html">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
+            <a href="#top" class="is-active" aria-current="page">Internal Copilot<span>AI assistant for your team</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="solutions.html">By Role<span>Marketing, Sales, Support, Ops</span></a>
+            <a href="industries.html">By Industry<span>E-commerce, Healthcare &amp; more</span></a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <span class="nav-mobile-label">Product</span>
+      <a href="agents.html">AI Agents</a>
+      <a href="#top" class="is-active" aria-current="page">Internal Copilot</a>
+      <span class="nav-mobile-label">Solutions</span>
+      <a href="solutions.html">By Role</a>
+      <a href="industries.html">By Industry</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="nav-mobile-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">INTERNAL COPILOT</p>
+        <h1 class="page-headline">The AI assistant that knows your business as well as your team does.</h1>
+        <p class="section-sub page-hero-sub">Your team asks it questions instead of digging through docs, tabs, and old Slack threads. It answers from what you've actually got connected — your knowledge base, your CRM, your tools.</p>
+
+        <div class="crosslink-note">
+          <p>Looking for the agent that talks to your <strong>customers</strong> instead? That's the one on the homepage.</p>
+          <a href="agents.html">See the customer-facing agent <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHAT IT DOES
+         ============================================================ -->
+    <section class="section section--raised">
+      <div class="container">
+        <p class="kicker">WHAT IT DOES</p>
+        <h2 class="section-title">Answers, then acts — for your team this time.</h2>
+        <p class="section-sub">Same principle as the customer-facing agent, pointed inward: it doesn't just retrieve information, it uses it.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 4H14L18 8V20H6V4Z" stroke="#1A56DB" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4V8H18" stroke="#1A56DB" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 13H15M9 16H13" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Answers from your docs</h3>
+            <p class="feature-card-desc">Ask it a policy, process, or product question and it answers from your actual knowledge base — not a generic model guess.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1A56DB" stroke-width="1.6"/><path d="M3 9H21M8 14H12" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Pulls from your CRM</h3>
+            <p class="feature-card-desc">Ask it "what's the status on this account?" and it answers live from HubSpot, Shopify, or whatever you've connected, without you switching tabs to check.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19L19 4M19 4H10M19 4V13" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Drafts replies &amp; summaries</h3>
+            <p class="feature-card-desc">Give it a thread or a ticket and it drafts the reply, or summarizes a long back-and-forth into three lines before your next call.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3C14.5 5.5 15.8 8.6 15.8 12C15.8 15.4 14.5 18.5 12 21C9.5 18.5 8.2 15.4 8.2 12C8.2 8.6 9.5 5.5 12 3Z" stroke="#1A56DB" stroke-width="1.6"/><path d="M3 12H21" stroke="#1A56DB" stroke-width="1.6"/></svg>
+            </span>
+            <h3 class="feature-card-title">Automates the busywork</h3>
+            <p class="feature-card-desc">Updates a record, files a ticket, or moves something to the next stage — the small tasks between your tools that eat a workday.</p>
+          </div>
+        </div>
+
+        <div class="distinction-card">
+          <p><strong>Not the same product as the customer-facing agent.</strong> That one talks to your customers on WhatsApp, Instagram, and your website. Internal Copilot talks to your team, inside the tools you already use — different job, same underlying agent technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="section section--base faq">
+      <div class="container">
+        <p class="kicker">QUESTIONS</p>
+        <h2 class="section-title">Internal Copilot, answered.</h2>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">Is this a separate agent from the customer-facing one?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes — different job, different access. Internal Copilot only talks to your team; it doesn't message your customers, and the customer-facing agent doesn't see your internal docs unless you connect the same source to both.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Does it replace our helpdesk or wiki software?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>No — it sits on top of what you already use. It reads from your existing docs, CRM, and ticketing tool rather than asking you to migrate anything.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can it see sensitive customer data?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Only what you connect and only for the team members you grant access to — access follows your existing tool permissions, it doesn't create a new blanket view of everything.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Which tools does it connect to?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>The same integrations as the rest of StepsAI — Shopify, HubSpot, Calendly, and your inbox, with more added over time. See Setup on the homepage for the current list.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA + FOOTER
+         ============================================================ -->
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Give your team an answer, not a search bar.</h2>
+        <p class="final-cta-sub">Internal Copilot is included wherever your plan already connects your tools.</p>
+        <a href="pricing.html" class="btn btn-cta">See plans</a>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html#top" class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>StepsAI</span>
+          </a>
+          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="agents.html">Four Agents</a>
+            <a href="product.html">Internal Copilot</a>
+            <a href="agents.html#channels">Channels</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Industries</span>
+            <a href="industry-real-estate.html">Real Estate</a>
+            <a href="industry-healthcare.html">Healthcare</a>
+            <a href="industry-edtech.html">EdTech</a>
+            <a href="industries.html">All industries</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="index.html#top">About</a>
+            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Careers</a>
+            <a href="index.html#top">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="index.html#top">Privacy</a>
+            <a href="index.html#top">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 StepsAI. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions — StepsAI | One agent, every role</title>
+<meta name="description" content="Marketing, sales, support, and operations all run on the same StepsAI agent — the same memory of your products, your customers, and your answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>StepsAI</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Product
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="agents.html">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
+            <a href="product.html">Internal Copilot<span>AI assistant for your team</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="#top" class="is-active" aria-current="page">By Role<span>Marketing, Sales, Support, Ops</span></a>
+            <a href="industries.html">By Industry<span>E-commerce, Healthcare &amp; more</span></a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <span class="nav-mobile-label">Product</span>
+      <a href="agents.html">AI Agents</a>
+      <a href="product.html">Internal Copilot</a>
+      <span class="nav-mobile-label">Solutions</span>
+      <a href="#top" class="is-active" aria-current="page">By Role</a>
+      <a href="industries.html">By Industry</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="nav-mobile-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">SOLUTIONS</p>
+        <h1 class="page-headline">One agent. Every role you need it to play.</h1>
+        <p class="section-sub page-hero-sub">Marketing, sales, support, and operations all draw on the same agent — the same memory of your products, your customers, and your answers. You don't run four tools. You run one.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BY ROLE
+         ============================================================ -->
+    <section class="section section--raised">
+      <div class="container">
+        <p class="kicker">BY ROLE</p>
+        <h2 class="section-title">Point it at a job. It already knows how to do it.</h2>
+        <p class="section-sub">Every role below runs on the same underlying agent from the homepage — this is what changes depending on who's using it.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11L21 4L14 22L11 13L3 11Z" stroke="#1A56DB" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Marketing &amp; Growth</h3>
+            <p class="feature-card-desc">Turns comments, DMs, and site visits into qualified conversations before a human ever sees them.</p>
+            <ul class="feature-card-list">
+              <li>Answers campaign &amp; promo questions instantly</li>
+              <li>Captures leads from every channel into one list</li>
+              <li>Segments and re-engages cold contacts on WhatsApp</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15M21 7V13" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Sales</h3>
+            <p class="feature-card-desc">Qualifies who's ready to buy, answers pricing and fit questions, and books the meeting without a rep touching it.</p>
+            <ul class="feature-card-list">
+              <li>Qualifies leads against your ideal customer profile</li>
+              <li>Books meetings straight into your calendar</li>
+              <li>Hands off warm leads to a rep with full context</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 11C4 6 7.5 3 12 3C16.5 3 20 6 20 11V15" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round"/><rect x="2" y="13" width="5" height="7" rx="1.5" stroke="#1A56DB" stroke-width="1.6"/><rect x="17" y="13" width="5" height="7" rx="1.5" stroke="#1A56DB" stroke-width="1.6"/></svg>
+            </span>
+            <h3 class="feature-card-title">Support &amp; CX</h3>
+            <p class="feature-card-desc">Resolves the questions you answer every day, and hands over cleanly — with full history — when it can't.</p>
+            <ul class="feature-card-list">
+              <li>Resolves order, account, and product questions</li>
+              <li>Escalates to your team with the full conversation intact</li>
+              <li>Never repeats a question the customer already answered</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#1A56DB" stroke-width="1.6"/><path d="M19.4 15A1.65 1.65 0 0021 13.6V10.4A1.65 1.65 0 0019.4 9L18.7 8.9A1.65 1.65 0 0117.5 8L17 6.7A1.65 1.65 0 0015.4 6H12.6A1.65 1.65 0 0011 6.7L10.5 8A1.65 1.65 0 019.3 8.9L8.6 9A1.65 1.65 0 007 10.4V13.6A1.65 1.65 0 008.6 15L9.3 15.1A1.65 1.65 0 0110.5 16L11 17.3A1.65 1.65 0 0012.6 18H15.4A1.65 1.65 0 0017 17.3L17.5 16A1.65 1.65 0 0118.7 15.1L19.4 15Z" stroke="#1A56DB" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="feature-card-title">Operations</h3>
+            <p class="feature-card-desc">Chases the follow-ups your team keeps meaning to get to — abandoned carts, quiet leads, forgotten appointments.</p>
+            <ul class="feature-card-list">
+              <li>Runs automated workflows on a schedule you set</li>
+              <li>Recovers abandoned carts and re-engages quiet leads</li>
+              <li>Reports what it did in plain English, weekly</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="crosslink-note">
+          <p>Looking for how this fits your industry instead of your role?</p>
+          <a href="industries.html">See it by industry <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="section section--base faq">
+      <div class="container">
+        <p class="kicker">QUESTIONS</p>
+        <h2 class="section-title">Solutions, answered.</h2>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">Can one agent handle Marketing, Sales, and Support at once?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes — it's the same underlying agent across every role, sharing one memory of your products and customers. What changes is the job it's given, not the product itself.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do I need to set up a separate agent per department?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>No. One setup covers every role above. You can restrict what it's allowed to do per channel or team if you want tighter boundaries, but it's one agent, not four.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can Sales and Support see the same conversation history?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes — every conversation lands in the one inbox regardless of which role triggered it, so nobody re-asks a customer something they've already said.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Which plan includes which roles?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>All four roles are available on every plan, including Starter — plans differ by credit volume, storage, and support level, not by which jobs the agent can do. See the full comparison on the pricing page.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA + FOOTER
+         ============================================================ -->
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Pick a role. See it work.</h2>
+        <p class="final-cta-sub">The same agent, doing a different job. Set it up this afternoon.</p>
+        <a href="pricing.html" class="btn btn-cta">Start free trial</a>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html#top" class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>StepsAI</span>
+          </a>
+          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="agents.html">Four Agents</a>
+            <a href="product.html">Internal Copilot</a>
+            <a href="agents.html#channels">Channels</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Industries</span>
+            <a href="industry-real-estate.html">Real Estate</a>
+            <a href="industry-healthcare.html">Healthcare</a>
+            <a href="industry-edtech.html">EdTech</a>
+            <a href="industries.html">All industries</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="index.html#top">About</a>
+            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Careers</a>
+            <a href="index.html#top">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="index.html#top">Privacy</a>
+            <a href="index.html#top">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 StepsAI. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="nav.js"></script>
+  <script src="pages.js"></script>
+</body>
+</html>

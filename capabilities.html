@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform Capabilities — StepsAI</title>
+<meta name="description" content="Ten reusable capabilities behind every StepsAI deployment, plus how WhatsApp follow-up and broadcasting work end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="industries-deep.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>StepsAI</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Product
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="agents.html">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
+            <a href="product.html">Internal Copilot<span>AI assistant for your team</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel">
+            <a href="solutions.html">By Role<span>Marketing, Sales, Support, Ops</span></a>
+            <a href="industries.html" class="is-active" aria-current="page">By Industry<span>Real Estate, Healthcare &amp; more</span></a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <span class="nav-mobile-label">Product</span>
+      <a href="agents.html">AI Agents</a>
+      <a href="product.html">Internal Copilot</a>
+      <span class="nav-mobile-label">Solutions</span>
+      <a href="solutions.html">By Role</a>
+      <a href="industries.html" class="is-active" aria-current="page">By Industry</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="nav-mobile-actions">
+        <button class="nav-signin" type="button">Sign in</button>
+        <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">PLATFORM CAPABILITIES</p>
+        <h1 class="page-headline">Ten building blocks. Every industry combines them differently.</h1>
+        <p class="section-sub page-hero-sub">Real estate leans on property discovery and site visits. A law firm leans on intake and conflict screening. Underneath, it's the same ten capabilities, wired for the job in front of them.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TEN CAPABILITIES
+         ============================================================ -->
+    <section class="section section--raised">
+      <div class="container">
+        <div class="capability-list">
+          <div class="capability-row">
+            <h3 class="capability-row-title">01 · Knowledge Q&amp;A</h3>
+            <p class="capability-row-desc">Answers approved questions from websites, documents, FAQs, policies, catalogues, programmes, properties, services, or internal systems.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">02 · Lead or request capture</h3>
+            <p class="capability-row-desc">Collects structured customer information without forcing a long static form.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">03 · Intent detection</h3>
+            <p class="capability-row-desc">Recognizes when a visitor is ready to book, buy, apply, visit, consult, or speak with a human.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">04 · Cards and recommendations</h3>
+            <p class="capability-row-desc">Shows properties, courses, doctors, rooms, services, or lawyers with clear next actions.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">05 · Booking</h3>
+            <p class="capability-row-desc">Books site visits, counselling sessions, medical appointments, hotel services, or legal consultations.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">06 · WhatsApp follow-up</h3>
+            <p class="capability-row-desc">Continues the journey after the visitor leaves the website.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">07 · Document and image uploads</h3>
+            <p class="capability-row-desc">Collects supporting documents, screenshots, reports, evidence, or identification where permitted.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">08 · Ticket creation</h3>
+            <p class="capability-row-desc">Creates internal tasks for unresolved questions, complaints, service requests, or specialist review.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">09 · Human handoff</h3>
+            <p class="capability-row-desc">Transfers the complete conversation and structured context to the right team.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">10 · Analytics</h3>
+            <p class="capability-row-desc">Tracks enquiry volume, common questions, bookings, lead sources, drop-off, and agent outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHATSAPP WORKFLOW LOGIC
+         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <p class="kicker">WHATSAPP WORKFLOWS</p>
+        <h2 class="section-title">How a one-to-one follow-up actually runs</h2>
+        <p class="section-sub">The same nine-step logic behind every automated WhatsApp workflow, whatever triggers it.</p>
+
+        <div class="workflow-logic-strip">
+          <span class="workflow-logic-step">Trigger</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">Segment</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">Approved message</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">Customer reply</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">AI conversation</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">Action or human handoff</span>
+          <svg class="workflow-logic-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="workflow-logic-step">Outcome tracking</span>
+        </div>
+
+        <div class="capability-list" style="margin-top:32px;">
+          <div class="capability-row">
+            <h3 class="capability-row-title">1 · Capture permission</h3>
+            <p class="capability-row-desc">Collect a clear WhatsApp opt-in through the website, form, booking flow, QR code, or an existing conversation.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">2 · Start from a trigger</h3>
+            <p class="capability-row-desc">Launch after a defined event: an enquiry, incomplete application, booking, site visit, or consultation request.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">3 · Load the right context</h3>
+            <p class="capability-row-desc">Pull the customer profile, enquiry details, selected service, and the next expected action.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">4 · Send the approved message</h3>
+            <p class="capability-row-desc">A concise message with a clear purpose, useful information, and one primary call to action.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">5 · Let the AI handle replies</h3>
+            <p class="capability-row-desc">Answer follow-up questions, retrieve approved information, and recommend the next step.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">6 · Branch by customer action</h3>
+            <p class="capability-row-desc">Move the customer into the correct path based on reply, click, booking, upload, payment, or opt-out.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">7 · Complete an action</h3>
+            <p class="capability-row-desc">Book a meeting, create a lead, share a document, update a ticket, or notify the internal team.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">8 · Escalate intent or risk</h3>
+            <p class="capability-row-desc">Transfer high-intent, sensitive, urgent, or unresolved conversations to a human with full context attached.</p>
+          </div>
+          <div class="capability-row">
+            <h3 class="capability-row-title">9 · Record the outcome</h3>
+            <p class="capability-row-desc">Track the response, booking, conversion, handoff, ticket, and next follow-up date.</p>
+          </div>
+        </div>
+
+        <div class="ind-crosslink" style="background: var(--accent-tint); margin-top: 32px;">
+          <p>Segmented broadcasting (campaigns to opted-in audiences) is on the roadmap, built on this same logic.</p>
+          <a href="pricing.html">See current plans <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">See these ten capabilities running in your industry.</h2>
+        <p class="final-cta-sub">Same platform, wired for what your business actually needs it to do.</p>
+        <a href="industries.html" class="btn btn-cta">Browse industries</a>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html#top" class="nav-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>StepsAI</span>
+          </a>
+          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="agents.html">Four Agents</a>
+            <a href="product.html">Internal Copilot</a>
+            <a href="agents.html#channels">Channels</a>
+            <a href="pricing.html">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Industries</span>
+            <a href="industry-real-estate.html">Real Estate</a>
+            <a href="industry-healthcare.html">Healthcare</a>
+            <a href="industry-edtech.html">EdTech</a>
+            <a href="industries.html">All industries</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="index.html#top">About</a>
+            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Careers</a>
+            <a href="index.html#top">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal</span>
+            <a href="index.html#top">Privacy</a>
+            <a href="index.html#top">Terms</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 StepsAI. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="nav.js"></script>
+</body>
+</html>

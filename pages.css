@@ -1,0 +1,331 @@
+/* ============================================================
+   STEPSAI — SHARED "CONTENT PAGE" STYLES
+   One file for Solutions, Partner, and Product (and any page like
+   them) instead of three near-identical stylesheets — these pages
+   share the same handful of building blocks (simple hero, stat row,
+   feature grid, step grid, callout card), so the components live
+   once, here. Tokens, nav, buttons, section, kicker, who-columns,
+   faq and final-cta all still come from styles.css.
+   ============================================================ */
+
+/* ---------- Simple page hero ---------- */
+.page-hero { padding-top: 116px; padding-bottom: 44px; text-align: center; overflow: hidden; }
+.page-hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+.page-hero .kicker { text-align: center; }
+.page-headline {
+  font-size: clamp(34px, 4.2vw, 50px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  max-width: 680px;
+}
+.page-hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+.page-hero-cta-row { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+
+@media (max-width: 640px) {
+  .page-hero { padding-top: 100px; }
+  .page-hero-cta-row { flex-direction: column; width: 100%; }
+  .page-hero-cta-row .btn { width: 100%; }
+}
+
+/* ---------- Stat row — a handful of headline numbers ---------- */
+.stat-row { display: flex; justify-content: center; gap: 48px; margin-top: 28px; flex-wrap: wrap; }
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.stat-item strong { font-size: 30px; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; }
+.stat-item span { font-size: 13px; color: var(--text-secondary); }
+
+/* ---------- Feature / role grid ---------- */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 8px; }
+.feature-card { padding: 26px; border-radius: var(--radius); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+.feature-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.feature-card-title { font-size: 16px; font-weight: 650; color: var(--text-primary); }
+.feature-card-desc { margin-top: 8px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.feature-card-list { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.feature-card-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.feature-card-list li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.feature-card-link { margin-top: 18px; }
+
+/* Homepage's product teaser specifically — two cards, roomier minimum
+   than the default feature-grid since there are only ever two. */
+.product-teaser-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 32px; }
+
+/* ---------- Step grid — "how it works" style numbered steps ---------- */
+.step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-top: 8px; }
+.step-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: .04em; }
+.step-card-title { margin-top: 8px; font-size: 15px; font-weight: 650; color: var(--text-primary); }
+.step-card-desc { margin-top: 6px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; }
+
+/* ---------- Callout card — a person/quote/contact block ---------- */
+.callout-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+.callout-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 17px;
+  flex-shrink: 0;
+}
+.callout-body { flex: 1; min-width: 200px; }
+.callout-name { font-size: 15px; font-weight: 650; color: var(--text-primary); }
+.callout-role { margin-top: 2px; font-size: 13px; color: var(--text-secondary); }
+.callout-quote { margin-top: 8px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.callout-card .btn { flex-shrink: 0; }
+
+/* ---------- Icon strip — compact row of icon+label teasers, for
+   homepage sections that summarize a deeper page in one line rather
+   than rebuilding its full content. ---------- */
+.icon-strip { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+.icon-strip-item { display: flex; align-items: center; gap: 12px; }
+.icon-strip-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--accent-tint);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.icon-strip-label { font-size: 14px; font-weight: 650; color: var(--text-primary); }
+
+/* ---------- Teaser split — text on one side, a real mini UI mockup
+   on the other, reusing the exact chat/booking/dashboard component
+   classes from the deep pages so the homepage shows real product
+   surface instead of an icon list standing in for it. ---------- */
+.teaser-split { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 48px; align-items: center; margin-top: 8px; }
+.teaser-split--reverse .teaser-split-mockup { order: -1; }
+.teaser-split-mockup { display: flex; justify-content: center; }
+.mockup-card {
+  width: 100%;
+  max-width: 340px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hero);
+  overflow: hidden;
+}
+.mockup-card-pad { padding: 20px; }
+
+@media (max-width: 900px) {
+  .teaser-split { grid-template-columns: 1fr; gap: 32px; }
+  .teaser-split--reverse .teaser-split-mockup { order: 0; }
+}
+
+/* ---------- Teaser tile — two-up compact summary blocks that share
+   a section (e.g. One Inbox + Analytics), each linking to its own
+   place on the deep page instead of getting a full section apiece. ---------- */
+.teaser-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 28px; }
+.teaser-tile { padding: 24px; border-radius: var(--radius); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+.teaser-tile-title { font-size: 17px; font-weight: 650; color: var(--text-primary); }
+.teaser-tile-desc { margin-top: 8px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.teaser-tile-link { margin-top: 14px; display: inline-flex; }
+
+/* ---------- Flow steps — numbered 3-step process with dashed
+   connectors between real mini mockups (not a generated diagram —
+   reuses the site's own card/bubble components so it matches the
+   rest of the page's polish). ---------- */
+.flow-steps { display: flex; align-items: flex-start; gap: 4px; margin-top: 40px; }
+.flow-step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; min-width: 0; }
+.flow-step-badge {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.flow-step-label { font-size: 13.5px; font-weight: 650; color: var(--text-primary); max-width: 170px; }
+.flow-step-card { width: 100%; max-width: 230px; }
+.flow-connector {
+  flex: 0 0 40px;
+  height: 2px;
+  margin-top: 15px;
+  background-image: linear-gradient(to right, var(--border-strong) 0 6px, transparent 6px 12px);
+  background-size: 12px 2px;
+  background-repeat: repeat-x;
+}
+.flow-url-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.flow-url-bar svg { flex-shrink: 0; color: var(--text-tertiary); }
+.flow-pill-stack { display: flex; flex-direction: column; gap: 6px; padding: 12px; }
+.flow-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+.flow-pill svg { flex-shrink: 0; }
+.flow-chat-mini2 { display: flex; flex-direction: column; gap: 8px; padding: 14px; }
+.flow-chat-mini2 .step-bubble { font-size: 12px; }
+.flow-inbox-mini { display: flex; flex-direction: column; gap: 8px; padding: 14px; }
+
+@media (max-width: 700px) {
+  .flow-steps { flex-direction: column; align-items: stretch; gap: 24px; }
+  .flow-step { flex-direction: row; text-align: left; }
+  .flow-step-card { max-width: none; }
+  .flow-connector { display: none; }
+}
+
+/* ---------- Converge — channel icons feeding a dashed line down
+   into a single agent panel, built from real components. ---------- */
+.converge { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 0; }
+.converge-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding-bottom: 22px;
+  border-bottom: 2px dashed var(--border-strong);
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+.converge-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.converge-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 22px;
+  border-left: 2px dashed var(--border-strong);
+  transform: translateX(-1px);
+}
+.converge-stem { width: 0; height: 28px; border-left: 2px dashed var(--accent); }
+
+@media (max-width: 640px) {
+  .converge-icons { gap: 14px; }
+  .converge-icon { width: 36px; height: 36px; }
+}
+
+/* ---------- Handoff chat — a short transcript showing the AI bring
+   in a named teammate mid-conversation, instead of an inbox-list
+   summary. Lives inside the "One inbox" teaser tile; reuses the
+   existing static .step-bubble component rather than the animated
+   hero .bubble. ---------- */
+.handoff-chat { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.handoff-chat .step-bubble { font-size: 12.5px; }
+.handoff-divider {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--bg-surface-2);
+}
+.handoff-agent-name { display: block; font-size: 10px; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+
+/* ---------- Image placeholder — reserved space for a real generated
+   photograph. Prompts for each numbered slot live in IMAGE_PROMPTS.md.
+   Swap the whole element for a real <img> (or set it as a background)
+   once the photo exists; the aspect-ratio keeps layout stable either
+   way so nothing jumps when it's dropped in. ---------- */
+.image-placeholder {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  border: 2px dashed var(--border-strong);
+  background: var(--bg-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.image-placeholder-label {
+  text-align: center;
+  padding: 24px;
+  max-width: 34ch;
+}
+.image-placeholder-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.image-placeholder-desc { margin-top: 8px; font-size: 13px; color: var(--text-tertiary); line-height: 1.5; }
+.image-placeholder--dark { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.18); }
+.image-placeholder--dark .image-placeholder-tag,
+.image-placeholder--dark .image-placeholder-desc { color: var(--cta-text-dim); }
+
+/* ---------- Cross-link note — points at content that already lives
+   on another page instead of rebuilding it here. ---------- */
+.crosslink-note {
+  margin-top: 12px;
+  padding: 18px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-tint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.crosslink-note p { font-size: 14px; color: var(--text-primary); }
+.crosslink-note a { font-size: 14px; font-weight: 600; color: var(--accent); white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+
+/* ---------- Distinction callout — clarifies how a product line
+   differs from another one already covered elsewhere on the site,
+   so the two don't read as the same pitch repeated twice. ---------- */
+.distinction-card {
+  margin-top: 12px;
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-strong);
+}
+.distinction-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.distinction-card strong { color: var(--text-primary); }
+
+@media (max-width: 640px) {
+  .callout-card { text-align: center; justify-content: center; }
+  .callout-body { text-align: left; }
+}
