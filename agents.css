@@ -1,0 +1,223 @@
+/* ============================================================
+   STEPSAI — AGENTS PAGE ONLY (the main product deep-dive)
+   Loaded after styles.css + industries-deep.css. Everything here
+   is unique to this page: the four-agents grid, channel mockups,
+   the setup device, the workflow rail, inbox, and analytics dash.
+   ============================================================ */
+
+/* ---------- FOUR AGENTS — bento grid ---------- */
+.agents-bento { display: grid; grid-template-columns: 1.15fr .85fr .85fr; grid-template-rows: auto auto; gap: 16px; margin-top: 48px; }
+@media (max-width: 900px) { .agents-bento { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .agents-bento { grid-template-columns: 1fr; } }
+.agent-card { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; transition: border-color 240ms var(--ease), transform 240ms var(--ease), box-shadow 240ms var(--ease); }
+.agent-card:hover { border-color: var(--border-strong); transform: translateY(-3px); box-shadow: 0 24px 48px -28px rgba(18,20,27,.22); }
+.agent-card:hover .agent-card-icon { background: var(--accent); }
+.agent-card:hover .agent-card-icon svg { color: #fff; }
+.agent-card-icon { transition: background-color 240ms var(--ease); }
+.agent-card-icon svg { transition: color 240ms var(--ease); }
+.agent-card.lg { grid-row: span 2; }
+@media (max-width: 900px) { .agent-card.lg { grid-row: span 1; } }
+.agent-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.agent-card-icon svg { width: 19px; height: 19px; color: var(--accent); }
+/* Optional industry cross-reference tag (homepage "One Agent, Multiple
+   Tasks" teaser) — icon + tag share a header row so the tag doesn't
+   disturb the icon's own margin-bottom when a card has no tag. */
+.agent-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.agent-card-head .agent-card-icon { margin-bottom: 0; }
+.agent-card-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--text-tertiary); background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 999px; padding: 5px 11px; white-space: nowrap; flex-shrink: 0; margin-top: 4px; }
+.agent-card h3 { font-size: 17px; font-weight: 630; }
+.agent-card p { font-size: 14px; color: var(--text-secondary); margin-top: 8px; line-height: 1.6; }
+.agent-card-example { margin-top: auto; padding-top: 18px; }
+.agent-example-bubble { background: var(--bg-raised); border-radius: 12px; padding: 11px 14px; font-size: 13px; line-height: 1.5; }
+.agent-example-receipt { display: flex; align-items: center; gap: 7px; margin-top: 12px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--success); }
+.agent-example-receipt svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* ---------- CHANNELS — custom mockups per channel ---------- */
+.channel-block { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 52px 0; border-top: 1px solid var(--border-subtle); }
+.channel-block:first-of-type { border-top: none; padding-top: 0; }
+.channel-block.reverse { direction: rtl; }
+.channel-block.reverse > * { direction: ltr; }
+@media (max-width: 900px) { .channel-block, .channel-block.reverse { grid-template-columns: 1fr; gap: 30px; direction: ltr; } }
+.channel-block h3 { font-size: clamp(20px, 2.2vw, 24px); font-weight: 630; letter-spacing: -.01em; }
+.channel-block p { font-size: 15px; color: var(--text-secondary); margin-top: 12px; line-height: 1.65; max-width: 46ch; }
+.channel-receipt { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 7px 13px; border-radius: 20px; background: var(--success-tint); font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--success); }
+.channel-receipt svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* Instagram mockup */
+.ig-mock, .wa-mock, .browser-mock { transition: transform 280ms var(--ease), box-shadow 280ms var(--ease); }
+.ig-mock:hover, .wa-mock:hover, .browser-mock:hover { transform: translateY(-3px); box-shadow: 0 36px 64px -30px rgba(18,20,27,.30); }
+.ig-mock { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 28px 56px -34px rgba(18,20,27,.24); }
+.ig-mock-post { padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); }
+.ig-mock-head { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+.ig-mock-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--text-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 650; }
+.ig-mock-handle { font-size: 12.5px; font-weight: 620; }
+.ig-mock-image { aspect-ratio: 16/9; border-radius: 10px; background: linear-gradient(135deg, var(--accent-tint), var(--bg-raised)); }
+.ig-mock-comment { font-size: 12.5px; margin-top: 10px; color: var(--text-secondary); }
+.ig-mock-comment strong { color: var(--text-primary); }
+.ig-mock-dm { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.ig-mock-dm-label { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+
+/* WhatsApp mockup */
+.wa-mock { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 28px 56px -34px rgba(18,20,27,.24); }
+.wa-mock-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); background: var(--bg-raised); }
+.wa-mock-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--whatsapp); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 650; }
+.wa-mock-name { font-size: 13px; font-weight: 650; }
+.wa-mock-status { font-size: 11px; color: var(--text-tertiary); }
+.wa-mock-body { padding: 16px; display: flex; flex-direction: column; gap: 9px; }
+.wa-mock-bubble { max-width: 82%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+.wa-mock-bubble.in { align-self: flex-start; background: var(--bg-raised); }
+.wa-mock-bubble.out { align-self: flex-end; background: var(--whatsapp-tint); }
+.wa-mock-broadcast { margin: 4px 16px 16px; padding: 12px 14px; border: 1px dashed var(--border-strong); border-radius: 10px; }
+.wa-mock-broadcast-label { display: block; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+.wa-mock-broadcast-msg { font-size: 12.5px; color: var(--text-secondary); font-style: italic; }
+
+/* ============================================================
+   REALISTIC PHONE MOCKUPS — .ig-real / .wa-real
+   True-to-the-app recreations (status bar, real header chrome,
+   real bubble colors) for the handful of "hero" showcase spots:
+   homepage hero, channel-instagram.html / channel-whatsapp.html
+   hero, agents.html Channels section. The compact .ig-mock/.wa-mock
+   above are untouched and still used everywhere else (workflow
+   tabs, secondary scenario panels) — deliberately kept lightweight
+   there, not a phone screenshot.
+   ============================================================ */
+.mock-annotation { display: flex; align-items: center; gap: 10px; max-width: 320px; margin: 0 auto 14px; padding: 10px 14px; background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 12px; font-size: 13px; color: var(--text-secondary); }
+.mock-annotation strong { color: var(--text-primary); }
+
+.ig-real, .wa-real { width: 100%; max-width: 320px; height: 650px; display: flex; flex-direction: column; margin: 0 auto; border-radius: 40px; border: 12px solid #000; overflow: hidden; box-shadow: 0 40px 80px -20px rgba(0,0,0,.4); transition: transform 280ms var(--ease), box-shadow 280ms var(--ease); background-color: #000; }
+.ig-real:hover, .wa-real:hover { transform: translateY(-3px); }
+
+.phone-status { display: flex; align-items: center; justify-content: space-between; padding: 9px 18px 2px; font-size: 13px; font-weight: 650; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+.phone-status-icons { display: flex; align-items: center; gap: 5px; }
+.phone-status-icons svg { display: block; }
+.phone-home-bar { width: 120px; height: 4px; border-radius: 3px; background: #000; opacity: .8; margin: 4px auto 10px; }
+
+/* ---- Instagram ---- */
+.ig-real { background: #fff; }
+.ig-real .phone-status { color: #000; }
+.ig-real-header { display: flex; align-items: center; gap: 10px; padding: 8px 14px 12px; border-bottom: 1px solid #efefef; }
+.ig-real-header svg.back { width: 20px; height: 20px; color: #000; flex-shrink: 0; }
+.ig-real-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.ig-real-id { display: flex; flex-direction: column; line-height: 1.25; }
+.ig-real-name { font-size: 13.5px; font-weight: 650; color: #000; }
+.ig-real-active { font-size: 11.5px; color: #8e8e8e; }
+.ig-real-icons { margin-left: auto; display: flex; gap: 16px; color: #000; }
+.ig-real-icons svg { width: 21px; height: 21px; }
+.ig-real-body { flex: 1; padding: 16px 12px; display: flex; flex-direction: column; gap: 8px; min-height: 160px; background: #fff; overflow-y: auto; }
+.ig-real-bubble { max-width: 76%; padding: 10px 14px; border-radius: 20px; font-size: 13.5px; line-height: 1.4; }
+.ig-real-bubble.in { align-self: flex-start; background: #efefef; color: #000; }
+.ig-real-bubble.out { align-self: flex-end; background: linear-gradient(135deg, #4776e6, #8e54e9); color: #fff; }
+.ig-real-composer { background: #fff; display: flex; align-items: center; gap: 10px; padding: 10px 14px 6px; border-top: 1px solid #efefef; }
+.ig-real-composer svg { width: 22px; height: 22px; color: #000; flex-shrink: 0; }
+.ig-real-input { flex: 1; background: #efefef; border-radius: 20px; padding: 9px 14px; font-size: 13px; color: #8e8e8e; }
+
+/* ---- WhatsApp ---- */
+.wa-real { background: #ece5dd; }
+.wa-real .phone-status, .wa-real-header { background: #075e54; color: #fff; }
+.wa-real-header { display: flex; align-items: center; gap: 10px; padding: 8px 14px 12px; }
+.wa-real-header svg.back { width: 20px; height: 20px; flex-shrink: 0; }
+.wa-real-avatar { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.22); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.wa-real-id { display: flex; flex-direction: column; line-height: 1.25; }
+.wa-real-name { font-size: 14px; font-weight: 650; }
+.wa-real-active { font-size: 11.5px; color: rgba(255,255,255,.72); }
+.wa-real-icons { margin-left: auto; display: flex; gap: 16px; }
+.wa-real-icons svg { width: 19px; height: 19px; }
+.wa-real-body { flex: 1; padding: 16px 12px; display: flex; flex-direction: column; gap: 9px; min-height: 160px; background: #ece5dd; overflow-y: auto; }
+.wa-real-bubble { position: relative; max-width: 78%; padding: 9px 12px 17px; border-radius: 8px; font-size: 13.5px; line-height: 1.4; box-shadow: 0 1px 1px rgba(0,0,0,.08); }
+.wa-real-bubble.in { align-self: flex-start; background: #fff; border-top-left-radius: 2px; }
+.wa-real-bubble.out { align-self: flex-end; background: #d9fdd3; border-top-right-radius: 2px; }
+.wa-real-time { position: absolute; right: 11px; bottom: 6px; font-size: 10px; color: #667781; display: flex; align-items: center; gap: 3px; white-space: nowrap; }
+.wa-real-time svg { width: 15px; height: 11px; color: #53bdeb; flex-shrink: 0; }
+.wa-real-composer { background: #ece5dd; display: flex; align-items: center; gap: 8px; padding: 10px 12px 6px; }
+.wa-real-composer svg { width: 22px; height: 22px; color: #54656f; flex-shrink: 0; }
+.wa-real-input { flex: 1; background: #fff; border-radius: 22px; padding: 9px 14px; font-size: 13px; color: #8696a0; }
+.wa-real-mic-btn { width: 34px; height: 34px; border-radius: 50%; background: #075e54; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.wa-real-mic-btn svg { color: #fff; width: 16px; height: 16px; }
+
+/* Website widget mockup */
+.browser-mock { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 28px 56px -34px rgba(18,20,27,.24); }
+.browser-mock-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); }
+.browser-mock-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); }
+.browser-mock-body { padding: 30px 20px; background: var(--bg-raised); min-height: 180px; display: flex; align-items: flex-end; justify-content: flex-end; }
+.widget-launcher { width: 100%; max-width: 260px; background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: 14px; overflow: hidden; box-shadow: 0 20px 40px -20px rgba(18,20,27,.24); }
+.widget-launcher-head { padding: 12px 14px; font-size: 12.5px; font-weight: 650; }
+.widget-launcher-head span { display: block; font-size: 10.5px; font-weight: 500; color: var(--text-tertiary); margin-top: 2px; }
+.widget-launcher-body { padding: 0 14px 14px; }
+.widget-launcher-bubble { background: var(--bg-raised); border-radius: 10px; padding: 9px 12px; font-size: 12px; margin-bottom: 10px; }
+.widget-lead-row { display: flex; justify-content: space-between; font-size: 11.5px; padding: 8px 0; border-top: 1px solid var(--border-subtle); }
+.widget-lead-submit { display: block; text-align: center; margin-top: 8px; padding: 8px; background: var(--text-primary); color: #fff; border-radius: 8px; font-size: 12px; font-weight: 600; }
+
+/* ---------- SETUP — 4-step tabbed walkthrough ---------- */
+.setup-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border-subtle); margin-top: 40px; }
+.setup-tab-btn { padding: 12px 4px; margin-right: 26px; font-size: 14.5px; font-weight: 550; color: var(--text-faint); border-bottom: 2px solid transparent; white-space: nowrap; }
+.setup-tab-btn.active { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+.setup-tab-panel { display: none; padding-top: 36px; }
+.setup-tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; animation: fadeSlide 420ms var(--ease); }
+@media (max-width: 760px) { .setup-tab-panel.active { grid-template-columns: 1fr; gap: 28px; } }
+.setup-tab-panel h3 { font-size: 19px; font-weight: 630; }
+.setup-tab-panel p { font-size: 14.5px; color: var(--text-secondary); margin-top: 10px; line-height: 1.6; }
+.setup-visual { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; }
+.setup-field-label { font-size: 11.5px; color: var(--text-tertiary); margin-bottom: 8px; }
+.setup-field { background: var(--bg-raised); border-radius: 9px; padding: 12px 14px; font-family: var(--font-mono); font-size: 13px; min-height: 42px; display: flex; align-items: center; margin-bottom: 16px; }
+.setup-field:last-child { margin-bottom: 0; }
+.setup-row-ready { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.setup-row-ready b { font-weight: 620; }
+.setup-row-ready span { color: var(--success); font-weight: 600; font-size: 12px; }
+.setup-swatches { display: flex; gap: 8px; margin-bottom: 16px; }
+.setup-swatch { width: 26px; height: 26px; border-radius: 7px; border: 2px solid transparent; }
+.setup-swatch.active { border-color: var(--text-primary); }
+.setup-integ-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 6px; margin: 0 -6px; border-top: 1px solid var(--border-subtle); font-size: 13px; border-radius: 6px; transition: background-color 200ms var(--ease); }
+.setup-integ-row:hover { background: var(--bg-raised); }
+.setup-integ-row:first-child { border-top: none; }
+.setup-integ-row .state { color: var(--success); font-weight: 600; font-size: 11.5px; }
+.setup-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-size: 13.5px; }
+.setup-toggle { width: 34px; height: 19px; border-radius: 20px; background: var(--success); position: relative; }
+.setup-toggle::before { content: ""; position: absolute; top: 2px; left: 17px; width: 15px; height: 15px; border-radius: 50%; background: #fff; }
+
+/* ---------- WORKFLOW TABS ---------- */
+.wflow-tabs { display: flex; gap: 4px; overflow-x: auto; margin-top: 32px; }
+.wflow-tab { padding: 10px 16px; border-radius: 20px; font-size: 13.5px; font-weight: 550; color: var(--dark-ink-muted); border: 1px solid var(--dark-hairline-strong); white-space: nowrap; margin-right: 8px; transition: all 200ms var(--ease); }
+.wflow-tab.active { color: var(--dark-canvas); background: #fff; border-color: #fff; }
+.wflow-panel { display: none; margin-top: 40px; }
+.wflow-panel.active { display: block; animation: fadeSlide 420ms var(--ease); }
+
+/* ---------- WORKFLOW RAIL — lighter alternative to the full wf-canvas,
+   used for the 4 non-flagship workflow tabs ---------- */
+.wflow-rail-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+@media (max-width: 860px) { .wflow-rail-wrap { grid-template-columns: 1fr; gap: 32px; } }
+.wflow-rail { position: relative; padding-left: 28px; }
+.wflow-rail::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 1px; background: var(--dark-hairline-strong); }
+.wflow-rail-node { position: relative; padding-bottom: 22px; font-size: 13.5px; color: var(--dark-ink-muted); }
+.wflow-rail-node:last-child { padding-bottom: 0; }
+.wflow-rail-node::before { content: ""; position: absolute; left: -28px; top: 4px; width: 9px; height: 9px; border-radius: 50%; background: var(--dark-surface); border: 1.5px solid var(--dark-hairline-strong); }
+.wflow-rail-node.done::before { background: var(--accent-on-dark); border-color: var(--accent-on-dark); }
+.wflow-rail-node.done { color: var(--dark-ink); }
+
+/* ---------- INBOX ---------- */
+.inbox-controls-row { display: flex; flex-wrap: wrap; gap: 22px; margin: 28px 0 40px; }
+.inbox-control-chip { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--text-secondary); }
+.inbox-control-chip svg { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; }
+.inbox-list { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; }
+.inbox-list-row { display: grid; grid-template-columns: 40px 1fr 2fr auto auto; gap: 14px; align-items: center; padding: 14px 18px; border-top: 1px solid var(--border-subtle); transition: background-color 200ms var(--ease); }
+.inbox-list-row:hover { background: var(--bg-raised); }
+.inbox-list-row:first-child { border-top: none; }
+@media (max-width: 700px) { .inbox-list-row { grid-template-columns: 32px 1fr; grid-template-rows: auto auto; } .inbox-list-row .inbox-time, .inbox-list-row .inbox-preview { grid-column: 2; } }
+.inbox-channel-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--text-tertiary); background: var(--bg-raised); border-radius: 6px; padding: 4px 0; text-align: center; }
+.inbox-name { font-size: 13.5px; font-weight: 620; white-space: nowrap; }
+.inbox-preview { font-size: 13px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.inbox-time { font-size: 12px; color: var(--text-faint); white-space: nowrap; }
+.inbox-status { font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 20px; white-space: nowrap; }
+.inbox-status.resolved { background: var(--success-tint); color: var(--success); }
+.inbox-status.booked { background: var(--accent-tint); color: var(--accent-deep); }
+.inbox-status.handover { background: var(--bg-raised); color: var(--text-tertiary); }
+
+/* ---------- ANALYTICS ---------- */
+.analytics-note { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-tertiary); margin: 8px 0 32px; }
+.analytics-note svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
+.analytics-dash { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 32px; }
+.analytics-stat-row { display: flex; gap: 40px; flex-wrap: wrap; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--border-subtle); }
+.analytics-stat b { display: block; font-family: var(--font-mono); font-size: 28px; font-weight: 500; letter-spacing: -.02em; }
+.analytics-stat span { display: block; font-size: 12.5px; color: var(--text-tertiary); margin-top: 4px; }
+.analytics-bars { display: flex; align-items: flex-end; gap: 8px; height: 100px; }
+.analytics-bars span { flex: 1; background: var(--accent-tint); border-radius: 4px 4px 0 0; transition: background-color 200ms var(--ease); }
+.analytics-bars span:hover { background: var(--accent); }
