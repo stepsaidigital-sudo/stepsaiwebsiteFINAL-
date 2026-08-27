@@ -364,6 +364,162 @@ h1, h2, h3, p { margin: 0; }
 .nav-dropdown-panel a.is-active { color: var(--accent); }
 .nav-dropdown-panel a span { font-size: 12px; font-weight: 400; color: var(--text-secondary); }
 
+/* ---- Mega panels (Product / Solutions / Resources) ----
+   Row anatomy per spec: 32px accent-tint icon tile, 14px/600 label,
+   12px secondary descriptor. Group headers are mono uppercase
+   tertiary. Widths per panel: Product 880px (4 columns), Solutions
+   560px and Resources 520px (2 columns each). */
+.nav-dropdown-panel--mega {
+  width: 880px;
+  min-width: 880px;
+  padding: 24px;
+}
+.nav-dropdown-panel--solutions { width: 560px; min-width: 560px; padding: 24px; }
+.nav-dropdown-panel--resources { width: 520px; min-width: 520px; padding: 24px; }
+
+.nav-mega-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.nav-mega-cols--2 { grid-template-columns: 1fr 1fr; }
+
+.nav-mega-col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-mega-header {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.nav-mega-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  transition: background-color 150ms var(--ease);
+}
+.nav-mega-row:hover { background: var(--bg-surface-2); }
+.nav-mega-row.is-active .nav-mega-row-label { color: var(--accent); }
+.nav-mega-row-icon {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-mega-row-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-top: 1px; }
+.nav-mega-row-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.nav-mega-row-desc { font-size: 12px; font-weight: 400; color: var(--text-secondary); line-height: 1.4; }
+
+.nav-badge {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #fff;
+  background: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.nav-mega-see-all {
+  display: block;
+  margin-top: 4px;
+  padding: 8px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  border-radius: 8px;
+  transition: background-color 150ms var(--ease);
+}
+.nav-mega-see-all:hover { background: var(--bg-surface-2); }
+
+/* Product panel's footer strip — the nav demonstrating the product
+   with a tiny live-styled chat mockup, per spec "no competitor does
+   this." Reuses the same bubble shapes as the rest of the site at a
+   smaller scale rather than inventing a new mockup component. */
+.nav-mega-footer {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+}
+.nav-mega-footer-mockup { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
+.nav-mega-footer-bubble {
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  line-height: 1.3;
+  padding: 5px 9px;
+  border-radius: 10px 10px 10px 3px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+.nav-mega-footer-bubble.is-agent { background: var(--accent-tint); color: var(--text-primary); }
+.nav-mega-footer-copy { font-size: 12px; color: var(--text-secondary); }
+.nav-mega-footer-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+@media (max-width: 1240px) {
+  .nav-dropdown-panel--mega { width: 720px; min-width: 720px; }
+  .nav-mega-cols { grid-template-columns: repeat(2, 1fr); gap: 20px 28px; }
+}
+
+/* ---- Mobile nav accordion groups (Product / Solutions / Resources) ----
+   Native <details>/<summary> — free collapse/expand and (in browsers
+   that support the "name" attribute) exclusive one-open-at-a-time
+   behaviour, no extra JS needed. Falls back to "multiple can be open"
+   in older browsers, which is a harmless degrade. */
+.nav-mobile-group { border-bottom: 1px solid var(--line); }
+.nav-mobile-group summary {
+  padding: 14px 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav-mobile-group summary::-webkit-details-marker { display: none; }
+.nav-mobile-group summary::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 200ms var(--ease);
+}
+.nav-mobile-group[open] summary::after { transform: rotate(-135deg); }
+.nav-mobile-group a { padding-left: 8px; }
+.nav-mobile-group a:last-of-type { border-bottom: none; }
+
 .nav-mobile-label {
   padding: 14px 0 2px;
   font-family: var(--font-mono);
@@ -2376,10 +2532,21 @@ h1, h2, h3, p { margin: 0; }
 .footer-col-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
 .footer-col a { font-size: 13px; color: var(--text-secondary); transition: color 200ms var(--ease); }
 .footer-col a:hover { color: var(--text-primary); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid var(--border-subtle); font-size: 13px; color: var(--text-tertiary); }
+.footer-bottom { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding: 24px 0; border-top: 1px solid var(--border-subtle); font-size: 13px; color: var(--text-tertiary); }
+.footer-bottom > :last-child { margin-left: auto; }
 .footer-social { display: flex; gap: 16px; }
 .footer-social a { color: var(--text-tertiary); transition: color 200ms var(--ease); }
 .footer-social a:hover { color: var(--text-primary); }
+.footer-status { display: inline-flex; align-items: center; gap: 7px; }
+.footer-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { color: var(--text-tertiary); transition: color 200ms var(--ease); }
+.footer-legal a:hover { color: var(--text-primary); }
+
+.footer-cols--5 { gap: 36px; }
+@media (max-width: 1100px) {
+  .footer-cols--5 { gap: 28px 32px; }
+}
 
 @media (max-width: 640px) {
   .final-cta { padding: 72px 0; }

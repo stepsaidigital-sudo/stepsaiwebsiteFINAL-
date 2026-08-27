@@ -25,30 +25,112 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
+
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
             Product
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="nav-dropdown-panel">
-            <a href="#top" class="is-active" aria-current="page">AI Agents<span>Customer-facing, sells &amp; supports</span></a>
-            <a href="product.html">Internal Copilot<span>AI assistant for your team</span></a>
+          <div class="nav-dropdown-panel nav-dropdown-panel--mega" role="menu">
+            <div class="nav-mega-cols">
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">Products</span>
+                <a href="agents.html" class="nav-mega-row is-active" aria-current="page"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15M21 7V13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">AI Agents</span><span class="nav-mega-row-desc">Customer-facing agents that sell, support and act</span></span></a>
+                <a href="product.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 4H14L18 8V20H6V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4V8H18" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 13H15M9 16H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Internal Copilot</span><span class="nav-mega-row-desc">Your team's AI brain, answering from your own tools</span></span></a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">What it does</span>
+                <!-- TODO: dedicated /features/sales-agent/ page not built yet, points at the demo --><a href="agents.html#four-agents" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Sales Agent</span><span class="nav-mega-row-desc">Recommends products and closes the sale</span></span></a>
+                <!-- TODO: dedicated page pending --><a href="agents.html#four-agents" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="10" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 20C3.5 16 6.5 14 10 14C13.5 14 16.5 16 16.5 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 8V13M15.5 10.5H20.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Lead Agent</span><span class="nav-mega-row-desc">Qualifies leads and saves them to your CRM</span></span></a>
+                <!-- TODO: dedicated page pending --><a href="agents.html#four-agents" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Meetings Agent</span><span class="nav-mega-row-desc">Offers real open slots and books them</span></span></a>
+                <!-- TODO: dedicated page pending --><a href="agents.html#four-agents" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support Agent</span><span class="nav-mega-row-desc">Tracks orders and resolves issues</span></span></a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">Platform</span>
+                <a href="agents.html#workflows" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups that run on their own</span></span></a>
+                <a href="agents.html#one-inbox" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12H8L10 15H14L16 12H21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">One Inbox</span><span class="nav-mega-row-desc">Every conversation, one place</span></span></a>
+                <a href="agents.html#analytics" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Analytics &amp; Insights</span><span class="nav-mega-row-desc">What it handled, in plain English</span></span></a>
+                <!-- TODO: no dedicated /integrations/ page yet --><a href="agents.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 4H11V7H13C14.1 7 15 7.9 15 9V11H18V9H20V15H18V13H15V15C15 16.1 14.1 17 13 17H11V20H9V17H7C5.9 17 5 16.1 5 15V13H2V11H5V9C5 7.9 5.9 7 7 7H9V4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Integrations</span><span class="nav-mega-row-desc">Connect the tools you already use</span></span></a>
+                <a href="agents.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">All features</span><span class="nav-mega-row-desc">Everything the platform does</span></span></a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">Channels</span>
+                <a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12H21M12 3C14.5 5.5 15.8 8.6 15.8 12C15.8 15.4 14.5 18.5 12 21C9.5 18.5 8.2 15.4 8.2 12C8.2 8.6 9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Website</span><span class="nav-mega-row-desc">Answer before they leave the page</span></span></a>
+                <a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 6.8 3 11.4C3 13.8 4.1 16 5.9 17.5L5 21L8.7 19.7C9.7 20 10.8 20.2 12 20.2C17 20.2 21 16.4 21 11.8C21 7.2 17 3 12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">WhatsApp</span><span class="nav-mega-row-desc">Sell where they already message you</span></span></a>
+                <a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Instagram</span><span class="nav-mega-row-desc">Turn a comment into a customer</span></span></a>
+                <!-- TODO: standalone-page product not built yet --><a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M14 4H20V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4L11 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Standalone Page</span><span class="nav-mega-row-desc">A shareable page for your agent</span></span></a>
+                <a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 8L12 3L20 8V16L12 21L4 16V8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 8L12 13L20 8M12 13V21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">All channels</span><span class="nav-mega-row-desc">Every surface, one agent</span></span></a>
+              </div>
+              <div class="nav-mega-footer">
+                <div class="nav-mega-footer-mockup" aria-hidden="true">
+                  <span class="nav-mega-footer-bubble">Do you have this in size M?</span>
+                  <span class="nav-mega-footer-bubble is-agent">Yes, 3 left. Want me to add it to your cart?</span>
+                </div>
+                <span class="nav-mega-footer-copy">The nav demonstrates the product.</span>
+                <a href="agents.html" class="nav-mega-footer-link">See it work &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
+
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
             Solutions
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="nav-dropdown-panel">
-            <a href="solutions.html">By Role<span>Marketing, Sales, Support, Ops</span></a>
-            <a href="industries.html">By Industry<span>E-commerce, Healthcare &amp; more</span></a>
+          <div class="nav-dropdown-panel nav-dropdown-panel--solutions" role="menu">
+            <div class="nav-mega-cols nav-mega-cols--2">
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">By industry</span>
+                <a href="industry-ecommerce.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 8H18L17 19H7L6 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">E-Commerce<span class="nav-badge">Flagship</span></span><span class="nav-mega-row-desc">Shopify-native selling agent</span></span></a>
+                <a href="industry-saas.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17C4.8 17 3 15.2 3 13C3 11 4.5 9.4 6.4 9.1C6.8 6.2 9.2 4 12 4C15 4 17.4 6.3 17.6 9.1C19.5 9.3 21 11 21 13C21 15.2 19.2 17 17 17H7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">SaaS</span><span class="nav-mega-row-desc">Product questions and high-intent leads</span></span></a>
+                <a href="industry-healthcare.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Healthcare</span><span class="nav-mega-row-desc">Appointments and patient questions</span></span></a>
+                <a href="industry-edtech.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4L22 9L12 14L2 9L12 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11V17C6 17 8.5 19.5 12 19.5C15.5 19.5 18 17 18 17V11" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Education</span><span class="nav-mega-row-desc">Course enquiries and counsellor handoff</span></span></a>
+                <a href="industry-real-estate.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Real Estate</span><span class="nav-mega-row-desc">Buyer qualification and site visits</span></span></a>
+                <a href="industries.html" class="nav-mega-see-all">See all industries &rarr;</a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">By role</span>
+                <a href="solutions.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 10V14H6L13 19V5L6 10H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9C18 10 18 14 17 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Marketing &amp; Growth</span><span class="nav-mega-row-desc">Lead gen, engagement and conversion</span></span></a>
+                <a href="solutions.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Sales</span><span class="nav-mega-row-desc">Qualify leads and close deals faster</span></span></a>
+                <a href="solutions.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support &amp; CX</span><span class="nav-mega-row-desc">Resolve tickets and delight customers</span></span></a>
+                <a href="solutions.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3V6M12 18V21M3 12H6M18 12H21M5.6 5.6L7.8 7.8M16.2 16.2L18.4 18.4M5.6 18.4L7.8 16.2M16.2 7.8L18.4 5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Operations</span><span class="nav-mega-row-desc">Automate workflows, reduce manual work</span></span></a>
+              </div>
+            </div>
           </div>
         </div>
-        <a href="pricing.html">Pricing</a>
+
+        <a href="pricing.html" class="">Pricing</a>
+        <a href="partner.html" class="">Partner</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            Resources
+            <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-panel nav-dropdown-panel--resources" role="menu">
+            <div class="nav-mega-cols nav-mega-cols--2">
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">Learn</span>
+                <!-- TODO: /blog/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 4H14L18 8V20H6V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4V8H18" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12H15M9 15.5H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Blog</span></span></a>
+                <!-- TODO: /resources/ai-guides/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H12V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">AI Guides</span></span></a>
+                <!-- TODO: /resources/case-studies/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Case Studies</span></span></a>
+              </div>
+              <div class="nav-mega-col">
+                <span class="nav-mega-header">Company</span>
+                <!-- TODO: /about/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11V16M12 8V8.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">About</span></span></a>
+                <!-- TODO: /note/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20L5.5 14.5L16 4L20 8L9.5 18.5L4 20Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Founder&#39;s Note</span></span></a>
+                <!-- TODO: /team/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 20C3.5 16.5 6 14 9 14C12 14 14.5 16.5 14.5 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 14.5C18 14.8 20.5 16.9 20.5 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Team</span></span></a>
+                <!-- TODO: /careers/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="7.5" width="17" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 7.5V6C8.5 4.9 9.4 4 10.5 4H13.5C14.6 4 15.5 4.9 15.5 6V7.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Careers</span></span></a>
+                <!-- TODO: /contact/ not built yet --><a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5L12 12.5L20 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Contact</span></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <div class="nav-actions">
+        <!-- No auth flow exists yet — intentionally inert, not a dead link. -->
         <button class="nav-signin" type="button">Sign in</button>
         <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
       </div>
@@ -59,14 +141,52 @@
     </div>
 
     <div class="nav-mobile" id="navMobile">
-      <span class="nav-mobile-label">Product</span>
-      <a href="#top" class="is-active" aria-current="page">AI Agents</a>
-      <a href="product.html">Internal Copilot</a>
-      <span class="nav-mobile-label">Solutions</span>
-      <a href="solutions.html">By Role</a>
-      <a href="industries.html">By Industry</a>
+      <details class="nav-mobile-group" name="navMobileAccordion">
+        <summary>Product</summary>
+        <a href="agents.html">AI Agents</a>
+        <a href="product.html">Internal Copilot</a>
+        <a href="agents.html#four-agents">Sales Agent</a>
+        <a href="agents.html#four-agents">Lead Agent</a>
+        <a href="agents.html#four-agents">Meetings Agent</a>
+        <a href="agents.html#four-agents">Support Agent</a>
+        <a href="agents.html#workflows">Workflows</a>
+        <a href="agents.html#one-inbox">One Inbox</a>
+        <a href="agents.html#analytics">Analytics &amp; Insights</a>
+        <a href="agents.html">Integrations</a>
+        <a href="agents.html">All features</a>
+        <a href="agents.html#channels">Website</a>
+        <a href="agents.html#channels">WhatsApp</a>
+        <a href="agents.html#channels">Instagram</a>
+        <a href="agents.html#channels">Standalone Page</a>
+        <a href="agents.html#channels">All channels</a>
+      </details>
+      <details class="nav-mobile-group" name="navMobileAccordion">
+        <summary>Solutions</summary>
+        <a href="industry-ecommerce.html">E-Commerce <span class="nav-badge">Flagship</span></a>
+        <a href="industry-saas.html">SaaS</a>
+        <a href="industry-healthcare.html">Healthcare</a>
+        <a href="industry-edtech.html">Education</a>
+        <a href="industry-real-estate.html">Real Estate</a>
+        <a href="solutions.html">Marketing &amp; Growth</a>
+        <a href="solutions.html">Sales</a>
+        <a href="solutions.html">Support &amp; CX</a>
+        <a href="solutions.html">Operations</a>
+      </details>
       <a href="pricing.html">Pricing</a>
+      <a href="partner.html">Partner</a>
+      <details class="nav-mobile-group" name="navMobileAccordion">
+        <summary>Resources</summary>
+        <a href="index.html#top">Blog</a>
+        <a href="index.html#top">AI Guides</a>
+        <a href="index.html#top">Case Studies</a>
+        <a href="index.html#top">About</a>
+        <a href="index.html#top">Founder&#39;s Note</a>
+        <a href="index.html#top">Team</a>
+        <a href="index.html#top">Careers</a>
+        <a href="index.html#top">Contact</a>
+      </details>
       <div class="nav-mobile-actions">
+        <!-- No auth flow exists yet — intentionally inert, not a dead link. -->
         <button class="nav-signin" type="button">Sign in</button>
         <a href="pricing.html" class="btn btn-accent btn-sm">Start free trial</a>
       </div>
@@ -694,48 +814,66 @@
     </section>
 
     <footer class="footer">
-      <div class="container footer-inner">
+      <div class="container footer-inner footer-inner--5col">
         <div class="footer-brand">
           <a href="index.html#top" class="nav-logo">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>StepsAI</span>
           </a>
-          <p class="footer-tagline">The AI agent that answers, then acts.</p>
+          <p class="footer-tagline">Your AI agent layer for every business.</p>
         </div>
-        <div class="footer-cols">
+        <div class="footer-cols footer-cols--5">
           <div class="footer-col">
             <span class="footer-col-title">Product</span>
-            <a href="#four-agents">Four Agents</a>
+            <a href="agents.html">AI Agents</a>
             <a href="product.html">Internal Copilot</a>
-            <a href="#channels">Channels</a>
+            <a href="agents.html">All features</a>
+            <a href="agents.html">Integrations</a>
             <a href="pricing.html">Pricing</a>
           </div>
           <div class="footer-col">
-            <span class="footer-col-title">Industries</span>
-            <a href="industry-real-estate.html">Real Estate</a>
+            <span class="footer-col-title">Solutions</span>
+            <a href="industry-ecommerce.html">E-Commerce</a>
+            <a href="industry-saas.html">SaaS</a>
             <a href="industry-healthcare.html">Healthcare</a>
-            <a href="industry-edtech.html">EdTech</a>
-            <a href="industries.html">All industries</a>
+            <a href="industry-edtech.html">Education</a>
+            <a href="industry-real-estate.html">Real Estate</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Channels</span>
+            <a href="agents.html#channels">Website</a>
+            <a href="agents.html#channels">WhatsApp</a>
+            <a href="agents.html#channels">Instagram</a>
+            <a href="agents.html#channels">Standalone Page</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>
             <a href="index.html#top">About</a>
-            <a href="partner.html">Partner Program</a>
+            <a href="index.html#top">Founder&#39;s Note</a>
+            <a href="index.html#top">Team</a>
             <a href="index.html#top">Careers</a>
             <a href="index.html#top">Contact</a>
           </div>
           <div class="footer-col">
-            <span class="footer-col-title">Legal</span>
-            <a href="index.html#top">Privacy</a>
-            <a href="index.html#top">Terms</a>
+            <span class="footer-col-title">Resources</span>
+            <a href="index.html#top">Blog</a>
+            <a href="index.html#top">AI Guides</a>
+            <a href="index.html#top">Case Studies</a>
+            <a href="partner.html">Partner Program</a>
           </div>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 StepsAI. All rights reserved.</span>
+        <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>System status: Operational</span>
+        <span>&copy; 2026 StepsAI. All rights reserved.</span>
         <div class="footer-social">
-          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
           <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+        <div class="footer-legal">
+          <a href="index.html#top">Privacy</a>
+          <a href="index.html#top">Terms</a>
         </div>
       </div>
     </footer>
