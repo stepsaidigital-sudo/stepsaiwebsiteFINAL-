@@ -300,7 +300,8 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav.open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
 @media (max-width: 980px) {
-  .nav-links, .nav-actions { display: none; }
+  .nav-links { display: none; }
+  .nav-actions { display: none !important; }
   .nav-burger { display: flex; }
 }
 
