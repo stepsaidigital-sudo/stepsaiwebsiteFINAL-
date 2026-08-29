@@ -3,22 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Standalone Page — StepsAI | A shareable page for your agent.</title>
-<meta name="description" content="A public URL where your agent lives on its own — for businesses without a website, a link-in-bio, or a QR code at the counter.">
+<title>Support &mdash; StepsAI | Resolve tickets and delight customers</title>
+<meta name="description" content="StepsAI for support teams: resolves the questions you answer every day, and hands over cleanly, with full history, when it can&rsquo;t.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
 <link rel="stylesheet" href="agents.css">
-<style>
-  /* Page-specific: the shareable-URL bar on the standalone-page mockup. */
-  .url-bar-row { display: flex; justify-content: center; padding: 10px 14px; border-bottom: 1px solid var(--border-subtle); }
-  .url-bar-pill { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); background: var(--bg-raised); border-radius: 20px; padding: 6px 16px; }
-  .url-bar-pill b { color: var(--accent); font-weight: 600; }
-</style>
 </head>
-<body>
+<body style="--ind-accent:#0369A1; --ind-tint:#E0F2FE;">
 
   <header class="nav" id="nav">
     <div class="nav-inner">
@@ -34,7 +28,7 @@
       <nav class="nav-links" aria-label="Primary">
 
         <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
             Product
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -53,7 +47,7 @@
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-header">Platform</span>
-                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups, reminders and broadcasts that run on their own</span></span></a>
+                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups that run on their own</span></span></a>
                 <a href="one-inbox.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12H8L10 15H14L16 12H21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">One Inbox</span><span class="nav-mega-row-desc">Every conversation, one place</span></span></a>
                 <a href="analytics.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Analytics &amp; Insights</span><span class="nav-mega-row-desc">What it handled, in plain English</span></span></a>
                 <a href="integrations.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 4H11V7H13C14.1 7 15 7.9 15 9V11H18V9H20V15H18V13H15V15C15 16.1 14.1 17 13 17H11V20H9V17H7C5.9 17 5 16.1 5 15V13H2V11H5V9C5 7.9 5.9 7 7 7H9V4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Integrations</span><span class="nav-mega-row-desc">Connect the tools you already use</span></span></a>
@@ -64,7 +58,7 @@
                 <a href="channel-website.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12H21M12 3C14.5 5.5 15.8 8.6 15.8 12C15.8 15.4 14.5 18.5 12 21C9.5 18.5 8.2 15.4 8.2 12C8.2 8.6 9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Website</span><span class="nav-mega-row-desc">Answer before they leave the page</span></span></a>
                 <a href="channel-whatsapp.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">WhatsApp</span><span class="nav-mega-row-desc">Sell where they already message you</span></span></a>
                 <a href="channel-instagram.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Instagram</span><span class="nav-mega-row-desc">Turn a comment into a customer</span></span></a>
-                <a href="channel-standalone.html" class="nav-mega-row is-active" aria-current="page"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M14 4H20V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4L11 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Standalone Page</span><span class="nav-mega-row-desc">A shareable page for your agent</span></span></a>
+                <a href="channel-standalone.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M14 4H20V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4L11 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Standalone Page</span><span class="nav-mega-row-desc">A shareable page for your agent</span></span></a>
                 <a href="agents.html#channels" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 8L12 3L20 8V16L12 21L4 16V8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 8L12 13L20 8M12 13V21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">All channels</span><span class="nav-mega-row-desc">Every surface, one agent</span></span></a>
               </div>
               <div class="nav-mega-footer">
@@ -80,7 +74,7 @@
         </div>
 
         <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
             Solutions
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -100,7 +94,7 @@
                 <a href="role-growth.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 10V14H6L13 19V5L6 10H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9C18 10 18 14 17 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Growth</span><span class="nav-mega-row-desc">Turn traffic and DMs into qualified leads</span></span></a>
                 <a href="role-marketing.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Marketing</span><span class="nav-mega-row-desc">Campaigns, promos and win-back sends</span></span></a>
                 <a href="role-sales.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Sales</span><span class="nav-mega-row-desc">Qualify leads and close deals faster</span></span></a>
-                <a href="role-support.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support</span><span class="nav-mega-row-desc">Resolve tickets and delight customers</span></span></a>
+                <a href="role-support.html" class="nav-mega-row is-active" aria-current="page"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support</span><span class="nav-mega-row-desc">Resolve tickets and delight customers</span></span></a>
                 <a href="role-appointments.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Appointments</span><span class="nav-mega-row-desc">Scheduling, reminders and no-show recovery</span></span></a>
                 <a href="solutions.html" class="nav-mega-see-all">See all roles &rarr;</a>
               </div>
@@ -147,18 +141,15 @@
     </div>
 
     <div class="nav-mobile" id="navMobile">
-      <details class="nav-mobile-group" name="navMobileAccordion" open>
+      <details class="nav-mobile-group" name="navMobileAccordion">
         <summary>Product</summary>
         <a href="agents.html">AI Agents</a>
         <a href="workflows.html">Workflows</a>
         <a href="one-inbox.html">One Inbox</a>
         <a href="analytics.html">Analytics &amp; Insights</a>
-        <a href="channel-website.html">Website</a>
-        <a href="channel-whatsapp.html">WhatsApp</a>
-        <a href="channel-instagram.html">Instagram</a>
-        <a href="channel-standalone.html" aria-current="page">Standalone Page</a>
+        <a href="agents.html">Integrations</a>
       </details>
-      <details class="nav-mobile-group" name="navMobileAccordion">
+      <details class="nav-mobile-group" name="navMobileAccordion" open>
         <summary>Solutions</summary>
         <a href="industry-ecommerce.html">E-Commerce &amp; D2C <span class="nav-badge">Flagship</span></a>
         <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
@@ -166,6 +157,12 @@
         <a href="industry-edtech.html">Education &amp; Training</a>
         <a href="industry-hotels.html">Travel &amp; Hospitality</a>
         <a href="industries.html">All 12 industries</a>
+        <a href="role-growth.html">Growth</a>
+        <a href="role-marketing.html">Marketing</a>
+        <a href="role-sales.html">Sales</a>
+        <a href="role-support.html" aria-current="page">Support</a>
+        <a href="role-appointments.html">Appointments</a>
+        <a href="solutions.html">All 5 roles</a>
       </details>
       <a href="pricing.html">Pricing</a>
       <a href="partner.html">Partner</a>
@@ -186,140 +183,189 @@
 
   <main id="top">
 
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="vertical-hero">
-      <div class="container vertical-hero-inner">
-        <div class="reveal">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Standalone Page</span>
-          <h1 class="vertical-headline">A shareable page for your agent.</h1>
-          <p class="vertical-tagline">A public URL where your agent lives on its own — for businesses without a website, a link-in-bio, or a QR code at the counter.</p>
-          <div class="vertical-hero-actions">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="agents.html#channels" class="vertical-hero-link">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              All channels
-            </a>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="browser-mock">
-            <div class="browser-mock-bar"><span></span><span></span><span></span></div>
-            <div class="url-bar-row"><span class="url-bar-pill"><b>stepsai.link</b>/nyra-store</span></div>
-            <div class="browser-mock-body" style="align-items:center; justify-content:center;">
-              <div class="widget-launcher" style="max-width:280px">
-                <div class="widget-launcher-head">Nyra Store<span>Typically replies instantly</span></div>
-                <div class="widget-launcher-body">
-                  <div class="widget-launcher-bubble">Hi! Ask me anything about Nyra Store.</div>
-                  <div class="widget-lead-row"><span>Powered by</span><strong>StepsAI</strong></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         2. USE CASES
-         ============================================================ -->
-    <section class="section section--raised">
+    <section class="vertical-hero" style="background: linear-gradient(160deg, #14171f 0%, #1b1f2b 60%, #14171f 100%);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> When you need it</p>
-          <h2 class="section-title">For everywhere a website doesn't reach.</h2>
-        </div>
-        <div class="scenario-strip reveal reveal-stagger">
-          <div class="scenario-card" style="--i:0">
-            <span class="scenario-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
-            <h4>No website yet</h4>
-            <p>Skip building one. Your agent's own page becomes your storefront, live in minutes.</p>
-          </div>
-          <div class="scenario-card" style="--i:1">
-            <span class="scenario-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
-            <h4>Link-in-bio</h4>
-            <p>Drop it straight into your Instagram bio — one link that actually answers questions, not just a menu of other links.</p>
-          </div>
-          <div class="scenario-card" style="--i:2">
-            <span class="scenario-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3M20 14v3h-3M14 20h3v-3"/></svg></span>
-            <h4>QR code at the counter</h4>
-            <p>Print it on a table tent or storefront sticker — a customer scans, and your agent is already answering.</p>
-          </div>
+        <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">4</span>Role</span>
+        <h1 class="vertical-headline">Most tickets are the same five questions. Let it answer those.</h1>
+        <p class="vertical-tagline">Order status, account access, and &ldquo;how do I&rdquo; questions make up most of a support queue. This resolves them on the spot, in the channel the customer already used, and hands off the rest with nothing lost in translation.</p>
+        <div class="vertical-hero-actions">
+          <a href="pricing.html" class="btn-ind">Start free trial</a>
+          <a href="solutions.html" class="vertical-hero-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All roles
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. SAME BRAIN
+         REAL SCENARIO
          ============================================================ -->
     <section class="section section--base">
       <div class="container">
-        <div class="spread reveal">
+        <div class="spread">
           <div>
-            <div class="spread-index">03 / Not a separate setup</div>
-            <h3>Same brain, same answers, one more surface.</h3>
-            <p>It's trained once and knows everything your website or WhatsApp agent knows — the standalone page just gives it a URL of its own.</p>
+            <div class="spread-index">Real scenario</div>
+            <h3>What this actually looks like in the channel.</h3>
+            <p>Not a script &mdash; this is the shape of a real conversation, answered in seconds instead of a queue.</p>
           </div>
           <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Nyra Store · Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Are you open on Sundays?</div>
-                <div class="lw-bubble agent">Yes, 11am to 6pm. Want directions or to book ahead?</div>
-                <div class="lw-bubble user">Can I book a table for 4, this Sunday at 1pm?</div>
-                <div class="lw-bubble agent">Booked &mdash; table for 4, Sunday at 1pm. You'll get a confirmation text shortly.</div>
+            <div class="wa-real">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span class="phone-status-icons">
+                  <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4.3" y="5" width="3" height="6" rx="0.5"/><rect x="8.6" y="3" width="3" height="8" rx="0.5"/><rect x="12.9" y="0" width="3" height="11" rx="0.5"/></svg>
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 4C4.7 0.7 10.3 0.7 14 4"/><path d="M3.3 6.4C5.7 4.2 9.3 4.2 11.7 6.4"/><path d="M6 8.7C6.9 7.9 8.1 7.9 9 8.7"/></svg>
+                  <svg width="24" height="11" viewBox="0 0 24 11" fill="none"><rect x="0.5" y="0.5" width="20" height="10" rx="2.5" stroke="currentColor"/><rect x="2" y="2" width="17" height="7" rx="1.2" fill="currentColor"/><rect x="21.3" y="3.3" width="1.7" height="4.4" rx="0.8" fill="currentColor"/></svg>
+                </span>
+              </div>
+              <div class="wa-real-header">
+                <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4L7 12L15 20"/></svg>
+                <span class="wa-real-avatar">C</span>
+                <div class="wa-real-id"><span class="wa-real-name">Cobalt Analytics</span><span class="wa-real-active">online</span></div>
+                <span class="wa-real-icons">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 9.5L22 6v12l-6-3.5"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C11.4 21 3 12.6 3 2.7c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>
+                </span>
+              </div>
+              <div class="wa-real-body">
+                <div class="wa-real-bubble in">My export has been stuck at &ldquo;processing&rdquo; for an hour.<span class="wa-real-time">4:52 PM</span></div>
+                <div class="wa-real-bubble out">Let me check that for you.<span class="wa-real-time">4:52 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+                <div class="wa-real-bubble out">Found it &mdash; it actually finished 2 minutes ago, just needed a refresh. Here&rsquo;s the direct download link.<span class="wa-real-time">4:53 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+                <div class="wa-real-bubble in">Oh perfect, got it. Thank you!<span class="wa-real-time">4:53 PM</span></div>
+                <div class="wa-real-bubble out">Anytime! I've also flagged the refresh delay to the team so it doesn't happen again.<span class="wa-real-time">4:54 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+              </div>
+              <div class="wa-real-composer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5v.01M15.5 10.5v.01M8 14.5c1.2 1.2 2.8 1.2 4 1.2s2.8 0 4-1.2"/></svg>
+                <span class="wa-real-input">Message</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+                <span class="wa-real-mic-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+              </div>
+              <div class="phone-home-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--base pain-use-section">
+      <div class="container">
+        <div class="pain-use-grid">
+
+          <div class="usecase-feed">
+            <div class="capability-showcase">
+              <div class="capability-visual"></div>
+              <div class="capability-list">
+                <h3 class="usecase-group-title">Resolve</h3>
+                <div class="usecase-group-list">
+                <div class="usecase-row" data-cat="cart"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M3 4H5L7.5 15H18L20 7H6"/></svg></span><div><h4 class="usecase-row-title">Order &amp; account status</h4><p class="usecase-row-desc">Answers order, subscription, and account-status questions instantly, verified against your system.</p></div></div>
+                <div class="usecase-row" data-cat="chat"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.8 8.8 0 0 1-4-1L3 20l1.2-4.2a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 12 3.4h.4a8.5 8.5 0 0 1 8 8v.1Z"/></svg></span><div><h4 class="usecase-row-title">How-do-I support</h4><p class="usecase-row-desc">Walks customers through common product questions using your help docs, not guesses.</p></div></div>
+                <div class="usecase-row" data-cat="chat"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.8 8.8 0 0 1-4-1L3 20l1.2-4.2a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 12 3.4h.4a8.5 8.5 0 0 1 8 8v.1Z"/></svg></span><div><h4 class="usecase-row-title">Troubleshooting</h4><p class="usecase-row-desc">Runs through the standard fix sequence for known issues before escalating.</p></div></div>
+              </div>
+                <h3 class="usecase-group-title">Escalate cleanly</h3>
+                <div class="usecase-group-list">
+                <div class="usecase-row" data-cat="handoff"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" /><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></svg></span><div><h4 class="usecase-row-title">Human handoff with context</h4><p class="usecase-row-desc">Transfers to a person with the full conversation and any relevant account details attached.</p></div></div>
+                <div class="usecase-row" data-cat="handoff"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" /><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></svg></span><div><h4 class="usecase-row-title">Ticket creation</h4><p class="usecase-row-desc">Opens a ticket for anything it can&rsquo;t resolve, tagged and prioritized correctly.</p></div></div>
+                <div class="usecase-row" data-cat="alert"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20H22L12 3Z"/><path d="M12 9V13M12 16.5V17"/></svg></span><div><h4 class="usecase-row-title">Sentiment-based escalation</h4><p class="usecase-row-desc">Recognizes frustration and routes straight to a human instead of trying one more script.</p></div></div>
+              </div>
+                <h3 class="usecase-group-title">Learn &amp; report</h3>
+                <div class="usecase-group-list">
+                <div class="usecase-row" data-cat="check"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5L10.5 15L16 9"/></svg></span><div><h4 class="usecase-row-title">Recurring-issue detection</h4><p class="usecase-row-desc">Flags when the same problem is spiking, before it becomes a wave of tickets.</p></div></div>
+                <div class="usecase-row" data-cat="note"><span class="usecase-row-num"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4H14L18 8V20H6V4Z"/><path d="M14 4V8H18"/><path d="M9 12H15M9 15.5H13"/></svg></span><div><h4 class="usecase-row-title">Plain-English reporting</h4><p class="usecase-row-desc">Reports what it resolved, what it escalated, and why, on a schedule you set.</p></div></div>
+              </div>
               </div>
             </div>
           </div>
+
+          <aside class="pain-rail">
+            <h2 class="pain-rail-title">You already know these</h2>
+            <p class="pain-rail-sub">Six things that quietly burn out every support team.</p>
+            <ul class="pain-list">
+              <li>The same five questions make up most of the ticket queue.</li>
+              <li>Customers repeat their issue to every person they get handed to.</li>
+              <li>Response times slip the moment volume spikes.</li>
+              <li>Simple account and order questions wait behind genuinely hard ones.</li>
+              <li>No one has time to write up what&rsquo;s actually going wrong, at scale.</li>
+              <li>After-hours messages just wait until morning.</li>
+            </ul>
+          </aside>
+
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         4. FAQ
+         GUARDRAILS
          ============================================================ -->
-    <section class="section section--raised" id="faq">
+    <section class="section section--raised">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> Questions</p>
-          <h2 class="section-title">About the standalone page.</h2>
-        </div>
-
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Can I use my own domain?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — point any domain or subdomain you own at your page, or use the free stepsai.link address to start.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Does it work without any other setup?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — it's the fastest way to go live. Give it your business details, and the page is ready in minutes, no website required.</p></div>
-            </div>
+        <h2 class="section-title">What it will never do</h2>
+        <p class="section-sub">It resolves what&rsquo;s known and safe. Judgment calls and refunds stay with your team.</p>
+        <div class="guardrail-card">
+          <div class="guardrail-card-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L21 6V11C21 16 17.5 20.5 12 22C6.5 20.5 3 16 3 11V6L12 2Z" stroke="#B45309" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8V13M12 16V16.5" stroke="#B45309" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Guardrails
           </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Is it indexed by search engines?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes, by default — you can also set it to private if you only want it reachable via your own shared link or QR code.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Can I brand it to match my business?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — logo, colors, and welcome message are all yours, same as every other channel.</p></div>
-            </div>
-          </div>
+          <ul class="guardrail-list">
+            <li>Never issues a refund or credit without your approval rules.</li>
+            <li>Never guesses at an answer it isn&rsquo;t confident about &mdash; escalates instead.</li>
+            <li>Never closes a ticket the customer hasn&rsquo;t confirmed is resolved.</li>
+            <li>Escalates immediately on anger, legal language, or safety concerns.</li>
+            <li>Keeps the full conversation history attached through every handoff.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         5. FINAL CTA
-         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <h2 class="section-title">If you can only start with one thing</h2>
+        <p class="section-sub">In priority order, based on what removes the most ticket volume fastest.</p>
+        <div class="priority-ledger">
+          <div class="priority-row"><span class="priority-row-num">01</span><span class="priority-row-label">Order &amp; account status</span></div>
+          <div class="priority-row"><span class="priority-row-num">02</span><span class="priority-row-label">Human handoff with context</span></div>
+          <div class="priority-row"><span class="priority-row-num">03</span><span class="priority-row-label">How-do-I support</span></div>
+          <div class="priority-row"><span class="priority-row-num">04</span><span class="priority-row-label">Ticket creation</span></div>
+          <div class="priority-row"><span class="priority-row-num">05</span><span class="priority-row-label">Recurring-issue detection</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--raised">
+      <div class="container">
+        <h2 class="section-title">What follow-up looks like after a resolution</h2>
+        <p class="section-sub">Three workflows built for how a queue actually recovers.</p>
+        <div class="workflow-strip-list">
+          <div class="workflow-strip-item">
+            <span class="workflow-strip-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5L10.5 15L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><p class="workflow-strip-title">Resolution confirmation</p><p class="workflow-strip-desc">Checks back that the fix actually worked before closing the ticket.</p></div>
+          </div>
+          <div class="workflow-strip-item">
+            <span class="workflow-strip-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <div><p class="workflow-strip-title">Escalation loop</p><p class="workflow-strip-desc">Keeps the customer updated while a human works a harder case, instead of going silent.</p></div>
+          </div>
+          <div class="workflow-strip-item">
+            <span class="workflow-strip-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span>
+            <div><p class="workflow-strip-title">Weekly report</p><p class="workflow-strip-desc">Summarizes ticket volume, resolution rate, and recurring issues in plain English.</p></div>
+          </div>
+        </div>
+
+        <div class="ind-crosslink">
+          <p>Every role runs on the same ten platform capabilities, tracked the same way.</p>
+          <a href="capabilities.html">See the platform capabilities <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--dark final-cta" id="final-cta">
-      <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Give your business a page, even without a website.</h2>
-        <p class="final-cta-sub">Same afternoon setup. Live at a URL of your own.</p>
-        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Cancel any time.</p>
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Your queue just got five questions shorter.</h2>
+        <p class="final-cta-sub">Free your team for the tickets that actually need them.</p>
+        <a href="pricing.html" class="btn btn-cta">Start free trial</a>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
       </div>
     </section>
 
@@ -350,10 +396,10 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Channels</span>
-            <a href="channel-website.html">Website</a>
-            <a href="channel-whatsapp.html">WhatsApp</a>
-            <a href="channel-instagram.html">Instagram</a>
-            <a href="channel-standalone.html">Standalone Page</a>
+            <a href="agents.html#channels">Website</a>
+            <a href="agents.html#channels">WhatsApp</a>
+            <a href="agents.html#channels">Instagram</a>
+            <a href="agents.html#channels">Standalone Page</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>
@@ -389,6 +435,5 @@
   </main>
 
   <script src="nav.js"></script>
-  <script src="industries.js"></script>
 </body>
 </html>

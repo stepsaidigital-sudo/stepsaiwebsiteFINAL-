@@ -98,7 +98,8 @@
           { side: 'in', text: 'Hi, my order #4928 was supposed to be delivered yesterday but the tracking hasn\'t updated.' },
           { side: 'out', text: 'I\'m so sorry about that delay! Let me check the courier system for you right now.' },
           { side: 'out', text: 'It looks like it was held up at the local sorting facility. I\'ll raise a priority ticket to get it moving today.' },
-          { side: 'in', text: 'Thank you, I really need it before the weekend.' }
+          { side: 'in', text: 'Thank you, I really need it before the weekend.' },
+          { side: 'out', text: 'Understood — flagged as urgent. It\'s scheduled for delivery tomorrow, and I\'ll message you the moment it moves.' }
         ],
         receipt: 'Ticket created — Zendesk'
       },
@@ -343,15 +344,49 @@
      INDUSTRY TABS
      --------------------------------------------------------- */
   (function industryTabsInit() {
-    var tabs = document.querySelectorAll('#homeIndustryTabs .industry-tab');
-    var panels = document.querySelectorAll('.industry-panel');
+    var tabsWrap = document.getElementById('homeIndustryTabs');
+    if (!tabsWrap) return;
+    var tabs = Array.prototype.slice.call(tabsWrap.querySelectorAll('.industry-tab'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.industry-panel'));
+    var indicator = tabsWrap.querySelector('.industry-tabs-indicator');
+
+    function moveIndicator(tab) {
+      if (!indicator) return;
+      indicator.style.width = tab.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + tab.offsetLeft + 'px)';
+    }
+
+    function showPanel(key) {
+      panels.forEach(function (p) {
+        var match = p.getAttribute('data-panel') === key;
+        p.classList.toggle('active', match);
+        p.classList.remove('is-shown');
+        if (match) {
+          void p.offsetWidth; // force layout so the enter transition actually plays
+          requestAnimationFrame(function () { p.classList.add('is-shown'); });
+        }
+      });
+    }
+
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
+        if (tab.classList.contains('active')) return;
         var key = tab.getAttribute('data-tab');
         tabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
-        panels.forEach(function (p) { p.classList.toggle('active', p.getAttribute('data-panel') === key); });
+        moveIndicator(tab);
+        showPanel(key);
       });
     });
+
+    var activeTab = tabsWrap.querySelector('.industry-tab.active') || tabs[0];
+    if (activeTab) {
+      moveIndicator(activeTab);
+      showPanel(activeTab.getAttribute('data-tab'));
+    }
+    window.addEventListener('resize', function () {
+      var current = tabsWrap.querySelector('.industry-tab.active');
+      if (current) moveIndicator(current);
+    }, { passive: true });
   })();
 
   /* ---------------------------------------------------------
@@ -378,5 +413,195 @@
         }
       });
     });
+  })();
+
+  /* ---------------------------------------------------------
+     DEPLOYMENT HUB DIAGRAM — draws the connecting lines in (real
+     SVG path length, not a guess) and staggers the channel-icon
+     spokes into place the first time the diagram scrolls into view.
+     --------------------------------------------------------- */
+  (function hubDiagramInit() {
+    var wrap = document.querySelector('.hub-spokes');
+    if (!wrap) return;
+    var lines = Array.prototype.slice.call(wrap.querySelectorAll('svg line'));
+    var spokes = Array.prototype.slice.call(wrap.querySelectorAll('.hub-spoke'));
+
+    lines.forEach(function (line) {
+      var len = line.getTotalLength();
+      line.style.setProperty('--len', len);
+    });
+    spokes.forEach(function (spoke, i) { spoke.style.setProperty('--i', i); });
+
+    function draw() { wrap.classList.add('is-drawn'); }
+
+    if (reduceMotion) { draw(); return; }
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { draw(); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.4 });
+      obs.observe(wrap);
+    } else {
+      draw();
+    }
+  })();
+
+  /* ---------------------------------------------------------
+     ANALYTICS BAR CHART — grows the bars up from zero (staggered)
+     the first time the chart scrolls into view, instead of just
+     appearing at full height with the page.
+     --------------------------------------------------------- */
+  (function analyticsBarsInit() {
+    var bars = document.querySelector('.analytics-bars');
+    if (!bars) return;
+    Array.prototype.slice.call(bars.children).forEach(function (bar, i) {
+      bar.style.setProperty('--i', i);
+    });
+    function grow() { bars.classList.add('is-grown'); }
+    if (reduceMotion) { grow(); return; }
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { grow(); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      obs.observe(bars);
+    } else {
+      grow();
+    }
+  })();
+
+  /* ---------------------------------------------------------
+     ONE AGENT, MULTIPLE TASKS — one console re-renders from a data
+     object per capability; selector click/hover switches context,
+     never navigates. Sequenced conversation animation (question →
+     typing → response → action → result), auto-cycles every 4.5s,
+     resets cleanly on user interaction. All timers tracked and
+     cleared before each new sequence — nothing stacks or leaks.
+     --------------------------------------------------------- */
+  (function agentHeroInit() {
+    var body = document.getElementById('agentConsoleBody');
+    var industryTag = document.getElementById('agentIndustryTag');
+    var selector = document.getElementById('agentSelector');
+    var indicator = document.getElementById('agentSelectorIndicator');
+    if (!body || !selector || !indicator) return;
+    var items = Array.prototype.slice.call(selector.querySelectorAll('.agent-selector-item'));
+
+    var CAPS = {
+      sales: { industry: 'Real Estate', q: 'Do you have this in large?', a: 'Yes — 2 left. Want me to hold one?', actionText: 'Checking inventory…', result: 'Cart updated' },
+      leads: { industry: 'Education & Training', q: 'I’m looking for training for my team.', a: 'Absolutely — what’s your budget, and when are you looking to start?', actionText: 'Saving to CRM…', result: 'Lead created' },
+      meetings: { industry: 'Healthcare & Clinics', q: 'I want to book a consultation.', a: 'I have Friday 2pm or Saturday 11am open — which works?', actionText: 'Checking calendar…', result: 'Meeting booked' },
+      support: { industry: 'E-Commerce & D2C', q: 'Where is my order?', a: 'It ships tomorrow and should arrive Thursday by 7pm.', actionText: 'Tracking order…', result: 'No action needed' }
+    };
+    var ORDER = ['sales', 'leads', 'meetings', 'support'];
+    var current = null;
+    var seqTimers = [];
+    var autoTimer = null;
+
+    function clearSeqTimers() { seqTimers.forEach(clearTimeout); seqTimers = []; }
+
+    function moveIndicator(item) {
+      indicator.style.width = item.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + item.offsetLeft + 'px)';
+    }
+
+    function playSequence(cap) {
+      clearSeqTimers();
+      body.innerHTML =
+        '<div class="ac-row"><span class="ac-label">Customer</span><div class="ac-bubble q">' + cap.q + '</div></div>' +
+        '<div class="ac-row"><div class="ac-typing"><span></span><span></span><span></span></div></div>' +
+        '<div class="ac-row"><span class="ac-label">Agent</span><div class="ac-bubble a">' + cap.a + '</div></div>' +
+        '<div class="ac-row"><span class="ac-label">Action</span><div class="ac-action"><span class="ac-action-spinner"></span>' + cap.actionText + '</div></div>' +
+        '<div class="ac-row"><div class="ac-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>' + cap.result + '</div></div>';
+      var rows = Array.prototype.slice.call(body.children);
+      if (reduceMotion) { rows.forEach(function (r) { r.classList.add('is-shown'); }); return; }
+      var delays = [0, 500, 1100, 1900, 2700];
+      rows.forEach(function (row, i) {
+        seqTimers.push(setTimeout(function () { row.classList.add('is-shown'); }, delays[i]));
+      });
+    }
+
+    function restartAutoCycle() {
+      if (autoTimer) clearInterval(autoTimer);
+      if (reduceMotion) return;
+      autoTimer = setInterval(function () {
+        var idx = ORDER.indexOf(current);
+        setActive(ORDER[(idx + 1) % ORDER.length], true);
+      }, 4500);
+    }
+
+    function setActive(key, silent) {
+      if (key === current) return;
+      current = key;
+      var cap = CAPS[key];
+      items.forEach(function (it) {
+        var active = it.getAttribute('data-cap') === key;
+        it.classList.toggle('is-active', active);
+        it.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active) moveIndicator(it);
+      });
+      industryTag.textContent = cap.industry;
+      playSequence(cap);
+      if (!silent) restartAutoCycle();
+    }
+
+    items.forEach(function (it) {
+      it.addEventListener('click', function () { setActive(it.getAttribute('data-cap')); });
+      it.addEventListener('mouseenter', function () { setActive(it.getAttribute('data-cap')); });
+    });
+    window.addEventListener('resize', function () {
+      var active = selector.querySelector('.agent-selector-item.is-active');
+      if (active) moveIndicator(active);
+    }, { passive: true });
+
+    setActive('sales', true);
+    restartAutoCycle();
+  })();
+
+  /* ---------------------------------------------------------
+     PROBLEM CARD GRID — staggered entrance (120ms per card) the
+     first time it scrolls into view.
+     --------------------------------------------------------- */
+  (function problemGridInit() {
+    var grid = document.querySelector('.problem-grid');
+    if (!grid) return;
+    function show() { grid.classList.add('is-visible'); }
+    if (reduceMotion) { show(); return; }
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { show(); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(grid);
+    } else {
+      show();
+    }
+  })();
+
+  /* ---------------------------------------------------------
+     HERO PARALLAX — the ambient orb layer drifts at a different
+     rate than the foreground content as you scroll through the
+     hero, so leaving it doesn't feel like a flat cut. Only runs
+     while the hero is actually on screen.
+     --------------------------------------------------------- */
+  (function heroParallaxInit() {
+    if (reduceMotion) return;
+    var hero = document.getElementById('heroSection');
+    var orbs = hero && hero.querySelector('.hero-orbs');
+    if (!hero || !orbs) return;
+
+    var ticking = false;
+    function apply() {
+      ticking = false;
+      var rect = hero.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      orbs.style.transform = 'translateY(' + (rect.top * -0.12) + 'px)';
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    }, { passive: true });
+    apply();
   })();
 })();
