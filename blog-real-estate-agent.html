@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solutions by role &mdash; StepsAI | One agent, every role you need it to play</title>
-<meta name="description" content="Growth, Marketing, Sales, Support, and Appointments all run on the same StepsAI agent &mdash; the same memory of your products, your customers, and your answers.">
+<title>Setting Up an AI Agent for Real Estate — StepsAI Blog</title>
+<meta name="description" content="A lead messages at 11pm asking about a 2BHK near the tech park. Here's how the agent qualifies budget, shares a matching listing, and books the site visit.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
 <link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="blog.css">
 </head>
 <body>
+
+  <div id="readingProgress"></div>
 
   <header class="nav" id="nav">
     <div class="nav-inner">
@@ -47,7 +50,7 @@
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-header">Platform</span>
-                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups that run on their own</span></span></a>
+                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups, reminders and broadcasts that run on their own</span></span></a>
                 <a href="one-inbox.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12H8L10 15H14L16 12H21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">One Inbox</span><span class="nav-mega-row-desc">Every conversation, one place</span></span></a>
                 <a href="analytics.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Analytics &amp; Insights</span><span class="nav-mega-row-desc">What it handled, in plain English</span></span></a>
                 <a href="integrations.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 4H11V7H13C14.1 7 15 7.9 15 9V11H18V9H20V15H18V13H15V15C15 16.1 14.1 17 13 17H11V20H9V17H7C5.9 17 5 16.1 5 15V13H2V11H5V9C5 7.9 5.9 7 7 7H9V4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Integrations</span><span class="nav-mega-row-desc">Connect the tools you already use</span></span></a>
@@ -74,7 +77,7 @@
         </div>
 
         <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
             Solutions
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -84,7 +87,7 @@
                 <span class="nav-mega-header">By industry</span>
                 <a href="industry-ecommerce.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">E-Commerce &amp; D2C<span class="nav-badge">Flagship</span></span><span class="nav-mega-row-desc">Shopify-native selling agent</span></span></a>
                 <a href="industry-healthcare.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Healthcare &amp; Clinics</span><span class="nav-mega-row-desc">Appointments and patient questions</span></span></a>
-                <a href="industry-real-estate.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Real Estate</span><span class="nav-mega-row-desc">Buyer qualification and site visits</span></span></a>
+                <a href="industry-real-estate.html" class="nav-mega-row is-active" aria-current="page"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 11L12 4L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10V20H18V10" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Real Estate</span><span class="nav-mega-row-desc">Buyer qualification and site visits</span></span></a>
                 <a href="industry-edtech.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4L22 9L12 14L2 9L12 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11V17C6 17 8.5 19.5 12 19.5C15.5 19.5 18 17 18 17V11" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Education &amp; Training</span><span class="nav-mega-row-desc">Course enquiries and counsellor handoff</span></span></a>
                 <a href="industry-hotels.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M2 12l19-7-7 19-3-8-9-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Travel &amp; Hospitality</span><span class="nav-mega-row-desc">Booking enquiries, start to finish</span></span></a>
                 <a href="industries.html" class="nav-mega-see-all">See all 12 industries &rarr;</a>
@@ -96,7 +99,7 @@
                 <a href="role-sales.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Sales</span><span class="nav-mega-row-desc">Qualify leads and close deals faster</span></span></a>
                 <a href="role-support.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support</span><span class="nav-mega-row-desc">Resolve tickets and delight customers</span></span></a>
                 <a href="role-appointments.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Appointments</span><span class="nav-mega-row-desc">Scheduling, reminders and no-show recovery</span></span></a>
-                <a href="solutions.html" class="nav-mega-see-all is-active" aria-current="page">See all roles &rarr;</a>
+                <a href="solutions.html" class="nav-mega-see-all">See all roles &rarr;</a>
               </div>
             </div>
           </div>
@@ -147,13 +150,13 @@
         <a href="workflows.html">Workflows</a>
         <a href="one-inbox.html">One Inbox</a>
         <a href="analytics.html">Analytics &amp; Insights</a>
-        <a href="agents.html">Integrations</a>
+        <a href="agents.html#channels">Channels</a>
       </details>
       <details class="nav-mobile-group" name="navMobileAccordion" open>
         <summary>Solutions</summary>
         <a href="industry-ecommerce.html">E-Commerce &amp; D2C <span class="nav-badge">Flagship</span></a>
         <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
-        <a href="industry-real-estate.html">Real Estate</a>
+        <a href="industry-real-estate.html" aria-current="page">Real Estate</a>
         <a href="industry-edtech.html">Education &amp; Training</a>
         <a href="industry-hotels.html">Travel &amp; Hospitality</a>
         <a href="industries.html">All 12 industries</a>
@@ -162,7 +165,7 @@
         <a href="role-sales.html">Sales</a>
         <a href="role-support.html">Support</a>
         <a href="role-appointments.html">Appointments</a>
-        <a href="solutions.html" aria-current="page">All 5 roles</a>
+        <a href="solutions.html">All 5 roles</a>
       </details>
       <a href="pricing.html">Pricing</a>
       <a href="partner.html">Partner</a>
@@ -182,108 +185,194 @@
   </header>
 
   <main id="top">
+    <div class="container" style="padding-top:48px">
 
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="vertical-hero" style="padding-bottom:40px">
-      <div class="container">
-        <div class="reveal" style="max-width:760px">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Roles</span>
-          <h1 class="vertical-headline" style="font-size:clamp(32px,4.4vw,50px)">One agent. Every role you need it to play.</h1>
-          <p class="vertical-tagline">Growth, Marketing, Sales, Support, and Appointments all draw on the same agent &mdash; the same memory of your products, your customers, and your answers. You don&rsquo;t run five tools. You run one.</p>
+      <header class="article-header reveal">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="blog.html">Blog</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          <span>Real Estate</span>
+        </nav>
+        <h1 class="article-title">Setting Up an AI Agent for Real Estate</h1>
+        <p class="article-dek">11:02 PM. A lead is scrolling listings and messages about a 2BHK near the tech park. Nobody on your sales team is checking WhatsApp right now — but the agent is, and by 11:05 the site visit is booked.</p>
+        <div class="article-meta">
+          <span class="article-meta-avatar">SA</span><span>The StepsAI Team</span><span class="dot"></span>
+          <span>Aug 30, 2026</span><span class="dot"></span>
+          <span class="article-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>5 min read</span>
+        </div>
+      </header>
+
+      <div class="article-hero-visual reveal">
+        <div class="wa-real">
+          <div class="phone-status">
+            <span>9:41</span>
+            <span class="phone-status-icons">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4.3" y="5" width="3" height="6" rx="0.5"/><rect x="8.6" y="3" width="3" height="8" rx="0.5"/><rect x="12.9" y="0" width="3" height="11" rx="0.5"/></svg>
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 4C4.7 0.7 10.3 0.7 14 4"/><path d="M3.3 6.4C5.7 4.2 9.3 4.2 11.7 6.4"/><path d="M6 8.7C6.9 7.9 8.1 7.9 9 8.7"/></svg>
+              <svg width="24" height="11" viewBox="0 0 24 11" fill="none"><rect x="0.5" y="0.5" width="20" height="10" rx="2.5" stroke="currentColor"/><rect x="2" y="2" width="17" height="7" rx="1.2" fill="currentColor"/><rect x="21.3" y="3.3" width="1.7" height="4.4" rx="0.8" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <div class="wa-real-header">
+            <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4L7 12L15 20"/></svg>
+            <span class="wa-real-avatar">K</span>
+            <div class="wa-real-id"><span class="wa-real-name">Keystone Realty</span><span class="wa-real-active">online</span></div>
+            <span class="wa-real-icons">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 9.5L22 6v12l-6-3.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C11.4 21 3 12.6 3 2.7c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>
+            </span>
+          </div>
+          <div class="wa-real-body">
+            <div class="wa-real-bubble in">Looking for a 2BHK near the tech park<span class="wa-real-time">11:02 PM</span></div>
+            <div class="wa-real-bubble out">Budget range? I can share matching listings right now.<span class="wa-real-time">11:02 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+            <div class="wa-real-bubble in">Around 65 lakhs<span class="wa-real-time">11:03 PM</span></div>
+            <div class="wa-real-bubble out">Found one that fits well:<span class="wa-real-time">11:03 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+            <div class="chat-card">
+              <div class="chat-card-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11L12 4L20 11"/><path d="M6 10V20H18V10"/></svg></div>
+              <div class="chat-card-body">
+                <p class="chat-card-title">Prestige Meridian &middot; 2BHK</p>
+                <p class="chat-card-sub">0.8km from the tech park</p>
+                <p class="chat-card-price">&#8377;64L</p>
+                <a href="#" class="chat-card-cta">View listing</a>
+              </div>
+            </div>
+            <div class="wa-real-bubble in">Can I see it this weekend?<span class="wa-real-time">11:04 PM</span></div>
+            <div class="wa-real-bubble out">Here's what's open for a site visit:<span class="wa-real-time">11:04 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+            <div class="chat-card">
+              <p class="chat-card-slot-label">Site visit &middot; Prestige Meridian</p>
+              <div class="chat-card-slots">
+                <span class="chat-card-slot">Sat, 11:00 AM</span>
+                <span class="chat-card-slot">Sat, 4:00 PM</span>
+                <span class="chat-card-slot">Sun, 10:30 AM</span>
+              </div>
+            </div>
+            <div class="wa-real-bubble in">Saturday 4pm<span class="wa-real-time">11:05 PM</span></div>
+            <div class="wa-real-bubble out">Booked &mdash; Saturday, 4pm at Prestige Meridian. I'll send the exact location and the agent's number 30 minutes before.<span class="wa-real-time">11:05 PM<svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5L4.5 10L10.5 2"/><path d="M6.5 6.5L10 10L17 2"/></svg></span></div>
+          </div>
+          <div class="wa-real-composer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5v.01M15.5 10.5v.01M8 14.5c1.2 1.2 2.8 1.2 4 1.2s2.8 0 4-1.2"/></svg>
+            <span class="wa-real-input">Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+            <span class="wa-real-mic-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+          </div>
+          <div class="phone-home-bar"></div>
         </div>
       </div>
-    </section>
 
-    <!-- ============================================================
-         2. THE FULL GRID — all 5 roles
-         ============================================================ -->
-    <section class="section section--base" style="padding-top:0">
-      <div class="container">
-        <div class="industry-hub-grid reveal reveal-stagger">
+      <div class="article-shell">
+        <aside class="article-sidebar">
+          <div class="article-share">
+            <span class="article-share-label">Share</span>
+            <button type="button" class="article-share-btn" data-copy-link title="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              <span class="article-share-toast">Copied!</span>
+            </button>
+          </div>
+          <span class="article-toc-label">On this page</span>
+          <nav class="article-toc">
+            <a href="#the-problem">The problem</a>
+            <a href="#the-conversation">The conversation, start to finish</a>
+            <a href="#step-1">Qualify budget first</a>
+            <a href="#step-2">Show one listing, not ten</a>
+            <a href="#step-3">Book the site visit directly</a>
+            <a href="#impact">What your sales team gets instead</a>
+          </nav>
+          <div class="article-sidebar-cta">
+            <div class="article-sidebar-cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+            <h5>Set this up for your listings</h5>
+            <p>Connect your WhatsApp and inventory once. The agent handles the rest.</p>
+            <a href="industry-real-estate.html" class="btn btn-accent btn-sm">See Real Estate &rarr;</a>
+          </div>
+        </aside>
 
-          <a class="industry-hub-card" href="role-growth.html" style="--i:0">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 10V14H6L13 19V5L6 10H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9C18 10 18 14 17 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-            <h3>Growth</h3>
-            <p>Turn comments, DMs, and site visits into qualified conversations before a human ever sees them.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+        <article class="article-body">
+          <h2 id="the-problem">The problem with after-hours leads</h2>
+          <p>Real estate enquiries don't arrive on business hours. Someone scrolling listings at 11pm is a genuinely warm lead — but if the reply comes the next morning, they've usually already messaged two other agencies by then. Speed is most of the qualification.</p>
 
-          <a class="industry-hub-card" href="role-marketing.html" style="--i:1">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-            <h3>Marketing</h3>
-            <p>Answer campaign and promo questions instantly, and re-engage everyone who didn&rsquo;t convert.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+          <h2 id="the-conversation">The conversation, start to finish</h2>
+          <p>The screenshot above is the shape of a real enquiry, not a script written for this post — the timestamps run 11:02 PM to 11:05 PM, start to finish. Three minutes, one conversation, one booked site visit.</p>
 
-          <a class="industry-hub-card" href="role-sales.html" style="--i:2">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span>
-            <h3>Sales</h3>
-            <p>Qualify who&rsquo;s ready to buy, answer pricing and fit questions, and book the meeting.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+          <h2 id="step-1">Step 1: qualify budget first</h2>
+          <p>Before showing anything, the agent asks the one question that actually narrows the search — budget. "Around 65 lakhs" is enough to filter out listings that would waste everyone's time on a site visit neither side wants.</p>
 
-          <a class="industry-hub-card" href="role-support.html" style="--i:3">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
-            <h3>Support</h3>
-            <p>Resolve the questions you answer every day, and hand over cleanly when it can&rsquo;t.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+          <div class="article-callout">
+            <div class="article-callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <div>
+              <h4>It's working from your real inventory</h4>
+              <p>Prestige Meridian and its &#8377;64L price aren't invented for this post — the agent answers from whatever listings and pricing you've actually connected.</p>
+            </div>
+          </div>
 
-          <a class="industry-hub-card" href="role-appointments.html" style="--i:4">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-            <h3>Appointments</h3>
-            <p>Book, remind, and reschedule automatically, then recover no-shows and report weekly.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+          <h2 id="step-2">Step 2: show one listing, not ten</h2>
+          <p>Instead of a wall of options, the agent shares a single well-matched listing as a card — distance from the tech park, price, a link — inline in the same chat. One good match moves the conversation forward faster than ten average ones.</p>
 
-        </div>
+          <h2 id="step-3">Step 3: book the site visit directly</h2>
+          <p>The moment interest is confirmed, the agent offers real open slots — not "someone will call you to schedule" — and locks in the one the lead picks. By 11:05 PM, there's a confirmed Saturday 4pm site visit, and a promise (that the agent will keep) to send the exact location and the human agent's number ahead of time.</p>
 
-        <div class="ind-crosslink">
-          <p>Looking for how this fits your industry instead of your role?</p>
-          <a href="industries.html">See it by industry <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
+          <div class="article-inline-cta">
+            <div class="article-inline-cta-body">
+              <h3>Stop losing after-hours leads to whoever replies first.</h3>
+              <p>Qualify budget, share the right listing, and book the visit — automatically.</p>
+            </div>
+            <a href="pricing.html" class="btn btn-accent">Start free trial</a>
+          </div>
+
+          <h2 id="impact">What your sales team gets instead</h2>
+          <p>Nobody on your team had to be awake at 11pm for this to happen — but the moment they're back online, they see a qualified lead with a confirmed site visit already on the calendar, not a cold enquiry to chase. That's the actual shift: the agent doesn't replace the site visit or the close, it makes sure a real one gets booked instead of going cold overnight.</p>
+          <p>Once a lead is this qualified, seeing how it shows up across every conversation your team has — not just this one — is what <a href="blog-support-triage.html">One Inbox</a> is built for.</p>
+        </article>
       </div>
-    </section>
 
-    <!-- ============================================================
-         FAQ
-         ============================================================ -->
-    <section class="section section--base faq">
-      <div class="container">
-        <p class="kicker">QUESTIONS</p>
-        <h2 class="section-title">Solutions, answered.</h2>
-
-        <div class="faq-grid">
-          <div class="faq-item">
-            <button class="faq-question">Can one agent handle Growth, Marketing, Sales, Support, and Appointments at once?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>Yes &mdash; it&rsquo;s the same underlying agent across every role, sharing one memory of your products and customers. What changes is the job it&rsquo;s given, not the product itself.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Do I need to set up a separate agent per department?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>No. One setup covers every role above. You can restrict what it&rsquo;s allowed to do per channel or team if you want tighter boundaries, but it&rsquo;s one agent, not five.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Can Sales and Support see the same conversation history?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>Yes &mdash; every conversation lands in the one inbox regardless of which role triggered it, so nobody re-asks a customer something they&rsquo;ve already said.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Which plan includes which roles?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>All five roles are available on every plan, including Starter &mdash; plans differ by credit volume, storage, and support level, not by which jobs the agent can do. See the full comparison on the pricing page.</p></div>
+      <div class="article-footer">
+        <div class="article-author">
+          <span class="article-author-mark">SA</span>
+          <div>
+            <h4>The StepsAI Team</h4>
+            <p>Notes on how StepsAI is actually built and used, written by the team shipping it.</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="section section--dark final-cta" id="final-cta">
-      <div class="final-cta-glow" aria-hidden="true"></div>
-      <div class="final-cta-dots" aria-hidden="true"></div>
-      <div class="container final-cta-inner">
-        <h2 class="final-cta-headline">Pick a role. See it work.</h2>
-        <p class="final-cta-sub">The same agent, doing a different job. Set it up this afternoon.</p>
-        <a href="pricing.html" class="btn btn-cta">Start free trial</a>
-        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+      <div class="article-related">
+        <h3>You might also enjoy</h3>
+        <div class="blog-grid blog-related-grid">
+          <a href="blog-support-triage.html" class="blog-card">
+            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12H8L10 15H14L16 12H21" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke-linejoin="round"/></svg></div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Product</span>
+              <h3 class="blog-card-title">How One Inbox Ends Support Triage</h3>
+              <p class="blog-card-excerpt">The fix for reading three channels just to figure out who handles what.</p>
+              <div class="blog-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>7 min read</span></div>
+            </div>
+          </a>
+          <a href="blog-cart-recovery.html" class="blog-card">
+            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="5" cy="18" r="2.2"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14"/></svg></div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Workflows</span>
+              <h3 class="blog-card-title">Recovering Abandoned Carts on Autopilot</h3>
+              <p class="blog-card-excerpt">The exact five-node workflow that runs every time a cart is left behind.</p>
+              <div class="blog-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>6 min read</span></div>
+            </div>
+          </a>
+          <a href="blog-analytics-dashboard.html" class="blog-card">
+            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20H20"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor" stroke="none"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor" stroke="none"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor" stroke="none"/></svg></div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Analytics</span>
+              <h3 class="blog-card-title">What Your Analytics Dashboard Should Actually Tell You</h3>
+              <p class="blog-card-excerpt">Not a message count. What it handled alone, and where it's still weak.</p>
+              <div class="blog-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>5 min read</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section section--dark final-cta" id="final-cta" style="margin-top:64px">
+      <div class="container reveal" style="text-align:center">
+        <h2 class="final-cta-headline">Paste your website link. Watch it start answering.</h2>
+        <p class="final-cta-sub">Same afternoon setup. Live on WhatsApp, Instagram, and your website.</p>
+        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
+        <p class="final-cta-note">No credit card. Cancel any time.</p>
       </div>
     </section>
 
@@ -349,10 +438,10 @@
         </div>
       </div>
     </footer>
-
   </main>
 
   <script src="nav.js"></script>
   <script src="industries.js"></script>
+  <script src="blog.js"></script>
 </body>
 </html>

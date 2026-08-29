@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solutions by role &mdash; StepsAI | One agent, every role you need it to play</title>
-<meta name="description" content="Growth, Marketing, Sales, Support, and Appointments all run on the same StepsAI agent &mdash; the same memory of your products, your customers, and your answers.">
+<title>Blog — StepsAI | Notes on building with AI agents</title>
+<meta name="description" content="How teams actually use StepsAI: ending support triage with one inbox, recovering carts on autopilot, setting up an agent for real estate, and reading analytics that mean something.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
 <link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
@@ -47,7 +48,7 @@
               </div>
               <div class="nav-mega-col">
                 <span class="nav-mega-header">Platform</span>
-                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups that run on their own</span></span></a>
+                <a href="workflows.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Workflows</span><span class="nav-mega-row-desc">Follow-ups, reminders and broadcasts that run on their own</span></span></a>
                 <a href="one-inbox.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12H8L10 15H14L16 12H21" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">One Inbox</span><span class="nav-mega-row-desc">Every conversation, one place</span></span></a>
                 <a href="analytics.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Analytics &amp; Insights</span><span class="nav-mega-row-desc">What it handled, in plain English</span></span></a>
                 <a href="integrations.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 4H11V7H13C14.1 7 15 7.9 15 9V11H18V9H20V15H18V13H15V15C15 16.1 14.1 17 13 17H11V20H9V17H7C5.9 17 5 16.1 5 15V13H2V11H5V9C5 7.9 5.9 7 7 7H9V4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Integrations</span><span class="nav-mega-row-desc">Connect the tools you already use</span></span></a>
@@ -74,7 +75,7 @@
         </div>
 
         <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
             Solutions
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -96,7 +97,7 @@
                 <a href="role-sales.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Sales</span><span class="nav-mega-row-desc">Qualify leads and close deals faster</span></span></a>
                 <a href="role-support.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Support</span><span class="nav-mega-row-desc">Resolve tickets and delight customers</span></span></a>
                 <a href="role-appointments.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Appointments</span><span class="nav-mega-row-desc">Scheduling, reminders and no-show recovery</span></span></a>
-                <a href="solutions.html" class="nav-mega-see-all is-active" aria-current="page">See all roles &rarr;</a>
+                <a href="solutions.html" class="nav-mega-see-all">See all roles &rarr;</a>
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@
         <a href="partner.html" class="">Partner</a>
 
         <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+          <button class="nav-dropdown-trigger is-active" type="button" aria-expanded="false" aria-haspopup="true">
             Resources
             <svg class="nav-dropdown-caret" width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -114,7 +115,7 @@
             <div class="nav-mega-cols nav-mega-cols--2">
               <div class="nav-mega-col">
                 <span class="nav-mega-header">Learn</span>
-                <a href="blog.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 4H14L18 8V20H6V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4V8H18" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12H15M9 15.5H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Blog</span></span></a>
+                <a href="blog.html" class="nav-mega-row is-active" aria-current="page"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 4H14L18 8V20H6V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 4V8H18" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12H15M9 15.5H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Blog</span></span></a>
                 <a href="index.html#top" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H12V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">AI Guides</span></span></a>
                 <a href="case-studies.html" class="nav-mega-row"><span class="nav-mega-row-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 20V4M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor"/></svg></span><span class="nav-mega-row-body"><span class="nav-mega-row-label">Case Studies</span></span></a>
               </div>
@@ -147,9 +148,9 @@
         <a href="workflows.html">Workflows</a>
         <a href="one-inbox.html">One Inbox</a>
         <a href="analytics.html">Analytics &amp; Insights</a>
-        <a href="agents.html">Integrations</a>
+        <a href="agents.html#channels">Channels</a>
       </details>
-      <details class="nav-mobile-group" name="navMobileAccordion" open>
+      <details class="nav-mobile-group" name="navMobileAccordion">
         <summary>Solutions</summary>
         <a href="industry-ecommerce.html">E-Commerce &amp; D2C <span class="nav-badge">Flagship</span></a>
         <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
@@ -162,13 +163,13 @@
         <a href="role-sales.html">Sales</a>
         <a href="role-support.html">Support</a>
         <a href="role-appointments.html">Appointments</a>
-        <a href="solutions.html" aria-current="page">All 5 roles</a>
+        <a href="solutions.html">All 5 roles</a>
       </details>
       <a href="pricing.html">Pricing</a>
       <a href="partner.html">Partner</a>
-      <details class="nav-mobile-group" name="navMobileAccordion">
+      <details class="nav-mobile-group" name="navMobileAccordion" open>
         <summary>Resources</summary>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html" aria-current="page">Blog</a>
         <a href="index.html#top">AI Guides</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="about.html">About</a>
@@ -183,109 +184,144 @@
 
   <main id="top">
 
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="vertical-hero" style="padding-bottom:40px">
-      <div class="container">
-        <div class="reveal" style="max-width:760px">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Roles</span>
-          <h1 class="vertical-headline" style="font-size:clamp(32px,4.4vw,50px)">One agent. Every role you need it to play.</h1>
-          <p class="vertical-tagline">Growth, Marketing, Sales, Support, and Appointments all draw on the same agent &mdash; the same memory of your products, your customers, and your answers. You don&rsquo;t run five tools. You run one.</p>
-        </div>
-      </div>
-    </section>
+    <div class="bh-page">
 
     <!-- ============================================================
-         2. THE FULL GRID — all 5 roles
+         1. HERO — featured post, bold brutalist band
          ============================================================ -->
-    <section class="section section--base" style="padding-top:0">
-      <div class="container">
-        <div class="industry-hub-grid reveal reveal-stagger">
-
-          <a class="industry-hub-card" href="role-growth.html" style="--i:0">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 10V14H6L13 19V5L6 10H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9C18 10 18 14 17 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-            <h3>Growth</h3>
-            <p>Turn comments, DMs, and site visits into qualified conversations before a human ever sees them.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <section class="bh-hero">
+      <div class="container bh-hero-grid">
+        <div class="reveal">
+          <span class="bh-badge"><span class="bh-badge-dot"></span>Latest post</span>
+          <a href="blog-support-triage.html" style="display:block">
+            <h1 class="bh-hero-title">How One Inbox Ends Support Triage</h1>
           </a>
-
-          <a class="industry-hub-card" href="role-marketing.html" style="--i:1">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-            <h3>Marketing</h3>
-            <p>Answer campaign and promo questions instantly, and re-engage everyone who didn&rsquo;t convert.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="industry-hub-card" href="role-sales.html" style="--i:2">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span>
-            <h3>Sales</h3>
-            <p>Qualify who&rsquo;s ready to buy, answer pricing and fit questions, and book the meeting.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="industry-hub-card" href="role-support.html" style="--i:3">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="16.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
-            <h3>Support</h3>
-            <p>Resolve the questions you answer every day, and hand over cleanly when it can&rsquo;t.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="industry-hub-card" href="role-appointments.html" style="--i:4">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9.5H20M8 3V6M16 3V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-            <h3>Appointments</h3>
-            <p>Book, remind, and reschedule automatically, then recover no-shows and report weekly.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
+          <p class="bh-hero-dek">Every morning starts the same way: WhatsApp, Instagram and website messages pile up, and someone has to read all of them just to figure out who handles what. Here's the fix that's already live.</p>
+          <div class="bh-hero-actions">
+            <a href="blog-support-triage.html" class="bh-btn-ink">Read the post &rarr;</a>
+            <div class="bh-hero-byline">
+              <span class="bh-avatar">SA</span>
+              <div><div class="bh-byline-name">The StepsAI Team</div><div class="bh-byline-meta">Aug 30, 2026 &middot; 7 min read</div></div>
+            </div>
+          </div>
         </div>
-
-        <div class="ind-crosslink">
-          <p>Looking for how this fits your industry instead of your role?</p>
-          <a href="industries.html">See it by industry <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="reveal">
+          <a href="blog-support-triage.html" class="bh-hero-visual" style="display:block">
+            <div class="inbox-list" style="width:100%">
+              <div class="inbox-list-row"><span class="inbox-channel-tag">WA</span><span class="inbox-name">Aarav Shah</span><span class="inbox-preview">Yes please, size M works</span><span class="inbox-time">10:43 PM</span><span class="inbox-status resolved">Resolved</span></div>
+              <div class="inbox-list-row"><span class="inbox-channel-tag">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">Is the 3BHK still available?</span><span class="inbox-time">9:16 PM</span><span class="inbox-status booked">Booked</span></div>
+              <div class="inbox-list-row"><span class="inbox-channel-tag">Web</span><span class="inbox-name">Meera R.</span><span class="inbox-preview">Can I speak to someone about a refund?</span><span class="inbox-time">8:52 PM</span><span class="inbox-status handover">With Priya</span></div>
+            </div>
+            <span class="bh-hero-flag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>358 resolved solo</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         FAQ
+         2. FILTERS + GRID
          ============================================================ -->
-    <section class="section section--base faq">
+    <section class="section section--base" id="posts">
       <div class="container">
-        <p class="kicker">QUESTIONS</p>
-        <h2 class="section-title">Solutions, answered.</h2>
 
-        <div class="faq-grid">
-          <div class="faq-item">
-            <button class="faq-question">Can one agent handle Growth, Marketing, Sales, Support, and Appointments at once?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>Yes &mdash; it&rsquo;s the same underlying agent across every role, sharing one memory of your products and customers. What changes is the job it&rsquo;s given, not the product itself.</p></div>
+        <div class="bh-section-head reveal">
+          <h2 class="bh-section-title">More from the blog</h2>
+          <div class="bh-filters" id="bhFilters">
+            <button class="bh-filter is-active" data-filter="all" type="button">All posts</button>
+            <button class="bh-filter" data-filter="workflows" type="button">Workflows</button>
+            <button class="bh-filter" data-filter="realestate" type="button">Real Estate</button>
+            <button class="bh-filter" data-filter="analytics" type="button">Analytics</button>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">Do I need to set up a separate agent per department?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>No. One setup covers every role above. You can restrict what it&rsquo;s allowed to do per channel or team if you want tighter boundaries, but it&rsquo;s one agent, not five.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Can Sales and Support see the same conversation history?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>Yes &mdash; every conversation lands in the one inbox regardless of which role triggered it, so nobody re-asks a customer something they&rsquo;ve already said.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Which plan includes which roles?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="faq-answer"><p>All five roles are available on every plan, including Starter &mdash; plans differ by credit volume, storage, and support level, not by which jobs the agent can do. See the full comparison on the pricing page.</p></div>
-          </div>
+        </div>
+
+        <div class="bh-grid reveal reveal-stagger" id="bhGrid">
+
+          <a href="blog-cart-recovery.html" class="bh-card" data-category="workflows" style="--i:0">
+            <div class="bh-card-visual--dark">
+              <div class="wf-canvas-wrap">
+                <div class="wf-canvas">
+                  <div class="wf-trunk">
+                    <div class="wf-node" data-wf-step="1"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg></span><div><div class="wf-node-kind">Trigger</div><div class="wf-node-title">Cart left behind</div></div></div>
+                    <div class="wf-line" data-wf-step="2"></div>
+                    <div class="wf-node" data-wf-step="2"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 3"/><circle cx="12" cy="12" r="9"/></svg></span><div><div class="wf-node-kind">Wait</div><div class="wf-node-title">30 minutes</div></div></div>
+                    <div class="wf-line" data-wf-step="3"></div>
+                    <div class="wf-node" data-wf-step="3"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span><div><div class="wf-node-kind">Action</div><div class="wf-node-title">Send WhatsApp message</div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bh-card-body">
+              <span class="bh-tag bh-tag--blue">Workflows</span>
+              <h3 class="bh-card-title">Recovering Abandoned Carts on Autopilot</h3>
+              <p class="bh-card-excerpt">A trigger, a wait, a check, and a WhatsApp message — the exact five-node workflow that runs every time a cart is left behind.</p>
+              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>6 min read</span></div>
+            </div>
+          </a>
+
+          <a href="blog-real-estate-agent.html" class="bh-card" data-category="realestate" style="--i:1">
+            <div class="bh-card-visual--phone">
+              <div class="wa-real">
+                <div class="wa-real-header"><span class="wa-real-avatar">K</span><div class="wa-real-id"><span class="wa-real-name">Keystone Realty</span><span class="wa-real-active">online</span></div></div>
+                <div class="wa-real-body">
+                  <div class="wa-real-bubble in">Looking for a 2BHK near the tech park</div>
+                  <div class="wa-real-bubble out">Budget range? I can share matching listings right now.</div>
+                  <div class="wa-real-bubble in">Around 65 lakhs</div>
+                </div>
+              </div>
+            </div>
+            <div class="bh-card-body">
+              <span class="bh-tag bh-tag--teal">Real Estate</span>
+              <h3 class="bh-card-title">Setting Up an AI Agent for Real Estate</h3>
+              <p class="bh-card-excerpt">A lead messages at 11pm asking about a 2BHK near the tech park. Here's how the agent qualifies budget and hands off the site visit.</p>
+              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>5 min read</span></div>
+            </div>
+          </a>
+
+          <a href="blog-analytics-dashboard.html" class="bh-card" data-category="analytics" style="--i:2">
+            <div class="bh-card-visual--stat"><b>358<span style="font-size:28px">/412</span></b><span>Answered solo</span></div>
+            <div class="bh-card-body">
+              <span class="bh-tag bh-tag--violet">Analytics</span>
+              <h3 class="bh-card-title">What Your Analytics Dashboard Should Actually Tell You</h3>
+              <p class="bh-card-excerpt">Not a message count. What it handled alone, what it's worth, and where it's still weak — from a real account.</p>
+              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>5 min read</span></div>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
 
-    <section class="section section--dark final-cta" id="final-cta">
-      <div class="final-cta-glow" aria-hidden="true"></div>
-      <div class="final-cta-dots" aria-hidden="true"></div>
-      <div class="container final-cta-inner">
-        <h2 class="final-cta-headline">Pick a role. See it work.</h2>
-        <p class="final-cta-sub">The same agent, doing a different job. Set it up this afternoon.</p>
-        <a href="pricing.html" class="btn btn-cta">Start free trial</a>
-        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+    <!-- ============================================================
+         3. FINAL CTA
+         ============================================================ -->
+    <section class="bh-cta" id="final-cta">
+      <div class="container bh-cta-inner reveal">
+        <div>
+          <h2 class="bh-cta-title">Paste your website link. Watch it start answering.</h2>
+          <p class="bh-cta-sub">Same afternoon setup, no credit card. Live on WhatsApp, Instagram, and your website.</p>
+        </div>
+        <a href="pricing.html" class="bh-btn-white">Start free trial</a>
       </div>
     </section>
+
+    </div>
+
+    <script>
+      (function () {
+        var filters = document.querySelectorAll('.bh-filter');
+        var cards = document.querySelectorAll('#bhGrid [data-category]');
+        filters.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            filters.forEach(function (b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+            var f = btn.getAttribute('data-filter');
+            cards.forEach(function (c) {
+              c.hidden = f !== 'all' && c.getAttribute('data-category') !== f;
+            });
+          });
+        });
+      })();
+    </script>
 
     <footer class="footer">
       <div class="container footer-inner footer-inner--5col">

@@ -1,0 +1,20 @@
+/* ============================================================
+   ABOUT.CSS — the few new components on about.html only
+   (the people card + its fallback note).
+   ============================================================ */
+.about-people-card {
+  display: flex; align-items: center; gap: 18px; max-width: 460px;
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px;
+  padding: 22px 24px; box-shadow: 0 16px 34px -30px rgba(18,20,27,.2);
+}
+.about-people-avatar {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-weight: 650; font-size: 17px; flex-shrink: 0;
+}
+.about-people-name { font-size: 16px; font-weight: 650; color: var(--text-primary); }
+.about-people-role { font-size: 13.5px; color: var(--text-tertiary); margin-top: 2px; }
+.about-people-link { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.about-people-link:hover { text-decoration: underline; }
+
+.role-fallback-note { font-size: 13.5px; color: var(--text-tertiary); margin-top: 20px; }
+.role-fallback-note a { color: var(--accent); font-weight: 600; }

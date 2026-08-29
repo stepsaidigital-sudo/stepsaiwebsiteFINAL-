@@ -1,0 +1,120 @@
+/* ============================================================
+   ANALYTICS-DEEP.CSS — components for the rebuilt analytics.html
+   only (headline numbers, volume chart, channel bars, heatmap,
+   performance table, geo, filter bar). Categorical + sequential
+   colors below are the dataviz-skill-validated reference palette
+   (validated for this exact 4-slot adjacent use, light + dark).
+   Everything reuses styles.css tokens for type/ink/surfaces —
+   only chart-specific hues are new.
+   ============================================================ */
+:root {
+  --viz-cat-1: #2a78d6; /* Website   */
+  --viz-cat-2: #eb6834; /* WhatsApp  */
+  --viz-cat-3: #1baf7a; /* Instagram */
+  --viz-cat-4: #eda100; /* Standalone Page */
+  --viz-seq-100: #cde2fb; --viz-seq-200: #9ec5f4; --viz-seq-300: #6da7ec;
+  --viz-seq-450: #2a78d6; --viz-seq-550: #1c5cab; --viz-seq-700: #0d366b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --viz-cat-1: #3987e5; --viz-cat-2: #d95926; --viz-cat-3: #199e70; --viz-cat-4: #c98500;
+  }
+}
+:root[data-theme="dark"] {
+  --viz-cat-1: #3987e5; --viz-cat-2: #d95926; --viz-cat-3: #199e70; --viz-cat-4: #c98500;
+}
+
+/* ---- Filter bar (governs the chart / channel / heatmap / table below it) ---- */
+.an-filter-bar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 14px;
+  padding: 14px 18px; margin: 32px 0 8px;
+}
+.an-filter-group { display: flex; align-items: center; gap: 8px; }
+.an-filter-label { font-family: var(--font-mono); font-size: 10.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); margin-right: 4px; }
+.an-filter-pill { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--text-secondary); background: #fff; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 7px 13px; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; cursor: pointer; }
+.an-filter-pill.is-active { color: var(--accent); border-color: var(--accent); background: var(--accent-tint); }
+.an-filter-select {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--text-secondary);
+  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="%2364748B" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 11px center;
+  border: 1px solid var(--border-subtle); border-radius: 8px; padding: 7px 30px 7px 13px; appearance: none; cursor: pointer;
+}
+
+/* ---- Section 2: headline numbers ---- */
+.an-headline-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; margin-top: 8px; }
+@media (max-width: 700px) { .an-headline-row { grid-template-columns: 1fr; } }
+.an-headline-cell { background: #fff; padding: 26px 24px; }
+.an-headline-value { font-family: var(--font-mono); font-size: clamp(30px, 4vw, 42px); font-weight: 550; color: var(--text-primary); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.an-headline-label { font-size: 13.5px; color: var(--text-tertiary); margin-top: 6px; }
+
+/* ---- Section 3: volume chart ---- */
+.an-chart-card { background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px 22px 16px; margin-top: 24px; }
+.an-chart-svg-wrap { position: relative; }
+.an-chart-svg { width: 100%; height: 240px; display: block; overflow: visible; }
+.an-chart-grid-line { stroke: var(--border-subtle); stroke-width: 1; }
+.an-chart-axis-label { font-family: var(--font-mono); font-size: 10px; fill: var(--text-faint); }
+.an-chart-area { fill: url(#anAreaGradient); }
+.an-chart-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.an-chart-dot { fill: var(--accent); stroke: #fff; stroke-width: 2; opacity: 0; transition: opacity 120ms ease; }
+.an-chart-crosshair { stroke: var(--text-faint); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
+.an-chart-tooltip {
+  position: absolute; pointer-events: none; background: var(--text-primary); color: #fff;
+  font-size: 12px; padding: 7px 10px; border-radius: 8px; transform: translate(-50%, -120%);
+  opacity: 0; transition: opacity 120ms ease; white-space: nowrap; z-index: 2;
+}
+.an-chart-tooltip b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .an-chart-dot, .an-chart-crosshair, .an-chart-tooltip { transition: none; } }
+
+/* ---- Section 4: channel breakdown ---- */
+.an-channel-list { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; }
+.an-channel-row { display: grid; grid-template-columns: 140px 1fr 50px; align-items: center; gap: 14px; }
+.an-channel-name { display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600; color: var(--text-primary); }
+.an-channel-swatch { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.an-channel-track { height: 10px; border-radius: 6px; background: var(--bg-raised); overflow: hidden; }
+.an-channel-fill { height: 100%; width: 0%; border-radius: 6px; transition: width 900ms var(--ease-out); }
+.an-channel-pct { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--text-secondary); text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .an-channel-row { grid-template-columns: 100px 1fr 40px; } }
+
+/* ---- Section 5: heatmap ---- */
+.an-heatmap-wrap { margin-top: 24px; overflow-x: auto; }
+.an-heatmap { display: grid; grid-template-columns: 34px repeat(24, 1fr); gap: 3px; min-width: 720px; }
+.an-heatmap-hour-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); text-align: center; grid-column: span 1; }
+.an-heatmap-day-label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-tertiary); display: flex; align-items: center; }
+.an-heatmap-cell { aspect-ratio: 1; border-radius: 3px; opacity: 0; transform: scale(.6); transition: opacity 320ms var(--ease-out), transform 320ms var(--ease-out); cursor: pointer; }
+.an-heatmap-cell.is-in { opacity: 1; transform: scale(1); }
+.an-heatmap-legend { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 11.5px; color: var(--text-tertiary); }
+.an-heatmap-legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { .an-heatmap-cell { transition: none; opacity: 1; transform: none; } }
+
+/* ---- Section 6: performance table ---- */
+.an-perf-table-wrap { overflow-x: auto; margin-top: 22px; }
+.an-perf-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14px; }
+.an-perf-table th { text-align: left; font-family: var(--font-mono); font-size: 10.5px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); padding: 0 14px 12px 0; border-bottom: 1px solid var(--border-strong); }
+.an-perf-table td { padding: 16px 14px 16px 0; border-bottom: 1px solid var(--border-subtle); vertical-align: top; font-variant-numeric: tabular-nums; transition: opacity 200ms ease; }
+.an-perf-agent-name { font-weight: 650; color: var(--text-primary); }
+.an-perf-agent-outcome { display: block; font-size: 12px; color: var(--accent); font-weight: 550; margin-top: 2px; }
+.an-perf-table tr.is-dimmed td { opacity: .3; }
+.an-perf-table td.is-empty { color: var(--text-faint); }
+
+/* ---- Section 7: geo (plan-gated) ---- */
+.an-geo-card { position: relative; border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; margin-top: 22px; }
+.an-geo-content { padding: 24px 22px; filter: blur(5px); user-select: none; pointer-events: none; }
+.an-geo-row { display: grid; grid-template-columns: 150px 1fr 44px; align-items: center; gap: 14px; padding: 9px 0; }
+.an-geo-track { height: 8px; border-radius: 5px; background: var(--bg-raised); overflow: hidden; }
+.an-geo-fill { height: 100%; border-radius: 5px; background: var(--accent); }
+.an-geo-lock {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: rgba(250,251,252,.55); text-align: center; padding: 20px;
+}
+.an-geo-lock-icon { width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent); box-shadow: 0 8px 20px -12px rgba(18,20,27,.2); }
+.an-geo-lock h4 { font-size: 15px; font-weight: 650; color: var(--text-primary); }
+.an-geo-lock p { font-size: 13px; color: var(--text-secondary); max-width: 34ch; }
+.an-geo-lock .btn { margin-top: 4px; }
+
+/* ---- Section 9: proof ---- */
+.an-proof-card { background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 34px 32px; margin-top: 8px; max-width: 680px; }
+.an-proof-quote { font-size: 18px; line-height: 1.55; color: var(--text-primary); letter-spacing: -.005em; }
+.an-proof-byline { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.an-proof-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 650; font-size: 13px; flex-shrink: 0; }
+.an-proof-name { font-size: 13.5px; font-weight: 650; color: var(--text-primary); }
+.an-proof-role { font-size: 12.5px; color: var(--text-tertiary); }
