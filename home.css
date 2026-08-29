@@ -19,12 +19,12 @@
    slowly behind the hero content, sitting between the photo and the
    dark overlay so they stay moody rather than gaudy. ---- */
 .hero-orbs { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .4; will-change: transform; animation: heroOrbFloat 24s ease-in-out infinite; }
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: .18; will-change: transform; animation: heroOrbFloat 24s ease-in-out infinite; }
 .hero-orb--1 { width: 440px; height: 440px; background: #1A56DB; top: -140px; left: -100px; animation-duration: 22s; }
 .hero-orb--2 { width: 380px; height: 380px; background: #7C3AED; top: 40px; right: -120px; animation-duration: 27s; animation-delay: -6s; }
 .hero-orb--3 { width: 320px; height: 320px; background: #0EA5E9; bottom: -160px; left: 38%; animation-duration: 20s; animation-delay: -12s; }
 @keyframes heroOrbFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(34px, -26px) scale(1.08); } 66% { transform: translate(-28px, 22px) scale(.94); } }
-@media (max-width: 720px) { .hero-orb { filter: blur(60px); opacity: .3; } .hero-orb--1, .hero-orb--2, .hero-orb--3 { width: 260px; height: 260px; } }
+@media (max-width: 720px) { .hero-orb { filter: blur(80px); opacity: .12; } .hero-orb--1, .hero-orb--2, .hero-orb--3 { width: 260px; height: 260px; } }
 @media (prefers-reduced-motion: reduce) { .hero-orb { animation: none; } }
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 @media (max-width: 980px) { .hero-inner { grid-template-columns: 1fr; gap: 64px; } }
@@ -221,9 +221,9 @@
 
 .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 640px) { .problem-grid { grid-template-columns: 1fr; } }
-.problem-card { position: relative; background: #fff; border: 1px solid #E7ECF5; border-radius: 16px; padding: 24px; opacity: 0; transform: translateY(16px); transition: opacity 520ms ease-out, transform 460ms cubic-bezier(.22,1,.36,1), border-color 280ms ease, box-shadow 280ms ease; transition-delay: calc(var(--i, 0) * 120ms); }
+.problem-card { position: relative; background: #fff; border: 1px solid #E7ECF5; border-radius: 16px; padding: 24px; box-shadow: var(--shadow-soft); opacity: 0; transform: translateY(16px); transition: opacity 520ms ease-out, transform 460ms cubic-bezier(.22,1,.36,1), border-color 280ms ease, box-shadow 280ms ease; transition-delay: calc(var(--i, 0) * 120ms); }
 .problem-grid.is-visible .problem-card { opacity: 1; transform: translateY(0); }
-.problem-card:hover { transform: translateY(-6px); border-color: #2563EB; box-shadow: 0px 20px 40px rgba(37,99,235,.08); }
+.problem-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
 .problem-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
 .problem-card-icon { width: 42px; height: 42px; border-radius: 12px; background: #EAF0FB; color: #2563EB; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 380ms cubic-bezier(.34,1.56,.64,1); }
 .problem-card:hover .problem-card-icon { transform: scale(1.1) rotate(3deg); }
@@ -382,8 +382,8 @@
 /* ---------- TESTIMONIALS ---------- */
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 @media (max-width: 900px) { .testimonial-grid { grid-template-columns: 1fr; } }
-.testimonial-card { border: 1px solid var(--border-subtle); border-radius: 16px; padding: 30px 26px; transition: border-color 220ms var(--ease), transform 220ms var(--ease); }
-.testimonial-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.testimonial-card { border: 1px solid var(--border-subtle); background: var(--bg-surface); border-radius: 16px; padding: 30px 26px; box-shadow: var(--shadow-soft); transition: border-color 220ms var(--ease), box-shadow 220ms var(--ease), transform 220ms var(--ease); }
+.testimonial-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
 .testimonial-mark { font-family: Georgia, serif; font-size: 34px; line-height: 1; color: var(--accent); display: block; margin-bottom: 6px; }
 .testimonial-quote { font-size: 15.5px; line-height: 1.65; color: var(--text-secondary); min-height: 110px; }
 .testimonial-source { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-subtle); }
