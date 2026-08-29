@@ -297,7 +297,7 @@ h1, h2, h3, p { margin: 0; }
 .nav.open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
 @media (max-width: 980px) {
-  .nav-links, .nav-actions .nav-signin { display: none; }
+  .nav-links, .nav-actions { display: none; }
   .nav-burger { display: flex; }
 }
 
