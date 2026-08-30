@@ -8,10 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=1.1">
-<link rel="stylesheet" href="industries-deep.css?v=1.1">
-<link rel="stylesheet" href="agents.css?v=1.1">
-<link rel="stylesheet" href="home.css?v=1.1">
+<link rel="stylesheet" href="styles.css?v=2.0">
+<link rel="stylesheet" href="industries-deep.css?v=2.0">
+<link rel="stylesheet" href="agents.css?v=2.0">
+<link rel="stylesheet" href="home.css?v=2.0">
 </head>
 <body>
 
@@ -191,108 +191,133 @@
          1. HERO
          ============================================================ -->
     <section class="hero" id="heroSection">
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="hero-orb hero-orb--1"></span>
-        <span class="hero-orb hero-orb--2"></span>
-        <span class="hero-orb hero-orb--3"></span>
-      </div>
       <div class="container hero-inner">
-        <div class="reveal">
-          <p class="kicker">AI Agent for Sales &amp; Support</p>
-          <h1 class="hero-headline">Never miss another customer.</h1>
-          <p class="hero-sub">Somewhere right now, someone is asking your business a question — on your site, on WhatsApp, on Instagram. StepsAI is already answering it, taking the action, and closing the loop. Live in 5 minutes, no code.</p>
+        <div class="reveal hero-content-center">
+          <div class="hero-kicker-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="kicker-icon"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>
+            <span>AI AGENT FOR SALES &amp; SUPPORT</span>
+          </div>
+          <h1 class="hero-headline">Never miss<br><span class="blue">another</span> customer.</h1>
+          <p class="hero-sub">Someone is asking your business a question — on your site,<br>WhatsApp, or Instagram. StepsAI answers instantly,<br>takes action, and closes the loop.</p>
           <div class="hero-cta-row">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="#workflows-teaser" class="hero-see-work">
-              See it work
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="#what-it-does" class="hero-see-work hero-see-work-ghost">
+              See it in action
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="play-icon"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
             </a>
           </div>
-          <p class="hero-trust">Works with Shopify, HubSpot, Calendly and your inbox.</p>
-        </div>
-
-        <div class="reveal">
-          <div class="hero-slider-wrapper">
-            <div class="hero-slider-frame is-website" id="heroSliderFrame">
-              <div class="mobile-notch"></div>
-              
-              <!-- The chat widget -->
-              <div class="channel-card" id="channelCard">
-                <div class="channel-card-header" id="channelHeader">
-                  <span class="channel-avatar" id="channelAvatar">N</span>
-                  <span class="channel-id">
-                    <span class="channel-name" id="channelName">Nyra Store</span>
-                    <span class="channel-status" id="channelStatus">online</span>
-                  </span>
-                </div>
-                <div class="channel-card-body">
-                  <div class="channel-bubbles" id="channelBubbles"></div>
-                </div>
-                <div class="channel-composer">
-                  <span class="channel-composer-placeholder">Type a message...</span>
-                  <button class="channel-send" aria-label="Send message" tabindex="-1">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </button>
-                </div>
-                <div class="channel-receipt-strip" id="channelReceiptStrip"></div>
-              </div>
-            </div>
+          <div class="hero-social-row">
+            <span class="social-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></svg> WhatsApp</span>
+            <span class="social-dot"></span>
+            <span class="social-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</span>
+            <span class="social-dot"></span>
+            <span class="social-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Website</span>
           </div>
+        </div>
+      </div>
+      
+      </div>
+    </section>
 
-          <div class="channel-dots is-hidden" id="channelDots" role="tablist" aria-label="Channel examples">
-            <button class="channel-dot is-active" data-channel="0" role="tab" aria-selected="true" aria-label="WhatsApp example"></button>
-            <button class="channel-dot" data-channel="1" role="tab" aria-selected="false" aria-label="Instagram example"></button>
-            <button class="channel-dot" data-channel="2" role="tab" aria-selected="false" aria-label="Website example"></button>
+    <!-- ============================================================
+         2. RESULTS STRIP — White banner with 4 stats
+         ============================================================ -->
+    <section class="clean-stats-strip">
+      <div class="container">
+        <div class="clean-stats-row">
+          <div class="clean-stat-item">
+            <span class="clean-stat-val dark">1.2M+</span>
+            <span class="clean-stat-desc">conversations handled</span>
+          </div>
+          <div class="clean-stat-divider"></div>
+          <div class="clean-stat-item">
+            <span class="clean-stat-val blue">68%</span>
+            <span class="clean-stat-desc">resolved without a human</span>
+          </div>
+          <div class="clean-stat-divider"></div>
+          <div class="clean-stat-item">
+            <span class="clean-stat-val dark">95+</span>
+            <span class="clean-stat-desc">languages supported</span>
+          </div>
+          <div class="clean-stat-divider"></div>
+          <div class="clean-stat-item">
+            <span class="clean-stat-val blue">3.2s</span>
+            <span class="clean-stat-desc">average reply time</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         2. TRUST STRIP — mini section, quick credibility signals
-         ============================================================ -->
+    <!-- DISABLED — the industries strip used to sit directly under the hero,
+         but two strips back to back was redundant; the numbers strip above
+         replaced it. Kept intact so it can be restored, not deleted. -->
+    <template data-disabled-section="TRUST_STRIP_INDUSTRIES">
     <section class="trust-strip-section">
       <div class="container">
-        <div class="trust-strip reveal">
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Live in one afternoon, not weeks</span></div>
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>No credit card to start</span></div>
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>A person can step in, any time</span></div>
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>We only publish numbers we can show you</span></div>
+          <div class="trust-strip reveal">
+          <span class="trust-label">Trusted by teams across</span>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Real Estate</span></div>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Healthcare</span></div>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span>Education</span></div>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span>E-Commerce</span></div>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Finance</span></div>
+          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l2-8h12l2 8"/><rect x="2" y="14" width="20" height="6" rx="1"/><circle cx="7" cy="17" r="1.5"/><circle cx="17" cy="17" r="1.5"/></svg><span>Automotive</span></div>
         </div>
       </div>
     </section>
+    </template>
 
     <!-- ============================================================
-         3. WHAT IT DOES — three jobs, one agent layer (marketing
-         summary; the detailed four-capability console further down
-         the page is unchanged — this is the top-level pitch)
+         3. ONE AGENT, MULTIPLE JOBS
          ============================================================ -->
     <section class="section section--base" id="what-it-does">
       <div class="container">
-        <div class="section-head center reveal">
-          <p class="kicker">What it does</p>
-          <h2 class="section-title">One agent. Three jobs. No handoffs.</h2>
-          <p class="section-sub">Sells when there's a sale to make. Supports when something's gone wrong. Follows up when everyone else has already moved on.</p>
+        <div class="agent-hero-shell">
+          <div class="agent-hero-copy reveal">
+            <p class="kicker">ONE AGENT, MULTIPLE TASKS</p>
+            <h2 class="agent-hero-headline">Four jobs.<br>One agent that knows your business.</h2>
+            <p class="agent-hero-sub">StepsAI handles the work your team doesn't have time for—so every customer gets a response, and every opportunity moves forward.</p>
+            <!-- Connecting SVG line (optional visual flair) -->
+            <svg class="agent-hero-line" width="200" height="100" viewBox="0 0 200 100" fill="none"><path d="M0,20 C100,20 100,80 200,80" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 4"/></svg>
+          </div>
+
+          <div class="agent-hero-visual reveal">
+            <div class="agent-wide-console" id="agentConsole">
+              <div class="awc-header">
+                <div class="awc-header-left">
+                  <span class="awc-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.8 8.8 0 0 1-4-1L3 20l1.2-4.2a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 12 3.4h.4a8.5 8.5 0 0 1 8 8v.1Z"/></svg></span>
+                  <div>
+                    <span class="awc-name" id="agentJobTitle">SALES AGENT</span>
+                    <span class="awc-status"><span class="awc-dot"></span>Active</span>
+                  </div>
+                </div>
+                <span class="awc-industry" id="agentJobTag">Real Estate</span>
+              </div>
+              
+              <div class="awc-body" id="agentConsoleBody">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="pillar-grid reveal reveal-stagger">
-          <a href="sales-agent.html" class="pillar-card" style="--i:0">
-            <span class="pillar-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg></span>
-            <h3>AI Sales Agent</h3>
-            <p>Recommends the right product before a doubt turns into an abandoned cart. Captures the enquiry when it's a course. Books the visit when it's a clinic.</p>
-            <span class="pillar-card-link">See the Sales Agent &rarr;</span>
-          </a>
-          <a href="support-agent.html" class="pillar-card" style="--i:1">
-            <span class="pillar-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13C4 8 7.5 4.5 12 4.5C16.5 4.5 20 8 20 13"/><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></svg></span>
-            <h3>AI Support Agent</h3>
-            <p>Tracks the order. Answers the policy question. Resolves it — without the customer waiting for a human to be free.</p>
-            <span class="pillar-card-link">See the Support Agent &rarr;</span>
-          </a>
-          <a href="workflows.html" class="pillar-card" style="--i:2">
-            <span class="pillar-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="5" cy="18" r="2.2"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14"/></svg></span>
-            <h3>AI Reengagement Agent</h3>
-            <p>Sends the broadcast. Catches the abandoned cart. Follows up when everyone else has already moved on.</p>
-            <span class="pillar-card-link">See how workflows run &rarr;</span>
-          </a>
+
+        <div class="agent-wide-selector reveal" id="agentSelector" role="tablist">
+          <button class="aws-item is-active" data-cap="sales" role="tab" aria-selected="true" type="button">
+            <span class="aws-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+            <div class="aws-text"><span class="aws-title">Sales</span><span class="aws-sub">Real Estate</span></div>
+          </button>
+          <button class="aws-item" data-cap="leads" role="tab" aria-selected="false" type="button">
+            <span class="aws-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="aws-text"><span class="aws-title">Leads</span><span class="aws-sub">Education</span></div>
+          </button>
+          <button class="aws-item" data-cap="meetings" role="tab" aria-selected="false" type="button">
+            <span class="aws-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <div class="aws-text"><span class="aws-title">Meetings</span><span class="aws-sub">Healthcare</span></div>
+          </button>
+          <button class="aws-item" data-cap="support" role="tab" aria-selected="false" type="button">
+            <span class="aws-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <div class="aws-text"><span class="aws-title">Support</span><span class="aws-sub">E-Commerce</span></div>
+          </button>
         </div>
       </div>
     </section>
@@ -443,7 +468,10 @@
 
     </template>
     <!-- ============================================================
-         6. BUILT FOR YOUR BUSINESS — industry tabs
+         6. BUILT FOR YOUR BUSINESS — Scroll Stack
+         Pinned cards that stack, turn and dissolve as the page
+         scrolls (native vanilla port of the "scroll stack" effect —
+         see the SCROLL STACK block in home.js for the scroll math).
          ============================================================ -->
     <section class="section section--base" id="industries-teaser">
       <div class="container">
@@ -453,167 +481,263 @@
           <p class="section-sub">Same agent. Different business. Same instinct for what matters.</p>
         </div>
 
-        <div class="reveal">
-          <div class="industry-tabs" id="homeIndustryTabs">
-            <button class="industry-tab active" data-tab="ecommerce">E-Commerce &amp; D2C</button>
-            <button class="industry-tab" data-tab="healthcare">Healthcare &amp; Clinics</button>
-            <button class="industry-tab" data-tab="realestate">Real Estate</button>
-            <button class="industry-tab" data-tab="edtech">Education &amp; Training</button>
-            <button class="industry-tab" data-tab="food">Restaurants &amp; Food</button>
-            <button class="industry-tab" data-tab="beauty">Beauty &amp; Salons</button>
-            <span class="industry-tabs-indicator" aria-hidden="true"></span>
-          </div>
-
-          <div class="industry-panel active" data-panel="ecommerce">
-            <div><h3>E-Commerce &amp; D2C</h3><p class="quote">Recommends products by size and fit, recovers abandoned carts over WhatsApp, and checks real Shopify or WooCommerce stock before it promises anything.</p><a href="industry-ecommerce.html" class="section-link-out">See the full E-Commerce playbook &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Left 2 items in my cart, still available?</div>
-                <div class="lw-bubble agent">Yes, both in stock. Here's 10% off if you check out in the next hour.</div>
-                <div class="lw-bubble user">Perfect, checking out now</div>
-                <div class="lw-bubble agent">Code's already applied &mdash; here's your link.</div>
-              </div>
+        <div class="industry-flow" id="industryFlow">
+          <div class="stack-item">
+          <div class="industry-flow-card dark-card" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('images/hero-ecommerce.jpg') center/cover;">
+            <div class="ifc-content">
+              <h3>E-Commerce &amp; D2C</h3>
+              <p>Recommends products by size and fit, recovers abandoned carts over WhatsApp, and checks real Shopify or WooCommerce stock before it promises anything.</p>
+              <a href="industry-ecommerce.html" class="section-link-out">See the E-Commerce playbook &rarr;</a>
             </div>
-          </div>
-          <div class="industry-panel" data-panel="food">
-            <div><h3>Restaurants &amp; Food</h3><p class="quote">Answers menu and hours questions instantly, takes reservations, and re-engages regulars with the offers they'd actually want.</p><a href="industries.html" class="section-link-out">Explore all industries &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Table for 4 tonight, 8pm?</div>
-                <div class="lw-bubble agent">8pm works — booked. We'll text a reminder an hour before.</div>
-                <div class="lw-bubble user">Great, thanks!</div>
-                <div class="lw-bubble agent">See you tonight &mdash; window seat if one's open.</div>
-              </div>
-            </div>
-          </div>
-          <div class="industry-panel" data-panel="healthcare">
-            <div><h3>Healthcare &amp; Clinics</h3><p class="quote">Handles timings, insurance and appointment questions around the clock. Anything medical goes straight to a person — it never diagnoses or guesses.</p><a href="industry-healthcare.html" class="section-link-out">See the full Healthcare playbook &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Do you take Star Health insurance?</div>
-                <div class="lw-bubble agent">Yes, cashless for OPD. Clinic hours: Mon–Sat, 9–7.</div>
-                <div class="lw-bubble user">Can I book a slot for Thursday?</div>
-                <div class="lw-bubble agent">4:30pm is open Thursday &mdash; booked, and I'll send a reminder that morning.</div>
-              </div>
-            </div>
-          </div>
-          <div class="industry-panel" data-panel="realestate">
-            <div><h3>Real Estate</h3><p class="quote">Qualifies buyers, shares matching listings, and books site visits — even at midnight. By morning, your team has a warm lead, not a missed message.</p><a href="industry-real-estate.html" class="section-link-out">See the full Real Estate playbook &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Looking for a 2BHK near the tech park</div>
-                <div class="lw-bubble agent">Budget range? I can share 3 matching listings right now.</div>
-                <div class="lw-bubble user">Around 65 lakhs</div>
-                <div class="lw-bubble agent">Found a great match &mdash; here's what's open this weekend:</div>
-                <div class="chat-card">
-                  <p class="chat-card-slot-label">Site visit</p>
-                  <div class="chat-card-slots">
-                    <span class="chat-card-slot">Sat, 11:00 AM</span>
-                    <span class="chat-card-slot">Sun, 2:00 PM</span>
+            <div class="ifc-visual">
+              <div class="mockup-widget-dark">
+                <div class="mwd-head">
+                  <div class="mwd-head-left">
+                    <span class="mwd-avatar">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                    </span>
+                    <div class="mwd-info">
+                      <div class="mwd-name">Nyra Store AI</div>
+                      <div class="mwd-status">Online</div>
+                    </div>
+                  </div>
+                  <div class="mwd-head-actions">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </div>
+                </div>
+                <div class="mwd-body">
+                  <div class="mwd-bubble user">Left 2 items in my cart, still available?</div>
+                  <div class="mwd-bubble agent">
+                    Your <strong>Silk Kurta Set</strong> is still in stock! You might also like these delightful options:
+                  </div>
+                  <div class="mwd-carousel-wrap">
+                    <div class="mwd-carousel-title">You might also like</div>
+                    <div class="mwd-carousel">
+                      <div class="mwd-product-card">
+                        <img src="images/brand-01.jpg" alt="Option 1" class="mwd-product-img">
+                        <div class="mwd-product-add">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                        <div class="mwd-product-info">
+                          <span class="mwd-product-title">Floral Maxi Dress</span>
+                          <span class="mwd-product-price">₹2,499.00</span>
+                        </div>
+                      </div>
+                      <div class="mwd-product-card">
+                        <img src="images/brand-02.jpg" alt="Option 2" class="mwd-product-img">
+                        <div class="mwd-product-add">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                        <div class="mwd-product-info">
+                          <span class="mwd-product-title">Embroidered Dupatta</span>
+                          <span class="mwd-product-price">₹1,250.00</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="industry-panel" data-panel="edtech">
-            <div><h3>Education &amp; Training</h3><p class="quote">Answers course and fee questions, follows up with students who go quiet, and hands off to a counsellor exactly when a human touch matters.</p><a href="industry-edtech.html" class="section-link-out">See the full Education playbook &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble agent">Still thinking about the fall intake? Happy to walk you through the application.</div>
-                <div class="lw-bubble user">Yes! What documents do I need?</div>
-                <div class="lw-bubble agent">Just your 12th marksheet and a photo ID &mdash; I'll send the full checklist now.</div>
+          </div>
+
+          <div class="stack-item">
+          <div class="industry-flow-card dark-card" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('images/hero-healthcare.jpg') center/cover;">
+            <div class="ifc-content">
+              <h3>Healthcare &amp; Clinics</h3>
+              <p>Handles timings, insurance and appointment questions around the clock. Anything medical goes straight to a person — it never diagnoses or guesses.</p>
+              <a href="industry-healthcare.html" class="section-link-out">See the Healthcare playbook &rarr;</a>
+            </div>
+            <div class="ifc-visual">
+              <div class="mockup-widget-dark">
+                <div class="mwd-head">
+                  <div class="mwd-head-left">
+                    <span class="mwd-avatar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </span>
+                    <div class="mwd-info">
+                      <div class="mwd-name">City Clinic AI</div>
+                      <div class="mwd-status">Online</div>
+                    </div>
+                  </div>
+                  <div class="mwd-head-actions">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </div>
+                </div>
+                <div class="mwd-body">
+                  <div class="mwd-bubble user">Can I book a slot for Thursday?</div>
+                  <div class="mwd-bubble agent">4:30pm is open this Thursday. Here are the details:</div>
+                  <div class="mwd-booking-card">
+                    <div class="mwd-booking-header">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      Appointment Confirmation
+                    </div>
+                    <div class="mwd-booking-details">
+                      <div class="mwd-booking-detail-row">
+                        <span class="mwd-booking-detail-label">Date & Time</span>
+                        <span>Thursday, 4:30 PM</span>
+                      </div>
+                      <div class="mwd-booking-detail-row">
+                        <span class="mwd-booking-detail-label">Consultant</span>
+                        <span>Dr. Sharma</span>
+                      </div>
+                    </div>
+                    <div class="mwd-btn-primary">Confirm Booking</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="industry-panel" data-panel="beauty">
-            <div><h3>Beauty &amp; Salons</h3><p class="quote">Books appointments around your actual stylist availability, sends reminders so no-shows drop, and brings past clients back at the right moment.</p><a href="industries.html" class="section-link-out">Explore all industries &rarr;</a></div>
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">S</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Any slots for a haircut tomorrow?</div>
-                <div class="lw-bubble agent">4:30pm with Priya is open — want me to hold it?</div>
-                <div class="lw-bubble user">Yes, hold it please</div>
-                <div class="lw-bubble agent">Booked &mdash; 4:30pm with Priya. See you tomorrow!</div>
+          </div>
+
+          <div class="stack-item stack-item--last">
+          <div class="industry-flow-card dark-card" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('images/hero-real-estate.jpg') center/cover;">
+            <div class="ifc-content">
+              <h3>Real Estate</h3>
+              <p>Qualifies buyers, shares matching listings, and books site visits — even at midnight. By morning, your team has a warm lead, not a missed message.</p>
+              <a href="industry-real-estate.html" class="section-link-out">See the Real Estate playbook &rarr;</a>
+            </div>
+            <div class="ifc-visual">
+              <div class="mockup-widget-dark">
+                <div class="mwd-head">
+                  <div class="mwd-head-left">
+                    <span class="mwd-avatar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </span>
+                    <div class="mwd-info">
+                      <div class="mwd-name">Keystone Realty AI</div>
+                      <div class="mwd-status">Online</div>
+                    </div>
+                  </div>
+                  <div class="mwd-head-actions">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </div>
+                </div>
+                <div class="mwd-body">
+                  <div class="mwd-bubble user">Around 65 lakhs</div>
+                  <div class="mwd-bubble agent">Found a great match &mdash; here's what's open this weekend:</div>
+                  <div class="mwd-product-card" style="width: 100%; max-width: 260px;">
+                    <img src="images/hero-real-estate.jpg" alt="Property" class="mwd-product-img">
+                    <div class="mwd-product-info" style="margin-bottom: 8px;">
+                      <span class="mwd-product-title" style="font-size: 14px;">3BHK Lake View Appt</span>
+                      <span class="mwd-product-price" style="font-size: 13px;">₹65,00,000</span>
+                    </div>
+                    <div class="mwd-btn-primary">Schedule Visit</div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
-        <a href="industries.html" class="section-link-out">See all 12 industries &rarr;</a>
+
+        <div style="text-align:center; margin-top: 40px;">
+          <a href="industries.html" class="btn btn-outline">Explore all 12 industries</a>
+        </div>
       </div>
     </section>
 
     <!-- ============================================================
-         7. ONE INBOX — reuses the .inbox-list component from
+         5. ONE INBOX — reuses the .inbox-list component from
              agents.html, extended with a conversation-detail panel
          ============================================================ -->
     <section class="section section--raised" id="inbox-teaser">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">One inbox &middot; Nothing gets missed</p>
-          <h2 class="section-title">Every conversation, one place — and a person who can step in anytime.</h2>
-          <p class="section-sub">Website, WhatsApp, and Instagram, side by side. The AI handles what it can; your team sees exactly when it doesn't — nothing sits unanswered in a tab nobody checks.</p>
-        </div>
-
-        <div class="inbox-shell reveal">
-          <div class="inbox-list reveal-stagger">
-            <div class="inbox-list-row" style="--i:0"><span class="inbox-channel-tag">Web</span><span class="inbox-name">Priya M.</span><span class="inbox-preview">Can I book a facial for tomorrow morning?</span><span class="inbox-time">2m</span><span class="inbox-status booked">AI handling</span></div>
-            <div class="inbox-list-row" style="--i:1"><span class="inbox-channel-tag">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">I'd like to know more about your services.</span><span class="inbox-time">12m</span><span class="inbox-status handover">With Sarah</span></div>
-            <div class="inbox-list-row" style="--i:2"><span class="inbox-channel-tag">WA</span><span class="inbox-name">Karthik V.</span><span class="inbox-preview">Got it, thank you!</span><span class="inbox-time">28m</span><span class="inbox-status resolved">Resolved</span></div>
-            <div class="inbox-list-row" style="--i:3"><span class="inbox-channel-tag">Web</span><span class="inbox-name">Divya S.</span><span class="inbox-preview">Where's my order #2453?</span><span class="inbox-time">1h</span><span class="inbox-status resolved">Answered</span></div>
+        
+        <div class="agent-hero-shell">
+          <div class="agent-hero-copy reveal">
+            <p class="kicker">ONE INBOX &middot; NOTHING GETS MISSED</p>
+            <h2 class="agent-hero-headline">Every conversation, one place — and a person who can step in anytime.</h2>
+            <p class="agent-hero-sub">Website, WhatsApp, and Instagram, side by side. The AI handles what it can; your team sees exactly when it doesn't — nothing sits unanswered in a tab nobody checks.</p>
+            <a href="one-inbox.html" class="section-link-out">See how One Inbox works &rarr;</a>
           </div>
 
-          <div class="inbox-detail">
-            <div class="inbox-detail-head">
-              <span class="lw-avatar">P</span>
-              <div><div class="lw-name">Priya M.</div><div class="lw-status">Active now</div></div>
+          <div class="agent-hero-visual reveal">
+            <div class="inbox-ui-panel">
+              <!-- Convergence Animation -->
+              <div class="inbox-convergence">
+                <div class="ic-channels">
+                  <span class="ic-tag ic-web">Web</span>
+                  <span class="ic-tag ic-ig">IG</span>
+                  <span class="ic-tag ic-wa">WA</span>
+                </div>
+                <div class="ic-lines">
+                  <svg width="100%" height="60" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M 16.7,0 C 16.7,34 50,26 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
+                    <path d="M 50,0 L 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
+                    <path d="M 83.3,0 C 83.3,34 50,26 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+                <div class="ic-center-logo">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.8 8.8 0 0 1-4-1L3 20l1.2-4.2a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 12 3.4h.4a8.5 8.5 0 0 1 8 8v.1Z"/></svg>
+                </div>
+              </div>
+
+              <div class="inbox-list reveal-stagger">
+                <div class="inbox-list-row" style="--i:0"><span class="inbox-channel-tag tag-web">Web</span><span class="inbox-name">Priya M.</span><span class="inbox-preview">Can I book a facial for tomorrow morning?</span><span class="inbox-time">2m</span><span class="inbox-status booked">AI handling</span></div>
+                <div class="inbox-list-row" style="--i:1"><span class="inbox-channel-tag tag-ig">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">I'd like to know more about your services.</span><span class="inbox-time">12m</span><span class="inbox-status handover">With Sarah</span></div>
+                <div class="inbox-list-row" style="--i:2"><span class="inbox-channel-tag tag-wa">WA</span><span class="inbox-name">Karthik V.</span><span class="inbox-preview">Got it, thank you!</span><span class="inbox-time">28m</span><span class="inbox-status resolved">Resolved</span></div>
+                <div class="inbox-list-row" style="--i:3"><span class="inbox-channel-tag tag-web">Web</span><span class="inbox-name">Divya S.</span><span class="inbox-preview">Where's my order #2453?</span><span class="inbox-time">1h</span><span class="inbox-status resolved">Answered</span></div>
+              </div>
             </div>
-            <p class="inbox-detail-msg">&ldquo;Can I book a facial for tomorrow morning?&rdquo;</p>
-            <div class="inbox-action-list">
-              <div class="inbox-action-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Checked stylist availability</span></div>
-              <div class="inbox-action-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Booked 10:30am, Downtown</span></div>
-              <div class="inbox-action-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Sent confirmation on WhatsApp</span></div>
-              <div class="inbox-action-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Logged to CRM</span></div>
-            </div>
-            <span class="inbox-takeover">Take over conversation</span>
           </div>
         </div>
-        <a href="one-inbox.html" class="section-link-out">See how One Inbox works &rarr;</a>
       </div>
     </section>
 
     <!-- ============================================================
          8. PARTNER / INTEGRATION LOGO MARQUEE
+         Ported pixel-for-pixel from stepsai-website-redesign.html's
+         integrations band: two rows, opposite scroll directions,
+         brand-colored pill badges + shadow, mono caption underneath.
          ============================================================ -->
-    <div class="logo-marquee-wrap">
+    <section class="logo-marquee-wrap" aria-label="Integrations">
       <div class="marquee-mask reveal">
         <div class="marquee-track">
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><span>Shopify</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span>Instagram</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><span>HubSpot</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12.914 2.904V16.29L24 2.905H12.914zM0 2.906C0 5.966 2.483 8.45 5.543 8.45s5.542-2.484 5.543-5.544H0zm11.086 4.807L0 21.096h11.086V7.713zm7.37 7.84c-3.063 0-5.542 2.48-5.542 5.543H24c0-3.06-2.48-5.543-5.543-5.543z"/></svg><span>Zendesk</span></span>
-          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg><span>Salesforce</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg><span>Stripe</span></span>
-          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="4" width="6" height="6" rx="2"/><rect x="4" y="14" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg><span>Slack</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M.754 9.58a.754.754 0 00-.754.758v2.525c0 .42.339.758.758.758h3.135l1.431.799-.326-.799h2.373a.757.757 0 00.758-.758v-2.525a.757.757 0 00-.758-.758H.754zm2.709.445h.03c.065.001.124.023.179.067a.26.26 0 01.103.19.29.29 0 01-.033.16c-.13.239-.236.64-.322 1.199-.083.541-.114.965-.094 1.267a.392.392 0 01-.039.219.213.213 0 01-.176.12c-.086.006-.177-.034-.263-.124-.31-.316-.555-.788-.735-1.416-.216.425-.375.744-.478.957-.196.376-.363.568-.502.578-.09.007-.166-.069-.233-.228-.17-.436-.352-1.277-.548-2.524a.297.297 0 01.054-.222c.047-.064.116-.095.21-.102.169-.013.265.065.288.238.103.695.217 1.284.336 1.766l.727-1.387c.066-.126.15-.192.25-.199.146-.01.237.083.273.28.083.441.188.817.315 1.136.086-.844.233-1.453.44-1.828a.255.255 0 01.218-.147zm1.293.36c.056 0 .116.006.18.02.232.05.411.177.53.386.107.18.161.395.161.654 0 .343-.087.654-.26.94-.2.332-.459.5-.781.5a.88.88 0 01-.18-.022.763.763 0 01-.531-.384 1.287 1.287 0 01-.158-.659c0-.342.085-.655.258-.937.202-.333.462-.498.78-.498zm2.084 0c.056 0 .116.006.18.02.236.05.411.177.53.386.107.18.16.395.16.654 0 .343-.086.654-.259.94-.2.332-.459.5-.781.5a.88.88 0 01-.18-.022.763.763 0 01-.531-.384 1.287 1.287 0 01-.16-.659c0-.342.087-.655.26-.937.202-.333.462-.498.78-.498zm4.437.047c-.305 0-.546.102-.718.304-.173.203-.256.49-.256.856 0 .395.086.697.256.906.17.21.418.316.744.316.315 0 .559-.107.728-.316.17-.21.256-.504.256-.883s-.087-.673-.26-.879c-.176-.202-.424-.304-.75-.304zm-1.466.002a1.13 1.13 0 00-.84.326c-.223.22-.332.499-.332.838 0 .362.108.658.328.88.22.223.505.336.861.336.103 0 .22-.016.346-.052v-.54c-.117.034-.216.051-.303.051a.545.545 0 01-.422-.177c-.106-.12-.16-.278-.16-.48 0-.19.053-.348.156-.468a.498.498 0 01.397-.181c.103 0 .212.015.332.049v-.537a1.394 1.394 0 00-.363-.045zm12.414 0a1.135 1.135 0 00-.84.326c-.223.22-.332.499-.332.838 0 .362.108.658.328.88.22.223.506.336.861.336.103 0 .22-.016.346-.052v-.54c-.116.034-.216.051-.303.051a.545.545 0 01-.422-.177c-.106-.12-.16-.278-.16-.48 0-.19.053-.348.156-.468a.498.498 0 01.397-.181c.103 0 .212.015.332.049v-.537a1.394 1.394 0 00-.363-.045zm-9.598.06l-.29 2.264h.579l.156-1.559.395 1.559h.412l.379-1.555.164 1.555h.603l-.304-2.264h-.791l-.12.508c-.03.13-.06.264-.087.4l-.067.352a29.97 29.97 0 00-.258-1.26h-.771zm2.768 0l-.29 2.264h.579l.156-1.559.396 1.559h.412l.375-1.555.165 1.555h.603l-.305-2.264h-.789l-.119.508c-.03.13-.06.264-.086.4l-.066.352c-.063-.352-.15-.771-.26-1.26h-.771zm3.988 0v2.264h.611v-1.031h.012l.494 1.03h.645l-.489-1.019a.61.61 0 00.37-.552.598.598 0 00-.25-.506c-.167-.123-.394-.186-.68-.186h-.713zm3.377 0v2.264H24v-.483h-.63v-.414h.54v-.468h-.54v-.416h.626v-.483H22.76zm-4.793.004v2.264h1.24v-.483h-.627v-.416h.541v-.468h-.54v-.415h.622v-.482h-1.236zm2.025.432c.146.003.25.025.313.072.063.046.091.12.091.227 0 .156-.135.236-.404.24v-.54zm-15.22.011c-.104 0-.205.069-.301.211a1.078 1.078 0 00-.2.639c0 .096.02.2.06.303.049.13.117.198.196.215.083.016.173-.02.27-.106.123-.11.205-.273.252-.492.016-.077.023-.16.023-.246 0-.097-.02-.2-.06-.303-.05-.13-.116-.198-.196-.215a.246.246 0 00-.045-.006zm2.083 0c-.103 0-.204.069-.3.211a1.078 1.078 0 00-.2.639c0 .096.02.2.06.303.049.13.117.198.196.215.083.016.173-.02.27-.106.123-.11.205-.273.252-.492.013-.077.023-.16.023-.246 0-.097-.02-.2-.06-.303-.05-.13-.116-.198-.196-.215a.246.246 0 00-.045-.006zm4.428.006c.233 0 .354.218.354.66-.004.273-.038.46-.098.553a.293.293 0 01-.262.139.266.266 0 01-.242-.139c-.056-.093-.084-.28-.084-.562 0-.436.11-.65.332-.65Z"/></svg><span>WooCommerce</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg><span>Notion</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12.645 13.663h3.027c.861 0 1.406-.474 1.406-1.235 0-.717-.545-1.234-1.406-1.234h-3.027c-.1 0-.187.086-.187.172v2.125c.015.1.086.172.187.172zm0 4.896h3.128c.961 0 1.535-.488 1.535-1.35 0-.746-.545-1.35-1.535-1.35h-3.128c-.1 0-.187.087-.187.173v2.34c.015.115.086.187.187.187zM23.72.053l-8.953 8.93h1.464c2.281 0 3.63 1.435 3.63 3 0 1.235-.832 2.14-1.722 2.541-.143.058-.143.259.014.316 1.033.402 1.765 1.48 1.765 2.742 0 1.78-1.19 3.202-3.5 3.202h-6.342c-.1 0-.187-.086-.187-.172V13.85L.062 23.64c-.13.13-.043.359.143.359h23.631a.16.16 0 0 0 .158-.158V.182c.043-.158-.158-.244-.273-.13z"/></svg><span>BigCommerce</span></span>
-          <span class="logo-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.655 14.262c.281 0 .557.023.828.064 0 .005-.005.01-.005.014-.105.267-.234.534-.381.786l-1.219 2.106c-1.112 1.936-3.177 3.127-5.411 3.127h-2.432c-2.23 0-4.294-1.191-5.412-3.127l-1.218-2.106a6.251 6.251 0 0 1 0-6.252l1.218-2.106C6.736 4.832 8.8 3.641 11.035 3.641h2.432c2.23 0 4.294 1.191 5.411 3.127l1.219 2.106c.147.252.271.519.381.786 0 .004.005.009.005.014-.267.041-.543.064-.828.064-1.816 0-2.501-.607-3.291-1.306-.764-.676-1.711-1.517-3.44-1.517h-1.029c-1.251 0-2.387.455-3.2 1.278-.796.805-1.233 1.904-1.233 3.099v1.411c0 1.196.437 2.295 1.233 3.099.813.823 1.949 1.278 3.2 1.278h1.034c1.729 0 2.676-.841 3.439-1.517.791-.703 1.471-1.306 3.287-1.301Zm.005-3.237c.399 0 .794-.036 1.179-.11-.002-.004-.002-.01-.002-.014-.073-.414-.193-.823-.349-1.218.731-.12 1.407-.396 1.986-.819 0-.004-.005-.013-.005-.018-.331-1.085-.832-2.101-1.489-3.03-.649-.915-1.435-1.719-2.331-2.395-1.867-1.398-4.088-2.138-6.428-2.138-1.448 0-2.855.28-4.175.841-1.273.543-2.423 1.315-3.407 2.299S2.878 6.552 2.341 7.83c-.557 1.324-.842 2.726-.842 4.175 0 1.448.281 2.855.842 4.174.542 1.274 1.314 2.423 2.298 3.407s2.129 1.761 3.407 2.299c1.324.556 2.727.841 4.175.841 2.34 0 4.561-.74 6.428-2.137a10.815 10.815 0 0 0 2.331-2.396c.652-.929 1.158-1.949 1.489-3.03 0-.004.005-.014.005-.018-.579-.423-1.255-.699-1.986-.819.161-.395.276-.804.349-1.218.005-.009.005-.014.005-.023.869.166 1.692.506 2.404 1.035.685.505.552 1.075.446 1.416C22.184 20.437 17.619 24 12.221 24c-6.625 0-12-5.375-12-12s5.37-12 12-12c5.398 0 9.963 3.563 11.471 8.464.106.341.239.915-.446 1.421-.717.529-1.535.873-2.404 1.034.128.716.128 1.45 0 2.166-.387-.074-.782-.11-1.182-.11-4.184 0-3.968 2.823-6.736 2.823h-1.029c-1.899 0-3.15-1.357-3.15-3.095v-1.411c0-1.738 1.251-3.094 3.15-3.094h1.034c2.768 0 2.552 2.823 6.731 2.827Z"/></svg><span>Calendly</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#7AB55C"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><span>Shopify</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#635BFF"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg><span>Stripe</span></span>
+          <span class="logo-pill"><span class="pill-badge" style="background:#E42527">Z</span><span>Zoho CRM</span></span>
+          <span class="logo-pill"><span class="pill-badge" style="background:#00A1E0">S</span><span>Salesforce</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#FF7A59"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><span>HubSpot</span></span>
+          <span class="logo-pill"><span class="pill-badge" style="background:#2B4BF2">S</span><span>Shiprocket</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#006BFF"><path fill="currentColor" d="M19.655 14.262c.281 0 .557.023.828.064 0 .005-.005.01-.005.014-.105.267-.234.534-.381.786l-1.219 2.106c-1.112 1.936-3.177 3.127-5.411 3.127h-2.432c-2.23 0-4.294-1.191-5.412-3.127l-1.218-2.106a6.251 6.251 0 0 1 0-6.252l1.218-2.106C6.736 4.832 8.8 3.641 11.035 3.641h2.432c2.23 0 4.294 1.191 5.411 3.127l1.219 2.106c.147.252.271.519.381.786 0 .004.005.009.005.014-.267.041-.543.064-.828.064-1.816 0-2.501-.607-3.291-1.306-.764-.676-1.711-1.517-3.44-1.517h-1.029c-1.251 0-2.387.455-3.2 1.278-.796.805-1.233 1.904-1.233 3.099v1.411c0 1.196.437 2.295 1.233 3.099.813.823 1.949 1.278 3.2 1.278h1.034c1.729 0 2.676-.841 3.439-1.517.791-.703 1.471-1.306 3.287-1.301Zm.005-3.237c.399 0 .794-.036 1.179-.11-.002-.004-.002-.01-.002-.014-.073-.414-.193-.823-.349-1.218.731-.12 1.407-.396 1.986-.819 0-.004-.005-.013-.005-.018-.331-1.085-.832-2.101-1.489-3.03-.649-.915-1.435-1.719-2.331-2.395-1.867-1.398-4.088-2.138-6.428-2.138-1.448 0-2.855.28-4.175.841-1.273.543-2.423 1.315-3.407 2.299S2.878 6.552 2.341 7.83c-.557 1.324-.842 2.726-.842 4.175 0 1.448.281 2.855.842 4.174.542 1.274 1.314 2.423 2.298 3.407s2.129 1.761 3.407 2.299c1.324.556 2.727.841 4.175.841 2.34 0 4.561-.74 6.428-2.137a10.815 10.815 0 0 0 2.331-2.396c.652-.929 1.158-1.949 1.489-3.03 0-.004.005-.014.005-.018-.579-.423-1.255-.699-1.986-.819.161-.395.276-.804.349-1.218.005-.009.005-.014.005-.023.869.166 1.692.506 2.404 1.035.685.505.552 1.075.446 1.416C22.184 20.437 17.619 24 12.221 24c-6.625 0-12-5.375-12-12s5.37-12 12-12c5.398 0 9.963 3.563 11.471 8.464.106.341.239.915-.446 1.421-.717.529-1.535.873-2.404 1.034.128.716.128 1.45 0 2.166-.387-.074-.782-.11-1.182-.11-4.184 0-3.968 2.823-6.736 2.823h-1.029c-1.899 0-3.15-1.357-3.15-3.095v-1.411c0-1.738 1.251-3.094 3.15-3.094h1.034c2.768 0 2.552 2.823 6.731 2.827Z"/></svg><span>Calendly</span></span>
           <!-- duplicate set for seamless loop -->
-          <span class="logo-pill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><span>Shopify</span></span>
-          <span class="logo-pill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></span>
-          <span class="logo-pill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span>Instagram</span></span>
-          <span class="logo-pill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><span>HubSpot</span></span>
-          <span class="logo-pill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12.914 2.904V16.29L24 2.905H12.914zM0 2.906C0 5.966 2.483 8.45 5.543 8.45s5.542-2.484 5.543-5.544H0zm11.086 4.807L0 21.096h11.086V7.713zm7.37 7.84c-3.063 0-5.542 2.48-5.542 5.543H24c0-3.06-2.48-5.543-5.543-5.543z"/></svg><span>Zendesk</span></span>
-          <span class="logo-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="4" width="6" height="6" rx="2"/><rect x="4" y="14" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg><span>Slack</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#7AB55C"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><span>Shopify</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#635BFF"><path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg><span>Stripe</span></span>
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#E42527">Z</span><span>Zoho CRM</span></span>
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#00A1E0">S</span><span>Salesforce</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#FF7A59"><path fill="currentColor" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><span>HubSpot</span></span>
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#2B4BF2">S</span><span>Shiprocket</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#006BFF"><path fill="currentColor" d="M19.655 14.262c.281 0 .557.023.828.064 0 .005-.005.01-.005.014-.105.267-.234.534-.381.786l-1.219 2.106c-1.112 1.936-3.177 3.127-5.411 3.127h-2.432c-2.23 0-4.294-1.191-5.412-3.127l-1.218-2.106a6.251 6.251 0 0 1 0-6.252l1.218-2.106C6.736 4.832 8.8 3.641 11.035 3.641h2.432c2.23 0 4.294 1.191 5.411 3.127l1.219 2.106c.147.252.271.519.381.786 0 .004.005.009.005.014-.267.041-.543.064-.828.064-1.816 0-2.501-.607-3.291-1.306-.764-.676-1.711-1.517-3.44-1.517h-1.029c-1.251 0-2.387.455-3.2 1.278-.796.805-1.233 1.904-1.233 3.099v1.411c0 1.196.437 2.295 1.233 3.099.813.823 1.949 1.278 3.2 1.278h1.034c1.729 0 2.676-.841 3.439-1.517.791-.703 1.471-1.306 3.287-1.301Zm.005-3.237c.399 0 .794-.036 1.179-.11-.002-.004-.002-.01-.002-.014-.073-.414-.193-.823-.349-1.218.731-.12 1.407-.396 1.986-.819 0-.004-.005-.013-.005-.018-.331-1.085-.832-2.101-1.489-3.03-.649-.915-1.435-1.719-2.331-2.395-1.867-1.398-4.088-2.138-6.428-2.138-1.448 0-2.855.28-4.175.841-1.273.543-2.423 1.315-3.407 2.299S2.878 6.552 2.341 7.83c-.557 1.324-.842 2.726-.842 4.175 0 1.448.281 2.855.842 4.174.542 1.274 1.314 2.423 2.298 3.407s2.129 1.761 3.407 2.299c1.324.556 2.727.841 4.175.841 2.34 0 4.561-.74 6.428-2.137a10.815 10.815 0 0 0 2.331-2.396c.652-.929 1.158-1.949 1.489-3.03 0-.004.005-.014.005-.018-.579-.423-1.255-.699-1.986-.819.161-.395.276-.804.349-1.218.005-.009.005-.014.005-.023.869.166 1.692.506 2.404 1.035.685.505.552 1.075.446 1.416C22.184 20.437 17.619 24 12.221 24c-6.625 0-12-5.375-12-12s5.37-12 12-12c5.398 0 9.963 3.563 11.471 8.464.106.341.239.915-.446 1.421-.717.529-1.535.873-2.404 1.034.128.716.128 1.45 0 2.166-.387-.074-.782-.11-1.182-.11-4.184 0-3.968 2.823-6.736 2.823h-1.029c-1.899 0-3.15-1.357-3.15-3.095v-1.411c0-1.738 1.251-3.094 3.15-3.094h1.034c2.768 0 2.552 2.823 6.731 2.827Z"/></svg><span>Calendly</span></span>
         </div>
       </div>
-    </div>
+      <div class="marquee-mask rev reveal">
+        <div class="marquee-track">
+          <span class="logo-pill"><span class="pill-badge" style="background:#E31E24">D</span><span>Delhivery</span></span>
+          <span class="logo-pill"><img src="https://cdn.simpleicons.org/googledrive/4285F4" width="20" height="20" alt="" onerror="this.remove()"><span>Google Drive</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#4A154B"><rect x="4" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="4" y="14" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="14" width="6" height="6" rx="2" fill="currentColor"/></svg><span>Slack</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#03363D"><path fill="currentColor" d="M12.914 2.904V16.29L24 2.905H12.914zM0 2.906C0 5.966 2.483 8.45 5.543 8.45s5.542-2.484 5.543-5.544H0zm11.086 4.807L0 21.096h11.086V7.713zm7.37 7.84c-3.063 0-5.542 2.48-5.542 5.543H24c0-3.06-2.48-5.543-5.543-5.543z"/></svg><span>Zendesk</span></span>
+          <span class="logo-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#000"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg><span>Notion</span></span>
+          <span class="logo-pill"><span class="pill-badge" style="background:#1C1B1B">K</span><span>Klaviyo</span></span>
+          <span class="logo-pill"><span class="pill-badge" style="background:#14BEF0">P</span><span>Practo</span></span>
+          <span class="logo-pill"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" width="20" height="20" alt="" onerror="this.remove()"><span>Google Calendar</span></span>
+          <span class="logo-pill more">+ More</span>
+          <!-- duplicate set for seamless loop -->
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#E31E24">D</span><span>Delhivery</span></span>
+          <span class="logo-pill" aria-hidden="true"><img src="https://cdn.simpleicons.org/googledrive/4285F4" width="20" height="20" alt="" onerror="this.remove()"><span>Google Drive</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#4A154B"><rect x="4" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="4" y="14" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="14" width="6" height="6" rx="2" fill="currentColor"/></svg><span>Slack</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#03363D"><path fill="currentColor" d="M12.914 2.904V16.29L24 2.905H12.914zM0 2.906C0 5.966 2.483 8.45 5.543 8.45s5.542-2.484 5.543-5.544H0zm11.086 4.807L0 21.096h11.086V7.713zm7.37 7.84c-3.063 0-5.542 2.48-5.542 5.543H24c0-3.06-2.48-5.543-5.543-5.543z"/></svg><span>Zendesk</span></span>
+          <span class="logo-pill" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#000"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg><span>Notion</span></span>
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#1C1B1B">K</span><span>Klaviyo</span></span>
+          <span class="logo-pill" aria-hidden="true"><span class="pill-badge" style="background:#14BEF0">P</span><span>Practo</span></span>
+          <span class="logo-pill" aria-hidden="true"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" width="20" height="20" alt="" onerror="this.remove()"><span>Google Calendar</span></span>
+          <span class="logo-pill more" aria-hidden="true">+ More</span>
+        </div>
+      </div>
+      <p class="integ-note reveal">It already knows your business &middot; Connects to 100+ apps</p>
+    </section>
 
     <!-- DISABLED — not in the approved homepage section list; kept intact below so it can be restored, not deleted. -->
     <template data-disabled-section="DEPLOYMENT_BAND">
@@ -683,45 +807,304 @@
         </div>
 
         <div class="reveal">
-          <div class="wf-canvas-wrap">
-            <div class="wf-canvas">
-              <div class="wf-live-tag">Live example — Shopify cart recovery</div>
-              <div class="wf-trunk">
-                <div class="wf-node" data-wf-step="1">
-                  <span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg></span>
-                  <div><div class="wf-node-kind">Trigger</div><div class="wf-node-title">Cart left behind &middot; &#8377;2,400</div></div>
+          <div class="wf-tabs-row" id="wfTabs" role="tablist">
+            <button class="wf-tab-h is-active" data-wf-target="cart" role="tab" aria-selected="true" type="button">Cart Recovery</button>
+            <button class="wf-tab-h" data-wf-target="lead" role="tab" aria-selected="false" type="button">Lead Routing</button>
+            <button class="wf-tab-h" data-wf-target="booking" role="tab" aria-selected="false" type="button">Appointment Booking</button>
+          </div>
+          
+          <div class="wf-display-area" id="wfDisplayArea">
+            
+            <!-- VIEW 1: CART RECOVERY -->
+            <div class="wf-view is-active" id="wf-cart">
+              <div class="feat2-shell">
+                <div class="feat2-copy">
+                  <div class="feat2-list">
+                    <div class="feat2-item is-active" data-state="cart">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                      <span class="feat2-item-label">Cart left behind &middot; &#8377;2,400</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+                      <span class="feat2-item-label">Hold for 30 minutes</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></span>
+                      <span class="feat2-item-label">Check order still not placed</span>
+                    </div>
+                    <div class="feat2-item" data-state="sent">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+                      <span class="feat2-item-label">Send WhatsApp nudge</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="wf-line" data-wf-step="2"></div>
-                <div class="wf-node" data-wf-step="2">
-                  <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
-                  <div><div class="wf-node-kind">Action &middot; Wait</div><div class="wf-node-title">Wait 30 minutes</div></div>
+
+                <div class="feat2-visual">
+                  <div class="feat2-photo is-active" style="background-image:url('images/hero-ecommerce.jpg')"></div>
+                <div class="wf-stage">
+                  <div class="wf-state is-shown" data-state="cart">
+                    <div class="wf-mockup mockup-cart">
+                      <div class="cart-head"><span class="cart-brand">Verve Living</span><span class="cart-count">2 items</span></div>
+                      <div class="cart-lines">
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--1"></span>
+                          <div class="cart-line-info"><b>Linen shirt</b><span>Size M &middot; Sand</span></div>
+                          <span class="cart-line-price">&#8377;1,600</span>
+                        </div>
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--2"></span>
+                          <div class="cart-line-info"><b>Cotton tote</b><span>Natural</span></div>
+                          <span class="cart-line-price">&#8377;800</span>
+                        </div>
+                      </div>
+                      <div class="cart-foot">
+                        <div class="cart-total"><span>Subtotal</span><b>&#8377;2,400</b></div>
+                        <div class="cart-cta">Checkout</div>
+                        <div class="cart-abandoned">Tab closed &mdash; 11:42 PM</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The cart they walked away from</span>
+                  </div>
+
+                  <div class="wf-state" data-state="wait">
+                    <div class="wf-mockup mockup-wait">
+                      <div class="wf-timer">
+                        <svg viewBox="0 0 132 132" aria-hidden="true">
+                          <circle class="wf-timer-track" cx="66" cy="66" r="56"/>
+                          <circle class="wf-timer-fill" cx="66" cy="66" r="56"/>
+                        </svg>
+                        <span class="wf-timer-label"><b>30</b><span>minutes</span></span>
+                      </div>
+                      <div class="wait-title">Holding before we say anything</div>
+                      <p class="wait-sub">Giving them half an hour to finish checkout on their own.</p>
+                      <div class="wait-checks">
+                        <div class="wait-check is-on">Cart contents saved</div>
+                        <div class="wait-check">Re-check order status at 12:12 AM</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The 30-minute cut-off, running</span>
+                  </div>
+
+                  <div class="wf-state" data-state="sent">
+                <div class="wf-mockup mockup-wa">
+                  <div class="wa-header">
+                    <div class="wa-avatar"></div>
+                    <div class="wa-info"><div class="wa-name">Verve Living</div><div class="wa-status">Official business account</div></div>
+                  </div>
+                  <div class="wa-body">
+                    <div class="wa-bubble">
+                      Hey! Noticed you left a few items in your cart. Still interested? We saved them for you. Let me know if you have any questions before checking out.
+                      <div class="wa-time">10:42 AM <span class="wa-check">✓✓</span></div>
+                    </div>
+                    <div class="wa-button">Return to Checkout <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  </div>
                 </div>
-                <div class="wf-line" data-wf-step="3"></div>
-                <div class="wf-node" data-wf-step="3">
-                  <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1 21 6l-4 3.9M3 12v-2a4 4 0 0 1 4-4h14M7 21.9 3 18l4-3.9M21 12v2a4 4 0 0 1-4 4H3"/></svg></span>
-                  <div><div class="wf-node-kind">Connector</div><div class="wf-node-title">Check &mdash; order not placed</div></div>
+                    <span class="wf-state-label">The message that actually goes out</span>
+                  </div>
                 </div>
-                <div class="wf-line" data-wf-step="4"></div>
-                <div class="wf-node" data-wf-step="4">
-                  <span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
-                  <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Send WhatsApp message</div></div>
                 </div>
-                <div class="wf-line" data-wf-step="5"></div>
-                <div class="wf-node" data-wf-step="5">
-                  <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span>
-                  <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Answer questions, share checkout</div></div>
-                </div>
+
               </div>
             </div>
-          </div>
 
-          <div class="wf-teaser-row">
-            <span class="wf-teaser-pill">Follows up cold leads</span>
-            <span class="wf-teaser-pill">Reminds before no-shows</span>
-            <span class="wf-teaser-pill">Wins back quiet customers</span>
-            <span class="wf-teaser-pill">Sends broadcasts &amp; promotions</span>
+            <!-- VIEW 2: LEAD ROUTING -->
+            <div class="wf-view" id="wf-lead">
+              <div class="feat2-shell">
+                <div class="feat2-copy">
+                  <div class="feat2-list">
+                    <div class="feat2-item is-active" data-state="cart">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                      <span class="feat2-item-label">New website visitor chats</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+                      <span class="feat2-item-label">Qualify the lead's intent</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></span>
+                      <span class="feat2-item-label">Check score above 80</span>
+                    </div>
+                    <div class="feat2-item" data-state="sent">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+                      <span class="feat2-item-label">Push to Slack &amp; Salesforce</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feat2-visual">
+                  <div class="feat2-photo is-active" style="background-image:url('images/hero-bg.jpg')"></div>
+                <div class="wf-stage">
+                  <div class="wf-state is-shown" data-state="cart">
+                    <div class="wf-mockup mockup-cart">
+                      <div class="cart-head"><span class="cart-brand">Live chat &middot; Pricing page</span><span class="cart-count">2:14 PM</span></div>
+                      <div class="cart-lines">
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--3"></span>
+                          <div class="cart-line-info"><b>Mark T.</b><span>Acme Corp &middot; first visit</span></div>
+                          <span class="cart-line-price">New</span>
+                        </div>
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--1"></span>
+                          <div class="cart-line-info"><b>Asked about</b><span>Enterprise volume pricing</span></div>
+                          <span class="cart-line-price">500 seats</span>
+                        </div>
+                      </div>
+                      <div class="cart-foot">
+                        <div class="cart-total"><span>Budget</span><b>Confirmed</b></div>
+                        <div class="cart-cta">Open conversation</div>
+                        <div class="cart-abandoned">Unqualified &mdash; nobody assigned yet</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The conversation that just started</span>
+                  </div>
+
+                  <div class="wf-state" data-state="wait">
+                    <div class="wf-mockup mockup-wait">
+                      <div class="wf-timer">
+                        <svg viewBox="0 0 132 132" aria-hidden="true">
+                          <circle class="wf-timer-track" cx="66" cy="66" r="56"/>
+                          <circle class="wf-timer-fill" cx="66" cy="66" r="56"/>
+                        </svg>
+                        <span class="wf-timer-label"><b>92</b><span>of 100</span></span>
+                      </div>
+                      <div class="wait-title">Scoring the intent</div>
+                      <p class="wait-sub">Weighing budget, timeline and company size against the bar.</p>
+                      <div class="wait-checks">
+                        <div class="wait-check is-on">Budget confirmed &middot; Q3</div>
+                        <div class="wait-check">Above the 80-point threshold</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The qualifying check, running</span>
+                  </div>
+
+                  <div class="wf-state" data-state="sent">
+                <div class="wf-mockup mockup-slack">
+                  <div class="slack-header">
+                    <span class="slack-hash">#</span> sales-inbound
+                  </div>
+                  <div class="slack-msg">
+                    <div class="slack-avatar">S</div>
+                    <div class="slack-content">
+                      <div class="slack-name">StepsAI <span class="slack-time">2:14 PM</span></div>
+                      <div class="slack-card">
+                        <div class="slack-card-title">🔥 Hot Lead Qualified: Mark T.</div>
+                        <p>Customer is looking for an enterprise volume discount on 500 seats. Budget confirmed.</p>
+                        <div class="slack-fields">
+                          <div><span class="slack-fl">Intent Score</span><span class="slack-fv">92/100</span></div>
+                          <div><span class="slack-fl">Company</span><span class="slack-fv">Acme Corp</span></div>
+                        </div>
+                        <div class="slack-btn">Claim Lead</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    <span class="wf-state-label">The alert your sales team sees</span>
+                  </div>
+                </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- VIEW 3: APPOINTMENT BOOKING -->
+            <div class="wf-view" id="wf-booking">
+              <div class="feat2-shell">
+                <div class="feat2-copy">
+                  <div class="feat2-list">
+                    <div class="feat2-item is-active" data-state="cart">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                      <span class="feat2-item-label">Customer asks for a viewing</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+                      <span class="feat2-item-label">Check the team's calendar</span>
+                    </div>
+                    <div class="feat2-item" data-state="wait">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></span>
+                      <span class="feat2-item-label">Check a slot is free</span>
+                    </div>
+                    <div class="feat2-item" data-state="sent">
+                      <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+                      <span class="feat2-item-label">Confirm &amp; send invite</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feat2-visual">
+                  <div class="feat2-photo is-active" style="background-image:url('images/hero-real-estate.jpg')"></div>
+                <div class="wf-stage">
+                  <div class="wf-state is-shown" data-state="cart">
+                    <div class="wf-mockup mockup-cart">
+                      <div class="cart-head"><span class="cart-brand">Keystone Realty</span><span class="cart-count">9:06 PM</span></div>
+                      <div class="cart-lines">
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--3"></span>
+                          <div class="cart-line-info"><b>42B Lake View</b><span>2 BHK &middot; skyline facing</span></div>
+                          <span class="cart-line-price">Viewing</span>
+                        </div>
+                        <div class="cart-line">
+                          <span class="cart-thumb cart-thumb--2"></span>
+                          <div class="cart-line-info"><b>Sarah J.</b><span>Prefers afternoons</span></div>
+                          <span class="cart-line-price">Thu</span>
+                        </div>
+                      </div>
+                      <div class="cart-foot">
+                        <div class="cart-total"><span>Asked for</span><b>A site visit</b></div>
+                        <div class="cart-cta">Request a time</div>
+                        <div class="cart-abandoned">Office closed &mdash; nobody to answer</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The request that came in after hours</span>
+                  </div>
+
+                  <div class="wf-state" data-state="wait">
+                    <div class="wf-mockup mockup-wait">
+                      <div class="wf-timer">
+                        <svg viewBox="0 0 132 132" aria-hidden="true">
+                          <circle class="wf-timer-track" cx="66" cy="66" r="56"/>
+                          <circle class="wf-timer-fill" cx="66" cy="66" r="56"/>
+                        </svg>
+                        <span class="wf-timer-label"><b>3</b><span>slots free</span></span>
+                      </div>
+                      <div class="wait-title">Reading the team calendar</div>
+                      <p class="wait-sub">Checking Thursday against every agent&rsquo;s real availability.</p>
+                      <div class="wait-checks">
+                        <div class="wait-check is-on">Thursday 2:00 PM is open</div>
+                        <div class="wait-check">Holding it while she confirms</div>
+                      </div>
+                    </div>
+                    <span class="wf-state-label">The availability check, running</span>
+                  </div>
+
+                  <div class="wf-state" data-state="sent">
+                <div class="wf-mockup mockup-cal">
+                  <div class="cal-top"></div>
+                  <div class="cal-body">
+                    <div class="cal-title">Apartment Viewing: 42B Lake View</div>
+                    <div class="cal-time">Thursday, Oct 12 &middot; 2:00pm – 2:30pm</div>
+                    <div class="cal-status"><span class="cal-dot"></span> Confirmed &amp; Scheduled</div>
+                    <div class="cal-divider"></div>
+                    <div class="cal-attendees">
+                      <div class="cal-att">
+                        <div class="cal-att-av"></div>
+                        <div class="cal-att-info"><b>Sarah J.</b><span>sarah@example.com</span></div>
+                      </div>
+                      <div class="cal-att">
+                        <div class="cal-att-av"></div>
+                        <div class="cal-att-info"><b>You</b><span>agent@verveliving.com</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    <span class="wf-state-label">The invite that lands in both calendars</span>
+                  </div>
+                </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-          <a href="workflows.html" class="wf-teaser-link">See every workflow it runs &rarr;</a>
         </div>
       </div>
     </section>
@@ -756,139 +1139,306 @@
       </div>
     </section>
 
-    <!-- DISABLED — not in the approved homepage section list; kept intact below so it can be restored, not deleted. -->
-    <template data-disabled-section="BY_THE_NUMBERS">
     <!-- ============================================================
-         12. BY THE NUMBERS (dark) — one hero stat pulled out, the
-             rest run as a thin stacked list beside it
+         IMPACT & FOUNDERS (Light Editorial)
          ============================================================ -->
-    <section class="section section--dark">
+    <section class="section section--base" id="impact-testimonials">
       <div class="container">
-        <p class="kicker reveal">By the numbers</p>
-        <p class="section-sub reveal" style="max-width:520px;margin-bottom:40px">Real numbers from live deployments — not a lab demo.</p>
-        <div class="stats-pull-shell reveal reveal-stagger" id="numbersGrid">
-          <div class="stats-hero-stat" style="--i:0">
-            <div class="stats-hero-value" data-count="80" data-suffix="%+">0</div>
-            <div class="stats-hero-label">Autonomous resolution — no human needed on the other 4 in 5</div>
-          </div>
-          <div class="stats-grid-mini">
-            <div class="stat-cell" style="--i:1"><div class="stat-value" data-count="3" data-suffix="×">0</div><div class="stat-label">Query growth in 90 days</div></div>
-            <div class="stat-cell" style="--i:2"><div class="stat-value" data-count="5" data-suffix="s" data-prefix="&lt;">0</div><div class="stat-label">Average reply time</div></div>
-            <div class="stat-cell" style="--i:3"><div class="stat-value" data-count="75" data-suffix="%">0</div><div class="stat-label">Support ticket deflection</div></div>
+        
+        <!-- Metrics moved out to the results strip directly under the hero. -->
+
+        <!-- Testimonials — Skewed Carousel (see home.css / home.js) -->
+        <div class="testimonial-marquee-wrap reveal">
+          <div class="testimonial-marquee-mask">
+            <div class="testimonial-marquee-track">
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Every hour a question sits unanswered is an hour that customer buys from someone else. The internet doesn't sleep, so our storefront couldn't keep sleeping either.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-2.jpg" alt="Ananya Rao"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Ananya Rao</span>
+                    <span class="testimonial-card-role">Founder, Verve Living</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">It used to take us a full day to process appointment requests. Now StepsAI handles the scheduling instantly, and our team only steps in for complex medical queries.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-3.jpg" alt="David Chen"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">David Chen</span>
+                    <span class="testimonial-card-role">Operations Manager, HealthPlus</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">The amount of abandoned carts we've recovered over WhatsApp alone paid for the entire year's subscription in the first two weeks. It's honestly incredible.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-1.jpg" alt="Sarah Jenkins"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Sarah Jenkins</span>
+                    <span class="testimonial-card-role">Director of E-Commerce, Thread&amp;Co</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Front desk answers the same five questions a hundred times a day &mdash; check-in time, parking, late checkout. Now the agent handles all of it, and my team gets to actually talk to guests standing in the lobby.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#D97917">RM</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Rohan Mehta</span>
+                    <span class="testimonial-card-role">GM, The Ridgeway Boutique Hotel</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">New client inquiries used to sit in an inbox until someone had a free hour. Now every one gets a same-day reply, and half the intake form is already filled out by the time we call back.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#1D4ED8">MI</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Meera Iyer</span>
+                    <span class="testimonial-card-role">Partner, Iyer &amp; Associates</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Parents ask admission questions at 11pm, every night. The agent answers on the spot and only pings my team once someone's actually ready to apply.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#0B7A44">KB</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Karan Bhatt</span>
+                    <span class="testimonial-card-role">Admissions Head, BrightPath Learning</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">We were losing free-trial signups because nobody replied fast enough. Average response time dropped under a minute, and trial-to-paid went up the same month.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#7C3AED">NK</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Neha Kapoor</span>
+                    <span class="testimonial-card-role">Growth Lead, Cloudline</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">A lead used to sit until someone had a gap in their calendar. Now it's qualified and booked before the prospect even closes the tab.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#DC2626">AN</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Arjun Nair</span>
+                    <span class="testimonial-card-role">Sales Director, Northbridge Realty</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Customers who'd had one bad experience just went quiet. The agent follows up on its own a few days later, and a good chunk of them actually come back.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#0EA5E9">DM</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Divya Menon</span>
+                    <span class="testimonial-card-role">Head of CX, Loopwear</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Booking a class used to mean calling during business hours and hoping someone picked up. Now it's instant, any hour, any day, no missed calls.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#059669">SJ</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Sameer Joshi</span>
+                    <span class="testimonial-card-role">Owner, FlexFit Studios</span>
+                  </div>
+                </div>
+              </div></div>
+              <!-- duplicate set for seamless loop -->
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Every hour a question sits unanswered is an hour that customer buys from someone else. The internet doesn't sleep, so our storefront couldn't keep sleeping either.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-2.jpg" alt="Ananya Rao"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Ananya Rao</span>
+                    <span class="testimonial-card-role">Founder, Verve Living</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">It used to take us a full day to process appointment requests. Now StepsAI handles the scheduling instantly, and our team only steps in for complex medical queries.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-3.jpg" alt="David Chen"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">David Chen</span>
+                    <span class="testimonial-card-role">Operations Manager, HealthPlus</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">The amount of abandoned carts we've recovered over WhatsApp alone paid for the entire year's subscription in the first two weeks. It's honestly incredible.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar"><img src="images/avatar-1.jpg" alt="Sarah Jenkins"></div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Sarah Jenkins</span>
+                    <span class="testimonial-card-role">Director of E-Commerce, Thread&amp;Co</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Front desk answers the same five questions a hundred times a day &mdash; check-in time, parking, late checkout. Now the agent handles all of it, and my team gets to actually talk to guests standing in the lobby.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#D97917">RM</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Rohan Mehta</span>
+                    <span class="testimonial-card-role">GM, The Ridgeway Boutique Hotel</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">New client inquiries used to sit in an inbox until someone had a free hour. Now every one gets a same-day reply, and half the intake form is already filled out by the time we call back.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#1D4ED8">MI</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Meera Iyer</span>
+                    <span class="testimonial-card-role">Partner, Iyer &amp; Associates</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Parents ask admission questions at 11pm, every night. The agent answers on the spot and only pings my team once someone's actually ready to apply.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#0B7A44">KB</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Karan Bhatt</span>
+                    <span class="testimonial-card-role">Admissions Head, BrightPath Learning</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">We were losing free-trial signups because nobody replied fast enough. Average response time dropped under a minute, and trial-to-paid went up the same month.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#7C3AED">NK</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Neha Kapoor</span>
+                    <span class="testimonial-card-role">Growth Lead, Cloudline</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">A lead used to sit until someone had a gap in their calendar. Now it's qualified and booked before the prospect even closes the tab.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#DC2626">AN</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Arjun Nair</span>
+                    <span class="testimonial-card-role">Sales Director, Northbridge Realty</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Customers who'd had one bad experience just went quiet. The agent follows up on its own a few days later, and a good chunk of them actually come back.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#0EA5E9">DM</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Divya Menon</span>
+                    <span class="testimonial-card-role">Head of CX, Loopwear</span>
+                  </div>
+                </div>
+              </div></div>
+              <div class="tcard-skew" aria-hidden="true"><div class="testimonial-card">
+                <div class="testimonial-card-quote">Booking a class used to mean calling during business hours and hoping someone picked up. Now it's instant, any hour, any day, no missed calls.</div>
+                <div class="testimonial-card-author">
+                  <div class="testimonial-card-avatar avatar-badge" style="background:#059669">SJ</div>
+                  <div class="testimonial-card-info">
+                    <span class="testimonial-card-name">Sameer Joshi</span>
+                    <span class="testimonial-card-role">Owner, FlexFit Studios</span>
+                  </div>
+                </div>
+              </div></div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    </template>
     <!-- ============================================================
-         13. TESTIMONIALS
-         PLACEHOLDER — illustrative quotes, not real customers yet.
-         Same convention as the hidden #real-proof section in
-         agents.html: swap these three for real customer quotes
-         (with permission to use name/title/company) before this
-         page goes live. Do not treat as real social proof until then.
-         Deliberately mapped one-to-one onto the three "What it does"
-         pillars above (Sales / Support / Reengagement) so the page
-         tells one consistent story: Verve Living = Sales, Meridian
-         Clinic = Support, Northgate Realty = Reengagement.
+         10. ONBOARDING / HOW IT WORKS
          ============================================================ -->
-    <section class="section section--raised">
+    <section class="section section--dark" id="how-it-works">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">Why now</p>
-          <h2 class="section-title">Founders who felt the cost of waiting.</h2>
-          <p class="section-sub">Not case studies — just why they didn't want to put this off another quarter.</p>
-        </div>
-
-        <div class="testimonial-grid testimonial-grid--bento reveal reveal-stagger">
-          <div class="testimonial-card featured" style="--i:0">
-            <span class="testimonial-mark">&ldquo;</span>
-            <p class="testimonial-quote">Every hour a question sits unanswered is an hour that customer buys from someone else. The internet doesn't sleep, so our storefront couldn't keep sleeping either.</p>
-            <div class="testimonial-source">
-              <span class="testimonial-avatar">AR</span>
-              <div><div class="testimonial-name">Ananya Rao</div><div class="testimonial-role">Founder, Verve Living</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card" style="--i:1">
-            <span class="testimonial-mark">&ldquo;</span>
-            <p class="testimonial-quote">Patients stopped calling during office hours years ago. They message at 9pm asking if we take their insurance — answered in seconds, not voicemail.</p>
-            <div class="testimonial-source">
-              <span class="testimonial-avatar">KM</span>
-              <div><div class="testimonial-name">Dr. Karan Mehta</div><div class="testimonial-role">Founder, Meridian Clinic</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card" style="--i:2">
-            <span class="testimonial-mark">&ldquo;</span>
-            <p class="testimonial-quote">Half our leads went quiet after the first message — not lost, just distracted. Now something follows up before they forget why they messaged us at all.</p>
-            <div class="testimonial-source">
-              <span class="testimonial-avatar">PN</span>
-              <div><div class="testimonial-name">Priya Nair</div><div class="testimonial-role">Founder, Northgate Realty</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         14. HOW IT WORKS — self-playing device
-         ============================================================ -->
-    <section class="section section--raised">
-      <div class="container">
-        <div class="demo-shell" style="align-items:start">
-        <div class="section-head reveal">
+        <div class="section-head center reveal">
           <p class="kicker">How it works</p>
-          <h2 class="section-title">Connect. Customize. Deploy everywhere.</h2>
-          <p class="section-sub">No walkthrough video, no sales call — just watch. This is the actual setup, step by step.</p>
+          <h2 class="section-title">Live in under an hour.</h2>
+          <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
         </div>
 
-        <div class="hiw-device reveal" id="hiwDevice">
-          <div class="hiw-bar">
-            <span class="hiw-brand">StepsAI Setup</span>
-            <span class="hiw-step-label">Step <b id="hiwStepNum">1</b> / 3</span>
-          </div>
-          <div class="hiw-track"><div class="hiw-fill" id="hiwFill"></div></div>
-
-          <div class="hiw-screens" id="hiwScreens">
-            <div class="hiw-screen active" data-step="1">
-              <h3>Connect your website</h3>
-              <p class="hiw-sub">Paste your URL — it reads your pages and learns your brand.</p>
-              <div class="hiw-field-label">Website URL</div>
-              <div class="hiw-input"><span id="hiwUrlText"></span></div>
-              <div class="hiw-status"><span class="hiw-spinner"></span><span>1,240 chunks embedded, knowledge ready</span></div>
-            </div>
-            <div class="hiw-screen" data-step="2">
-              <h3>Customize</h3>
-              <p class="hiw-sub">Give it a name, a voice, and the boundaries it should never cross.</p>
-              <div class="hiw-status done"><span class="hiw-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></span><span>Persona &amp; guardrails set</span></div>
-              <div class="hiw-chip-row">
-                <span class="hiw-chip on">Friendly</span>
-                <span class="hiw-chip">Formal</span>
-                <span class="hiw-chip">Concise</span>
-                <span class="hiw-chip on">No pricing guesses</span>
-              </div>
-            </div>
-            <div class="hiw-screen" data-step="3">
-              <h3>Deploy everywhere</h3>
-              <p class="hiw-sub">One click, live on every channel at once.</p>
-              <div class="hiw-channel-grid" id="hiwChannelGrid">
-                <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg><span>Website</span></div>
-                <div class="hiw-channel-cell"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></div>
-                <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
-              </div>
+        <div class="feat2-shell reveal" id="hiwDevice">
+          <div class="feat2-copy">
+            <div class="feat2-list" id="hiwList" role="tablist">
+              <button class="feat2-item is-active" data-hiw-i="0" role="tab" aria-selected="true" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
+                <span class="feat2-item-label">Connect your knowledge</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="1" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>
+                <span class="feat2-item-label">Set your identity</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="2" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                <span class="feat2-item-label">Deploy everywhere</span>
+              </button>
             </div>
           </div>
 
-          <div class="hiw-dots" id="hiwDots">
-            <button class="hiw-dot active" data-i="0" aria-label="Step 1"></button>
-            <button class="hiw-dot" data-i="1" aria-label="Step 2"></button>
-            <button class="hiw-dot" data-i="2" aria-label="Step 3"></button>
+          <div class="feat2-visual">
+            <div class="feat2-photo is-active" style="background-image:url('images/brand-01.jpg')" data-hiw-photo="0"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-02.jpg')" data-hiw-photo="1"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-03.jpg')" data-hiw-photo="2"></div>
+
+            <div class="feat2-glass">
+              <div class="hiw-screens" id="hiwScreens">
+                <!-- Screen 1: Connect Knowledge -->
+                <div class="hiw-screen active" data-step="1">
+                  <h3>Connect your knowledge</h3>
+                  <p class="hiw-sub">Paste your URL. We read every page and PDF.</p>
+                  <div class="hiw-field-label">Website URL</div>
+                  <div class="hiw-input">
+                    <span style="opacity:.5">https://</span><span id="hiwUrlText"></span><span class="cursor" style="animation: blink 1s step-end infinite;">|</span>
+                  </div>
+                  <div class="hiw-status" id="hiwSyncStatus" style="opacity:0; transform:translateY(10px); transition: all .4s;">
+                    <div class="hiw-spinner"></div>
+                    <span>Syncing 42 pages...</span>
+                  </div>
+                </div>
+
+                <!-- Screen 2: Brand Identity -->
+                <div class="hiw-screen" data-step="2">
+                  <h3>Set your identity</h3>
+                  <p class="hiw-sub">Give it a name and a tone of voice.</p>
+                  <div class="hiw-field-label">Agent Name</div>
+                  <div class="hiw-input">Sarah</div>
+                  <div class="hiw-chip-row">
+                    <span class="hiw-chip on">Professional</span>
+                    <span class="hiw-chip">Friendly</span>
+                    <span class="hiw-chip">Direct</span>
+                    <span class="hiw-chip">Playful</span>
+                  </div>
+                </div>
+
+                <!-- Screen 3: Deploy -->
+                <div class="hiw-screen" data-step="3">
+                  <h3>Deploy everywhere</h3>
+                  <p class="hiw-sub">One click to go live on your favorite channels.</p>
+                  <div class="hiw-channel-grid" id="hiwChannelGrid">
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg><span>Web</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>WhatsApp</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
-
     <!-- DISABLED — not in the approved homepage section list; kept intact below so it can be restored, not deleted. -->
     <template data-disabled-section="KNOWLEDGE">
     <!-- ============================================================
@@ -1012,7 +1562,7 @@
         <h2 class="final-cta-headline">Your next customer is already typing.</h2>
         <p class="final-cta-sub">Set it up this afternoon. See what it handles tonight.</p>
         <div style="max-width: 720px; margin: 40px auto;">
-          <img src="images/brand-03.jpg" alt="A smartphone on a dark desk lit up mid-notification with a vivid blue glow" style="aspect-ratio: 16/9; width:100%; object-fit:cover; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+          <img src="images/final-cta-bg.jpg" alt="A smartphone on a dark desk lit up mid-notification with a vivid blue glow" style="aspect-ratio: 16/9; width:100%; object-fit:cover; border-radius: var(--radius-lg); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
         </div>
         <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
         <p class="final-cta-note">No credit card. Live in under an hour.</p>
@@ -1069,7 +1619,9 @@
       </div>
     </section>
 
-    <footer class="footer">
+  </main>
+
+  <footer class="footer">
       <div class="container footer-inner footer-inner--5col">
         <div class="footer-brand">
           <a href="index.html#top" class="nav-logo">
@@ -1130,11 +1682,9 @@
           <a href="index.html#top">Terms</a>
         </div>
       </div>
-    </footer>
+  </footer>
 
-  </main>
-
-  <script src="nav.js"></script>
-  <script src="home.js"></script>
+  <script src="nav.js?v=2.0"></script>
+  <script src="home.js?v=2.0"></script>
 </body>
 </html>

@@ -74,12 +74,15 @@
   wireCountUp('analyticsStatsHome');
 
   /* ---------------------------------------------------------
-     HERO — one-time setup card, then a looping channel demo
+     HERO CONVERSATION — the cinematic device plays a looping
+     conversation. The markup ships an empty #heroConversationBody
+     for this to fill; previously this block still targeted the old
+     #channelCard hero that no longer exists, so it bailed on the
+     first line and left the card rendering as a blank white box.
      --------------------------------------------------------- */
-  (function heroSequence() {
-    var channelCard = document.getElementById('channelCard');
-    var channelDots = document.getElementById('channelDots');
-    if (!channelCard) return;
+  (function heroConversation() {
+    var body = document.getElementById('heroConversationBody');
+    if (!body) return;
 
     var CHANNELS = [
       {
@@ -115,93 +118,80 @@
       }
     ];
 
-    function typeText(el, text, duration, cb) {
-      if (!el) { if (cb) cb(); return; }
-      el.textContent = '';
-      if (reduceMotion) { el.textContent = text; if (cb) cb(); return; }
-      var i = 0, stepTime = duration / text.length;
-      (function tick() {
-        el.textContent = text.slice(0, i);
-        i++;
+    var timers = [];
+    function clearTimers() { timers.forEach(clearTimeout); timers = []; }
 
-        if (i <= text.length) setTimeout(tick, stepTime);
-        else if (cb) cb();
-      })();
+    function addBubble(b) {
+      var el = document.createElement('div');
+      el.className = 'hc-bubble ' + b.side;
+      el.textContent = b.text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+      return el;
     }
-    var CHANNEL_THEME = ['is-website', 'is-whatsapp', 'is-instagram'];
-    var CHANNEL_TYPES = ['website', 'whatsapp', 'instagram'];
 
-    function renderChannel(index) {
+    function showTyping() {
+      var el = document.createElement('div');
+      el.className = 'hc-bubble in hc-typing';
+      el.setAttribute('aria-hidden', 'true');
+      el.innerHTML = '<span></span><span></span><span></span>';
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+      return el;
+    }
+
+    /* Plays one conversation bubble by bubble, with a typing indicator in
+       front of each agent reply, then hands back to the caller to advance. */
+    function playConversation(index, done) {
       var data = CHANNELS[index];
-      document.getElementById('channelAvatar').textContent = data.avatar;
-      document.getElementById('channelName').textContent = data.name;
-      document.getElementById('channelStatus').textContent = data.status;
+      clearTimers();
+      body.innerHTML = '';
 
-      var header = document.getElementById('channelHeader');
-      var card = document.getElementById('channelCard');
-      ['is-whatsapp', 'is-instagram', 'is-website'].forEach(function (t) { header.classList.remove(t); card.classList.remove(t); });
-      if (CHANNEL_THEME[index]) { header.classList.add(CHANNEL_THEME[index]); card.classList.add(CHANNEL_THEME[index]); }
-      
-      var sliderFrame = document.getElementById('heroSliderFrame');
-      
-      if (sliderFrame) {
-        if (CHANNEL_TYPES[index] === 'website') {
-           sliderFrame.classList.remove('is-mobile');
-           sliderFrame.classList.add('is-website');
-        } else if (CHANNEL_TYPES[index] === 'whatsapp' || CHANNEL_TYPES[index] === 'instagram') {
-           sliderFrame.classList.remove('is-website');
-           sliderFrame.classList.add('is-mobile');
-        }
+      if (reduceMotion) {
+        data.bubbles.forEach(addBubble);
+        return;
       }
 
-      var bubblesWrap = document.getElementById('channelBubbles');
-      bubblesWrap.innerHTML = '';
+      var t = 0;
       data.bubbles.forEach(function (b, i) {
-        var bubble = document.createElement('div');
-        bubble.className = 'channel-bubble ' + b.side;
-        bubble.textContent = b.text;
-        bubble.style.animationDelay = (reduceMotion ? 0 : i * 500) + 'ms';
-        bubblesWrap.appendChild(bubble);
-      });
-
-      var receiptStrip = document.getElementById('channelReceiptStrip');
-      receiptStrip.innerHTML = '';
-      var receipt = document.createElement('span');
-      receipt.className = 'receipt';
-      receipt.style.animationDelay = (reduceMotion ? 0 : data.bubbles.length * 500 + 200) + 'ms';
-      receipt.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>' + data.receipt + '</span>';
-      receiptStrip.appendChild(receipt);
-
-      document.querySelectorAll('.channel-dot').forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === index);
-        dot.setAttribute('aria-selected', String(i === index));
+        if (b.side === 'out') {
+          var typingAt = t;
+          t += 900;
+          timers.push(setTimeout(function () {
+            var dots = showTyping();
+            timers.push(setTimeout(function () { dots.remove(); addBubble(b); }, 900));
+          }, typingAt));
+          t += Math.min(2600, 700 + b.text.length * 14);
+        } else {
+          timers.push(setTimeout(function () { addBubble(b); }, t));
+          t += Math.min(2200, 600 + b.text.length * 12);
+        }
+        if (i === data.bubbles.length - 1) {
+          timers.push(setTimeout(done, t + 2400));
+        }
       });
     }
 
-    var channelIndex = 0;
-    var channelTimer = null;
-    function startChannelCycle() {
-      renderChannel(channelIndex);
-      if (channelTimer) clearInterval(channelTimer);
-      if (reduceMotion) return;
-      channelTimer = setInterval(function () {
-        channelIndex = (channelIndex + 1) % CHANNELS.length;
-        renderChannel(channelIndex);
-      }, 5200);
+    var idx = 0;
+    function next() {
+      playConversation(idx, function () {
+        idx = (idx + 1) % CHANNELS.length;
+        next();
+      });
     }
 
-    if (channelDots) {
-      channelDots.querySelectorAll('.channel-dot').forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          channelIndex = parseInt(dot.getAttribute('data-channel'), 10);
-          renderChannel(channelIndex);
-          if (channelTimer) clearInterval(channelTimer);
-          startChannelCycle();
+    /* Only run while the hero is actually on screen. */
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var started = false;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) { started = true; next(); }
         });
-      });
+      }, { threshold: 0.2 });
+      obs.observe(body);
+    } else {
+      next();
     }
-
-    startChannelCycle();
   })();
 
   /* ---------------------------------------------------------
@@ -211,9 +201,8 @@
     var device = document.getElementById('hiwDevice');
     if (!device) return;
     var screens = device.querySelectorAll('.hiw-screen');
-    var dots = device.querySelectorAll('.hiw-dot');
-    var stepNum = document.getElementById('hiwStepNum');
-    var fill = document.getElementById('hiwFill');
+    var items = Array.prototype.slice.call(device.querySelectorAll('.feat2-item'));
+    var photos = Array.prototype.slice.call(device.querySelectorAll('.feat2-photo'));
     var urlText = document.getElementById('hiwUrlText');
     var channelCells = document.querySelectorAll('#hiwChannelGrid .hiw-channel-cell');
     var DWELL = 3300;
@@ -243,22 +232,14 @@
         });
       }
     }
-    function resetProgress() {
-      if (!fill) return;
-      fill.classList.remove('animate');
-      fill.style.width = '0%';
-      void fill.offsetWidth;
-      if (!reduceMotion) {
-        fill.classList.add('animate');
-        requestAnimationFrame(function () { fill.style.width = '100%'; });
-      }
-    }
     function show(i) {
       current = (i + screens.length) % screens.length;
       screens.forEach(function (s, idx) { s.classList.toggle('active', idx === current); });
-      dots.forEach(function (d, idx) { d.classList.toggle('active', idx === current); });
-      if (stepNum) stepNum.textContent = String(current + 1);
-      resetProgress();
+      items.forEach(function (el, idx) {
+        el.classList.toggle('is-active', idx === current);
+        el.setAttribute('aria-selected', idx === current ? 'true' : 'false');
+      });
+      photos.forEach(function (p, idx) { p.classList.toggle('is-active', idx === current); });
       runEffects(current);
     }
     function start() {
@@ -268,9 +249,9 @@
     }
     function stop() { if (timer) clearInterval(timer); }
 
-    dots.forEach(function (d) {
-      d.addEventListener('click', function () {
-        show(parseInt(d.getAttribute('data-i'), 10));
+    items.forEach(function (el) {
+      el.addEventListener('click', function () {
+        show(parseInt(el.getAttribute('data-hiw-i'), 10));
         start();
       });
     });
@@ -287,59 +268,101 @@
   })();
 
   /* ---------------------------------------------------------
-     WORKFLOWS TEASER CANVAS — same generic wf-canvas player used on
-     workflows.html / agents.html (kept local so this page doesn't
-     also have to load industries.js's reveal/FAQ logic twice)
+     INTERACTIVE WORKFLOWS
      --------------------------------------------------------- */
-  (function workflowCanvasInit() {
-    var canvas = document.querySelector('.wf-canvas');
-    if (!canvas) return;
-    var els = Array.prototype.slice.call(canvas.querySelectorAll('[data-wf-step]'));
-    if (!els.length) return;
-    var maxStep = els.reduce(function (m, el) { return Math.max(m, parseInt(el.getAttribute('data-wf-step'), 10)); }, 1);
-    var DWELL = 1000, PAUSE = 1400;
-    var current = 0, timer = null;
+  (function interactiveWorkflowsInit() {
+    var tabsWrap = document.getElementById('wfTabs');
+    if (!tabsWrap) return;
+    var tabs = Array.prototype.slice.call(tabsWrap.querySelectorAll('.wf-tab-h'));
+    var views = Array.prototype.slice.call(document.querySelectorAll('.wf-view'));
 
-    function clearAll() { els.forEach(function (el) { el.classList.remove('pulse', 'active', 'visited'); }); }
-    function applyUpTo(step) {
-      els.forEach(function (el) {
-        var s = parseInt(el.getAttribute('data-wf-step'), 10);
-        var isNode = el.classList.contains('wf-node');
-        if (s < step) {
-          if (isNode) { el.classList.remove('pulse'); el.classList.add('visited'); }
-          else el.classList.add('active');
-        } else if (s === step) {
-          if (isNode) el.classList.add('pulse');
-          else el.classList.add('active');
-        }
+    /* ---- flow player -------------------------------------------------
+       Walks the active view's step lines top to bottom and swaps the
+       single right-hand stage panel to whichever state that step is about
+       (data-state on the <li> names the panel to show). The cart sits up
+       front, the wait covers both the timer and the condition that reads
+       it, and the sent message closes the loop.
+       ------------------------------------------------------------------ */
+    var STEP_DWELL = [3000, 4400, 3600, 4200];
+    var timers = [];
+    var running = false;
+
+    function clearFlowTimers() { timers.forEach(clearTimeout); timers = []; }
+
+    function showState(view, key) {
+      view.querySelectorAll('.wf-state').forEach(function (s) {
+        s.classList.toggle('is-shown', s.getAttribute('data-state') === key);
       });
     }
-    function tick() {
-      current++;
-      if (current > maxStep) {
-        clearAll();
-        current = 0;
-        timer = setTimeout(tick, PAUSE);
+
+    function resetView(view) {
+      view.querySelectorAll('.feat2-item').forEach(function (s) { s.classList.remove('is-active'); });
+      showState(view, 'cart');
+    }
+
+    function playView(view) {
+      clearFlowTimers();
+      var steps = Array.prototype.slice.call(view.querySelectorAll('.feat2-item'));
+      if (!steps.length) return;
+
+      if (reduceMotion) {
+        steps.forEach(function (s) { s.classList.add('is-active'); });
+        showState(view, 'sent');
         return;
       }
-      applyUpTo(current);
-      timer = setTimeout(tick, DWELL);
-    }
-    function start() { stop(); if (!reduceMotion) tick(); }
-    function stop() { if (timer) clearTimeout(timer); }
 
-    if (reduceMotion) {
-      applyUpTo(maxStep);
-    } else if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { entry.isIntersecting ? start() : stop(); });
-      }, { threshold: 0.35 });
-      obs.observe(canvas);
-    } else {
-      start();
+      var t = 0;
+      steps.forEach(function (step, i) {
+        timers.push(setTimeout(function () {
+          steps.forEach(function (s) { s.classList.remove('is-active'); });
+          step.classList.add('is-active');
+          showState(view, step.getAttribute('data-state') || 'cart');
+        }, t));
+        t += STEP_DWELL[i] || 3000;
+      });
+      timers.push(setTimeout(function () { if (running) playView(view); }, t));
     }
+
+    function activeView() { return views.filter(function (v) { return v.classList.contains('is-active'); })[0]; }
+    function restart() { var v = activeView(); if (v) { resetView(v); playView(v); } }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var targetId = tab.getAttribute('data-wf-target');
+        if (!targetId) return;
+
+        tabs.forEach(function (t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        views.forEach(function (v) { v.classList.remove('is-active'); resetView(v); });
+
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+        var view = document.getElementById('wf-' + targetId);
+        if (view) { view.classList.add('is-active'); if (running) playView(view); }
+      });
+    });
+
+    /* Only run the sequence while the section is actually on screen. */
+    var section = document.getElementById('workflows-teaser');
+    if (reduceMotion || !('IntersectionObserver' in window) || !section) {
+      running = true;
+      restart();
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          if (!running) { running = true; restart(); }
+        } else {
+          running = false;
+          clearFlowTimers();
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(section);
   })();
-
   /* ---------------------------------------------------------
      INDUSTRY TABS
      --------------------------------------------------------- */
@@ -480,19 +503,48 @@
      resets cleanly on user interaction. All timers tracked and
      cleared before each new sequence — nothing stacks or leaks.
      --------------------------------------------------------- */
+  /* ---------------------------------------------------------
+     ONE AGENT, MULTIPLE TASKS — one product surface whose
+     context changes (not four equal cards). Re-renders side-by-side
+     UI with a new conversation.
+     --------------------------------------------------------- */
   (function agentHeroInit() {
     var body = document.getElementById('agentConsoleBody');
-    var industryTag = document.getElementById('agentIndustryTag');
+    var jobTag = document.getElementById('agentJobTag');
+    var jobTitle = document.getElementById('agentJobTitle');
     var selector = document.getElementById('agentSelector');
-    var indicator = document.getElementById('agentSelectorIndicator');
-    if (!body || !selector || !indicator) return;
-    var items = Array.prototype.slice.call(selector.querySelectorAll('.agent-selector-item'));
+    if (!body || !selector || !jobTag || !jobTitle) return;
+    var items = Array.prototype.slice.call(selector.querySelectorAll('.aws-item'));
 
     var CAPS = {
-      sales: { industry: 'Real Estate', q: 'Do you have this in large?', a: 'Yes — 2 left. Want me to hold one?', actionText: 'Checking inventory…', result: 'Cart updated' },
-      leads: { industry: 'Education & Training', q: 'I’m looking for training for my team.', a: 'Absolutely — what’s your budget, and when are you looking to start?', actionText: 'Saving to CRM…', result: 'Lead created' },
-      meetings: { industry: 'Healthcare & Clinics', q: 'I want to book a consultation.', a: 'I have Friday 2pm or Saturday 11am open — which works?', actionText: 'Checking calendar…', result: 'Meeting booked' },
-      support: { industry: 'E-Commerce & D2C', q: 'Where is my order?', a: 'It ships tomorrow and should arrive Thursday by 7pm.', actionText: 'Tracking order…', result: 'No action needed' }
+      sales: { 
+        title: 'SALES AGENT', tag: 'Real Estate',
+        cardTitle: 'Checking inventory...', cardSub: 'Large • Blue',
+        list: [{l: 'Large', r: '2 available'}, {l: 'Medium', r: '5 available'}, {l: 'Small', r: '0 available'}],
+        resultTitle: 'Cart updated',
+        toastTitle: 'SALE MOVING FORWARD', toastSub: 'Item held for 15 minutes'
+      },
+      leads: { 
+        title: 'LEAD AGENT', tag: 'Education',
+        cardTitle: 'Saving to CRM...', cardSub: 'High Intent Lead',
+        list: [{l: 'Budget', r: 'Confirmed'}, {l: 'Timeline', r: 'Next 2 weeks'}, {l: 'Company', r: 'Acme Corp'}],
+        resultTitle: 'Lead created',
+        toastTitle: 'PIPELINE UPDATED', toastSub: 'Assigned to Sarah'
+      },
+      meetings: { 
+        title: 'MEETING AGENT', tag: 'Healthcare',
+        cardTitle: 'Checking calendar...', cardSub: 'Dr. Smith',
+        list: [{l: 'Friday', r: '2:00 PM available'}, {l: 'Saturday', r: '11:00 AM available'}],
+        resultTitle: 'Meeting booked',
+        toastTitle: 'CALENDAR UPDATED', toastSub: 'Invite sent to patient'
+      },
+      support: { 
+        title: 'SUPPORT AGENT', tag: 'E-Commerce',
+        cardTitle: 'Tracking order...', cardSub: 'Order #4928',
+        list: [{l: 'Status', r: 'In transit'}, {l: 'Location', r: 'Local Facility'}, {l: 'Delivery', r: 'Tomorrow'}],
+        resultTitle: 'Ticket updated',
+        toastTitle: 'ISSUE RESOLVED', toastSub: 'Customer notified'
+      }
     };
     var ORDER = ['sales', 'leads', 'meetings', 'support'];
     var current = null;
@@ -501,25 +553,53 @@
 
     function clearSeqTimers() { seqTimers.forEach(clearTimeout); seqTimers = []; }
 
-    function moveIndicator(item) {
-      indicator.style.width = item.offsetWidth + 'px';
-      indicator.style.transform = 'translateX(' + item.offsetLeft + 'px)';
-    }
-
     function playSequence(cap) {
       clearSeqTimers();
+      
+      var listHtml = cap.list.map(function(item) {
+        return '<div class="awc-list-item"><span>' + item.l + '</span><span>' + item.r + '</span></div>';
+      }).join('');
+
       body.innerHTML =
-        '<div class="ac-row"><span class="ac-label">Customer</span><div class="ac-bubble q">' + cap.q + '</div></div>' +
-        '<div class="ac-row"><div class="ac-typing"><span></span><span></span><span></span></div></div>' +
-        '<div class="ac-row"><span class="ac-label">Agent</span><div class="ac-bubble a">' + cap.a + '</div></div>' +
-        '<div class="ac-row"><span class="ac-label">Action</span><div class="ac-action"><span class="ac-action-spinner"></span>' + cap.actionText + '</div></div>' +
-        '<div class="ac-row"><div class="ac-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>' + cap.result + '</div></div>';
-      var rows = Array.prototype.slice.call(body.children);
-      if (reduceMotion) { rows.forEach(function (r) { r.classList.add('is-shown'); }); return; }
-      var delays = [0, 500, 1100, 1900, 2700];
-      rows.forEach(function (row, i) {
-        seqTimers.push(setTimeout(function () { row.classList.add('is-shown'); }, delays[i]));
-      });
+        '<div class="awc-sidebar">' +
+          '<div class="awc-step" id="step-1"><div class="awc-step-num">01</div><div class="awc-step-title">Intent</div></div>' +
+          '<div class="awc-step" id="step-2"><div class="awc-step-num">02</div><div class="awc-step-title">Understand</div></div>' +
+          '<div class="awc-step" id="step-3"><div class="awc-step-num">03</div><div class="awc-step-title">Act</div></div>' +
+          '<div class="awc-step" id="step-4"><div class="awc-step-num">04</div><div class="awc-step-title">Outcome</div></div>' +
+        '</div>' +
+        '<div class="awc-chat">' +
+          '<div class="awc-action-card" id="awcCard">' +
+            '<div class="awc-card-title">' + cap.cardTitle + '</div>' +
+            '<div class="awc-card-sub">' + cap.cardSub + '</div>' +
+            '<div class="awc-list">' + listHtml + '</div>' +
+            '<div class="awc-card-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' + cap.resultTitle + '</div>' +
+          '</div>' +
+          '<div class="awc-toast" id="awcToast">' +
+            '<div><div style="font-size:10px;letter-spacing:1px;margin-bottom:2px;">' + cap.toastTitle + '</div><div style="font-size:13px;color:var(--text-primary);">' + cap.toastSub + '</div></div>' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
+          '</div>' +
+        '</div>';
+
+      var s1 = document.getElementById('step-1');
+      var s2 = document.getElementById('step-2');
+      var s3 = document.getElementById('step-3');
+      var s4 = document.getElementById('step-4');
+      var card = document.getElementById('awcCard');
+      var toast = document.getElementById('awcToast');
+
+      if (reduceMotion) {
+        [s1, s2, s3, s4].forEach(function(s) { if(s) s.classList.add('active'); });
+        if(card) card.classList.add('is-shown');
+        if(toast) toast.classList.add('is-shown');
+        return;
+      }
+      
+      // Step animation sequence
+      if(s1) s1.classList.add('active'); // Start with intent active
+      
+      seqTimers.push(setTimeout(function () { if(s1) s1.classList.remove('active'); if(s2) s2.classList.add('active'); }, 500));
+      seqTimers.push(setTimeout(function () { if(s2) s2.classList.remove('active'); if(s3) s3.classList.add('active'); if(card) card.classList.add('is-shown'); }, 1200));
+      seqTimers.push(setTimeout(function () { if(s3) s3.classList.remove('active'); if(s4) s4.classList.add('active'); if(toast) toast.classList.add('is-shown'); }, 2400));
     }
 
     function restartAutoCycle() {
@@ -528,7 +608,7 @@
       autoTimer = setInterval(function () {
         var idx = ORDER.indexOf(current);
         setActive(ORDER[(idx + 1) % ORDER.length], true);
-      }, 4500);
+      }, 5000);
     }
 
     function setActive(key, silent) {
@@ -539,9 +619,9 @@
         var active = it.getAttribute('data-cap') === key;
         it.classList.toggle('is-active', active);
         it.setAttribute('aria-selected', active ? 'true' : 'false');
-        if (active) moveIndicator(it);
       });
-      industryTag.textContent = cap.industry;
+      jobTag.textContent = cap.tag;
+      jobTitle.textContent = cap.title;
       playSequence(cap);
       if (!silent) restartAutoCycle();
     }
@@ -550,10 +630,6 @@
       it.addEventListener('click', function () { setActive(it.getAttribute('data-cap')); });
       it.addEventListener('mouseenter', function () { setActive(it.getAttribute('data-cap')); });
     });
-    window.addEventListener('resize', function () {
-      var active = selector.querySelector('.agent-selector-item.is-active');
-      if (active) moveIndicator(active);
-    }, { passive: true });
 
     setActive('sales', true);
     restartAutoCycle();
@@ -604,4 +680,133 @@
     }, { passive: true });
     apply();
   })();
+
+  /* ---------------------------------------------------------
+     SCROLL STACK — pinned industry cards (#industryFlow)
+     Each card lives in a tall .stack-item and pins via plain CSS
+     `position: sticky; top: 12vh`. The scroll "runway" available
+     while a card is pinned is simply its .stack-item's height
+     minus the card's own height — from that we derive a 0→1
+     progress per card and use it to scale it down, rotate it a
+     few degrees, fade it out and blur it slightly, so it visibly
+     turns and dissolves as the next card slides up to cover it.
+     The last card never dissolves (nothing needs to cover it).
+     --------------------------------------------------------- */
+  (function initScrollStack() {
+    var flow = document.getElementById('industryFlow');
+    if (!flow) return;
+    var items = Array.prototype.slice.call(flow.querySelectorAll('.stack-item'));
+    if (items.length < 2) return;
+    var cards = items.map(function (item) { return item.querySelector('.industry-flow-card'); });
+    if (cards.indexOf(null) !== -1) return;
+
+    // Later cards paint over earlier ones as they arrive.
+    cards.forEach(function (card, i) { card.style.zIndex = String(i + 1); });
+
+    var isNarrow = window.matchMedia('(max-width: 900px)').matches;
+    if (reduceMotion || isNarrow) return; // CSS already keeps things static at this width/preference
+
+    var STICKY_TOP_RATIO = 0.12; // must match .industry-flow-card { top: 12vh } in home.css
+    var ticking = false;
+
+    function resetCard(card) {
+      card.style.transform = 'none';
+      card.style.opacity = '1';
+      card.style.filter = 'none';
+    }
+
+    function update() {
+      ticking = false;
+      var stickyTop = window.innerHeight * STICKY_TOP_RATIO;
+
+      items.forEach(function (item, i) {
+        var card = cards[i];
+        if (i === items.length - 1) { resetCard(card); return; } // last card stays put
+
+        var rect = item.getBoundingClientRect();
+        var runway = rect.height - card.offsetHeight;
+        if (runway <= 0) { resetCard(card); return; }
+
+        var progress = (stickyTop - rect.top) / runway;
+        progress = Math.max(0, Math.min(1, progress));
+
+        if (progress <= 0) { resetCard(card); return; }
+
+        var scale = 1 - progress * 0.08;
+        var rotate = (i % 2 === 0 ? -1 : 1) * progress * 4;
+        var translateY = progress * -24;
+        var opacity = 1 - progress * 0.85;
+        var blur = progress * 3;
+
+        card.style.transform = 'translateY(' + translateY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ') rotateZ(' + rotate.toFixed(2) + 'deg)';
+        card.style.opacity = opacity.toFixed(3);
+        card.style.filter = blur > 0.05 ? 'blur(' + blur.toFixed(2) + 'px)' : 'none';
+      });
+    }
+
+    function onScrollOrResize() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
+    update();
+  })();
+
+  /* ---------------------------------------------------------
+     TESTIMONIAL SKEWED CAROUSEL — scale-on-position
+     The horizontal drift is a plain CSS keyframe on
+     .testimonial-marquee-track (cheap, GPU-composited); this
+     only adds the half a CSS animation can't do on its own —
+     each card's live distance from the mask's centre drives its
+     scale/opacity every frame, so cards visibly grow as they
+     near the middle and shrink toward the edges while drifting
+     past. Only ticks while the section is actually on screen.
+     --------------------------------------------------------- */
+  (function initTestimonialCarousel() {
+    var mask = document.querySelector('.testimonial-marquee-mask');
+    if (!mask || reduceMotion) return;
+    var cards = Array.prototype.slice.call(mask.querySelectorAll('.tcard-skew'));
+    if (!cards.length) return;
+
+    var running = false;
+    var rafId = null;
+
+    function tick() {
+      var maskRect = mask.getBoundingClientRect();
+      var centerX = maskRect.left + maskRect.width / 2;
+      var half = maskRect.width / 2 || 1;
+
+      cards.forEach(function (card) {
+        var rect = card.getBoundingClientRect();
+        var cardCenter = rect.left + rect.width / 2;
+        var dist = Math.max(-1, Math.min(1, (cardCenter - centerX) / half));
+        var scale = 1 - Math.abs(dist) * 0.14;
+        var opacity = 1 - Math.abs(dist) * 0.45;
+        card.style.transform = 'skewY(-3deg) scale(' + scale.toFixed(3) + ')';
+        card.style.opacity = opacity.toFixed(3);
+      });
+
+      if (running) rafId = requestAnimationFrame(tick);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !running) {
+            running = true;
+            rafId = requestAnimationFrame(tick);
+          } else if (!entry.isIntersecting && running) {
+            running = false;
+            if (rafId) cancelAnimationFrame(rafId);
+          }
+        });
+      }, { threshold: 0.05 });
+      obs.observe(mask);
+    } else {
+      running = true;
+      tick();
+    }
+  })();
+
 })();
