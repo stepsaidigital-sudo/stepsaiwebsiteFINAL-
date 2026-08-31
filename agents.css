@@ -317,6 +317,7 @@
 .inbox-dash-tag.inquiry { background: rgba(57,135,229,.18); color: #7cb3ec; }
 .inbox-dash-tag.order { background: rgba(217,165,49,.18); color: #e0b95e; }
 .inbox-dash-tag.tech { background: rgba(229,103,90,.18); color: #ee8f85; }
+.inbox-dash-tag.resolved { background: rgba(34,197,94,.18); color: #6ee7a0; }
 
 .inbox-dash-thread { display: flex; flex-direction: column; min-width: 0; }
 .inbox-dash-thread-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--ibx-border); }

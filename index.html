@@ -729,46 +729,85 @@
     </section>
 
     <!-- ============================================================
-         5. ONE INBOX — reuses the .inbox-list component from
-             agents.html, extended with a conversation-detail panel
+         5. ONE INBOX — same real .inbox-dash component as agents.html
+             (conversation list + open thread), reused via agents.css
+             which this page already loads
          ============================================================ -->
     <section class="section section--raised" id="inbox-teaser">
       <div class="container">
-        
-        <div class="agent-hero-shell">
-          <div class="agent-hero-copy reveal">
+
+        <div class="demo-shell">
+          <div class="reveal">
             <p class="kicker">ONE INBOX &middot; NOTHING GETS MISSED</p>
-            <h2 class="agent-hero-headline">Every conversation, one place — and a person who can step in anytime.</h2>
-            <p class="agent-hero-sub">Website, WhatsApp, and Instagram, side by side. The AI handles what it can; your team sees exactly when it doesn't — nothing sits unanswered in a tab nobody checks.</p>
+            <h2 class="section-title">Every conversation, one place &mdash; and a person who can step in anytime.</h2>
+            <p class="section-sub">Website, WhatsApp, and Instagram, side by side. The AI handles what it can; your team sees exactly when it doesn't &mdash; nothing sits unanswered in a tab nobody checks.</p>
             <a href="one-inbox.html" class="section-link-out">See how One Inbox works &rarr;</a>
           </div>
 
-          <div class="agent-hero-visual reveal">
-            <div class="inbox-ui-panel">
-              <!-- Convergence Animation -->
-              <div class="inbox-convergence">
-                <div class="ic-channels">
-                  <span class="ic-tag ic-web">Web</span>
-                  <span class="ic-tag ic-ig">IG</span>
-                  <span class="ic-tag ic-wa">WA</span>
+          <div class="reveal">
+            <div class="inbox-dash">
+              <div class="inbox-dash-list">
+                <div class="inbox-dash-list-head">Conversations</div>
+
+                <div class="inbox-dash-row is-active">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="web"></i>Web</span>
+                    <span class="inbox-dash-time">2m</span>
+                  </div>
+                  <p class="inbox-dash-preview">Can I book a facial for tomorrow morning?</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag lead">Lead</span></div>
                 </div>
-                <div class="ic-lines">
-                  <svg width="100%" height="60" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
-                    <path d="M 16.7,0 C 16.7,34 50,26 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
-                    <path d="M 50,0 L 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
-                    <path d="M 83.3,0 C 83.3,34 50,26 50,60" class="ic-path" vector-effect="non-scaling-stroke"/>
-                  </svg>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="ig"></i>Instagram</span>
+                    <span class="inbox-dash-time">12m</span>
+                  </div>
+                  <p class="inbox-dash-preview">I'd like to know more about your services.</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag inquiry">Product Inquiry</span></div>
                 </div>
-                <div class="ic-center-logo">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.8 8.8 0 0 1-4-1L3 20l1.2-4.2a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 12 3.4h.4a8.5 8.5 0 0 1 8 8v.1Z"/></svg>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="wa"></i>WhatsApp</span>
+                    <span class="inbox-dash-time">28m</span>
+                  </div>
+                  <p class="inbox-dash-preview">Got it, thank you!</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag resolved">Resolved</span></div>
+                </div>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="web"></i>Web</span>
+                    <span class="inbox-dash-time">1h</span>
+                  </div>
+                  <p class="inbox-dash-preview">Where's my order #2453?</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag order">Order Support</span></div>
                 </div>
               </div>
 
-              <div class="inbox-list reveal-stagger">
-                <div class="inbox-list-row" style="--i:0"><span class="inbox-channel-tag tag-web">Web</span><span class="inbox-name">Priya M.</span><span class="inbox-preview">Can I book a facial for tomorrow morning?</span><span class="inbox-time">2m</span><span class="inbox-status booked">AI handling</span></div>
-                <div class="inbox-list-row" style="--i:1"><span class="inbox-channel-tag tag-ig">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">I'd like to know more about your services.</span><span class="inbox-time">12m</span><span class="inbox-status handover">With Sarah</span></div>
-                <div class="inbox-list-row" style="--i:2"><span class="inbox-channel-tag tag-wa">WA</span><span class="inbox-name">Karthik V.</span><span class="inbox-preview">Got it, thank you!</span><span class="inbox-time">28m</span><span class="inbox-status resolved">Resolved</span></div>
-                <div class="inbox-list-row" style="--i:3"><span class="inbox-channel-tag tag-web">Web</span><span class="inbox-name">Divya S.</span><span class="inbox-preview">Where's my order #2453?</span><span class="inbox-time">1h</span><span class="inbox-status resolved">Answered</span></div>
+              <div class="inbox-dash-thread">
+                <div class="inbox-dash-thread-head">
+                  <span class="inbox-dash-thread-who">Priya M. <span class="inbox-dash-thread-chan"><i class="web"></i>Web</span></span>
+                  <span class="inbox-dash-details-btn">See details</span>
+                </div>
+                <div class="inbox-dash-body">
+                  <div class="inbox-dash-msg user">
+                    <div class="inbox-dash-msg-meta">Priya &middot; 2m ago<span class="inbox-dash-msg-avatar">P</span></div>
+                    <div class="inbox-dash-bubble">Can I book a facial for tomorrow morning?</div>
+                  </div>
+                  <div class="inbox-dash-msg agent">
+                    <div class="inbox-dash-msg-meta"><span class="inbox-dash-msg-avatar">SA</span>StepsAI Agent &middot; 2m ago</div>
+                    <div class="inbox-dash-answer">
+                      Tomorrow has <b>two openings</b> with our senior aesthetician.
+                      <ul>
+                        <li>10:30 AM &middot; 45 min facial</li>
+                        <li>2:00 PM &middot; 45 min facial</li>
+                      </ul>
+                      <p>Want me to hold one of these for you?</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
