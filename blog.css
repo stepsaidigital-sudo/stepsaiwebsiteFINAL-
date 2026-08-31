@@ -95,20 +95,13 @@
   font-size: clamp(29px, 4.2vw, 46px); font-weight: 670; letter-spacing: -.025em;
   line-height: 1.12; color: var(--text-primary); text-wrap: balance;
 }
-.article-dek { font-size: 17px; color: var(--text-secondary); margin: 20px auto 0; line-height: 1.65; max-width: 56ch; }
-.article-meta {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  font-size: 13px; color: var(--text-tertiary); margin-top: 30px;
-  padding-top: 24px; border-top: 1px solid var(--border-subtle);
-}
-.article-meta-avatar {
-  width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff;
-  display: flex; align-items: center; justify-content: center; font-weight: 650; font-size: 10.5px;
-  flex-shrink: 0; margin-right: 2px;
-}
-.article-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; }
-.article-meta svg { width: 14px; height: 14px; }
+/* The dek/byline that used to sit here now live on blog.html's own
+   card/feature copy and the bottom .article-author card respectively —
+   this page shouldn't repeat what the blog list page already said,
+   and the author's name/photo/role only need to appear once. */
 .article-meta-item { display: flex; align-items: center; gap: 5px; }
+.article-meta-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+.dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; display: inline-block; }
 
 /* --- Article page: hero visual (real product mockup, no stock photos) --- */
 .article-hero-visual {
@@ -127,12 +120,17 @@
 .article-hero-visual .wf-canvas-wrap { margin: 0; }
 @media (max-width: 640px) { .article-hero-visual { padding: 34px 16px; } }
 
-/* --- Article page: two-column shell (sticky sidebar + prose) --- */
-.article-shell { display: grid; grid-template-columns: 216px 1fr; gap: 56px; align-items: start; max-width: 980px; margin: 60px auto 0; }
-@media (max-width: 980px) { .article-shell { grid-template-columns: 1fr; } }
+/* --- Article page: three-column shell (sticky sidebar + prose +
+   a sticky vertical share rail in the right margin) --- */
+.article-shell { display: grid; grid-template-columns: 216px minmax(0, 1fr) 44px; gap: 40px 48px; align-items: start; max-width: 1040px; margin: 60px auto 0; }
 
 .article-sidebar { position: sticky; top: 100px; }
 @media (max-width: 980px) { .article-sidebar { display: none; } }
+
+.article-share-rail { position: sticky; top: 100px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.article-share-rail-label { font-family: var(--font-mono); font-size: 9.5px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); writing-mode: vertical-rl; margin-bottom: 4px; }
+@media (max-width: 1080px) { .article-shell { grid-template-columns: 216px minmax(0, 1fr); } .article-share-rail { display: none; } }
+@media (max-width: 980px) { .article-shell { grid-template-columns: 1fr; } }
 
 .article-share { display: flex; align-items: center; gap: 10px; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--border-subtle); }
 .article-share-label { font-family: var(--font-mono); font-size: 10.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); }
@@ -175,7 +173,7 @@
 .article-sidebar-cta .btn { width: 100%; }
 
 /* --- Article page: prose body --- */
-.article-body { max-width: 660px; font-size: 16.5px; line-height: 1.78; color: var(--text-secondary); }
+.article-body { max-width: 660px; font-size: 15.5px; line-height: 1.75; color: var(--text-secondary); }
 .article-body h2 {
   font-size: 24.5px; font-weight: 660; letter-spacing: -.012em; color: var(--text-primary);
   margin: 48px 0 17px; scroll-margin-top: 100px; text-wrap: balance;
@@ -239,6 +237,7 @@
 }
 .article-author h4 { font-size: 15px; font-weight: 650; color: var(--text-primary); }
 .article-author p { font-size: 13.5px; color: var(--text-secondary); margin-top: 4px; line-height: 1.55; }
+.article-author-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-tertiary); margin-top: 10px; }
 
 .article-related { max-width: 980px; margin: 68px auto 0; padding-top: 44px; border-top: 1px solid var(--border-subtle); }
 .article-related h3 { font-size: 20px; font-weight: 650; margin-bottom: 24px; color: var(--text-primary); letter-spacing: -.01em; }
