@@ -273,8 +273,14 @@
 .analytics-bars span:hover { background: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .analytics-bars span { transform: scaleY(1); transition: none; } }
 
-/* ---------- ONE INBOX / OMNICHANNEL ---------- */
-.omni-inbox-section { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; margin-top: 40px; }
+/* ---------- ONE INBOX / OMNICHANNEL — a real 2-pane inbox dashboard
+   (conversation list + open thread), same dark "real product" tokens
+   as the analytics PDASH so both dashboard mockups on the site read
+   as the same underlying product. Modelled on a real support-inbox
+   screenshot Sai shared: list rows carry category tags + channel +
+   time, the open thread shows the agent's actual structured answer
+   (bold lead + bullets), not a one-line chat bubble. ---------- */
+.omni-inbox-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; margin-top: 40px; }
 @media (max-width: 900px) { .omni-inbox-section { grid-template-columns: 1fr; gap: 40px; } }
 
 .omni-inbox-content { padding-right: 20px; }
@@ -282,38 +288,53 @@
 .omni-inbox-link { display: inline-flex; align-items: center; gap: 4px; margin-top: 24px; color: #2563eb; font-weight: 600; font-size: 15px; text-decoration: none; transition: color 0.2s; }
 .omni-inbox-link:hover { color: #1d4ed8; text-decoration: underline; }
 
-.omni-inbox-visual { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+.omni-inbox-visual { display: flex; flex-direction: column; align-items: center; }
 
-.omni-inbox-top-nodes { display: flex; justify-content: center; gap: 40px; width: 100%; position: relative; z-index: 2; margin-top: 10px; }
-.omni-node { width: 56px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.omni-node-web { background: #2563eb; }
-.omni-node-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.omni-node-wa { background: #075e54; }
-
-.omni-inbox-connector { position: relative; width: 100%; height: 50px; display: flex; justify-content: center; margin: 0 0 20px; z-index: 1; }
-.omni-connector-lines { position: absolute; top: 0; width: 100%; height: 40px; }
-.omni-icon-bubble { position: absolute; bottom: -12px; width: 44px; height: 44px; background: #fff; border-radius: 50%; box-shadow: 0 4px 12px rgba(37,99,235,0.2); display: flex; align-items: center; justify-content: center; z-index: 2; }
-
-.omni-mock-card { width: 100%; max-width: 480px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05); z-index: 2; position: relative; }
-.omni-mock-row { display: grid; grid-template-columns: minmax(100px, 1.5fr) 4fr 0.5fr auto; align-items: center; padding: 14px 20px; border-bottom: 1px solid #f1f5f9; gap: 12px; }
-.omni-mock-row:last-child { border-bottom: none; }
-@media (max-width: 600px) {
-  .omni-mock-row { grid-template-columns: 1fr 2fr 0.5fr; padding: 14px 16px; }
-  .omni-mock-status { display: none; }
+.inbox-dash {
+  --ibx-bg: #0a0c11; --ibx-card: #14161d; --ibx-border: #23262f;
+  --ibx-text: #f5f6f8; --ibx-sub: #9195a1; --ibx-faint: #5b5f6a;
+  --ibx-purple: #6c6af2; --ibx-blue: #3987e5; --ibx-amber: #d9a531; --ibx-red: #e5675a; --ibx-green: #22c55e;
+  width: 100%; background: var(--ibx-bg); border: 1px solid var(--ibx-border); border-radius: 16px;
+  overflow: hidden; display: grid; grid-template-columns: 240px minmax(0, 1fr);
+  box-shadow: 0 44px 88px -30px rgba(18,20,27,.4); color: var(--ibx-text); font-family: var(--font-sans);
 }
+.inbox-dash-list { border-right: 1px solid var(--ibx-border); display: flex; flex-direction: column; min-width: 0; }
+.inbox-dash-list-head { padding: 14px 16px 12px; font-size: 12.5px; font-weight: 650; color: var(--ibx-sub); border-bottom: 1px solid var(--ibx-border); }
+.inbox-dash-row { display: block; padding: 12px 16px; border-bottom: 1px solid var(--ibx-border); cursor: pointer; }
+.inbox-dash-row.is-active { background: var(--ibx-card); box-shadow: inset 3px 0 0 var(--ibx-purple); }
+.inbox-dash-row-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.inbox-dash-chan { display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 650; color: var(--ibx-sub); text-transform: uppercase; letter-spacing: .04em; }
+.inbox-dash-chan svg, .inbox-dash-chan i { width: 11px; height: 11px; flex-shrink: 0; border-radius: 3px; display: inline-block; }
+.inbox-dash-chan i.web { background: var(--ibx-blue); }
+.inbox-dash-chan i.wa { background: #1fae5c; }
+.inbox-dash-chan i.ig { background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7); }
+.inbox-dash-time { font-size: 10.5px; color: var(--ibx-faint); flex-shrink: 0; }
+.inbox-dash-preview { font-size: 12.5px; color: var(--ibx-sub); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.inbox-dash-row.is-active .inbox-dash-preview { color: var(--ibx-text); }
+.inbox-dash-tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+.inbox-dash-tag { font-size: 9.5px; font-weight: 650; padding: 2px 7px; border-radius: 999px; }
+.inbox-dash-tag.lead { background: rgba(108,106,242,.18); color: #9c9bf5; }
+.inbox-dash-tag.inquiry { background: rgba(57,135,229,.18); color: #7cb3ec; }
+.inbox-dash-tag.order { background: rgba(217,165,49,.18); color: #e0b95e; }
+.inbox-dash-tag.tech { background: rgba(229,103,90,.18); color: #ee8f85; }
 
-.omni-mock-col-user { display: flex; align-items: center; gap: 8px; }
-.omni-mock-badge { width: 32px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
-.omni-mock-badge.web { background: #2563eb; }
-.omni-mock-badge.ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.omni-mock-badge.wa { background: #075e54; }
+.inbox-dash-thread { display: flex; flex-direction: column; min-width: 0; }
+.inbox-dash-thread-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--ibx-border); }
+.inbox-dash-thread-who { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 650; }
+.inbox-dash-thread-chan { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 550; color: var(--ibx-sub); }
+.inbox-dash-details-btn { font-size: 11px; font-weight: 600; color: var(--ibx-sub); border: 1px solid var(--ibx-border); border-radius: 7px; padding: 5px 10px; flex-shrink: 0; white-space: nowrap; }
 
-.omni-mock-name { font-size: 13.5px; font-weight: 650; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.omni-mock-msg { font-size: 13px; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.omni-mock-time { font-size: 12px; color: #94a3b8; text-align: right; }
-
-.omni-mock-status { padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; text-align: center; white-space: nowrap; margin-left: auto; }
-.omni-mock-status.ai { background: #dcfce7; color: #166534; }
-.omni-mock-status.human { background: #ffedd5; color: #9a3412; }
-.omni-mock-status.resolved { background: #f1f5f9; color: #475569; }
-.omni-mock-status.answered { background: #f1f5f9; color: #475569; }
+.inbox-dash-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 16px; }
+.inbox-dash-msg { max-width: 82%; }
+.inbox-dash-msg.user { align-self: flex-end; text-align: right; }
+.inbox-dash-msg.agent { align-self: flex-start; }
+.inbox-dash-msg-meta { display: flex; align-items: center; gap: 6px; font-size: 10.5px; color: var(--ibx-faint); margin-bottom: 6px; }
+.inbox-dash-msg.user .inbox-dash-msg-meta { justify-content: flex-end; }
+.inbox-dash-msg-avatar { width: 16px; height: 16px; border-radius: 50%; background: var(--ibx-border); color: var(--ibx-sub); font-size: 8px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.inbox-dash-msg.user .inbox-dash-bubble { background: var(--ibx-purple); color: #fff; border-radius: 12px 12px 3px 12px; padding: 9px 13px; font-size: 13px; line-height: 1.5; display: inline-block; text-align: left; }
+.inbox-dash-answer { background: var(--ibx-card); border: 1px solid var(--ibx-border); border-radius: 3px 12px 12px 12px; padding: 12px 15px; font-size: 12.5px; line-height: 1.6; color: var(--ibx-sub); }
+.inbox-dash-answer b { color: var(--ibx-text); }
+.inbox-dash-answer ul { margin: 8px 0 0; padding-left: 18px; list-style: disc; }
+.inbox-dash-answer p { margin: 8px 0 0; }
+.inbox-dash-answer li { margin-bottom: 3px; }
+@media (max-width: 640px) { .inbox-dash { grid-template-columns: 1fr; } .inbox-dash-list { display: none; } }
