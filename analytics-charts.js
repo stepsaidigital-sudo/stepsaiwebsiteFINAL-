@@ -1,67 +1,172 @@
 /* ============================================================
-   ANALYTICS-CHARTS.JS — volume chart, channel bars, heatmap and
-   the filter bar that drives them, for analytics.html only.
-   All data below is the same illustrative "example account"
-   already labelled on this page (see .analytics-note) — the four
-   headline numbers (412 / 358 / 24 / 30) are the real published
-   ones; day-by-day and hour-by-hour shapes are a deterministic
-   formula, not literal history, so they never change between
-   visits and never claim to be something they're not.
+   ANALYTICS-CHARTS.JS — renders the PDASH (pixel-matched replica
+   of the real in-app Analytics dashboard) on analytics.html, plus
+   the per-agent performance-table filter. The homepage teaser's
+   mini PDASH is pure static HTML (no JS needed for that one).
+
+   Data: the 3 KPI numbers (41 chats / 110 messages / 1.5s), the
+   channel split (40 Web / 1 WhatsApp) and the geo numbers (38 IN /
+   2 US, Kochi 27 / Hyderabad 5) are the literal real numbers from
+   the real dashboard screenshots (Aug 25–31, 2026). The day-by-day
+   chart shape and the hour-by-day heatmap are a labelled
+   illustrative reconstruction of those same screenshots' shapes —
+   same "real totals, illustrative shape" convention as the rest of
+   this page.
    ============================================================ */
 (function () {
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- Data ---------------- */
-
-  // Deterministic daily-conversation shape: gentle upward trend +
-  // weekly seasonality (Sat/Sun lighter) + a small smooth wobble.
-  // No Math.random — same numbers every time this page loads.
-  function volumeSeries(days) {
-    var weeklyMul = [1, 1.08, 1.1, 1.05, 1.12, 0.78, 0.7]; // Mon..Sun
-    var out = [];
-    for (var i = 0; i < days; i++) {
-      var t = i / days;
-      var base = 8 + t * 7; // 8/day -> 15/day drift across the range
-      var wobble = Math.sin(i / 3.2) * 1.6;
-      var dow = weeklyMul[i % 7];
-      out.push(Math.max(1, Math.round((base + wobble) * dow)));
-    }
-    return out;
-  }
-  var SERIES = { 7: volumeSeries(7), 30: volumeSeries(30), 90: volumeSeries(90) };
-
-  var CHANNELS = [
-    { name: 'Website', pct: 46, color: 'var(--viz-cat-1)' },
-    { name: 'WhatsApp', pct: 31, color: 'var(--viz-cat-2)' },
-    { name: 'Instagram', pct: 15, color: 'var(--viz-cat-3)' },
-    { name: 'Standalone Page', pct: 8, color: 'var(--viz-cat-4)' },
-  ];
-
-  // Hour-of-day curve (0-23) x day-of-week multiplier -> 7x24 heatmap.
-  function heatmapData() {
-    var hourCurve = [2,1,1,1,1,2,4,7,10,12,13,15,17,15,13,12,13,16,18,17,14,10,6,3];
-    var dayMul = [1, 1.05, 1.1, 1.02, 1.15, 0.75, 0.6]; // Mon..Sun
-    var grid = [];
-    for (var d = 0; d < 7; d++) {
-      var row = [];
-      for (var h = 0; h < 24; h++) row.push(Math.round(hourCurve[h] * dayMul[d]));
-      grid.push(row);
-    }
-    return grid;
-  }
-
-  /* ---------------- Filter bar ---------------- */
-  var rangePills = document.querySelectorAll('.an-filter-pill[data-range]');
-  var agentSelect = document.getElementById('anAgentFilter');
-
-  rangePills.forEach(function (pill) {
-    pill.addEventListener('click', function () {
-      rangePills.forEach(function (p) { p.classList.remove('is-active'); });
-      pill.classList.add('is-active');
-      renderVolumeChart(SERIES[pill.getAttribute('data-range')]);
+  /* ---------------- Tabs: Performance / Geography ---------------- */
+  var tabs = document.querySelectorAll('.pdash-tab[data-pdash-tab]');
+  var panels = document.querySelectorAll('.pdash-panel[data-pdash-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.getAttribute('data-pdash-tab');
+      tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-pdash-panel') === target); });
     });
   });
 
+  /* ---------------- Chats & Messages Over Time (dual area+line) ---------------- */
+  var DAYS = ['Aug 24', 'Aug 25', 'Aug 26', 'Aug 27', 'Aug 28', 'Aug 29', 'Aug 30', 'Aug 31'];
+  var MESSAGES = [1, 24, 59, 8, 4, 13, 7, 3];
+  var CHATS = [0, 7, 16, 3, 2, 5, 3, 1];
+
+  // Catmull-Rom -> cubic Bezier smoothing, so the curve reads as an
+  // organic hand-drawn line rather than sharp straight segments.
+  function smoothPath(pts) {
+    if (pts.length < 3) return 'M' + pts.map(function (p) { return p[0] + ',' + p[1]; }).join('L');
+    var d = 'M' + pts[0][0] + ',' + pts[0][1];
+    for (var i = 0; i < pts.length - 1; i++) {
+      var p0 = pts[i === 0 ? 0 : i - 1], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2 < pts.length ? i + 2 : i + 1];
+      var c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+      var c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+      d += ' C' + c1x.toFixed(1) + ',' + c1y.toFixed(1) + ' ' + c2x.toFixed(1) + ',' + c2y.toFixed(1) + ' ' + p2[0] + ',' + p2[1];
+    }
+    return d;
+  }
+
+  function renderChart() {
+    var svg = document.getElementById('pdashChart');
+    if (!svg) return;
+    var w = 760, h = 220, pad = 8, base = h - pad;
+    var max = 62; // fixed scale so the 0/15/30/45/60 gridlines line up like the real screenshot
+    var stepX = (w - pad * 2) / (DAYS.length - 1);
+    function toPts(series) {
+      return series.map(function (v, i) {
+        var x = pad + i * stepX;
+        var y = base - (v / max) * (base - pad);
+        return [Math.round(x * 10) / 10, Math.round(y * 10) / 10];
+      });
+    }
+    var msgPts = toPts(MESSAGES), chatPts = toPts(CHATS);
+    var msgLine = smoothPath(msgPts), chatLine = smoothPath(chatPts);
+    var msgArea = msgLine + ' L' + msgPts[msgPts.length - 1][0] + ',' + base + ' L' + msgPts[0][0] + ',' + base + ' Z';
+    var chatArea = chatLine + ' L' + chatPts[chatPts.length - 1][0] + ',' + base + ' L' + chatPts[0][0] + ',' + base + ' Z';
+
+    var gridLines = '', gridLabels = '';
+    var steps = [0, 15, 30, 45, 60];
+    steps.forEach(function (v) {
+      var y = base - (v / max) * (base - pad);
+      gridLines += '<line class="pdash-grid-line" x1="' + pad + '" y1="' + y.toFixed(1) + '" x2="' + (w - pad) + '" y2="' + y.toFixed(1) + '"/>';
+      gridLabels += '<text class="pdash-axis-label" x="0" y="' + (y + 3).toFixed(1) + '">' + v + '</text>';
+    });
+    var xLabels = '';
+    DAYS.forEach(function (label, i) {
+      xLabels += '<text class="pdash-axis-label" text-anchor="middle" x="' + msgPts[i][0] + '" y="' + (h + 2) + '">' + label + '</text>';
+    });
+
+    svg.setAttribute('viewBox', '-34 0 ' + (w + 34) + ' ' + (h + 16));
+    svg.innerHTML =
+      '<g>' + gridLines + gridLabels + '</g>' +
+      '<path class="pdash-area pdash-area-orange" d="' + msgArea + '"/>' +
+      '<path class="pdash-area pdash-area-purple" d="' + chatArea + '"/>' +
+      '<path class="pdash-line pdash-line-orange" id="pdashLineMsg" d="' + msgLine + '"/>' +
+      '<path class="pdash-line pdash-line-purple" id="pdashLineChat" d="' + chatLine + '"/>' +
+      '<g>' + xLabels + '</g>';
+
+    ['pdashLineMsg', 'pdashLineChat'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (reduceMotion) { el.style.strokeDasharray = 'none'; return; }
+      var len = el.getTotalLength();
+      el.style.strokeDasharray = len;
+      el.style.strokeDashoffset = len;
+      el.getBoundingClientRect();
+      el.style.transition = 'stroke-dashoffset 1200ms cubic-bezier(.16,1,.3,1)';
+      requestAnimationFrame(function () { el.style.strokeDashoffset = 0; });
+    });
+  }
+
+  /* ---------------- Channel Breakdown (gauge-style donut) ---------------- */
+  function renderDonut() {
+    var svg = document.getElementById('pdashDonut');
+    if (!svg) return;
+    var cx = 69, cy = 69, r = 54, sw = 15;
+    var circumference = 2 * Math.PI * r;
+    var gapDeg = 62; // top gap, matching the real dashboard's gauge-style ring
+    var arcDeg = 360 - gapDeg;
+    var arcLen = circumference * (arcDeg / 360);
+    var webPct = 0.976, waPct = 0.024;
+    var webLen = arcLen * webPct, waLen = arcLen * waPct;
+    var rotate = 90 + gapDeg / 2; // center the gap at the top
+
+    svg.setAttribute('viewBox', '0 0 138 138');
+    svg.innerHTML =
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="#20232c" stroke-width="' + sw + '" stroke-linecap="round" stroke-dasharray="' + arcLen.toFixed(1) + ' ' + circumference.toFixed(1) + '" transform="rotate(' + rotate + ' ' + cx + ' ' + cy + ')"/>' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="var(--pd-green)" stroke-width="' + sw + '" stroke-linecap="round" stroke-dasharray="' + waLen.toFixed(1) + ' ' + circumference.toFixed(1) + '" transform="rotate(' + rotate + ' ' + cx + ' ' + cy + ')"/>' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="var(--pd-purple)" stroke-width="' + sw + '" stroke-linecap="round" stroke-dasharray="' + webLen.toFixed(1) + ' ' + circumference.toFixed(1) + '" stroke-dashoffset="-' + waLen.toFixed(1) + '" transform="rotate(' + rotate + ' ' + cx + ' ' + cy + ')"/>';
+  }
+
+  /* ---------------- Activity Heatmap (hour x day-of-week) ---------------- */
+  // Sparse map of lit cells, illustrative shape traced from the real
+  // screenshot: {day: 0=Mon..6=Sun, hour: 0-23, level: 1-4}.
+  var HEAT_CELLS = [
+    { day: 2, hour: 4, level: 2 },
+    { day: 1, hour: 10, level: 2 }, { day: 1, hour: 11, level: 3 }, { day: 1, hour: 12, level: 3 },
+    { day: 1, hour: 14, level: 2 }, { day: 1, hour: 15, level: 3 }, { day: 1, hour: 16, level: 3 },
+    { day: 2, hour: 11, level: 2 }, { day: 2, hour: 12, level: 3 }, { day: 2, hour: 13, level: 4 },
+    { day: 2, hour: 14, level: 3 }, { day: 2, hour: 15, level: 2 }, { day: 2, hour: 16, level: 2 },
+    { day: 3, hour: 12, level: 2 },
+    { day: 5, hour: 15, level: 2 },
+    { day: 6, hour: 12, level: 2 },
+  ];
+  function renderHeatmap() {
+    var grid = document.getElementById('pdashHeatGrid');
+    var hours = document.getElementById('pdashHeatHours');
+    if (!grid) return;
+    var dayNames = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+    var levelColor = { 1: 'var(--pd-heat-1)', 2: 'var(--pd-heat-2)', 3: 'var(--pd-heat-3)', 4: 'var(--pd-heat-4)' };
+    var lookup = {};
+    HEAT_CELLS.forEach(function (c) { lookup[c.day + '-' + c.hour] = c.level; });
+
+    var html = '';
+    for (var d = 0; d < 7; d++) {
+      html += '<div class="pdash-heatmap-day">' + dayNames[d] + '</div>';
+      for (var h = 0; h < 24; h++) {
+        var level = lookup[d + '-' + h];
+        var bg = level ? levelColor[level] : 'var(--pd-heat-0)';
+        html += '<div class="pdash-heatmap-cell" style="background:' + bg + '" title="' + dayNames[d] + ' ' + (h % 12 === 0 ? 12 : h % 12) + (h < 12 ? 'AM' : 'PM') + '"></div>';
+      }
+    }
+    grid.innerHTML = html;
+
+    if (hours) {
+      var hHtml = '<div></div>';
+      for (var i = 0; i < 24; i++) {
+        var label = i % 3 === 0 ? ((i % 12 === 0 ? 12 : i % 12) + (i < 12 ? 'AM' : 'PM')) : '';
+        hHtml += '<div class="pdash-heatmap-hour">' + label + '</div>';
+      }
+      hours.innerHTML = hHtml;
+    }
+  }
+
+  renderChart();
+  renderDonut();
+  renderHeatmap();
+
+  /* ---------------- Per-agent performance-table filter (unchanged) ---------------- */
+  var agentSelect = document.getElementById('anAgentFilter');
   if (agentSelect) {
     agentSelect.addEventListener('change', function () {
       var val = agentSelect.value;
@@ -69,151 +174,5 @@
         row.classList.toggle('is-dimmed', val !== 'all' && row.getAttribute('data-agent') !== val);
       });
     });
-  }
-
-  /* ---------------- Volume chart (hand-built SVG, no library) ---------------- */
-  var svg = document.getElementById('anVolumeChart');
-  var tooltip = document.getElementById('anChartTooltip');
-  var chartData = [];
-
-  function renderVolumeChart(data) {
-    if (!svg) return;
-    chartData = data;
-    var w = 600, h = 220, pad = 8;
-    var max = Math.max.apply(null, data) * 1.15;
-    var stepX = (w - pad * 2) / (data.length - 1);
-    var pts = data.map(function (v, i) {
-      var x = pad + i * stepX;
-      var y = h - pad - (v / max) * (h - pad * 2);
-      return [x, y];
-    });
-
-    var linePath = pts.map(function (p, i) { return (i === 0 ? 'M' : 'L') + p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
-    var areaPath = linePath + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + (h - pad) + ' L' + pts[0][0].toFixed(1) + ',' + (h - pad) + ' Z';
-
-    var gridLines = '';
-    for (var g = 1; g <= 3; g++) {
-      var gy = pad + (g * (h - pad * 2)) / 4;
-      gridLines += '<line class="an-chart-grid-line" x1="' + pad + '" y1="' + gy + '" x2="' + (w - pad) + '" y2="' + gy + '"/>';
-    }
-
-    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-    svg.innerHTML =
-      '<defs><linearGradient id="anAreaGradient" x1="0" y1="0" x2="0" y2="1">' +
-      '<stop offset="0%" stop-color="var(--accent)" stop-opacity="0.16"/>' +
-      '<stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>' +
-      gridLines +
-      '<path class="an-chart-area" d="' + areaPath + '"/>' +
-      '<path class="an-chart-line" id="anChartLinePath" d="' + linePath + '"/>' +
-      '<line class="an-chart-crosshair" id="anCrosshair" x1="0" y1="' + pad + '" x2="0" y2="' + (h - pad) + '"/>' +
-      '<circle class="an-chart-dot" id="anChartDot" r="4"/>' +
-      '<rect id="anChartHitArea" x="0" y="0" width="' + w + '" height="' + h + '" fill="transparent"/>';
-
-    var linePathEl = document.getElementById('anChartLinePath');
-    if (reduceMotion) {
-      linePathEl.style.strokeDasharray = 'none';
-    } else {
-      var len = linePathEl.getTotalLength();
-      linePathEl.style.strokeDasharray = len;
-      linePathEl.style.strokeDashoffset = len;
-      linePathEl.getBoundingClientRect(); // force layout before transition
-      linePathEl.style.transition = 'stroke-dashoffset 1100ms var(--ease-out, ease)';
-      requestAnimationFrame(function () { linePathEl.style.strokeDashoffset = 0; });
-    }
-
-    wireChartHover(pts, data, w);
-  }
-
-  function wireChartHover(pts, data, w) {
-    var hit = document.getElementById('anChartHitArea');
-    var dot = document.getElementById('anChartDot');
-    var crosshair = document.getElementById('anCrosshair');
-    if (!hit) return;
-    hit.addEventListener('mousemove', function (e) {
-      var rect = svg.getBoundingClientRect();
-      var xRatio = (e.clientX - rect.left) / rect.width;
-      var idx = Math.max(0, Math.min(data.length - 1, Math.round(xRatio * (data.length - 1))));
-      var p = pts[idx];
-      dot.setAttribute('cx', p[0]); dot.setAttribute('cy', p[1]); dot.style.opacity = 1;
-      crosshair.setAttribute('x1', p[0]); crosshair.setAttribute('x2', p[0]); crosshair.style.opacity = 1;
-      if (tooltip) {
-        var dayLabel = data.length <= 7 ? ('Day ' + (idx + 1)) : ('Day ' + (idx + 1) + ' of ' + data.length);
-        tooltip.innerHTML = '<b>' + data[idx] + '</b> conversations &middot; ' + dayLabel;
-        var leftPct = (p[0] / w) * 100;
-        tooltip.style.left = leftPct + '%';
-        tooltip.style.top = (p[1] / 220) * 100 + '%';
-        tooltip.style.opacity = 1;
-      }
-    });
-    hit.addEventListener('mouseleave', function () {
-      dot.style.opacity = 0; crosshair.style.opacity = 0;
-      if (tooltip) tooltip.style.opacity = 0;
-    });
-  }
-
-  if (svg) renderVolumeChart(SERIES[30]);
-
-  /* ---------------- Channel bars (animate in on scroll) ---------------- */
-  var channelList = document.getElementById('anChannelList');
-  if (channelList) {
-    channelList.innerHTML = CHANNELS.map(function (c) {
-      return '<div class="an-channel-row">' +
-        '<span class="an-channel-name"><span class="an-channel-swatch" style="background:' + c.color + '"></span>' + c.name + '</span>' +
-        '<span class="an-channel-track"><span class="an-channel-fill" data-pct="' + c.pct + '" style="background:' + c.color + '"></span></span>' +
-        '<span class="an-channel-pct">' + c.pct + '%</span></div>';
-    }).join('');
-  }
-
-  /* ---------------- Heatmap ---------------- */
-  var heatmapEl = document.getElementById('anHeatmap');
-  if (heatmapEl) {
-    var grid = heatmapData();
-    var flat = grid.reduce(function (a, r) { return a.concat(r); }, []);
-    var max = Math.max.apply(null, flat);
-    var dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    var seqSteps = ['var(--viz-seq-100)', 'var(--viz-seq-200)', 'var(--viz-seq-300)', 'var(--viz-seq-450)', 'var(--viz-seq-550)', 'var(--viz-seq-700)'];
-
-    var html = '<div></div>';
-    for (var h = 0; h < 24; h++) {
-      html += '<div class="an-heatmap-hour-label">' + (h % 3 === 0 ? h : '') + '</div>';
-    }
-    grid.forEach(function (row, d) {
-      html += '<div class="an-heatmap-day-label">' + dayNames[d] + '</div>';
-      row.forEach(function (v, h) {
-        var ratio = v / max;
-        var step = seqSteps[Math.min(seqSteps.length - 1, Math.floor(ratio * seqSteps.length))];
-        html += '<div class="an-heatmap-cell" style="background:' + step + '" data-day="' + dayNames[d] + '" data-hour="' + h + '" data-value="' + v + '" title="' + dayNames[d] + ' ' + h + ':00 &mdash; ' + v + ' conversations"></div>';
-      });
-    });
-    heatmapEl.innerHTML = html;
-  }
-
-  /* ---------------- Scroll-reveal for bars + heatmap (shared observer) ---------------- */
-  if ('IntersectionObserver' in window) {
-    var barsObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.querySelectorAll('.an-channel-fill').forEach(function (fill, i) {
-          setTimeout(function () { fill.style.width = fill.getAttribute('data-pct') + '%'; }, reduceMotion ? 0 : i * 90);
-        });
-        barsObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.3 });
-    if (channelList) barsObserver.observe(channelList);
-
-    var heatObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var cells = entry.target.querySelectorAll('.an-heatmap-cell');
-        cells.forEach(function (cell, i) {
-          setTimeout(function () { cell.classList.add('is-in'); }, reduceMotion ? 0 : Math.min(900, i * 4));
-        });
-        heatObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.15 });
-    if (heatmapEl) heatObserver.observe(heatmapEl);
-  } else {
-    if (channelList) channelList.querySelectorAll('.an-channel-fill').forEach(function (f) { f.style.width = f.getAttribute('data-pct') + '%'; });
-    if (heatmapEl) heatmapEl.querySelectorAll('.an-heatmap-cell').forEach(function (c) { c.classList.add('is-in'); });
   }
 })();

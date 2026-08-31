@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="industries-deep.css?v=2.0">
 <link rel="stylesheet" href="agents.css?v=2.0">
 <link rel="stylesheet" href="home.css?v=2.0">
+<link rel="stylesheet" href="analytics-deep.css?v=2.0">
 </head>
 <body>
 
@@ -1123,15 +1124,23 @@
             <a href="analytics.html" class="section-link-out">See the full analytics dashboard &rarr;</a>
           </div>
           <div class="reveal">
-            <div class="analytics-dash">
-              <div class="analytics-stat-row" id="analyticsStatsHome" data-count-container>
-                <div class="analytics-stat"><b data-count="412">0</b><span>Conversations this week</span></div>
-                <div class="analytics-stat"><b data-count="358">0</b><span>Answered solo</span></div>
-                <div class="analytics-stat"><b data-count="24">0</b><span>Meetings booked</span></div>
-                <div class="analytics-stat"><b data-count="30">0</b><span>Passed to a human</span></div>
+            <div class="pdash pdash-mini">
+              <div class="pdash-head">
+                <div>
+                  <div class="pdash-title" style="font-size:16px">Analytics</div>
+                  <div class="pdash-sub">Live from your account, not a mockup</div>
+                </div>
+                <span class="pdash-range">Aug 25 - Aug 31, 2026</span>
               </div>
-              <div class="analytics-bars" aria-hidden="true">
-                <span style="height:38%"></span><span style="height:62%"></span><span style="height:44%"></span><span style="height:71%"></span><span style="height:55%"></span><span style="height:80%"></span><span style="height:60%"></span>
+              <div class="pdash-kpis">
+                <div class="pdash-kpi"><div class="pdash-kpi-label">Total Chats</div><div class="pdash-kpi-value">41</div></div>
+                <div class="pdash-kpi"><div class="pdash-kpi-label">Total Messages</div><div class="pdash-kpi-value">110</div></div>
+                <div class="pdash-kpi"><div class="pdash-kpi-label">Avg Response</div><div class="pdash-kpi-value">1.5s</div></div>
+              </div>
+              <div class="pdash-card">
+                <div class="pdash-card-title">Chats &amp; Messages Over Time</div>
+                <svg class="pdash-chart-svg" id="pdashChart" role="img" aria-label="Chats and messages over time chart"></svg>
+                <div class="pdash-chart-legend"><span><i style="background:var(--pd-purple)"></i>Chats</span><span><i style="background:var(--pd-orange)"></i>Messages</span></div>
               </div>
             </div>
           </div>
@@ -1686,5 +1695,6 @@
 
   <script src="nav.js?v=2.0"></script>
   <script src="home.js?v=2.0"></script>
+  <script src="analytics-charts.js?v=2.0"></script>
 </body>
 </html>
