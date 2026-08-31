@@ -187,57 +187,157 @@
     <div class="bh-page">
 
     <!-- ============================================================
-         1. HERO — featured post, bold brutalist band
+         1. INTRO BAND
          ============================================================ -->
-    <section class="bh-hero">
-      <div class="container bh-hero-grid">
-        <div class="reveal">
-          <span class="bh-badge"><span class="bh-badge-dot"></span>Latest post</span>
-          <a href="blog-support-triage.html" style="display:block">
-            <h1 class="bh-hero-title">How One Inbox Ends Support Triage</h1>
-          </a>
-          <p class="bh-hero-dek">Every morning starts the same way: WhatsApp, Instagram and website messages pile up, and someone has to read all of them just to figure out who handles what. Here's the fix that's already live.</p>
-          <div class="bh-hero-actions">
-            <a href="blog-support-triage.html" class="bh-btn-ink">Read the post &rarr;</a>
-            <div class="bh-hero-byline">
-              <span class="bh-avatar">SA</span>
-              <div><div class="bh-byline-name">The StepsAI Team</div><div class="bh-byline-meta">Aug 30, 2026 &middot; 7 min read</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <a href="blog-support-triage.html" class="bh-hero-visual" style="display:block">
-            <div class="inbox-list" style="width:100%">
-              <div class="inbox-list-row"><span class="inbox-channel-tag">WA</span><span class="inbox-name">Aarav Shah</span><span class="inbox-preview">Yes please, size M works</span><span class="inbox-time">10:43 PM</span><span class="inbox-status resolved">Resolved</span></div>
-              <div class="inbox-list-row"><span class="inbox-channel-tag">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">Is the 3BHK still available?</span><span class="inbox-time">9:16 PM</span><span class="inbox-status booked">Booked</span></div>
-              <div class="inbox-list-row"><span class="inbox-channel-tag">Web</span><span class="inbox-name">Meera R.</span><span class="inbox-preview">Can I speak to someone about a refund?</span><span class="inbox-time">8:52 PM</span><span class="inbox-status handover">With Priya</span></div>
-            </div>
-            <span class="bh-hero-flag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>358 resolved solo</span>
-          </a>
+    <section class="bh-intro">
+      <div class="bh-intro-bg" aria-hidden="true"></div>
+      <div class="container bh-intro-inner reveal">
+        <p class="bh-intro-kicker">The StepsAI blog</p>
+        <h1 class="bh-intro-title">Notes on building with AI agents.</h1>
+        <p class="bh-intro-sub">How teams actually use StepsAI — ending support triage with one inbox, recovering carts on autopilot, setting up an agent for real estate, and reading analytics that mean something.</p>
+        <div class="bh-intro-actions">
+          <a href="#featured" class="btn btn-cta btn-lg">Start reading</a>
+          <a href="pricing.html" class="btn btn-cta-outline">Start free trial</a>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         2. FILTERS + GRID
+         2. FEATURED CAROUSEL
+         ============================================================ -->
+    <section id="featured">
+      <div class="container">
+        <div class="bh-feat reveal">
+          <div class="bh-feat-shell" id="bhFeat">
+
+            <div class="bh-feat-slide is-active" data-slide="0">
+              <div class="bh-feat-visual">
+                <div class="inbox-list" style="width:100%">
+                  <div class="inbox-list-row"><span class="inbox-channel-tag">WA</span><span class="inbox-name">Aarav Shah</span><span class="inbox-preview">Yes please, size M works</span><span class="inbox-time">10:43 PM</span><span class="inbox-status resolved">Resolved</span></div>
+                  <div class="inbox-list-row"><span class="inbox-channel-tag">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">Is the 3BHK still available?</span><span class="inbox-time">9:16 PM</span><span class="inbox-status booked">Booked</span></div>
+                  <div class="inbox-list-row"><span class="inbox-channel-tag">Web</span><span class="inbox-name">Meera R.</span><span class="inbox-preview">Can I speak to someone about a refund?</span><span class="inbox-time">8:52 PM</span><span class="inbox-status handover">With Priya</span></div>
+                </div>
+              </div>
+              <div class="bh-feat-body">
+                <span class="bh-feat-kicker">Latest</span>
+                <div class="bh-feat-meta"><span>Support</span><span class="dot"></span><span>Aug 30, 2026</span></div>
+                <h2 class="bh-feat-title">How One Inbox Ends Support Triage</h2>
+                <p class="bh-feat-excerpt">Every morning starts the same way: WhatsApp, Instagram and website messages pile up, and someone has to read all of them just to figure out who handles what. Here's the fix that's already live.</p>
+                <a href="blog-support-triage.html" class="bh-feat-link">Start reading<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+
+            <div class="bh-feat-slide" data-slide="1">
+              <div class="bh-feat-visual is-dark">
+                <div class="wf-canvas-wrap">
+                  <div class="wf-canvas">
+                    <div class="wf-trunk">
+                      <div class="wf-node" data-wf-step="1"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg></span><div><div class="wf-node-kind">Trigger</div><div class="wf-node-title">Cart left behind</div></div></div>
+                      <div class="wf-line" data-wf-step="2"></div>
+                      <div class="wf-node" data-wf-step="2"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 7v5l3 3"/><circle cx="12" cy="12" r="9"/></svg></span><div><div class="wf-node-kind">Wait</div><div class="wf-node-title">30 minutes</div></div></div>
+                      <div class="wf-line" data-wf-step="3"></div>
+                      <div class="wf-node" data-wf-step="3"><span class="wf-node-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span><div><div class="wf-node-kind">Action</div><div class="wf-node-title">Send WhatsApp message</div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bh-feat-body">
+                <span class="bh-feat-kicker">Workflows</span>
+                <div class="bh-feat-meta"><span>Workflows</span><span class="dot"></span><span>Aug 29, 2026</span></div>
+                <h2 class="bh-feat-title">Recovering Abandoned Carts on Autopilot</h2>
+                <p class="bh-feat-excerpt">A trigger, a wait, a check, and a WhatsApp message — the exact five-node workflow that runs every time a cart is left behind.</p>
+                <a href="blog-cart-recovery.html" class="bh-feat-link">Start reading<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+
+            <div class="bh-feat-slide" data-slide="2">
+              <div class="bh-feat-visual">
+                <div class="wa-real" style="max-width:260px;height:auto">
+                  <div class="wa-real-header"><span class="wa-real-avatar">K</span><div class="wa-real-id"><span class="wa-real-name">Keystone Realty</span><span class="wa-real-active">online</span></div></div>
+                  <div class="wa-real-body" style="min-height:0">
+                    <div class="wa-real-bubble in">Looking for a 2BHK near the tech park</div>
+                    <div class="wa-real-bubble out">Budget range? I can share matching listings right now.</div>
+                    <div class="wa-real-bubble in">Around 65 lakhs</div>
+                  </div>
+                </div>
+              </div>
+              <div class="bh-feat-body">
+                <span class="bh-feat-kicker">Real Estate</span>
+                <div class="bh-feat-meta"><span>Real Estate</span><span class="dot"></span><span>Aug 28, 2026</span></div>
+                <h2 class="bh-feat-title">Setting Up an AI Agent for Real Estate</h2>
+                <p class="bh-feat-excerpt">A lead messages at 11pm asking about a 2BHK near the tech park. Here's how the agent qualifies budget and hands off the site visit.</p>
+                <a href="blog-real-estate-agent.html" class="bh-feat-link">Start reading<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+
+            <div class="bh-feat-slide" data-slide="3">
+              <div class="bh-feat-visual is-dark">
+                <div style="text-align:center;color:#fff">
+                  <b style="font-size:56px;font-weight:660;letter-spacing:-.02em;font-variant-numeric:tabular-nums">358<span style="font-size:32px;opacity:.6">/412</span></b>
+                  <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:8px">Answered solo</div>
+                </div>
+              </div>
+              <div class="bh-feat-body">
+                <span class="bh-feat-kicker">Analytics</span>
+                <div class="bh-feat-meta"><span>Analytics</span><span class="dot"></span><span>Aug 27, 2026</span></div>
+                <h2 class="bh-feat-title">What Your Analytics Dashboard Should Actually Tell You</h2>
+                <p class="bh-feat-excerpt">Not a message count. What it handled alone, what it's worth, and where it's still weak — from a real account.</p>
+                <a href="blog-analytics-dashboard.html" class="bh-feat-link">Start reading<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="bh-feat-controls">
+            <button class="bh-feat-arrow" id="bhFeatPrev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="bh-feat-dots" id="bhFeatDots">
+              <span class="bh-feat-dot is-active" data-dot="0"></span>
+              <span class="bh-feat-dot" data-dot="1"></span>
+              <span class="bh-feat-dot" data-dot="2"></span>
+              <span class="bh-feat-dot" data-dot="3"></span>
+            </div>
+            <button class="bh-feat-arrow" id="bhFeatNext" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. TABS + GRID
          ============================================================ -->
     <section class="section section--base" id="posts">
       <div class="container">
 
         <div class="bh-section-head reveal">
-          <h2 class="bh-section-title">More from the blog</h2>
-          <div class="bh-filters" id="bhFilters">
-            <button class="bh-filter is-active" data-filter="all" type="button">All posts</button>
-            <button class="bh-filter" data-filter="workflows" type="button">Workflows</button>
-            <button class="bh-filter" data-filter="realestate" type="button">Real Estate</button>
-            <button class="bh-filter" data-filter="analytics" type="button">Analytics</button>
+          <p class="bh-section-title">Browse by topic</p>
+          <div class="bh-tabs" id="bhFilters">
+            <span class="bh-tab is-active" data-filter="all">All articles</span>
+            <span class="bh-tab" data-filter="support">Support</span>
+            <span class="bh-tab" data-filter="workflows">Workflows</span>
+            <span class="bh-tab" data-filter="realestate">Real Estate</span>
+            <span class="bh-tab" data-filter="analytics">Analytics</span>
           </div>
         </div>
 
         <div class="bh-grid reveal reveal-stagger" id="bhGrid">
 
-          <a href="blog-cart-recovery.html" class="bh-card" data-category="workflows" style="--i:0">
-            <div class="bh-card-visual--dark">
+          <a href="blog-support-triage.html" class="bh-card" data-category="support" style="--i:0">
+            <div class="bh-card-visual bh-card-visual--inbox">
+              <span class="bh-card-badge" style="background:rgba(180,83,9,.85)">Support</span>
+              <div class="inbox-list" style="width:100%">
+                <div class="inbox-list-row"><span class="inbox-channel-tag">WA</span><span class="inbox-name">Aarav Shah</span><span class="inbox-preview">Yes please, size M works</span><span class="inbox-time">10:43 PM</span><span class="inbox-status resolved">Resolved</span></div>
+                <div class="inbox-list-row"><span class="inbox-channel-tag">IG</span><span class="inbox-name">nyra.fan22</span><span class="inbox-preview">Is the 3BHK still available?</span><span class="inbox-time">9:16 PM</span><span class="inbox-status booked">Booked</span></div>
+              </div>
+            </div>
+            <div class="bh-card-meta-row"><span>Aug 30, 2026</span><span class="dot"></span><span>7 min read</span><span class="dot"></span><span>By The StepsAI Team</span></div>
+            <h3 class="bh-card-title">How One Inbox Ends Support Triage</h3>
+            <p class="bh-card-excerpt">Every morning starts the same way — messages pile up until someone reads them all just to figure out who handles what.</p>
+            <span class="bh-card-more">Read more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+
+          <a href="blog-cart-recovery.html" class="bh-card" data-category="workflows" style="--i:1">
+            <div class="bh-card-visual bh-card-visual--dark">
+              <span class="bh-card-badge" style="background:rgba(37,99,235,.85)">Workflows</span>
               <div class="wf-canvas-wrap">
                 <div class="wf-canvas">
                   <div class="wf-trunk">
@@ -250,16 +350,15 @@
                 </div>
               </div>
             </div>
-            <div class="bh-card-body">
-              <span class="bh-tag bh-tag--blue">Workflows</span>
-              <h3 class="bh-card-title">Recovering Abandoned Carts on Autopilot</h3>
-              <p class="bh-card-excerpt">A trigger, a wait, a check, and a WhatsApp message — the exact five-node workflow that runs every time a cart is left behind.</p>
-              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>6 min read</span></div>
-            </div>
+            <div class="bh-card-meta-row"><span>Aug 29, 2026</span><span class="dot"></span><span>6 min read</span><span class="dot"></span><span>By The StepsAI Team</span></div>
+            <h3 class="bh-card-title">Recovering Abandoned Carts on Autopilot</h3>
+            <p class="bh-card-excerpt">A trigger, a wait, a check, and a WhatsApp message — the exact five-node workflow that runs every time.</p>
+            <span class="bh-card-more">Read more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
 
-          <a href="blog-real-estate-agent.html" class="bh-card" data-category="realestate" style="--i:1">
-            <div class="bh-card-visual--phone">
+          <a href="blog-real-estate-agent.html" class="bh-card" data-category="realestate" style="--i:2">
+            <div class="bh-card-visual bh-card-visual--phone">
+              <span class="bh-card-badge" style="background:rgba(14,124,107,.85)">Real Estate</span>
               <div class="wa-real">
                 <div class="wa-real-header"><span class="wa-real-avatar">K</span><div class="wa-real-id"><span class="wa-real-name">Keystone Realty</span><span class="wa-real-active">online</span></div></div>
                 <div class="wa-real-body">
@@ -269,22 +368,21 @@
                 </div>
               </div>
             </div>
-            <div class="bh-card-body">
-              <span class="bh-tag bh-tag--teal">Real Estate</span>
-              <h3 class="bh-card-title">Setting Up an AI Agent for Real Estate</h3>
-              <p class="bh-card-excerpt">A lead messages at 11pm asking about a 2BHK near the tech park. Here's how the agent qualifies budget and hands off the site visit.</p>
-              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>5 min read</span></div>
-            </div>
+            <div class="bh-card-meta-row"><span>Aug 28, 2026</span><span class="dot"></span><span>5 min read</span><span class="dot"></span><span>By The StepsAI Team</span></div>
+            <h3 class="bh-card-title">Setting Up an AI Agent for Real Estate</h3>
+            <p class="bh-card-excerpt">A lead messages at 11pm asking about a 2BHK. Here's how the agent qualifies budget and hands off the visit.</p>
+            <span class="bh-card-more">Read more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
 
-          <a href="blog-analytics-dashboard.html" class="bh-card" data-category="analytics" style="--i:2">
-            <div class="bh-card-visual--stat"><b>358<span style="font-size:28px">/412</span></b><span>Answered solo</span></div>
-            <div class="bh-card-body">
-              <span class="bh-tag bh-tag--violet">Analytics</span>
-              <h3 class="bh-card-title">What Your Analytics Dashboard Should Actually Tell You</h3>
-              <p class="bh-card-excerpt">Not a message count. What it handled alone, what it's worth, and where it's still weak — from a real account.</p>
-              <div class="bh-card-meta"><span>The StepsAI Team</span><span class="dot"></span><span>5 min read</span></div>
+          <a href="blog-analytics-dashboard.html" class="bh-card" data-category="analytics" style="--i:3">
+            <div class="bh-card-visual bh-card-visual--stat">
+              <span class="bh-card-badge" style="background:rgba(91,61,224,.85)">Analytics</span>
+              <b>358<span style="font-size:22px">/412</span></b><span>Answered solo</span>
             </div>
+            <div class="bh-card-meta-row"><span>Aug 27, 2026</span><span class="dot"></span><span>5 min read</span><span class="dot"></span><span>By The StepsAI Team</span></div>
+            <h3 class="bh-card-title">What Your Analytics Dashboard Should Actually Tell You</h3>
+            <p class="bh-card-excerpt">Not a message count. What it handled alone, what it's worth, and where it's still weak.</p>
+            <span class="bh-card-more">Read more<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
 
         </div>
@@ -292,7 +390,30 @@
     </section>
 
     <!-- ============================================================
-         3. FINAL CTA
+         4. NEWSLETTER
+         ============================================================ -->
+    <section class="bh-news">
+      <div class="container bh-news-inner reveal">
+        <div>
+          <h2 class="bh-news-title">Get the next playbook before anyone else</h2>
+          <p class="bh-news-sub">One email when a new post goes up — how teams are actually using StepsAI, no fluff.</p>
+        </div>
+        <form class="bh-news-form" onsubmit="return false">
+          <input class="bh-news-input" type="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="btn btn-accent" type="submit">Subscribe</button>
+        </form>
+        <div class="bh-news-badge" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="bh-news-badge-spin">
+            <defs><path id="bhNewsCircle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+            <text font-family="var(--font-mono)" font-size="8.6" letter-spacing="2.4" fill="currentColor"><textPath href="#bhNewsCircle">NEW POST &middot; NEW POST &middot; NEW POST &middot; </textPath></text>
+          </svg>
+          <span class="bh-news-badge-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. FINAL CTA
          ============================================================ -->
     <section class="bh-cta" id="final-cta">
       <div class="container bh-cta-inner reveal">
@@ -300,7 +421,7 @@
           <h2 class="bh-cta-title">Paste your website link. Watch it start answering.</h2>
           <p class="bh-cta-sub">Same afternoon setup, no credit card. Live on WhatsApp, Instagram, and your website.</p>
         </div>
-        <a href="pricing.html" class="bh-btn-white">Start free trial</a>
+        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
       </div>
     </section>
 
@@ -308,7 +429,8 @@
 
     <script>
       (function () {
-        var filters = document.querySelectorAll('.bh-filter');
+        // Category tabs
+        var filters = document.querySelectorAll('.bh-tab');
         var cards = document.querySelectorAll('#bhGrid [data-category]');
         filters.forEach(function (btn) {
           btn.addEventListener('click', function () {
@@ -320,6 +442,21 @@
             });
           });
         });
+
+        // Featured carousel
+        var slides = document.querySelectorAll('#bhFeat .bh-feat-slide');
+        var dots = document.querySelectorAll('#bhFeatDots .bh-feat-dot');
+        var current = 0;
+        function goTo(i) {
+          current = (i + slides.length) % slides.length;
+          slides.forEach(function (s, idx) { s.classList.toggle('is-active', idx === current); });
+          dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === current); });
+        }
+        dots.forEach(function (d, idx) { d.addEventListener('click', function () { goTo(idx); }); });
+        var prevBtn = document.getElementById('bhFeatPrev');
+        var nextBtn = document.getElementById('bhFeatNext');
+        if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
       })();
     </script>
 
