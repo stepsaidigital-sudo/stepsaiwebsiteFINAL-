@@ -85,98 +85,55 @@
 @media (max-width: 980px) { .demo-shell { grid-template-columns: 1fr; gap: 40px; } }
 .demo-copy h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 630; letter-spacing: -.02em; line-height: 1.15; }
 .demo-copy p { font-size: 16px; color: var(--text-secondary); margin-top: 16px; line-height: 1.65; max-width: 44ch; }
-/* ---------- ONE AGENT, MULTIPLE TASKS ---------- */
-.agent-hero-shell { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: center; }
-/* Grid items default to min-width:auto, so the console's min-content width
-   (the 4-up step sidebar) was forcing BOTH tracks to ~606px and pushing the
-   whole page 268px past a 360px viewport. Let the tracks shrink. */
-.agent-hero-shell > * { min-width: 0; }
-@media (max-width: 980px) { .agent-hero-shell { grid-template-columns: 1fr; gap: 48px; } }
-.agent-hero-headline { font-size: clamp(32px, 3.8vw, 44px); font-weight: 680; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); margin-top: 14px; }
-.agent-hero-sub { font-size: 16px; color: var(--text-secondary); margin-top: 18px; line-height: 1.6; max-width: 44ch; }
-.agent-hero-copy .section-link-out { margin-top: 26px; }
 
-.agent-hero-visual { position: relative; width: 100%; }
-/* The connector sits in the gutter between the copy and the console. It lives
-   inside .agent-hero-copy, which had no positioning context, so it was
-   resolving against the viewport and drawing off the left edge of the page. */
-.agent-hero-copy { position: relative; }
-.agent-hero-line { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); opacity: .4; pointer-events: none; max-width: 64px; }
-@media (max-width: 1180px) { .agent-hero-line { display: none; } }
+/* ---------- ONE AGENT · EVERY CHANNEL — three real, playable mockups
+   (Instagram DM, WhatsApp, a website widget inside a browser window),
+   each a different vertical, each ending in a real outcome. The
+   message bodies reuse the site-wide .ig-real-body/.wa-real-body/
+   .lw-body classes on purpose (see nav.js's CHAT MOCKUP PLAYER) so
+   these three play out message-by-message with a typing beat, same
+   as every other real mockup on the site — no new JS needed here. ---------- */
+.chn-stage { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+@media (max-width: 980px) { .chn-stage { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; gap: 48px; } }
+.chn-col { text-align: center; }
+.chn-col.is-mid .chn-phone, .chn-col.is-mid .chn-browser { transform: translateY(-14px); }
+.chn-col.is-mid .chn-phone:hover, .chn-col.is-mid .chn-browser:hover { transform: translateY(-18px); }
+@media (max-width: 980px) { .chn-col.is-mid .chn-phone, .chn-col.is-mid .chn-browser { transform: none; } }
 
-.agent-wide-console { position: relative; background: #fff; border: 1px solid var(--border-subtle); border-radius: 22px; box-shadow: 0 48px 88px -44px rgba(37,99,235,.26), 0 2px 8px rgba(18,20,27,.05); overflow: hidden; display: flex; flex-direction: column; }
-.awc-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--border-subtle); background: #fff; }
-.awc-header-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.awc-avatar { width: 46px; height: 46px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 18px -8px rgba(37,99,235,.55); }
-.awc-avatar svg { width: 23px; height: 23px; }
-.awc-name { font-size: 14.5px; font-weight: 680; letter-spacing: .01em; color: var(--text-primary); display: block; }
-.awc-status { font-size: 12px; color: var(--text-tertiary); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
-.awc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px rgba(22,128,61,.12); }
-.awc-industry { font-family: var(--font-mono); font-size: 11.5px; font-weight: 650; color: var(--accent); background: var(--accent-tint); border-radius: 999px; padding: 7px 15px; white-space: nowrap; box-shadow: inset 0 0 0 1px rgba(37,99,235,.12); transition: opacity 200ms ease; }
+.chn-label { display: flex; align-items: center; justify-content: center; gap: 9px; margin-bottom: 12px; }
+.chn-label b { font-size: 15px; font-weight: 650; color: var(--text-primary); }
+.chn-tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 650; padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+.chn-tag svg { width: 11px; height: 11px; flex-shrink: 0; }
+.chn-tag.ig { background: #FBF0F6; color: #C13584; }
+.chn-tag.wa { background: #E9F8F0; color: #0B9E58; }
+.chn-tag.web { background: var(--accent-tint); color: var(--accent); }
+.chn-sub { font-size: 12.5px; color: var(--text-tertiary); margin: -4px 0 16px; }
 
-.awc-body { display: grid; grid-template-columns: 180px 1fr; background: var(--bg-raised); min-height: 380px; }
-/* Stacked on mobile the sidebar already eats ~150px, so the desktop
-   min-height left a dead grey slab under the card. */
-@media (max-width: 640px) { .awc-body { grid-template-columns: 1fr; min-height: 0; } }
-.awc-sidebar { padding: 30px 24px; border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 32px; background: #fff; min-width: 0; }
-@media (max-width: 640px) { .awc-sidebar { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 16px 20px; padding: 20px; border-right: none; border-bottom: 1px solid var(--border-subtle); } .awc-sidebar .awc-step { flex: 1 1 calc(50% - 10px); min-width: 0; } }
-.awc-step { display: flex; flex-direction: column; opacity: 0.4; transition: opacity 200ms ease; }
-.awc-step.active { opacity: 1; }
-.awc-step-num { font-family: var(--font-mono); font-size: 12.5px; font-weight: 650; color: var(--accent); }
-.awc-step-title { font-size: 13.5px; font-weight: 500; color: var(--text-primary); margin-top: 4px; }
+.chn-phone { width: 100%; max-width: 270px; margin: 0 auto; border-radius: 32px; border: 10px solid #000; overflow: hidden; background: #000; box-shadow: 0 32px 64px -22px rgba(18,20,27,.4); transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out); }
+.chn-phone:hover { transform: translateY(-4px); }
 
-.awc-chat { padding: 30px; display: flex; flex-direction: column; gap: 16px; justify-content: center; position: relative; min-width: 0; }
-@media (max-width: 640px) { .awc-chat { padding: 20px; } }
+.chn-browser { width: 100%; max-width: 288px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); background: var(--bg-base); box-shadow: 0 32px 64px -22px rgba(18,20,27,.28); transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out); }
+.chn-browser:hover { transform: translateY(-4px); }
+.chn-browser-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--border-subtle); background: var(--bg-raised); }
+.chn-browser-dots { display: flex; gap: 5px; flex-shrink: 0; }
+.chn-browser-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); }
+.chn-browser-url { flex: 1; background: #fff; border-radius: 6px; padding: 4px 6px; font-size: 10px; color: var(--text-faint); font-family: var(--font-mono); text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chn-browser-body { padding: 26px 14px 18px; min-height: 260px; display: flex; align-items: flex-end; background: linear-gradient(160deg, var(--bg-raised), var(--bg-base)); }
 
-/* Action / Chat bubbles inside AWC */
-.awc-action-card { background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(18,20,27,.04), 0 14px 30px -18px rgba(18,20,27,.18); opacity: 0; transform: translateY(8px); transition: opacity 300ms ease, transform 300ms ease; }
-.awc-action-card.is-shown { opacity: 1; transform: translateY(0); }
-.awc-card-title { font-size: 14px; font-weight: 650; color: var(--text-primary); margin-bottom: 4px; }
-.awc-card-sub { font-size: 12.5px; color: var(--text-secondary); margin-bottom: 16px; }
-.awc-list { display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 16px; }
-.awc-list-item { display: flex; justify-content: space-between; font-size: 13.5px; }
-.awc-list-item span:first-child { color: var(--text-secondary); }
-.awc-list-item span:last-child { font-weight: 600; color: var(--success); }
+.chn-outcome { align-self: center; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 650; color: #0A7A45; background: #E9F8F0; border: 1px solid #C4EDD4; padding: 6px 14px; border-radius: 999px; margin: 4px 0 2px; }
+.chn-outcome svg { width: 11px; height: 11px; flex-shrink: 0; }
 
-.awc-card-result { display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 650; color: var(--success); }
-.awc-card-result svg { width: 19px; height: 19px; flex-shrink: 0; }
+.chn-punch { margin-top: 48px; text-align: center; font-size: clamp(20px, 2.6vw, 30px); font-weight: 650; letter-spacing: -.02em; color: var(--text-primary); }
+.chn-punch .text-accent { color: var(--accent); }
 
-.awc-toast { background: var(--accent-tint); color: var(--accent); padding: 15px 18px; border-radius: 14px; font-size: 13.5px; font-weight: 650; display: flex; align-items: center; justify-content: space-between; gap: 16px; box-shadow: inset 0 0 0 1px rgba(37,99,235,.12); opacity: 0; transform: translateY(8px); transition: opacity 300ms ease, transform 300ms ease; }
-/* The injected toast <svg> carries no width/height attributes, so without an
-   explicit size it stretched to fill the flex line and blew the console up to
-   ~715px tall. Pin it like the other inline icons. */
-.awc-toast svg { width: 21px; height: 21px; flex-shrink: 0; }
-.awc-toast.is-shown { opacity: 1; transform: translateY(0); }
-
-/* Tabs below the console */
-.agent-wide-selector { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; width: 100%; }
-@media (max-width: 980px) { .agent-wide-selector { grid-template-columns: repeat(2, 1fr); } }
-/* Selector cards — larger icons and deeper chrome so the row reads as a
-   current-gen product control, not a row of small flat legacy buttons. */
-.aws-item { position: relative; background: #fff; border: 1px solid var(--border-subtle); border-radius: 18px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; cursor: pointer; overflow: hidden; box-shadow: 0 1px 2px rgba(18,20,27,.04), 0 6px 16px -10px rgba(18,20,27,.10); transition: transform 240ms var(--ease-out), border-color 240ms var(--ease-out), box-shadow 240ms var(--ease-out), background-color 240ms var(--ease-out); }
-.aws-item::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 88% -20%, rgba(37,99,235,.09), transparent 60%); opacity: 0; transition: opacity 300ms var(--ease-out); pointer-events: none; }
-.aws-item:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 2px 4px rgba(18,20,27,.04), 0 18px 34px -20px rgba(37,99,235,.34); }
-.aws-item:hover::before { opacity: 1; }
-.aws-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.aws-item.is-active { border-color: var(--accent); background: var(--accent-tint); box-shadow: 0 2px 4px rgba(18,20,27,.04), 0 18px 34px -20px rgba(37,99,235,.38); }
-.aws-item.is-active::before { opacity: 1; }
-.aws-icon { width: 58px; height: 58px; border-radius: 16px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(37,99,235,.10); transition: transform 300ms var(--ease-out), background-color 240ms var(--ease-out); }
-.aws-icon svg { width: 27px; height: 27px; }
-.aws-item:hover .aws-icon, .aws-item.is-active .aws-icon { transform: scale(1.06) rotate(-3deg); }
-.aws-item.is-active .aws-icon { background: rgba(37,99,235,.16); }
-.aws-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; min-width: 0; }
-.aws-title { font-size: 15.5px; font-weight: 650; color: var(--text-primary); }
-.aws-sub { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
-/* Two-up on small screens leaves ~150px per card — shrink the chrome so
-   "E-Commerce" stops breaking across lines at its hyphen. */
-@media (max-width: 460px) {
-  .agent-wide-selector { gap: 10px; margin-top: 24px; }
-  .aws-item { padding: 12px; gap: 10px; border-radius: 14px; }
-  .aws-icon { width: 34px; height: 34px; border-radius: 10px; }
-  .aws-icon svg { width: 17px; height: 17px; }
-  .aws-title { font-size: 14px; }
-  .aws-sub { font-size: 11.5px; hyphens: none; word-break: keep-all; }
-}
+.chn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.chn-chip { display: flex; align-items: center; gap: 10px; padding: 11px 18px; border-radius: 999px; border: 1px solid var(--border-subtle); background: #fff; box-shadow: 0 1px 2px rgba(18,20,27,.04); transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+.chn-chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+.chn-chip-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.chn-chip-icon svg { width: 14px; height: 14px; display: block; }
+.chn-chip b { font-size: 13px; font-weight: 650; color: var(--text-primary); }
+.chn-chip span { font-size: 11px; color: var(--text-tertiary); margin-left: 2px; }
+@media (prefers-reduced-motion: reduce) { .chn-phone, .chn-browser, .chn-chip { transition: none; } }
 
 /* ---------- THE PROBLEM — redesigned per brand spec: orbit graphic
    left, numbered card grid right. Colors/radius/shadow/motion below

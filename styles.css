@@ -167,6 +167,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   letter-spacing: -0.025em;
   max-width: 760px;
 }
+.section-title .text-accent { color: var(--accent); }
 .section-sub {
   font-size: 17px;
   color: var(--text-secondary);
