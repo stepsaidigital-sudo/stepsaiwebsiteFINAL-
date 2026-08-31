@@ -159,6 +159,8 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .kicker .n { color: var(--accent); }
 .section--dark .kicker .n { color: var(--accent-on-dark); }
+.kicker-icon { width: 15px; height: 15px; flex-shrink: 0; color: var(--accent); }
+.section--dark .kicker-icon { color: var(--accent-on-dark); }
 
 .section-title {
   font-size: clamp(30px, 3.8vw, 46px);

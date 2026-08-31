@@ -134,6 +134,31 @@
     });
   });
 
+  /* ---------- FAQ CHAT ACCORDION — message-style FAQ (one-inbox.html) ---------- */
+  Array.prototype.slice.call(document.querySelectorAll('.faq-chat')).forEach(function (chat) {
+    var items = Array.prototype.slice.call(chat.querySelectorAll('.faq-chat-item'));
+    items.forEach(function (item) {
+      var question = item.querySelector('.faq-chat-q');
+      var answer = item.querySelector('.faq-chat-a');
+      if (!question || !answer) return;
+      if (item.classList.contains('is-open')) answer.style.maxHeight = answer.scrollHeight + 'px';
+      question.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        items.forEach(function (other) {
+          other.classList.remove('is-open');
+          other.querySelector('.faq-chat-q').setAttribute('aria-expanded', 'false');
+          var otherAnswer = other.querySelector('.faq-chat-a');
+          if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+
   /* ---------- SCROLL STACK ANIMATION ---------- */
   function initScrollStack() {
     var cards = Array.prototype.slice.call(document.querySelectorAll('.scroll-stack-card'));

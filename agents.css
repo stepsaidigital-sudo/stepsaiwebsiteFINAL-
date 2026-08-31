@@ -293,7 +293,7 @@
 .inbox-dash {
   --ibx-bg: #0a0c11; --ibx-card: #14161d; --ibx-border: #23262f;
   --ibx-text: #f5f6f8; --ibx-sub: #9195a1; --ibx-faint: #5b5f6a;
-  --ibx-purple: #6c6af2; --ibx-blue: #3987e5; --ibx-amber: #d9a531; --ibx-red: #e5675a; --ibx-green: #22c55e;
+  --ibx-purple: #6462e1; --ibx-blue: #3987e5; --ibx-amber: #d9a531; --ibx-red: #e5675a; --ibx-green: #22c55e;
   width: 100%; background: var(--ibx-bg); border: 1px solid var(--ibx-border); border-radius: 16px;
   overflow: hidden; display: grid; grid-template-columns: 240px minmax(0, 1fr);
   box-shadow: 0 44px 88px -30px rgba(18,20,27,.4); color: var(--ibx-text); font-family: var(--font-sans);
@@ -339,3 +339,35 @@
 .inbox-dash-answer p { margin: 8px 0 0; }
 .inbox-dash-answer li { margin-bottom: 3px; }
 @media (max-width: 640px) { .inbox-dash { grid-template-columns: 1fr; } .inbox-dash-list { display: none; } }
+
+/* ============================================================
+   FAQ CHAT — message-style FAQ, chat bubbles inside the same
+   dark inbox card language as .inbox-dash above (hand-built
+   equivalent of React Bits Pro's "FAQ 2" block — no React/shadcn
+   toolchain in this static site, see one-inbox.html)
+   ============================================================ */
+.faq-chat {
+  --ibx-bg: #0a0c11; --ibx-card: #14161d; --ibx-border: #23262f;
+  --ibx-text: #f5f6f8; --ibx-sub: #9195a1; --ibx-faint: #5b5f6a; --ibx-purple: #6462e1; --ibx-green: #22c55e;
+  max-width: 1040px; margin: 0 auto;
+  background: var(--ibx-bg); border: 1px solid var(--ibx-border); border-radius: 16px;
+  box-shadow: 0 44px 88px -30px rgba(18,20,27,.4); overflow: hidden; font-family: var(--font-sans);
+}
+.faq-chat-head { display: flex; align-items: center; gap: 8px; padding: 14px 20px; border-bottom: 1px solid var(--ibx-border); font-size: 12.5px; font-weight: 650; color: var(--ibx-sub); }
+.faq-chat-head-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ibx-green); flex-shrink: 0; }
+.faq-chat-body { padding: 20px 22px 14px; display: flex; flex-direction: column; }
+
+.faq-chat-q { display: flex; align-items: flex-end; justify-content: flex-end; gap: 8px; width: 100%; padding: 8px 0; background: none; border: none; cursor: pointer; text-align: left; }
+.faq-chat-q-avatar { width: 22px; height: 22px; border-radius: 50%; background: var(--ibx-border); color: var(--ibx-sub); font-size: 9.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.faq-chat-q-bubble { display: flex; align-items: center; gap: 9px; max-width: 80%; background: var(--ibx-purple); color: #fff; border-radius: 14px 14px 3px 14px; padding: 11px 15px; font-size: 14px; font-weight: 550; line-height: 1.5; transition: filter 200ms var(--ease); }
+.faq-chat-q:hover .faq-chat-q-bubble, .faq-chat-q:focus-visible .faq-chat-q-bubble { filter: brightness(1.1); }
+.faq-chat-q-icon { width: 15px; height: 15px; flex-shrink: 0; opacity: .8; transition: transform 260ms var(--ease); }
+.faq-chat-item.is-open .faq-chat-q-icon { transform: rotate(45deg); }
+
+.faq-chat-a { max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease); }
+.faq-chat-a-inner { display: flex; align-items: flex-start; gap: 8px; padding: 4px 0 18px; }
+.faq-chat-a-avatar { width: 22px; height: 22px; border-radius: 50%; background: var(--ibx-purple); color: #fff; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.faq-chat-a-bubble { max-width: 80%; background: var(--ibx-card); border: 1px solid var(--ibx-border); border-radius: 3px 14px 14px 14px; padding: 12px 15px; font-size: 13.5px; line-height: 1.6; color: var(--ibx-sub); margin: 0; }
+
+@media (max-width: 640px) { .faq-chat-q-bubble, .faq-chat-a-bubble { max-width: 88%; } }
+@media (prefers-reduced-motion: reduce) { .faq-chat-a, .faq-chat-q-icon { transition: none; } }

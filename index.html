@@ -1501,7 +1501,7 @@
     <section class="section section--dark" id="how-it-works">
       <div class="container">
         <div class="section-head center reveal">
-          <p class="kicker">How it works</p>
+          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg>How it works</p>
           <h2 class="section-title">Live in under an hour.</h2>
           <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
         </div>
@@ -1718,43 +1718,97 @@
     </section>
 
     <!-- ============================================================
-         20. FAQ
+         20. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
          ============================================================ -->
     <section class="section section--base">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker">FAQ</p>
+          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg>FAQ</p>
           <h2 class="section-title">The questions everyone asks before they buy.</h2>
         </div>
 
-        <div class="faq-grid reveal" id="homeFaqGrid">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">How long does setup take?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Minutes. Paste your website URL, review what it learned, and turn it on — most teams are live in under an hour.</p></div>
+        <div class="faq-chat reveal" id="homeFaqChat">
+          <div class="faq-chat-head"><span class="faq-chat-head-dot" aria-hidden="true"></span>You &middot; StepsAI</div>
+          <div class="faq-chat-body">
+
+            <div class="faq-chat-item is-open">
+              <button class="faq-chat-q" aria-expanded="true" aria-controls="homeFaqA1">
+                <span class="faq-chat-q-bubble">How long does setup take?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA1">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Minutes. Paste your website URL, review what it learned, and turn it on — most teams are live in under an hour.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">Which channels does it support?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Your website, WhatsApp, and Instagram today, with Slack, Teams and Gmail for internal use. Same agent, one brain, everywhere.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="homeFaqA2">
+                <span class="faq-chat-q-bubble">Which channels does it support?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA2">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Your website, WhatsApp, and Instagram today, with Slack, Teams and Gmail for internal use. Same agent, one brain, everywhere.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">Will it work with the tools I already use?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — Shopify, HubSpot, Zendesk, Salesforce, Slack, WooCommerce, Notion and 100+ more. If you don't use any of them, it still works on its own.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="homeFaqA3">
+                <span class="faq-chat-q-bubble">Will it work with the tools I already use?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA3">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Yes — Shopify, HubSpot, Zendesk, Salesforce, Slack, WooCommerce, Notion and 100+ more. If you don't use any of them, it still works on its own.</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Is my data secure?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Your data stays yours. Every conversation and every source it learned from is visible and editable, any time.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="homeFaqA4">
+                <span class="faq-chat-q-bubble">Is my data secure?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA4">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Your data stays yours. Every conversation and every source it learned from is visible and editable, any time.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">Do I need engineering resources?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>No. If you can paste a URL and copy-paste a script tag, you can set this up without a developer.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="homeFaqA5">
+                <span class="faq-chat-q-bubble">Do I need engineering resources?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA5">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">No. If you can paste a URL and copy-paste a script tag, you can set this up without a developer.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">What are the AI's limitations?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>It answers only from your website and documents — no invented prices or policies. When it doesn't know, it says so and brings in a person.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="homeFaqA6">
+                <span class="faq-chat-q-bubble">What are the AI's limitations?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="homeFaqA6">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">It answers only from your website and documents — no invented prices or policies. When it doesn't know, it says so and brings in a person.</p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>

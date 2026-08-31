@@ -189,12 +189,92 @@
     </section>
 
     <!-- ============================================================
-         2. YOU STAY IN CONTROL
+         2. THE DASHBOARD — same real .inbox-dash component as agents.html
+             (conversation list + open thread), reused via agents.css
+             which this page already loads
+         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <div class="omni-inbox-section reveal">
+          <div class="omni-inbox-content">
+            <p class="kicker"><span class="n">02</span> The dashboard</p>
+            <h2 class="section-title">This is what it looks like, live.</h2>
+            <p class="section-sub">Website, WhatsApp, and Instagram, side by side. Click into any thread and see the full conversation — what the customer asked, what the agent answered, and what still needs you.</p>
+          </div>
+          <div class="omni-inbox-visual">
+            <div class="inbox-dash">
+              <div class="inbox-dash-list">
+                <div class="inbox-dash-list-head">Conversations</div>
+
+                <div class="inbox-dash-row is-active">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="wa"></i>WhatsApp</span>
+                    <span class="inbox-dash-time">4m</span>
+                  </div>
+                  <p class="inbox-dash-preview">Can I speak to someone about a refund?</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag tech">Needs handover</span></div>
+                </div>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="ig"></i>Instagram</span>
+                    <span class="inbox-dash-time">9m</span>
+                  </div>
+                  <p class="inbox-dash-preview">Is the 3BHK still available?</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag lead">Lead</span></div>
+                </div>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="web"></i>Web</span>
+                    <span class="inbox-dash-time">31m</span>
+                  </div>
+                  <p class="inbox-dash-preview">Where's my order #2453?</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag order">Order</span></div>
+                </div>
+
+                <div class="inbox-dash-row">
+                  <div class="inbox-dash-row-top">
+                    <span class="inbox-dash-chan"><i class="wa"></i>WhatsApp</span>
+                    <span class="inbox-dash-time">1h</span>
+                  </div>
+                  <p class="inbox-dash-preview">Yes please, size M works</p>
+                  <div class="inbox-dash-tags"><span class="inbox-dash-tag resolved">Resolved</span></div>
+                </div>
+              </div>
+
+              <div class="inbox-dash-thread">
+                <div class="inbox-dash-thread-head">
+                  <span class="inbox-dash-thread-who">Meera R. <span class="inbox-dash-thread-chan"><i class="wa"></i>WhatsApp</span></span>
+                  <span class="inbox-dash-details-btn">See details</span>
+                </div>
+                <div class="inbox-dash-body">
+                  <div class="inbox-dash-msg user">
+                    <div class="inbox-dash-msg-meta">Meera &middot; 4m ago<span class="inbox-dash-msg-avatar">M</span></div>
+                    <div class="inbox-dash-bubble">Can I speak to someone about a refund?</div>
+                  </div>
+                  <div class="inbox-dash-msg agent">
+                    <div class="inbox-dash-msg-meta"><span class="inbox-dash-msg-avatar">SA</span>StepsAI Agent &middot; 3m ago</div>
+                    <div class="inbox-dash-answer">
+                      Of course &mdash; I've flagged this for our team with your full order history attached.
+                      <p>Priya will pick this up shortly. You won't need to repeat anything.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. YOU STAY IN CONTROL
          ============================================================ -->
     <section class="section section--raised">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> You stay in control</p>
+          <p class="kicker"><span class="n">03</span> You stay in control</p>
           <h2 class="section-title">It handles what it can. You handle what matters.</h2>
           <p class="section-sub">Nothing happens off the record. Every answer, every handover, visible the moment it happens.</p>
         </div>
@@ -217,12 +297,12 @@
     </section>
 
     <!-- ============================================================
-         3. WHY ONE INBOX — differentiators
+         4. WHY ONE INBOX — differentiators
          ============================================================ -->
     <section class="section section--base">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> Why it matters</p>
+          <p class="kicker"><span class="n">04</span> Why it matters</p>
           <h2 class="section-title">Five channels don't mean five inboxes.</h2>
         </div>
         <div class="diff-grid reveal reveal-stagger">
@@ -234,41 +314,79 @@
     </section>
 
     <!-- ============================================================
-         4. FAQ
+         5. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
          ============================================================ -->
     <section class="section section--raised">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> Questions</p>
+          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg><span class="n">05</span> Questions</p>
           <h2 class="section-title">About the inbox.</h2>
+          <p class="section-sub">Answered the way the inbox itself would answer them.</p>
         </div>
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Can my whole team use it?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — invite as many teammates as you need. Any of them can step into a conversation the agent handed over.</p></div>
+
+        <div class="faq-chat reveal">
+          <div class="faq-chat-head"><span class="faq-chat-head-dot" aria-hidden="true"></span>You &middot; One Inbox</div>
+          <div class="faq-chat-body">
+
+            <div class="faq-chat-item is-open">
+              <button class="faq-chat-q" aria-expanded="true" aria-controls="faqA1">
+                <span class="faq-chat-q-bubble">Can my whole team use it?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="faqA1">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Yes — invite as many teammates as you need. Any of them can step into a conversation the agent handed over.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">Does it cover every channel?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Website, WhatsApp, and Instagram today, all in this one inbox — no separate app for any of them.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="faqA2">
+                <span class="faq-chat-q-bubble">Does it cover every channel?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="faqA2">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Website, WhatsApp, and Instagram today, all in this one inbox — no separate app for any of them.</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">What does handover actually look like?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>The conversation moves into your queue with the full thread attached. You reply from the same inbox — the customer sees no interruption.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="faqA3">
+                <span class="faq-chat-q-bubble">What does handover actually look like?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="faqA3">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">The conversation moves into your queue with the full thread attached. You reply from the same inbox — the customer sees no interruption.</p>
+                </div>
+              </div>
             </div>
-            <div class="faq-item">
-              <button class="faq-question">Can I take over mid-conversation?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Any time. Step in whenever you want, hand it back whenever you're done — the agent picks up exactly where you left off.</p></div>
+
+            <div class="faq-chat-item">
+              <button class="faq-chat-q" aria-expanded="false" aria-controls="faqA4">
+                <span class="faq-chat-q-bubble">Can I take over mid-conversation?<svg class="faq-chat-q-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+                <span class="faq-chat-q-avatar">Y</span>
+              </button>
+              <div class="faq-chat-a" id="faqA4">
+                <div class="faq-chat-a-inner">
+                  <span class="faq-chat-a-avatar">SA</span>
+                  <p class="faq-chat-a-bubble">Any time. Step in whenever you want, hand it back whenever you're done — the agent picks up exactly where you left off.</p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         5. FINAL CTA
+         6. FINAL CTA
          ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">
