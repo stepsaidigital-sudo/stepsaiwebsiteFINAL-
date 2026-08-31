@@ -133,4 +133,60 @@
       });
     });
   });
+
+  /* ---------- SCROLL STACK ANIMATION ---------- */
+  function initScrollStack() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.scroll-stack-card'));
+    if (!cards.length) return;
+
+    function handleScroll() {
+      requestAnimationFrame(function() {
+        var windowHeight = window.innerHeight;
+        var stickyTop = windowHeight * 0.15; // Matches top: 15vh in CSS
+        
+        cards.forEach(function(card, index) {
+          var rect = card.getBoundingClientRect();
+          
+          if (rect.top <= stickyTop + 1) {
+            // Card is sticking
+            if (index < cards.length - 1) {
+              var nextCard = cards[index + 1];
+              var nextRect = nextCard.getBoundingClientRect();
+              
+              var distance = nextRect.top - rect.top;
+              var maxDistance = rect.height + 40; // Card height + margin-bottom
+              
+              var progress = 1 - (distance / maxDistance);
+              progress = Math.max(0, Math.min(1, progress));
+              
+              if (progress > 0) {
+                var scale = 1 - (progress * 0.05); // Scale down to 0.95
+                var rotate = (index % 2 === 0 ? -1 : 1) * (progress * 2); // Rotate between -2deg and 2deg
+                var opacity = 1 - (progress * 0.5); // Dissolve to 0.5
+                
+                card.style.transform = 'scale(' + scale + ') rotateZ(' + rotate + 'deg)';
+                card.style.opacity = opacity.toString();
+              } else {
+                card.style.transform = 'none';
+                card.style.opacity = '1';
+              }
+            }
+          } else {
+            // Card is in normal flow below sticky point
+            card.style.transform = 'none';
+            card.style.opacity = '1';
+          }
+        });
+      });
+    }
+
+    if (!reduceMotion) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll, { passive: true });
+      handleScroll(); // Initial call
+    }
+  }
+  
+  initScrollStack();
+
 })();
