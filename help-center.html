@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lead Agent — StepsAI | Every enquiry, qualified before it reaches you.</title>
-<meta name="description" content="Captures who they are, what they need, and how soon — saved to your CRM automatically, with the full conversation attached.">
+<title>Help Center — StepsAI</title>
+<meta name="description" content="Answers on getting started, channels, billing, workflows, and account &amp; security — search or browse by topic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="industries-deep.css">
-<link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
+  <!-- ============================================================
+       NAV — synced from index.html; edit there and re-run the
+       propagation pass, don't hand-edit this block.
+       ============================================================ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
@@ -210,169 +214,135 @@
   <main id="top">
 
     <!-- ============================================================
-         1. HERO
+         HERO — search box actually filters the list below (client
+         side, no backend needed): matches on question text.
          ============================================================ -->
-    <section class="vertical-hero">
-      <div class="container vertical-hero-inner">
-        <div class="reveal">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Lead Agent</span>
-          <h1 class="vertical-headline">Every enquiry, qualified before it reaches you.</h1>
-          <p class="vertical-tagline">Captures who they are, what they need, and how soon — saved to your CRM automatically, with the whole conversation attached.</p>
-          <div class="vertical-hero-actions">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="agents.html#four-agents" class="vertical-hero-link">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              All four agents
-            </a>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="live-widget">
-            <div class="lw-head">
-              <span class="lw-avatar">K</span>
-              <div><div class="lw-name">Agent</div><div class="lw-status">Keystone Realty · Active</div></div>
-            </div>
-            <div class="lw-body">
-              <div class="lw-bubble user">Looking for a 2BHK near the tech park</div>
-              <div class="lw-bubble agent">Got it — what's your budget range and how soon are you looking to move?</div>
-              <div class="lw-bubble user">₹85L–1.1Cr, ideally within 60 days</div>
-              <div class="lw-bubble agent">Perfect. Can I get your name and number so our team can send matching listings?</div>
-              <div class="lw-bubble user">Ananya Rao, 98765 43210</div>
-              <div class="lw-bubble agent">Thanks Ananya — saved. Sameer from our team will reach out within the hour.</div>
-            </div>
-            <div class="lw-footer">
-              <div class="lw-input">Ask me anything</div>
-              <span class="lw-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></span>
-            </div>
-            <div class="lw-powered">Powered by <b>StepsAI</b></div>
-          </div>
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">HELP CENTER</p>
+        <h1 class="page-headline">How can we help?</h1>
+        <p class="section-sub page-hero-sub">Search, or browse by topic below. Can't find it? <a href="contact.html" style="color:var(--accent);text-decoration:underline">Contact us directly</a>.</p>
+
+        <div style="max-width:520px;margin:28px auto 0;position:relative">
+          <input type="text" id="helpSearch" placeholder="Search for an answer&hellip;" aria-label="Search help articles"
+            style="width:100%;padding:14px 20px;font-size:15px;font-family:inherit;border:1px solid var(--border-subtle);border-radius:999px;background:var(--bg-raised);color:var(--text-primary)">
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         2. WHAT IT DOES
+         TABS + FAQ GRID — same filter pattern as blog.html's
+         .bh-tab / [data-category], adapted here to also filter by
+         the search box above.
          ============================================================ -->
-    <section class="section section--raised">
+    <section class="section section--raised" id="topics">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> What it does</p>
-          <h2 class="section-title">A qualifying conversation, not a dead-end form.</h2>
-          <p class="section-sub">Most people who leave a website contact form never fill it out. This happens inside the chat they're already having.</p>
-        </div>
 
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">01 / Captures</div>
-            <h3>Who they are, what they need, how soon.</h3>
-            <p>It asks the qualifying questions your sales team would ask — budget, timeline, use case — naturally, inside the conversation, without ever feeling like a form.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Interested in your 3BHK listing</div>
-                <div class="lw-bubble agent">Great — is this for you to live in, or an investment?</div>
-                <div class="lw-bubble user">To live in, moving from out of state</div>
-                <div class="lw-bubble agent">Good to know. What's the best number and email to send the floor plan to?</div>
-                <div class="lw-bubble user">98123 45678, arjun@email.com</div>
-                <div class="lw-bubble agent">Sent! I've flagged the out-of-state move so our team prioritizes a virtual tour first.</div>
-              </div>
-            </div>
+        <div class="bh-section-head reveal">
+          <p class="bh-section-title">Browse by topic</p>
+          <div class="bh-tabs" id="helpFilters">
+            <span class="bh-tab is-active" data-filter="all">All topics</span>
+            <span class="bh-tab" data-filter="start">Getting Started</span>
+            <span class="bh-tab" data-filter="channels">Channels &amp; Integrations</span>
+            <span class="bh-tab" data-filter="billing">Billing &amp; Plans</span>
+            <span class="bh-tab" data-filter="workflows">Workflows</span>
+            <span class="bh-tab" data-filter="account">Account &amp; Security</span>
           </div>
         </div>
 
-        <div class="spread reverse reveal">
+        <div class="faq-grid" id="helpGrid">
           <div>
-            <div class="spread-index">02 / Saves it, attached</div>
-            <h3>Every lead arrives with the whole conversation.</h3>
-            <p>Every lead lands in HubSpot or your CRM with the full chat attached — your sales team never asks a customer to repeat themselves.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble agent">Passed this along to our team, with everything attached:</div>
-                <div class="chat-card">
-                  <div class="chat-card-fields">
-                    <div class="chat-card-field"><span>Name</span><span>Ananya Rao</span></div>
-                    <div class="chat-card-field"><span>Phone</span><span>98765 43210</span></div>
-                    <div class="chat-card-field"><span>Budget</span><span>&#8377;85L&ndash;1.1Cr</span></div>
-                    <div class="chat-card-field"><span>Timeline</span><span>60 days</span></div>
-                  </div>
-                  <div class="chat-card-synced"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Synced to HubSpot</div>
-                </div>
-                <div class="lw-bubble user">Perfect, thanks!</div>
-                <div class="lw-bubble agent">Priya from our sales team will reach out today with your matching listings.</div>
-              </div>
+
+            <div class="faq-item" data-category="start" data-q="how do i set up my agent">
+              <button class="faq-question">How do I set up my agent?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Paste your website link, or connect a channel from your dashboard — most businesses are live the same afternoon, no code required.</p></div>
             </div>
+            <div class="faq-item" data-category="start" data-q="do i need to code anything">
+              <button class="faq-question">Do I need to code anything?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>No. Setup is guided and no-code from start to finish, including connecting channels and building workflows.</p></div>
+            </div>
+            <div class="faq-item" data-category="start" data-q="can i try it before paying">
+              <button class="faq-question">Can I try it before paying?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — start a free trial with no credit card required. See <a href="pricing.html" style="color:var(--accent);text-decoration:underline">pricing</a> for current plans.</p></div>
+            </div>
+
+            <div class="faq-item" data-category="channels" data-q="which channels does stepsai support">
+              <button class="faq-question">Which channels does StepsAI support?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Website, WhatsApp, Instagram, Messenger, and a shareable Standalone Page — see the full <a href="channels.html" style="color:var(--accent);text-decoration:underline">channels overview</a>.</p></div>
+            </div>
+            <div class="faq-item" data-category="channels" data-q="do i need my own whatsapp business number">
+              <button class="faq-question">Do I need my own WhatsApp Business number?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — StepsAI connects to your verified WhatsApp Business number through the official API. If you don't have one yet, we help you set it up.</p></div>
+            </div>
+            <div class="faq-item" data-category="channels" data-q="which crms can i connect">
+              <button class="faq-question">Which CRMs can I connect?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>HubSpot, Zoho CRM, Salesforce and more via <a href="integrations.html" style="color:var(--accent);text-decoration:underline">Integrations</a> — or use StepsAI's own <a href="crm.html" style="color:var(--accent);text-decoration:underline">built-in CRM</a>.</p></div>
+            </div>
+            <div class="faq-item" data-category="channels" data-q="does it work with ad clicks into messenger">
+              <button class="faq-question">Does it work with ad clicks into Messenger?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — it reads the ad or post someone clicked and opens the conversation already knowing what they're asking about.</p></div>
+            </div>
+
+          </div>
+          <div>
+
+            <div class="faq-item" data-category="billing" data-q="how does pricing work">
+              <button class="faq-question">How does pricing work?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Plans are based on usage and features you need — see the current breakdown on the <a href="pricing.html" style="color:var(--accent);text-decoration:underline">pricing page</a>.</p></div>
+            </div>
+            <div class="faq-item" data-category="billing" data-q="can i cancel any time">
+              <button class="faq-question">Can I cancel any time?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — cancel any time from your account settings, no lock-in contract required.</p></div>
+            </div>
+            <div class="faq-item" data-category="billing" data-q="is there a setup fee">
+              <button class="faq-question">Is there a setup fee?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>No setup fee for self-serve accounts. If you'd rather have someone set it up for you, see <a href="hire-an-agency.html" style="color:var(--accent);text-decoration:underline">Hire an Agency</a>.</p></div>
+            </div>
+
+            <div class="faq-item" data-category="workflows" data-q="what is a workflow">
+              <button class="faq-question">What's a workflow?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>An automated follow-up sequence — like a cart-abandonment reminder or a post-visit check-in — that runs on its own once it's set up. See <a href="workflows.html" style="color:var(--accent);text-decoration:underline">Workflows</a>.</p></div>
+            </div>
+            <div class="faq-item" data-category="workflows" data-q="can i build my own workflow">
+              <button class="faq-question">Can I build my own workflow?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — use a ready-made template or build your own on the workflow canvas.</p></div>
+            </div>
+            <div class="faq-item" data-category="workflows" data-q="does it respect opt outs">
+              <button class="faq-question">Does it respect opt-outs?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — anyone who opts out is removed from future broadcasts and workflows instantly, everywhere. See <a href="whatsapp-broadcast.html" style="color:var(--accent);text-decoration:underline">WhatsApp Broadcast</a>.</p></div>
+            </div>
+
+            <div class="faq-item" data-category="account" data-q="can my team have multiple logins">
+              <button class="faq-question">Can my team have multiple logins?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Yes — invite as many teammates as you need. Any of them can step into a conversation the agent hands over.</p></div>
+            </div>
+            <div class="faq-item" data-category="account" data-q="where can i read the privacy policy">
+              <button class="faq-question">Where can I read the privacy policy?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Right here: <a href="privacy-policy.html" style="color:var(--accent);text-decoration:underline">Privacy Policy</a> and <a href="terms-of-service.html" style="color:var(--accent);text-decoration:underline">Terms of Service</a>.</p></div>
+            </div>
+            <div class="faq-item" data-category="account" data-q="how do i contact support">
+              <button class="faq-question">How do I contact support?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <div class="faq-answer"><p>Reach us any time on the <a href="contact.html" style="color:var(--accent);text-decoration:underline">contact page</a>.</p></div>
+            </div>
+
           </div>
         </div>
 
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">03 / Routes to the right person</div>
-            <h3>High-intent leads reach a human fast.</h3>
-            <p>It recognizes when someone's ready to talk to a person — a bulk enquiry, a serious buyer — and routes it immediately, instead of letting it sit in a queue.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">We need 12 units for our team, relocating next month</div>
-                <div class="lw-bubble agent">That's a priority enquiry — flagging this for our leasing manager right now.</div>
-                <div class="lw-bubble user">Appreciate the quick response</div>
-                <div class="lw-bubble agent">Of course &mdash; expect a call within the hour with unit options.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p id="helpEmpty" hidden style="text-align:center;margin-top:32px;color:var(--text-secondary)">No matches — try a different search, or <a href="contact.html" style="color:var(--accent);text-decoration:underline">contact us directly</a>.</p>
       </div>
     </section>
 
     <!-- ============================================================
-         3. FAQ
+         FINAL CTA + FOOTER
          ============================================================ -->
-    <section class="section section--base">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> FAQ</p>
-          <h2 class="section-title">Questions about the Lead Agent.</h2>
-        </div>
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Will it replace my sales team?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>No. It makes sure your team only spends time on people worth talking to — it qualifies, it doesn't sell.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Which CRMs does it connect to?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>HubSpot out of the box, plus 100+ other tools through our integrations. No CRM? Leads are still saved and visible in your inbox.</p></div>
-            </div>
-          </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">How does it decide what's a "qualified" lead?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>You define the criteria — budget thresholds, timeline, use case. It applies your rules, not a generic guess.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Does it follow up if someone goes quiet?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — that's handled by Workflows, which follows up automatically and answers whatever question was still open.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         4. FINAL CTA
-         ============================================================ -->
-    <section class="section section--dark final-cta" id="final-cta">
-      <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Stop losing enquiries to a form nobody fills out.</h2>
-        <p class="final-cta-sub">Set it up this afternoon. Start qualifying leads tonight.</p>
-        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Cancel any time.</p>
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Still stuck? A real person will answer.</h2>
+        <p class="final-cta-sub">No ticket queue — just tell us what's going on.</p>
+        <a href="contact.html" class="btn btn-cta">Contact us</a>
       </div>
     </section>
 
@@ -403,11 +373,11 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Channels</span>
-            <a href="agents.html#channels">Website</a>
-            <a href="agents.html#channels">WhatsApp</a>
-            <a href="agents.html#channels">Instagram</a>
-            <a href="agents.html#channels">Messenger</a>
-            <a href="agents.html#channels">Standalone Page</a>
+            <a href="channel-website.html">Website</a>
+            <a href="channel-whatsapp.html">WhatsApp</a>
+            <a href="channel-instagram.html">Instagram</a>
+            <a href="channel-messenger.html">Messenger</a>
+            <a href="channel-standalone.html">Standalone Page</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>
@@ -445,6 +415,39 @@
   </main>
 
   <script src="nav.js"></script>
-  <script src="industries.js"></script>
+  <script src="pages.js"></script>
+  <script>
+    (function () {
+      var searchInput = document.getElementById('helpSearch');
+      var filters = document.querySelectorAll('#helpFilters .bh-tab');
+      var items = document.querySelectorAll('#helpGrid [data-category]');
+      var emptyMsg = document.getElementById('helpEmpty');
+      var activeFilter = 'all';
+
+      function applyFilters() {
+        var query = (searchInput.value || '').trim().toLowerCase();
+        var visibleCount = 0;
+        items.forEach(function (item) {
+          var matchesCategory = activeFilter === 'all' || item.getAttribute('data-category') === activeFilter;
+          var matchesQuery = !query || item.getAttribute('data-q').indexOf(query) !== -1;
+          var show = matchesCategory && matchesQuery;
+          item.hidden = !show;
+          if (show) visibleCount++;
+        });
+        emptyMsg.hidden = visibleCount > 0;
+      }
+
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filters.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          activeFilter = btn.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+    })();
+  </script>
 </body>
 </html>

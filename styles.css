@@ -110,6 +110,26 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
+/* ============================================================
+   LEGAL CONTENT — shared prose component for Privacy/Terms and
+   any future legal/policy page. Base reset above strips list
+   bullets and heading/paragraph margins globally, so this scopes
+   its own readable prose rules back on inside .legal-content.
+   ============================================================ */
+.legal-content { max-width: 760px; margin: 0 auto; }
+.legal-content .legal-updated { font-size: 13px; color: var(--text-secondary); margin-bottom: 28px; }
+.legal-content h2 { font-size: 24px; font-weight: 650; letter-spacing: -0.02em; color: var(--text-primary); margin-top: 48px; }
+.legal-content h2:first-of-type { margin-top: 0; }
+.legal-content h3 { font-size: 17.5px; font-weight: 650; color: var(--text-primary); margin-top: 28px; }
+.legal-content p { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-top: 14px; }
+.legal-content ul { list-style: disc; padding-left: 22px; margin-top: 14px; }
+.legal-content li { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-top: 6px; }
+.legal-content a { color: var(--accent); text-decoration: underline; }
+.legal-content .legal-toc { background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 22px 26px; margin: 0 0 40px; }
+.legal-content .legal-toc-title { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); }
+.legal-content .legal-toc a { display: block; font-size: 14.5px; padding: 6px 0 0; color: var(--text-secondary); text-decoration: none; }
+.legal-content .legal-toc a:hover { color: var(--accent); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .001ms !important;

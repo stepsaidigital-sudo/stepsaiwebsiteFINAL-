@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lead Agent — StepsAI | Every enquiry, qualified before it reaches you.</title>
-<meta name="description" content="Captures who they are, what they need, and how soon — saved to your CRM automatically, with the full conversation attached.">
+<title>Hire a StepsAI Agency | Get set up by a certified partner</title>
+<meta name="description" content="Don't want to configure it yourself? A certified StepsAI agency partner sets it up, connects your tools, and keeps it running.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="industries-deep.css">
-<link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="pages.css">
 </head>
 <body>
 
+  <!-- ============================================================
+       NAV — synced from index.html; edit there and re-run the
+       propagation pass, don't hand-edit this block.
+       ============================================================ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
@@ -210,169 +213,165 @@
   <main id="top">
 
     <!-- ============================================================
-         1. HERO
+         HERO — this page is for BUSINESSES hiring help, not for
+         people becoming a partner (see partner.html / become-an-
+         affiliate.html for that audience).
          ============================================================ -->
-    <section class="vertical-hero">
-      <div class="container vertical-hero-inner">
-        <div class="reveal">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Lead Agent</span>
-          <h1 class="vertical-headline">Every enquiry, qualified before it reaches you.</h1>
-          <p class="vertical-tagline">Captures who they are, what they need, and how soon — saved to your CRM automatically, with the whole conversation attached.</p>
-          <div class="vertical-hero-actions">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="agents.html#four-agents" class="vertical-hero-link">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              All four agents
-            </a>
-          </div>
+    <section class="section section--base page-hero">
+      <div class="hero-bg-dots" aria-hidden="true"></div>
+      <div class="container page-hero-inner">
+        <p class="kicker">HIRE AN AGENCY</p>
+        <h1 class="page-headline">Don't want to set it up yourself? Hire someone who will.</h1>
+        <p class="section-sub page-hero-sub">Certified StepsAI agency partners handle the setup, the integrations, and the ongoing tuning — you get a working agent without doing the configuration.</p>
+
+        <div class="page-hero-cta-row">
+          <!-- No agency-matching backend yet — intentionally inert. -->
+          <button class="btn btn-accent btn-lg" type="button">Get matched with an agency</button>
+          <button class="btn btn-outline btn-lg" type="button">Book a call</button>
         </div>
-        <div class="reveal">
-          <div class="live-widget">
-            <div class="lw-head">
-              <span class="lw-avatar">K</span>
-              <div><div class="lw-name">Agent</div><div class="lw-status">Keystone Realty · Active</div></div>
-            </div>
-            <div class="lw-body">
-              <div class="lw-bubble user">Looking for a 2BHK near the tech park</div>
-              <div class="lw-bubble agent">Got it — what's your budget range and how soon are you looking to move?</div>
-              <div class="lw-bubble user">₹85L–1.1Cr, ideally within 60 days</div>
-              <div class="lw-bubble agent">Perfect. Can I get your name and number so our team can send matching listings?</div>
-              <div class="lw-bubble user">Ananya Rao, 98765 43210</div>
-              <div class="lw-bubble agent">Thanks Ananya — saved. Sameer from our team will reach out within the hour.</div>
-            </div>
-            <div class="lw-footer">
-              <div class="lw-input">Ask me anything</div>
-              <span class="lw-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></span>
-            </div>
-            <div class="lw-powered">Powered by <b>StepsAI</b></div>
-          </div>
+
+        <div class="stat-row">
+          <div class="stat-item"><strong>Vetted</strong><span>Every partner certified</span></div>
+          <div class="stat-item"><strong>Free</strong><span>To get matched</span></div>
+          <div class="stat-item"><strong>Days</strong><span>Not months, to launch</span></div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         2. WHAT IT DOES
+         WHAT AN AGENCY DOES
          ============================================================ -->
     <section class="section section--raised">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> What it does</p>
-          <h2 class="section-title">A qualifying conversation, not a dead-end form.</h2>
-          <p class="section-sub">Most people who leave a website contact form never fill it out. This happens inside the chat they're already having.</p>
-        </div>
+        <p class="kicker">WHAT AN AGENCY DOES</p>
+        <h2 class="section-title">Everything between "we should get an AI agent" and it actually working.</h2>
+        <p class="section-sub">You describe the business. They handle the rest.</p>
 
-        <div class="spread reveal">
+        <div class="step-grid">
           <div>
-            <div class="spread-index">01 / Captures</div>
-            <h3>Who they are, what they need, how soon.</h3>
-            <p>It asks the qualifying questions your sales team would ask — budget, timeline, use case — naturally, inside the conversation, without ever feeling like a form.</p>
+            <span class="step-card-num">01</span>
+            <h3 class="step-card-title">Audit</h3>
+            <p class="step-card-desc">Reviews your business, your channels, and what's already in place before touching anything.</p>
           </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Interested in your 3BHK listing</div>
-                <div class="lw-bubble agent">Great — is this for you to live in, or an investment?</div>
-                <div class="lw-bubble user">To live in, moving from out of state</div>
-                <div class="lw-bubble agent">Good to know. What's the best number and email to send the floor plan to?</div>
-                <div class="lw-bubble user">98123 45678, arjun@email.com</div>
-                <div class="lw-bubble agent">Sent! I've flagged the out-of-state move so our team prioritizes a virtual tour first.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spread reverse reveal">
           <div>
-            <div class="spread-index">02 / Saves it, attached</div>
-            <h3>Every lead arrives with the whole conversation.</h3>
-            <p>Every lead lands in HubSpot or your CRM with the full chat attached — your sales team never asks a customer to repeat themselves.</p>
+            <span class="step-card-num">02</span>
+            <h3 class="step-card-title">Configure</h3>
+            <p class="step-card-desc">Builds your agents, workflows, and CRM connections around how your business actually runs.</p>
           </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble agent">Passed this along to our team, with everything attached:</div>
-                <div class="chat-card">
-                  <div class="chat-card-fields">
-                    <div class="chat-card-field"><span>Name</span><span>Ananya Rao</span></div>
-                    <div class="chat-card-field"><span>Phone</span><span>98765 43210</span></div>
-                    <div class="chat-card-field"><span>Budget</span><span>&#8377;85L&ndash;1.1Cr</span></div>
-                    <div class="chat-card-field"><span>Timeline</span><span>60 days</span></div>
-                  </div>
-                  <div class="chat-card-synced"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Synced to HubSpot</div>
-                </div>
-                <div class="lw-bubble user">Perfect, thanks!</div>
-                <div class="lw-bubble agent">Priya from our sales team will reach out today with your matching listings.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spread reveal">
           <div>
-            <div class="spread-index">03 / Routes to the right person</div>
-            <h3>High-intent leads reach a human fast.</h3>
-            <p>It recognizes when someone's ready to talk to a person — a bulk enquiry, a serious buyer — and routes it immediately, instead of letting it sit in a queue.</p>
+            <span class="step-card-num">03</span>
+            <h3 class="step-card-title">Launch</h3>
+            <p class="step-card-desc">Connects WhatsApp, Instagram, Messenger, and your website, and takes it live.</p>
           </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">We need 12 units for our team, relocating next month</div>
-                <div class="lw-bubble agent">That's a priority enquiry — flagging this for our leasing manager right now.</div>
-                <div class="lw-bubble user">Appreciate the quick response</div>
-                <div class="lw-bubble agent">Of course &mdash; expect a call within the hour with unit options.</div>
-              </div>
-            </div>
+          <div>
+            <span class="step-card-num">04</span>
+            <h3 class="step-card-title">Optimize</h3>
+            <p class="step-card-desc">Tunes it over time based on real conversations, not a one-time setup and walk away.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. FAQ
+         WHAT YOU GET
          ============================================================ -->
     <section class="section section--base">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> FAQ</p>
-          <h2 class="section-title">Questions about the Lead Agent.</h2>
-        </div>
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Will it replace my sales team?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>No. It makes sure your team only spends time on people worth talking to — it qualifies, it doesn't sell.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Which CRMs does it connect to?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>HubSpot out of the box, plus 100+ other tools through our integrations. No CRM? Leads are still saved and visible in your inbox.</p></div>
-            </div>
+        <p class="kicker">WHAT YOU GET</p>
+        <h2 class="section-title">Hands-off setup, with no extra risk underneath.</h2>
+        <p class="section-sub">You're still a direct StepsAI customer — the agency is help on top of that, not instead of it.</p>
+
+        <div class="who-columns">
+          <div class="who-column">
+            <h3 class="who-column-title">A certified expert</h3>
+            <ul class="who-list who-list--good">
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Vetted and already running real deployments, not learning on your account</li>
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Knows the platform inside out, so you don't have to</li>
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Accountable to you directly, not a support ticket queue</li>
+            </ul>
           </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">How does it decide what's a "qualified" lead?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>You define the criteria — budget thresholds, timeline, use case. It applies your rules, not a generic guess.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Does it follow up if someone goes quiet?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — that's handled by Workflows, which follows up automatically and answers whatever question was still open.</p></div>
-            </div>
+          <div class="who-column">
+            <h3 class="who-column-title">No lock-in</h3>
+            <ul class="who-list who-list--good">
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Same StepsAI platform and pricing underneath — no markup on the software itself</li>
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your account and data are yours — bring it in-house or switch agencies any time</li>
+              <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.2L5.5 9.7L11 4" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>You still have direct access to StepsAI support if you ever need it</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         4. FINAL CTA
+         TRUST
          ============================================================ -->
-    <section class="section section--dark final-cta" id="final-cta">
-      <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Stop losing enquiries to a form nobody fills out.</h2>
-        <p class="final-cta-sub">Set it up this afternoon. Start qualifying leads tonight.</p>
-        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Cancel any time.</p>
+    <section class="section section--raised">
+      <div class="container">
+        <p class="kicker">NO BADGE WITHOUT THE BAR</p>
+        <h2 class="section-title">We don't certify agencies we wouldn't hire ourselves.</h2>
+        <p class="section-sub">Every certified partner has run real StepsAI deployments before we put their name on this page.</p>
+
+        <div class="callout-card">
+          <span class="callout-avatar">RJ</span>
+          <div class="callout-body">
+            <p class="callout-name">Get matched, not just a list of names.</p>
+            <p class="callout-quote">Reshmanth Jonnalagadda, Founder. Tell us about your business and we'll point you to the right partner, not a directory to sift through yourself.</p>
+          </div>
+          <!-- No scheduling backend wired yet — intentionally inert. -->
+          <button class="btn btn-outline btn-sm" type="button">Get matched</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="section section--base faq">
+      <div class="container">
+        <p class="kicker">QUESTIONS</p>
+        <h2 class="section-title">Hiring an agency, answered.</h2>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">What does an agency actually set up for me?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Your channels, your agent's workflows, your CRM connection, and your team's training — the parts that take real time to get right.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Does hiring an agency cost more than self-serve?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>The StepsAI platform fee is the same either way. The agency charges separately for their setup and ongoing work, on their own terms.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do I still get StepsAI support?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes — you're a direct StepsAI customer either way. The agency is help on top of that, not a replacement for it.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can I switch agencies or bring it in-house later?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Yes. Your account and data are yours — you can move to a different agency or manage it yourself whenever you want.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How do I get matched?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Tell us a bit about your business and we'll connect you with a certified partner suited to your industry.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">I'd rather set it up myself — is that still an option?<svg class="faq-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-answer"><p>Always. Hiring an agency is an option, not a requirement — most businesses can self-serve directly from <a href="pricing.html" style="color:var(--accent);text-decoration:underline">pricing</a>.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA + FOOTER
+         ============================================================ -->
+    <section class="section final-cta" id="final-cta">
+      <div class="final-cta-glow" aria-hidden="true"></div>
+      <div class="final-cta-dots" aria-hidden="true"></div>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-headline">Tell us about your business. We'll find your agency.</h2>
+        <p class="final-cta-sub">No cost to get matched. Most projects start within a week.</p>
+        <!-- No agency-matching backend yet — intentionally inert. -->
+        <button class="btn btn-cta" type="button">Get matched with an agency</button>
+        <p class="final-cta-note">Free to get matched. You only pay the agency for their work.</p>
       </div>
     </section>
 
@@ -403,11 +402,11 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Channels</span>
-            <a href="agents.html#channels">Website</a>
-            <a href="agents.html#channels">WhatsApp</a>
-            <a href="agents.html#channels">Instagram</a>
-            <a href="agents.html#channels">Messenger</a>
-            <a href="agents.html#channels">Standalone Page</a>
+            <a href="channel-website.html">Website</a>
+            <a href="channel-whatsapp.html">WhatsApp</a>
+            <a href="channel-instagram.html">Instagram</a>
+            <a href="channel-messenger.html">Messenger</a>
+            <a href="channel-standalone.html">Standalone Page</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>
@@ -445,6 +444,6 @@
   </main>
 
   <script src="nav.js"></script>
-  <script src="industries.js"></script>
+  <script src="pages.js"></script>
 </body>
 </html>

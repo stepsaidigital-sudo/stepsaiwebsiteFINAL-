@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lead Agent — StepsAI | Every enquiry, qualified before it reaches you.</title>
-<meta name="description" content="Captures who they are, what they need, and how soon — saved to your CRM automatically, with the full conversation attached.">
+<title>Channels — StepsAI | Every surface, one agent</title>
+<meta name="description" content="Website, WhatsApp, Instagram, Messenger, and a shareable Standalone Page — the same agent, the same memory, wherever your customers already are.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
-<link rel="stylesheet" href="agents.css">
 </head>
 <body>
 
+  <!-- ============================================================
+       NAV — synced from index.html; edit there and re-run the
+       propagation pass, don't hand-edit this block.
+       ============================================================ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
@@ -212,167 +215,73 @@
     <!-- ============================================================
          1. HERO
          ============================================================ -->
-    <section class="vertical-hero">
-      <div class="container vertical-hero-inner">
-        <div class="reveal">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Lead Agent</span>
-          <h1 class="vertical-headline">Every enquiry, qualified before it reaches you.</h1>
-          <p class="vertical-tagline">Captures who they are, what they need, and how soon — saved to your CRM automatically, with the whole conversation attached.</p>
-          <div class="vertical-hero-actions">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="agents.html#four-agents" class="vertical-hero-link">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              All four agents
-            </a>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="live-widget">
-            <div class="lw-head">
-              <span class="lw-avatar">K</span>
-              <div><div class="lw-name">Agent</div><div class="lw-status">Keystone Realty · Active</div></div>
-            </div>
-            <div class="lw-body">
-              <div class="lw-bubble user">Looking for a 2BHK near the tech park</div>
-              <div class="lw-bubble agent">Got it — what's your budget range and how soon are you looking to move?</div>
-              <div class="lw-bubble user">₹85L–1.1Cr, ideally within 60 days</div>
-              <div class="lw-bubble agent">Perfect. Can I get your name and number so our team can send matching listings?</div>
-              <div class="lw-bubble user">Ananya Rao, 98765 43210</div>
-              <div class="lw-bubble agent">Thanks Ananya — saved. Sameer from our team will reach out within the hour.</div>
-            </div>
-            <div class="lw-footer">
-              <div class="lw-input">Ask me anything</div>
-              <span class="lw-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></span>
-            </div>
-            <div class="lw-powered">Powered by <b>StepsAI</b></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         2. WHAT IT DOES
-         ============================================================ -->
-    <section class="section section--raised">
+    <section class="vertical-hero" style="padding-bottom:40px">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> What it does</p>
-          <h2 class="section-title">A qualifying conversation, not a dead-end form.</h2>
-          <p class="section-sub">Most people who leave a website contact form never fill it out. This happens inside the chat they're already having.</p>
-        </div>
-
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">01 / Captures</div>
-            <h3>Who they are, what they need, how soon.</h3>
-            <p>It asks the qualifying questions your sales team would ask — budget, timeline, use case — naturally, inside the conversation, without ever feeling like a form.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Interested in your 3BHK listing</div>
-                <div class="lw-bubble agent">Great — is this for you to live in, or an investment?</div>
-                <div class="lw-bubble user">To live in, moving from out of state</div>
-                <div class="lw-bubble agent">Good to know. What's the best number and email to send the floor plan to?</div>
-                <div class="lw-bubble user">98123 45678, arjun@email.com</div>
-                <div class="lw-bubble agent">Sent! I've flagged the out-of-state move so our team prioritizes a virtual tour first.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spread reverse reveal">
-          <div>
-            <div class="spread-index">02 / Saves it, attached</div>
-            <h3>Every lead arrives with the whole conversation.</h3>
-            <p>Every lead lands in HubSpot or your CRM with the full chat attached — your sales team never asks a customer to repeat themselves.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble agent">Passed this along to our team, with everything attached:</div>
-                <div class="chat-card">
-                  <div class="chat-card-fields">
-                    <div class="chat-card-field"><span>Name</span><span>Ananya Rao</span></div>
-                    <div class="chat-card-field"><span>Phone</span><span>98765 43210</span></div>
-                    <div class="chat-card-field"><span>Budget</span><span>&#8377;85L&ndash;1.1Cr</span></div>
-                    <div class="chat-card-field"><span>Timeline</span><span>60 days</span></div>
-                  </div>
-                  <div class="chat-card-synced"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Synced to HubSpot</div>
-                </div>
-                <div class="lw-bubble user">Perfect, thanks!</div>
-                <div class="lw-bubble agent">Priya from our sales team will reach out today with your matching listings.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">03 / Routes to the right person</div>
-            <h3>High-intent leads reach a human fast.</h3>
-            <p>It recognizes when someone's ready to talk to a person — a bulk enquiry, a serious buyer — and routes it immediately, instead of letting it sit in a queue.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">K</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">We need 12 units for our team, relocating next month</div>
-                <div class="lw-bubble agent">That's a priority enquiry — flagging this for our leasing manager right now.</div>
-                <div class="lw-bubble user">Appreciate the quick response</div>
-                <div class="lw-bubble agent">Of course &mdash; expect a call within the hour with unit options.</div>
-              </div>
-            </div>
-          </div>
+        <div class="reveal" style="max-width:760px">
+          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Channels</span>
+          <h1 class="vertical-headline" style="font-size:clamp(32px,4.4vw,50px)">Every surface, one agent.</h1>
+          <p class="vertical-tagline">Same brain, same memory, same answer &mdash; whether they message you on WhatsApp, land on your website, or click an ad into Messenger.</p>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. FAQ
+         2. THE FULL GRID — all 5 channels
          ============================================================ -->
-    <section class="section section--base">
+    <section class="section section--base" style="padding-top:0">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> FAQ</p>
-          <h2 class="section-title">Questions about the Lead Agent.</h2>
+        <div class="scroll-stack-container" id="scroll-stack">
+
+          <a class="scroll-stack-card" href="channel-website.html" style="--i:0">
+            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12H21M12 3C14.5 5.5 15.8 8.6 15.8 12C15.8 15.4 14.5 18.5 12 21C9.5 18.5 8.2 15.4 8.2 12C8.2 8.6 9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <h3>Website</h3>
+            <p>Answer before they leave the page.</p>
+            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="scroll-stack-card" href="channel-whatsapp.html" style="--i:1">
+            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+            <h3>WhatsApp</h3>
+            <p>Sell where they already message you.</p>
+            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="scroll-stack-card" href="channel-instagram.html" style="--i:2">
+            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
+            <h3>Instagram</h3>
+            <p>Turn a comment into a customer.</p>
+            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="scroll-stack-card" href="channel-messenger.html" style="--i:3">
+            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.84 1.44 5.38 3.7 7.03V22l3.4-1.87c.9.25 1.87.38 2.9.38 5.52 0 10-4.02 10-9S17.52 2 12 2Z"/><path d="M7 12.5L10.5 9L13 11.5L17 8"/></svg></span>
+            <h3>Messenger</h3>
+            <p>Ad clicks and Page DMs, already in context.</p>
+            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="scroll-stack-card" href="channel-standalone.html" style="--i:4">
+            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M14 4H20V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4L11 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <h3>Standalone Page</h3>
+            <p>A shareable page for your agent.</p>
+            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
         </div>
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Will it replace my sales team?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>No. It makes sure your team only spends time on people worth talking to — it qualifies, it doesn't sell.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Which CRMs does it connect to?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>HubSpot out of the box, plus 100+ other tools through our integrations. No CRM? Leads are still saved and visible in your inbox.</p></div>
-            </div>
-          </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">How does it decide what's a "qualified" lead?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>You define the criteria — budget thresholds, timeline, use case. It applies your rules, not a generic guess.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Does it follow up if someone goes quiet?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — that's handled by Workflows, which follows up automatically and answers whatever question was still open.</p></div>
-            </div>
-          </div>
+
+        <div class="ind-crosslink">
+          <p>Every channel shares the same memory of who's already a customer.</p>
+          <a href="agents.html">See the platform capabilities <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         4. FINAL CTA
-         ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Stop losing enquiries to a form nobody fills out.</h2>
-        <p class="final-cta-sub">Set it up this afternoon. Start qualifying leads tonight.</p>
+        <h2 class="final-cta-headline">Wherever they message you, someone's asking a question right now.</h2>
+        <p class="final-cta-sub">Set it up this afternoon. See what it handles tonight.</p>
         <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Cancel any time.</p>
+        <p class="final-cta-note">No credit card. Live in under an hour.</p>
       </div>
     </section>
 
@@ -403,11 +312,11 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Channels</span>
-            <a href="agents.html#channels">Website</a>
-            <a href="agents.html#channels">WhatsApp</a>
-            <a href="agents.html#channels">Instagram</a>
-            <a href="agents.html#channels">Messenger</a>
-            <a href="agents.html#channels">Standalone Page</a>
+            <a href="channel-website.html">Website</a>
+            <a href="channel-whatsapp.html">WhatsApp</a>
+            <a href="channel-instagram.html">Instagram</a>
+            <a href="channel-messenger.html">Messenger</a>
+            <a href="channel-standalone.html">Standalone Page</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>

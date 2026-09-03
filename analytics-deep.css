@@ -143,8 +143,6 @@
 
 /* Homepage teaser variant — condensed, no tabs/map, dark card sits on the light page */
 .pdash-mini { max-width: 560px; }
-.pdash-mini .pdash-kpis { grid-template-columns: repeat(3, 1fr); }
 .pdash-mini .pdash-kpi-value { font-size: 26px; margin: 8px 0 4px; }
 .pdash-mini .pdash-kpi-note { display: none; }
 .pdash-mini .pdash-row { grid-template-columns: 1fr; }
-@media (max-width: 480px) { .pdash-mini .pdash-kpis { grid-template-columns: 1fr; } }
