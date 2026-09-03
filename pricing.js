@@ -54,4 +54,74 @@
       });
     });
   })();
+
+  /* ---------- INTERACTIVE ROI CALCULATOR ---------- */
+  (function initRoiCalculator() {
+    var inqSlider = document.getElementById('roiInquiries');
+    var inqDisplay = document.getElementById('roiInquiriesVal');
+    var valSlider = document.getElementById('roiOrderVal');
+    var valDisplay = document.getElementById('roiOrderValDisplay');
+    var monthlyRev = document.getElementById('roiMonthlyRev');
+    var hoursSaved = document.getElementById('roiHoursSaved');
+    var roiMultiplier = document.getElementById('roiRoiMultiplier');
+    var recPlan = document.getElementById('roiRecPlan');
+    var indPills = Array.prototype.slice.call(document.querySelectorAll('.roi-ind-pill'));
+
+    if (!inqSlider || !valSlider || !monthlyRev) return;
+
+    var currentRate = 0.18; // Default E-Commerce recovery rate
+
+    function formatINR(num) {
+      return num.toLocaleString('en-IN');
+    }
+
+    function calculate() {
+      var inquiries = parseInt(inqSlider.value, 10);
+      var avgVal = parseInt(valSlider.value, 10);
+
+      // Conversions recovered
+      var convertedOrders = inquiries * currentRate;
+      var totalRevenue = Math.round(convertedOrders * avgVal);
+
+      // Hours saved: ~3.5 min per complex inquiry resolution
+      var hours = Math.round((inquiries * 3.5) / 60);
+
+      // Plan determination
+      var planName = "Starter (₹2,499/mo)";
+      var planCost = 2499;
+      if (inquiries > 15000) {
+        planName = "Enterprise (Custom)";
+        planCost = 35000;
+      } else if (inquiries > 5000) {
+        planName = "Scale (₹19,999/mo)";
+        planCost = 19999;
+      } else if (inquiries > 1000) {
+        planName = "Growth (₹6,999/mo)";
+        planCost = 6999;
+      }
+
+      var roi = (totalRevenue / planCost).toFixed(1);
+
+      inqDisplay.textContent = formatINR(inquiries) + ' / mo';
+      valDisplay.textContent = '₹' + formatINR(avgVal);
+      monthlyRev.textContent = formatINR(totalRevenue);
+      if (hoursSaved) hoursSaved.textContent = formatINR(hours) + ' hrs';
+      if (roiMultiplier) roiMultiplier.textContent = roi + 'x';
+      if (recPlan) recPlan.textContent = planName;
+    }
+
+    inqSlider.addEventListener('input', calculate);
+    valSlider.addEventListener('input', calculate);
+
+    indPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        indPills.forEach(function (p) { p.classList.remove('is-active'); });
+        pill.classList.add('is-active');
+        currentRate = parseFloat(pill.getAttribute('data-rate')) || 0.18;
+        calculate();
+      });
+    });
+
+    calculate();
+  })();
 })();

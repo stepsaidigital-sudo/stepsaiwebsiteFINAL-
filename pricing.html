@@ -341,6 +341,91 @@
     </section>
 
     <!-- ============================================================
+         INTERACTIVE ROI & REVENUE RECOVERY CALCULATOR
+         ============================================================ -->
+    <section class="section section--base roi-section" id="roi-calculator">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">INTERACTIVE ROI CALCULATOR</p>
+          <h2 class="section-title">Calculate your exact return on investment.</h2>
+          <p class="section-sub">See how much revenue StepsAI recovers from abandoned carts, midnight queries, and instant bookings.</p>
+        </div>
+
+        <div class="roi-card reveal">
+          <div class="roi-controls">
+            <!-- Control 1: Monthly Inquiries -->
+            <div class="roi-control-group">
+              <div class="roi-control-header">
+                <label for="roiInquiries" class="roi-label">Monthly Customer Inquiries</label>
+                <span class="roi-val-badge" id="roiInquiriesVal">3,000 / mo</span>
+              </div>
+              <input type="range" id="roiInquiries" min="500" max="25000" step="500" value="3000" class="roi-slider">
+              <div class="roi-range-limits">
+                <span>500</span>
+                <span>10,000</span>
+                <span>25,000+</span>
+              </div>
+            </div>
+
+            <!-- Control 2: Average Order Value / Lead Value -->
+            <div class="roi-control-group">
+              <div class="roi-control-header">
+                <label for="roiOrderVal" class="roi-label">Average Order / Lead Value (₹)</label>
+                <span class="roi-val-badge" id="roiOrderValDisplay">₹2,500</span>
+              </div>
+              <input type="range" id="roiOrderVal" min="500" max="20000" step="250" value="2500" class="roi-slider">
+              <div class="roi-range-limits">
+                <span>₹500</span>
+                <span>₹10,000</span>
+                <span>₹20,000</span>
+              </div>
+            </div>
+
+            <!-- Control 3: Industry Multiplier -->
+            <div class="roi-control-group">
+              <label class="roi-label">Your Business Type</label>
+              <div class="roi-industry-pills" role="radiogroup">
+                <button type="button" class="roi-ind-pill is-active" data-rate="0.18">🛍️ E-Commerce</button>
+                <button type="button" class="roi-ind-pill" data-rate="0.12">🏢 Real Estate</button>
+                <button type="button" class="roi-ind-pill" data-rate="0.15">🏥 Healthcare</button>
+                <button type="button" class="roi-ind-pill" data-rate="0.14">💻 SaaS / Tech</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-result-panel">
+            <div class="roi-result-glow" aria-hidden="true"></div>
+            <div class="roi-result-header">
+              <span class="roi-result-kicker">PROJECTED MONTHLY VALUE</span>
+              <div class="roi-result-big">
+                <span class="roi-currency">₹</span><strong id="roiMonthlyRev">1,35,000</strong>
+              </div>
+              <p class="roi-result-sub">Recovered revenue &amp; closed sales every month</p>
+            </div>
+
+            <div class="roi-metrics-grid">
+              <div class="roi-metric-item">
+                <span class="roi-metric-num" id="roiHoursSaved">120 hrs</span>
+                <span class="roi-metric-lbl">Agent Time Saved</span>
+              </div>
+              <div class="roi-metric-item">
+                <span class="roi-metric-num" id="roiRoiMultiplier">19.3x</span>
+                <span class="roi-metric-lbl">Estimated ROI</span>
+              </div>
+            </div>
+
+            <div class="roi-recommendation">
+              <span>Recommended Plan:</span>
+              <strong id="roiRecPlan" class="roi-rec-badge">Growth (₹6,999/mo)</strong>
+            </div>
+
+            <a href="#plans" class="btn btn-accent btn-sm roi-cta-btn">Select this plan &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          ADD-ON CREDITS
          ============================================================ -->
     <section class="section section--base addon-credits">

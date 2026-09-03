@@ -281,10 +281,228 @@
   .comparison-scroll-hint { display: block; }
 }
 
+/* ---------- Interactive ROI Calculator ---------- */
+.roi-section {
+  padding: 80px 0;
+  background: var(--bg-surface-2);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.roi-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 24px 60px -16px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.08);
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .roi-card { grid-template-columns: 1fr; padding: 24px; }
+}
+
+.roi-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.roi-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roi-control-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roi-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.roi-val-badge {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-tint);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: #E2E8F0;
+  outline: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2563EB;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.roi-range-limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+.roi-industry-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.roi-ind-pill {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.roi-ind-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.roi-ind-pill.is-active {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+/* Result Panel */
+.roi-result-panel {
+  position: relative;
+  background: linear-gradient(145deg, #0F172A 0%, #1E1B4B 100%);
+  border-radius: 20px;
+  padding: 32px 28px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.4);
+}
+
+.roi-result-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.45) 0%, transparent 70%);
+  top: -40px;
+  right: -40px;
+  pointer-events: none;
+}
+
+.roi-result-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #93C5FD;
+}
+
+.roi-result-big {
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-top: 8px;
+}
+.roi-currency {
+  font-size: 0.7em;
+  opacity: 0.85;
+  margin-right: 2px;
+}
+
+.roi-result-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+}
+
+.roi-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.roi-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.roi-metric-num {
+  font-size: 20px;
+  font-weight: 750;
+  color: #38BDF8;
+}
+.roi-metric-lbl {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.roi-recommendation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+.roi-rec-badge {
+  color: #34D399;
+  font-weight: 700;
+  background: rgba(52, 211, 153, 0.15);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.roi-cta-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
 /* ============================================================
-   Reduced motion — this page has no scroll-linked or continuous
-   animation, but keep smooth-scroll consistent with the rest of
-   the site's reduced-motion behavior.
+   Reduced motion — keep smooth-scroll consistent with rest of site
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
