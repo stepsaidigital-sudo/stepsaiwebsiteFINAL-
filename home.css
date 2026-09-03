@@ -2316,24 +2316,27 @@
 .oac-card {
   position: relative; display: flex; flex-direction: column;
   min-height: 400px; padding: 28px 26px 26px;
-  border-radius: 22px; background: var(--oac-tint); border: 1px solid var(--oac-border);
-  box-shadow: 0 18px 44px -12px rgba(3,7,25,.45);
+  border-radius: 22px; background: var(--oac-tint); border: 1.5px solid var(--oac-border);
+  box-shadow: 0 20px 48px -12px rgba(3,7,25,.45), 0 0 0 1px var(--oac-border);
   transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
 }
-.oac-card:hover { transform: translateY(-5px); box-shadow: 0 28px 58px -12px rgba(3,7,25,.55); }
+.oac-card:hover { 
+  transform: translateY(-6px); 
+  box-shadow: 0 28px 60px -12px var(--oac-glow, rgba(37,99,235,.35)), 0 0 0 1.5px var(--oac-accent); 
+}
 .oac-card:hover .oac-mock { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(30,50,90,.16); }
 
-.oac-card--sales     { --oac-tint: linear-gradient(145deg, rgba(232,240,255,.96), rgba(250,252,255,.96)); --oac-border: rgba(37,99,235,.16);  --oac-accent: #2563EB; --oac-accent-tint: #DCE7FF; }
-.oac-card--booking   { --oac-tint: linear-gradient(145deg, rgba(228,250,240,.96), rgba(250,253,251,.96)); --oac-border: rgba(15,157,88,.18);  --oac-accent: #0F9D58; --oac-accent-tint: #DAF5E4; }
-.oac-card--lead      { --oac-tint: linear-gradient(145deg, rgba(241,235,255,.96), rgba(251,250,255,.96)); --oac-border: rgba(124,58,237,.16); --oac-accent: #7C3AED; --oac-accent-tint: #EBE1FF; }
-.oac-card--support   { --oac-tint: linear-gradient(145deg, rgba(255,240,228,.96), rgba(253,251,249,.96)); --oac-border: rgba(217,121,23,.18); --oac-accent: #D97917; --oac-accent-tint: #FFE7CF; }
-.oac-card--shopping  { --oac-tint: linear-gradient(145deg, rgba(255,232,241,.96), rgba(253,250,252,.96)); --oac-border: rgba(219,39,119,.16); --oac-accent: #DB2777; --oac-accent-tint: #FFDCEB; }
-.oac-card--marketing { --oac-tint: linear-gradient(145deg, rgba(224,248,251,.96), rgba(250,253,254,.96)); --oac-border: rgba(8,145,178,.16);  --oac-accent: #0891B2; --oac-accent-tint: #D3F3F8; }
+.oac-card--sales     { --oac-tint: linear-gradient(145deg, #EEF6FF 0%, #DBEAFE 100%); --oac-border: rgba(37,99,235,.28);  --oac-accent: #2563EB; --oac-accent-tint: #BFDBFE; --oac-glow: rgba(37,99,235,.35); }
+.oac-card--booking   { --oac-tint: linear-gradient(145deg, #ECFDF5 0%, #D1FAE5 100%); --oac-border: rgba(16,185,129,.28); --oac-accent: #059669; --oac-accent-tint: #A7F3D0; --oac-glow: rgba(16,185,129,.35); }
+.oac-card--lead      { --oac-tint: linear-gradient(145deg, #F5F3FF 0%, #EDE9FE 100%); --oac-border: rgba(124,58,237,.28); --oac-accent: #7C3AED; --oac-accent-tint: #DDD6FE; --oac-glow: rgba(124,58,237,.35); }
+.oac-card--support   { --oac-tint: linear-gradient(145deg, #ECFEFF 0%, #CFFAFE 100%); --oac-border: rgba(6,182,212,.28);  --oac-accent: #0891B2; --oac-accent-tint: #A5F3FC; --oac-glow: rgba(6,182,212,.35); }
+.oac-card--shopping  { --oac-tint: linear-gradient(145deg, #FDF2F8 0%, #FCE7F3 100%); --oac-border: rgba(236,72,153,.28); --oac-accent: #DB2777; --oac-accent-tint: #FBCFE8; --oac-glow: rgba(236,72,153,.35); }
+.oac-card--marketing { --oac-tint: linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%); --oac-border: rgba(245,158,11,.28); --oac-accent: #D97706; --oac-accent-tint: #FDE68A; --oac-glow: rgba(245,158,11,.35); }
 
-.oac-icon { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center; justify-content: center; background: var(--oac-accent-tint); color: var(--oac-accent); flex-shrink: 0; }
-.oac-icon svg { width: 20px; height: 20px; }
-.oac-title { margin: 16px 0 0; font-size: 20.5px; font-weight: 680; letter-spacing: -.01em; color: #101B3D; }
-.oac-desc { margin: 8px 0 0; font-size: 14.5px; line-height: 1.45; color: #56627A; max-width: 300px; }
+.oac-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: var(--oac-accent-tint); color: var(--oac-accent); box-shadow: 0 4px 12px var(--oac-glow); flex-shrink: 0; }
+.oac-icon svg { width: 22px; height: 22px; }
+.oac-title { margin: 16px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -.01em; color: #0F172A; }
+.oac-desc { margin: 8px 0 0; font-size: 14.5px; line-height: 1.5; color: #475569; max-width: 300px; }
 
 /* ---- the mockup: always white, always the visual focus ---- */
 .oac-mock {
