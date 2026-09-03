@@ -72,6 +72,8 @@
   --shadow-soft: 0 12px 24px -8px rgba(37, 99, 235, 0.16), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
   --shadow-hover: 0 20px 32px -12px rgba(37, 99, 235, 0.22), 0 8px 16px -8px rgba(15, 23, 42, 0.08);
   --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.2);
+  --shadow-brand: 0 12px 26px -8px rgba(124, 58, 237, 0.28), 0 4px 14px -6px rgba(236, 72, 153, 0.16);
+  --shadow-brand-hover: 0 20px 36px -10px rgba(124, 58, 237, 0.36), 0 8px 20px -8px rgba(236, 72, 153, 0.22);
   --glass-bg:   rgba(255, 255, 255, 0.8);
   --glass-border: 1px solid rgba(255, 255, 255, 0.6);
   
@@ -154,6 +156,38 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .section { position: relative; padding: 120px 0; }
 .section--base { background: var(--bg-base); }
 .section--raised { background: var(--bg-raised); }
+.section--atmo { overflow: hidden; }
+
+/* ============================================================
+   ATMOSPHERE BACKGROUNDS — same colored-blob recipe as the
+   homepage's aurora sections (home.css .ind-aurora-*), generalized
+   so any section anywhere can use it. Usage: add "section--atmo"
+   to the section's class list, then drop <div class="atmo-mesh">
+   as the FIRST child (before .container) with 2-3 <div class="atmo-blob
+   atmo-blob--COLOR atmo-blob--POSITION"> children. .container
+   already sits at z-index:var(--z-content) above this, no extra
+   wrapping needed.
+   ============================================================ */
+.atmo-mesh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+.atmo-blob { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform, opacity; pointer-events: none; }
+
+.atmo-blob--violet { background: radial-gradient(circle, rgba(147,51,234,.5) 0%, rgba(99,102,241,.38) 45%, transparent 72%); }
+.atmo-blob--blue    { background: radial-gradient(circle, rgba(37,99,235,.46) 0%, rgba(56,189,248,.34) 45%, transparent 72%); }
+.atmo-blob--emerald { background: radial-gradient(circle, rgba(16,185,129,.48) 0%, rgba(6,182,212,.38) 45%, transparent 72%); }
+.atmo-blob--amber   { background: radial-gradient(circle, rgba(245,158,11,.52) 0%, rgba(234,88,12,.36) 45%, transparent 72%); }
+.atmo-blob--rose    { background: radial-gradient(circle, rgba(236,72,153,.4) 0%, rgba(168,85,247,.26) 50%, transparent 70%); }
+.atmo-blob--teal    { background: radial-gradient(circle, rgba(13,148,136,.46) 0%, rgba(45,212,191,.32) 45%, transparent 72%); }
+
+.atmo-blob--tl  { width: 640px; height: 640px; top: -10%; left: -12%; animation: atmoDrift1 18s ease-in-out infinite alternate; }
+.atmo-blob--br  { width: 680px; height: 680px; bottom: -12%; right: -10%; animation: atmoDrift2 20s ease-in-out infinite alternate; }
+.atmo-blob--mid { width: 560px; height: 560px; top: 30%; right: 18%; animation: atmoDrift3 17s ease-in-out infinite alternate-reverse; }
+.atmo-blob--tr  { width: 600px; height: 600px; top: -8%; right: -10%; animation: atmoDrift3 19s ease-in-out infinite alternate; }
+.atmo-blob--bl  { width: 620px; height: 620px; bottom: -10%; left: 6%; animation: atmoDrift1 21s ease-in-out infinite alternate-reverse; }
+
+@keyframes atmoDrift1 { 0% { transform: translate(0,0) scale(1); opacity: .85; } 50% { transform: translate(45px,-30px) scale(1.1); opacity: 1; } 100% { transform: translate(-30px,35px) scale(.92); opacity: .88; } }
+@keyframes atmoDrift2 { 0% { transform: translate(0,0) scale(1); opacity: .8; } 50% { transform: translate(-45px,35px) scale(1.08); opacity: 1; } 100% { transform: translate(35px,-30px) scale(.94); opacity: .82; } }
+@keyframes atmoDrift3 { 0% { transform: translate(0,0) scale(1); opacity: .85; } 50% { transform: translate(40px,25px) scale(1.1); opacity: 1; } 100% { transform: translate(-35px,-25px) scale(.93); opacity: .88; } }
+@media (prefers-reduced-motion: reduce) { .atmo-blob { animation: none !important; } }
 .section--dark { background: var(--dark-canvas); color: var(--dark-ink); }
 .section--dark .kicker { color: var(--dark-ink-muted); }
 .section--dark .section-title { color: var(--dark-ink); }
@@ -218,14 +252,14 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   min-height: 50px; white-space: nowrap;
   transition: transform 300ms var(--ease-spring), box-shadow 300ms var(--ease), background 300ms var(--ease);
 }
-.btn-accent { 
-  background: var(--gradient-accent); color: #fff; 
-  box-shadow: var(--shadow-soft);
+.btn-accent {
+  background: var(--gradient-brand); color: #fff;
+  box-shadow: var(--shadow-brand);
   border: 1px solid rgba(255,255,255,0.1);
 }
-.btn-accent:hover { 
-  transform: translateY(-2px) scale(1.02); 
-  box-shadow: var(--shadow-hover); 
+.btn-accent:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-brand-hover);
 }
 .btn-outline { 
   background: var(--glass-bg); backdrop-filter: blur(8px);
