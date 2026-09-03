@@ -142,9 +142,15 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 /* ============================================================
    REVEAL-ON-SCROLL
    ============================================================ */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out); }
+/* Durations shortened (800/700ms -> 450/400ms): a full-page screenshot
+   tool caught at least one .reveal heading mid-fade (near-invisible,
+   just past its IntersectionObserver trigger) during review — a real
+   risk for anything that captures the page without a live, dwelled
+   scroll (exports, screenshots, a presentation). Shorter transitions
+   shrink that window without losing the effect for real scrolling. */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
+.reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
 .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); transition-delay: calc(var(--i, 0) * 90ms); }
 @keyframes fadeSlide { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
 
@@ -230,20 +236,14 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 .nav-logo { display: flex; align-items: center; gap: 9px; font-weight: 650; font-size: 17px; letter-spacing: -.01em; color: var(--text-primary); transition: color 320ms var(--ease); }
 .nav-logo svg { color: #1A56DB; transition: color 320ms var(--ease); }
-.nav-dark:not(.scrolled) .nav-logo { color: #fff; }
-.nav-dark:not(.scrolled) .nav-logo svg { color: #fff; }
 
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links > a { padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
 .nav-links > a:hover { color: var(--text-primary); }
-.nav-dark:not(.scrolled) .nav-links > a { color: rgba(255,255,255,0.7); }
-.nav-dark:not(.scrolled) .nav-links > a:hover { color: #fff; }
 
 .nav-dropdown { position: relative; }
 .nav-dropdown-trigger { display: flex; align-items: center; gap: 6px; padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
 .nav-dropdown-trigger:hover, .nav-dropdown-trigger[aria-expanded="true"] { color: var(--text-primary); }
-.nav-dark:not(.scrolled) .nav-dropdown-trigger { color: rgba(255,255,255,0.7); }
-.nav-dark:not(.scrolled) .nav-dropdown-trigger:hover, .nav-dark:not(.scrolled) .nav-dropdown-trigger[aria-expanded="true"] { color: #fff; }
 .nav-dropdown-caret { transition: transform 220ms var(--ease); flex-shrink: 0; }
 .nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-caret { transform: rotate(180deg); }
 
@@ -263,6 +263,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
 .nav-dropdown-panel--mega { min-width: 760px; }
 .nav-dropdown-panel--solutions, .nav-dropdown-panel--resources { min-width: 480px; }
+.nav-dropdown-panel--industries { min-width: 300px; }
 
 .nav-mega-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 28px; }
 .nav-mega-cols--2 { grid-template-columns: repeat(2, 1fr); }
@@ -292,12 +293,9 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
 .nav-signin { padding: 10px 14px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
 .nav-signin:hover { color: var(--text-primary); }
-.nav-dark:not(.scrolled) .nav-signin { color: rgba(255,255,255,0.7); }
-.nav-dark:not(.scrolled) .nav-signin:hover { color: #fff; }
 
 .nav-burger { display: none; width: 40px; height: 40px; border-radius: 8px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; border: none; background: transparent; cursor: pointer; padding: 0; }
 .nav-burger span { width: 18px; height: 1.5px; background: var(--text-primary); transition: transform 220ms var(--ease), opacity 220ms var(--ease); }
-.nav-dark:not(.scrolled):not(.open) .nav-burger span { background: #fff; }
 .nav.open .nav-burger span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
 .nav.open .nav-burger span:nth-child(2) { opacity: 0; }
 .nav.open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
@@ -351,6 +349,57 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .footer-legal a { color: var(--text-faint); }
 .footer-legal a:hover { color: var(--text-primary); }
 @media (max-width: 640px) { .footer-bottom > :last-child { margin-left: 0; } }
+
+/* ---------- FOOTER 5 — card footer with a staggered-fade background
+   (React Bits Pro "Footer 5" concept, hand-built: this project has no
+   React/shadcn toolchain to install the real package into). A dark
+   "card" sits inset from the page edges — matching the site's existing
+   --dark-canvas bands used for high-impact sections — with three blurred
+   glow blobs that fade in one after another (staggered, not simultaneous)
+   the first time it scrolls into view, and the nav columns fade up in
+   sequence using the shared .reveal-stagger utility.
+
+   .footer--5 is an ADDITIVE modifier on top of the base .footer rules
+   above — every rule here is scoped under it, so the other 41 pages
+   still using plain <footer class="footer"> are completely unaffected.
+   Homepage-only for now; add class="footer--5" + the .footer-5-card /
+   .footer-blob wrapper markup to a page to roll this out there too. ---------- */
+.footer--5 { background: var(--bg-base); border-top: none; padding: 28px 20px 20px; }
+.footer--5 .footer-5-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-canvas);
+  border: 1px solid var(--dark-hairline);
+  border-radius: var(--radius-xl);
+  padding-top: 64px;
+  box-shadow: 0 40px 80px -32px rgba(0,0,0,.45);
+}
+
+.footer--5 .footer-blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0; pointer-events: none; }
+.footer--5 .footer-blob--1 { width: 420px; height: 420px; top: -180px; left: -110px; background: radial-gradient(circle, rgba(102,144,255,.38), transparent 70%); }
+.footer--5 .footer-blob--2 { width: 380px; height: 380px; bottom: -190px; right: 6%; background: radial-gradient(circle, rgba(168,120,251,.30), transparent 70%); }
+.footer--5 .footer-blob--3 { width: 300px; height: 300px; top: 35%; right: -130px; background: radial-gradient(circle, rgba(59,130,246,.24), transparent 70%); }
+.footer--5 .footer-5-card.is-visible .footer-blob--1 { animation: footer5BlobIn 1300ms var(--ease-out) forwards; }
+.footer--5 .footer-5-card.is-visible .footer-blob--2 { animation: footer5BlobIn 1300ms var(--ease-out) 220ms forwards; }
+.footer--5 .footer-5-card.is-visible .footer-blob--3 { animation: footer5BlobIn 1300ms var(--ease-out) 440ms forwards; }
+@keyframes footer5BlobIn { from { opacity: 0; transform: scale(.85); } to { opacity: .9; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .footer--5 .footer-blob { animation: none !important; opacity: .5; } }
+
+.footer--5 .footer-inner, .footer--5 .footer-inner--5col { position: relative; z-index: 1; }
+.footer--5 .nav-logo { color: #fff; }
+.footer--5 .footer-tagline { color: var(--dark-ink-muted); }
+.footer--5 .footer-col-title { color: var(--dark-ink-faint); }
+.footer--5 .footer-col a { color: var(--dark-ink-muted); }
+.footer--5 .footer-col a:hover { color: #fff; }
+.footer--5 .footer-bottom { position: relative; z-index: 1; border-top: 1px solid var(--dark-hairline); color: var(--dark-ink-faint); }
+.footer--5 .footer-status-dot { background: #34D399; box-shadow: 0 0 0 3px rgba(52,211,153,.18); }
+.footer--5 .footer-social a, .footer--5 .footer-legal a { color: var(--dark-ink-faint); }
+.footer--5 .footer-social a:hover, .footer--5 .footer-legal a:hover { color: #fff; }
+
+@media (max-width: 768px) {
+  .footer--5 { padding: 20px 12px 12px; }
+  .footer--5 .footer-5-card { border-radius: var(--radius-lg); padding-top: 48px; }
+}
 
 /* ============================================================
    FOUNDER QUOTE — shared (used on index.html + about.html)

@@ -23,7 +23,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px 120px 0px' });
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
@@ -72,6 +72,7 @@
   wireCountUp('deployStats');
   wireCountUp('numbersGrid');
   wireCountUp('analyticsStatsHome');
+  wireCountUp('one-agent');
 
   /* ---------------------------------------------------------
      HERO CONVERSATION — the cinematic device plays a looping
@@ -224,7 +225,7 @@
     }
     function runEffects(i) {
       clearEffects();
-      if (i === 0 && urlText) typeText(urlText, 'https://mystore.com/', 1000);
+      if (i === 0 && urlText) typeText(urlText, 'mystore.com/', 1000);
       if (i === 2 && channelCells.length) {
         channelCells.forEach(function (c) { c.classList.remove('live'); });
         channelCells.forEach(function (c, idx) {
@@ -413,30 +414,49 @@
   })();
 
   /* ---------------------------------------------------------
-     FAQ CHAT ACCORDION — message-style FAQ, same pattern as the
-     .faq-chat block in industries.js (one-inbox.html)
+     FAQ 3 — multi-category tabbed FAQ with animated accordions
+     (React Bits Pro "FAQ 3" layout, hand-built in vanilla CSS/JS
+     since this project has no React/shadcn toolchain). Tabs swap
+     the visible .faq3-category and update the sticky left-hand
+     title; each category runs its own single-open accordion.
      --------------------------------------------------------- */
-  (function faqChatInit() {
-    var chat = document.getElementById('homeFaqChat');
-    if (!chat) return;
-    var items = Array.prototype.slice.call(chat.querySelectorAll('.faq-chat-item'));
-    items.forEach(function (item) {
-      var question = item.querySelector('.faq-chat-q');
-      var answer = item.querySelector('.faq-chat-a');
-      if (!question || !answer) return;
-      if (item.classList.contains('is-open')) answer.style.maxHeight = answer.scrollHeight + 'px';
-      question.addEventListener('click', function () {
-        var isOpen = item.classList.contains('is-open');
-        items.forEach(function (other) {
-          other.classList.remove('is-open');
-          other.querySelector('.faq-chat-q').setAttribute('aria-expanded', 'false');
-          var otherAnswer = other.querySelector('.faq-chat-a');
-          if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+  (function faq3Init() {
+    var faqTabs = document.querySelectorAll('.faq3-tab');
+    if (!faqTabs.length) return;
+    var faqCats = document.querySelectorAll('.faq3-category');
+    var faqItems = document.querySelectorAll('.faq3-item');
+    var activeTitle = document.getElementById('faq3-active-title');
+
+    // Tab switching
+    faqTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        faqTabs.forEach(function (t) { t.classList.remove('active'); });
+        faqCats.forEach(function (c) { c.classList.remove('active'); });
+
+        tab.classList.add('active');
+        var targetId = tab.getAttribute('data-target');
+        var targetCat = document.getElementById(targetId);
+        if (targetCat) targetCat.classList.add('active');
+
+        if (activeTitle) activeTitle.textContent = tab.textContent;
+      });
+    });
+
+    // Accordion toggling — one open item per category
+    faqItems.forEach(function (item) {
+      var btn = item.querySelector('.faq3-q');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        var siblingItems = item.parentElement.querySelectorAll('.faq3-item');
+        siblingItems.forEach(function (sibling) {
+          sibling.classList.remove('open');
+          var sibBtn = sibling.querySelector('.faq3-q');
+          if (sibBtn) sibBtn.setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
-          item.classList.add('is-open');
-          question.setAttribute('aria-expanded', 'true');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
     });
@@ -548,7 +568,8 @@
 
   /* ---------------------------------------------------------
      SCROLL STACK — pinned industry cards (#industryFlow)
-     Each card lives in a tall .stack-item and pins via plain CSS
+     Restored (React Bits Pro "Scroll Stack" concept). Each card
+     lives in a tall .stack-item and pins via plain CSS
      `position: sticky; top: 12vh`. The scroll "runway" available
      while a card is pinned is simply its .stack-item's height
      minus the card's own height — from that we derive a 0→1
@@ -572,7 +593,7 @@
     if (reduceMotion || isNarrow) return; // CSS already keeps things static at this width/preference
 
     var STICKY_TOP_RATIO = 0.12; // must match .industry-flow-card { top: 12vh } in home.css
-    var ticking = false;
+    var ticking2 = false;
 
     function resetCard(card) {
       card.style.transform = 'none';
@@ -581,7 +602,7 @@
     }
 
     function update() {
-      ticking = false;
+      ticking2 = false;
       var stickyTop = window.innerHeight * STICKY_TOP_RATIO;
 
       items.forEach(function (item, i) {
@@ -609,69 +630,13 @@
       });
     }
 
-    function onScrollOrResize() {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    function onScrollOrResize2() {
+      if (!ticking2) { ticking2 = true; requestAnimationFrame(update); }
     }
 
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize, { passive: true });
+    window.addEventListener('scroll', onScrollOrResize2, { passive: true });
+    window.addEventListener('resize', onScrollOrResize2, { passive: true });
     update();
-  })();
-
-  /* ---------------------------------------------------------
-     TESTIMONIAL SKEWED CAROUSEL — scale-on-position
-     The horizontal drift is a plain CSS keyframe on
-     .testimonial-marquee-track (cheap, GPU-composited); this
-     only adds the half a CSS animation can't do on its own —
-     each card's live distance from the mask's centre drives its
-     scale/opacity every frame, so cards visibly grow as they
-     near the middle and shrink toward the edges while drifting
-     past. Only ticks while the section is actually on screen.
-     --------------------------------------------------------- */
-  (function initTestimonialCarousel() {
-    var mask = document.querySelector('.testimonial-marquee-mask');
-    if (!mask || reduceMotion) return;
-    var cards = Array.prototype.slice.call(mask.querySelectorAll('.tcard-skew'));
-    if (!cards.length) return;
-
-    var running = false;
-    var rafId = null;
-
-    function tick() {
-      var maskRect = mask.getBoundingClientRect();
-      var centerX = maskRect.left + maskRect.width / 2;
-      var half = maskRect.width / 2 || 1;
-
-      cards.forEach(function (card) {
-        var rect = card.getBoundingClientRect();
-        var cardCenter = rect.left + rect.width / 2;
-        var dist = Math.max(-1, Math.min(1, (cardCenter - centerX) / half));
-        var scale = 1 - Math.abs(dist) * 0.14;
-        var opacity = 1 - Math.abs(dist) * 0.45;
-        card.style.transform = 'skewY(-3deg) scale(' + scale.toFixed(3) + ')';
-        card.style.opacity = opacity.toFixed(3);
-      });
-
-      if (running) rafId = requestAnimationFrame(tick);
-    }
-
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !running) {
-            running = true;
-            rafId = requestAnimationFrame(tick);
-          } else if (!entry.isIntersecting && running) {
-            running = false;
-            if (rafId) cancelAnimationFrame(rafId);
-          }
-        });
-      }, { threshold: 0.05 });
-      obs.observe(mask);
-    } else {
-      running = true;
-      tick();
-    }
   })();
 
 })();

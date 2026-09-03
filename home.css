@@ -10,49 +10,145 @@
 .section-link-out { display: inline-flex; align-items: center; gap: 6px; margin-top: 30px; font-size: 14px; font-weight: 620; color: var(--accent); }
 .section-link-out:hover { text-decoration: underline; }
 
-/* ---------- HERO ---------- */
-.hero { position: relative; padding-top: 190px; padding-bottom: 90px; background-color: #0B0F19; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
-.hero::before { content: ""; position: absolute; inset: 0; background-image: url('images/brand-01.jpg'); background-size: cover; background-position: center; opacity: 0.55; z-index: 0; pointer-events: none; }
-.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,15,25,0.1) 0%, rgba(11,15,25,0.85) 60%, rgba(11,15,25,1) 100%); z-index: 0; pointer-events: none; }
+/* ---------- HERO — plain image, no overlay, no animation ----------
+   Per Sai: no CSS-drawn "designs" competing with the image, no
+   overlay/scrim in between, no animation — just the photo, directly,
+   at full opacity. Background is images/hero-bg-pastel.png (Sai's
+   pastel blob/dot reference, copied in from Downloads once given an
+   actual file path — the same image only exists as a clipboard paste
+   the first time it was shared, with no file to point to).
+   NOTE: with no dark scrim, text contrast depends entirely on the
+   image underneath it — flagged, not silently "fixed" with an
+   overlay, since that's the opposite of what was asked here. This
+   particular image is mostly light/near-white so dark navy text
+   (below) should read fine, unlike a photo. ---------- */
+.hero { position: relative; padding-top: 140px; padding-bottom: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; background-image: url('images/hero-bg-pastel.png'); background-size: cover; background-position: center; background-color: #FDFCFF; }
 
 .hero-inner { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; }
 
-.hero-content-center { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto; }
+.hero-content-center { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; margin: 0 auto; }
 
-.hero-kicker-pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #60A5FA; padding: 6px 14px; border-radius: 20px; background: rgba(30, 58, 138, 0.2); border: 1px solid rgba(59, 130, 246, 0.3); margin-bottom: 24px; text-transform: uppercase; }
-.hero-kicker-pill .kicker-icon { color: #60A5FA; }
+/* Decorative person cutout. This was never meant to sit alongside the
+   headline inside the hero's fixed fold — both absolute-positioning
+   attempts (anchored by `bottom`, then by `top`) kept it competing
+   with the hero text for the same viewport space. What Sai actually
+   asked for: scroll PAST the headline/CTA/social row and the person
+   image appears next, as its own moment — "while scrolling, the
+   human will come". So .hero-orbit is a normal block in the document
+   flow (not position:absolute), sitting after .hero-social-row, which
+   simply extends the hero's height.
 
-.hero-headline { font-size: clamp(48px, 6.5vw, 76px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; color: #fff; margin-bottom: 20px; }
-.hero-headline .blue { color: #3b82f6; }
+   "Circles" — rotating orbital rings (React Bits Pro concept,
+   hand-built — no React/shadcn toolchain in this project): 3 static
+   dashed rings behind the image, plus the same 3 channel icons from
+   the social row above, now orbiting the figure. .hero-orbit-spin
+   rotates the badges' positions around the center; each badge's own
+   .hero-orbit-badge-inner counter-rotates at the same speed so the
+   icon glyphs themselves stay upright while they travel. */
+/* Enlarged, and the ring space actually put to use: 6 real
+   integration/channel icons evenly spaced around the outer ring
+   (hexagon layout, 60° apart, each at the same radius as
+   .hero-orbit-ring--3) instead of 3 sitting sparsely off in space
+   past every ring. WhatsApp/Instagram/Website (already introduced in
+   the social row above) plus Shopify/HubSpot/Slack (reused from the
+   Integrations marquee further down the page) so the circle reads as
+   "connects everywhere" rather than empty decoration. */
+.hero-orbit { position: relative; display: flex; align-items: center; justify-content: center; margin: 28px auto 0; width: min(520px, 88%); }
+.hero-orbit-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; border: 1px dashed rgba(37,99,235,.22); pointer-events: none; transform: translate(-50%, -50%); }
+.hero-orbit-ring--1 { width: 112%; height: 112%; }
+.hero-orbit-ring--2 { width: 142%; height: 142%; border-color: rgba(124,58,237,.16); }
+.hero-orbit-ring--3 { width: 176%; height: 176%; border-color: rgba(219,39,119,.12); }
 
-.hero-sub { font-size: 19px; color: rgba(255,255,255,0.85); max-width: 60ch; line-height: 1.6; margin-bottom: 36px; }
+.hero-orbit-spin { position: absolute; inset: 0; animation: heroOrbitSpin 34s linear infinite; }
+.hero-orbit-badge { position: absolute; width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+.hero-orbit-badge--wa       { top: 12%; left: 50%; }
+.hero-orbit-badge--shopify  { top: 31%; left: 82.9%; }
+.hero-orbit-badge--hubspot  { top: 69%; left: 82.9%; }
+.hero-orbit-badge--web      { top: 88%; left: 50%; }
+.hero-orbit-badge--ig       { top: 69%; left: 17.1%; }
+.hero-orbit-badge--slack    { top: 31%; left: 17.1%; }
+.hero-orbit-badge-inner { width: 100%; height: 100%; border-radius: 50%; background: #fff; box-shadow: 0 10px 26px -10px rgba(20,40,90,.35); display: flex; align-items: center; justify-content: center; animation: heroOrbitCounter 34s linear infinite; }
+.hero-orbit-badge-inner--ig { background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7); }
+@keyframes heroOrbitSpin { to { transform: rotate(360deg); } }
+@keyframes heroOrbitCounter { to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) { .hero-orbit-spin, .hero-orbit-badge-inner { animation: none; } }
+
+.hero-person { display: block; width: 100%; height: auto; position: relative; z-index: 1; filter: drop-shadow(0 24px 48px rgba(20,40,90,.18)); }
+
+.hero-kicker-pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); padding: 6px 14px; border-radius: 20px; background: linear-gradient(120deg, rgba(37,99,235,.10), rgba(219,39,119,.08), rgba(124,58,237,.10)); border: 1px solid rgba(37,99,235,.22); margin-bottom: 24px; text-transform: uppercase; }
+.hero-kicker-pill .kicker-icon { color: var(--accent); }
+
+.hero-headline { font-size: clamp(34px, 4.6vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: #101B3D; margin-bottom: 20px; white-space: nowrap; }
+.hero-headline .blue {
+  background: linear-gradient(100deg, #2563EB 0%, #9333EA 45%, #DB2777 75%, #0891B2 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.hero-sub { font-size: 19px; color: var(--text-secondary); max-width: 60ch; line-height: 1.6; margin-bottom: 36px; }
 
 .hero-cta-row { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-.hero-see-work-ghost { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; color: #fff; padding: 12px 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); transition: all 200ms var(--ease); }
-.hero-see-work-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+.hero-see-work-ghost { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; color: var(--text-primary); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--border-subtle); background: #fff; transition: all 200ms var(--ease); }
+.hero-see-work-ghost:hover { background: var(--bg-raised); border-color: var(--border-strong); }
 
-.hero-social-row { display: flex; align-items: center; gap: 16px; color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 500; }
+.hero-social-row { display: flex; align-items: center; gap: 16px; color: var(--text-tertiary); font-size: 14px; font-weight: 500; }
 .social-item { display: inline-flex; align-items: center; gap: 6px; }
-.social-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.social-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border-subtle); }
 
-/* Clean Stats Strip */
-.clean-stats-strip { background-color: #ffffff; padding: 40px 0; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #e2e8f0; position: relative; z-index: 10; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-.clean-stats-row { display: flex; align-items: center; justify-content: space-between; max-width: 1040px; margin: 0 auto; gap: 20px; padding: 0 20px; }
-.clean-stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; }
-.clean-stat-val { font-size: 42px; font-weight: 700; font-family: var(--font-mono); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
-.clean-stat-val.dark { color: #0f172a; }
-.clean-stat-val.blue { color: #2563eb; }
-.clean-stat-desc { font-size: 14px; color: #64748b; font-weight: 500; }
-.clean-stat-divider { width: 1px; height: 50px; background-color: #e2e8f0; flex-shrink: 0; }
+/* ---------- BENDING MARQUEE — a marquee that bends along a curve as
+   it scrolls (React Bits Pro concept, hand-built — no React/shadcn
+   toolchain in this project). Same 4 real stats as the old flat
+   "Clean Stats Strip" row. Rather than literal per-glyph SVG
+   textPath (fiddly to loop seamlessly for a strip this wide), each
+   repeated item is placed on an 8-step sine cycle via :nth-child —
+   translateY + a touch of rotate — so the whole track visibly
+   ripples up and down (a "bending" wave) as it scrolls left,
+   instead of running dead straight like a normal marquee. */
+/* Fix: removing the section's own white fill wasn't enough — with no
+   background at all it just falls back to the page's own base color
+   (--bg-base, #FAFBFC), which is near-white and reads as the same
+   plain white band sitting between the dark hero above and the dark
+   "one agent" section below. Giving it an explicit dark navy instead
+   (matching the hero's own base tone) makes hero → marquee → one-agent
+   read as one continuous dark passage, no white gap. */
+.bm-section { padding: 54px 0; position: relative; background: #0B0F19; }
+.bm-viewport { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); padding: 18px 0; }
+.bm-track { display: flex; align-items: center; gap: 56px; width: max-content; animation: bmScroll 34s linear infinite; }
+.bm-viewport:hover .bm-track { animation-play-state: paused; }
+@keyframes bmScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .bm-track { animation: none; } }
+
+.bm-item { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; transition: transform 300ms ease; }
+.bm-val { font-size: 30px; font-weight: 700; font-family: var(--font-mono); letter-spacing: -.02em; }
+.bm-val--a { color: #60A5FA; }
+.bm-val--b { color: #C084FC; }
+.bm-val--c { color: #F472B6; }
+.bm-val--d { color: #22D3EE; }
+.bm-lbl { font-size: 14px; color: rgba(255,255,255,.6); font-weight: 500; }
+
+/* the "bend": 8-step sine wave (amplitude ~14px) + a light rotate at
+   the steepest points, so the curve reads as an actual bend rather
+   than a random bounce. */
+.bm-item:nth-child(8n+1) { transform: translateY(0) rotate(0deg); }
+.bm-item:nth-child(8n+2) { transform: translateY(-10px) rotate(-3deg); }
+.bm-item:nth-child(8n+3) { transform: translateY(-14px) rotate(-5deg); }
+.bm-item:nth-child(8n+4) { transform: translateY(-10px) rotate(-3deg); }
+.bm-item:nth-child(8n+5) { transform: translateY(0) rotate(0deg); }
+.bm-item:nth-child(8n+6) { transform: translateY(10px) rotate(3deg); }
+.bm-item:nth-child(8n+7) { transform: translateY(14px) rotate(5deg); }
+.bm-item:nth-child(8n+8) { transform: translateY(10px) rotate(3deg); }
+@media (prefers-reduced-motion: reduce) { .bm-item { transform: none !important; } }
 
 @media (max-width: 768px) {
-  .clean-stats-row { flex-wrap: wrap; gap: 40px 20px; }
-  .clean-stat-item { flex: 1 1 40%; }
-  .clean-stat-divider { display: none; }
-  .clean-stat-val { font-size: 36px; }
+  .bm-track { gap: 40px; }
+  .bm-val { font-size: 24px; }
+  .bm-lbl { font-size: 12.5px; }
+  /* one-line headline is a desktop-width thing — below this, the
+     vw-based clamp can't shrink the text enough to stay on one line
+     without going illegibly small, so let it wrap normally instead
+     of overflowing (which nowrap would otherwise force). */
+  .hero-headline { white-space: normal; }
 }
 @media (max-width: 480px) {
-  .clean-stat-item { flex: 1 1 100%; }
   .hero-headline { font-size: clamp(38px, 10vw, 48px); }
   .hero-sub { font-size: 16px; }
 }
@@ -76,8 +172,13 @@
 .logo-pill img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
 .logo-pill .pill-badge { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
 .logo-pill.more { color: var(--accent); border-style: dashed; box-shadow: none; }
-.integ-note { text-align: center; margin-top: 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-tertiary); }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Promoted from a small uppercase caption under the logos (.integ-note,
+   removed) to a real heading above them — same text, just given the
+   weight of an actual section intro instead of a footnote. */
+.integ-heading { text-align: center; margin: 0 auto 40px; max-width: 640px; font-size: clamp(22px, 2.8vw, 30px); font-weight: 650; letter-spacing: -.015em; line-height: 1.3; color: var(--text-primary); }
+.integ-heading-dot { color: var(--accent); }
 
 /* ---------- LIVE DEMO TEASER ---------- */
 .demo-shell { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
@@ -419,18 +520,18 @@
 .inbox-status.resolved { background: var(--bg-base); color: var(--text-tertiary); border: 1px solid var(--border-subtle); }
 
 
-/* ---------- INDUSTRIES — Scroll Stack ----------
-   Pinned cards that stack, turn and dissolve as the page scrolls.
-   Each card sits inside a tall .stack-item: the card pins at
-   top: 12vh via plain CSS sticky, and the .stack-item's extra
-   padding-bottom is the scroll "runway" the JS in home.js
-   (initScrollStack) uses to drive scale/rotate/opacity/blur as a
-   0→1 progress value — so the outgoing card visibly turns and
-   dissolves while the next one slides up to cover it, instead of
-   an abrupt swap. Disabled below 900px and for reduced-motion,
-   where the cards just stack normally in flow. */
+/* ---------- INDUSTRIES — Scroll Stack (React Bits Pro concept,
+   hand-built — no React/shadcn toolchain in this project). Restored
+   per Sai's ask, colors/cards unchanged, just the pin/turn/dissolve
+   scroll animation back. Runway shortened (22vh -> 12vh per card,
+   see JS below) vs. the original version, since that version's tall
+   blank "runway" showed as dead empty space in a static screenshot —
+   this is real for anything that isn't a live interactive scroll
+   (a screenshot, a slow device, a scroll-jump), so kept the effect
+   but shrank its footprint. Disabled below 900px and for
+   reduced-motion, where cards stack normally in flow. */
 .industry-flow { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
-.stack-item { position: relative; padding-bottom: 22vh; }
+.stack-item { position: relative; padding-bottom: 12vh; }
 .stack-item.stack-item--last { padding-bottom: 0; }
 .industry-flow-card {
   position: sticky; top: 12vh; will-change: transform, opacity, filter; transform-origin: top center;
@@ -450,6 +551,19 @@
 .industry-flow-card.dark-card .ifc-content p { color: rgba(255, 255, 255, 0.85); }
 .industry-flow-card.dark-card .section-link-out { color: #60A5FA; }
 .industry-flow-card.dark-card .section-link-out:hover { color: #fff; }
+
+/* PREVIEW SCOPE — each stacked industry card gets its own color
+   ("a different track"), replacing the shared dimmed-photo look:
+   E-Commerce (indigo→violet→pink), Healthcare (teal→cyan, calmer/
+   clinical), Real Estate (amber/gold, warm). Only the accent link
+   color changes per card — text/border stay the shared dark-card
+   rules above. */
+.ifc-track--ecommerce .section-link-out { color: #C4B5FD; }
+.ifc-track--healthcare .section-link-out { color: #5EEAD4; }
+.ifc-track--realestate .section-link-out { color: #FCD34D; }
+.ifc-track--ecommerce .section-link-out:hover,
+.ifc-track--healthcare .section-link-out:hover,
+.ifc-track--realestate .section-link-out:hover { color: #fff; }
 
 .ifc-content h3 { font-size: 26px; font-weight: 650; letter-spacing: -.02em; color: var(--text-primary); }
 .ifc-content p { font-size: 15.5px; color: var(--text-secondary); line-height: 1.65; margin-top: 14px; }
@@ -524,36 +638,77 @@
   .es-divider { width: 60px; height: 1px; }
 }
 
-/* ---------- TESTIMONIALS — Skewed Carousel ----------
-   An auto-scrolling marquee: a plain CSS translateX keyframe
-   drives the horizontal drift (duplicated card set for a
-   seamless loop, paused on hover), while a small rAF loop in
-   home.js (initTestimonialCarousel) reads each card's live
-   distance from the mask's centre and scales/fades it — the
-   "scales as it scrolls" half the CSS animation can't do alone.
-   Each card sits in a .tcard-skew wrapper tilted a few degrees;
-   the card itself counter-tilts back upright so the quote stays
-   readable, giving the tilted-filmstrip look without the text
-   looking skewed. */
-.testimonial-marquee-wrap { margin-top: 48px; }
-.testimonial-marquee-mask { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); padding: 24px 0 44px; }
-.testimonial-marquee-track { display: flex; gap: 24px; width: max-content; animation: testimonialMarquee 64s linear infinite; }
-.testimonial-marquee-mask:hover .testimonial-marquee-track { animation-play-state: paused; }
-@keyframes testimonialMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .testimonial-marquee-track { animation: none; } }
+/* ---------- SOCIAL PROOF 4 — Wall of Love: 3-column vertical
+   scrolling marquee, glass-bordered cards (React Bits Pro "Social
+   Proof 4" concept, hand-built — no React/shadcn toolchain in this
+   project). Replaces the old single-row skewed horizontal marquee;
+   same 10 real testimonials, redistributed round-robin across the
+   three columns. Columns alternate scroll direction and each
+   duplicates its own card set once for a seamless loop; hovering a
+   column pauses just that column. Pure CSS — no rAF loop needed
+   (the old horizontal version needed one for its scale-on-position
+   effect; a vertical loop doesn't).
 
-.tcard-skew { flex: 0 0 340px; width: 340px; transform: skewY(-3deg); will-change: transform, opacity; }
-.testimonial-card { transform: skewY(3deg); background: #fff; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; height: 100%; }
-.testimonial-card-quote { font-size: 15px; color: var(--text-primary); line-height: 1.6; font-weight: 500; flex: 1; margin-bottom: 24px; position: relative; }
-.testimonial-card-quote::before { content: "“"; font-family: Georgia, serif; font-size: 40px; color: var(--accent); opacity: 0.2; position: absolute; left: -16px; top: -16px; line-height: 1; pointer-events: none; }
-.testimonial-card-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-.testimonial-card-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
-.testimonial-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.testimonial-card-avatar.avatar-badge { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
-.testimonial-card-info { display: flex; flex-direction: column; }
-.testimonial-card-name { font-size: 14px; font-weight: 650; color: var(--text-primary); }
-.testimonial-card-role { font-size: 12.5px; color: var(--text-secondary); }
-@media (max-width: 600px) { .tcard-skew { width: 280px; flex-basis: 280px; } }
+   PREVIEW SCOPE — second section in the "bolder, more colorful"
+   pass (see hero for the first one): now uses .section--dark (the
+   shared dark-band class, same one Final CTA already uses, so
+   kicker/heading/sub recolor for free) plus a rich indigo→violet
+   diagonal band here, inspired by Sai's Maze-style reference —
+   same idea as the hero's Aurora mesh, calmer/more solid since this
+   band needs to stay legible behind a moving 3-column marquee. The
+   .sp4-card glass treatment already reads as a light card floating
+   on a bold gradient, which is exactly the reference's look, so it
+   needed no changes at all. */
+/* Back to a plain white/light section per Sai's call — the bold blue
+   band didn't work for this one. Section is .section--base now (plain
+   light text colors, no override needed here), background left to
+   that default; the .sp4-orb glow accents are hidden since they were
+   tuned for a dark backdrop and would just look like stray blue
+   smudges on white. */
+.sp4-section { position: relative; overflow: hidden; }
+.sp4-section .container { position: relative; z-index: 1; }
+.sp4-orb { display: none; }
+
+.sp4-wall {
+  position: relative; z-index: 1; margin-top: 44px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  height: 640px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+}
+.sp4-col { overflow: hidden; }
+.sp4-col-track { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+.sp4-col--up .sp4-col-track { animation: sp4ScrollUp var(--sp4-duration, 34s) linear infinite; }
+.sp4-col--down .sp4-col-track { animation: sp4ScrollDown var(--sp4-duration, 34s) linear infinite; }
+.sp4-col:hover .sp4-col-track { animation-play-state: paused; }
+@keyframes sp4ScrollUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes sp4ScrollDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .sp4-col-track { animation: none !important; } }
+
+.sp4-card {
+  position: relative; padding: 26px; border-radius: 18px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+.sp4-quote { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--text-primary); font-weight: 500; }
+.sp4-quote::before { content: "“"; display: block; font-family: Georgia, serif; font-size: 34px; line-height: .6; color: var(--accent); opacity: .22; margin-bottom: 6px; }
+.sp4-author { display: flex; align-items: center; gap: 11px; margin-top: 18px; }
+.sp4-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.sp4-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.sp4-avatar.avatar-badge { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 650; }
+.sp4-info { display: flex; flex-direction: column; min-width: 0; }
+.sp4-name { font-size: 13.5px; font-weight: 650; color: var(--text-primary); }
+.sp4-role { font-size: 12px; color: var(--text-secondary); }
+
+@media (max-width: 900px) {
+  .sp4-wall { grid-template-columns: repeat(2, 1fr); height: 560px; }
+  .sp4-col:nth-child(3) { display: none; }
+}
+@media (max-width: 600px) {
+  .sp4-wall { grid-template-columns: 1fr; height: 480px; }
+  .sp4-col:nth-child(2) { display: none; }
+}
 
 /* founder-quote moved to the shared styles.css (used on about.html too) */
 
@@ -573,30 +728,62 @@
 .final-cta-ticker { margin-top: 40px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
 .final-cta-ticker-track { display: flex; gap: 14px; width: max-content; animation: marquee 22s linear infinite; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--dark-ink-faint); white-space: nowrap; }
 
-/* ---------- FINAL CTA CARD (homepage only) — compact banner, the
-   smartphone photo sits as a background layer under a navy gradient
-   instead of a standalone block, so the section stays short. ---------- */
+/* ---------- FINAL CTA CARD (homepage only) — the old version used a
+   flat stock photo as its background; that's replaced here with a real
+   product mockup instead: a floating .mockup-widget-dark instance
+   reusing "Nyra Store AI" (the same fictional e-commerce sub-brand
+   shown recommending products in the Industries section above) now
+   shown actually updating the customer's cart — ties directly into
+   "CART UPDATED", the first item in the ticker running underneath. ---------- */
+/* PREVIEW SCOPE — third "bold color" moment (see hero + Wall of Love):
+   the old plain navy gradient is replaced with the same indigo→violet
+   family as the testimonials band, closing out with a pink glow on
+   the CTA side — so the page now has hero (animated Aurora) → light →
+   testimonials (indigo→violet band) → light → final CTA (indigo→
+   violet→pink band), a deliberate rhythm rather than color everywhere.
+   Kept static (no background animation) here since the widget mockup
+   already has its own entrance/hover motion — stacking two animated
+   things in one card gets busy fast. */
 .final-cta-card {
   position: relative; isolation: isolate; overflow: hidden;
-  border-radius: 28px; padding: 44px 48px;
-  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  border-radius: 28px; padding: 48px;
+  background: linear-gradient(125deg, #150F4A 0%, #241B7A 28%, #5B2CB0 60%, #C0289A 100%);
+  display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px;
   text-align: left;
-  box-shadow: 0 30px 60px -30px rgba(0,0,0,.6);
+  box-shadow: 0 30px 70px -28px rgba(20,6,50,.6);
 }
-.final-cta-card-media { position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center 42%; }
-.final-cta-card-media::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(112deg, rgba(4,8,20,.97) 0%, rgba(6,14,44,.94) 36%, rgba(10,22,68,.78) 64%, rgba(15,34,98,.55) 100%);
+.final-cta-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(96,165,250,.28), transparent 42%),
+    radial-gradient(circle at 92% 88%, rgba(244,114,182,.24), transparent 42%);
 }
+.final-cta-card > * { position: relative; z-index: 1; }
+.final-cta-card-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .final-cta-card-copy { max-width: 480px; }
 .final-cta-card .final-cta-headline { text-align: left; margin: 0; max-width: 460px; font-size: clamp(24px, 2.8vw, 34px); }
 .final-cta-card .final-cta-sub { text-align: left; margin-top: 10px; max-width: 420px; font-size: 15px; }
-.final-cta-card-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.final-cta-card-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .final-cta-card-actions .btn { margin-top: 0; }
 .final-cta-card-actions .final-cta-note { margin: 0; }
 .final-cta-card-actions .btn-cta-outline { margin-top: 8px; }
+
+.final-cta-card-visual { min-width: 0; }
+.final-cta-widget {
+  max-width: 320px; margin-left: auto;
+  transform: rotate(2deg);
+  box-shadow: 0 40px 70px -24px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
+}
+.final-cta-widget .mwd-body { min-height: 0; }
+@media (prefers-reduced-motion: no-preference) { .final-cta-widget { transition: transform 420ms var(--ease); } }
+.final-cta-card:hover .final-cta-widget { transform: rotate(0deg); }
+
+@media (max-width: 900px) {
+  .final-cta-card { grid-template-columns: 1fr; }
+  .final-cta-widget { margin: 0 auto; transform: none; }
+}
 @media (max-width: 720px) {
-  .final-cta-card { flex-direction: column; text-align: center; padding: 36px 28px; }
+  .final-cta-card { text-align: center; padding: 36px 28px; }
   .final-cta-card-copy, .final-cta-card .final-cta-headline, .final-cta-card .final-cta-sub { max-width: none; text-align: center; }
   .final-cta-card-actions { align-items: center; width: 100%; }
 }
@@ -689,3 +876,308 @@
 .cal-att-info { display: flex; flex-direction: column; }
 .cal-att-info b { font-size: 13.5px; font-weight: 500; color: #202124; }
 .cal-att-info span { font-size: 12px; color: #5F6368; }
+
+/* ---------- FAQ 3 — multi-category tabbed FAQ, animated accordions
+   (React Bits Pro "FAQ 3" block, hand-built: this project has no
+   React/shadcn toolchain to install the real package into, so this
+   recreates its exact look — purple header band with a hand-drawn
+   dashed "circled" active tab, black accordion band, sticky category
+   title on the left — in plain CSS/JS). Full-bleed section: unlike
+   every other homepage section it has NO .container padding wrapper
+   around the outer bands themselves, only around their inner content,
+   so the color bands run edge-to-edge like the reference. Driving JS
+   is faq3Init() in home.js. ---------- */
+.faq3-section { overflow: hidden; }
+
+.faq3-top {
+  background-color: #b886fb;
+  padding: 88px 0 64px;
+}
+.faq3-title {
+  font-size: clamp(36px, 5.2vw, 60px);
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 36px;
+}
+.faq3-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.faq3-tab {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.3);
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  font: inherit;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.faq3-tab:hover { background: rgba(0,0,0,0.05); }
+.faq3-tab.active {
+  border: 2px dashed #111;
+  border-radius: 46% 54% 51% 49% / 53% 48% 52% 47%;
+  padding: 13px 28px;
+  background: transparent;
+  transform: rotate(-5deg);
+}
+
+.faq3-bottom {
+  background-color: #0d0d0d;
+  padding: 72px 0 88px;
+  color: #fff;
+}
+.faq3-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+.faq3-active-title {
+  font-size: 44px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: #fff;
+  position: sticky;
+  top: 120px;
+  margin: 0;
+}
+
+.faq3-category { display: none; }
+.faq3-category.active { display: block; }
+
+.faq3-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
+.faq3-item:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
+.faq3-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 30px 0;
+  font-size: 18px;
+  font-weight: 620;
+  font-family: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+.faq3-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #fff;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq3-item.open .faq3-icon { transform: rotate(45deg); }
+
+.faq3-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq3-item.open .faq3-a { grid-template-rows: 1fr; }
+.faq3-a-inner { overflow: hidden; }
+.faq3-a-inner p {
+  padding: 0 0 30px;
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #a1a1aa;
+  max-width: 56ch;
+}
+
+@media (max-width: 768px) {
+  .faq3-top { padding: 56px 0 40px; }
+  .faq3-title { margin-bottom: 24px; }
+  .faq3-bottom { padding: 48px 0 56px; }
+  .faq3-grid { grid-template-columns: 1fr; gap: 20px; }
+  .faq3-active-title { position: static; font-size: 30px; }
+}
+
+/* ============================================================
+   ONE AGENT · EVERY CONVERSATION — six-card feature grid.
+   RULE (kept throughout this block): pastel gradient belongs to the
+   OUTER .oac-card only; the inner .oac-mock is always a white,
+   realistic product-UI surface — never tinted with the card's own
+   gradient. Each card's --oac-accent/--oac-tint/--oac-border custom
+   properties are the only thing that changes per card; every other
+   rule below is shared. Entrance choreography (bubbles/products/
+   confirm) reuses the existing .reveal/.reveal-stagger observer in
+   home.js — no new JS needed for that. The one thing that DOES need
+   new JS is the "1,000 sent" count-up, which reuses the existing
+   generic wireCountUp()/[data-count] helper (see home.js).
+   ============================================================ */
+/* Was a busy 4-blob animated aurora — flagged as "not nice". Simplified
+   to the same navbar "Start free trial" gradient as Wall of Love
+   (.btn-accent / --gradient-accent), for one consistent blue across
+   every bold section instead of each one inventing its own mix. Kept
+   the subtle dot texture + two soft orbs for a little depth, dropped
+   the moving multi-blob layer entirely. */
+/* Gentle animated shimmer added back on top of the plain navbar-blue
+   gradient (kept exactly, per Sai's "use the one" call) — same 3
+   colors, just a slow, subtle background-position drift instead of a
+   flat static fill, plus a soft shimmer line at the very top edge as
+   a transition cue coming from the section above. Calm/slow on
+   purpose (28s), not the busy multi-blob version Sai rejected earlier. */
+.oac-section {
+  position: relative; overflow: hidden; padding: 104px 0 88px;
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+  background-size: 180% 180%;
+  animation: oacGradientDrift 28s ease-in-out infinite alternate;
+}
+@keyframes oacGradientDrift { from { background-position: 0% 30%; } to { background-position: 100% 70%; } }
+@media (prefers-reduced-motion: reduce) { .oac-section { animation: none; } }
+.oac-section::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent);
+  background-size: 200% 100%;
+  animation: oacTopShimmer 3.2s ease-in-out infinite;
+}
+@keyframes oacTopShimmer { from { background-position: -100% 0; } to { background-position: 200% 0; } }
+@media (prefers-reduced-motion: reduce) { .oac-section::before { animation: none; opacity: .4; } }
+.oac-section::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 32%, rgba(4,8,26,.35), transparent 74%),
+    radial-gradient(circle, rgba(255,255,255,.14) 1px, transparent 1px);
+  background-size: auto, 28px 28px;
+}
+.oac-orb { position: absolute; z-index: 0; border-radius: 50%; filter: blur(64px); opacity: .3; pointer-events: none; }
+.oac-orb--1 { width: 280px; height: 280px; top: -70px; left: -70px; background: radial-gradient(circle, #93C5FD, transparent 70%); }
+.oac-orb--2 { width: 260px; height: 260px; bottom: -90px; right: -50px; background: radial-gradient(circle, #1E40AF, transparent 70%); }
+.oac-lines { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; opacity: .5; pointer-events: none; }
+.oac-section .container { position: relative; z-index: 1; max-width: 1280px; }
+
+.oac-head { text-align: center; max-width: 700px; margin: 0 auto 48px; }
+.oac-eyebrow { display: inline-flex; align-items: center; height: 32px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, rgba(255,255,255,.2), rgba(255,255,255,.08)); border: 1px solid rgba(255,255,255,.28); color: #DCE7FF; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; backdrop-filter: blur(6px); }
+.oac-heading { margin: 20px 0 0; font-size: clamp(38px, 5.4vw, 64px); font-weight: 720; line-height: 1.06; letter-spacing: -.02em; color: #fff; }
+.oac-heading-accent { background: linear-gradient(100deg, #93C5FD, #EFF6FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.oac-sub { margin: 18px auto 0; max-width: 660px; font-size: 17.5px; line-height: 1.55; color: rgba(255,255,255,.78); }
+
+.oac-grid { position: relative; z-index: 1; margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.oac-card {
+  position: relative; display: flex; flex-direction: column;
+  min-height: 400px; padding: 28px 26px 26px;
+  border-radius: 22px; background: var(--oac-tint); border: 1px solid var(--oac-border);
+  box-shadow: 0 18px 44px -12px rgba(3,7,25,.45);
+  transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
+}
+.oac-card:hover { transform: translateY(-5px); box-shadow: 0 28px 58px -12px rgba(3,7,25,.55); }
+.oac-card:hover .oac-mock { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(30,50,90,.16); }
+
+.oac-card--sales     { --oac-tint: linear-gradient(145deg, rgba(232,240,255,.96), rgba(250,252,255,.96)); --oac-border: rgba(37,99,235,.16);  --oac-accent: #2563EB; --oac-accent-tint: #DCE7FF; }
+.oac-card--booking   { --oac-tint: linear-gradient(145deg, rgba(228,250,240,.96), rgba(250,253,251,.96)); --oac-border: rgba(15,157,88,.18);  --oac-accent: #0F9D58; --oac-accent-tint: #DAF5E4; }
+.oac-card--lead      { --oac-tint: linear-gradient(145deg, rgba(241,235,255,.96), rgba(251,250,255,.96)); --oac-border: rgba(124,58,237,.16); --oac-accent: #7C3AED; --oac-accent-tint: #EBE1FF; }
+.oac-card--support   { --oac-tint: linear-gradient(145deg, rgba(255,240,228,.96), rgba(253,251,249,.96)); --oac-border: rgba(217,121,23,.18); --oac-accent: #D97917; --oac-accent-tint: #FFE7CF; }
+.oac-card--shopping  { --oac-tint: linear-gradient(145deg, rgba(255,232,241,.96), rgba(253,250,252,.96)); --oac-border: rgba(219,39,119,.16); --oac-accent: #DB2777; --oac-accent-tint: #FFDCEB; }
+.oac-card--marketing { --oac-tint: linear-gradient(145deg, rgba(224,248,251,.96), rgba(250,253,254,.96)); --oac-border: rgba(8,145,178,.16);  --oac-accent: #0891B2; --oac-accent-tint: #D3F3F8; }
+
+.oac-icon { width: 44px; height: 44px; border-radius: 13px; display: flex; align-items: center; justify-content: center; background: var(--oac-accent-tint); color: var(--oac-accent); flex-shrink: 0; }
+.oac-icon svg { width: 20px; height: 20px; }
+.oac-title { margin: 16px 0 0; font-size: 20.5px; font-weight: 680; letter-spacing: -.01em; color: #101B3D; }
+.oac-desc { margin: 8px 0 0; font-size: 14.5px; line-height: 1.45; color: #56627A; max-width: 300px; }
+
+/* ---- the mockup: always white, always the visual focus ---- */
+.oac-mock {
+  margin-top: 20px; width: 92%; margin-left: auto; margin-right: auto;
+  min-height: 198px; display: flex; flex-direction: column; overflow: hidden;
+  background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(20,40,80,.08);
+  box-shadow: 0 12px 30px rgba(30,50,90,.10);
+  transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
+}
+.oac-mock-head { flex-shrink: 0; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 14px; border-bottom: 1px solid rgba(20,40,80,.06); }
+.oac-mock-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #2563EB, #7C3AED); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.oac-mock-id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.oac-mock-id b { font-size: 12.5px; font-weight: 650; color: #101B3D; }
+.oac-mock-status { display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: #8A93A6; }
+.oac-mock-status i { width: 5px; height: 5px; border-radius: 50%; background: #22C55E; display: inline-block; animation: oacDotPulse 2.6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 1.2s); }
+.oac-mock-status--label { color: var(--oac-accent); font-weight: 650; }
+.oac-mock-time { margin-left: auto; font-size: 10.5px; color: #B0B6C4; flex-shrink: 0; }
+@keyframes oacDotPulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,.35); } 50% { opacity: .55; box-shadow: 0 0 0 3px rgba(34,197,94,0); } }
+
+.oac-mock-body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; }
+
+.oac-bubble { max-width: 88%; padding: 9px 12px; border-radius: 13px; font-size: 12.5px; line-height: 1.4; }
+.oac-bubble--in { align-self: flex-start; background: #F1F4F9; color: #334155; border-bottom-left-radius: 4px; }
+.oac-bubble--out { align-self: flex-end; background: var(--oac-accent-tint); color: #101B3D; border-bottom-right-radius: 4px; }
+.oac-bubble--wide { max-width: 100%; align-self: stretch; }
+
+.oac-products { display: flex; gap: 8px; }
+.oac-product { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 8px; border-radius: 10px; background: #FAFBFD; border: 1px solid rgba(20,40,80,.07); }
+.oac-product.is-best { border-color: var(--oac-accent); box-shadow: inset 0 0 0 1px var(--oac-accent); }
+.oac-product-thumb { display: flex; align-items: center; justify-content: center; width: 100%; height: 40px; border-radius: 7px; color: #fff; flex-shrink: 0; }
+.oac-product-thumb svg { width: 16px; height: 16px; }
+.oac-thumb--1 { background: linear-gradient(150deg, #2B2F36, #12141B); }
+.oac-thumb--2 { background: linear-gradient(150deg, #2563EB, #1D4ED8); }
+.oac-thumb--3 { background: linear-gradient(150deg, #94A3B8, #64748B); }
+.oac-thumb--4 { background: linear-gradient(150deg, #8A9B6A, #5B6B41); }
+.oac-thumb--5 { background: linear-gradient(150deg, #EFE6D2, #DBCBA3); }
+.oac-product-name { font-size: 10.5px; font-weight: 620; color: #101B3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.oac-product-price { font-size: 10px; color: #8A93A6; }
+
+.oac-slots { display: flex; flex-wrap: wrap; gap: 6px; }
+.oac-slot { font-size: 11.5px; font-weight: 620; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(20,40,80,.10); color: #475569; background: #fff; transition: background 300ms ease, border-color 300ms ease, color 300ms ease; }
+.oac-slot.is-selected { background: #E7F8ED; border-color: #16A34A; color: #0F7A38; }
+
+.oac-form { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 10px; background: #FAFBFD; border: 1px solid rgba(20,40,80,.07); }
+.oac-field { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 11px; }
+.oac-field label { color: #8A93A6; font-weight: 500; }
+.oac-field span { color: #101B3D; font-weight: 620; }
+
+.oac-outline-btn { align-self: flex-start; font-size: 11.5px; font-weight: 650; color: var(--oac-accent); border: 1.4px solid var(--oac-accent); padding: 7px 14px; border-radius: 9px; text-decoration: none; cursor: default; }
+
+.oac-confirm { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 620; color: #16A34A; }
+.oac-confirm svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.oac-sent-pill { margin-left: auto; display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: #0F9D58; background: #E7F8ED; padding: 4px 9px; border-radius: 999px; flex-shrink: 0; }
+.oac-sent-pill svg { width: 12px; height: 12px; }
+.oac-sent-count { font-variant-numeric: tabular-nums; }
+
+.oac-mock-input { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-top: 1px solid rgba(20,40,80,.06); font-size: 11.5px; color: #B0B6C4; }
+.oac-mock-send { width: 26px; height: 26px; border-radius: 50%; background: var(--oac-accent); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.oac-mock-send svg { width: 12px; height: 12px; }
+
+/* ---- one-time entrance choreography, driven by the shared reveal
+   observer: .oac-grid already carries .reveal.reveal-stagger, so
+   home.js adds .is-visible to it the first time it scrolls into
+   view — reused here to stagger each mock's own inner content. ---- */
+.oac-mock-body > * { opacity: 0; transform: translateY(10px); transition: opacity 550ms cubic-bezier(.22,1,.36,1), transform 550ms cubic-bezier(.22,1,.36,1); }
+.oac-mock-body > *:nth-child(1) { transition-delay: 280ms; }
+.oac-mock-body > *:nth-child(2) { transition-delay: 520ms; }
+.oac-mock-body > *:nth-child(3) { transition-delay: 760ms; }
+.oac-mock-body > *:nth-child(4) { transition-delay: 980ms; }
+.oac-grid.is-visible .oac-mock-body > * { opacity: 1; transform: none; }
+
+.oac-closing { position: relative; z-index: 1; margin-top: 56px; text-align: center; font-size: 19px; font-weight: 560; color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.oac-closing-blue { color: #93C5FD; font-weight: 650; }
+.oac-closing-violet { color: #F0ABFC; font-weight: 650; }
+.oac-closing-icon { width: 18px; height: 18px; color: rgba(255,255,255,.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oac-mock-status i { animation: none; }
+  .oac-card, .oac-mock { transition: none; }
+  .oac-card:hover, .oac-card:hover .oac-mock { transform: none; }
+  .oac-mock-body > * { transition: opacity 400ms ease; transform: none; transition-delay: 0ms !important; }
+}
+
+@media (max-width: 1024px) {
+  .oac-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .oac-section { padding: 72px 0 64px; }
+  .oac-heading { font-size: clamp(32px, 9vw, 44px); }
+  .oac-sub { font-size: 16px; }
+  .oac-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 36px; }
+  .oac-card { min-height: 0; }
+  .oac-title { font-size: 19px; }
+  .oac-mock { width: 100%; }
+}
