@@ -64,6 +64,9 @@
 /* ============================================================
    HERO STAGE: Real WhatsApp & Instagram Live Scenario Mockups
    ============================================================ */
+/* ============================================================
+   HERO STAGE: Customer Demand (Left) -> StepsAI Resolution (Right)
+   ============================================================ */
 .hero-mockup-card {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(24px);
@@ -78,10 +81,10 @@
   transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms ease;
   will-change: transform;
 }
-.hero-mockup-card--wa {
+.hero-mockup-card--customer {
   animation: heroFloat1 6.5s ease-in-out infinite alternate;
 }
-.hero-mockup-card--ig {
+.hero-mockup-card--agent {
   animation: heroFloat2 7.2s ease-in-out infinite alternate;
 }
 .hero-mockup-card:hover {
@@ -103,23 +106,22 @@
   align-items: center;
   gap: 9px;
 }
+.hmc-user-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #EEF2FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
 .hmc-avatar-img {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid #E2E8F0;
-}
-.hmc-ig-avatar-ring {
-  padding: 2px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7);
-  display: flex;
-}
-.hmc-ig-avatar-ring .hmc-avatar-img {
-  width: 30px;
-  height: 30px;
-  border: 1.5px solid #FFFFFF;
 }
 
 .hmc-name-col {
@@ -141,101 +143,125 @@
 }
 
 .hmc-channel-tag {
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
   padding: 3px 9px;
   border-radius: 999px;
 }
-.hmc-channel-tag--wa {
-  background: #DCFCE7;
-  color: #15803D;
-  border: 1px solid #BBF7D0;
+.hmc-channel-tag--demand {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
 }
-.hmc-channel-tag--ig {
-  background: #FCE7F3;
-  color: #BE185D;
-  border: 1px solid #FBCFE8;
+.hmc-channel-tag--ai {
+  background: #DBEAFE;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
 }
 
-/* Chat Body */
-.hmc-chat-body {
-  padding: 14px;
+/* Left Body: Customer Inquiries */
+.hmc-chat-body--customer {
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
   background: #FAF8F5;
 }
-.hmc-chat-body--ig {
-  background: #FAFAFC;
-}
-
-.hmc-story-tag-box {
-  background: rgba(236, 72, 153, 0.08);
-  border-left: 3px solid #EC4899;
-  padding: 5px 8px;
-  border-radius: 4px;
-  font-size: 10.5px;
-  color: #831843;
-}
-
-.hmc-bubble {
-  font-size: 11.5px;
-  line-height: 1.45;
-  padding: 8px 12px;
-  border-radius: 12px;
-  max-width: 92%;
-  position: relative;
-}
-.hmc-bubble--user {
-  align-self: flex-start;
+.hmc-inquiry-box {
   background: #FFFFFF;
-  color: #1E293B;
   border: 1px solid #E2E8F0;
-  border-bottom-left-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
-.hmc-bubble--agent {
-  align-self: flex-start;
-  background: #E7FCE8;
+.hmc-inq-source {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.hmc-inq-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.hmc-inq-tag.wa {
+  background: #DCFCE7;
+  color: #15803D;
+}
+.hmc-inq-tag.ig {
+  background: #FCE7F3;
+  color: #BE185D;
+}
+.hmc-inq-time {
+  font-size: 9px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+.hmc-inq-msg {
+  font-size: 11.5px;
+  font-weight: 600;
   color: #0F172A;
-  border: 1px solid #C4F3C8;
-  border-bottom-left-radius: 3px;
+  line-height: 1.4;
+  margin: 0 0 5px;
+}
+.hmc-inq-meta {
+  font-size: 9.5px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Right Body: StepsAI Autonomous Resolutions */
+.hmc-chat-body--agent-res {
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  gap: 10px;
+  background: #F8FAFC;
 }
-.hmc-bubble--ig {
+.hmc-resolution-item {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
-
-.hmc-time {
-  display: block;
+.hmc-res-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.hmc-res-badge {
   font-size: 9.5px;
-  color: #94A3B8;
-  text-align: right;
-  margin-top: 2px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
 }
-.hmc-ticks {
-  color: #38BDF8;
-  font-weight: 700;
+.hmc-res-badge.green {
+  background: #DCFCE7;
+  color: #15803D;
+}
+.hmc-res-badge.blue {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}
+.hmc-res-channel {
+  font-size: 9.5px;
+  color: #64748B;
+  font-weight: 600;
 }
 
 /* Product & Property Mini Previews */
 .hmc-product-row, .hmc-property-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  padding: 7px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  gap: 9px;
 }
 .hmc-prod-thumb, .hmc-prop-thumb {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
@@ -262,31 +288,24 @@
   font-weight: 800;
   color: #15803D;
 }
-.hmc-price-was {
-  font-size: 10px;
-  color: #94A3B8;
-}
 .hmc-badge-sale {
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 800;
   color: #DC2626;
   background: #FEE2E2;
   padding: 1px 4px;
   border-radius: 3px;
 }
-.hmc-stock-tag {
-  font-size: 9px;
-  color: #D97706;
-  font-weight: 600;
-}
-
-.hmc-prop-loc {
+.hmc-checkout-pill {
   font-size: 10px;
-  color: #64748B;
-  font-weight: 500;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: #16A34A;
+  padding: 4px 9px;
+  border-radius: 6px;
 }
 .hmc-slot-badge {
-  font-size: 9.5px;
+  font-size: 9px;
   font-weight: 700;
   color: #1E40AF;
   background: #DBEAFE;
@@ -295,48 +314,33 @@
   width: fit-content;
 }
 
-/* Action CTA Buttons */
-.hmc-action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  padding: 7px 12px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-.hmc-action-btn--wa {
-  background: #1FAF5C;
-  color: #FFFFFF;
-}
-.hmc-action-btn--wa:hover {
-  background: #16A34A;
-}
-.hmc-action-btn--ig {
-  background: #2563EB;
-  color: #FFFFFF;
-}
-
 /* Value Outcome Footer Banner */
 .hmc-footer-banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 9px 14px;
-  font-size: 10.5px;
+  font-size: 10px;
 }
-.hmc-footer-banner--wa {
+.hmc-footer-banner--customer {
+  background: #FFFBEB;
+  border-top: 1px solid #FEF3C7;
+}
+.hmc-footer-banner--agent {
   background: #F0FDF4;
   border-top: 1px solid #DCFCE7;
 }
-.hmc-footer-banner--ig {
-  background: #FAF5FF;
-  border-top: 1px solid #F3E8FF;
+.hmc-value-highlight {
+  color: #0F172A;
+  font-weight: 600;
+}
+.hmc-sync-tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: #0F766E;
+  background: rgba(204, 251, 241, 0.9);
+  padding: 2px 7px;
+  border-radius: 4px;
 }
 .hmc-value-highlight {
   color: #0F172A;
