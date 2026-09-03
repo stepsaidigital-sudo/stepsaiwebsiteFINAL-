@@ -89,27 +89,34 @@
   flex-direction: column;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px 22px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 28px 24px;
+  transition: transform 300ms var(--ease), box-shadow 300ms var(--ease), border-color 300ms var(--ease);
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 .pricing-card--popular {
   border-color: var(--accent);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-soft), 0 0 0 1px var(--accent);
 }
 .pricing-card-badge {
   position: absolute;
   top: -13px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--accent);
+  background: var(--gradient-brand);
   color: #fff;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .02em;
-  padding: 6px 16px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 5px 16px;
   border-radius: 999px;
   white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
 }
 .pricing-card-name { font-size: 20px; font-weight: 650; color: var(--text-primary); }
 .pricing-card-desc { margin-top: 6px; font-size: 14px; color: var(--text-secondary); min-height: 30px; }

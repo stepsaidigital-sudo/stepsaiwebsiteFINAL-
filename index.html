@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo.png">
 <link rel="stylesheet" href="styles.css?v=2.0">
 <link rel="stylesheet" href="industries-deep.css?v=2.0">
 <link rel="stylesheet" href="agents.css?v=2.0">
@@ -22,11 +23,7 @@
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 7H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="38" height="26">
         <span>StepsAI</span>
       </a>
 
@@ -317,24 +314,28 @@
          reveal-in reuses the shared .reveal/.reveal-stagger utility.
          ============================================================ -->
     <section class="oac-section" id="one-agent">
-      <span class="oac-orb oac-orb--1" aria-hidden="true"></span>
-      <span class="oac-orb oac-orb--2" aria-hidden="true"></span>
-      <svg class="oac-lines" viewBox="0 0 1280 900" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-        <path d="M120 160 C 380 60, 620 260, 900 140 S 1300 220, 1420 120" stroke="url(#oacLine1)" stroke-width="1.5"/>
-        <path d="M60 760 C 340 860, 640 660, 940 780 S 1260 700, 1400 800" stroke="url(#oacLine2)" stroke-width="1.5"/>
-        <defs>
-          <linearGradient id="oacLine1" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#4878FF" stop-opacity="0"/>
-            <stop offset=".5" stop-color="#4878FF" stop-opacity=".5"/>
-            <stop offset="1" stop-color="#975BFF" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="oacLine2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#975BFF" stop-opacity="0"/>
-            <stop offset=".5" stop-color="#22B8CF" stop-opacity=".45"/>
-            <stop offset="1" stop-color="#4878FF" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <div class="oac-bg-atmosphere" aria-hidden="true">
+        <div class="oac-blob oac-blob--violet"></div>
+        <div class="oac-blob oac-blob--cyan"></div>
+        <div class="oac-blob oac-blob--rose"></div>
+        <div class="oac-blob oac-blob--emerald"></div>
+        <svg class="oac-bg-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="oac-wave-path oac-wave-path--1" d="M -100 220 C 250 100, 500 500, 850 340 C 1200 180, 1350 560, 1580 420" stroke="url(#oacStreamGrad1)" stroke-width="64" stroke-linecap="round"/>
+          <path class="oac-wave-path oac-wave-path--2" d="M -120 720 C 280 860, 600 440, 950 700 C 1250 920, 1400 620, 1600 770" stroke="url(#oacStreamGrad2)" stroke-width="48" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="oacStreamGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.65"/>
+              <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#EC4899" stop-opacity="0.65"/>
+            </linearGradient>
+            <linearGradient id="oacStreamGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#34D399" stop-opacity="0.55"/>
+              <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.55"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
       <div class="container">
         <div class="oac-head reveal">
@@ -818,7 +819,13 @@
          scrolls (native vanilla port of the "scroll stack" effect —
          see the SCROLL STACK block in home.js for the scroll math).
          ============================================================ -->
-    <section class="section section--base" id="industries-teaser">
+    <section class="section section--base ind-aurora-section" id="industries-teaser">
+      <div class="ind-aurora-mesh" aria-hidden="true">
+        <div class="ind-aurora-blob ind-aurora-blob--violet"></div>
+        <div class="ind-aurora-blob ind-aurora-blob--emerald"></div>
+        <div class="ind-aurora-blob ind-aurora-blob--amber"></div>
+        <div class="ind-aurora-blob ind-aurora-blob--rose"></div>
+      </div>
       <div class="container">
         <div class="section-head reveal">
           <p class="kicker">Built for your business</p>
@@ -989,7 +996,28 @@
              (conversation list + open thread), reused via agents.css
              which this page already loads
          ============================================================ -->
-    <section class="section section--raised" id="inbox-teaser">
+    <section class="section inbox-section-wrap" id="inbox-teaser">
+      <div class="inbox-bg-live" aria-hidden="true">
+        <div class="inbox-blob-live inbox-blob-live--violet"></div>
+        <div class="inbox-blob-live inbox-blob-live--coral"></div>
+        <div class="inbox-blob-live inbox-blob-live--emerald"></div>
+        <svg class="inbox-prism-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="inbox-wave-path inbox-wave-path--1" d="M -100 280 C 280 140, 560 520, 920 340 C 1240 180, 1380 560, 1600 420" stroke="url(#inboxGrad1)" stroke-width="52" stroke-linecap="round"/>
+          <path class="inbox-wave-path inbox-wave-path--2" d="M -120 720 C 240 860, 580 440, 960 700 C 1260 920, 1400 620, 1620 780" stroke="url(#inboxGrad2)" stroke-width="40" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="inboxGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.55"/>
+              <stop offset="50%" stop-color="#EC4899" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.55"/>
+            </linearGradient>
+            <linearGradient id="inboxGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.5"/>
+              <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.5"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
       <div class="container">
 
         <div class="demo-shell">
@@ -1251,14 +1279,27 @@
     <!-- ============================================================
          10. WORKFLOWS — it runs on its own
          ============================================================ -->
-    <section class="section section--dark" id="workflows-teaser">
-      <div class="wf-atmosphere" aria-hidden="true">
-        <span class="wf-blob wf-blob-1"></span>
-        <span class="wf-blob wf-blob-2"></span>
-        <span class="wf-blob wf-blob-3"></span>
-        <span class="wf-blob wf-blob-4"></span>
-        <span class="wf-blob wf-blob-5"></span>
-        <span class="wf-blob wf-blob-6"></span>
+    <section class="section section--dark wf-section-wrap" id="workflows-teaser">
+      <div class="wf-bg-live" aria-hidden="true">
+        <div class="wf-blob-live wf-blob-live--emerald"></div>
+        <div class="wf-blob-live wf-blob-live--cyan"></div>
+        <div class="wf-blob-live wf-blob-live--purple"></div>
+        <svg class="wf-network-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="wf-flow-path wf-flow-path--1" d="M -120 250 C 260 120, 520 540, 880 360 C 1220 200, 1360 580, 1600 440" stroke="url(#wfStreamGrad1)" stroke-width="56" stroke-linecap="round"/>
+          <path class="wf-flow-path wf-flow-path--2" d="M -100 700 C 280 850, 620 460, 960 700 C 1280 900, 1420 620, 1620 760" stroke="url(#wfStreamGrad2)" stroke-width="44" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="wfStreamGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.55"/>
+              <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.55"/>
+            </linearGradient>
+            <linearGradient id="wfStreamGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6366F1" stop-opacity="0.5"/>
+              <stop offset="50%" stop-color="#EC4899" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.5"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       <div class="container">
         <div class="wf-shell reveal">
@@ -1577,14 +1618,27 @@
     <!-- ============================================================
          10. ONBOARDING / HOW IT WORKS
          ============================================================ -->
-    <section class="section section--dark" id="how-it-works">
-      <div class="wf-atmosphere" aria-hidden="true">
-        <span class="wf-blob wf-blob-1"></span>
-        <span class="wf-blob wf-blob-2"></span>
-        <span class="wf-blob wf-blob-3"></span>
-        <span class="wf-blob wf-blob-4"></span>
-        <span class="wf-blob wf-blob-5"></span>
-        <span class="wf-blob wf-blob-6"></span>
+    <section class="section section--dark hiw-section-wrap" id="how-it-works">
+      <div class="hiw-bg-flow" aria-hidden="true">
+        <div class="hiw-blob hiw-blob--cyan"></div>
+        <div class="hiw-blob hiw-blob--indigo"></div>
+        <div class="hiw-blob hiw-blob--teal"></div>
+        <svg class="hiw-circuit-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="hiw-circuit-path hiw-circuit-path--1" d="M -100 180 C 300 60, 520 460, 920 300 C 1240 160, 1380 500, 1600 360" stroke="url(#hiwCircuitGrad1)" stroke-width="54" stroke-linecap="round"/>
+          <path class="hiw-circuit-path hiw-circuit-path--2" d="M -120 740 C 260 880, 580 480, 960 720 C 1260 900, 1420 640, 1620 800" stroke="url(#hiwCircuitGrad2)" stroke-width="42" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="hiwCircuitGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.55"/>
+              <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#6366F1" stop-opacity="0.55"/>
+            </linearGradient>
+            <linearGradient id="hiwCircuitGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.45"/>
+              <stop offset="50%" stop-color="#0EA5E9" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.45"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       <div class="container">
         <div class="feat2-shell reveal" id="hiwDevice">
@@ -1667,14 +1721,27 @@
          11. ANALYTICS &amp; INSIGHTS — reuses the .analytics-dash
             component built for agents.html / analytics.html
          ============================================================ -->
-    <section class="section section--base" id="analytics-teaser">
-      <div class="wf-atmosphere" aria-hidden="true">
-        <span class="wf-blob wf-blob-1"></span>
-        <span class="wf-blob wf-blob-2"></span>
-        <span class="wf-blob wf-blob-3"></span>
-        <span class="wf-blob wf-blob-4"></span>
-        <span class="wf-blob wf-blob-5"></span>
-        <span class="wf-blob wf-blob-6"></span>
+    <section class="section analytics-section-wrap" id="analytics-teaser">
+      <div class="analytics-bg-live" aria-hidden="true">
+        <div class="analytics-blob-live analytics-blob-live--purple"></div>
+        <div class="analytics-blob-live analytics-blob-live--magenta"></div>
+        <div class="analytics-blob-live analytics-blob-live--amber"></div>
+        <svg class="analytics-data-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="analytics-wave-path analytics-wave-path--1" d="M -100 240 C 260 100, 520 480, 880 320 C 1220 160, 1380 540, 1600 380" stroke="url(#analyticsGrad1)" stroke-width="58" stroke-linecap="round"/>
+          <path class="analytics-wave-path analytics-wave-path--2" d="M -120 700 C 280 860, 600 440, 960 680 C 1260 900, 1420 620, 1620 760" stroke="url(#analyticsGrad2)" stroke-width="44" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="analyticsGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.6"/>
+              <stop offset="50%" stop-color="#EC4899" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.6"/>
+            </linearGradient>
+            <linearGradient id="analyticsGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.5"/>
+              <stop offset="50%" stop-color="#A855F7" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.5"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       <div class="container">
         <div class="demo-shell" style="align-items:start">
@@ -1719,9 +1786,32 @@
          on hover. Pure CSS — the old horizontal version needed a rAF
          loop for its scale-on-position effect, this doesn't.
          ============================================================ -->
-    <section class="section section--base sp4-section" id="impact-testimonials">
-      <span class="sp4-orb sp4-orb--1" aria-hidden="true"></span>
-      <span class="sp4-orb sp4-orb--2" aria-hidden="true"></span>
+    <section class="section sp4-section" id="impact-testimonials">
+      <div class="sp4-bg-flow" aria-hidden="true">
+        <svg class="sp4-ribbon sp4-ribbon--1" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M -80 720 C 180 850, 220 200, 540 260 C 840 320, 700 800, 1040 600 C 1280 440, 1340 140, 1560 280" stroke="url(#orangeGrad1)" stroke-width="68" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="orangeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF5722"/>
+              <stop offset="45%" stop-color="#FF7A3D"/>
+              <stop offset="80%" stop-color="#FF954D"/>
+              <stop offset="100%" stop-color="#FFA86E"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <svg class="sp4-ribbon sp4-ribbon--2" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M -100 240 C 160 100, 300 660, 660 540 C 1020 420, 1160 840, 1400 660 C 1520 580, 1560 380, 1600 360" stroke="url(#orangeGrad2)" stroke-width="52" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="orangeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFA066" stop-opacity="0.85"/>
+              <stop offset="50%" stop-color="#FF6B35" stop-opacity="0.65"/>
+              <stop offset="100%" stop-color="#FF8A3D" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="sp4-orange-glow sp4-orange-glow--1"></div>
+        <div class="sp4-orange-glow sp4-orange-glow--2"></div>
+      </div>
       <div class="container">
         <div class="section-head center reveal">
           <p class="kicker">Wall of Love</p>
@@ -2191,70 +2281,156 @@
 
   </main>
 
-  <footer class="footer footer--5">
-    <div class="footer-5-card reveal">
-      <span class="footer-blob footer-blob--1" aria-hidden="true"></span>
-      <span class="footer-blob footer-blob--2" aria-hidden="true"></span>
-      <span class="footer-blob footer-blob--3" aria-hidden="true"></span>
-
-      <div class="container footer-inner footer-inner--5col">
-        <div class="footer-brand">
+  <footer class="footer footer--9" id="siteFooter">
+    <div class="footer-bg-atmosphere" aria-hidden="true">
+      <div class="footer-blob footer-blob--indigo"></div>
+      <div class="footer-blob footer-blob--violet"></div>
+      <div class="footer-blob footer-blob--cyan"></div>
+      <div class="footer-blob footer-blob--rose"></div>
+      <svg class="footer-bg-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+        <path class="footer-wave-path footer-wave-path--1" d="M -100 200 C 300 80, 560 480, 920 300 C 1240 160, 1380 520, 1600 380" stroke="url(#footerWaveGrad1)" stroke-width="50" stroke-linecap="round"/>
+        <path class="footer-wave-path footer-wave-path--2" d="M -120 720 C 260 860, 600 440, 960 700 C 1260 900, 1400 620, 1620 760" stroke="url(#footerWaveGrad2)" stroke-width="38" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="footerWaveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+            <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#EC4899" stop-opacity="0.35"/>
+          </linearGradient>
+          <linearGradient id="footerWaveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+            <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#6366F1" stop-opacity="0.3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="footer-9-container container">
+      <!-- Top Row: Brand & Newsletter Card -->
+      <div class="footer-9-top">
+        <div class="footer-9-brand-box">
           <a href="index.html#top" class="nav-logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="44" height="30">
             <span>StepsAI</span>
           </a>
-          <p class="footer-tagline">Your AI agent layer for every business.</p>
+          <p class="footer-9-tagline">The complete AI agent platform for modern businesses. Instant sales, 24/7 customer support, and autonomous follow-ups across every customer channel.</p>
+          <div class="footer-9-status-pill">
+            <span class="footer-9-status-dot" aria-hidden="true"></span>
+            <span>All Systems Operational</span>
+          </div>
         </div>
-        <div class="footer-cols footer-cols--5 reveal reveal-stagger">
-          <div class="footer-col" style="--i:0">
-            <span class="footer-col-title">Product</span>
-            <a href="agents.html">AI Agents</a>
-            <a href="agents.html">All features</a>
-            <a href="agents.html">Integrations</a>
-            <a href="pricing.html">Pricing</a>
+
+        <!-- Newsletter Subscription Card -->
+        <div class="footer-9-newsletter-card">
+          <div class="footer-9-nl-head">
+            <span class="footer-capsule-badge footer-capsule-badge--accent">Newsletter</span>
+            <h3 class="footer-9-nl-title">Stay in the loop</h3>
+            <p class="footer-9-nl-desc">Get monthly product drops, AI conversion playbooks, and industry benchmarks.</p>
           </div>
-          <div class="footer-col" style="--i:1">
-            <span class="footer-col-title">Solutions</span>
-            <a href="industry-ecommerce.html">E-Commerce &amp; D2C</a>
-            <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
-            <a href="industry-real-estate.html">Real Estate</a>
-            <a href="industry-edtech.html">Education &amp; Training</a>
-            <a href="industries.html">All industries</a>
-          </div>
-          <div class="footer-col" style="--i:2">
-            <span class="footer-col-title">Channels</span>
-            <a href="agents.html#channels">Website</a>
-            <a href="agents.html#channels">WhatsApp</a>
-            <a href="agents.html#channels">Instagram</a>
-            <a href="agents.html#channels">Standalone Page</a>
-          </div>
-          <div class="footer-col" style="--i:3">
-            <span class="footer-col-title">Company</span>
-            <a href="about.html">About</a>
-            <a href="founders-note.html">Founder&#39;s Note</a>
-            <a href="career.html">Careers</a>
-            <a href="contact.html">Contact</a>
-          </div>
-          <div class="footer-col" style="--i:4">
-            <span class="footer-col-title">Resources</span>
-            <a href="blog.html">Blog</a>
-            <a href="index.html#top">AI Guides</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="partner.html">Partner Program</a>
-          </div>
+          <form class="footer-9-nl-form" onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='<span>Subscribed!</span>'; this.querySelector('button').style.background='#10B981';">
+            <div class="footer-9-input-wrap">
+              <input type="email" placeholder="Enter your work email" required class="footer-9-input" aria-label="Email address">
+              <button type="submit" class="btn btn-accent footer-9-submit-btn">
+                <span>Subscribe</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </form>
+          <span class="footer-9-nl-note">No spam. Unsubscribe anytime in one click.</span>
         </div>
       </div>
-      <div class="container footer-bottom">
-        <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>System status: Operational</span>
-        <span>&copy; 2026 StepsAI. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
-          <a href="index.html#top" aria-label="StepsAI on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+
+      <!-- Middle: Maximal Sitemap with Capsule Column Labels -->
+      <div class="footer-9-sitemap">
+        <div class="footer-9-col">
+          <span class="footer-capsule-badge">Product</span>
+          <a href="agents.html">AI Agents</a>
+          <a href="workflows.html">Workflows</a>
+          <a href="one-inbox.html">One Inbox</a>
+          <a href="analytics.html">Analytics &amp; Insights</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="pricing.html">Pricing Plans</a>
         </div>
-        <div class="footer-legal">
-          <a href="index.html#top">Privacy</a>
-          <a href="index.html#top">Terms</a>
+
+        <div class="footer-9-col">
+          <span class="footer-capsule-badge">Solutions</span>
+          <a href="industry-ecommerce.html">E-Commerce &amp; D2C</a>
+          <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
+          <a href="industry-real-estate.html">Real Estate</a>
+          <a href="industry-edtech.html">Education &amp; EdTech</a>
+          <a href="industry-hotels.html">Travel &amp; Hospitality</a>
+          <a href="industries.html">All 12 Industries</a>
+        </div>
+
+        <div class="footer-9-col">
+          <span class="footer-capsule-badge">Roles</span>
+          <a href="role-growth.html">Growth &amp; Founders</a>
+          <a href="role-marketing.html">Marketing Teams</a>
+          <a href="role-sales.html">Sales Pipeline</a>
+          <a href="role-support.html">Customer Support</a>
+          <a href="role-appointments.html">Appointment Booking</a>
+          <a href="solutions.html">All Solutions</a>
+        </div>
+
+        <div class="footer-9-col">
+          <span class="footer-capsule-badge">Channels</span>
+          <a href="channel-website.html">Website Agent</a>
+          <a href="channel-whatsapp.html">WhatsApp AI</a>
+          <a href="channel-instagram.html">Instagram DMs</a>
+          <a href="channel-standalone.html">Standalone Landing</a>
+          <a href="agents.html#channels">All Channels</a>
+        </div>
+
+        <div class="footer-9-col">
+          <span class="footer-capsule-badge">Resources</span>
+          <a href="blog.html">Blog &amp; Updates</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="partner.html">Partner Program</a>
+          <a href="founders-note.html">Founder's Note</a>
+          <a href="about.html">About Company</a>
+          <a href="contact.html">Contact Sales</a>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Social Strip & Legal -->
+      <div class="footer-9-bottom">
+        <div class="footer-9-legal-wrap">
+          <span>&copy; 2026 StepsAI, Inc. All rights reserved.</span>
+          <div class="footer-9-legal-links">
+            <a href="index.html#top">Privacy Policy</a>
+            <span class="footer-9-divider">&middot;</span>
+            <a href="index.html#top">Terms of Service</a>
+            <span class="footer-9-divider">&middot;</span>
+            <a href="index.html#top">Security</a>
+          </div>
+        </div>
+
+        <div class="footer-9-social-strip">
+          <a href="index.html#top" class="footer-9-social-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a href="index.html#top" class="footer-9-social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="index.html#top" class="footer-9-social-link" aria-label="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4L20 20M20 4L4 20" stroke-linecap="round"/></svg>
+          </a>
+          <a href="index.html#top" class="footer-9-social-link" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Massive Edge-to-Edge Animated Brand Wordmark -->
+      <div class="footer-9-wordmark-wrap">
+        <div class="footer-wordmark-aura" aria-hidden="true"></div>
+        <div class="footer-9-wordmark" aria-label="STEPSAI">
+          <span class="wm-letter" style="--i:0">S</span>
+          <span class="wm-letter" style="--i:1">T</span>
+          <span class="wm-letter" style="--i:2">E</span>
+          <span class="wm-letter" style="--i:3">P</span>
+          <span class="wm-letter" style="--i:4">S</span>
+          <span class="wm-letter" style="--i:5">A</span>
+          <span class="wm-letter" style="--i:6">I</span>
         </div>
       </div>
     </div>

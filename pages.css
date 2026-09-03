@@ -37,8 +37,9 @@
 
 /* ---------- Feature / role grid ---------- */
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 8px; }
-.feature-card { padding: 26px; border-radius: var(--radius); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
-.feature-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.feature-card { padding: 26px; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); transition: transform 260ms var(--ease), box-shadow 260ms var(--ease), border-color 260ms var(--ease); }
+.feature-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
+.feature-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-tint); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--accent); }
 .feature-card-title { font-size: 16px; font-weight: 650; color: var(--text-primary); }
 .feature-card-desc { margin-top: 8px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 .feature-card-list { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
@@ -62,8 +63,8 @@
    visitor rather than about the product. ---------- */
 .quoted-questions { margin-top: 8px; }
 .quoted-questions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
-.quoted-question-card { padding: 26px; border-radius: var(--radius); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
-.quoted-question-mark { font-size: 34px; line-height: 1; color: var(--accent-tint); margin-bottom: 6px; }
+.quoted-question-card { padding: 26px; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); }
+.quoted-question-mark { font-size: 34px; line-height: 1; color: var(--accent); opacity: 0.35; margin-bottom: 6px; font-family: Georgia, serif; }
 .quoted-question-text { font-size: 17px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
 .quoted-question-source { margin-top: 12px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .1em; }
 

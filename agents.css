@@ -9,13 +9,13 @@
 .agents-bento { display: grid; grid-template-columns: 1.15fr .85fr .85fr; grid-template-rows: auto auto; gap: 16px; margin-top: 48px; }
 @media (max-width: 900px) { .agents-bento { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .agents-bento { grid-template-columns: 1fr; } }
-.agent-card { position: relative; overflow: hidden; background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; transition: border-color 280ms var(--ease), transform 380ms cubic-bezier(.22,1,.36,1), box-shadow 380ms var(--ease); }
-.agent-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 420ms cubic-bezier(.22,1,.36,1); }
-.agent-card:hover { border-color: transparent; transform: translateY(-5px); box-shadow: 0 28px 52px -28px rgba(18,20,27,.26); }
+.agent-card { position: relative; overflow: hidden; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: border-color 280ms var(--ease), transform 380ms cubic-bezier(.22,1,.36,1), box-shadow 380ms var(--ease); }
+.agent-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-brand); transform: scaleX(0); transform-origin: left; transition: transform 420ms cubic-bezier(.22,1,.36,1); }
+.agent-card:hover { border-color: transparent; transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 .agent-card:hover::before { transform: scaleX(1); }
-.agent-card:hover .agent-card-icon { background: var(--accent); transform: scale(1.08) rotate(-6deg); }
+.agent-card:hover .agent-card-icon { background: var(--gradient-brand); transform: scale(1.08) rotate(-6deg); box-shadow: 0 8px 16px -4px rgba(37,99,235,0.3); }
 .agent-card:hover .agent-card-icon svg { color: #fff; }
-.agent-card-icon { transition: background-color 280ms var(--ease), transform 420ms cubic-bezier(.34,1.56,.64,1); }
+.agent-card-icon { transition: background-color 280ms var(--ease), transform 420ms cubic-bezier(.34,1.56,.64,1), box-shadow 280ms var(--ease); }
 .agent-card-icon svg { transition: color 280ms var(--ease); }
 @media (prefers-reduced-motion: reduce) { .agent-card, .agent-card::before, .agent-card-icon { transition: none; } }
 .agent-card.lg { grid-row: span 2; }
