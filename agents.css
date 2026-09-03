@@ -320,6 +320,12 @@
 .inbox-dash-tag.resolved { background: rgba(34,197,94,.18); color: #6ee7a0; }
 
 .inbox-dash-thread { display: flex; flex-direction: column; min-width: 0; }
+/* One panel per conversation row, swapped in step with it (see
+   inboxDashInit in home.js on index.html's teaser) — full component
+   still works unwired on agents.html since the first panel is
+   .is-active by default, same as .wf-state/.hiw-screen elsewhere. */
+.inbox-dash-thread-panel { display: none; flex-direction: column; min-width: 0; }
+.inbox-dash-thread-panel.is-active { display: flex; animation: fadeSlide 420ms var(--ease); }
 .inbox-dash-thread-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--ibx-border); }
 .inbox-dash-thread-who { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 650; }
 .inbox-dash-thread-chan { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 550; color: var(--ibx-sub); }

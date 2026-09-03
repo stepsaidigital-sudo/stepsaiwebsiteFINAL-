@@ -269,6 +269,51 @@
   })();
 
   /* ---------------------------------------------------------
+     ONE INBOX TEASER — auto-cycles through the 4 conversation rows
+     (Web/Lead, Instagram/Product Inquiry, WhatsApp/Resolved,
+     Web/Order Support), swapping the open thread on the right to
+     match — same click-to-jump + auto-advance + play-on-scroll
+     pattern as the "How it works" device above.
+     --------------------------------------------------------- */
+  (function inboxDashInit() {
+    var dash = document.querySelector('#inbox-teaser .inbox-dash');
+    if (!dash) return;
+    var rows = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-row'));
+    var panels = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-thread-panel'));
+    if (!rows.length || !panels.length) return;
+
+    var DWELL = 4200;
+    var current = 0;
+    var timer = null;
+
+    function show(i) {
+      current = (i + rows.length) % rows.length;
+      rows.forEach(function (r, idx) { r.classList.toggle('is-active', idx === current); });
+      panels.forEach(function (p, idx) { p.classList.toggle('is-active', idx === current); });
+    }
+    function start() {
+      stop();
+      if (reduceMotion) return;
+      timer = setInterval(function () { show(current + 1); }, DWELL);
+    }
+    function stop() { if (timer) clearInterval(timer); }
+
+    rows.forEach(function (row, idx) {
+      row.addEventListener('click', function () { show(idx); start(); });
+    });
+
+    show(0);
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { entry.isIntersecting ? start() : stop(); });
+      }, { threshold: 0.4 });
+      obs.observe(dash);
+    } else if (!reduceMotion) {
+      start();
+    }
+  })();
+
+  /* ---------------------------------------------------------
      INTERACTIVE WORKFLOWS
      --------------------------------------------------------- */
   (function interactiveWorkflowsInit() {
