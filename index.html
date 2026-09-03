@@ -1185,20 +1185,30 @@
          10. WORKFLOWS — it runs on its own
          ============================================================ -->
     <section class="section section--dark" id="workflows-teaser">
+      <div class="wf-atmosphere" aria-hidden="true">
+        <span class="wf-blob wf-blob-1"></span>
+        <span class="wf-blob wf-blob-2"></span>
+        <span class="wf-blob wf-blob-3"></span>
+        <span class="wf-blob wf-blob-4"></span>
+        <span class="wf-blob wf-blob-5"></span>
+        <span class="wf-blob wf-blob-6"></span>
+      </div>
       <div class="container">
-        <div class="section-head center reveal">
-          <p class="kicker">Runs on its own</p>
-          <h2 class="section-title">It doesn't just answer. It follows through.</h2>
-          <p class="section-sub">A cart gets abandoned at 2am. Nobody's awake to notice — the workflow already is.</p>
-        </div>
-
-        <div class="reveal">
-          <div class="wf-tabs-row" id="wfTabs" role="tablist">
-            <button class="wf-tab-h is-active" data-wf-target="cart" role="tab" aria-selected="true" type="button">Cart Recovery</button>
-            <button class="wf-tab-h" data-wf-target="lead" role="tab" aria-selected="false" type="button">Lead Routing</button>
-            <button class="wf-tab-h" data-wf-target="booking" role="tab" aria-selected="false" type="button">Appointment Booking</button>
+        <div class="wf-shell reveal">
+          <div class="section-head">
+            <p class="kicker">Runs on its own</p>
+            <h2 class="section-title">It doesn't just answer. It follows through.</h2>
+            <p class="section-sub">A cart gets abandoned at 2am. Nobody's awake to notice — the workflow already is.</p>
           </div>
-          
+
+          <div class="wf-tabs-row" id="wfTabs" role="tablist">
+            <button class="wf-tab-h is-active" data-wf-target="cart" data-accent-a="#2563EB" data-accent-b="#8B5CF6" role="tab" aria-selected="true" type="button">Cart Recovery</button>
+            <button class="wf-tab-h" data-wf-target="lead" data-accent-a="#8B5CF6" data-accent-b="#EC4899" role="tab" aria-selected="false" type="button">Lead Routing</button>
+            <button class="wf-tab-h" data-wf-target="booking" data-accent-a="#F9A883" data-accent-b="#EC4899" role="tab" aria-selected="false" type="button">Appointment Booking</button>
+          </div>
+
+          <div class="wf-visual-glow" aria-hidden="true"></div>
+
           <div class="wf-display-area" id="wfDisplayArea">
             
             <!-- VIEW 1: CART RECOVERY -->
@@ -1495,11 +1505,110 @@
       </div>
     </section>
 
+
+
+    <!-- ============================================================
+         10. ONBOARDING / HOW IT WORKS
+         ============================================================ -->
+    <section class="section section--dark" id="how-it-works">
+      <div class="wf-atmosphere" aria-hidden="true">
+        <span class="wf-blob wf-blob-1"></span>
+        <span class="wf-blob wf-blob-2"></span>
+        <span class="wf-blob wf-blob-3"></span>
+        <span class="wf-blob wf-blob-4"></span>
+        <span class="wf-blob wf-blob-5"></span>
+        <span class="wf-blob wf-blob-6"></span>
+      </div>
+      <div class="container">
+        <div class="feat2-shell reveal" id="hiwDevice">
+          <div class="feat2-copy">
+            <div class="section-head">
+              <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg>How it works</p>
+              <h2 class="section-title">Live in under an hour.</h2>
+              <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
+            </div>
+            <div class="feat2-list" id="hiwList" role="tablist">
+              <button class="feat2-item is-active" data-hiw-i="0" role="tab" aria-selected="true" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
+                <span class="feat2-item-label">Connect your knowledge</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="1" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>
+                <span class="feat2-item-label">Set your identity</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="2" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                <span class="feat2-item-label">Deploy everywhere</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="wf-visual-glow" aria-hidden="true"></div>
+
+          <div class="feat2-visual">
+            <div class="feat2-photo is-active" style="background-image:url('images/brand-01.jpg')" data-hiw-photo="0"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-02.jpg')" data-hiw-photo="1"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-03.jpg')" data-hiw-photo="2"></div>
+
+            <div class="feat2-glass">
+              <div class="hiw-screens" id="hiwScreens">
+                <!-- Screen 1: Connect Knowledge -->
+                <div class="hiw-screen active" data-step="1">
+                  <h3>Connect your knowledge</h3>
+                  <p class="hiw-sub">Paste your URL. We read every page and PDF.</p>
+                  <div class="hiw-field-label">Website URL</div>
+                  <div class="hiw-input">
+                    <span style="opacity:.5">https://</span><span id="hiwUrlText"></span><span class="cursor" style="animation: blink 1s step-end infinite;">|</span>
+                  </div>
+                  <div class="hiw-status" id="hiwSyncStatus" style="opacity:0; transform:translateY(10px); transition: all .4s;">
+                    <div class="hiw-spinner"></div>
+                    <span>Syncing 42 pages...</span>
+                  </div>
+                </div>
+
+                <!-- Screen 2: Brand Identity -->
+                <div class="hiw-screen" data-step="2">
+                  <h3>Set your identity</h3>
+                  <p class="hiw-sub">Give it a name and a tone of voice.</p>
+                  <div class="hiw-field-label">Agent Name</div>
+                  <div class="hiw-input">Sarah</div>
+                  <div class="hiw-chip-row">
+                    <span class="hiw-chip on">Professional</span>
+                    <span class="hiw-chip">Friendly</span>
+                    <span class="hiw-chip">Direct</span>
+                    <span class="hiw-chip">Playful</span>
+                  </div>
+                </div>
+
+                <!-- Screen 3: Deploy -->
+                <div class="hiw-screen" data-step="3">
+                  <h3>Deploy everywhere</h3>
+                  <p class="hiw-sub">One click to go live on your favorite channels.</p>
+                  <div class="hiw-channel-grid" id="hiwChannelGrid">
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg><span>Web</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>WhatsApp</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ============================================================
          11. ANALYTICS &amp; INSIGHTS — reuses the .analytics-dash
             component built for agents.html / analytics.html
          ============================================================ -->
     <section class="section section--base" id="analytics-teaser">
+      <div class="wf-atmosphere" aria-hidden="true">
+        <span class="wf-blob wf-blob-1"></span>
+        <span class="wf-blob wf-blob-2"></span>
+        <span class="wf-blob wf-blob-3"></span>
+        <span class="wf-blob wf-blob-4"></span>
+        <span class="wf-blob wf-blob-5"></span>
+        <span class="wf-blob wf-blob-6"></span>
+      </div>
       <div class="container">
         <div class="demo-shell" style="align-items:start">
           <div class="demo-copy reveal">
@@ -1715,87 +1824,6 @@
 
       </div>
     </section>
-
-    <!-- ============================================================
-         10. ONBOARDING / HOW IT WORKS
-         ============================================================ -->
-    <section class="section section--dark" id="how-it-works">
-      <div class="container">
-        <div class="section-head center reveal">
-          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg>How it works</p>
-          <h2 class="section-title">Live in under an hour.</h2>
-          <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
-        </div>
-
-        <div class="feat2-shell reveal" id="hiwDevice">
-          <div class="feat2-copy">
-            <div class="feat2-list" id="hiwList" role="tablist">
-              <button class="feat2-item is-active" data-hiw-i="0" role="tab" aria-selected="true" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
-                <span class="feat2-item-label">Connect your knowledge</span>
-              </button>
-              <button class="feat2-item" data-hiw-i="1" role="tab" aria-selected="false" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>
-                <span class="feat2-item-label">Set your identity</span>
-              </button>
-              <button class="feat2-item" data-hiw-i="2" role="tab" aria-selected="false" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
-                <span class="feat2-item-label">Deploy everywhere</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="feat2-visual">
-            <div class="feat2-photo is-active" style="background-image:url('images/brand-01.jpg')" data-hiw-photo="0"></div>
-            <div class="feat2-photo" style="background-image:url('images/brand-02.jpg')" data-hiw-photo="1"></div>
-            <div class="feat2-photo" style="background-image:url('images/brand-03.jpg')" data-hiw-photo="2"></div>
-
-            <div class="feat2-glass">
-              <div class="hiw-screens" id="hiwScreens">
-                <!-- Screen 1: Connect Knowledge -->
-                <div class="hiw-screen active" data-step="1">
-                  <h3>Connect your knowledge</h3>
-                  <p class="hiw-sub">Paste your URL. We read every page and PDF.</p>
-                  <div class="hiw-field-label">Website URL</div>
-                  <div class="hiw-input">
-                    <span style="opacity:.5">https://</span><span id="hiwUrlText"></span><span class="cursor" style="animation: blink 1s step-end infinite;">|</span>
-                  </div>
-                  <div class="hiw-status" id="hiwSyncStatus" style="opacity:0; transform:translateY(10px); transition: all .4s;">
-                    <div class="hiw-spinner"></div>
-                    <span>Syncing 42 pages...</span>
-                  </div>
-                </div>
-
-                <!-- Screen 2: Brand Identity -->
-                <div class="hiw-screen" data-step="2">
-                  <h3>Set your identity</h3>
-                  <p class="hiw-sub">Give it a name and a tone of voice.</p>
-                  <div class="hiw-field-label">Agent Name</div>
-                  <div class="hiw-input">Sarah</div>
-                  <div class="hiw-chip-row">
-                    <span class="hiw-chip on">Professional</span>
-                    <span class="hiw-chip">Friendly</span>
-                    <span class="hiw-chip">Direct</span>
-                    <span class="hiw-chip">Playful</span>
-                  </div>
-                </div>
-
-                <!-- Screen 3: Deploy -->
-                <div class="hiw-screen" data-step="3">
-                  <h3>Deploy everywhere</h3>
-                  <p class="hiw-sub">One click to go live on your favorite channels.</p>
-                  <div class="hiw-channel-grid" id="hiwChannelGrid">
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg><span>Web</span></div>
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>WhatsApp</span></div>
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- DISABLED — not in the approved homepage section list; kept intact below so it can be restored, not deleted. -->
     <template data-disabled-section="KNOWLEDGE">
     <!-- ============================================================
@@ -1920,6 +1948,12 @@
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal">
         <div class="final-cta-card">
+          <div class="final-cta-atmosphere" aria-hidden="true">
+            <span class="final-cta-blob final-cta-blob-1"></span>
+            <span class="final-cta-blob final-cta-blob-2"></span>
+            <span class="final-cta-blob final-cta-blob-3"></span>
+            <span class="final-cta-blob final-cta-blob-4"></span>
+          </div>
           <div class="final-cta-card-text">
             <div class="final-cta-card-copy">
               <h2 class="final-cta-headline">Your next customer is already typing.</h2>
@@ -1933,6 +1967,9 @@
           </div>
 
           <div class="final-cta-card-visual" aria-hidden="true">
+            <div class="final-cta-stack">
+              <div class="final-cta-stack-layer final-cta-stack-layer-2"></div>
+              <div class="final-cta-stack-layer final-cta-stack-layer-1"></div>
             <div class="mockup-widget-dark final-cta-widget">
               <div class="mwd-head">
                 <div class="mwd-head-left">
@@ -1969,13 +2006,22 @@
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
 
         <div class="final-cta-ticker" aria-hidden="true">
           <div class="final-cta-ticker-track">
-            <span>CART UPDATED</span><span>·</span><span>MEETING BOOKED</span><span>·</span><span>LEAD CREATED</span><span>·</span><span>ORDER TRACKED</span><span>·</span><span>TICKET RESOLVED</span><span>·</span>
-            <span>CART UPDATED</span><span>·</span><span>MEETING BOOKED</span><span>·</span><span>LEAD CREATED</span><span>·</span><span>ORDER TRACKED</span><span>·</span><span>TICKET RESOLVED</span><span>·</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Cart updated</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Meeting booked</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Lead created</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Order tracked</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Ticket resolved</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Cart updated</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Meeting booked</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Lead created</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Order tracked</span>
+            <span class="final-cta-tag"><i class="final-cta-tag-dot"></i>Ticket resolved</span>
           </div>
         </div>
       </div>

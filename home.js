@@ -342,6 +342,21 @@
         tab.setAttribute('aria-selected', 'true');
         var view = document.getElementById('wf-' + targetId);
         if (view) { view.classList.add('is-active'); if (running) playView(view); }
+
+        /* Purely cosmetic: hands the active workflow's two accent colors
+           to the section as CSS custom properties (--wf-accent-a/-b,
+           registered with @property so the browser tweens them), which
+           drive the active tab's glow ring, the active step icon's
+           shadow, and the ambient light behind the flow player. Doesn't
+           touch the flow player above — a new workflow just needs
+           data-accent-a/-b on its tab, no code changes here. */
+        var sectionEl = tab.closest('#workflows-teaser');
+        var accentA = tab.getAttribute('data-accent-a');
+        var accentB = tab.getAttribute('data-accent-b');
+        if (sectionEl && accentA && accentB) {
+          sectionEl.style.setProperty('--wf-accent-a', accentA);
+          sectionEl.style.setProperty('--wf-accent-b', accentB);
+        }
       });
     });
 

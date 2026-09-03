@@ -184,6 +184,16 @@
 .demo-shell { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
 .demo-shell > * { min-width: 0; }
 @media (max-width: 980px) { .demo-shell { grid-template-columns: 1fr; gap: 40px; } }
+
+/* .reverse: same zigzag utility as .spread.reverse — flips the fr split
+   and pulls .demo-visual in front via order, so consecutive demo-shell
+   sections (One Inbox, then Analytics) alternate media-left/copy-right
+   instead of repeating the same side every time. Text stays first in
+   DOM/reading order; only the visual position changes, and only above
+   the mobile breakpoint where it stacks back to natural order anyway. */
+.demo-shell.reverse { grid-template-columns: 1.15fr .85fr; }
+.demo-shell.reverse .demo-visual { order: -1; }
+@media (max-width: 980px) { .demo-shell.reverse .demo-visual { order: 0; } }
 .demo-copy h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 630; letter-spacing: -.02em; line-height: 1.15; }
 .demo-copy p { font-size: 16px; color: var(--text-secondary); margin-top: 16px; line-height: 1.65; max-width: 44ch; }
 
@@ -385,6 +395,80 @@
 .feat2-glass-pane { display: none; }
 .feat2-glass-pane.is-active { display: block; animation: fadeSlide 420ms var(--ease); }
 
+/* ============================================================
+   HOW IT WORKS — re-themed to match "Runs on its own" (same
+   layout language, same atmosphere, same tokens). STRICT
+   CONSTRAINT: hiwDeviceInit() in home.js observes #hiwDevice
+   itself with IntersectionObserver and queries .feat2-item /
+   .feat2-photo / .hiw-screen as its descendants — so unlike
+   workflows-teaser, #hiwDevice (.feat2-shell) can NEVER become
+   display:contents (a contents box has no geometry, breaking the
+   observer) and its two children can't be split apart. Instead,
+   .section-head was physically moved (in the HTML) to be the
+   first child of .feat2-copy, stacked above .feat2-list — so it
+   naturally lands in the same left grid column as the list, beside
+   .feat2-visual, using .feat2-shell's own existing 2-col grid
+   completely unchanged. Nothing under .feat2-visual/.feat2-glass/
+   .hiw-screen* moved or changed — same reasoning as workflows-
+   teaser: it's a self-contained dark device frame independent of
+   the section behind it. ============================================================ */
+#how-it-works.section--dark {
+  position: relative; overflow: hidden;
+  background: #FAFAF8;
+}
+#how-it-works.section--dark .kicker { color: var(--text-tertiary); }
+#how-it-works.section--dark .kicker-icon { color: var(--accent); }
+#how-it-works.section--dark .section-title { color: #14213D; }
+#how-it-works.section--dark .section-sub { color: #74809A; }
+#how-it-works > .container { position: relative; z-index: 1; }
+#how-it-works .section-head { margin-bottom: 40px; }
+
+@media (min-width: 901px) {
+  /* Alternates with "Runs on its own" (text-left/visual-right) — this
+     section flips to visual-left/text-right, same zigzag idea as the
+     .demo-shell.reverse utility: swap the fr split AND the grid
+     column each piece sits in. Text stays first in DOM/reading order —
+     only the visual position and the fr weighting change. */
+  #how-it-works .feat2-shell { grid-template-columns: 1.15fr .85fr; gap: 72px; }
+  #how-it-works .feat2-copy { grid-column: 2; grid-row: 1; }
+  #how-it-works .feat2-list {
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 24px; padding: 10px 14px;
+    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    box-shadow: 0 24px 48px -32px rgba(15,23,42,.18);
+  }
+  #how-it-works .feat2-visual { position: relative; z-index: 1; grid-column: 1; grid-row: 1; }
+  #how-it-works .wf-visual-glow {
+    display: block; position: relative; z-index: 0;
+    grid-column: 1; grid-row: 1; pointer-events: none;
+  }
+  #how-it-works .wf-visual-glow::before {
+    content: ""; position: absolute; inset: -70px; border-radius: 40px; filter: blur(90px);
+    background:
+      radial-gradient(circle at 25% 20%, rgba(37,99,235,.20), transparent 55%),
+      radial-gradient(circle at 80% 75%, rgba(139,92,246,.18), transparent 55%),
+      radial-gradient(circle at 60% 10%, rgba(244,114,182,.12), transparent 55%);
+  }
+}
+#how-it-works .feat2-item:hover { background: rgba(15,23,42,.04); }
+#how-it-works .feat2-item.is-active { background: var(--bg-surface); box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+#how-it-works .feat2-item-icon { background: var(--bg-raised); color: #14213D; }
+#how-it-works .feat2-item.is-active .feat2-item-icon { background: #14213D; color: #fff; box-shadow: 0 8px 20px -8px rgba(37,99,235,.45); }
+#how-it-works .feat2-item-label { color: var(--text-tertiary); }
+#how-it-works .feat2-item.is-active .feat2-item-label { color: var(--text-primary); }
+
+/* ---------- ANALYTICS & INSIGHTS — same atmosphere as "Runs on its
+   own" / "How it works" (identical .wf-atmosphere/.wf-blob-* markup
+   and CSS, just reused here). Nothing else needed: this section was
+   already .section--base (light-theme tokens throughout, no
+   dark-on-light color flips required) and .pdash is a self-contained
+   dark dashboard replica with its own tokens, independent of the
+   section behind it — same reasoning as every other mockup on the
+   page. ---------- */
+#analytics-teaser.section--base { position: relative; overflow: hidden; background: #FAFAF8; }
+#analytics-teaser > .container { position: relative; z-index: 1; }
+
 /* ---------- HOW IT WORKS — self-playing device, now living
    inside the .feat2-glass card above ---------- */
 .hiw-screens { position: relative; background: rgba(15,17,23,.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; box-shadow: 0 24px 56px -24px rgba(0,0,0,.6); padding: 26px 24px; }
@@ -418,6 +502,130 @@
    / WhatsApp / Slack / calendar — unchanged, still their own designs)
    floating over it, cross-fading through the three swapped states as
    the flow advances. ---------- */
+
+/* ============================================================
+   RUNS ON ITS OWN — v2 redesign (layout + atmosphere + color system).
+   STRICT CONSTRAINT this whole block respects: the right-side flow
+   player (.wf-stage/.wf-state/.wf-mockup + the playView/showState
+   timers in home.js) is untouched — not one of its rules, classes, or
+   timings changes below. Everything here repositions/re-themes the
+   section AROUND it: a 2-col grid (left: head+tabs+steps, right: the
+   existing visual, unchanged) built with `display:contents` so no
+   markup nesting the flow player relies on moves; a soft animated
+   multi-layer atmosphere replacing the flat dark canvas; and a
+   scalable per-workflow accent driven by two data-attributes per tab
+   (data-accent-a/-b) instead of hardcoded Cart/Lead/Booking cases, so
+   new workflows need zero CSS/JS changes — just two colors on the
+   button. ============================================================ */
+
+/* ---- registered custom properties: lets the browser actually
+   interpolate the accent smoothly on tab switch (plain custom
+   properties don't animate — @property with a <color> syntax does). */
+@property --wf-accent-a { syntax: '<color>'; inherits: true; initial-value: #2563EB; }
+@property --wf-accent-b { syntax: '<color>'; inherits: true; initial-value: #8B5CF6; }
+
+#workflows-teaser.section--dark {
+  position: relative; overflow: hidden;
+  background: #FAFAF8;
+  --wf-accent-a: #2563EB; --wf-accent-b: #8B5CF6; /* Cart Recovery default */
+  transition: --wf-accent-a 900ms ease, --wf-accent-b 900ms ease;
+}
+#workflows-teaser.section--dark .kicker { color: var(--text-tertiary); }
+#workflows-teaser.section--dark .kicker .n,
+#workflows-teaser.section--dark .kicker-icon { color: var(--accent); }
+#workflows-teaser.section--dark .section-title { color: #14213D; }
+#workflows-teaser.section--dark .section-sub { color: #74809A; }
+
+/* ---- atmosphere: 6 oversized, heavily blurred washes drifting on
+   transform/opacity only (never filter/background), 25-45s cycles so
+   none sync up. Kept behind .container via z-index; the whole thing
+   is decorative (aria-hidden) and inert (pointer-events:none). ---- */
+#workflows-teaser > .container { position: relative; z-index: 1; }
+.wf-atmosphere { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.wf-blob { position: absolute; border-radius: 50%; filter: blur(110px); }
+.wf-blob-1 { width: 60%; height: 90%; top: -25%; left: -15%; background: radial-gradient(circle, rgba(251,241,219,.9), transparent 70%); animation: wfDrift1 29s ease-in-out infinite; }
+.wf-blob-2 { width: 55%; height: 80%; top: -30%; left: 20%; background: radial-gradient(circle, rgba(250,222,187,.7), transparent 70%); animation: wfDrift2 33s ease-in-out infinite; }
+.wf-blob-3 { width: 60%; height: 85%; top: 5%; left: 30%; background: radial-gradient(circle, rgba(247,209,224,.6), transparent 70%); animation: wfDrift3 37s ease-in-out infinite; }
+.wf-blob-4 { width: 55%; height: 90%; top: 10%; left: 45%; background: radial-gradient(circle, rgba(219,209,240,.55), transparent 70%); animation: wfDrift4 41s ease-in-out infinite; }
+.wf-blob-5 { width: 55%; height: 80%; bottom: -30%; right: -10%; background: radial-gradient(circle, rgba(196,225,246,.7), transparent 70%); animation: wfDrift5 45s ease-in-out infinite; }
+.wf-blob-6 { width: 45%; height: 70%; bottom: -20%; right: 5%; background: radial-gradient(circle, rgba(186,235,235,.5), transparent 70%); animation: wfDrift6 25s ease-in-out infinite; }
+@media (prefers-reduced-motion: no-preference) {
+  .wf-blob { will-change: transform, opacity; }
+  @keyframes wfDrift1 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .85; } 50% { transform: translate(4%, 3%) scale(1.05); opacity: 1; } }
+  @keyframes wfDrift2 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .7; } 50% { transform: translate(-3%, 4%) scale(1.04); opacity: .85; } }
+  @keyframes wfDrift3 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .65; } 50% { transform: translate(3%, -3%) scale(1.06); opacity: .8; } }
+  @keyframes wfDrift4 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .6; } 50% { transform: translate(-4%, -2%) scale(1.05); opacity: .75; } }
+  @keyframes wfDrift5 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .75; } 50% { transform: translate(-3%, -4%) scale(1.05); opacity: .9; } }
+  @keyframes wfDrift6 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .55; } 50% { transform: translate(3%, 3%) scale(1.04); opacity: .7; } }
+}
+@media (prefers-reduced-motion: reduce) { .wf-blob { animation: none; } }
+
+/* ---- desktop layout: a 2-col grid built from the EXISTING markup via
+   display:contents, not a DOM rewrite. .wf-display-area / the active
+   .wf-view / its .feat2-shell each unwrap in turn so their real
+   content (.feat2-copy, .feat2-visual) lands directly in the grid —
+   the flow player's own DOM nesting (and every querySelector in
+   home.js that walks it) is completely unchanged underneath. ---- */
+@media (min-width: 901px) {
+  #workflows-teaser .wf-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "head visual" "tabs visual" "list visual";
+    column-gap: 72px;
+    align-items: start;
+  }
+  #workflows-teaser .section-head { grid-area: head; }
+  #workflows-teaser .wf-tabs-row { grid-area: tabs; justify-content: flex-start; margin: 36px 0 0; }
+  #workflows-teaser .wf-display-area,
+  #workflows-teaser .wf-view.is-active,
+  #workflows-teaser .wf-view.is-active .feat2-shell { display: contents; }
+  #workflows-teaser .wf-view.is-active .feat2-copy,
+  #workflows-teaser .wf-view.is-active .feat2-visual { animation: fadeSlideUp 0.4s var(--ease) forwards; }
+  #workflows-teaser .feat2-copy {
+    grid-area: list; margin-top: 44px;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 24px; padding: 24px 26px;
+    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    box-shadow: 0 24px 48px -32px rgba(15,23,42,.18);
+  }
+  #workflows-teaser .feat2-visual { grid-area: visual; position: relative; z-index: 1; align-self: center; }
+  #workflows-teaser .wf-visual-glow { display: block; grid-area: visual; position: relative; z-index: 0; pointer-events: none; }
+  #workflows-teaser .wf-visual-glow::before {
+    content: ""; position: absolute; inset: -70px; border-radius: 40px; filter: blur(90px);
+    background:
+      radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--wf-accent-a) 22%, transparent), transparent 55%),
+      radial-gradient(circle at 80% 75%, color-mix(in srgb, var(--wf-accent-b) 20%, transparent), transparent 55%),
+      radial-gradient(circle at 60% 10%, rgba(244,114,182,.12), transparent 55%);
+  }
+}
+
+/* ---- tabs: inactive pill (was white-on-white), active pill (was
+   flat --accent; now a premium navy pill with a thin, extremely
+   subtle two-color glow ring driven by the active workflow's accent
+   vars, so it stays on-brand no matter how many workflows get added). ---- */
+#workflows-teaser .wf-tab-h { background: var(--bg-surface); border-color: var(--border-subtle); color: var(--text-secondary); box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+#workflows-teaser .wf-tab-h:hover { background: var(--bg-raised); color: var(--text-primary); }
+#workflows-teaser .wf-tab-h.is-active {
+  position: relative; background: linear-gradient(135deg, #14213D 0%, #1B2A52 100%);
+  border-color: rgba(255,255,255,.08); color: #fff;
+  box-shadow: 0 10px 24px -12px rgba(20,33,61,.45), inset 0 0 0 1px rgba(255,255,255,.05);
+}
+#workflows-teaser .wf-tab-h.is-active::before {
+  content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit;
+  background: linear-gradient(120deg, var(--wf-accent-a), var(--wf-accent-b));
+  opacity: .3; filter: blur(6px);
+}
+
+/* ---- step list + icon chips: dark-navy/neutral base, active step
+   gets a soft accent-tinted shadow instead of a flat color fill. ---- */
+#workflows-teaser .feat2-item:hover { background: rgba(15,23,42,.04); }
+#workflows-teaser .feat2-item.is-active { background: var(--bg-surface); box-shadow: 0 1px 2px rgba(15,23,42,.05); }
+#workflows-teaser .feat2-item-icon { background: var(--bg-raised); color: #14213D; }
+#workflows-teaser .feat2-item.is-active .feat2-item-icon { background: #14213D; color: #fff; box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--wf-accent-a) 45%, transparent); }
+#workflows-teaser .feat2-item-label { color: var(--text-tertiary); }
+#workflows-teaser .feat2-item.is-active .feat2-item-label { color: var(--text-primary); }
+#workflows-teaser .wf-state-label { color: var(--text-tertiary); }
 
 /* ---- RIGHT: one panel, three swapped states, floating over the photo ---- */
 .wf-stage { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 32px; }
@@ -723,10 +931,32 @@
 .compare-cell .no { color: var(--text-faint); }
 @media (max-width: 760px) { .compare-table { overflow-x: auto; } .compare-row { min-width: 640px; } }
 
+/* ---------- FINAL CTA SECTION (homepage only) — was riding the shared
+   .section--dark near-black canvas; dropped entirely here to the plain
+   page background (--bg-base) so there's no separate colored band at
+   all — the .final-cta-card gradient below is the only fill, and it
+   spans the full container so it reads as one seamless CTA block, not
+   a card floating on a distinct band. Scoped to .final-cta so the
+   other 40 pages' plain dark CTA band is untouched. ---------- */
+.final-cta.section--dark { background: var(--bg-base); color: var(--text-primary); }
+
 /* ---------- FINAL CTA TICKER (homepage-only flourish; the base
-   .final-cta* component classes moved to the shared styles.css) ---------- */
+   .final-cta* component classes moved to the shared styles.css) ----------
+   Was plain caption text separated by "·" dots; upgraded to live-status
+   pill tags (dot + label) so the marquee reads as a stream of real
+   product events rather than a caption — same content, no background
+   change, just tag styling on top of the existing marquee animation. */
 .final-cta-ticker { margin-top: 40px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-.final-cta-ticker-track { display: flex; gap: 14px; width: max-content; animation: marquee 22s linear infinite; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--dark-ink-faint); white-space: nowrap; }
+.final-cta-ticker-track { display: flex; gap: 10px; width: max-content; animation: marquee 22s linear infinite; white-space: nowrap; }
+.final-cta-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px; border-radius: 999px;
+  background: var(--bg-surface); border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-tertiary);
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+}
+.final-cta-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
 
 /* ---------- FINAL CTA CARD (homepage only) — the old version used a
    flat stock photo as its background; that's replaced here with a real
@@ -735,42 +965,86 @@
    shown recommending products in the Industries section above) now
    shown actually updating the customer's cart — ties directly into
    "CART UPDATED", the first item in the ticker running underneath. ---------- */
-/* PREVIEW SCOPE — third "bold color" moment (see hero + Wall of Love):
-   the old plain navy gradient is replaced with the same indigo→violet
-   family as the testimonials band, closing out with a pink glow on
-   the CTA side — so the page now has hero (animated Aurora) → light →
-   testimonials (indigo→violet band) → light → final CTA (indigo→
-   violet→pink band), a deliberate rhythm rather than color everywhere.
-   Kept static (no background animation) here since the widget mockup
-   already has its own entrance/hover motion — stacking two animated
-   things in one card gets busy fast. */
+/* Card background: was a dark indigo→violet→pink gradient; replaced
+   per feedback with a light, professional card. It went flat white →
+   flat near-white (#F9FBFF) → this: a static soft multi-tone gradient
+   base (blue→lavender→pink→blue) so there's no plain-white patch
+   showing through, PLUS a live "atmosphere" on top: a handful of
+   large, heavily blurred, low-opacity color blobs
+   (.final-cta-atmosphere) drifting slowly behind the content on
+   transform/opacity only (cheap to animate, filter:blur is set once
+   and never re-triggered). Oversized + blurred + clipped by the card's
+   own border-radius so no individual blob edge is ever visible — it
+   reads as one soft moving color field, not circles. Text, note, and
+   buttons inside the card are flipped to the
+   light-theme tokens (--text-*, --accent) to stay readable. The
+   surrounding .final-cta section no longer carries its own dark band —
+   it's plain --bg-base now, so this card is the only fill and reads as
+   one seamless CTA block; ticker text below it is lightened to match.
+   The mockup widget keeps its own entrance/hover motion — the
+   atmosphere is intentionally slow (26-35s cycles) so it never
+   competes with that. */
 .final-cta-card {
   position: relative; isolation: isolate; overflow: hidden;
   border-radius: 28px; padding: 48px;
-  background: linear-gradient(125deg, #150F4A 0%, #241B7A 28%, #5B2CB0 60%, #C0289A 100%);
+  background: linear-gradient(135deg, #EBF3FF 0%, #F3EEFC 40%, #FDF1F6 70%, #EAF5FF 100%);
   display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 40px;
   text-align: left;
-  box-shadow: 0 30px 70px -28px rgba(20,6,50,.6);
-}
-.final-cta-card::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(circle at 8% 12%, rgba(96,165,250,.28), transparent 42%),
-    radial-gradient(circle at 92% 88%, rgba(244,114,182,.24), transparent 42%);
+  box-shadow: 0 20px 45px -20px rgba(15,23,42,.16), 0 0 0 1px rgba(15,23,42,.05);
 }
 .final-cta-card > * { position: relative; z-index: 1; }
+
+.final-cta-atmosphere { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.final-cta-blob { position: absolute; display: block; border-radius: 50%; filter: blur(70px); }
+.final-cta-blob-1 { width: 60%; height: 140%; top: -45%; left: -12%; background: radial-gradient(circle, rgba(59,130,246,.30), transparent 70%); animation: cta-drift-1 26s var(--ease-out) infinite; }
+.final-cta-blob-2 { width: 55%; height: 130%; top: -25%; right: -16%; background: radial-gradient(circle, rgba(139,92,246,.20), transparent 70%); animation: cta-drift-2 32s var(--ease-out) infinite; }
+.final-cta-blob-3 { width: 50%; height: 120%; bottom: -35%; left: 12%; background: radial-gradient(circle, rgba(244,114,182,.14), transparent 70%); animation: cta-drift-3 29s var(--ease-out) infinite; }
+.final-cta-blob-4 { width: 45%; height: 110%; bottom: -22%; right: 4%; background: radial-gradient(circle, rgba(96,165,250,.18), transparent 70%); animation: cta-drift-4 35s var(--ease-out) infinite; }
+@media (prefers-reduced-motion: no-preference) {
+  .final-cta-blob { will-change: transform, opacity; }
+  @keyframes cta-drift-1 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .8; } 50% { transform: translate(6%, 8%) scale(1.12); opacity: 1; } }
+  @keyframes cta-drift-2 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .7; } 50% { transform: translate(-8%, 6%) scale(1.08); opacity: .9; } }
+  @keyframes cta-drift-3 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .6; } 50% { transform: translate(5%, -6%) scale(1.15); opacity: .85; } }
+  @keyframes cta-drift-4 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: .65; } 50% { transform: translate(-4%, -8%) scale(1.1); opacity: .9; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .final-cta-blob { animation: none; }
+}
 .final-cta-card-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .final-cta-card-copy { max-width: 480px; }
-.final-cta-card .final-cta-headline { text-align: left; margin: 0; max-width: 460px; font-size: clamp(24px, 2.8vw, 34px); }
-.final-cta-card .final-cta-sub { text-align: left; margin-top: 10px; max-width: 420px; font-size: 15px; }
+.final-cta-card .final-cta-headline { text-align: left; margin: 0; max-width: 460px; font-size: clamp(24px, 2.8vw, 34px); color: var(--text-primary); }
+.final-cta-card .final-cta-sub { text-align: left; margin-top: 10px; max-width: 420px; font-size: 15px; color: var(--text-secondary); }
 .final-cta-card-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .final-cta-card-actions .btn { margin-top: 0; }
-.final-cta-card-actions .final-cta-note { margin: 0; }
+.final-cta-card-actions .final-cta-note { margin: 0; color: var(--text-tertiary); }
 .final-cta-card-actions .btn-cta-outline { margin-top: 8px; }
+.final-cta-card .btn-cta { background: var(--accent); color: #fff; }
+.final-cta-card .btn-cta:hover { background: var(--accent-deep); transform: translateY(-2px); }
+.final-cta-card .btn-cta-outline { color: var(--text-primary); border-color: var(--border-strong); }
+.final-cta-card .btn-cta-outline:hover { border-color: var(--text-tertiary); }
 
 .final-cta-card-visual { min-width: 0; }
+
+/* Stacked preview card: two ghost layers behind the real chat widget so
+   it reads as a stack of cards, not one flat panel. Purely decorative
+   (no content), sized off the widget's own height since they're
+   absolutely positioned inside the same relative wrapper. */
+.final-cta-stack { position: relative; max-width: 320px; margin-left: auto; }
+.final-cta-stack-layer {
+  position: absolute; inset: 0; border-radius: 16px;
+  background: #2A2D36; border: 1px solid rgba(255,255,255,.06);
+  pointer-events: none;
+}
+.final-cta-stack-layer-1 { transform: rotate(6deg) translate(10px, 8px); opacity: .55; }
+.final-cta-stack-layer-2 { transform: rotate(-7deg) translate(-8px, 12px); opacity: .3; }
+@media (prefers-reduced-motion: no-preference) {
+  .final-cta-stack-layer { transition: transform 420ms var(--ease), opacity 420ms var(--ease); }
+  .final-cta-card:hover .final-cta-stack-layer-1 { transform: rotate(9deg) translate(16px, 12px); }
+  .final-cta-card:hover .final-cta-stack-layer-2 { transform: rotate(-11deg) translate(-14px, 18px); }
+}
+
 .final-cta-widget {
-  max-width: 320px; margin-left: auto;
+  position: relative; max-width: 320px;
   transform: rotate(2deg);
   box-shadow: 0 40px 70px -24px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
 }
@@ -780,7 +1054,8 @@
 
 @media (max-width: 900px) {
   .final-cta-card { grid-template-columns: 1fr; }
-  .final-cta-widget { margin: 0 auto; transform: none; }
+  .final-cta-stack { margin: 0 auto; }
+  .final-cta-widget { transform: none; }
 }
 @media (max-width: 720px) {
   .final-cta-card { text-align: center; padding: 36px 28px; }
