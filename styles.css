@@ -864,3 +864,142 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .faq-item.is-open .faq-question .faq-chev { transform: rotate(45deg); color: var(--accent); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease); }
 .faq-answer p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; padding: 0 2px 22px; max-width: 48ch; margin: 0; }
+
+/* ============================================================
+   UNIVERSAL LIVING AURORA & CHROMATIC ANIMATION SYSTEM
+   (Shared across all 42 subpages)
+   ============================================================ */
+.site-aurora-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.site-blob--violet {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #7C3AED 0%, rgba(124,58,237,0.1) 70%);
+  animation: siteBlobFloat1 22s ease-in-out infinite alternate;
+}
+
+.site-blob--blue {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #2563EB 0%, rgba(37,99,235,0.1) 70%);
+  animation: siteBlobFloat2 26s ease-in-out infinite alternate;
+}
+
+.site-blob--emerald {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #10B981 0%, rgba(16,185,129,0.1) 70%);
+  animation: siteBlobFloat1 20s ease-in-out infinite alternate-reverse;
+}
+
+.site-blob--rose {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #EC4899 0%, rgba(236,72,153,0.1) 70%);
+  animation: siteBlobFloat2 24s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes siteBlobFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-30px, 35px) scale(0.95); }
+}
+
+@keyframes siteBlobFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-35px, 25px) scale(1.06); }
+  100% { transform: translate(30px, -20px) scale(0.96); }
+}
+
+/* Universal Reveal On Scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 110ms);
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Radiant CTA button shimmer */
+.btn-accent, .btn-brand {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-accent::after, .btn-brand::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: btnShimmer 5s ease-in-out infinite;
+}
+
+@keyframes btnShimmer {
+  0%, 80% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(450%) rotate(25deg); }
+}
+
+/* Glowing Live Status Pip */
+.live-dot-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  animation: dotPulse 2.2s infinite;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-blob, .btn-accent::after, .live-dot-pulse, .reveal, .reveal-stagger > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
