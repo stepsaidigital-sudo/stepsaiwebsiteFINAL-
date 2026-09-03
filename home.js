@@ -699,4 +699,166 @@
     update();
   })();
 
+  /* ---------------------------------------------------------
+     HERO DYNAMIC MULTI-SCENARIO ROTATOR
+     Cycles smoothly through E-Commerce, Appointment Booking,
+     and 24/7 Support with interactive manual controls.
+     --------------------------------------------------------- */
+  (function initHeroScenarios() {
+    var agentBubble = document.getElementById('heroAgentBubble');
+    var customerBubble = document.getElementById('heroCustomerBubble');
+    var valueBadgeText = document.getElementById('heroValueBadgeText');
+    var trustBadgeText = document.getElementById('heroTrustBadgeText');
+    var navButtons = Array.prototype.slice.call(document.querySelectorAll('.hero-sc-btn'));
+
+    if (!agentBubble || !customerBubble || !navButtons.length) return;
+
+    var scenarios = [
+      {
+        // 0: E-Commerce
+        agentHTML: '<div class="hba-badge-row">' +
+                   '  <span class="hba-channel-badge wa"><svg viewBox="0 0 24 24" width="14" height="14" fill="#1FAF5C"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; WhatsApp</span>' +
+                   '  <span class="hba-time">Just now</span>' +
+                   '</div>' +
+                   '<p class="hba-text">Yes! Saved 1 <strong>Silk Kurta Set (M)</strong> for guaranteed Friday delivery:</p>' +
+                   '<div class="hba-product-card">' +
+                   '  <img src="images/brand-01.jpg" alt="Product" class="hba-prod-img">' +
+                   '  <div class="hba-prod-meta">' +
+                   '    <strong>Floral Silk Kurta (M)</strong>' +
+                   '    <span class="hba-prod-price">₹2,249 <s class="hba-old-price">₹2,499</s> <span class="hba-discount-tag">10% OFF</span></span>' +
+                   '  </div>' +
+                   '</div>' +
+                   '<a href="#final-cta" class="hba-action-btn wa">' +
+                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' +
+                   '  Instant 1-Click Pay' +
+                   '</a>',
+        customerHTML: '<div class="hbc-avatar-row">' +
+                      '  <div class="hbc-avatar"><img src="images/avatar-1.jpg" alt="Priya S." class="hbc-avatar-img"></div>' +
+                      '  <div class="hbc-meta"><strong class="hbc-name">Priya S.</strong><span class="hbc-tag">Shopper &middot; 11:42 PM</span></div>' +
+                      '</div>' +
+                      '<p class="hbc-msg">"Left 2 items in cart, can I get size M delivered before Friday?"</p>',
+        valTitle: '70% Abandoned Carts Recovered',
+        valSub: '₹2,249 Order Closed in 42s',
+        trustTitle: 'Zero Missed Midnight Leads',
+        trustSub: 'Instant 1.2s Response 24/7'
+      },
+      {
+        // 1: Appointments
+        agentHTML: '<div class="hba-badge-row">' +
+                   '  <span class="hba-channel-badge ig"><svg viewBox="0 0 24 24" width="14" height="14" fill="#BE185D"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; Instagram DM</span>' +
+                   '  <span class="hba-time">1.2s ago</span>' +
+                   '</div>' +
+                   '<p class="hba-text">Starting at <strong>₹65 Lakhs</strong> with private balcony. Sample flat tour booked:</p>' +
+                   '<div class="hba-product-card">' +
+                   '  <img src="images/hero-real-estate.jpg" alt="Property" class="hba-prod-img">' +
+                   '  <div class="hba-prod-meta">' +
+                   '    <strong>3BHK Sky Villa &middot; ₹65L</strong>' +
+                   '    <span class="hba-prod-price" style="color:#2563EB;">📅 Sat, 11:00 AM &middot; Cal Synced</span>' +
+                   '  </div>' +
+                   '</div>' +
+                   '<a href="#final-cta" class="hba-action-btn ig">' +
+                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' +
+                   '  Site Visit Confirmed' +
+                   '</a>',
+        customerHTML: '<div class="hbc-avatar-row">' +
+                      '  <div class="hbc-avatar"><img src="images/avatar-2.jpg" alt="Rahul V." class="hbc-avatar-img"></div>' +
+                      '  <div class="hbc-meta"><strong class="hbc-name">Rahul V.</strong><span class="hbc-tag">High Intent Buyer &middot; 11:43 PM</span></div>' +
+                      '</div>' +
+                      '<p class="hbc-msg">"Send price &amp; sample flat video for 3BHK Sky Villa"</p>',
+        valTitle: '80%+ Inquiries Qualified',
+        valSub: 'Direct Sync to Google Calendar & HubSpot',
+        trustTitle: 'Instant Tour Booking',
+        trustSub: 'HubSpot & Cal Synced Automatically'
+      },
+      {
+        // 2: 24/7 Support
+        agentHTML: '<div class="hba-badge-row">' +
+                   '  <span class="hba-channel-badge web"><svg viewBox="0 0 24 24" width="14" height="14" fill="#1D4ED8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; Live Chat</span>' +
+                   '  <span class="hba-time">0.8s ago</span>' +
+                   '</div>' +
+                   '<p class="hba-text">Out for delivery! Your courier driver is 4 stops away (arriving ~4:15 PM):</p>' +
+                   '<div class="hba-product-card">' +
+                   '  <img src="images/brand-02.jpg" alt="Tracking" class="hba-prod-img">' +
+                   '  <div class="hba-prod-meta">' +
+                   '    <strong>Order #4821 &middot; Express</strong>' +
+                   '    <span class="hba-prod-price" style="color:#059669;">📦 Out for Delivery &middot; 4:15 PM</span>' +
+                   '  </div>' +
+                   '</div>' +
+                   '<a href="#final-cta" class="hba-action-btn web">' +
+                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>' +
+                   '  Track Live Courier Driver' +
+                   '</a>',
+        customerHTML: '<div class="hbc-avatar-row">' +
+                      '  <div class="hbc-avatar"><img src="images/avatar-3.jpg" alt="Aman K." class="hbc-avatar-img"></div>' +
+                      '  <div class="hbc-meta"><strong class="hbc-name">Aman K.</strong><span class="hbc-tag">Customer &middot; 11:45 PM</span></div>' +
+                      '</div>' +
+                      '<p class="hbc-msg">"Where is my order #4821? Needed for tonight\'s event"</p>',
+        valTitle: '100% Truthful AI Answers',
+        valSub: 'Connected to Shiprocket & ERP',
+        trustTitle: '94% Tickets Resolved',
+        trustSub: 'Zero Human Agent Escalation'
+      }
+    ];
+
+    var currentIndex = 0;
+    var timer = null;
+
+    function renderScenario(index) {
+      if (index < 0 || index >= scenarios.length) return;
+      currentIndex = index;
+
+      navButtons.forEach(function (btn, i) {
+        if (i === index) btn.classList.add('is-active');
+        else btn.classList.remove('is-active');
+      });
+
+      agentBubble.style.opacity = '0';
+      agentBubble.style.transform = 'translateY(8px) scale(0.97)';
+      customerBubble.style.opacity = '0';
+      customerBubble.style.transform = 'translateY(8px) scale(0.97)';
+
+      setTimeout(function () {
+        var sc = scenarios[index];
+        agentBubble.innerHTML = sc.agentHTML;
+        customerBubble.innerHTML = sc.customerHTML;
+
+        if (valueBadgeText) {
+          valueBadgeText.innerHTML = '<strong>' + sc.valTitle + '</strong><span>' + sc.valSub + '</span>';
+        }
+        if (trustBadgeText) {
+          trustBadgeText.innerHTML = '<strong>' + sc.trustTitle + '</strong><span>' + sc.trustSub + '</span>';
+        }
+
+        agentBubble.style.opacity = '1';
+        agentBubble.style.transform = 'none';
+        customerBubble.style.opacity = '1';
+        customerBubble.style.transform = 'none';
+      }, 200);
+    }
+
+    function startAutoRotation() {
+      stopAutoRotation();
+      timer = setInterval(function () {
+        var next = (currentIndex + 1) % scenarios.length;
+        renderScenario(next);
+      }, 5500);
+    }
+
+    function stopAutoRotation() {
+      if (timer) clearInterval(timer);
+    }
+
+    navButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = parseInt(btn.getAttribute('data-sc'), 10);
+        renderScenario(idx);
+        startAutoRotation(); // restart timer on click
+      });
+    });
+
+    renderScenario(0);
+    startAutoRotation();
+  })();
+
 })();
+

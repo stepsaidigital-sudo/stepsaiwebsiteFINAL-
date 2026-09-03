@@ -232,75 +232,44 @@
                channel icons as the WhatsApp/Instagram/Website row
                above, now orbiting the figure instead of sitting in a
                static line. -->
-          <!-- HERO STAGE: Customer Input (Left) -> Business Owner (Center) -> AI Autonomous Outcome (Right) -->
-          <div class="hero-stage">
-            <!-- Left Side: Incoming Customer Inquiries (Demand) -->
-            <div class="hero-side-column hero-side-column--left">
-              <!-- Customer Inquiries Card -->
-              <div class="hero-mockup-card hero-mockup-card--customer">
-                <div class="hmc-head hmc-head--customer">
-                  <div class="hmc-user-info">
-                    <span class="hmc-user-badge">👤</span>
-                    <div class="hmc-name-col">
-                      <span class="hmc-name">Customer Inquiries</span>
-                      <span class="hmc-status">Incoming · Live Traffic</span>
+          <!-- HERO STAGE: Clean Floating Multi-Scenario Conversational Flow -->
+          <div class="hero-stage hero-stage--dynamic">
+            <!-- Left Side: AI Agent Autonomous Output Bubble -->
+            <div class="hero-side-column hero-side-column--left hero-dynamic-col">
+              <div class="hero-bubble-agent-wrap" id="heroAgentBubbleWrap">
+                <div class="hero-bubble-agent" id="heroAgentBubble">
+                  <div class="hba-badge-row">
+                    <span class="hba-channel-badge wa"><svg viewBox="0 0 24 24" width="14" height="14" fill="#1FAF5C"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; WhatsApp</span>
+                    <span class="hba-time">Just now</span>
+                  </div>
+                  <p class="hba-text">Yes! Saved 1 <strong>Silk Kurta Set (M)</strong> for guaranteed Friday delivery:</p>
+                  <div class="hba-product-card">
+                    <img src="images/brand-01.jpg" alt="Product" class="hba-prod-img">
+                    <div class="hba-prod-meta">
+                      <strong>Floral Silk Kurta (M)</strong>
+                      <span class="hba-prod-price">₹2,249 <s class="hba-old-price">₹2,499</s> <span class="hba-discount-tag">10% OFF</span></span>
                     </div>
                   </div>
-                  <span class="hmc-channel-tag hmc-channel-tag--demand">Demand</span>
-                </div>
-
-                <div class="hmc-chat-body hmc-chat-body--customer">
-                  <!-- WhatsApp Shopper Query -->
-                  <div class="hmc-inquiry-box hmc-inquiry-box--wa">
-                    <div class="hmc-inq-source">
-                      <span class="hmc-inq-tag wa">WhatsApp</span>
-                      <span class="hmc-inq-time">11:42 PM</span>
-                    </div>
-                    <p class="hmc-inq-msg">"Left 2 items in cart, can I get size M delivered before Friday?"</p>
-                    <span class="hmc-inq-meta">Priya S. · Cart Value: ₹2,249</span>
-                  </div>
-
-                  <!-- Instagram DM Query -->
-                  <div class="hmc-inquiry-box hmc-inquiry-box--ig">
-                    <div class="hmc-inq-source">
-                      <span class="hmc-inq-tag ig">Instagram Reel</span>
-                      <span class="hmc-inq-time">11:43 PM</span>
-                    </div>
-                    <p class="hmc-inq-msg">"Send price &amp; sample flat video for 3BHK Sky Villa"</p>
-                    <span class="hmc-inq-meta">Rahul V. · High Intent Buyer</span>
-                  </div>
-                </div>
-
-                <div class="hmc-footer-banner hmc-footer-banner--customer">
-                  <span class="hmc-value-highlight">🌙 <b>100%</b> Received outside work hours</span>
-                  <span class="hmc-sync-tag">Zero Wait Time</span>
+                  <a href="#final-cta" class="hba-action-btn wa">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Instant 1-Click Pay
+                  </a>
                 </div>
               </div>
 
               <!-- Problem Solved Outcome Pill L1 -->
-              <div class="hero-float-pill hero-float-pill--l1">
+              <div class="hero-float-pill hero-float-pill--l1" id="heroValueBadge">
                 <div class="hfp-icon hfp-icon--green">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 </div>
-                <div class="hfp-text">
+                <div class="hfp-text" id="heroValueBadgeText">
                   <strong>70% Abandoned Carts Recovered</strong>
-                  <span>Re-engaged before they leave</span>
-                </div>
-              </div>
-
-              <!-- Capability Pill L2 -->
-              <div class="hero-float-pill hero-float-pill--l2">
-                <div class="hfp-icon hfp-icon--ig">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
-                </div>
-                <div class="hfp-text">
-                  <strong>Comment &rarr; DM &rarr; Checkout</strong>
-                  <span>Turns social buzz into instant sales</span>
+                  <span>₹2,249 Order Closed in 42s</span>
                 </div>
               </div>
             </div>
 
-            <!-- Center Figure with Orbit Rings -->
+            <!-- Center Figure with Orbit Rings & Scenario Selector -->
             <div class="hero-center-figure">
               <div class="hero-orbit">
                 <span class="hero-orbit-ring hero-orbit-ring--1" aria-hidden="true"></span>
@@ -308,7 +277,7 @@
                 <span class="hero-orbit-ring hero-orbit-ring--3" aria-hidden="true"></span>
                 <div class="hero-orbit-spin" aria-hidden="true">
                   <span class="hero-orbit-badge hero-orbit-badge--wa">
-                    <span class="hero-orbit-badge-inner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1FAF5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4c-1.5 0-2.9-.4-4.1-1L3 20l1.2-5A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+                    <span class="hero-orbit-badge-inner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1FAF5C" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4c-1.5 0-2.9-.4-4.1-1L3 20l1.2-5A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
                   </span>
                   <span class="hero-orbit-badge hero-orbit-badge--shopify">
                     <span class="hero-orbit-badge-inner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#7AB55C"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg></span>
@@ -320,7 +289,7 @@
                     <span class="hero-orbit-badge-inner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg></span>
                   </span>
                   <span class="hero-orbit-badge hero-orbit-badge--ig">
-                    <span class="hero-orbit-badge-inner hero-orbit-badge-inner--ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span>
+                    <span class="hero-orbit-badge-inner hero-orbit-badge-inner--ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg></span>
                   </span>
                   <span class="hero-orbit-badge hero-orbit-badge--slack">
                     <span class="hero-orbit-badge-inner"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#4A154B"><rect x="4" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="4" width="6" height="6" rx="2" fill="currentColor"/><rect x="4" y="14" width="6" height="6" rx="2" fill="currentColor"/><rect x="14" y="14" width="6" height="6" rx="2" fill="currentColor"/></svg></span>
@@ -328,84 +297,40 @@
                 </div>
                 <img src="images/hero-person.png" alt="StepsAI Autonomous Agent" class="hero-person" aria-hidden="true">
               </div>
+
+              <!-- Interactive Scenario Pills underneath figure -->
+              <div class="hero-scenario-nav" id="heroScenarioNav">
+                <button class="hero-sc-btn is-active" data-sc="0" type="button"><span class="hsc-dot"></span> 🛍️ E-Commerce Sale</button>
+                <button class="hero-sc-btn" data-sc="1" type="button"><span class="hsc-dot"></span> 📅 Appointment Booking</button>
+                <button class="hero-sc-btn" data-sc="2" type="button"><span class="hsc-dot"></span> ⚡ 24/7 Support</button>
+              </div>
             </div>
 
-            <!-- Right Side: StepsAI Autonomous Agent Resolution & Revenue -->
-            <div class="hero-side-column hero-side-column--right">
-              <!-- StepsAI Agent Resolution Card -->
-              <div class="hero-mockup-card hero-mockup-card--agent">
-                <div class="hmc-head hmc-head--agent">
-                  <div class="hmc-user-info">
-                    <img src="images/logo.png" alt="StepsAI" class="hmc-avatar-img">
-                    <div class="hmc-name-col">
-                      <span class="hmc-name">StepsAI Autonomous Agent <svg viewBox="0 0 24 24" width="13" height="13" fill="#2563EB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-                      <span class="hmc-status">Resolving Autonomously · 1.2s avg</span>
+            <!-- Right Side: Customer Inquiry Bubble (Demand) -->
+            <div class="hero-side-column hero-side-column--right hero-dynamic-col">
+              <div class="hero-bubble-customer-wrap" id="heroCustomerBubbleWrap">
+                <div class="hero-bubble-customer" id="heroCustomerBubble">
+                  <div class="hbc-avatar-row">
+                    <div class="hbc-avatar">
+                      <img src="images/avatar-1.jpg" alt="Customer" class="hbc-avatar-img">
+                    </div>
+                    <div class="hbc-meta">
+                      <strong class="hbc-name">Priya S.</strong>
+                      <span class="hbc-tag">Shopper &middot; 11:42 PM</span>
                     </div>
                   </div>
-                  <span class="hmc-channel-tag hmc-channel-tag--ai">AI Outcome</span>
-                </div>
-
-                <div class="hmc-chat-body hmc-chat-body--agent-res">
-                  <!-- Resolution 1: Instant Checkout Generated -->
-                  <div class="hmc-resolution-item">
-                    <div class="hmc-res-header">
-                      <span class="hmc-res-badge green">⚡ Order Recovered</span>
-                      <span class="hmc-res-channel">WhatsApp</span>
-                    </div>
-                    <div class="hmc-product-row">
-                      <img src="images/brand-01.jpg" alt="Floral Kurta" class="hmc-prod-thumb">
-                      <div class="hmc-prod-info">
-                        <strong class="hmc-prod-title">Floral Silk Kurta (M)</strong>
-                        <div class="hmc-prod-pricing">
-                          <span class="hmc-price-now">₹2,249</span>
-                          <span class="hmc-badge-sale">10% OFF</span>
-                        </div>
-                      </div>
-                      <span class="hmc-checkout-pill">✓ Paid</span>
-                    </div>
-                  </div>
-
-                  <!-- Resolution 2: Site Visit Confirmed -->
-                  <div class="hmc-resolution-item">
-                    <div class="hmc-res-header">
-                      <span class="hmc-res-badge blue">📅 Visit Confirmed</span>
-                      <span class="hmc-res-channel">Instagram DM</span>
-                    </div>
-                    <div class="hmc-property-row">
-                      <img src="images/hero-real-estate.jpg" alt="Property" class="hmc-prop-thumb">
-                      <div class="hmc-prop-info">
-                        <strong class="hmc-prop-title">3BHK Sky Villa · ₹65L</strong>
-                        <span class="hmc-slot-badge">Sat, 11:00 AM · Cal Synced</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hmc-footer-banner hmc-footer-banner--agent">
-                  <span class="hmc-value-highlight">💰 <b>₹2,249</b> Recovered + <b>1 Visit</b> Booked</span>
-                  <span class="hmc-sync-tag">HubSpot &amp; Shopify Synced</span>
+                  <p class="hbc-msg">"Left 2 items in cart, can I get size M delivered before Friday?"</p>
                 </div>
               </div>
 
               <!-- Reliability Outcome Pill R1 -->
-              <div class="hero-float-pill hero-float-pill--r1">
+              <div class="hero-float-pill hero-float-pill--r1" id="heroTrustBadge">
                 <div class="hfp-icon hfp-icon--teal">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <div class="hfp-text">
+                <div class="hfp-text" id="heroTrustBadgeText">
                   <strong>Zero Missed Midnight Leads</strong>
-                  <span>Instant qualification &amp; booking 24/7</span>
-                </div>
-              </div>
-
-              <!-- Trust Pill R2 -->
-              <div class="hero-float-pill hero-float-pill--r2">
-                <div class="hfp-icon hfp-icon--purple">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div class="hfp-text">
-                  <strong>100% Truthful AI Answers</strong>
-                  <span>Trained strictly on your verified stock &amp; CRM</span>
+                  <span>Instant 1.2s Response 24/7</span>
                 </div>
               </div>
             </div>
