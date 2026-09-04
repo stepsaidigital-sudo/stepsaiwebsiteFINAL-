@@ -2684,7 +2684,7 @@
   margin: 0;
 }
 
-/* ---- the mockup: always white, always the visual focus ---- */
+/* ---- the mockup: always the visual focus ---- */
 .oac-mock {
   margin: auto 0;
   width: 100%;
@@ -2697,6 +2697,248 @@
   border: 1px solid rgba(20,40,80,.08);
   box-shadow: 0 12px 30px rgba(30,50,90,.10);
   transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
+}
+
+/* Pixel-to-pixel authentic Dark Chatbot Widget Mockup */
+.oac-mock--dark {
+  background: #0E0F12 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #F3F4F6;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+.oac-mock--dark .oac-mock-head {
+  background: #14151A;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  height: 50px;
+  padding: 0 12px;
+  gap: 10px;
+}
+.oac-head-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D1D5DB;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  flex-shrink: 0;
+}
+.oac-head-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+.oac-head-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.oac-head-title b {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.oac-head-title span {
+  font-size: 10.5px;
+  color: #9CA3AF;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.oac-head-title span::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+/* Sender Labels */
+.oac-msg-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.oac-msg-wrap--user {
+  align-items: flex-end;
+}
+.oac-sender-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  padding: 0 4px;
+}
+.oac-sender-label svg {
+  width: 12px;
+  height: 12px;
+  color: #9CA3AF;
+}
+.oac-sender-label--user {
+  justify-content: flex-end;
+}
+
+/* User Pill Bubble */
+.oac-bubble--user-pill {
+  align-self: flex-end;
+  background: #6366F1;
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+/* Dark Agent Bubble */
+.oac-mock--dark .oac-bubble--in {
+  background: #1C1D24;
+  color: #E5E7EB;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11.5px;
+  line-height: 1.45;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+/* Real Product Showcase Carousel/Grid */
+.oac-product-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  margin: 6px 0 2px 2px;
+  display: block;
+}
+
+.oac-real-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.oac-real-product-card {
+  background: #181920;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.oac-real-product-thumb {
+  width: 100%;
+  height: 64px;
+  border-radius: 7px;
+  object-fit: cover;
+  display: block;
+}
+
+.oac-real-product-title {
+  font-size: 10px;
+  font-weight: 650;
+  color: #F3F4F6;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oac-real-product-price {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+.oac-real-product-price s {
+  font-size: 9px;
+  color: #6B7280;
+  font-weight: 400;
+}
+.oac-real-product-price .oac-badge {
+  font-size: 8.5px;
+  font-weight: 650;
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: rgba(6, 182, 212, 0.2);
+  color: #22D3EE;
+}
+.oac-real-product-price .oac-badge--neutral {
+  background: rgba(255, 255, 255, 0.1);
+  color: #9CA3AF;
+}
+
+.oac-variant-btn {
+  background: #FF5A5F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.oac-variant-btn:hover {
+  background: #E0484D;
+  transform: translateY(-1px);
+}
+
+/* Dark Input Bar */
+.oac-mock--dark .oac-mock-input {
+  background: #14151A;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9CA3AF;
+  font-size: 11.5px;
+  padding: 8px 12px;
+}
+.oac-input-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.oac-input-icon {
+  width: 14px;
+  height: 14px;
+  color: #6B7280;
+  cursor: default;
+}
+.oac-powered-by {
+  font-size: 8.5px;
+  color: #6B7280;
+  text-align: center;
+  padding-bottom: 5px;
+  background: #14151A;
+  letter-spacing: 0.02em;
+}
+.oac-powered-by b {
+  color: #818CF8;
 }
 .oac-mock-head { flex-shrink: 0; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 14px; border-bottom: 1px solid rgba(20,40,80,.06); }
 .oac-mock-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #2563EB, #7C3AED); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }

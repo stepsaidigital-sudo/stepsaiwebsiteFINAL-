@@ -925,49 +925,89 @@
               <h3 class="oac-card-name">Sales</h3>
               <p class="oac-card-sub">Sells what you actually have &rarr;</p>
             </div>
-            <div class="oac-mock">
+            <div class="oac-mock oac-mock--dark">
+              <!-- Chatbot Header -->
               <div class="oac-mock-head">
-                <span class="oac-mock-avatar">S</span>
-                <div class="oac-mock-id"><b>StepsAI</b><span class="oac-mock-status"><i></i>Online</span></div>
-                <span class="oac-mock-time">9:42 AM</span>
+                <span class="oac-head-btn">&lt;</span>
+                <img src="images/wearbliss-logo.jpg" alt="Wearbliss" class="oac-head-avatar">
+                <div class="oac-head-title">
+                  <b>Shopper</b>
+                  <span>Online</span>
+                </div>
+                <span class="oac-head-btn" style="margin-left: auto;">&#8942;</span>
               </div>
+
+              <!-- Chatbot Body with Real Bliss / Shopper Conversation -->
               <div class="oac-mock-body">
-                <div class="oac-bubble oac-bubble--in">Do you have black sneakers in size 10?</div>
-                <div class="oac-bubble oac-bubble--out">Yep, these three are available in size 10. I think the second
-                  pair is your best bet. Want me to add it to your cart?</div>
-                <div class="oac-products">
-                  <div class="oac-product"><span class="oac-product-thumb oac-thumb--1"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path
-                          d="M3 17c0-1.5 1-2 2-2.5l3-1.2c.6-.25 1-.5 1.4-1L11 10c.6-.7 1.4-1 2.3-1H18c1.7 0 3 1.3 3 3v1.5c0 1.4-1.1 2.5-2.5 2.5H4c-.6 0-1-.4-1-1Z" />
-                        <path d="M7 12.3V9.8c0-.5.4-.8.9-.7l2.6.6" />
-                      </svg></span><span class="oac-product-name">Air Max 90</span><span
-                      class="oac-product-price">₹7,499</span></div>
-                  <div class="oac-product is-best"><span class="oac-product-thumb oac-thumb--2"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path
-                          d="M3 17c0-1.5 1-2 2-2.5l3-1.2c.6-.25 1-.5 1.4-1L11 10c.6-.7 1.4-1 2.3-1H18c1.7 0 3 1.3 3 3v1.5c0 1.4-1.1 2.5-2.5 2.5H4c-.6 0-1-.4-1-1Z" />
-                        <path d="M7 12.3V9.8c0-.5.4-.8.9-.7l2.6.6" />
-                      </svg></span><span class="oac-product-name">Cloud Runner</span><span
-                      class="oac-product-price">₹6,299</span></div>
-                  <div class="oac-product"><span class="oac-product-thumb oac-thumb--3"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path
-                          d="M3 17c0-1.5 1-2 2-2.5l3-1.2c.6-.25 1-.5 1.4-1L11 10c.6-.7 1.4-1 2.3-1H18c1.7 0 3 1.3 3 3v1.5c0 1.4-1.1 2.5-2.5 2.5H4c-.6 0-1-.4-1-1Z" />
-                        <path d="M7 12.3V9.8c0-.5.4-.8.9-.7l2.6.6" />
-                      </svg></span><span class="oac-product-name">Street Low</span><span
-                      class="oac-product-price">₹5,999</span></div>
+                <!-- 1. Agent Greeting -->
+                <div class="oac-msg-wrap">
+                  <span class="oac-sender-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Bliss</span>
+                  <div class="oac-bubble oac-bubble--in">Hello ! Need help in selection ?</div>
+                </div>
+
+                <!-- 2. User Query Pill -->
+                <div class="oac-msg-wrap oac-msg-wrap--user">
+                  <span class="oac-sender-label oac-sender-label--user">You <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg></span>
+                  <div class="oac-bubble oac-bubble--user-pill">SHIRTS UNDER 500</div>
+                </div>
+
+                <!-- 3. Agent Response with Real Products -->
+                <div class="oac-msg-wrap">
+                  <span class="oac-sender-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Bliss</span>
+                  <div class="oac-bubble oac-bubble--in">
+                    Here are the best <strong>shirts under ₹500</strong> — clean, wearable picks with a smart-casual edge:
+                  </div>
+                  
+                  <span class="oac-product-section-label">Showing 3 products</span>
+                  <div class="oac-real-products">
+                    <!-- Product 1 -->
+                    <div class="oac-real-product-card">
+                      <img src="images/product-oxford-shirts.jpg" alt="Classic Oxford Button-Down Shirt" class="oac-real-product-thumb">
+                      <div class="oac-real-product-title">Classic Oxford Shirt <span>↗</span></div>
+                      <div class="oac-real-product-price">
+                        <span>₹499.99</span>
+                        <s>₹501</s>
+                        <span class="oac-badge oac-badge--neutral">0% off</span>
+                      </div>
+                      <button class="oac-variant-btn" type="button">+ Select variant</button>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="oac-real-product-card">
+                      <img src="images/product-mandarin-shirt.jpg" alt="Mandarin Collar Cotton Shirt" class="oac-real-product-thumb">
+                      <div class="oac-real-product-title">Mandarin Shirt <span>↗</span></div>
+                      <div class="oac-real-product-price">
+                        <span>₹349.99</span>
+                        <s>₹501</s>
+                        <span class="oac-badge">30% off</span>
+                      </div>
+                      <button class="oac-variant-btn" type="button">+ Select variant</button>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="oac-real-product-card">
+                      <img src="images/product-grandad-shirt.jpg" alt="Grandad Collar Oxford Shirt" class="oac-real-product-thumb">
+                      <div class="oac-real-product-title">Grandad Oxford <span>↗</span></div>
+                      <div class="oac-real-product-price">
+                        <span>₹349.99</span>
+                        <s>₹501</s>
+                        <span class="oac-badge">30% off</span>
+                      </div>
+                      <button class="oac-variant-btn" type="button">+ Select variant</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="oac-mock-input"><span>Add to cart</span><span class="oac-mock-send" aria-hidden="true"><svg
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M22 2L11 13" />
-                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg></span></div>
+
+              <!-- Input bar -->
+              <div class="oac-mock-input">
+                <span>Hop in! I'll help you</span>
+                <div class="oac-input-actions">
+                  <svg class="oac-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                  <svg class="oac-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </div>
+              </div>
+              <div class="oac-powered-by">Powered by <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Steps AI recommends what is in stock, answers the price question, and clears the doubt that was about to end the chat.</p>
@@ -1311,11 +1351,7 @@
                     <div class="ig-real-body">
                       <div class="ig-real-bubble in">Saw the linen midi dress in your story. Available in M?</div>
                       <div class="chat-card">
-                        <div class="chat-card-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 4h8l2 4v12H6V8l2-4Z" />
-                            <path d="M9 8a3 3 0 0 0 6 0" />
-                          </svg></div>
+                        <div class="chat-card-media"><img src="images/product-oxford-shirts.jpg" alt="Aria Linen Shirt" class="chat-card-img"></div>
                         <div class="chat-card-body">
                           <p class="chat-card-title">Aria Linen Shirt &middot; Size M</p>
                           <p class="chat-card-sub">4 in stock</p>
