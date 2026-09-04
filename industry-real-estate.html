@@ -427,6 +427,108 @@
     </section>
 
     <!-- ============================================================
+         REAL AUTOMATION — the actual lead follow-up workflow
+         ============================================================ -->
+    <section class="wf-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2 class="section-title">What automation looks like, live.</h2>
+          <p class="section-sub">This is the exact logic behind the "Lead Follow-up" template — one of many. There's no limit to what you can automate once you're connected.</p>
+        </div>
+
+        <div class="wf-canvas-wrap reveal">
+          <div class="wf-canvas">
+            <div class="wf-live-tag">Live example — Enquiry follow-up</div>
+
+            <div class="wf-trunk">
+              <div class="wf-node" data-wf-step="1">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="wf-node-kind">Trigger</div><div class="wf-node-title">New property enquiry</div></div>
+              </div>
+              <div class="wf-line" data-wf-step="2"></div>
+              <div class="wf-node" data-wf-step="2">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+                <div><div class="wf-node-kind">Action · Wait</div><div class="wf-node-title">Wait 10 minutes</div></div>
+              </div>
+              <div class="wf-line" data-wf-step="3"></div>
+              <div class="wf-node" data-wf-step="3">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1 21 6l-4 3.9M3 12v-2a4 4 0 0 1 4-4h14M7 21.9 3 18l4-3.9M21 12v2a4 4 0 0 1-4 4H3"/></svg></span>
+                <div><div class="wf-node-kind">Connector</div><div class="wf-node-title">Check response status</div></div>
+              </div>
+            </div>
+
+            <div class="wf-fork">
+              <div class="wf-fork-stub" data-wf-step="4"></div>
+              <div class="wf-fork-bar"></div>
+              <div class="wf-fork-row">
+                <div class="wf-branch">
+                  <div class="wf-branch-stub"></div>
+                  <span class="wf-badge completed">RESPONDED</span>
+                  <div class="wf-node dim">
+                    <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg></span>
+                    <div><div class="wf-node-kind">Action</div><div class="wf-node-title">End</div></div>
+                  </div>
+                </div>
+                <div class="wf-branch">
+                  <div class="wf-branch-stub" data-wf-step="4"></div>
+                  <span class="wf-badge abandoned">NO REPLY</span>
+                  <div class="wf-node" data-wf-step="4">
+                    <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M6 8.5V15M18 6H10a4 4 0 0 0-4 4"/><circle cx="18" cy="6" r="2.5"/></svg></span>
+                    <div><div class="wf-node-kind">Condition</div><div class="wf-node-title">Phone number given?</div></div>
+                  </div>
+
+                  <div class="wf-fork">
+                    <div class="wf-fork-stub" data-wf-step="5"></div>
+                    <div class="wf-fork-bar"></div>
+                    <div class="wf-fork-row">
+                      <div class="wf-branch">
+                        <div class="wf-branch-stub"></div>
+                        <span class="wf-badge no">NO</span>
+                        <div class="wf-node dim">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Send info pack</div></div>
+                        </div>
+                      </div>
+                      <div class="wf-branch">
+                        <div class="wf-branch-stub" data-wf-step="5"></div>
+                        <span class="wf-badge yes">YES</span>
+                        <div class="wf-node" data-wf-step="5">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Call reminder to agent</div></div>
+                        </div>
+                        <div class="wf-line" data-wf-step="6"></div>
+                        <div class="wf-node" data-wf-step="6">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Viewing slot offered</div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-legend reveal">
+          <span class="wf-legend-item"><span class="wf-legend-dot" style="background:var(--accent-on-dark)"></span>This conversation's path</span>
+          <span class="wf-legend-item"><span class="wf-legend-dot" style="background:rgba(255,255,255,.2)"></span>Alternate branch, ready either way</span>
+        </div>
+
+        <div class="template-row reveal">
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Lead Follow-up</div><div class="tp-steps">4 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Viewing Reminder</div><div class="tp-steps">3 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Post-Viewing Check-in</div><div class="tp-steps">2 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Price-Drop Alert</div><div class="tp-steps">2 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">New-Listing Match Alert</div><div class="tp-steps">3 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Offer Follow-up</div><div class="tp-steps">5 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Document Reminder</div><div class="tp-steps">3 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Real Estate</div><div class="tp-name">Cold Lead Re-engagement</div><div class="tp-steps">6 steps</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          WHATSAPP WORKFLOWS FOR THIS INDUSTRY
          ============================================================ -->
     <section class="section section--base section--atmo">
@@ -542,5 +644,6 @@
   </main>
 
   <script src="nav.js"></script>
+  <script src="industries.js"></script>
 </body>
 </html>

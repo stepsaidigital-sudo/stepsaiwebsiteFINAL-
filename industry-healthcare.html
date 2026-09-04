@@ -362,6 +362,108 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         REAL AUTOMATION — the actual no-show recovery workflow
+         ============================================================ -->
+    <section class="wf-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2 class="section-title">What automation looks like, live.</h2>
+          <p class="section-sub">This is the exact logic behind the "No-Show Follow-up" template — one of many. There's no limit to what you can automate once you're connected.</p>
+        </div>
+
+        <div class="wf-canvas-wrap reveal">
+          <div class="wf-canvas">
+            <div class="wf-live-tag">Live example — Missed-appointment recovery</div>
+
+            <div class="wf-trunk">
+              <div class="wf-node" data-wf-step="1">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span>
+                <div><div class="wf-node-kind">Trigger</div><div class="wf-node-title">Appointment time passed</div></div>
+              </div>
+              <div class="wf-line" data-wf-step="2"></div>
+              <div class="wf-node" data-wf-step="2">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+                <div><div class="wf-node-kind">Action · Wait</div><div class="wf-node-title">Wait 15 minutes</div></div>
+              </div>
+              <div class="wf-line" data-wf-step="3"></div>
+              <div class="wf-node" data-wf-step="3">
+                <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1 21 6l-4 3.9M3 12v-2a4 4 0 0 1 4-4h14M7 21.9 3 18l4-3.9M21 12v2a4 4 0 0 1-4 4H3"/></svg></span>
+                <div><div class="wf-node-kind">Connector</div><div class="wf-node-title">Check-in status</div></div>
+              </div>
+            </div>
+
+            <div class="wf-fork">
+              <div class="wf-fork-stub" data-wf-step="4"></div>
+              <div class="wf-fork-bar"></div>
+              <div class="wf-fork-row">
+                <div class="wf-branch">
+                  <div class="wf-branch-stub"></div>
+                  <span class="wf-badge completed">CHECKED IN</span>
+                  <div class="wf-node dim">
+                    <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg></span>
+                    <div><div class="wf-node-kind">Action</div><div class="wf-node-title">End</div></div>
+                  </div>
+                </div>
+                <div class="wf-branch">
+                  <div class="wf-branch-stub" data-wf-step="4"></div>
+                  <span class="wf-badge abandoned">NO-SHOW</span>
+                  <div class="wf-node" data-wf-step="4">
+                    <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M6 8.5V15M18 6H10a4 4 0 0 0-4 4"/><circle cx="18" cy="6" r="2.5"/></svg></span>
+                    <div><div class="wf-node-kind">Condition</div><div class="wf-node-title">Phone number on file?</div></div>
+                  </div>
+
+                  <div class="wf-fork">
+                    <div class="wf-fork-stub" data-wf-step="5"></div>
+                    <div class="wf-fork-bar"></div>
+                    <div class="wf-fork-row">
+                      <div class="wf-branch">
+                        <div class="wf-branch-stub"></div>
+                        <span class="wf-badge no">NO</span>
+                        <div class="wf-node dim">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Flag for front desk</div></div>
+                        </div>
+                      </div>
+                      <div class="wf-branch">
+                        <div class="wf-branch-stub" data-wf-step="5"></div>
+                        <span class="wf-badge yes">YES</span>
+                        <div class="wf-node" data-wf-step="5">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Reminder + reschedule link</div></div>
+                        </div>
+                        <div class="wf-line" data-wf-step="6"></div>
+                        <div class="wf-node" data-wf-step="6">
+                          <span class="wf-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                          <div><div class="wf-node-kind">Action</div><div class="wf-node-title">Rebooking confirmed</div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-legend reveal">
+          <span class="wf-legend-item"><span class="wf-legend-dot" style="background:var(--accent-on-dark)"></span>This conversation's path</span>
+          <span class="wf-legend-item"><span class="wf-legend-dot" style="background:rgba(255,255,255,.2)"></span>Alternate branch, ready either way</span>
+        </div>
+
+        <div class="template-row reveal">
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Appointment Reminder</div><div class="tp-steps">3 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">No-Show Follow-up</div><div class="tp-steps">5 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Post-Visit Check-in</div><div class="tp-steps">2 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Recall / Annual Checkup Nudge</div><div class="tp-steps">4 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">New Patient Intake</div><div class="tp-steps">6 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Insurance Verification Follow-up</div><div class="tp-steps">3 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Prescription Refill Reminder</div><div class="tp-steps">2 steps</div></div>
+          <div class="template-pill"><div class="tp-tag">Healthcare</div><div class="tp-name">Waitlist Notification</div><div class="tp-steps">4 steps</div></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--raised section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
         <div class="atmo-blob atmo-blob--rose atmo-blob--tr"></div>
@@ -472,5 +574,6 @@
   </main>
 
   <script src="nav.js"></script>
+  <script src="industries.js"></script>
 </body>
 </html>
