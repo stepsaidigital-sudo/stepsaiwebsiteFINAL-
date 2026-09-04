@@ -432,7 +432,7 @@
       <div class="container">
         <div class="oac-head reveal">
           <span class="oac-eyebrow">WHAT STEPSAI CAN DO FOR YOU</span>
-          <h2 class="oac-heading">One agent. <span class="oac-heading-accent">Every conversation.</span></h2>
+          <h2 class="oac-heading">One agent. <span class="oac-heading-accent">Every Job.</span></h2>
           <p class="oac-sub">From first hello to final action — StepsAI handles it all, so your team can focus on what truly matters.</p>
         </div>
 
@@ -588,7 +588,11 @@
             </div>
           </article>
 
-          <!-- HUMAN HANDOVER -->
+          <!-- DISABLED — "Hands over to a human" removed from the one-agent grid:
+               the same idea already has its own dedicated feature section
+               (#handover-teaser, "Step in mid-conversation..."), so it was
+               redundant here. Kept intact so it can be restored, not deleted. -->
+          <template data-disabled-section="OAC_CARD_HANDOVER">
           <article class="oac-card oac-card--handover" style="--i:6">
             <div class="oac-card-top">
               <span class="oac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
@@ -609,8 +613,13 @@
               <div class="oac-mock-input"><span>Type a reply&hellip;</span><span class="oac-mock-send" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></div>
             </div>
           </article>
+          </template>
 
-          <!-- BUILT-IN CRM & TICKETS -->
+          <!-- DISABLED — "Keeps a record on everyone" removed from the one-agent
+               grid: the same idea already has its own dedicated feature section
+               (#crm-teaser, "Every contact, conversation and ticket..."), so it
+               was redundant here. Kept intact so it can be restored, not deleted. -->
+          <template data-disabled-section="OAC_CARD_CRM">
           <article class="oac-card oac-card--crm" style="--i:7">
             <div class="oac-card-top">
               <span class="oac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M4 16c0-1.5 1.5-2.5 4-2.5s4 1 4 2.5"/><line x1="14" y1="9" x2="19" y2="9"/><line x1="14" y1="13" x2="19" y2="13"/></svg></span>
@@ -635,6 +644,7 @@
               </div>
             </div>
           </article>
+          </template>
 
         </div>
 
@@ -1085,6 +1095,58 @@
     </section>
 
     <!-- ============================================================
+         OMNICHANNEL DEPLOYMENT (dark) — channels + hub diagram + stats
+         ============================================================ -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="deploy-shell">
+          <div class="reveal">
+            <p class="kicker">Deploy everywhere</p>
+            <h2 class="section-title">One agent. Every place they show up.</h2>
+            <p class="section-sub">Same brain, same memory, same answer — whether they message you on WhatsApp or land on the website at 2am.</p>
+
+            <div class="channel-list">
+              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span><span class="channel-list-name">Website</span></div>
+              <div class="channel-list-row"><span class="channel-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span class="channel-list-name">WhatsApp</span></div>
+              <div class="channel-list-row"><span class="channel-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span><span class="channel-list-name">Instagram</span></div>
+              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="4" width="6" height="6" rx="2"/><rect x="4" y="14" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg></span><span class="channel-list-name">Slack &amp; Teams</span></div>
+              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span><span class="channel-list-name">Gmail</span></div>
+            </div>
+
+            <div class="deploy-stats" id="deployStats">
+              <div class="deploy-stat"><b data-count="5" data-suffix="s" data-prefix="&lt;">0</b><span>Avg. response time</span></div>
+              <div class="deploy-stat"><b data-count="24" data-suffix="/7">0</b><span>Uptime</span></div>
+              <div class="deploy-stat"><b data-count="80" data-suffix="%">0</b><span>Auto-resolved</span></div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="hub-diagram">
+              <div class="hub-node">
+                <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+                <h4>One agent brain</h4>
+                <p>Trained once, deployed everywhere</p>
+              </div>
+              <div class="hub-spokes">
+                <svg width="100%" height="100%" style="position:absolute;left:0;top:0" aria-hidden="true">
+                  <line x1="50%" y1="0" x2="10%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                  <line x1="50%" y1="0" x2="30%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                  <line x1="50%" y1="0" x2="70%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                  <line x1="50%" y1="0" x2="90%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+                </svg>
+                <span class="hub-spoke" style="left:2%;bottom:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg></span>
+                <span class="hub-spoke" style="left:22%;bottom:16px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+                <span class="hub-spoke" style="left:42%;bottom:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg></span>
+                <span class="hub-spoke" style="right:22%;bottom:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg></span>
+                <span class="hub-spoke" style="right:2%;bottom:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================
          5. ONE INBOX — same real .inbox-dash component as agents.html
              (conversation list + open thread), reused via agents.css
              which this page already loads
@@ -1448,62 +1510,6 @@
       </div>
     </section>
 
-    <!-- DISABLED — not in the approved homepage section list; kept intact below so it can be restored, not deleted. -->
-    <template data-disabled-section="DEPLOYMENT_BAND">
-    <!-- ============================================================
-         9. DEPLOYMENT BAND (dark) — channels + hub diagram + stats
-         ============================================================ -->
-    <section class="section section--dark">
-      <div class="container">
-        <div class="deploy-shell">
-          <div class="reveal">
-            <p class="kicker">Deploy everywhere</p>
-            <h2 class="section-title">One agent. Every place they show up.</h2>
-            <p class="section-sub">Same brain, same memory, same answer — whether they message you on WhatsApp or land on the website at 2am.</p>
-
-            <div class="channel-list">
-              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span><span class="channel-list-name">Website</span></div>
-              <div class="channel-list-row"><span class="channel-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span class="channel-list-name">WhatsApp</span></div>
-              <div class="channel-list-row"><span class="channel-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span><span class="channel-list-name">Instagram</span></div>
-              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="4" width="6" height="6" rx="2"/><rect x="4" y="14" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg></span><span class="channel-list-name">Slack &amp; Teams</span></div>
-              <div class="channel-list-row"><span class="channel-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span><span class="channel-list-name">Gmail</span></div>
-            </div>
-
-            <div class="deploy-stats" id="deployStats">
-              <div class="deploy-stat"><b data-count="5" data-suffix="s" data-prefix="&lt;">0</b><span>Avg. response time</span></div>
-              <div class="deploy-stat"><b data-count="24" data-suffix="/7">0</b><span>Uptime</span></div>
-              <div class="deploy-stat"><b data-count="80" data-suffix="%">0</b><span>Auto-resolved</span></div>
-            </div>
-          </div>
-
-          <div class="reveal">
-            <div class="hub-diagram">
-              <div class="hub-node">
-                <div class="hub-node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
-                <h4>One agent brain</h4>
-                <p>Trained once, deployed everywhere</p>
-              </div>
-              <div class="hub-spokes">
-                <svg width="100%" height="100%" style="position:absolute;left:0;top:0" aria-hidden="true">
-                  <line x1="50%" y1="0" x2="10%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-                  <line x1="50%" y1="0" x2="30%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-                  <line x1="50%" y1="0" x2="70%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-                  <line x1="50%" y1="0" x2="90%" y2="100%" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-                </svg>
-                <span class="hub-spoke" style="left:2%;bottom:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg></span>
-                <span class="hub-spoke" style="left:22%;bottom:16px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
-                <span class="hub-spoke" style="left:42%;bottom:24px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg></span>
-                <span class="hub-spoke" style="right:22%;bottom:16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="2"/><rect x="14" y="14" width="6" height="6" rx="2"/></svg></span>
-                <span class="hub-spoke" style="right:2%;bottom:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    </template>
     <!-- ============================================================
          10. WORKFLOWS — it runs on its own
          ============================================================ -->
@@ -1844,108 +1850,6 @@
 
 
     <!-- ============================================================
-         10. ONBOARDING / HOW IT WORKS
-         ============================================================ -->
-    <section class="section section--dark hiw-section-wrap" id="how-it-works">
-      <div class="hiw-bg-flow" aria-hidden="true">
-        <div class="hiw-blob hiw-blob--cyan"></div>
-        <div class="hiw-blob hiw-blob--indigo"></div>
-        <div class="hiw-blob hiw-blob--teal"></div>
-        <svg class="hiw-circuit-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-          <path class="hiw-circuit-path hiw-circuit-path--1" d="M -100 180 C 300 60, 520 460, 920 300 C 1240 160, 1380 500, 1600 360" stroke="url(#hiwCircuitGrad1)" stroke-width="54" stroke-linecap="round"/>
-          <path class="hiw-circuit-path hiw-circuit-path--2" d="M -120 740 C 260 880, 580 480, 960 720 C 1260 900, 1420 640, 1620 800" stroke="url(#hiwCircuitGrad2)" stroke-width="42" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="hiwCircuitGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.55"/>
-              <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.5"/>
-              <stop offset="100%" stop-color="#6366F1" stop-opacity="0.55"/>
-            </linearGradient>
-            <linearGradient id="hiwCircuitGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#10B981" stop-opacity="0.45"/>
-              <stop offset="50%" stop-color="#0EA5E9" stop-opacity="0.45"/>
-              <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.45"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="feat2-shell reveal" id="hiwDevice">
-          <div class="feat2-copy">
-            <div class="section-head">
-              <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg>How it works</p>
-              <h2 class="section-title">Live in under an hour.</h2>
-              <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
-            </div>
-            <div class="feat2-list" id="hiwList" role="tablist">
-              <button class="feat2-item is-active" data-hiw-i="0" role="tab" aria-selected="true" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
-                <span class="feat2-item-label">Connect your knowledge</span>
-              </button>
-              <button class="feat2-item" data-hiw-i="1" role="tab" aria-selected="false" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>
-                <span class="feat2-item-label">Set your identity</span>
-              </button>
-              <button class="feat2-item" data-hiw-i="2" role="tab" aria-selected="false" type="button">
-                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
-                <span class="feat2-item-label">Deploy everywhere</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="wf-visual-glow" aria-hidden="true"></div>
-
-          <div class="feat2-visual">
-            <div class="feat2-photo is-active" style="background-image:url('images/brand-01.jpg')" data-hiw-photo="0"></div>
-            <div class="feat2-photo" style="background-image:url('images/brand-02.jpg')" data-hiw-photo="1"></div>
-            <div class="feat2-photo" style="background-image:url('images/brand-03.jpg')" data-hiw-photo="2"></div>
-
-            <div class="feat2-glass">
-              <div class="hiw-screens" id="hiwScreens">
-                <!-- Screen 1: Connect Knowledge -->
-                <div class="hiw-screen active" data-step="1">
-                  <h3>Connect your knowledge</h3>
-                  <p class="hiw-sub">Paste your URL. We read every page and PDF.</p>
-                  <div class="hiw-field-label">Website URL</div>
-                  <div class="hiw-input">
-                    <span style="opacity:.5">https://</span><span id="hiwUrlText"></span><span class="cursor" style="animation: blink 1s step-end infinite;">|</span>
-                  </div>
-                  <div class="hiw-status" id="hiwSyncStatus" style="opacity:0; transform:translateY(10px); transition: all .4s;">
-                    <div class="hiw-spinner"></div>
-                    <span>Syncing 42 pages...</span>
-                  </div>
-                </div>
-
-                <!-- Screen 2: Brand Identity -->
-                <div class="hiw-screen" data-step="2">
-                  <h3>Set your identity</h3>
-                  <p class="hiw-sub">Give it a name and a tone of voice.</p>
-                  <div class="hiw-field-label">Agent Name</div>
-                  <div class="hiw-input">Sarah</div>
-                  <div class="hiw-chip-row">
-                    <span class="hiw-chip on">Professional</span>
-                    <span class="hiw-chip">Friendly</span>
-                    <span class="hiw-chip">Direct</span>
-                    <span class="hiw-chip">Playful</span>
-                  </div>
-                </div>
-
-                <!-- Screen 3: Deploy -->
-                <div class="hiw-screen" data-step="3">
-                  <h3>Deploy everywhere</h3>
-                  <p class="hiw-sub">One click to go live on your favorite channels.</p>
-                  <div class="hiw-channel-grid" id="hiwChannelGrid">
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg><span>Web</span></div>
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>WhatsApp</span></div>
-                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ============================================================
          11. ANALYTICS &amp; INSIGHTS — reuses the .analytics-dash
             component built for agents.html / analytics.html
          ============================================================ -->
@@ -2264,6 +2168,108 @@
 
       </div>
     </section>
+    <!-- ============================================================
+         10. ONBOARDING / HOW IT WORKS
+         ============================================================ -->
+    <section class="section section--dark hiw-section-wrap" id="how-it-works">
+      <div class="hiw-bg-flow" aria-hidden="true">
+        <div class="hiw-blob hiw-blob--cyan"></div>
+        <div class="hiw-blob hiw-blob--indigo"></div>
+        <div class="hiw-blob hiw-blob--teal"></div>
+        <svg class="hiw-circuit-waves" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
+          <path class="hiw-circuit-path hiw-circuit-path--1" d="M -100 180 C 300 60, 520 460, 920 300 C 1240 160, 1380 500, 1600 360" stroke="url(#hiwCircuitGrad1)" stroke-width="54" stroke-linecap="round"/>
+          <path class="hiw-circuit-path hiw-circuit-path--2" d="M -120 740 C 260 880, 580 480, 960 720 C 1260 900, 1420 640, 1620 800" stroke="url(#hiwCircuitGrad2)" stroke-width="42" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="hiwCircuitGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.55"/>
+              <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#6366F1" stop-opacity="0.55"/>
+            </linearGradient>
+            <linearGradient id="hiwCircuitGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.45"/>
+              <stop offset="50%" stop-color="#0EA5E9" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.45"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="feat2-shell reveal" id="hiwDevice">
+          <div class="feat2-copy">
+            <div class="section-head">
+              <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg>How it works</p>
+              <h2 class="section-title">Live in under an hour.</h2>
+              <p class="section-sub">No coding, no flowcharts, no training data to format. Just paste your website and connect your channels.</p>
+            </div>
+            <div class="feat2-list" id="hiwList" role="tablist">
+              <button class="feat2-item is-active" data-hiw-i="0" role="tab" aria-selected="true" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg></span>
+                <span class="feat2-item-label">Connect your knowledge</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="1" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></span>
+                <span class="feat2-item-label">Set your identity</span>
+              </button>
+              <button class="feat2-item" data-hiw-i="2" role="tab" aria-selected="false" type="button">
+                <span class="feat2-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+                <span class="feat2-item-label">Deploy everywhere</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="wf-visual-glow" aria-hidden="true"></div>
+
+          <div class="feat2-visual">
+            <div class="feat2-photo is-active" style="background-image:url('images/brand-01.jpg')" data-hiw-photo="0"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-02.jpg')" data-hiw-photo="1"></div>
+            <div class="feat2-photo" style="background-image:url('images/brand-03.jpg')" data-hiw-photo="2"></div>
+
+            <div class="feat2-glass">
+              <div class="hiw-screens" id="hiwScreens">
+                <!-- Screen 1: Connect Knowledge -->
+                <div class="hiw-screen active" data-step="1">
+                  <h3>Connect your knowledge</h3>
+                  <p class="hiw-sub">Paste your URL. We read every page and PDF.</p>
+                  <div class="hiw-field-label">Website URL</div>
+                  <div class="hiw-input">
+                    <span style="opacity:.5">https://</span><span id="hiwUrlText"></span><span class="cursor" style="animation: blink 1s step-end infinite;">|</span>
+                  </div>
+                  <div class="hiw-status" id="hiwSyncStatus" style="opacity:0; transform:translateY(10px); transition: all .4s;">
+                    <div class="hiw-spinner"></div>
+                    <span>Syncing 42 pages...</span>
+                  </div>
+                </div>
+
+                <!-- Screen 2: Brand Identity -->
+                <div class="hiw-screen" data-step="2">
+                  <h3>Set your identity</h3>
+                  <p class="hiw-sub">Give it a name and a tone of voice.</p>
+                  <div class="hiw-field-label">Agent Name</div>
+                  <div class="hiw-input">Sarah</div>
+                  <div class="hiw-chip-row">
+                    <span class="hiw-chip on">Professional</span>
+                    <span class="hiw-chip">Friendly</span>
+                    <span class="hiw-chip">Direct</span>
+                    <span class="hiw-chip">Playful</span>
+                  </div>
+                </div>
+
+                <!-- Screen 3: Deploy -->
+                <div class="hiw-screen" data-step="3">
+                  <h3>Deploy everywhere</h3>
+                  <p class="hiw-sub">One click to go live on your favorite channels.</p>
+                  <div class="hiw-channel-grid" id="hiwChannelGrid">
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg><span>Web</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>WhatsApp</span></div>
+                    <div class="hiw-channel-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/></svg><span>Instagram</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================================================
          19. FINAL CTA
@@ -2351,30 +2357,26 @@
     </section>
 
     <!-- ============================================================
-         20. FAQ 3 — multi-category tabbed FAQ, animated accordions
-         (React Bits Pro "FAQ 3" layout, recreated in vanilla CSS/JS —
-         see home.css .faq3-* and faq3Init() in home.js)
+         20. FAQ 3 — all categories shown at once, animated accordions
+         (originally a React Bits Pro "FAQ 3" tabbed layout, recreated
+         in vanilla CSS/JS; the category tabs were removed so every
+         group is visible without clicking — see home.css .faq3-*
+         and faq3Init() in home.js)
          ============================================================ -->
     <section class="faq3-section" id="faq">
       <div class="faq3-top">
         <div class="container reveal">
           <h2 class="faq3-title">Questions about StepsAI?</h2>
-          <div class="faq3-tabs" role="tablist">
-            <button class="faq3-tab active" data-target="faq3-cat-started">Getting Started</button>
-            <button class="faq3-tab" data-target="faq3-cat-channels">Channels</button>
-            <button class="faq3-tab" data-target="faq3-cat-integrations">Integrations</button>
-            <button class="faq3-tab" data-target="faq3-cat-security">Trust &amp; Security</button>
-          </div>
         </div>
       </div>
 
       <div class="faq3-bottom">
         <div class="container">
-          <div class="faq3-grid">
-            <h3 class="faq3-active-title" id="faq3-active-title">Getting Started</h3>
+          <div class="faq3-groups">
 
-            <div>
-              <div class="faq3-category active" id="faq3-cat-started">
+            <div class="faq3-group">
+              <h3 class="faq3-group-title">Getting Started</h3>
+              <div class="faq3-category" id="faq3-cat-started">
                 <div class="faq3-item">
                   <button class="faq3-q" aria-expanded="false" aria-controls="faq3-a1">
                     How long does setup take?
@@ -2394,7 +2396,10 @@
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="faq3-group">
+              <h3 class="faq3-group-title">Channels</h3>
               <div class="faq3-category" id="faq3-cat-channels">
                 <div class="faq3-item">
                   <button class="faq3-q" aria-expanded="false" aria-controls="faq3-a3">
@@ -2406,7 +2411,10 @@
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="faq3-group">
+              <h3 class="faq3-group-title">Integrations</h3>
               <div class="faq3-category" id="faq3-cat-integrations">
                 <div class="faq3-item">
                   <button class="faq3-q" aria-expanded="false" aria-controls="faq3-a4">
@@ -2418,7 +2426,10 @@
                   </div>
                 </div>
               </div>
+            </div>
 
+            <div class="faq3-group">
+              <h3 class="faq3-group-title">Trust &amp; Security</h3>
               <div class="faq3-category" id="faq3-cat-security">
                 <div class="faq3-item">
                   <button class="faq3-q" aria-expanded="false" aria-controls="faq3-a5">
@@ -2440,6 +2451,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

@@ -2128,55 +2128,24 @@
   line-height: 1.05;
   margin: 0 0 36px;
 }
-.faq3-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-.faq3-tab {
-  background: transparent;
-  border: 1px solid rgba(0,0,0,0.3);
-  padding: 13px 26px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111;
-  cursor: pointer;
-  font: inherit;
-  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
-}
-.faq3-tab:hover { background: rgba(0,0,0,0.05); }
-.faq3-tab.active {
-  border: 2px dashed #111;
-  border-radius: 46% 54% 51% 49% / 53% 48% 52% 47%;
-  padding: 13px 28px;
-  background: transparent;
-  transform: rotate(-5deg);
-}
-
 .faq3-bottom {
   background-color: #0d0d0d;
   padding: 72px 0 88px;
   color: #fff;
 }
-.faq3-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  align-items: start;
-}
-.faq3-active-title {
-  font-size: 44px;
+
+/* All categories render at once (stacked), each under its own heading —
+   no tab click required to see a category's questions. */
+.faq3-groups { display: flex; flex-direction: column; gap: 48px; }
+.faq3-group-title {
+  font-size: 28px;
   font-weight: 650;
   letter-spacing: -0.015em;
   color: #fff;
-  position: sticky;
-  top: 120px;
-  margin: 0;
+  margin: 0 0 4px;
 }
 
-.faq3-category { display: none; }
-.faq3-category.active { display: block; }
+.faq3-category { display: block; }
 
 .faq3-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
 .faq3-item:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
@@ -2225,8 +2194,8 @@
   .faq3-top { padding: 56px 0 40px; }
   .faq3-title { margin-bottom: 24px; }
   .faq3-bottom { padding: 48px 0 56px; }
-  .faq3-grid { grid-template-columns: 1fr; gap: 20px; }
-  .faq3-active-title { position: static; font-size: 30px; }
+  .faq3-groups { gap: 36px; }
+  .faq3-group-title { font-size: 24px; }
 }
 
 /* ============================================================

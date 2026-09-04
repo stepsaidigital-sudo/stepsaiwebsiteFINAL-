@@ -481,26 +481,11 @@
      title; each category runs its own single-open accordion.
      --------------------------------------------------------- */
   (function faq3Init() {
-    var faqTabs = document.querySelectorAll('.faq3-tab');
-    if (!faqTabs.length) return;
-    var faqCats = document.querySelectorAll('.faq3-category');
+    // All categories render at once now (no tabs to switch between —
+    // see the faq3-groups markup in index.html); this just wires the
+    // per-question accordion toggle.
     var faqItems = document.querySelectorAll('.faq3-item');
-    var activeTitle = document.getElementById('faq3-active-title');
-
-    // Tab switching
-    faqTabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        faqTabs.forEach(function (t) { t.classList.remove('active'); });
-        faqCats.forEach(function (c) { c.classList.remove('active'); });
-
-        tab.classList.add('active');
-        var targetId = tab.getAttribute('data-target');
-        var targetCat = document.getElementById(targetId);
-        if (targetCat) targetCat.classList.add('active');
-
-        if (activeTitle) activeTitle.textContent = tab.textContent;
-      });
-    });
+    if (!faqItems.length) return;
 
     // Accordion toggling — one open item per category
     faqItems.forEach(function (item) {
