@@ -73,6 +73,7 @@
   wireCountUp('numbersGrid');
   wireCountUp('analyticsStatsHome');
   wireCountUp('one-agent');
+  wireCountUp('grow-with-stepsai');
 
   /* ---------------------------------------------------------
      HERO CONVERSATION — the cinematic device plays a looping

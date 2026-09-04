@@ -2742,3 +2742,275 @@
   .oac-product { flex: 0 0 108px; min-width: 108px; }
   .oac-mock-input { padding: 8px 12px; font-size: 11px; }
 }
+
+/* ============================================================
+   GROW WITH STEPSAI — Ascending Stepped Arch Pillars
+   ============================================================ */
+.grow-section {
+  background: #FAF7F2;
+  padding: 100px 0 110px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.grow-head {
+  margin-bottom: 52px;
+}
+
+.grow-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.grow-title {
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #111827;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.grow-doodle-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: doodleFloat 3.5s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+.grow-doodle-arrow svg {
+  width: 64px;
+  height: 64px;
+}
+
+.grow-subtitle {
+  font-size: 1.08rem;
+  line-height: 1.58;
+  color: #4B5563;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* 3-Column Ascending Grid */
+.grow-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: end;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.grow-arch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 220px 220px 28px 28px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.grow-arch:hover {
+  transform: translateY(-8px);
+}
+
+/* Tier 1: Lavender / Productivity (Low Pillar) */
+.grow-arch--lavender {
+  background: linear-gradient(180deg, #F3EEFF 0%, #E7DBFF 100%);
+  min-height: 420px;
+}
+.grow-arch--lavender:hover {
+  box-shadow: 0 22px 48px -12px rgba(124, 58, 237, 0.22);
+}
+
+/* Tier 2: Sky Blue / Implementation (Medium Pillar) */
+.grow-arch--cyan {
+  background: linear-gradient(180deg, #E2F5FE 0%, #BFE7FD 100%);
+  min-height: 500px;
+}
+.grow-arch--cyan:hover {
+  box-shadow: 0 22px 48px -12px rgba(14, 165, 233, 0.22);
+}
+
+/* Tier 3: Warm Peach / Savings + Human (Tall Pillar) */
+.grow-arch--peach {
+  background: linear-gradient(180deg, #FFF1DF 0%, #FFE0B8 100%);
+  min-height: 580px;
+}
+.grow-arch--peach:hover {
+  box-shadow: 0 24px 52px -12px rgba(234, 88, 12, 0.24);
+}
+
+/* Card Content & Typography */
+.grow-arch-content {
+  padding: 52px 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grow-stat-num {
+  font-size: clamp(3rem, 4.4vw, 4.2rem);
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.grow-stat-title {
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.25;
+  color: #111827;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.015em;
+}
+
+.grow-stat-desc {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #4B5563;
+  margin: 0;
+  max-width: 230px;
+}
+
+/* Bottom Visual Elements */
+.grow-arch-bottom-visual {
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  position: relative;
+}
+
+.grow-icon-chart {
+  width: 96px;
+  transition: transform 0.3s ease;
+}
+
+.grow-arch--lavender:hover .grow-icon-chart {
+  animation: growChartBounce 1.4s ease-in-out infinite;
+}
+
+.grow-icon-gear {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: growGearSpin 24s linear infinite;
+  transform-origin: center center;
+}
+
+.grow-arch-human-wrap {
+  position: relative;
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.grow-human-img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grow-arch--peach:hover .grow-human-img {
+  transform: scale(1.04);
+}
+
+/* Keyframes */
+@keyframes doodleFloat {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(5px, -6px) rotate(4deg); }
+}
+
+@keyframes growGearSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes growChartBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Responsive Queries */
+@media (max-width: 960px) {
+  .grow-arch-grid {
+    gap: 20px;
+  }
+  .grow-arch--lavender { min-height: 380px; }
+  .grow-arch--cyan { min-height: 450px; }
+  .grow-arch--peach { min-height: 520px; }
+  .grow-arch-content { padding: 42px 18px 20px; }
+  .grow-human-img { height: 230px; }
+}
+
+@media (max-width: 768px) {
+  .grow-section {
+    padding: 72px 0 80px;
+  }
+  .grow-title-wrap {
+    gap: 14px;
+  }
+  .grow-doodle-arrow svg {
+    width: 50px;
+    height: 50px;
+  }
+  .grow-arch-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 440px;
+  }
+  .grow-arch {
+    border-radius: 36px;
+    min-height: auto !important;
+  }
+  .grow-arch-content {
+    padding: 36px 24px 20px;
+  }
+  .grow-arch-bottom-visual {
+    height: 100px;
+    padding-bottom: 20px;
+  }
+  .grow-human-img {
+    height: 260px;
+    border-radius: 0 0 36px 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grow-title {
+    font-size: 2.1rem;
+  }
+  .grow-stat-num {
+    font-size: 2.8rem;
+  }
+  .grow-stat-title {
+    font-size: 1.15rem;
+  }
+  .grow-human-img {
+    height: 220px;
+  }
+}
+
