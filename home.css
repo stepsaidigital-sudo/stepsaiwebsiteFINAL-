@@ -2352,98 +2352,108 @@
 .cal-att-info b { font-size: 13.5px; font-weight: 500; color: #202124; }
 .cal-att-info span { font-size: 12px; color: #5F6368; }
 
-/* ---------- FAQ 3 — multi-category tabbed FAQ, animated accordions
-   (React Bits Pro "FAQ 3" block, hand-built: this project has no
-   React/shadcn toolchain to install the real package into, so this
-   recreates its exact look — purple header band with a hand-drawn
-   dashed "circled" active tab, black accordion band, sticky category
-   title on the left — in plain CSS/JS). Full-bleed section: unlike
-   every other homepage section it has NO .container padding wrapper
-   around the outer bands themselves, only around their inner content,
-   so the color bands run edge-to-edge like the reference. Driving JS
-   is faq3Init() in home.js. ---------- */
+/* ---------- FAQ 3 — compact 2-column layout, animated accordions ---------- */
 .faq3-section { overflow: hidden; }
 
 .faq3-top {
   background-color: #b886fb;
-  padding: 88px 0 64px;
+  padding: 44px 0 32px;
 }
 .faq3-title {
-  font-size: clamp(36px, 5.2vw, 60px);
-  font-weight: 700;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 750;
   color: #111;
   letter-spacing: -0.02em;
-  line-height: 1.05;
-  margin: 0 0 36px;
+  line-height: 1.15;
+  margin: 0;
 }
 .faq3-bottom {
   background-color: #0d0d0d;
-  padding: 72px 0 88px;
+  padding: 44px 0 52px;
   color: #fff;
 }
 
-/* All categories render at once (stacked), each under its own heading —
-   no tab click required to see a category's questions. */
-.faq3-groups { display: flex; flex-direction: column; gap: 48px; }
+/* 2-column compact grid on desktop */
+.faq3-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 48px;
+  align-items: start;
+}
+.faq3-group {
+  display: flex;
+  flex-direction: column;
+}
 .faq3-group-title {
-  font-size: 28px;
-  font-weight: 650;
-  letter-spacing: -0.015em;
-  color: #fff;
-  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c49dfc;
+  margin: 0 0 8px;
 }
 
 .faq3-category { display: block; }
 
-.faq3-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
-.faq3-item:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
+.faq3-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.faq3-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
 .faq3-q {
   width: 100%;
   text-align: left;
   background: none;
   border: none;
-  padding: 30px 0;
-  font-size: 18px;
-  font-weight: 620;
+  padding: 16px 0;
+  font-size: 15.5px;
+  font-weight: 600;
   font-family: inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  color: #fff;
+  gap: 16px;
+  color: #f4f4f5;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+.faq3-q:hover {
+  color: #c49dfc;
 }
 .faq3-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
-  color: #fff;
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #a1a1aa;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
 }
-.faq3-item.open .faq3-icon { transform: rotate(45deg); }
+.faq3-item.open .faq3-icon {
+  transform: rotate(45deg);
+  color: #c49dfc;
+}
 
 .faq3-a {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq3-item.open .faq3-a { grid-template-rows: 1fr; }
 .faq3-a-inner { overflow: hidden; }
 .faq3-a-inner p {
-  padding: 0 0 30px;
+  padding: 0 0 16px;
   margin: 0;
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.55;
   color: #a1a1aa;
-  max-width: 56ch;
+  max-width: 52ch;
 }
 
-@media (max-width: 768px) {
-  .faq3-top { padding: 56px 0 40px; }
-  .faq3-title { margin-bottom: 24px; }
-  .faq3-bottom { padding: 48px 0 56px; }
-  .faq3-groups { gap: 36px; }
-  .faq3-group-title { font-size: 24px; }
+@media (max-width: 860px) {
+  .faq3-top { padding: 34px 0 24px; }
+  .faq3-bottom { padding: 34px 0 40px; }
+  .faq3-groups {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .faq3-group-title { font-size: 14px; }
+  .faq3-q { padding: 13px 0; font-size: 14.5px; }
 }
 
 /* ============================================================
@@ -2748,7 +2758,7 @@
    ============================================================ */
 .grow-section {
   background: #FAF7F2;
-  padding: 100px 0 110px;
+  padding: 80px 0 88px;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -2756,7 +2766,7 @@
 }
 
 .grow-head {
-  margin-bottom: 52px;
+  margin-bottom: 40px;
 }
 
 .grow-title-wrap {
