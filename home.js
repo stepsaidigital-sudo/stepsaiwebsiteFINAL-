@@ -947,5 +947,57 @@
     startTimer();
   })();
 
+  /* ---------------------------------------------------------
+     ONE-AGENT MOCKUP INTERACTIVITY — date selector, time slots,
+     and cart button micro-interactions
+     --------------------------------------------------------- */
+  (function initOneAgentMockups() {
+    var section = document.getElementById('one-agent');
+    if (!section) return;
+
+    // Date Chip Selection
+    var dateChips = section.querySelectorAll('.oac-date-chip');
+    dateChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var parent = chip.closest('.oac-date-row');
+        if (parent) {
+          parent.querySelectorAll('.oac-date-chip').forEach(function (c) {
+            c.classList.remove('is-active');
+          });
+        }
+        chip.classList.add('is-active');
+      });
+    });
+
+    // Time Slot Selection
+    var timeChips = section.querySelectorAll('.oac-time-chip');
+    timeChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var parent = chip.closest('.oac-time-grid');
+        if (parent) {
+          parent.querySelectorAll('.oac-time-chip').forEach(function (c) {
+            c.classList.remove('is-active');
+          });
+        }
+        chip.classList.add('is-active');
+      });
+    });
+
+    // Cart and Action Buttons Feedback
+    var cartBtns = section.querySelectorAll('.oac-cart-btn');
+    cartBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var origText = btn.innerHTML;
+        btn.style.background = '#10B981';
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Confirmed!';
+        setTimeout(function () {
+          btn.style.background = '';
+          btn.innerHTML = origText;
+        }, 2200);
+      });
+    });
+  })();
+
 })();
 

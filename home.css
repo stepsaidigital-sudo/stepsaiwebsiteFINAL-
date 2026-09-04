@@ -2629,7 +2629,7 @@
 .oac-card--sales,
 .oac-card--support {
   grid-column: span 3;
-  min-height: 510px;
+  min-height: 520px;
 }
 
 /* Bottom Row: 3 Cards */
@@ -2640,11 +2640,31 @@
   min-height: 520px;
 }
 
-.oac-card:hover { 
-  transform: translateY(-6px); 
-  box-shadow: 0 28px 60px -12px var(--oac-glow, rgba(37,99,235,.35)), 0 0 0 1.5px var(--oac-accent); 
+/* Dynamic live ambient motion so cards feel fluid and non-static */
+@keyframes oacFloatA {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-.oac-card:hover .oac-mock { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(30,50,90,.16); }
+@keyframes oacFloatB {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(3px); }
+}
+@keyframes oacFloatC {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.oac-card:nth-child(1) { animation: oacFloatA 8s ease-in-out infinite; }
+.oac-card:nth-child(2) { animation: oacFloatB 9.5s ease-in-out infinite; animation-delay: 1s; }
+.oac-card:nth-child(3) { animation: oacFloatC 7.5s ease-in-out infinite; animation-delay: 0.5s; }
+.oac-card:nth-child(4) { animation: oacFloatA 9s ease-in-out infinite; animation-delay: 2s; }
+.oac-card:nth-child(5) { animation: oacFloatB 8s ease-in-out infinite; animation-delay: 1.5s; }
+
+.oac-card:hover { 
+  animation-play-state: paused;
+  transform: translateY(-8px) scale(1.015) !important; 
+  box-shadow: 0 32px 64px -12px var(--oac-glow, rgba(37,99,235,.38)), 0 0 0 1.5px var(--oac-accent); 
+}
+.oac-card:hover .oac-mock { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(0,0,0,.5); }
 
 .oac-card--sales     { --oac-tint: linear-gradient(145deg, #EEF6FF 0%, #F5F3FF 50%, #FDF2F8 100%); --oac-border: rgba(37,99,235,.24);  --oac-accent: #2563EB; --oac-accent-tint: #BFDBFE; --oac-glow: rgba(37,99,235,.32); }
 .oac-card--support   { --oac-tint: linear-gradient(145deg, #ECFEFF 0%, #F0FDF4 50%, #FAF5FF 100%); --oac-border: rgba(6,182,212,.24);  --oac-accent: #0891B2; --oac-accent-tint: #A5F3FC; --oac-glow: rgba(6,182,212,.32); }
@@ -2684,9 +2704,10 @@
   margin: 0;
 }
 
-/* ---- the mockup: always the visual focus ---- */
+/* ---- the mockup: realistic compact widget proportions ---- */
 .oac-mock {
-  margin: auto 0;
+  margin: auto auto;
+  max-width: 360px;
   width: 100%;
   min-height: 198px; 
   display: flex; 

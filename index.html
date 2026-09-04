@@ -1023,24 +1023,63 @@
               <h3 class="oac-card-name">Support</h3>
               <p class="oac-card-sub">Answers the same question for the fifteenth time &rarr;</p>
             </div>
-            <div class="oac-mock">
+            <div class="oac-mock oac-mock--dark">
+              <!-- Header -->
               <div class="oac-mock-head">
-                <span class="oac-mock-avatar">S</span>
-                <div class="oac-mock-id"><b>StepsAI</b><span class="oac-mock-status"><i></i>Online</span></div>
-                <span class="oac-mock-time">6:47 PM</span>
+                <button class="oac-head-btn" type="button" aria-label="Back">&lt;</button>
+                <div class="oac-head-avatar-wrap">
+                  <div class="oac-head-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <span class="oac-active-dot"></span>
+                </div>
+                <div class="oac-head-title">
+                  <b>Support Agent</b>
+                  <span>Active</span>
+                </div>
+                <div class="oac-head-actions">
+                  <span class="oac-head-action-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+                  <span class="oac-head-action-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                </div>
               </div>
+
+              <!-- Body -->
               <div class="oac-mock-body">
-                <div class="oac-bubble oac-bubble--in">Where is my order #4821?</div>
-                <div class="oac-bubble oac-bubble--out">It left our Pune warehouse this morning and is out for delivery
-                  today between 2 and 6 pm.</div>
-                <a href="#" class="oac-outline-btn" tabindex="-1">Track Package</a>
+                <div class="oac-msg-wrap">
+                  <div class="oac-bubble oac-bubble--in">Where is my order #4821?</div>
+                  <div class="oac-bubble oac-bubble--in">
+                    It left our Pune warehouse at 8:15 AM and is out for delivery today.
+                  </div>
+
+                  <!-- Live Tracking Card -->
+                  <div class="oac-dark-form" style="padding: 10px; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <b style="font-size: 11px; color: #FFFFFF;">Order #4821</b>
+                      <span class="oac-badge-teal" style="background:#065F46; color:#A7F3D0;">Out for delivery</span>
+                    </div>
+                    <div style="display: flex; gap: 4px; margin: 2px 0;">
+                      <span style="height: 4px; flex: 1; border-radius: 2px; background: #10B981;"></span>
+                      <span style="height: 4px; flex: 1; border-radius: 2px; background: #10B981;"></span>
+                      <span style="height: 4px; flex: 1; border-radius: 2px; background: #10B981;"></span>
+                      <span style="height: 4px; flex: 1; border-radius: 2px; background: rgba(255,255,255,0.15);"></span>
+                    </div>
+                    <div style="font-size: 10px; color: #9CA3AF;">Courier: BlueDart &middot; Arriving by 4:30 PM</div>
+                    <button class="oac-cart-btn" type="button" style="width: 100%; border-radius: 7px; padding: 6px 10px; font-size: 10.5px;">
+                      Track Live Delivery
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="oac-mock-input"><span>Message&hellip;</span><span class="oac-mock-send"
-                  aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 2L11 13" />
-                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg></span></div>
+
+              <!-- Input bar -->
+              <div class="oac-mock-input">
+                <div class="oac-input-typing">Type a message...<span class="oac-cursor">|</span></div>
+                <div class="oac-input-actions-round">
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></span>
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                </div>
+              </div>
+              <div class="oac-powered-by">Powered by <span class="oac-brand-dot"></span> <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Timings, shipping, returns, order status. The questions your team answers all day, answered in half a second.</p>
@@ -1053,31 +1092,63 @@
               <h3 class="oac-card-name">Lead capture</h3>
               <p class="oac-card-sub">Captures the lead &rarr;</p>
             </div>
-            <div class="oac-mock">
+            <div class="oac-mock oac-mock--dark">
+              <!-- Header -->
               <div class="oac-mock-head">
-                <span class="oac-mock-avatar">S</span>
-                <div class="oac-mock-id"><b>StepsAI</b><span class="oac-mock-status"><i></i>Online</span></div>
-                <span class="oac-mock-time">3:18 PM</span>
-              </div>
-              <div class="oac-mock-body">
-                <div class="oac-bubble oac-bubble--in">I'm looking for team collaboration software for 40 people.</div>
-                <div class="oac-bubble oac-bubble--out">Great. Just a few quick details so I can connect you.</div>
-                <div class="oac-form">
-                  <div class="oac-field"><label>Full name</label><span>Kevin Mathew</span></div>
-                  <div class="oac-field"><label>Work email</label><span>kevin@&hellip;</span></div>
-                  <div class="oac-field"><label>Company</label><span>Fintech Scale</span></div>
+                <button class="oac-head-btn" type="button" aria-label="Back">&lt;</button>
+                <div class="oac-head-avatar-wrap">
+                  <div class="oac-head-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                  </div>
+                  <span class="oac-active-dot"></span>
                 </div>
-                <span class="oac-confirm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>Lead captured and sent to CRM</span>
+                <div class="oac-head-title">
+                  <b>Lead Qualification</b>
+                  <span>Active</span>
+                </div>
+                <div class="oac-head-actions">
+                  <span class="oac-head-action-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+                  <span class="oac-head-action-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                </div>
               </div>
-              <div class="oac-mock-input"><span>Message&hellip;</span><span class="oac-mock-send"
-                  aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 2L11 13" />
-                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg></span></div>
+
+              <!-- Body -->
+              <div class="oac-mock-body">
+                <div class="oac-booking-flow">
+                  <div class="oac-bubble oac-bubble--in">Looking for enterprise collaboration for 40+ members.</div>
+                  <div class="oac-bubble oac-bubble--in">Qualified for Enterprise plan. Confirm your details:</div>
+
+                  <div class="oac-dark-form">
+                    <div class="oac-dark-field">
+                      <label>Full name</label>
+                      <span>Kevin Mathew</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Work email</label>
+                      <span>kevin@fintechscale.com</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Company</label>
+                      <span>Fintech Scale (40 seats)</span>
+                    </div>
+                  </div>
+
+                  <button class="oac-cart-btn" type="button" style="width: 100%; border-radius: 8px; padding: 7px 12px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    Send Proposal to CRM
+                  </button>
+                </div>
+              </div>
+
+              <!-- Input bar -->
+              <div class="oac-mock-input">
+                <div class="oac-input-typing">Type a message...<span class="oac-cursor">|</span></div>
+                <div class="oac-input-actions-round">
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></span>
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                </div>
+              </div>
+              <div class="oac-powered-by">Powered by <span class="oac-brand-dot"></span> <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Who they are, what they need, how soon they need it. Saved to your CRM automatically, with the conversation attached.</p>
@@ -1193,24 +1264,63 @@
               <h3 class="oac-card-name">Marketing</h3>
               <p class="oac-card-sub">Runs the campaign and answers the replies &rarr;</p>
             </div>
-            <div class="oac-mock oac-mock--broadcast">
+            <div class="oac-mock oac-mock--dark">
+              <!-- Header -->
               <div class="oac-mock-head">
-                <span class="oac-mock-avatar">S</span>
-                <div class="oac-mock-id"><b>StepsAI</b><span
-                    class="oac-mock-status oac-mock-status--label">Broadcast</span></div>
-                <span class="oac-sent-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg><b class="oac-sent-count" data-count="1000">0</b></span>
+                <button class="oac-head-btn" type="button" aria-label="Back">&lt;</button>
+                <div class="oac-head-avatar-wrap">
+                  <div class="oac-head-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                  </div>
+                  <span class="oac-active-dot"></span>
+                </div>
+                <div class="oac-head-title">
+                  <b>Marketing Broadcast</b>
+                  <span>Active</span>
+                </div>
+                <div class="oac-head-actions">
+                  <span class="oac-head-action-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+                  <span class="oac-head-action-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                </div>
               </div>
+
+              <!-- Body -->
               <div class="oac-mock-body">
-                <div class="oac-bubble oac-bubble--out oac-bubble--wide">Hi Priya! Our new collection is here ✨<br>15%
-                  off on all summer tees.<br>Shop now before it's gone &rarr;</div>
-                <span class="oac-confirm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>Replies are answered individually</span>
+                <div class="oac-booking-flow">
+                  <div class="oac-bubble oac-bubble--in">Does the 15% discount code still work?</div>
+                  <div class="oac-bubble oac-bubble--in">Yes! <strong>SAVE15</strong> is auto-applied to your bag:</div>
+
+                  <div class="oac-dark-form">
+                    <div class="oac-dark-field">
+                      <label>Item</label>
+                      <span>Aria Silk Gown</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Discount</label>
+                      <span class="oac-badge-teal">SAVE15 (-15%)</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Total</label>
+                      <span style="color:#10B981; font-weight:700;">&#8377;3,499.00</span>
+                    </div>
+                  </div>
+
+                  <button class="oac-cart-btn" type="button" style="width: 100%; border-radius: 8px; padding: 7px 12px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    Instant 1-Click Checkout
+                  </button>
+                </div>
               </div>
+
+              <!-- Input bar -->
+              <div class="oac-mock-input">
+                <div class="oac-input-typing">Type a reply...<span class="oac-cursor">|</span></div>
+                <div class="oac-input-actions-round">
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></span>
+                  <span class="oac-action-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                </div>
+              </div>
+              <div class="oac-powered-by">Powered by <span class="oac-brand-dot"></span> <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Reach 1,000 customers with one WhatsApp message. Every reply gets answered, so a campaign becomes conversations instead of a pile of unread messages.</p>
