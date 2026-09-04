@@ -3,17 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sales Agent — StepsAI | It doesn't just chat. It sells.</title>
-<meta name="description" content="Recommends products by size, fit and budget, checks your real stock, and closes the sale inside the conversation — on WhatsApp, Instagram, and your website.">
+<title>Security & Compliance | StepsAI Trust Center</title>
+<meta name="description" content="Enterprise-grade security, data privacy, and encryption. StepsAI never trains AI models on your customer data. GDPR compliant, SOC2 ready, AES-256 encrypted.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;650;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="industries-deep.css">
-<link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="pages.css">
+<link rel="stylesheet" href="creative-showcase.css">
+<style>
+.security-hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.security-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.security-hero-title {
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0F172A;
+  max-width: 820px;
+  margin: 0 auto 20px;
+}
+.security-hero-sub {
+  font-size: 18px;
+  color: #475569;
+  max-width: 62ch;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.security-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .security-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .security-badges-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.security-badge-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  padding: 24px 20px;
+  text-align: left;
+  box-shadow: 0 10px 24px -10px rgba(15, 23, 42, 0.05);
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+}
+.security-badge-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -12px rgba(15, 23, 42, 0.1);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+.security-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.security-badge-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+.security-badge-desc {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+.security-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+@media (max-width: 840px) {
+  .security-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.security-pillar-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 16px 36px -16px rgba(15, 23, 42, 0.06);
+}
+.security-pillar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.security-pillar-desc {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.security-pillar-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.security-pillar-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.5;
+}
+.security-pillar-list li svg {
+  width: 18px;
+  height: 18px;
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.security-contact-box {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: 24px;
+  padding: 56px 40px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 80px;
+}
+.security-contact-box h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+.security-contact-box p {
+  font-size: 16px;
+  color: #94A3B8;
+  max-width: 54ch;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+</style>
 </head>
 <body>
 
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
@@ -387,236 +561,170 @@
     </div>
     </header>
 
-  <main id="top">
-
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="vertical-hero">
-      <div class="container vertical-hero-inner">
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <main>
+    <section class="section section--base security-hero section--atmo">
+      <div class="atmo-mesh" aria-hidden="true">
+        <div class="atmo-blob atmo-blob--emerald atmo-blob--tl"></div>
+        <div class="atmo-blob atmo-blob--blue atmo-blob--br"></div>
+      </div>
+      <div class="container">
         <div class="reveal">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Sales Agent</span>
-          <h1 class="vertical-headline">It doesn't just chat. It sells.</h1>
-          <p class="vertical-tagline">Recommends products by size, fit and budget, checks your real stock, and closes the sale — right inside the conversation, on WhatsApp, Instagram, or your website.</p>
-          <div class="vertical-hero-actions">
-            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
-            <a href="agents.html#four-agents" class="vertical-hero-link">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              All four agents
-            </a>
-          </div>
+          <span class="security-hero-kicker">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Trust &amp; Compliance Center
+          </span>
+          <h1 class="security-hero-title">Enterprise security &amp; privacy, built in by default.</h1>
+          <p class="security-hero-sub">Your customer data, conversation history, and CRM records belong strictly to you. StepsAI never uses your data to train public AI models.</p>
         </div>
-        <div class="reveal">
-          <div class="live-widget">
-            <div class="lw-head">
-              <span class="lw-avatar">N</span>
-              <div><div class="lw-name">Agent</div><div class="lw-status">Nyra Store · Active</div></div>
+
+        <div class="security-badges-grid reveal-stagger">
+          <div class="security-badge-card" style="--i:0">
+            <div class="security-badge-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <div class="lw-body">
-              <div class="lw-bubble user">Looking for something under ₹2,000, casual</div>
-              <div class="lw-bubble agent">The Aria linen shirt is ₹1,799 and in stock in your size. Want a photo?</div>
-              <div class="lw-bubble user">Yes, and is it true to size?</div>
-              <div class="lw-bubble agent">Runs slightly small — most people size up. Want me to reserve one?</div>
-              <div class="lw-bubble user">Yes, reserve it in L</div>
-              <div class="lw-bubble agent">Reserved for 15 minutes — here's your checkout link, size L already selected.</div>
+            <h3 class="security-badge-title">AES-256 &amp; TLS 1.3</h3>
+            <p class="security-badge-desc">Bank-grade encryption for all data in transit and at rest across global cloud regions.</p>
+          </div>
+
+          <div class="security-badge-card" style="--i:1">
+            <div class="security-badge-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <div class="lw-footer">
-              <div class="lw-input">Ask me anything</div>
-              <span class="lw-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></span>
+            <h3 class="security-badge-title">Zero LLM Training</h3>
+            <p class="security-badge-desc">Your private prompts, chats, and CRM records are never retained to train foundation models.</p>
+          </div>
+
+          <div class="security-badge-card" style="--i:2">
+            <div class="security-badge-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
-            <div class="lw-powered">Powered by <b>StepsAI</b></div>
+            <h3 class="security-badge-title">GDPR &amp; CCPA Ready</h3>
+            <p class="security-badge-desc">Complete right-to-be-forgotten, data export, and strict privacy consent management.</p>
+          </div>
+
+          <div class="security-badge-card" style="--i:3">
+            <div class="security-badge-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+            </div>
+            <h3 class="security-badge-title">Role-Based Access</h3>
+            <p class="security-badge-desc">Granular team permissions, SSO (SAML/Okta), 2FA, and full immutable audit logs.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         2. WHAT IT DOES
+         DEEP SECURITY PILLARS
          ============================================================ -->
     <section class="section section--raised section--atmo">
-      <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--violet atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--amber atmo-blob--br"></div>
-      </div>
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> What it does</p>
-          <h2 class="section-title">A salesperson who's read your entire catalogue.</h2>
-          <p class="section-sub">Not a script of canned responses — it recommends from what you actually sell.</p>
+        <div class="section-head center reveal">
+          <p class="kicker">Architecture</p>
+          <h2 class="section-title">How we safeguard your business and customers.</h2>
+          <p class="section-sub">A defense-in-depth architecture covering infrastructure, model runtime, and human access.</p>
         </div>
 
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">01 / Recommends</div>
-            <h3>Reads your catalogue, not a script.</h3>
-            <p>It knows your products, prices, sizes and what pairs well together — so a "what should I get" question gets a real answer, not a deflection to your homepage.</p>
+        <div class="security-pillars-grid reveal-stagger">
+          <div class="security-pillar-card" style="--i:0">
+            <h3 class="security-pillar-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Data Privacy &amp; Isolation
+            </h3>
+            <p class="security-pillar-desc">Every workspace on StepsAI is logically isolated. No customer ever has visibility or shared database tenancy with another company's records.</p>
+            <ul class="security-pillar-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Automated data purge upon workspace cancellation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> WhatsApp official Meta Cloud API secure webhooks</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Anonymized analytics &amp; tokenized PII handling</li>
+            </ul>
           </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Something to go with the linen shirt?</div>
-                <div class="lw-bubble agent">The tan belt and the canvas tote are popular pairings — both in stock.</div>
-                <div class="lw-bubble user">I'll take the belt too</div>
-                <div class="lw-bubble agent">Added &mdash; bundling both saves you 10%, already applied to your cart.</div>
-              </div>
-            </div>
+
+          <div class="security-pillar-card" style="--i:1">
+            <h3 class="security-pillar-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              AI Safety &amp; Guardrails
+            </h3>
+            <p class="security-pillar-desc">StepsAI agents operate within strict deterministic guardrails. They answer only from your approved documents and escalate to humans automatically.</p>
+            <ul class="security-pillar-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Prompt injection &amp; jailbreak mitigation filters</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Strict boundary containment &mdash; no hallucinated discounts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Real-time toxicity &amp; sentiment escalation triggers</li>
+            </ul>
+          </div>
+
+          <div class="security-pillar-card" style="--i:2">
+            <h3 class="security-pillar-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Infrastructure &amp; High Availability
+            </h3>
+            <p class="security-pillar-desc">Hosted in tier-4 ISO27001/SOC2 certified cloud facilities with automated multi-zone failovers and continuous automated backups.</p>
+            <ul class="security-pillar-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 99.95% uptime SLA guarantee for enterprise plans</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Automated hourly backups with point-in-time recovery</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> DDoS protection and Cloudflare edge acceleration</li>
+            </ul>
+          </div>
+
+          <div class="security-pillar-card" style="--i:3">
+            <h3 class="security-pillar-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Compliance &amp; Vendor Assessments
+            </h3>
+            <p class="security-pillar-desc">We simplify your procurement process. Our security team regularly completes vendor risk questionnaires and provides signed Data Processing Agreements (DPAs).</p>
+            <ul class="security-pillar-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Standard DPA available for all customers</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Annual third-party penetration testing reports</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Dedicated security reviews for enterprise procurement</li>
+            </ul>
           </div>
         </div>
 
-        <div class="spread reverse reveal">
-          <div>
-            <div class="spread-index">02 / Checks real stock</div>
-            <h3>It never promises something you don't have.</h3>
-            <p>Connected directly to Shopify or WooCommerce, it checks live inventory before it answers a size or availability question — no overselling, no awkward follow-up email.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Do you have the tote in black?</div>
-                <div class="lw-bubble agent">Just sold the last one — but it's back in stock next Tuesday. Want a notify?</div>
-                <div class="lw-bubble user">Yes please</div>
-                <div class="lw-bubble agent">You're set &mdash; I'll message you the moment it's back.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spread reveal">
-          <div>
-            <div class="spread-index">03 / Closes the sale</div>
-            <h3>The conversation ends at checkout, not at "let me check."</h3>
-            <p>It clears the doubt that was about to end the chat, then shares the checkout link right there — no separate cart-recovery email needed for a sale that could've closed in the moment.</p>
-          </div>
-          <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Ok I'll take the shirt, size M</div>
-                <div class="lw-bubble agent">Reserved for 15 minutes — here's your checkout link.</div>
-                <div class="lw-bubble user">Just paid!</div>
-                <div class="lw-bubble agent">Confirmed &mdash; order #5192. You'll get tracking details within the hour.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         3. TOOLS USED HERE — page-specific integration callout,
-         reuses integrations.html's .integ-band/.integ-logo-row
-         ============================================================ -->
-    <section class="section section--dark">
-      <div class="container">
-        <div class="integ-band">
-          <div class="reveal">
-            <p class="kicker"><span class="n">03</span> Built to work with</p>
-            <h2 class="section-title">Connects to the store and CRM you already run.</h2>
-            <p class="section-sub">It doesn't just talk about your catalogue — it checks it, live, before it recommends anything.</p>
-          </div>
-          <div class="reveal">
-            <div class="integ-logos">
-              <div class="integ-logo-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><div class="integ-logo-row-text"><div class="t1">Shopify</div><div class="t2">Live stock, orders, checkout status</div></div><span class="integ-logo-row-badge">Connect</span></div>
-              <div class="integ-logo-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="7" r="3"/><path d="M9.5 14.5 14.5 9.5"/></svg><div class="integ-logo-row-text"><div class="t1">HubSpot</div><div class="t2">Every qualified conversation lands with full context</div></div><span class="integ-logo-row-badge">Connect</span></div>
-              <div class="integ-logo-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg><div class="integ-logo-row-text"><div class="t1">Salesforce</div><div class="t2">Leads and conversation history, synced both ways</div></div><span class="integ-logo-row-badge">Connect</span></div>
-            </div>
-          </div>
+        <div class="security-contact-box reveal">
+          <h3>Need a Security Review or Custom DPA?</h3>
+          <p>Our security and compliance team is available to assist enterprise procurement teams with security questionnaires, audit documentation, or compliance reviews.</p>
+          <a href="contact.html" class="btn btn-accent">Request Security Package &rarr;</a>
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- ============================================================
-         4. FAQ
-         ============================================================ -->
-    <section class="section section--base section--atmo">
-      <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--emerald atmo-blob--tr"></div>
-        <div class="atmo-blob atmo-blob--rose atmo-blob--bl"></div>
-      </div>
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> FAQ</p>
-          <h2 class="section-title">Questions about the Sales Agent.</h2>
-        </div>
-        <div class="faq-grid reveal">
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Does it work with Shopify and WooCommerce?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — it connects directly to your catalogue, stock, and order status, and checks them live before it answers.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">Will it invent a discount to close a sale?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>No. It only offers discounts and codes you've explicitly configured — it never invents a price or a promotion.</p></div>
-            </div>
-          </div>
-          <div>
-            <div class="faq-item">
-              <button class="faq-question">Can it upsell or cross-sell?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Yes — it can suggest pairings and higher-tier options from your catalogue, based on rules you set, not guesswork.</p></div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">What happens after it closes a sale?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-              <div class="faq-answer"><p>Order confirmation, shipping updates, and any follow-up are handled by the Support Agent and Workflows — the same conversation, no repeating themselves.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         4. FINAL CTA
-         ============================================================ -->
-    <section class="section section--dark final-cta" id="final-cta">
-      <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Your next sale is one recommendation away.</h2>
-        <p class="final-cta-sub">Set it up this afternoon. Stop losing sales to slow replies tonight.</p>
-        <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Cancel any time.</p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer-inner footer-inner--5col">
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html#top" class="nav-logo">
-            <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="38" height="26">
+          <a href="index.html#top" class="footer-logo">
+            <img src="images/logo.png" alt="StepsAI" width="36" height="25">
             <span>StepsAI</span>
           </a>
-          <p class="footer-tagline">Your AI agent layer for every business.</p>
+          <p class="footer-tagline">Autonomous conversational AI that sells, supports, and acts across your customer channels.</p>
+          <div class="footer-socials">
+            <a href="https://twitter.com/stepsai" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://linkedin.com/company/stepsai" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          </div>
         </div>
-        <div class="footer-cols footer-cols--5">
+        <div class="footer-links-grid">
           <div class="footer-col">
             <span class="footer-col-title">Product</span>
             <a href="agents.html">AI Agents</a>
-            <a href="agents.html">All features</a>
+            <a href="workflows.html">Workflows</a>
+            <a href="one-inbox.html">One Inbox</a>
+            <a href="analytics.html">Analytics</a>
             <a href="integrations.html">Integrations</a>
             <a href="pricing.html">Pricing</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Solutions</span>
-            <a href="industry-ecommerce.html">E-Commerce &amp; D2C</a>
-            <a href="industry-healthcare.html">Healthcare &amp; Clinics</a>
+            <a href="role-sales.html">Sales</a>
+            <a href="role-support.html">Support</a>
+            <a href="role-growth.html">Marketing</a>
+            <a href="role-appointments.html">Appointments</a>
+            <a href="industry-ecommerce.html">E-Commerce</a>
             <a href="industry-real-estate.html">Real Estate</a>
-            <a href="industry-edtech.html">Education &amp; Training</a>
-            <a href="industries.html">All industries</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Channels</span>
-            <a href="agents.html#channels">Website</a>
-            <a href="agents.html#channels">WhatsApp</a>
-            <a href="agents.html#channels">Instagram</a>
-            <a href="agents.html#channels">Messenger</a>
-            <a href="agents.html#channels">Agent Page</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Company</span>
-            <a href="about.html">About</a>
-            <a href="team.html">Team</a>
-            <a href="security.html">Security &amp; Trust</a>
-            <a href="career.html">Careers</a>
-            <a href="contact.html">Contact</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Resources</span>
@@ -624,28 +732,29 @@
             <a href="academy.html">Academy</a>
             <a href="help-center.html">Help Center</a>
             <a href="case-studies.html">Case Studies</a>
-            <a href="partner.html">Partner Program</a>
+            <a href="security.html">Security &amp; Trust</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Company</span>
+            <a href="about.html">About</a>
+            <a href="team.html">Team</a>
+            <a href="career.html">Careers</a>
+            <a href="partner.html">Partner With Us</a>
+            <a href="contact.html">Contact</a>
           </div>
         </div>
       </div>
-      <div class="container footer-bottom">
-        <span class="footer-status"><span class="footer-status-dot" aria-hidden="true"></span>System status: Operational</span>
-        <span>&copy; 2026 StepsAI. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="index.html#top" aria-label="StepsAI on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V16M8 8V8.01M12 16V11M12 11C12 11 12.5 10 14 10C15.5 10 16 11 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
-          <a href="index.html#top" aria-label="StepsAI on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="index.html#top" aria-label="StepsAI on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 StepsAI Inc. All rights reserved.</p>
         <div class="footer-legal">
-          <a href="privacy-policy.html">Privacy</a>
-          <a href="terms-of-service.html">Terms</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="security.html">Security</a>
         </div>
       </div>
-    </footer>
-
-  </main>
+    </div>
+  </footer>
 
   <script src="nav.js"></script>
-  <script src="industries.js"></script>
 </body>
 </html>

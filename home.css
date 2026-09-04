@@ -848,28 +848,28 @@
 }
 .hiw-blob--cyan {
   width: 650px; height: 650px; top: -5%; left: -100px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.45) 0%, rgba(14, 165, 233, 0.25) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(14, 165, 233, 0.12) 50%, transparent 72%);
   animation: hiwBlobFloat1 18s ease-in-out infinite alternate;
 }
 .hiw-blob--indigo {
   width: 680px; height: 680px; bottom: -5%; right: -100px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.42) 0%, rgba(124, 58, 237, 0.22) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.20) 0%, rgba(124, 58, 237, 0.10) 50%, transparent 72%);
   animation: hiwBlobFloat2 22s ease-in-out infinite alternate;
 }
 .hiw-blob--teal {
   width: 520px; height: 520px; top: 30%; right: 25%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
   animation: hiwBlobFloat1 20s ease-in-out infinite alternate-reverse;
 }
 
 .hiw-circuit-waves {
   position: absolute;
-  width: 125%;
-  height: 125%;
-  top: -12%;
-  left: -12%;
-  opacity: 0.75;
-  filter: drop-shadow(0 16px 32px rgba(6, 182, 212, 0.18));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.30;
+  filter: drop-shadow(0 12px 24px rgba(6, 182, 212, 0.08));
 }
 .hiw-circuit-path--1 {
   animation: hiwWaveDrift1 20s ease-in-out infinite alternate;
@@ -941,7 +941,7 @@
 
 /* ---------- ANALYTICS & INSIGHTS (Vibrant Purple, Magenta & Amber Data Stream Flow) ---------- */
 .analytics-section-wrap {
-  position: relative; overflow: hidden; padding: 104px 0 96px;
+  position: relative; overflow: hidden; padding: 112px 0 104px;
   background: linear-gradient(135deg, #FAF5FF 0%, #EDE9FE 30%, #FDF2F8 65%, #FEF3C7 100%);
   border-top: 1px solid rgba(139, 92, 246, 0.15);
   border-bottom: 1px solid rgba(236, 72, 153, 0.15);
@@ -976,28 +976,28 @@
 }
 .analytics-blob-live--purple {
   width: 650px; height: 650px; top: -5%; left: -100px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(124, 58, 237, 0.25) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(124, 58, 237, 0.12) 50%, transparent 72%);
   animation: analyticsBlobFloat1 18s ease-in-out infinite alternate;
 }
 .analytics-blob-live--magenta {
   width: 620px; height: 620px; bottom: -5%; right: -80px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.42) 0%, rgba(219, 39, 119, 0.22) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.20) 0%, rgba(219, 39, 119, 0.10) 50%, transparent 72%);
   animation: analyticsBlobFloat2 22s ease-in-out infinite alternate;
 }
 .analytics-blob-live--amber {
   width: 520px; height: 520px; top: 35%; right: 30%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.38) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, transparent 70%);
   animation: analyticsBlobFloat1 20s ease-in-out infinite alternate-reverse;
 }
 
 .analytics-data-waves {
   position: absolute;
-  width: 125%;
-  height: 125%;
-  top: -12%;
-  left: -12%;
-  opacity: 0.75;
-  filter: drop-shadow(0 16px 32px rgba(139, 92, 246, 0.18));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.30;
+  filter: drop-shadow(0 12px 24px rgba(139, 92, 246, 0.08));
 }
 .analytics-wave-path--1 {
   animation: analyticsWaveDrift1 20s ease-in-out infinite alternate;
@@ -1128,28 +1128,28 @@
 }
 .wf-blob-live--emerald {
   width: 650px; height: 650px; top: -5%; left: -100px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.45) 0%, rgba(5, 150, 105, 0.25) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.12) 50%, transparent 72%);
   animation: wfBlobFloat1 18s ease-in-out infinite alternate;
 }
 .wf-blob-live--cyan {
   width: 600px; height: 600px; top: 35%; right: -80px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.42) 0%, rgba(14, 165, 233, 0.22) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.20) 0%, rgba(14, 165, 233, 0.10) 50%, transparent 72%);
   animation: wfBlobFloat2 22s ease-in-out infinite alternate;
 }
 .wf-blob-live--purple {
   width: 620px; height: 620px; bottom: -5%; left: 25%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.38) 0%, rgba(124, 58, 237, 0.2) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(124, 58, 237, 0.10) 50%, transparent 72%);
   animation: wfBlobFloat3 20s ease-in-out infinite alternate;
 }
 
 .wf-network-waves {
   position: absolute;
-  width: 125%;
-  height: 125%;
-  top: -12%;
-  left: -12%;
-  opacity: 0.75;
-  filter: drop-shadow(0 16px 32px rgba(16, 185, 129, 0.18));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.30;
+  filter: drop-shadow(0 12px 24px rgba(16, 185, 129, 0.08));
 }
 .wf-flow-path--1 {
   animation: wfWaveDrift1 20s ease-in-out infinite alternate;
@@ -1331,7 +1331,7 @@
 
 /* ---------- ONE INBOX TEASER (Iridescent Multi-Channel Prism Atmosphere) ---------- */
 .inbox-section-wrap {
-  position: relative; overflow: hidden; padding: 104px 0 96px;
+  position: relative; overflow: hidden; padding: 112px 0 104px;
   background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 30%, #E0F2FE 65%, #ECFDF5 100%);
   border-top: 1px solid rgba(124, 58, 237, 0.15);
   border-bottom: 1px solid rgba(16, 185, 129, 0.15);
@@ -1353,7 +1353,7 @@
    recipe as .inbox-section-wrap above, own pastel tint per section so
    they read as siblings, not clones, of One Inbox. */
 .handover-section-wrap {
-  position: relative; overflow: hidden; padding: 104px 0 96px;
+  position: relative; overflow: hidden; padding: 112px 0 104px;
   background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 30%, #FDF4FF 65%, #F5F3FF 100%);
   border-top: 1px solid rgba(79, 70, 229, 0.15);
   border-bottom: 1px solid rgba(79, 70, 229, 0.15);
@@ -1367,7 +1367,7 @@
 .handover-section-wrap > .container { position: relative; z-index: 2; }
 
 .crm-section-wrap {
-  position: relative; overflow: hidden; padding: 104px 0 96px;
+  position: relative; overflow: hidden; padding: 112px 0 104px;
   background: linear-gradient(135deg, #F0FDFA 0%, #ECFDF5 30%, #EFF6FF 65%, #F0FDFA 100%);
   border-top: 1px solid rgba(13, 148, 136, 0.15);
   border-bottom: 1px solid rgba(13, 148, 136, 0.15);
@@ -1397,28 +1397,28 @@
 }
 .inbox-blob-live--violet {
   width: 650px; height: 650px; top: -5%; left: -100px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.45) 0%, rgba(139, 92, 246, 0.25) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, rgba(139, 92, 246, 0.12) 50%, transparent 72%);
   animation: inboxBlobFloat1 18s ease-in-out infinite alternate;
 }
 .inbox-blob-live--coral {
   width: 620px; height: 620px; bottom: -5%; right: -80px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.42) 0%, rgba(244, 63, 94, 0.22) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.20) 0%, rgba(244, 63, 94, 0.10) 50%, transparent 72%);
   animation: inboxBlobFloat2 22s ease-in-out infinite alternate;
 }
 .inbox-blob-live--emerald {
   width: 520px; height: 520px; top: 35%; right: 30%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.38) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
   animation: inboxBlobFloat1 20s ease-in-out infinite alternate-reverse;
 }
 
 .inbox-prism-waves {
   position: absolute;
-  width: 125%;
-  height: 125%;
-  top: -12%;
-  left: -12%;
-  opacity: 0.75;
-  filter: drop-shadow(0 16px 32px rgba(124, 58, 237, 0.18));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.30;
+  filter: drop-shadow(0 12px 24px rgba(124, 58, 237, 0.08));
 }
 .inbox-wave-path--1 {
   animation: inboxWaveDrift1 20s ease-in-out infinite alternate;
@@ -1743,9 +1743,9 @@
   border-bottom: 1px solid rgba(255, 122, 69, 0.12);
 }
 .sp4-section .container { position: relative; z-index: 2; }
-.sp4-section .kicker { color: #EA580C; }
-.sp4-section .section-title { color: #090E17; }
-.sp4-section .section-sub { color: #64748B; }
+.sp4-section .kicker { color: #EA580C; justify-content: center; margin-left: auto; margin-right: auto; }
+.sp4-section .section-title { color: #090E17; text-align: center; margin-left: auto; margin-right: auto; }
+.sp4-section .section-sub { color: #64748B; text-align: center; margin-left: auto; margin-right: auto; }
 
 /* ---- Living animated organic orange ribbons & atmosphere ---- */
 .sp4-bg-flow {
@@ -2245,33 +2245,33 @@
 }
 .oac-blob--violet {
   width: 650px; height: 650px; top: -5%; left: -100px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(99, 102, 241, 0.25) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 72%);
   animation: oacBlobFloat1 18s ease-in-out infinite alternate;
 }
 .oac-blob--cyan {
   width: 600px; height: 600px; top: 35%; right: -80px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.42) 0%, rgba(14, 165, 233, 0.22) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.20) 0%, rgba(14, 165, 233, 0.10) 50%, transparent 72%);
   animation: oacBlobFloat2 22s ease-in-out infinite alternate;
 }
 .oac-blob--rose {
   width: 620px; height: 620px; bottom: -5%; left: 20%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.38) 0%, rgba(219, 39, 119, 0.2) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, rgba(219, 39, 119, 0.10) 50%, transparent 72%);
   animation: oacBlobFloat3 20s ease-in-out infinite alternate;
 }
 .oac-blob--emerald {
   width: 500px; height: 500px; top: 20%; right: 30%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
   animation: oacBlobFloat1 24s ease-in-out infinite alternate-reverse;
 }
 
 .oac-bg-waves {
   position: absolute;
-  width: 120%;
-  height: 120%;
-  top: -10%;
-  left: -10%;
-  opacity: 0.7;
-  filter: drop-shadow(0 16px 32px rgba(124, 58, 237, 0.18));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.30;
+  filter: drop-shadow(0 12px 24px rgba(124, 58, 237, 0.08));
 }
 .oac-wave-path--1 {
   animation: oacWaveDrift1 20s ease-in-out infinite alternate;

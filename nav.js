@@ -344,8 +344,9 @@
       requestAnimationFrame(function () { frame.classList.remove('cap-enter'); });
     }
 
+    var swapTimer = null;
     function setActive(idx) {
-      if (idx < 0 || idx === target) return;
+      if (idx < 0 || idx >= rows.length || (idx === current && !swapping)) return;
       target = idx;
       rows.forEach(function (r, i) { r.classList.toggle('is-active', i === idx); });
 
@@ -354,48 +355,54 @@
         showFrame(current);
         return;
       }
-      if (swapping) return; // already sliding out — it'll pick up the latest target when it lands
+      if (swapping) return;
       swapping = true;
       var existing = visual.querySelector('.cap-frame');
       if (existing) existing.classList.add('cap-exit');
-      setTimeout(function () {
+
+      clearTimeout(swapTimer);
+      swapTimer = setTimeout(function () {
         current = target;
         showFrame(current);
         swapping = false;
+        if (target !== current) {
+          setActive(target);
+        }
       }, EXIT_MS);
     }
 
+    // Add interactive click and hover listeners to all rows
+    rows.forEach(function (row, idx) {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', function () {
+        setActive(idx);
+      });
+      row.addEventListener('mouseenter', function () {
+        setActive(idx);
+      });
+    });
+
     var ticking = false;
-    var stopped = false;
     function computeActive() {
       ticking = false;
-      if (stopped) return;
-
-      var lastRect = rows[rows.length - 1].getBoundingClientRect();
-      if (lastRect.bottom < 0) {
-        // Scrolled past the last card entirely — freeze on it and stop
-        // listening. Nothing further to react to, and there's no reason
-        // to keep recomputing this for the rest of the page's scroll.
-        stopped = true;
-        window.removeEventListener('scroll', onScroll);
-        window.removeEventListener('resize', onScroll);
-        return;
-      }
 
       var firstRect = rows[0].getBoundingClientRect();
-      if (firstRect.top > window.innerHeight) return; // hasn't reached the list yet — leave row 0 active
+      var lastRect = rows[rows.length - 1].getBoundingClientRect();
 
-      var line = window.innerHeight * 0.38;
+      // If whole section is outside view
+      if (lastRect.bottom < 0 || firstRect.top > window.innerHeight) return;
+
+      var line = window.innerHeight * 0.44;
       var best = -1, bestDist = Infinity;
       for (var i = 0; i < rows.length; i++) {
         var rect = rows[i].getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) continue;
         var mid = rect.top + rect.height / 2;
         var dist = Math.abs(mid - line);
         if (dist < bestDist) { bestDist = dist; best = i; }
       }
       if (best >= 0) setActive(best);
     }
+
     function onScroll() {
       if (!ticking) { ticking = true; requestAnimationFrame(computeActive); }
     }
