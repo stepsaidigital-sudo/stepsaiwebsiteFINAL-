@@ -2706,27 +2706,42 @@
   color: #F3F4F6;
   border-radius: 20px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .oac-mock--dark .oac-mock-head {
   background: #14151A;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  height: 50px;
-  padding: 0 12px;
+  height: 52px;
+  padding: 0 14px;
   gap: 10px;
+  display: flex;
+  align-items: center;
 }
 .oac-head-btn {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D1D5DB;
-  font-size: 13px;
+  color: #9CA3AF;
+  font-size: 14px;
   font-weight: 600;
   cursor: default;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.oac-head-btn:hover {
+  color: #FFFFFF;
+}
+.oac-head-avatar-wrap {
+  position: relative;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 .oac-head-avatar {
@@ -2734,8 +2749,26 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  flex-shrink: 0;
+  background: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D1D5DB;
+}
+.oac-head-avatar svg {
+  width: 18px;
+  height: 18px;
+  fill: #D1D5DB;
+}
+.oac-active-dot {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10B981;
+  border: 2px solid #14151A;
 }
 .oac-head-title {
   display: flex;
@@ -2743,202 +2776,339 @@
   line-height: 1.2;
 }
 .oac-head-title b {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   color: #FFFFFF;
+  letter-spacing: -0.01em;
 }
 .oac-head-title span {
   font-size: 10.5px;
   color: #9CA3AF;
+}
+.oac-head-actions {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  color: #9CA3AF;
 }
-.oac-head-title span::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #10B981;
+.oac-head-action-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #9CA3AF;
+}
+.oac-head-action-icon:hover {
+  color: #FFFFFF;
 }
 
-/* Sender Labels */
+/* Sender Labels & Bubbles */
 .oac-msg-wrap {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
-.oac-msg-wrap--user {
-  align-items: flex-end;
-}
-.oac-sender-label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #9CA3AF;
-  padding: 0 4px;
-}
-.oac-sender-label svg {
-  width: 12px;
-  height: 12px;
-  color: #9CA3AF;
-}
-.oac-sender-label--user {
-  justify-content: flex-end;
-}
-
-/* User Pill Bubble */
-.oac-bubble--user-pill {
-  align-self: flex-end;
-  background: #6366F1;
-  color: #FFFFFF;
-  border-radius: 10px;
-  padding: 7px 14px;
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
-}
-
-/* Dark Agent Bubble */
 .oac-mock--dark .oac-bubble--in {
   background: #1C1D24;
   color: #E5E7EB;
   border: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 11.5px;
-  line-height: 1.45;
+  line-height: 1.5;
   border-radius: 12px;
-  padding: 8px 12px;
+  padding: 9px 13px;
+}
+.oac-mock--dark .oac-bubble--in strong {
+  color: #FFFFFF;
+  font-weight: 650;
 }
 
-/* Real Product Showcase Carousel/Grid */
+/* Product Section Header */
 .oac-product-section-label {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #9CA3AF;
-  margin: 6px 0 2px 2px;
+  margin: 6px 0 4px 2px;
   display: block;
 }
 
-.oac-real-products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+/* Vertical Product Cards (Shopper / Jewelry spec) */
+.oac-jewelry-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 4px;
 }
-
-.oac-real-product-card {
+.oac-jewelry-card {
   background: #181920;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 7px;
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 12px;
+  position: relative;
+  align-items: start;
+}
+.oac-jewelry-thumb {
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #FFFFFF;
+  display: block;
+}
+.oac-jewelry-info {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  text-align: left;
+  min-width: 0;
 }
-
-.oac-real-product-thumb {
-  width: 100%;
-  height: 64px;
-  border-radius: 7px;
-  object-fit: cover;
-  display: block;
+.oac-jewelry-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
 }
-
-.oac-real-product-title {
+.oac-jewelry-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+.oac-arrow-link {
+  font-size: 12px;
+  color: #9CA3AF;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.oac-jewelry-pricing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.oac-price-val {
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #10B981;
+}
+.oac-price-orig {
+  font-size: 10.5px;
+  color: #6B7280;
+  text-decoration: line-through;
+}
+.oac-badge-teal {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #0E7490;
+  color: #E0F2FE;
+}
+.oac-cart-btn {
+  background: #FF3B47;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 2px;
+  box-shadow: 0 4px 12px rgba(255, 59, 71, 0.3);
+}
+.oac-cart-btn:hover {
+  background: #E02E3A;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 59, 71, 0.45);
+}
+.oac-jewelry-desc {
   font-size: 10px;
-  font-weight: 650;
+  color: #9CA3AF;
+  line-height: 1.35;
+  grid-column: span 2;
+  margin-top: 2px;
+}
+
+/* Appointment Booking Lead Form Mockup Styles */
+.oac-booking-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.oac-date-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+.oac-date-chip {
+  background: #181920;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.oac-date-chip.is-active {
+  background: rgba(99, 102, 241, 0.18);
+  border-color: #6366F1;
+  box-shadow: 0 0 0 1px #6366F1;
+}
+.oac-date-day {
+  font-size: 9px;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.oac-date-num {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.oac-date-chip.is-active .oac-date-day {
+  color: #818CF8;
+}
+
+/* Time Slot Chips */
+.oac-time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.oac-time-chip {
+  background: #181920;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 5px;
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #D1D5DB;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.oac-time-chip.is-active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10B981;
+  color: #34D399;
+}
+
+/* Lead Form Fields in Dark Theme */
+.oac-dark-form {
+  background: #181920;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.oac-dark-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 4px;
+}
+.oac-dark-field:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.oac-dark-field label {
+  font-size: 10px;
+  color: #9CA3AF;
+}
+.oac-dark-field span {
+  font-size: 10.5px;
+  font-weight: 600;
   color: #F3F4F6;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+/* Dark Input Bar with Cursor and Icons */
+.oac-mock--dark .oac-mock-input {
+  background: #14151A;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #D1D5DB;
+  font-size: 11.5px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.oac-real-product-price {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #10B981;
+.oac-input-typing {
   display: flex;
   align-items: center;
-  gap: 3px;
-  flex-wrap: wrap;
+  color: #D1D5DB;
 }
-.oac-real-product-price s {
-  font-size: 9px;
-  color: #6B7280;
-  font-weight: 400;
+.oac-cursor {
+  display: inline-block;
+  color: #6366F1;
+  font-weight: 300;
+  margin-left: 1px;
+  animation: oacCursorBlink 1s infinite;
 }
-.oac-real-product-price .oac-badge {
-  font-size: 8.5px;
-  font-weight: 650;
-  padding: 1px 3px;
-  border-radius: 3px;
-  background: rgba(6, 182, 212, 0.2);
-  color: #22D3EE;
+@keyframes oacCursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
-.oac-real-product-price .oac-badge--neutral {
-  background: rgba(255, 255, 255, 0.1);
-  color: #9CA3AF;
+.oac-input-actions-round {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-
-.oac-variant-btn {
-  background: #FF5A5F;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 8px;
-  font-size: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+.oac-action-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-}
-.oac-variant-btn:hover {
-  background: #E0484D;
-  transform: translateY(-1px);
-}
-
-/* Dark Input Bar */
-.oac-mock--dark .oac-mock-input {
-  background: #14151A;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #9CA3AF;
-  font-size: 11.5px;
-  padding: 8px 12px;
+  font-size: 11px;
 }
-.oac-input-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.oac-input-icon {
-  width: 14px;
-  height: 14px;
-  color: #6B7280;
-  cursor: default;
+.oac-action-circle svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
 }
 .oac-powered-by {
-  font-size: 8.5px;
-  color: #6B7280;
+  font-size: 9px;
+  color: #9CA3AF;
   text-align: center;
-  padding-bottom: 5px;
-  background: #14151A;
-  letter-spacing: 0.02em;
+  padding: 6px 0 7px;
+  background: #0E0F12;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.oac-brand-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #FF3B47;
+  display: inline-block;
 }
 .oac-powered-by b {
-  color: #818CF8;
+  color: #A5B4FC;
+  letter-spacing: 0.06em;
 }
 .oac-mock-head { flex-shrink: 0; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 14px; border-bottom: 1px solid rgba(20,40,80,.06); }
 .oac-mock-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #2563EB, #7C3AED); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }

@@ -928,72 +928,71 @@
             <div class="oac-mock oac-mock--dark">
               <!-- Chatbot Header -->
               <div class="oac-mock-head">
-                <span class="oac-head-btn">&lt;</span>
-                <img src="images/wearbliss-logo.jpg" alt="Wearbliss" class="oac-head-avatar">
+                <button class="oac-head-btn" type="button" aria-label="Back">&lt;</button>
+                <div class="oac-head-avatar-wrap">
+                  <div class="oac-head-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  </div>
+                  <span class="oac-active-dot"></span>
+                </div>
                 <div class="oac-head-title">
                   <b>Shopper</b>
-                  <span>Online</span>
+                  <span>Active</span>
                 </div>
-                <span class="oac-head-btn" style="margin-left: auto;">&#8942;</span>
+                <div class="oac-head-actions">
+                  <span class="oac-head-action-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+                  <span class="oac-head-action-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                </div>
               </div>
 
-              <!-- Chatbot Body with Real Bliss / Shopper Conversation -->
+              <!-- Chatbot Body with Real Shopper Conversation -->
               <div class="oac-mock-body">
-                <!-- 1. Agent Greeting -->
                 <div class="oac-msg-wrap">
-                  <span class="oac-sender-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Bliss</span>
-                  <div class="oac-bubble oac-bubble--in">Hello ! Need help in selection ?</div>
-                </div>
-
-                <!-- 2. User Query Pill -->
-                <div class="oac-msg-wrap oac-msg-wrap--user">
-                  <span class="oac-sender-label oac-sender-label--user">You <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg></span>
-                  <div class="oac-bubble oac-bubble--user-pill">SHIRTS UNDER 500</div>
-                </div>
-
-                <!-- 3. Agent Response with Real Products -->
-                <div class="oac-msg-wrap">
-                  <span class="oac-sender-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Bliss</span>
                   <div class="oac-bubble oac-bubble--in">
-                    Here are the best <strong>shirts under ₹500</strong> — clean, wearable picks with a smart-casual edge:
+                    ...Pendant Necklace; for a full occasion look, choose the <strong>Emerald Hued CZ Jewellery Set</strong>.
                   </div>
                   
-                  <span class="oac-product-section-label">Showing 3 products</span>
-                  <div class="oac-real-products">
-                    <!-- Product 1 -->
-                    <div class="oac-real-product-card">
-                      <img src="images/product-oxford-shirts.jpg" alt="Classic Oxford Button-Down Shirt" class="oac-real-product-thumb">
-                      <div class="oac-real-product-title">Classic Oxford Shirt <span>↗</span></div>
-                      <div class="oac-real-product-price">
-                        <span>₹499.99</span>
-                        <s>₹501</s>
-                        <span class="oac-badge oac-badge--neutral">0% off</span>
+                  <span class="oac-product-section-label">Showing 5 products</span>
+                  <div class="oac-jewelry-products">
+                    <!-- Product 1: Diamond Cluster -->
+                    <div class="oac-jewelry-card">
+                      <img src="images/product-diamond-necklace.jpg" alt="Diamond Cluster Pendant Necklace" class="oac-jewelry-thumb">
+                      <div class="oac-jewelry-info">
+                        <div class="oac-jewelry-header">
+                          <div class="oac-jewelry-title">Diamond Cluster Pendant Necklace</div>
+                          <span class="oac-arrow-link">↗</span>
+                        </div>
+                        <div class="oac-jewelry-pricing">
+                          <span class="oac-price-val">&#8377;1,199.00</span>
+                          <span class="oac-price-orig">&#8377;1,800.00</span>
+                          <span class="oac-badge-teal">33% off</span>
+                        </div>
+                        <button class="oac-cart-btn" type="button">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                          Add to cart
+                        </button>
                       </div>
-                      <button class="oac-variant-btn" type="button">+ Select variant</button>
+                      <p class="oac-jewelry-desc">A delicate pendant necklace featuring a cluster of sparkling stones, designed for effortless everyday elegance. Lightweight and versatile, i...</p>
                     </div>
 
-                    <!-- Product 2 -->
-                    <div class="oac-real-product-card">
-                      <img src="images/product-mandarin-shirt.jpg" alt="Mandarin Collar Cotton Shirt" class="oac-real-product-thumb">
-                      <div class="oac-real-product-title">Mandarin Shirt <span>↗</span></div>
-                      <div class="oac-real-product-price">
-                        <span>₹349.99</span>
-                        <s>₹501</s>
-                        <span class="oac-badge">30% off</span>
+                    <!-- Product 2: Sparkling Elegance Set -->
+                    <div class="oac-jewelry-card">
+                      <img src="images/product-zircon-set.jpg" alt="Sparkling Elegance Silver Plated Zircons Jewellery Set" class="oac-jewelry-thumb">
+                      <div class="oac-jewelry-info">
+                        <div class="oac-jewelry-header">
+                          <div class="oac-jewelry-title">Sparkling Elegance Silver Plated Zircons Jewellery Set</div>
+                          <span class="oac-arrow-link">↗</span>
+                        </div>
+                        <div class="oac-jewelry-pricing">
+                          <span class="oac-price-val">&#8377;2,789.00</span>
+                          <span class="oac-price-orig">&#8377;4,649.00</span>
+                          <span class="oac-badge-teal">40% off</span>
+                        </div>
+                        <button class="oac-cart-btn" type="button">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                          Add to cart
+                        </button>
                       </div>
-                      <button class="oac-variant-btn" type="button">+ Select variant</button>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="oac-real-product-card">
-                      <img src="images/product-grandad-shirt.jpg" alt="Grandad Collar Oxford Shirt" class="oac-real-product-thumb">
-                      <div class="oac-real-product-title">Grandad Oxford <span>↗</span></div>
-                      <div class="oac-real-product-price">
-                        <span>₹349.99</span>
-                        <s>₹501</s>
-                        <span class="oac-badge">30% off</span>
-                      </div>
-                      <button class="oac-variant-btn" type="button">+ Select variant</button>
                     </div>
                   </div>
                 </div>
@@ -1001,13 +1000,17 @@
 
               <!-- Input bar -->
               <div class="oac-mock-input">
-                <span>Hop in! I'll help you</span>
-                <div class="oac-input-actions">
-                  <svg class="oac-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                  <svg class="oac-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                <div class="oac-input-typing">Hop in! I'll help you<span class="oac-cursor">|</span></div>
+                <div class="oac-input-actions-round">
+                  <span class="oac-action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                  </span>
+                  <span class="oac-action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                  </span>
                 </div>
               </div>
-              <div class="oac-powered-by">Powered by <b>STEPS AI</b></div>
+              <div class="oac-powered-by">Powered by <span class="oac-brand-dot"></span> <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Steps AI recommends what is in stock, answers the price question, and clears the doubt that was about to end the chat.</p>
@@ -1087,31 +1090,97 @@
               <h3 class="oac-card-name">Booking</h3>
               <p class="oac-card-sub">Books the meeting &rarr;</p>
             </div>
-            <div class="oac-mock">
+            <div class="oac-mock oac-mock--dark">
+              <!-- Header -->
               <div class="oac-mock-head">
-                <span class="oac-mock-avatar">S</span>
-                <div class="oac-mock-id"><b>StepsAI</b><span class="oac-mock-status"><i></i>Online</span></div>
-                <span class="oac-mock-time">11:05 AM</span>
-              </div>
-              <div class="oac-mock-body">
-                <div class="oac-bubble oac-bubble--in">Can I see the Wakad 2BHK this weekend?</div>
-                <div class="oac-bubble oac-bubble--out">Saturday is open. Which time works for you?</div>
-                <div class="oac-slots">
-                  <span class="oac-slot">11:00 AM</span>
-                  <span class="oac-slot is-selected">2:00 PM</span>
-                  <span class="oac-slot">4:30 PM</span>
+                <button class="oac-head-btn" type="button" aria-label="Back">&lt;</button>
+                <div class="oac-head-avatar-wrap">
+                  <div class="oac-head-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                  <span class="oac-active-dot"></span>
                 </div>
-                <span class="oac-confirm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>Available &middot; Sat, 2:00 PM</span>
+                <div class="oac-head-title">
+                  <b>Appointment Booking</b>
+                  <span>Active</span>
+                </div>
+                <div class="oac-head-actions">
+                  <span class="oac-head-action-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+                  <span class="oac-head-action-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                </div>
               </div>
-              <div class="oac-mock-input"><span>Confirm booking</span><span class="oac-mock-send"
-                  aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 2L11 13" />
-                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg></span></div>
+
+              <!-- Body with Dates and Lead Booking Form -->
+              <div class="oac-mock-body">
+                <div class="oac-booking-flow">
+                  <div class="oac-bubble oac-bubble--in">
+                    Saturday is open for private consultation. Pick your preferred date & time:
+                  </div>
+
+                  <!-- Date Selector Pills -->
+                  <div class="oac-date-row">
+                    <div class="oac-date-chip">
+                      <span class="oac-date-day">Fri</span>
+                      <span class="oac-date-num">Mar 12</span>
+                    </div>
+                    <div class="oac-date-chip is-active">
+                      <span class="oac-date-day">Sat</span>
+                      <span class="oac-date-num">Mar 13</span>
+                    </div>
+                    <div class="oac-date-chip">
+                      <span class="oac-date-day">Mon</span>
+                      <span class="oac-date-num">Mar 15</span>
+                    </div>
+                    <div class="oac-date-chip">
+                      <span class="oac-date-day">Tue</span>
+                      <span class="oac-date-num">Mar 16</span>
+                    </div>
+                  </div>
+
+                  <!-- Time Slots -->
+                  <div class="oac-time-grid">
+                    <div class="oac-time-chip">11:00 AM</div>
+                    <div class="oac-time-chip is-active">02:00 PM</div>
+                    <div class="oac-time-chip">04:30 PM</div>
+                  </div>
+
+                  <!-- Lead Contact Fields -->
+                  <div class="oac-dark-form">
+                    <div class="oac-dark-field">
+                      <label>Full name</label>
+                      <span>Ananya Sharma</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Phone number</label>
+                      <span>+91 98765 43210</span>
+                    </div>
+                    <div class="oac-dark-field">
+                      <label>Consultation</label>
+                      <span>Styling & Fitting</span>
+                    </div>
+                  </div>
+
+                  <!-- Confirm Button -->
+                  <button class="oac-cart-btn" type="button" style="width: 100%; border-radius: 8px; padding: 8px 12px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    Confirm Appointment
+                  </button>
+                </div>
+              </div>
+
+              <!-- Input bar -->
+              <div class="oac-mock-input">
+                <div class="oac-input-typing">Type a message...<span class="oac-cursor">|</span></div>
+                <div class="oac-input-actions-round">
+                  <span class="oac-action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                  </span>
+                  <span class="oac-action-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                  </span>
+                </div>
+              </div>
+              <div class="oac-powered-by">Powered by <span class="oac-brand-dot"></span> <b>STEPS AI</b></div>
             </div>
             <div class="oac-card-bottom">
               <p class="oac-card-desc">Steps AI offers your open slots and confirms the time. The customer never leaves the chat to do it.</p>
