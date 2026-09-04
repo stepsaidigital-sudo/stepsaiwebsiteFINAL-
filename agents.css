@@ -199,8 +199,12 @@
 .chat-card-field:last-child { border-bottom: none; }
 .chat-card-field span:first-child { color: #667781; }
 .chat-card-field span:last-child { color: #111; font-weight: 620; text-align: right; }
-.chat-card-synced { display: flex; align-items: center; gap: 6px; padding: 9px 12px 12px; font-size: 11.5px; color: var(--success); font-weight: 650; }
+.chat-card-synced { display: flex; align-items: center; gap: 6px; padding: 9px 12px 12px; font-size: 11.5px; color: var(--success); font-weight: 650; animation: chatCardStatusPop 380ms var(--ease) both; }
 .chat-card-synced svg { width: 13px; height: 13px; flex-shrink: 0; }
+.chat-card-synced.is-captured { color: #7C3AED; }
+.chat-card-synced.is-routed { color: #D97706; }
+@keyframes chatCardStatusPop { from { opacity: 0; transform: translateY(3px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .chat-card-synced { animation: none; } }
 
 /* Website widget mockup */
 .browser-mock { background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 28px 56px -34px rgba(18,20,27,.24); }
@@ -337,6 +341,7 @@
 .inbox-dash-tag.order { background: rgba(217,165,49,.18); color: #e0b95e; }
 .inbox-dash-tag.tech { background: rgba(229,103,90,.18); color: #ee8f85; }
 .inbox-dash-tag.resolved { background: rgba(34,197,94,.18); color: #6ee7a0; }
+.inbox-dash-tag.ticket { background: rgba(217,165,49,.18); color: #e0b95e; }
 
 .inbox-dash-thread { display: flex; flex-direction: column; min-width: 0; }
 /* One panel per conversation row, swapped in step with it (see
@@ -369,7 +374,11 @@
    bot) plus the small "took over" divider between agent and human ---- */
 .inbox-dash-msg.team { align-self: flex-start; }
 .inbox-dash-msg.team .inbox-dash-bubble { background: var(--ibx-green); color: #06210f; border-radius: 3px 12px 12px 12px; padding: 9px 13px; font-size: 13px; line-height: 1.5; display: inline-block; text-align: left; font-weight: 600; }
-.inbox-dash-handover-note { align-self: center; font-size: 10.5px; font-weight: 650; color: #6ee7a0; background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.25); padding: 4px 12px; border-radius: 999px; }
+.inbox-dash-handover-note { align-self: center; font-size: 10.5px; font-weight: 650; color: #6ee7a0; background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.25); padding: 4px 12px; border-radius: 999px; animation: inboxNotePop 420ms var(--ease) both; }
+.inbox-dash-handover-note--ticket { color: #e0b95e; background: rgba(217,165,49,.12); border-color: rgba(217,165,49,.28); }
+.inbox-dash-handover-note--resolved { color: #6ee7a0; background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.28); }
+@keyframes inboxNotePop { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .inbox-dash-handover-note { animation: none; } }
 
 /* ---- CRM: contact record rows inside the thread panel, same dark
    card language as the rest of .inbox-dash ---- */

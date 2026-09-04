@@ -276,12 +276,14 @@
      match — same click-to-jump + auto-advance + play-on-scroll
      pattern as the "How it works" device above.
      --------------------------------------------------------- */
-  (function inboxDashInit() {
-    var dash = document.querySelector('#inbox-teaser .inbox-dash');
-    if (!dash) return;
+  /* Generalized to every .inbox-dash on the page with more than one
+     thread panel (inbox-teaser, handover-teaser, and any future one) —
+     each gets its own independent row-click-to-switch + auto-advance
+     + play-on-scroll behavior, not just the original inbox-teaser. */
+  Array.prototype.slice.call(document.querySelectorAll('.inbox-dash')).forEach(function (dash) {
     var rows = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-row'));
     var panels = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-thread-panel'));
-    if (!rows.length || !panels.length) return;
+    if (!rows.length || panels.length < 2) return; // single-panel dashes need no switching JS
 
     var DWELL = 4200;
     var current = 0;
@@ -312,7 +314,7 @@
     } else if (!reduceMotion) {
       start();
     }
-  })();
+  });
 
   /* ---------------------------------------------------------
      INTERACTIVE WORKFLOWS

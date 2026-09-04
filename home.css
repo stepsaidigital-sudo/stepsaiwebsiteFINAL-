@@ -2603,40 +2603,98 @@
 .oac-heading-accent { background: linear-gradient(100deg, #93C5FD, #EFF6FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .oac-sub { margin: 18px auto 0; max-width: 660px; font-size: 17.5px; line-height: 1.55; color: rgba(255,255,255,.78); }
 
-.oac-grid { position: relative; z-index: 1; margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.oac-grid { 
+  position: relative; 
+  z-index: 1; 
+  margin-top: 48px; 
+  display: grid; 
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 26px; 
+}
 
 .oac-card {
-  position: relative; display: flex; flex-direction: column;
-  min-height: 400px; padding: 28px 26px 26px;
-  border-radius: 22px; background: var(--oac-tint); border: 1.5px solid var(--oac-border);
+  position: relative; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 28px 28px;
+  border-radius: 28px; 
+  background: var(--oac-tint); 
+  border: 1.5px solid var(--oac-border);
   box-shadow: 0 20px 48px -12px rgba(3,7,25,.45), 0 0 0 1px var(--oac-border);
   transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
 }
+
+/* Top Row: 2 Square / Larger Cards */
+.oac-card--sales,
+.oac-card--support {
+  grid-column: span 3;
+  min-height: 510px;
+}
+
+/* Bottom Row: 3 Cards */
+.oac-card--lead,
+.oac-card--booking,
+.oac-card--marketing {
+  grid-column: span 2;
+  min-height: 520px;
+}
+
 .oac-card:hover { 
   transform: translateY(-6px); 
   box-shadow: 0 28px 60px -12px var(--oac-glow, rgba(37,99,235,.35)), 0 0 0 1.5px var(--oac-accent); 
 }
 .oac-card:hover .oac-mock { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(30,50,90,.16); }
 
-.oac-card--sales     { --oac-tint: linear-gradient(145deg, #EEF6FF 0%, #DBEAFE 100%); --oac-border: rgba(37,99,235,.28);  --oac-accent: #2563EB; --oac-accent-tint: #BFDBFE; --oac-glow: rgba(37,99,235,.35); }
-.oac-card--booking   { --oac-tint: linear-gradient(145deg, #ECFDF5 0%, #D1FAE5 100%); --oac-border: rgba(16,185,129,.28); --oac-accent: #059669; --oac-accent-tint: #A7F3D0; --oac-glow: rgba(16,185,129,.35); }
-.oac-card--lead      { --oac-tint: linear-gradient(145deg, #F5F3FF 0%, #EDE9FE 100%); --oac-border: rgba(124,58,237,.28); --oac-accent: #7C3AED; --oac-accent-tint: #DDD6FE; --oac-glow: rgba(124,58,237,.35); }
-.oac-card--support   { --oac-tint: linear-gradient(145deg, #ECFEFF 0%, #CFFAFE 100%); --oac-border: rgba(6,182,212,.28);  --oac-accent: #0891B2; --oac-accent-tint: #A5F3FC; --oac-glow: rgba(6,182,212,.35); }
-.oac-card--shopping  { --oac-tint: linear-gradient(145deg, #FDF2F8 0%, #FCE7F3 100%); --oac-border: rgba(236,72,153,.28); --oac-accent: #DB2777; --oac-accent-tint: #FBCFE8; --oac-glow: rgba(236,72,153,.35); }
-.oac-card--marketing { --oac-tint: linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%); --oac-border: rgba(245,158,11,.28); --oac-accent: #D97706; --oac-accent-tint: #FDE68A; --oac-glow: rgba(245,158,11,.35); }
-.oac-card--handover  { --oac-tint: linear-gradient(145deg, #EEF2FF 0%, #E0E7FF 100%); --oac-border: rgba(79,70,229,.28);  --oac-accent: #4F46E5; --oac-accent-tint: #C7D2FE; --oac-glow: rgba(79,70,229,.35); }
-.oac-card--crm       { --oac-tint: linear-gradient(145deg, #F0FDFA 0%, #CCFBF1 100%); --oac-border: rgba(13,148,136,.28);  --oac-accent: #0D9488; --oac-accent-tint: #99F6E4; --oac-glow: rgba(13,148,136,.35); }
+.oac-card--sales     { --oac-tint: linear-gradient(145deg, #EEF6FF 0%, #F5F3FF 50%, #FDF2F8 100%); --oac-border: rgba(37,99,235,.24);  --oac-accent: #2563EB; --oac-accent-tint: #BFDBFE; --oac-glow: rgba(37,99,235,.32); }
+.oac-card--support   { --oac-tint: linear-gradient(145deg, #ECFEFF 0%, #F0FDF4 50%, #FAF5FF 100%); --oac-border: rgba(6,182,212,.24);  --oac-accent: #0891B2; --oac-accent-tint: #A5F3FC; --oac-glow: rgba(6,182,212,.32); }
+.oac-card--lead      { --oac-tint: linear-gradient(145deg, #F5F3FF 0%, #EEF2FF 50%, #FFF7ED 100%); --oac-border: rgba(124,58,237,.24); --oac-accent: #7C3AED; --oac-accent-tint: #DDD6FE; --oac-glow: rgba(124,58,237,.32); }
+.oac-card--booking   { --oac-tint: linear-gradient(145deg, #ECFDF5 0%, #F0FDF4 50%, #EFF6FF 100%); --oac-border: rgba(16,185,129,.24); --oac-accent: #059669; --oac-accent-tint: #A7F3D0; --oac-glow: rgba(16,185,129,.32); }
+.oac-card--marketing { --oac-tint: linear-gradient(145deg, #FFF7ED 0%, #FDF2F8 50%, #F5F3FF 100%); --oac-border: rgba(245,158,11,.24); --oac-accent: #D97706; --oac-accent-tint: #FDE68A; --oac-glow: rgba(245,158,11,.32); }
 
-.oac-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: var(--oac-accent-tint); color: var(--oac-accent); box-shadow: 0 4px 12px var(--oac-glow); flex-shrink: 0; }
-.oac-icon svg { width: 22px; height: 22px; }
-.oac-title { margin: 16px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -.01em; color: #0F172A; }
-.oac-desc { margin: 8px 0 0; font-size: 14.5px; line-height: 1.5; color: #475569; max-width: 300px; }
+.oac-card-top {
+  margin-bottom: 18px;
+}
+
+.oac-card-name {
+  font-size: 26px;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  color: #0F172A;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.oac-card-sub {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.oac-card-bottom {
+  margin-top: 20px;
+}
+
+.oac-card-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0;
+}
 
 /* ---- the mockup: always white, always the visual focus ---- */
 .oac-mock {
-  margin-top: 20px; width: 92%; margin-left: auto; margin-right: auto;
-  min-height: 198px; display: flex; flex-direction: column; overflow: hidden;
-  background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(20,40,80,.08);
+  margin: auto 0;
+  width: 100%;
+  min-height: 198px; 
+  display: flex; 
+  flex-direction: column; 
+  overflow: hidden;
+  background: #FFFFFF; 
+  border-radius: 18px; 
+  border: 1px solid rgba(20,40,80,.08);
   box-shadow: 0 12px 30px rgba(30,50,90,.10);
   transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
 }
@@ -2716,17 +2774,21 @@
 }
 
 @media (max-width: 1024px) {
-  .oac-grid { grid-template-columns: repeat(2, 1fr); }
+  .oac-grid { grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .oac-card--sales,
+  .oac-card--support { grid-column: span 3; min-height: 480px; }
+  .oac-card--lead,
+  .oac-card--booking { grid-column: span 3; min-height: 480px; }
+  .oac-card--marketing { grid-column: span 6; min-height: auto; }
 }
 @media (max-width: 768px) {
   .oac-section { padding: 72px 0 64px; }
   .oac-heading { font-size: clamp(32px, 9vw, 44px); }
   .oac-sub { font-size: 16px; }
   .oac-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 36px; }
-  .oac-card { min-height: 0; padding: 22px 18px 20px; border-radius: 20px; }
-  .oac-title { font-size: 19px; margin-top: 14px; }
-  .oac-desc { font-size: 14px; max-width: 100%; margin-top: 6px; }
-  .oac-mock { width: 100%; border-radius: 16px; min-height: auto; }
+  .oac-card { min-height: 0 !important; grid-column: span 1 !important; padding: 24px 20px 22px; border-radius: 22px; }
+  .oac-card-name { font-size: 22px; }
+  .oac-mock { width: 100%; border-radius: 16px; min-height: auto; margin: 18px 0; }
   .oac-mock-body { padding: 12px 12px; gap: 10px; }
   
   /* Smooth horizontal carousel for products on mobile so titles are fully visible */
