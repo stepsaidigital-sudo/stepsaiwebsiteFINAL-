@@ -723,10 +723,10 @@
                       '  <div class="hbc-meta"><strong class="hbc-name">Priya S.</strong><span class="hbc-tag">Shopper &middot; 11:42 PM</span></div>' +
                       '</div>' +
                       '<p class="hbc-msg">"Left 2 items in cart, can I get size M delivered before Friday?"</p>',
-        valTitle: '70% Abandoned Carts Recovered',
+        valTitle: '11&times; Return On Cost',
         valSub: '₹2,249 Order Closed in 42s',
         trustTitle: 'Zero Missed Midnight Leads',
-        trustSub: 'Instant 1.2s Response 24/7'
+        trustSub: '0.5s Average First Reply'
       },
       {
         // 1: Appointments
@@ -751,7 +751,7 @@
                       '  <div class="hbc-meta"><strong class="hbc-name">Rahul V.</strong><span class="hbc-tag">High Intent Buyer &middot; 11:43 PM</span></div>' +
                       '</div>' +
                       '<p class="hbc-msg">"Send price &amp; sample flat video for 3BHK Sky Villa"</p>',
-        valTitle: '80%+ Inquiries Qualified',
+        valTitle: '8 in 10 Handled Without You',
         valSub: 'Direct Sync to Google Calendar & HubSpot',
         trustTitle: 'Instant Tour Booking',
         trustSub: 'HubSpot & Cal Synced Automatically'
@@ -779,10 +779,10 @@
                       '  <div class="hbc-meta"><strong class="hbc-name">Aman K.</strong><span class="hbc-tag">Customer &middot; 11:45 PM</span></div>' +
                       '</div>' +
                       '<p class="hbc-msg">"Where is my order #4821? Needed for tonight\'s event"</p>',
-        valTitle: '100% Truthful AI Answers',
+        valTitle: '900,000+ Chats Handled',
         valSub: 'Connected to Shiprocket & ERP',
-        trustTitle: '94% Tickets Resolved',
-        trustSub: 'Zero Human Agent Escalation'
+        trustTitle: '95+ Languages Replied In',
+        trustSub: 'Escalates Only When It Should'
       }
     ];
 
@@ -864,8 +864,8 @@
       { name: 'Website', label: 'Real-time sync active with Web Widget (< 12ms)' },
       { name: 'WhatsApp', label: 'Real-time sync active with WhatsApp Business API (< 14ms)' },
       { name: 'Instagram', label: 'Real-time sync active with Instagram Direct (< 18ms)' },
-      { name: 'Slack & Teams', label: 'Real-time sync active with Slack & Microsoft Teams (< 10ms)' },
-      { name: 'Gmail', label: 'Real-time sync active with Google Workspace & Gmail (< 22ms)' }
+      { name: 'Messenger', label: 'Real-time sync active with Facebook Messenger (< 16ms)' },
+      { name: 'Standalone Page', label: 'Real-time sync active on your branded standalone page (< 22ms)' }
     ];
 
     var activeIdx = 0;

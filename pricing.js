@@ -93,8 +93,8 @@
         planName = "Enterprise (Custom)";
         planCost = 35000;
       } else if (inquiries > 5000) {
-        planName = "Scale (₹19,999/mo)";
-        planCost = 19999;
+        planName = "Scale (₹18,999/mo)";
+        planCost = 18999;
       } else if (inquiries > 1000) {
         planName = "Growth (₹6,999/mo)";
         planCost = 6999;
