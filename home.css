@@ -2623,21 +2623,39 @@
   border: 1.5px solid var(--oac-border);
   box-shadow: 0 20px 48px -12px rgba(3,7,25,.45), 0 0 0 1px var(--oac-border);
   transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
+  height: 100%;
 }
 
-/* Top Row: 2 Square / Larger Cards */
+/* Top Row: 2 Square / Larger Cards - Exact Identical Heights */
 .oac-card--sales,
 .oac-card--support {
   grid-column: span 3;
-  min-height: 520px;
+  min-height: 560px;
+  height: 100%;
 }
 
-/* Bottom Row: 3 Cards */
+.oac-card--sales .oac-mock,
+.oac-card--support .oac-mock {
+  height: 380px;
+  min-height: 380px;
+  max-height: 380px;
+}
+
+/* Bottom Row: 3 Cards - Exact Identical Heights */
 .oac-card--lead,
 .oac-card--booking,
 .oac-card--marketing {
   grid-column: span 2;
-  min-height: 520px;
+  min-height: 540px;
+  height: 100%;
+}
+
+.oac-card--lead .oac-mock,
+.oac-card--booking .oac-mock,
+.oac-card--marketing .oac-mock {
+  height: 360px;
+  min-height: 360px;
+  max-height: 360px;
 }
 
 /* Dynamic live ambient motion so cards feel fluid and non-static */
