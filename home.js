@@ -845,5 +845,104 @@
     startAutoRotation();
   })();
 
+  /* ---------------------------------------------------------
+     Deploy Everywhere: Interactive Neural Hub & Spoke Sync
+     --------------------------------------------------------- */
+  (function initDeployNeuralHub() {
+    var stage = document.getElementById('hubDiagram');
+    var list = document.getElementById('deployChannelList');
+    if (!stage || !list) return;
+
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.channel-list-row'));
+    var spokes = Array.prototype.slice.call(stage.querySelectorAll('.hub-spoke'));
+    var lasers = Array.prototype.slice.call(stage.querySelectorAll('.hub-ray-laser'));
+    var syncLabel = document.getElementById('hubSyncLabel');
+    if (!rows.length || !spokes.length) return;
+
+    var channelData = [
+      { name: 'Website', label: 'Real-time sync active with Web Widget (< 12ms)' },
+      { name: 'WhatsApp', label: 'Real-time sync active with WhatsApp Business API (< 14ms)' },
+      { name: 'Instagram', label: 'Real-time sync active with Instagram Direct (< 18ms)' },
+      { name: 'Slack & Teams', label: 'Real-time sync active with Slack & Microsoft Teams (< 10ms)' },
+      { name: 'Gmail', label: 'Real-time sync active with Google Workspace & Gmail (< 22ms)' }
+    ];
+
+    var activeIdx = 0;
+    var autoTimer = null;
+
+    function activateChannel(idx, userInitiated) {
+      if (idx < 0 || idx >= rows.length) return;
+      activeIdx = idx;
+
+      rows.forEach(function (r, i) {
+        if (i === idx) r.classList.add('is-active');
+        else r.classList.remove('is-active');
+      });
+
+      spokes.forEach(function (s, i) {
+        if (i === idx) s.classList.add('is-active');
+        else s.classList.remove('is-active');
+      });
+
+      lasers.forEach(function (l, i) {
+        if (i === idx) l.classList.add('is-active');
+        else l.classList.remove('is-active');
+      });
+
+      if (syncLabel && channelData[idx]) {
+        syncLabel.textContent = channelData[idx].label;
+      }
+
+      if (userInitiated) {
+        restartTimer();
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      if (reduceMotion) return;
+      autoTimer = setInterval(function () {
+        var next = (activeIdx + 1) % rows.length;
+        activateChannel(next, false);
+      }, 4000);
+    }
+
+    function stopTimer() {
+      if (autoTimer) clearInterval(autoTimer);
+    }
+
+    function restartTimer() {
+      stopTimer();
+      startTimer();
+    }
+
+    rows.forEach(function (row, idx) {
+      row.addEventListener('click', function () {
+        activateChannel(idx, true);
+      });
+      row.addEventListener('mouseenter', function () {
+        activateChannel(idx, true);
+      });
+    });
+
+    spokes.forEach(function (spoke, idx) {
+      spoke.addEventListener('click', function () {
+        activateChannel(idx, true);
+      });
+      spoke.addEventListener('mouseenter', function () {
+        activateChannel(idx, true);
+      });
+    });
+
+    stage.addEventListener('mouseenter', stopTimer);
+    stage.addEventListener('mouseleave', startTimer);
+    list.addEventListener('mouseenter', stopTimer);
+    list.addEventListener('mouseleave', startTimer);
+
+    // Initial state
+    activateChannel(0, false);
+    startTimer();
+  })();
+
 })();
 
