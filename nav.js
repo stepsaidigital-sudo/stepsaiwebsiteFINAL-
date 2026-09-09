@@ -415,9 +415,10 @@
 
   blocks.forEach(initShowcase);
 
-  /* ---------- UNIVERSAL SCROLL REVEAL (for all 42 subpages) ---------- */
+  /* ---------- UNIVERSAL SCROLL REVEAL (for all 42+ subpages) ---------- */
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-stagger'));
+  var revealSelector = '.reveal, .reveal-stagger, .reveal-left, .reveal-right, .reveal-grow, .reveal-pop';
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
   if ('IntersectionObserver' in window && !reduceMotion) {
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -426,9 +427,37 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px 80px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- SMOOTHED PARALLAX (opt-in via data-parallax) ----------
+     Mirrors the Taskopia audit's PAGE_SCROLL recipe: position tied to
+     scroll offset, but eased toward its target with heavy smoothing
+     so it gently lags instead of tracking 1:1 (which reads as jittery).
+     Usage: <div data-parallax="0.15">...</div>  — the number is strength
+     (fraction of scroll delta applied as vertical offset); optional
+     data-parallax-smoothing overrides the default lag (0.08). */
+  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (parallaxEls.length && !reduceMotion) {
+    var parallaxState = parallaxEls.map(function (el) {
+      return {
+        el: el,
+        strength: parseFloat(el.getAttribute('data-parallax')) || 0.15,
+        smoothing: parseFloat(el.getAttribute('data-parallax-smoothing')) || 0.08,
+        current: 0
+      };
+    });
+    (function parallaxLoop() {
+      var y = window.scrollY || window.pageYOffset;
+      parallaxState.forEach(function (state) {
+        var target = y * state.strength;
+        state.current += (target - state.current) * state.smoothing;
+        state.el.style.transform = 'translate3d(0, ' + state.current.toFixed(2) + 'px, 0)';
+      });
+      requestAnimationFrame(parallaxLoop);
+    })();
   }
 })();

@@ -25,9 +25,11 @@
   --accent-tint:    #EFF6FF;
   
   --gradient-accent: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
-  --gradient-brand:  linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #EC4899 100%);
-  --gradient-glow:   linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(124,58,237,0.12) 50%, rgba(236,72,153,0.08) 100%);
-  --gradient-brand-subtle: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.06) 50%, rgba(236,72,153,0.06) 100%);
+  /* Brand gradient unified to the single royal-blue family used across the
+     redesigned homepage (was blue->violet->pink) -- see index.html hero. */
+  --gradient-brand:  linear-gradient(135deg, #3B82F6 0%, #2563EB 55%, #1D4ED8 100%);
+  --gradient-glow:   linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(59,130,246,0.12) 50%, rgba(29,78,216,0.08) 100%);
+  --gradient-brand-subtle: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(59,130,246,0.06) 50%, rgba(29,78,216,0.06) 100%);
 
   --success:        #10B981;
   --success-tint:   #ECFDF5;
@@ -65,21 +67,26 @@
   --ease:       cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  
+  /* Interaction easing vocabulary: bouncy/spring curves are for one-time
+     ENTRANCES only (.reveal, .reveal-pop, first paint). Hover/click feedback
+     always uses this flat, fast curve — mixing the two is what makes cloned
+     "polish" read as slightly off. See DESIGN_ANIMATION_SYSTEM.md §3. */
+  --ease-ui:    cubic-bezier(0.4, 0, 0.2, 1);
+
   --shadow-sm:  0 4px 6px -1px rgba(15,23,42,0.04), 0 2px 4px -1px rgba(15,23,42,0.02);
   --shadow-md:  0 10px 15px -3px rgba(15,23,42,0.06), 0 4px 6px -2px rgba(15,23,42,0.03);
   --shadow-lg:  0 20px 25px -5px rgba(15,23,42,0.08), 0 10px 10px -5px rgba(15,23,42,0.04);
   --shadow-soft: 0 12px 24px -8px rgba(37, 99, 235, 0.16), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
   --shadow-hover: 0 20px 32px -12px rgba(37, 99, 235, 0.22), 0 8px 16px -8px rgba(15, 23, 42, 0.08);
   --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.2);
-  --shadow-brand: 0 12px 26px -8px rgba(124, 58, 237, 0.28), 0 4px 14px -6px rgba(236, 72, 153, 0.16);
-  --shadow-brand-hover: 0 20px 36px -10px rgba(124, 58, 237, 0.36), 0 8px 20px -8px rgba(236, 72, 153, 0.22);
+  --shadow-brand: 0 12px 26px -8px rgba(37, 99, 235, 0.28), 0 4px 14px -6px rgba(29, 78, 216, 0.16);
+  --shadow-brand-hover: 0 20px 36px -10px rgba(37, 99, 235, 0.36), 0 8px 20px -8px rgba(29, 78, 216, 0.22);
   --glass-bg:   rgba(255, 255, 255, 0.8);
   --glass-border: 1px solid rgba(255, 255, 255, 0.6);
   
   --container:  1280px;
 
-  --font-sans: 'Outfit', -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, Menlo, monospace;
 
   --z-step-line: 0;
@@ -171,12 +178,15 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .atmo-mesh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
 .atmo-blob { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform, opacity; pointer-events: none; }
 
-.atmo-blob--violet { background: radial-gradient(circle, rgba(147,51,234,.5) 0%, rgba(99,102,241,.38) 45%, transparent 72%); }
+/* All six variants unified to the brand-blue family (was a violet/emerald/
+   amber/rose/teal rainbow) -- kept as distinct names so existing markup
+   doesn't need touching, each just a different blue depth/tint now. */
+.atmo-blob--violet  { background: radial-gradient(circle, rgba(29,78,216,.42) 0%, rgba(99,102,241,.28) 45%, transparent 72%); }
 .atmo-blob--blue    { background: radial-gradient(circle, rgba(37,99,235,.46) 0%, rgba(56,189,248,.34) 45%, transparent 72%); }
-.atmo-blob--emerald { background: radial-gradient(circle, rgba(16,185,129,.48) 0%, rgba(6,182,212,.38) 45%, transparent 72%); }
-.atmo-blob--amber   { background: radial-gradient(circle, rgba(245,158,11,.52) 0%, rgba(234,88,12,.36) 45%, transparent 72%); }
-.atmo-blob--rose    { background: radial-gradient(circle, rgba(236,72,153,.4) 0%, rgba(168,85,247,.26) 50%, transparent 70%); }
-.atmo-blob--teal    { background: radial-gradient(circle, rgba(13,148,136,.46) 0%, rgba(45,212,191,.32) 45%, transparent 72%); }
+.atmo-blob--emerald { background: radial-gradient(circle, rgba(37,99,235,.4) 0%, rgba(6,182,212,.32) 45%, transparent 72%); }
+.atmo-blob--amber   { background: radial-gradient(circle, rgba(59,130,246,.44) 0%, rgba(96,165,250,.3) 45%, transparent 72%); }
+.atmo-blob--rose    { background: radial-gradient(circle, rgba(37,99,235,.36) 0%, rgba(99,102,241,.24) 50%, transparent 70%); }
+.atmo-blob--teal    { background: radial-gradient(circle, rgba(14,116,144,.4) 0%, rgba(45,212,191,.26) 45%, transparent 72%); }
 
 .atmo-blob--tl  { width: 640px; height: 640px; top: -10%; left: -12%; animation: atmoDrift1 18s ease-in-out infinite alternate; }
 .atmo-blob--br  { width: 680px; height: 680px; bottom: -12%; right: -10%; animation: atmoDrift2 20s ease-in-out infinite alternate; }
@@ -270,7 +280,28 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
   font-weight: 600; font-size: 15px; padding: 15px 28px; border-radius: var(--radius-sm);
   min-height: 50px; white-space: nowrap;
-  transition: transform 300ms var(--ease-spring), box-shadow 300ms var(--ease), background 300ms var(--ease);
+  /* Hover feedback is flat + fast (var(--ease-ui)), never the bouncy spring —
+     spring is reserved for one-time entrances. See DESIGN_ANIMATION_SYSTEM.md. */
+  transition: transform 220ms var(--ease-ui), box-shadow 220ms var(--ease-ui), background 220ms var(--ease-ui), color 220ms var(--ease-ui);
+}
+.btn-accent, .btn-brand, .btn-cta {
+  /* two-layer swipe-fill: a z-index:-1 ::before fill sweeps up from below on
+     hover, staying under the label with no markup changes needed. */
+  position: relative;
+  isolation: isolate;
+}
+.btn-accent::before, .btn-brand::before, .btn-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--dark-canvas);
+  transform: translateY(100%);
+  transition: transform 380ms var(--ease-ui);
+}
+.btn-accent:hover::before, .btn-brand:hover::before, .btn-cta:hover::before {
+  transform: translateY(0);
 }
 .btn-accent {
   background: var(--gradient-brand); color: #fff;
@@ -278,14 +309,14 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   border: 1px solid rgba(255,255,255,0.1);
 }
 .btn-accent:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-brand-hover);
 }
-.btn-outline { 
+.btn-outline {
   background: var(--glass-bg); backdrop-filter: blur(8px);
-  color: var(--text-primary); border: 1px solid var(--border-strong); 
+  color: var(--text-primary); border: 1px solid var(--border-strong);
 }
-.btn-outline:hover { 
+.btn-outline:hover {
   border-color: var(--accent); background: #fff;
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
@@ -294,7 +325,8 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .btn-lg { font-size: 16px; padding: 18px 36px; min-height: 56px; }
 .btn-block { width: 100%; }
 .btn-cta { background: #fff; color: var(--dark-canvas); }
-.btn-cta:hover { background: var(--dark-ink); transform: translateY(-2px); }
+.btn-cta::before { background: var(--accent); }
+.btn-cta:hover { color: #fff; transform: translateY(-2px); }
 .btn-cta-outline { background: transparent; color: #fff; border: 1.5px solid var(--dark-hairline-strong); }
 .btn-cta-outline:hover { border-color: rgba(255,255,255,.5); }
 
@@ -368,14 +400,14 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
 .nav-dropdown-panel--product { min-width: 860px; }
-.nav-dropdown-panel--solutions { min-width: 680px; }
+.nav-dropdown-panel--solutions { min-width: 380px; }
 .nav-dropdown-panel--partnership { min-width: 600px; }
 .nav-dropdown-panel--resources { min-width: 680px; }
 .nav-dropdown-panel--industries { min-width: 340px; }
 
 .nav-mega-layout { display: grid; gap: 24px; }
 .nav-mega-layout--product { grid-template-columns: 1fr 1fr 280px; }
-.nav-mega-layout--solutions { grid-template-columns: 1fr 1fr; }
+.nav-mega-layout--solutions { grid-template-columns: 1fr; }
 .nav-mega-layout--partnership { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .nav-mega-layout--resources { grid-template-columns: 1fr 1fr 220px; }
 
@@ -935,7 +967,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   font-weight: 900;
   letter-spacing: -0.04em;
   display: inline-block;
-  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 22%, #7C3AED 45%, #EC4899 70%, #F59E0B 90%, #10B981 100%);
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 45%, #2563EB 70%, #1D4ED8 100%);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -1084,31 +1116,93 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   100% { transform: translate(30px, -20px) scale(0.96); }
 }
 
-/* Universal Reveal On Scroll — GPU accelerated, smooth spring curve */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  will-change: opacity, transform;
-  transition: opacity 480ms cubic-bezier(0.16, 1, 0.3, 1), transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* NOTE: .reveal / .reveal-stagger base rules live once, up in the
+   REVEAL-ON-SCROLL block near the top of this file (~line 203) — a
+   duplicate definition used to sit here at longer durations (480/440ms)
+   and silently won the cascade over the intentional 450/400ms fix
+   (same selector, later in file = wins). Removed; see that block plus
+   the direction variants immediately below for the full reveal system.
+   Do not re-add a second .reveal definition anywhere in this file. */
 
-.reveal.is-visible {
+/* Reveal direction variants — opt-in alternatives to the default
+   .reveal (fade+slide-up). Same duration/easing family, same
+   IntersectionObserver (nav.js), just a different initial offset.
+   Use sparingly, for emphasis (a badge, a stat, a callout) — the
+   default straight-up .reveal should stay the workhorse everywhere
+   else; consistency reads as more "expensive" than variety. */
+.reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-grow  { opacity: 0; transform: scale(0.85);        transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-grow.is-visible { opacity: 1; transform: translate(0, 0) scale(1); }
+
+/* .reveal-pop — the one deliberately bouncy variant, for a single emphasis
+   moment (a counter, a badge, a "new" tag). Fast scale-settle, then a
+   springy overshoot — never used on body copy or full sections. */
+.reveal-pop { opacity: 0; transform: scale(0.75); transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out); }
+.reveal-pop.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transition: opacity 250ms var(--ease-out),
+              transform 250ms var(--ease-out) 0ms,
+              transform 550ms var(--ease-spring) 120ms;
+  transform: scale(1);
 }
 
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(18px);
-  will-change: opacity, transform;
-  transition: opacity 440ms cubic-bezier(0.16, 1, 0.3, 1), transform 440ms cubic-bezier(0.16, 1, 0.3, 1);
+/* ============================================================
+   BROWSER-CHROME MOCKUP FRAME — reusable "framed product shot"
+   wrapper for screenshots/mockups that aren't already a hand-built
+   dashboard (the homepage One Inbox panel builds its own dark chrome
+   bar inline — use that pattern for a full custom dashboard; use this
+   component when you just need to drop a screenshot/image/panel into
+   a premium browser window instead of a bare rectangle).
+   Usage:
+     <div class="browser-frame">
+       <div class="browser-frame-bar">
+         <span class="browser-frame-dot browser-frame-dot--red"></span>
+         <span class="browser-frame-dot browser-frame-dot--yellow"></span>
+         <span class="browser-frame-dot browser-frame-dot--green"></span>
+       </div>
+       <div class="browser-frame-body"> ...screenshot / mockup markup... </div>
+     </div>
+   ============================================================ */
+.browser-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 40px -18px rgba(15, 23, 42, 0.45);
+  overflow: hidden;
+  isolation: isolate;
 }
-
-.reveal-stagger.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: calc(var(--i, 0) * 85ms);
+.browser-frame::before {
+  /* soft radial colour wash behind the frame — pink -> purple -> blue,
+     matching --gradient-brand's hues, at low opacity so it reads as
+     ambient light rather than a background fill */
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background: radial-gradient(60% 60% at 30% 20%, rgba(236,72,153,0.16), transparent 60%),
+              radial-gradient(55% 55% at 75% 30%, rgba(124,58,237,0.14), transparent 60%),
+              radial-gradient(60% 60% at 50% 90%, rgba(37,99,235,0.14), transparent 60%);
+  filter: blur(28px);
 }
+.browser-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: var(--bg-surface-2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.browser-frame-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.browser-frame-dot--red    { background: #FF5F56; }
+.browser-frame-dot--yellow { background: #FFBD2E; }
+.browser-frame-dot--green  { background: #27C93F; }
+.browser-frame-body { overflow: hidden; }
+.browser-frame-body img,
+.browser-frame-body video { display: block; width: 100%; height: auto; }
 
 /* Radiant CTA button shimmer */
 .btn-accent, .btn-brand {

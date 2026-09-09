@@ -12,22 +12,14 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------------------------------------------------------
-     REVEAL ON SCROLL
+     REVEAL ON SCROLL — handled sitewide by nav.js (loaded before
+     this file). A second, independent observer used to live here
+     with a premature trigger margin (rootMargin 120px positive,
+     same bug fixed in nav.js) — since both watched the same
+     elements, this stale duplicate was firing first and silently
+     undoing that fix on every homepage section. Removed; nav.js's
+     observer is the single source of truth now.
      --------------------------------------------------------- */
-  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-stagger'));
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px 120px 0px' });
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
-  }
 
   /* ---------------------------------------------------------
      GENERIC COUNT-UP — any [data-count] inside a container
@@ -76,124 +68,224 @@
   wireCountUp('grow-with-stepsai');
 
   /* ---------------------------------------------------------
-     HERO CONVERSATION — the cinematic device plays a looping
-     conversation. The markup ships an empty #heroConversationBody
-     for this to fill; previously this block still targeted the old
-     #channelCard hero that no longer exists, so it bailed on the
-     first line and left the card rendering as a blank white box.
+     HERO GLASSMORPHIC CHAT AUTOMATION BOARD ENGINE
+     Powers the interactive channel tabs, live AI prompts,
+     automated pipeline steps, real-time ticking metrics, and
+     conversion charts.
      --------------------------------------------------------- */
-  (function heroConversation() {
-    var body = document.getElementById('heroConversationBody');
-    if (!body) return;
+  (function heroGlassBoardInit() {
+    var hero = document.getElementById('heroSection');
+    if (!hero) return;
 
-    var CHANNELS = [
+    var promptText = document.getElementById('heroPromptText');
+    var userAvatar = document.getElementById('boardUserAvatar');
+    var userName = document.getElementById('boardUserName');
+    var userTime = document.getElementById('boardUserTime');
+    var userMsg = document.getElementById('boardUserMsg');
+    var actionTool = document.getElementById('boardActionTool');
+    var actionSlot = document.getElementById('boardActionSlot');
+    var aiReply = document.getElementById('boardAiReply');
+    var primaryBtn = document.getElementById('boardPrimaryBtn');
+    var secondaryBtn = document.getElementById('boardSecondaryBtn');
+    var convCount = document.getElementById('heroConvCount');
+    var tickerBadge = document.getElementById('heroTickerBadge');
+    var statsBars = document.getElementById('heroStatsBars');
+
+    var channelBtns = hero.querySelectorAll('.hero-bch-btn');
+
+    var scenarios = [
       {
-        avatar: 'N', name: 'Nyra Store', status: 'online',
-        bubbles: [
-          { side: 'in', text: 'Hey, I love the floral summer dress! Do you have it in a size M?' },
-          { side: 'out', text: 'Hi there! 👋 Yes, we still have 3 left in size Medium. It’s one of our bestsellers this week.' },
-          { side: 'in', text: 'Awesome, can I get it by Friday?' },
-          { side: 'out', text: 'Absolutely. If you order in the next 2 hours, we can do expedited shipping for Friday delivery. Shall I add it to your cart?' }
-        ],
-        receipt: 'Cart updated — Shopify'
+        channel: 'wa',
+        prompt: 'Review inbound WhatsApp message, verify Shopify inventory, and offer instant checkout & meeting slot.',
+        userName: 'Alex Morgan',
+        userAvatar: 'images/avatar-1.jpg',
+        userTime: 'Just now',
+        userMsg: 'Do you have a demo available this week, and can you check inventory for Model X?',
+        tool: 'Shopify Inventory Verified (48 units)',
+        slot: 'Calendar Slot Matched (Thu 3 PM)',
+        reply: "Yes! Model X is in stock (48 units). I've reserved a slot for Thursday at 3:00 PM. Would you like to confirm the calendar invite?",
+        primaryBtnText: '📅 Confirm Meeting',
+        primaryBtnLink: 'pricing.html',
+        secondaryBtnText: '🛍️ View Inventory',
+        secondaryBtnLink: 'capabilities.html',
+        bars: [60, 85, 100, 70, 92]
       },
       {
-        avatar: 'A', name: 'Aura Support', status: 'replies instantly',
-        bubbles: [
-          { side: 'in', text: 'Hi, my order #4928 was supposed to be delivered yesterday but the tracking hasn\'t updated.' },
-          { side: 'out', text: 'I\'m so sorry about that delay! Let me check the courier system for you right now.' },
-          { side: 'out', text: 'It looks like it was held up at the local sorting facility. I\'ll raise a priority ticket to get it moving today.' },
-          { side: 'in', text: 'Thank you, I really need it before the weekend.' },
-          { side: 'out', text: 'Understood — flagged as urgent. It\'s scheduled for delivery tomorrow, and I\'ll message you the moment it moves.' }
-        ],
-        receipt: 'Ticket created — Zendesk'
+        channel: 'web',
+        prompt: 'Qualify enterprise prospect intent on Website, calculate volume discount, and route to senior AE calendar.',
+        userName: 'Sarah Jenkins',
+        userAvatar: 'images/avatar-2.jpg',
+        userTime: '1m ago',
+        userMsg: 'Looking to automate customer support for our 35k monthly active users. What is the turnaround time?',
+        tool: 'Volume Tier Computed ($0.02 / conv)',
+        slot: 'Priority SLA Tagged (<1s response)',
+        reply: "StepsAI deploys in under 10 minutes and resolves 89% of queries in <1.2s. I've prepared a custom volume plan for 35k MAU.",
+        primaryBtnText: '⚡ View Custom Plan',
+        primaryBtnLink: 'pricing.html',
+        secondaryBtnText: '📊 ROI Calculator',
+        secondaryBtnLink: 'analytics.html',
+        bars: [75, 95, 80, 88, 100]
       },
       {
-        avatar: 'K', name: 'Keystone Realty', status: 'online',
-        bubbles: [
-          { side: 'in', text: 'Hi! We’re looking for a 3-bed apartment in downtown. Any viewings available this weekend?' },
-          { side: 'out', text: 'Hello! 🏙️ We just listed a beautiful 3-bed with skyline views. I can get you in for a viewing this Saturday at 2 PM or 4 PM.' },
-          { side: 'in', text: '4 PM would be perfect.' },
-          { side: 'out', text: 'Great, I’ve booked you in for 4 PM this Saturday. I\'ll send the calendar invite right away!' }
-        ],
-        receipt: 'Meeting booked — Calendly'
+        channel: 'ig',
+        prompt: 'Parse Instagram DM, identify product intent, recommend color variation, and generate 1-click payment link.',
+        userName: 'Elena Rostova',
+        userAvatar: 'images/avatar-3.jpg',
+        userTime: 'Just now',
+        userMsg: 'Obsessed with the Linen Oxford shirt! Do you have Navy Blue in Size M available to order?',
+        tool: 'Product Catalog Match (Navy / M)',
+        slot: '1-Click Stripe Link Created',
+        reply: 'Yes! Navy Blue Size M is in stock with 2-day express shipping. Here is your fast checkout link with 10% first-order discount.',
+        primaryBtnText: '💳 Fast Checkout ($58)',
+        primaryBtnLink: 'pricing.html',
+        secondaryBtnText: '👕 Size Guide',
+        secondaryBtnLink: 'capabilities.html',
+        bars: [50, 78, 92, 65, 85]
+      },
+      {
+        channel: 'shopify',
+        prompt: 'Intercept post-purchase order query, sync tracking API from carrier, and update customer CRM profile.',
+        userName: 'David Lawson',
+        userAvatar: 'images/avatar-2.jpg',
+        userTime: '2m ago',
+        userMsg: 'Can you update my delivery address for order #4829 to 402 Elm St before it ships?',
+        tool: 'Shopify Fulfillment API Updated',
+        slot: 'Carrier Reroute Dispatched',
+        reply: 'All set, David! Your shipping address for Order #4829 has been updated to 402 Elm St, and an updated receipt was sent to your email.',
+        primaryBtnText: '📦 Track Package',
+        primaryBtnLink: 'pricing.html',
+        secondaryBtnText: '🧾 View Receipt',
+        secondaryBtnLink: 'capabilities.html',
+        bars: [82, 68, 95, 88, 75]
       }
     ];
 
-    var timers = [];
-    function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+    var activeIdx = 0;
+    var rotationTimer = null;
 
-    function addBubble(b) {
-      var el = document.createElement('div');
-      el.className = 'hc-bubble ' + b.side;
-      el.textContent = b.text;
-      body.appendChild(el);
-      body.scrollTop = body.scrollHeight;
-      return el;
-    }
+    function renderScenario(idx) {
+      if (idx < 0 || idx >= scenarios.length) return;
+      activeIdx = idx;
+      var sc = scenarios[idx];
 
-    function showTyping() {
-      var el = document.createElement('div');
-      el.className = 'hc-bubble in hc-typing';
-      el.setAttribute('aria-hidden', 'true');
-      el.innerHTML = '<span></span><span></span><span></span>';
-      body.appendChild(el);
-      body.scrollTop = body.scrollHeight;
-      return el;
-    }
+      // Update Channel Buttons
+      channelBtns.forEach(function (btn) {
+        btn.classList.toggle('is-active', btn.getAttribute('data-ch') === sc.channel);
+      });
 
-    /* Plays one conversation bubble by bubble, with a typing indicator in
-       front of each agent reply, then hands back to the caller to advance. */
-    function playConversation(index, done) {
-      var data = CHANNELS[index];
-      clearTimers();
-      body.innerHTML = '';
-
-      if (reduceMotion) {
-        data.bubbles.forEach(addBubble);
-        return;
+      // Fade content
+      if (promptText) {
+        promptText.style.opacity = '0';
+        promptText.style.transform = 'translateY(3px)';
+      }
+      if (userMsg) {
+        userMsg.style.opacity = '0';
+        userMsg.style.transform = 'translateY(3px)';
+      }
+      if (aiReply) {
+        aiReply.style.opacity = '0';
+        aiReply.style.transform = 'translateY(3px)';
       }
 
-      var t = 0;
-      data.bubbles.forEach(function (b, i) {
-        if (b.side === 'out') {
-          var typingAt = t;
-          t += 900;
-          timers.push(setTimeout(function () {
-            var dots = showTyping();
-            timers.push(setTimeout(function () { dots.remove(); addBubble(b); }, 900));
-          }, typingAt));
-          t += Math.min(2600, 700 + b.text.length * 14);
-        } else {
-          timers.push(setTimeout(function () { addBubble(b); }, t));
-          t += Math.min(2200, 600 + b.text.length * 12);
+      setTimeout(function () {
+        if (promptText) {
+          promptText.textContent = sc.prompt;
+          promptText.style.opacity = '1';
+          promptText.style.transform = 'translateY(0)';
         }
-        if (i === data.bubbles.length - 1) {
-          timers.push(setTimeout(done, t + 2400));
+        if (userName) userName.textContent = sc.userName;
+        if (userTime) userTime.textContent = sc.userTime;
+        if (userAvatar && sc.userAvatar) userAvatar.src = sc.userAvatar;
+        if (userMsg) {
+          userMsg.textContent = sc.userMsg;
+          userMsg.style.opacity = '1';
+          userMsg.style.transform = 'translateY(0)';
         }
-      });
+        if (actionTool) actionTool.textContent = sc.tool;
+        if (actionSlot) actionSlot.textContent = sc.slot;
+
+        if (aiReply) {
+          aiReply.textContent = sc.reply;
+          aiReply.style.opacity = '1';
+          aiReply.style.transform = 'translateY(0)';
+        }
+        if (primaryBtn) {
+          primaryBtn.setAttribute('href', sc.primaryBtnLink);
+          var pSpan = primaryBtn.querySelector('span');
+          if (pSpan) pSpan.textContent = sc.primaryBtnText;
+        }
+        if (secondaryBtn) {
+          secondaryBtn.setAttribute('href', sc.secondaryBtnLink);
+          var sSpan = secondaryBtn.querySelector('span');
+          if (sSpan) sSpan.textContent = sc.secondaryBtnText;
+        }
+
+        // Update mini bar chart
+        if (statsBars && sc.bars) {
+          var bars = statsBars.querySelectorAll('.hero-mbar');
+          bars.forEach(function (b, bIdx) {
+            if (sc.bars[bIdx] !== undefined) {
+              b.style.setProperty('--h', sc.bars[bIdx] + '%');
+            }
+          });
+        }
+      }, 160);
     }
 
-    var idx = 0;
-    function next() {
-      playConversation(idx, function () {
-        idx = (idx + 1) % CHANNELS.length;
-        next();
+    // Attach click handlers to channel buttons
+    channelBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var ch = btn.getAttribute('data-ch');
+        var matchIdx = scenarios.findIndex(function (s) { return s.channel === ch; });
+        if (matchIdx !== -1) {
+          renderScenario(matchIdx);
+          restartTimer();
+        }
       });
+    });
+
+    function restartTimer() {
+      if (rotationTimer) clearInterval(rotationTimer);
+      rotationTimer = setInterval(function () {
+        var next = (activeIdx + 1) % scenarios.length;
+        renderScenario(next);
+      }, 5500);
     }
 
-    /* Only run while the hero is actually on screen. */
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var started = false;
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !started) { started = true; next(); }
-        });
-      }, { threshold: 0.2 });
-      obs.observe(body);
-    } else {
-      next();
+    // Initial timer
+    restartTimer();
+
+    // Live Conversation Counter Ticker (+1 new animation)
+    var count = 1459;
+    function tickLiveCounter() {
+      var jitter = Math.floor(Math.random() * 2800) + 3500; // 3.5s to 6.3s
+      setTimeout(function () {
+        count++;
+        if (convCount) {
+          convCount.textContent = count.toLocaleString();
+        }
+        if (tickerBadge) {
+          tickerBadge.classList.add('is-popping');
+          setTimeout(function () {
+            tickerBadge.classList.remove('is-popping');
+          }, 1400);
+        }
+
+        // Random fluctuation in bars
+        if (statsBars) {
+          var bars = statsBars.querySelectorAll('.hero-mbar');
+          var randBar = bars[Math.floor(Math.random() * bars.length)];
+          if (randBar) {
+            var newH = Math.floor(Math.random() * 45) + 55;
+            randBar.style.setProperty('--h', newH + '%');
+          }
+        }
+
+        tickLiveCounter();
+      }, jitter);
     }
+    tickLiveCounter();
+
   })();
 
   /* ---------------------------------------------------------
@@ -270,16 +362,32 @@
   })();
 
   /* ---------------------------------------------------------
-     ONE INBOX TEASER — auto-cycles through the 4 conversation rows
-     (Web/Lead, Instagram/Product Inquiry, WhatsApp/Resolved,
-     Web/Order Support), swapping the open thread on the right to
-     match — same click-to-jump + auto-advance + play-on-scroll
-     pattern as the "How it works" device above.
+     ONE INBOX HUB TABS (Multi-Channel Feed / Handover / CRM)
      --------------------------------------------------------- */
-  /* Generalized to every .inbox-dash on the page with more than one
-     thread panel (inbox-teaser, handover-teaser, and any future one) —
-     each gets its own independent row-click-to-switch + auto-advance
-     + play-on-scroll behavior, not just the original inbox-teaser. */
+  (function inboxHubInit() {
+    var tabsWrap = document.getElementById('inboxHubTabs');
+    if (!tabsWrap) return;
+    var tabs = Array.prototype.slice.call(tabsWrap.querySelectorAll('.inbox-hub-tab'));
+    var views = Array.prototype.slice.call(document.querySelectorAll('.inbox-hub-view'));
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var tabIndex = tab.getAttribute('data-inbox-tab');
+        tabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        views.forEach(function (v) {
+          v.classList.toggle('is-active', v.getAttribute('data-inbox-view') === tabIndex);
+        });
+      });
+    });
+  })();
+
+  /* ---------------------------------------------------------
+     ONE INBOX TEASER — auto-cycles through conversation rows
+     --------------------------------------------------------- */
   Array.prototype.slice.call(document.querySelectorAll('.inbox-dash')).forEach(function (dash) {
     var rows = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-row'));
     var panels = Array.prototype.slice.call(dash.querySelectorAll('.inbox-dash-thread-panel'));
@@ -483,27 +591,27 @@
      the visible .faq3-category and update the sticky left-hand
      title; each category runs its own single-open accordion.
      --------------------------------------------------------- */
-  (function faq3Init() {
-    // All categories render at once now (no tabs to switch between —
-    // see the faq3-groups markup in index.html); this just wires the
-    // per-question accordion toggle.
-    var faqItems = document.querySelectorAll('.faq3-item');
+  /* ---------------------------------------------------------
+     FREQUENTLY ASKED QUESTIONS — Clean Minimalist Accordion
+     --------------------------------------------------------- */
+  (function faqCleanInit() {
+    var faqItems = document.querySelectorAll('.faq-clean-item, .faq3-item');
     if (!faqItems.length) return;
 
-    // Accordion toggling — one open item per category
     faqItems.forEach(function (item) {
-      var btn = item.querySelector('.faq3-q');
+      var btn = item.querySelector('.faq-clean-q, .faq3-q');
       if (!btn) return;
       btn.addEventListener('click', function () {
-        var isOpen = item.classList.contains('open');
-        var siblingItems = item.parentElement.querySelectorAll('.faq3-item');
-        siblingItems.forEach(function (sibling) {
-          sibling.classList.remove('open');
-          var sibBtn = sibling.querySelector('.faq3-q');
+        var isOpen = item.classList.contains('is-open') || item.classList.contains('open');
+        var parentList = item.parentElement;
+        var siblings = parentList ? parentList.querySelectorAll('.faq-clean-item, .faq3-item') : [];
+        siblings.forEach(function (sibling) {
+          sibling.classList.remove('is-open', 'open');
+          var sibBtn = sibling.querySelector('.faq-clean-q, .faq3-q');
           if (sibBtn) sibBtn.setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
-          item.classList.add('open');
+          item.classList.add('is-open', 'open');
           btn.setAttribute('aria-expanded', 'true');
         }
       });
@@ -687,166 +795,7 @@
     update();
   })();
 
-  /* ---------------------------------------------------------
-     HERO DYNAMIC MULTI-SCENARIO ROTATOR
-     Cycles smoothly through E-Commerce, Appointment Booking,
-     and 24/7 Support with interactive manual controls.
-     --------------------------------------------------------- */
-  (function initHeroScenarios() {
-    var agentBubble = document.getElementById('heroAgentBubble');
-    var customerBubble = document.getElementById('heroCustomerBubble');
-    var valueBadgeText = document.getElementById('heroValueBadgeText');
-    var trustBadgeText = document.getElementById('heroTrustBadgeText');
-    var navButtons = Array.prototype.slice.call(document.querySelectorAll('.hero-sc-btn'));
 
-    if (!agentBubble || !customerBubble || !navButtons.length) return;
-
-    var scenarios = [
-      {
-        // 0: E-Commerce
-        agentHTML: '<div class="hba-badge-row">' +
-                   '  <span class="hba-channel-badge wa"><svg viewBox="0 0 24 24" width="14" height="14" fill="#1FAF5C"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; WhatsApp</span>' +
-                   '  <span class="hba-time">Just now</span>' +
-                   '</div>' +
-                   '<p class="hba-text">Yes! Saved 1 <strong>Silk Kurta Set (M)</strong> for guaranteed Friday delivery:</p>' +
-                   '<div class="hba-product-card">' +
-                   '  <img src="images/brand-01.jpg" alt="Product" class="hba-prod-img">' +
-                   '  <div class="hba-prod-meta">' +
-                   '    <strong>Floral Silk Kurta (M)</strong>' +
-                   '    <span class="hba-prod-price">₹2,249 <s class="hba-old-price">₹2,499</s> <span class="hba-discount-tag">10% OFF</span></span>' +
-                   '  </div>' +
-                   '</div>' +
-                   '<a href="#final-cta" class="hba-action-btn wa">' +
-                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' +
-                   '  Instant 1-Click Pay' +
-                   '</a>',
-        customerHTML: '<div class="hbc-avatar-row">' +
-                      '  <div class="hbc-avatar"><img src="images/avatar-1.jpg" alt="Priya S." class="hbc-avatar-img"></div>' +
-                      '  <div class="hbc-meta"><strong class="hbc-name">Priya S.</strong><span class="hbc-tag">Shopper &middot; 11:42 PM</span></div>' +
-                      '</div>' +
-                      '<p class="hbc-msg">"Left 2 items in cart, can I get size M delivered before Friday?"</p>',
-        valTitle: '11&times; Return On Cost',
-        valSub: '₹2,249 Order Closed in 42s',
-        trustTitle: 'Zero Missed Midnight Leads',
-        trustSub: '0.5s Average First Reply'
-      },
-      {
-        // 1: Appointments
-        agentHTML: '<div class="hba-badge-row">' +
-                   '  <span class="hba-channel-badge ig"><svg viewBox="0 0 24 24" width="14" height="14" fill="#BE185D"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; Instagram DM</span>' +
-                   '  <span class="hba-time">1.2s ago</span>' +
-                   '</div>' +
-                   '<p class="hba-text">Starting at <strong>₹65 Lakhs</strong> with private balcony. Sample flat tour booked:</p>' +
-                   '<div class="hba-product-card">' +
-                   '  <img src="images/hero-real-estate.jpg" alt="Property" class="hba-prod-img">' +
-                   '  <div class="hba-prod-meta">' +
-                   '    <strong>3BHK Sky Villa &middot; ₹65L</strong>' +
-                   '    <span class="hba-prod-price" style="color:#2563EB;">📅 Sat, 11:00 AM &middot; Cal Synced</span>' +
-                   '  </div>' +
-                   '</div>' +
-                   '<a href="#final-cta" class="hba-action-btn ig">' +
-                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' +
-                   '  Site Visit Confirmed' +
-                   '</a>',
-        customerHTML: '<div class="hbc-avatar-row">' +
-                      '  <div class="hbc-avatar"><img src="images/avatar-2.jpg" alt="Rahul V." class="hbc-avatar-img"></div>' +
-                      '  <div class="hbc-meta"><strong class="hbc-name">Rahul V.</strong><span class="hbc-tag">High Intent Buyer &middot; 11:43 PM</span></div>' +
-                      '</div>' +
-                      '<p class="hbc-msg">"Send price &amp; sample flat video for 3BHK Sky Villa"</p>',
-        valTitle: '8 in 10 Handled Without You',
-        valSub: 'Direct Sync to Google Calendar & HubSpot',
-        trustTitle: 'Instant Tour Booking',
-        trustSub: 'HubSpot & Cal Synced Automatically'
-      },
-      {
-        // 2: 24/7 Support
-        agentHTML: '<div class="hba-badge-row">' +
-                   '  <span class="hba-channel-badge web"><svg viewBox="0 0 24 24" width="14" height="14" fill="#1D4ED8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> StepsAI &middot; Live Chat</span>' +
-                   '  <span class="hba-time">0.8s ago</span>' +
-                   '</div>' +
-                   '<p class="hba-text">Out for delivery! Your courier driver is 4 stops away (arriving ~4:15 PM):</p>' +
-                   '<div class="hba-product-card">' +
-                   '  <img src="images/brand-02.jpg" alt="Tracking" class="hba-prod-img">' +
-                   '  <div class="hba-prod-meta">' +
-                   '    <strong>Order #4821 &middot; Express</strong>' +
-                   '    <span class="hba-prod-price" style="color:#059669;">📦 Out for Delivery &middot; 4:15 PM</span>' +
-                   '  </div>' +
-                   '</div>' +
-                   '<a href="#final-cta" class="hba-action-btn web">' +
-                   '  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>' +
-                   '  Track Live Courier Driver' +
-                   '</a>',
-        customerHTML: '<div class="hbc-avatar-row">' +
-                      '  <div class="hbc-avatar"><img src="images/avatar-3.jpg" alt="Aman K." class="hbc-avatar-img"></div>' +
-                      '  <div class="hbc-meta"><strong class="hbc-name">Aman K.</strong><span class="hbc-tag">Customer &middot; 11:45 PM</span></div>' +
-                      '</div>' +
-                      '<p class="hbc-msg">"Where is my order #4821? Needed for tonight\'s event"</p>',
-        valTitle: '900,000+ Chats Handled',
-        valSub: 'Connected to Shiprocket & ERP',
-        trustTitle: '95+ Languages Replied In',
-        trustSub: 'Escalates Only When It Should'
-      }
-    ];
-
-    var currentIndex = 0;
-    var timer = null;
-
-    function renderScenario(index) {
-      if (index < 0 || index >= scenarios.length) return;
-      currentIndex = index;
-
-      navButtons.forEach(function (btn, i) {
-        if (i === index) btn.classList.add('is-active');
-        else btn.classList.remove('is-active');
-      });
-
-      agentBubble.style.opacity = '0';
-      agentBubble.style.transform = 'translateY(8px) scale(0.97)';
-      customerBubble.style.opacity = '0';
-      customerBubble.style.transform = 'translateY(8px) scale(0.97)';
-
-      setTimeout(function () {
-        var sc = scenarios[index];
-        agentBubble.innerHTML = sc.agentHTML;
-        customerBubble.innerHTML = sc.customerHTML;
-
-        if (valueBadgeText) {
-          valueBadgeText.innerHTML = '<strong>' + sc.valTitle + '</strong><span>' + sc.valSub + '</span>';
-        }
-        if (trustBadgeText) {
-          trustBadgeText.innerHTML = '<strong>' + sc.trustTitle + '</strong><span>' + sc.trustSub + '</span>';
-        }
-
-        agentBubble.style.opacity = '1';
-        agentBubble.style.transform = 'none';
-        customerBubble.style.opacity = '1';
-        customerBubble.style.transform = 'none';
-      }, 200);
-    }
-
-    function startAutoRotation() {
-      stopAutoRotation();
-      timer = setInterval(function () {
-        var next = (currentIndex + 1) % scenarios.length;
-        renderScenario(next);
-      }, 5500);
-    }
-
-    function stopAutoRotation() {
-      if (timer) clearInterval(timer);
-    }
-
-    navButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var idx = parseInt(btn.getAttribute('data-sc'), 10);
-        renderScenario(idx);
-        startAutoRotation(); // restart timer on click
-      });
-    });
-
-    renderScenario(0);
-    startAutoRotation();
-  })();
 
   /* ---------------------------------------------------------
      Deploy Everywhere: Interactive Neural Hub & Spoke Sync
@@ -866,8 +815,7 @@
       { name: 'Website', label: 'Real-time sync active with Web Widget (< 12ms)' },
       { name: 'WhatsApp', label: 'Real-time sync active with WhatsApp Business API (< 14ms)' },
       { name: 'Instagram', label: 'Real-time sync active with Instagram Direct (< 18ms)' },
-      { name: 'Messenger', label: 'Real-time sync active with Facebook Messenger (< 16ms)' },
-      { name: 'Standalone Page', label: 'Real-time sync active on your branded standalone page (< 22ms)' }
+      { name: 'Messenger', label: 'Real-time sync active with Facebook Messenger (< 16ms)' }
     ];
 
     var activeIdx = 0;

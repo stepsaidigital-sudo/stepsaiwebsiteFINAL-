@@ -40,6 +40,29 @@
 .vertical-hero-link:hover svg { transform: rotate(180deg) translateX(3px); }
 .vertical-hero-link:hover { color: #fff; }
 
+/* ============================================================
+   DEFAULT VERTICAL-HERO BACKGROUND
+   Client-supplied reference image (soft blue atmosphere, layered
+   dome rings) used directly as the background for any vertical-hero
+   that doesn't supply its own inline background (photo or custom
+   gradient) — the [style*="background"] check lets those opt out.
+   Kept light on purpose (never dark) to match the brand system.
+   ============================================================ */
+.vertical-hero:not([style*="background"]) {
+  background-image: url("images/hero-vertical-atmosphere.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  color: #0f172a;
+}
+.vertical-hero:not([style*="background"])::before { display: none; }
+
+.vertical-hero:not([style*="background"]) .vertical-hero-eyebrow { color: #1d4ed8; background: rgba(37,99,235,.09); border-color: rgba(37,99,235,.22); box-shadow: none; }
+.vertical-hero:not([style*="background"]) .vertical-hero-eyebrow-num { color: #2563eb; }
+.vertical-hero:not([style*="background"]) .vertical-headline { text-shadow: none; }
+.vertical-hero:not([style*="background"]) .vertical-tagline { color: #334155; }
+.vertical-hero:not([style*="background"]) .vertical-hero-link { color: #1d4ed8; }
+.vertical-hero:not([style*="background"]) .vertical-hero-link:hover { color: #1e3a8a; }
+
 /* ---------- REAL CUSTOMER QUOTES ---------- */
 .quote-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 48px; }
 @media (max-width: 900px) { .quote-cards { grid-template-columns: 1fr 1fr; } }
