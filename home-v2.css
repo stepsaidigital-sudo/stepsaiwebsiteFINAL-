@@ -2469,6 +2469,35 @@
 #top .pipe-chips span {font-size:10.5px;font-weight:600;color:#4b5a72;background:#f7f8fc;border:1px solid #ecedf5;border-radius:7px;padding:4px 9px}
 #top .pipe-step:hover .pipe-chips span {border-color:#e3e2f2}
 
+/* ============================================================
+   SPLIT-WORD TEXT REVEAL — hero headline + "how" section title
+   Words are wrapped in .split-word spans by home-v2.js (splitWords),
+   each carrying a --i index for stagger delay. Two trigger paths:
+   the hero isn't gated behind scroll (it's above the fold, so it's
+   never wrapped in .reveal -- that would flash-hide LCP content
+   waiting on an observer), so JS adds .split-ready to it directly,
+   shortly after load. Everything else already lives inside a
+   .reveal wrapper and piggybacks on the existing reveal system.
+   ============================================================ */
+#top .split-word {
+  display:inline-block;
+  opacity:0;
+  transform:translateY(28px);
+  filter:blur(6px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1),filter .6s cubic-bezier(.22,1,.36,1);
+  transition-delay:calc(var(--i,0) * 45ms);
+}
+#top .hero-title.split-ready .split-word,
+#top .reveal.is-visible .split-word,
+#top .reveal.visible .split-word {
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  #top .split-word {opacity:1;transform:none;filter:none;transition:none}
+}
+
 /* ---- responsive overrides (widest to narrowest) ---- */
 @media(max-width:1100px) {
 #top .channels-grid {grid-template-columns:1fr}

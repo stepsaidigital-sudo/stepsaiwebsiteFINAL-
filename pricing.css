@@ -28,6 +28,7 @@
 .pricing-hero-sub { margin-left: auto; margin-right: auto; text-align: center; }
 
 .billing-toggle {
+  position: relative;
   display: inline-flex;
   margin-top: 24px;
   padding: 4px;
@@ -35,16 +36,34 @@
   background: var(--bg-surface-2);
   border: 1px solid var(--border-subtle);
 }
+/* Single shared pill that slides between options (positioned/sized by
+   pricing.js) instead of each button getting its own background fill --
+   the sliding motion is the whole point, a color-only swap had none. */
+.billing-toggle-highlight {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: transform 350ms cubic-bezier(.22,1,.36,1), width 350ms cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+  z-index: 0;
+}
 .billing-toggle-option {
+  position: relative;
+  z-index: 1;
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 600;
   color: var(--text-secondary);
-  transition: background-color 200ms var(--ease), color 200ms var(--ease);
+  transition: color 200ms var(--ease);
 }
 .billing-toggle-option:hover { color: var(--text-primary); }
-.billing-toggle-option.is-active { background: var(--accent); color: #fff; }
+.billing-toggle-option.is-active { color: #fff; }
+@media (prefers-reduced-motion: reduce) { .billing-toggle-highlight { transition: none; } }
 .billing-toggle-save {
   margin-left: 6px;
   font-size: 11px;

@@ -13,8 +13,16 @@
   /* ---------- BILLING TOGGLE (monthly / annual) ---------- */
   (function initBillingToggle() {
     var stage = document.getElementById('pricingStage');
+    var toggle = document.getElementById('billingToggle');
+    var highlight = toggle && toggle.querySelector('.billing-toggle-highlight');
     var options = Array.prototype.slice.call(document.querySelectorAll('.billing-toggle-option'));
     if (!stage || !options.length) return;
+
+    function moveHighlightTo(btn) {
+      if (!highlight) return;
+      highlight.style.width = btn.offsetWidth + 'px';
+      highlight.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
 
     options.forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -25,7 +33,17 @@
           b.setAttribute('aria-selected', active ? 'true' : 'false');
         });
         stage.classList.toggle('is-annual', period === 'annual');
+        moveHighlightTo(btn);
       });
+    });
+
+    // Position the highlight under whichever option starts active, once
+    // layout has actually happened (offsetWidth is 0 before first paint).
+    var initiallyActive = options.filter(function (b) { return b.classList.contains('is-active'); })[0] || options[0];
+    requestAnimationFrame(function () { moveHighlightTo(initiallyActive); });
+    window.addEventListener('resize', function () {
+      var active = options.filter(function (b) { return b.classList.contains('is-active'); })[0];
+      if (active) moveHighlightTo(active);
     });
   })();
 

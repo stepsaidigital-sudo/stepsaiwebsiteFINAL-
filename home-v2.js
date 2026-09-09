@@ -6,6 +6,66 @@
    ============================================================ */
 document.documentElement.classList.add('js');
 
+/* ---------- Split-word text reveal (hero headline + "how" title) ----------
+   Wraps each word of the target headline in its own <span class="split-word">
+   carrying a --i index (used by home-v2.css for the stagger delay). Elements
+   like the hero's <span class="grad-text"> are left un-split and just added
+   to the same stagger instead: -webkit-background-clip:text gradient text
+   doesn't paint through nested display:inline-block children (the browser
+   treats them as their own opaque box), so splitting its words individually
+   silently makes them invisible -- keeping it as one atomic unit sidesteps
+   that entirely while still fading/sliding in with the rest of the line. */
+(function initSplitText(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion) return;
+
+  const ATOMIC_SELECTOR = '.grad-text';
+
+  function splitWords(el){
+    let i = 0;
+    function walk(node){
+      if(node.nodeType === Node.TEXT_NODE){
+        const text = node.textContent;
+        if(!text.trim()) return;
+        const parts = text.split(/(\s+)/);
+        const frag = document.createDocumentFragment();
+        parts.forEach(part=>{
+          if(part.trim() === ''){
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'split-word';
+            span.style.setProperty('--i', i++);
+            span.textContent = part;
+            frag.appendChild(span);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if(node.nodeType === Node.ELEMENT_NODE){
+        if(node.matches && node.matches(ATOMIC_SELECTOR)){
+          node.classList.add('split-word');
+          node.style.setProperty('--i', i++);
+          return;
+        }
+        Array.prototype.slice.call(node.childNodes).forEach(walk);
+      }
+    }
+    Array.prototype.slice.call(el.childNodes).forEach(walk);
+  }
+
+  document.querySelectorAll('.hero-title, .how .sec-title').forEach(splitWords);
+
+  // The hero headline is above the fold, so it isn't gated behind the
+  // scroll-triggered .reveal system (that would hide LCP content until an
+  // IntersectionObserver fires) -- just play its entrance shortly after load.
+  const heroTitle = document.querySelector('.hero-title');
+  if(heroTitle){
+    requestAnimationFrame(()=>{
+      setTimeout(()=>heroTitle.classList.add('split-ready'), 120);
+    });
+  }
+})();
+
 const BOT = '<span class="avatar bot" style="background:#fff;border:1px solid #e6eaf2"><span class="logo-mark" style="width:17px;height:9px"></span></span>';
 const CHANNELS = {
   website:{
