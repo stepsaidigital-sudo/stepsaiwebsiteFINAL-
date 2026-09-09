@@ -59,6 +59,17 @@
      every .nav-dropdown, so adding Resources needed no new JS. */
   var dropdowns = Array.prototype.slice.call(document.querySelectorAll('.nav-dropdown'));
   var HOVER_INTENT_DELAY = 150;
+  /* The Product panel is centered on the viewport now (position:fixed),
+     not flush under its trigger like the narrower dropdowns still are --
+     that leaves real empty space between the "Product" button and the
+     panel itself. mouseleave fires the instant the cursor crosses ANY
+     pixel that isn't the trigger or the panel, so moving diagonally
+     through that gap toward a card used to close the whole menu before
+     the click ever landed. CLOSE_INTENT_DELAY debounces the close the
+     same way HOVER_INTENT_DELAY already debounces the open, so a brief
+     gap-crossing mid-travel doesn't kill it -- standard pattern for any
+     mega-menu whose panel doesn't sit flush against its trigger. */
+  var CLOSE_INTENT_DELAY = 300;
   var hoverTimer = null;
 
   function openDropdown(dropdown, trigger) {
@@ -79,9 +90,11 @@
   dropdowns.forEach(function (dropdown) {
     var trigger = dropdown.querySelector('.nav-dropdown-trigger');
     if (!trigger) return;
+    var closeTimer = null;
 
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
+      clearTimeout(closeTimer);
       var isOpen = dropdown.classList.contains('is-open');
       closeAllDropdowns();
       if (!isOpen) openDropdown(dropdown, trigger);
@@ -89,12 +102,16 @@
 
     dropdown.addEventListener('mouseenter', function () {
       clearTimeout(hoverTimer);
+      clearTimeout(closeTimer);
       hoverTimer = setTimeout(function () { openDropdown(dropdown, trigger); }, HOVER_INTENT_DELAY);
     });
     dropdown.addEventListener('mouseleave', function () {
       clearTimeout(hoverTimer);
-      dropdown.classList.remove('is-open');
-      trigger.setAttribute('aria-expanded', 'false');
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () {
+        dropdown.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }, CLOSE_INTENT_DELAY);
     });
   });
 

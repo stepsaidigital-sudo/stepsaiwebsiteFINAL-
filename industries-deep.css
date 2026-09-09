@@ -25,11 +25,34 @@
 }
 
 /* ---------- VERTICAL HERO ---------- */
-.vertical-hero { position: relative; padding: 220px 0 140px; background-size: cover; background-position: center; color: #fff; overflow: hidden; }
+/* Padding used to be 220px/140px, sized to clear the fixed nav PLUS the
+   old floating breadcrumb pill that sat fixed on top of everything --
+   with the breadcrumb now in normal flow right above this section (see
+   .breadcrumb-bar in styles.css), that clearance is no longer this
+   section's job, and the old numbers just read as dead space top and
+   bottom of the actual content. Tightened; restored under 900px, where
+   the breadcrumb bar hides and this section is back to being the only
+   thing clearing the nav. */
+.vertical-hero { position: relative; padding: 72px 0 90px; background-size: cover; background-position: center; color: #fff; overflow: hidden; }
 .vertical-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.6) 0%, rgba(9, 14, 23, 0.85) 100%); backdrop-filter: blur(4px); z-index: 0; }
 .vertical-hero .container { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 840px; }
 .vertical-hero .vertical-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; text-align: left; max-width: none; }
-@media (max-width: 980px) { .vertical-hero .vertical-hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; max-width: 840px; margin: 0 auto; } }
+/* The two-column split (text left, mockup right) needs its action row
+   left-aligned to match the eyebrow/headline/tagline above it -- the base
+   .vertical-hero-actions rule below centers it, which is correct for the
+   single-column centered hero variant but leaves the button row visibly
+   floating out of alignment with everything else in this split layout. */
+.vertical-hero .vertical-hero-inner .vertical-hero-actions { justify-content: flex-start; }
+/* Widget mockup was stretching to fill the whole grid column (~700px+ on
+   a wide viewport) -- reads as an oversized panel next to the headline
+   rather than a compact chat widget. Capped and right-aligned in-column,
+   closer to how the homepage's own .hero-chat is deliberately sized. */
+.vertical-hero .vertical-hero-inner .live-widget { max-width: 82%; margin-left: auto; }
+@media (max-width: 980px) {
+  .vertical-hero .vertical-hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; max-width: 840px; margin: 0 auto; }
+  .vertical-hero .vertical-hero-inner .vertical-hero-actions { justify-content: center; }
+  .vertical-hero .vertical-hero-inner .live-widget { max-width: 420px; margin: 0 auto; }
+}
 .vertical-hero-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 24px; padding: 7px 18px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
 .vertical-hero-eyebrow-num { color: #93C5FD; font-weight: 700; }
 .vertical-headline { font-size: clamp(38px, 5.5vw, 64px); font-weight: 720; line-height: 1.06; letter-spacing: -0.03em; text-shadow: 0 4px 16px rgba(0,0,0,0.4); }
@@ -39,8 +62,13 @@
 .vertical-hero-link svg { transform: rotate(180deg); transition: transform 200ms var(--ease); }
 .vertical-hero-link:hover svg { transform: rotate(180deg) translateX(3px); }
 .vertical-hero-link:hover { color: #fff; }
+@media (max-width: 900px) {
+  /* .breadcrumb-bar hides at this same breakpoint (styles.css) -- this
+     section goes back to being solely responsible for nav clearance. */
+  .vertical-hero { padding: 150px 0 90px; }
+}
 @media (max-width: 640px) {
-  .vertical-hero { padding: 140px 0 80px; }
+  .vertical-hero { padding: 120px 0 70px; }
   .vertical-tagline { font-size: 16.5px; }
 }
 
@@ -94,18 +122,33 @@
 .spread-visual::after { content: ""; position: absolute; inset: -10%; background: radial-gradient(circle, var(--ind-accent, var(--accent)) 0%, transparent 60%); z-index: -1; opacity: 0.22; pointer-events: none; transition: background 320ms var(--ease); }
 
 /* ---------- LIVE WIDGET (real chat-widget chrome) ---------- */
-.live-widget { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); border: var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: 0 32px 64px -36px rgba(15,23,42,.18), inset 0 1px 0 rgba(255,255,255,0.8); transition: transform 280ms var(--ease), box-shadow 280ms var(--ease); }
-.live-widget:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255,255,255,0.9); }
-.lw-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); }
-.lw-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--text-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 650; flex-shrink: 0; }
-.lw-name { font-size: 12px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
-.lw-status { font-size: 11px; color: var(--text-tertiary); display: flex; align-items: center; gap: 5px; }
+/* True glass, matching the homepage hero-chat's proven treatment (68%
+   white + blur+saturate, not the near-opaque 95% this used to sit at --
+   that read as a plain white card with a faint edge, not glass). Bubbles
+   and the input pill keep their own solid backgrounds (see .lw-bubble/
+   .lw-input below) so legibility doesn't depend on the frosted parent. */
+.live-widget { background: rgba(255,255,255,.68); backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%); border: 1px solid rgba(255,255,255,.75); border-radius: 16px; overflow: hidden; box-shadow: 0 32px 64px -36px rgba(15,23,42,.18), inset 0 1px 1px rgba(255,255,255,.9); transition: box-shadow 280ms var(--ease); transform-style: preserve-3d; will-change: transform; }
+/* transform is intentionally NOT transitioned here -- industries.js's
+   mouse-tilt physics (initLiveWidgetTilt) drives it every frame with its
+   own lerp smoothing; a CSS transition on the same property would stack a
+   second layer of lag on top and make the tilt feel delayed/sluggish. */
+.live-widget:hover { box-shadow: var(--shadow-hover), inset 0 1px 1px rgba(255,255,255,.95); }
+@media (prefers-reduced-motion: reduce) {
+  /* industries.js skips the tilt physics entirely under reduced motion --
+     keep a simple, non-3D lift so hover still gives some feedback. */
+  .live-widget { transition: transform 200ms ease, box-shadow 280ms var(--ease); }
+  .live-widget:hover { transform: translateY(-3px); }
+}
+.lw-head { display: flex; align-items: center; gap: 9px; padding: 12px 14px; border-bottom: 1px solid rgba(226,232,240,.7); }
+.lw-avatar { width: 29px; height: 29px; border-radius: 50%; background: var(--text-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 650; flex-shrink: 0; }
+.lw-name { font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.lw-status { font-size: 10.5px; color: var(--text-tertiary); display: flex; align-items: center; gap: 5px; }
 .lw-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px var(--success); }
-.lw-body { padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; min-height: 130px; }
-.lw-bubble { max-width: 82%; padding: 11px 15px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; }
+.lw-body { padding: 15px 14px; display: flex; flex-direction: column; gap: 8px; min-height: 108px; }
+.lw-bubble { max-width: 82%; padding: 9px 13px; border-radius: 13px; font-size: 12.5px; line-height: 1.48; }
 .lw-bubble.agent { align-self: flex-start; background: var(--bg-raised); border-bottom-left-radius: 4px; }
 .lw-bubble.user { align-self: flex-end; background: var(--ind-accent, var(--accent)); color: #fff; border-bottom-right-radius: 4px; }
-.lw-typing { align-self: flex-start; display: flex; gap: 4px; padding: 11px 14px; background: var(--bg-raised); border-radius: 14px; border-bottom-left-radius: 4px; }
+.lw-typing { align-self: flex-start; display: flex; gap: 4px; padding: 9px 12px; background: var(--bg-raised); border-radius: 13px; border-bottom-left-radius: 4px; }
 .lw-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--text-faint); opacity: .5; animation: chatTypingDot 1200ms ease-in-out infinite; }
 .lw-typing span:nth-child(2) { animation-delay: 180ms; }
 .lw-typing span:nth-child(3) { animation-delay: 360ms; }
@@ -124,11 +167,11 @@
 .lw-body .chat-card-cta { background: var(--accent); }
 .lw-body .chat-card-slot { border-color: var(--accent); color: var(--accent); }
 .lw-body .chat-card-slot-label { color: var(--text-tertiary); }
-.lw-footer { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-top: 1px solid var(--border-subtle); }
-.lw-input { flex: 1; font-size: 13px; color: var(--text-faint); background: var(--bg-raised); border-radius: 20px; padding: 10px 14px; }
-.lw-send { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.lw-send svg { width: 14px; height: 14px; color: #fff; }
-.lw-powered { text-align: center; font-size: 10px; color: var(--text-faint); padding: 7px 0 13px; }
+.lw-footer { display: flex; align-items: center; gap: 9px; padding: 10px 12px; border-top: 1px solid rgba(226,232,240,.7); }
+.lw-input { flex: 1; font-size: 12px; color: var(--text-faint); background: var(--bg-raised); border-radius: 18px; padding: 9px 13px; }
+.lw-send { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.lw-send svg { width: 12px; height: 12px; color: #fff; }
+.lw-powered { text-align: center; font-size: 9.5px; color: var(--text-faint); padding: 6px 0 11px; }
 .lw-powered b { color: var(--accent); font-weight: 700; }
 
 /* ---------- WORKFLOW CANVAS — real automation, data-driven ---------- */

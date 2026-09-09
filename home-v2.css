@@ -153,7 +153,40 @@
 #top .hero-channels .ch[data-hero-ch="whatsapp"].active {background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%);border-color:#16a34a;color:#15803d;box-shadow:0 0 0 1px #16a34a,0 8px 20px -4px rgba(22,163,74,.25)}
 #top .hero-channels .ch[data-hero-ch="messenger"].active {background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%);border-color:#8b5cf6;color:#6d28d9;box-shadow:0 0 0 1px #8b5cf6,0 8px 20px -4px rgba(139,92,246,.25)}
 #top .hero-visual {position:relative;min-height:560px}
-#top .hero-blob {display:none}
+/* Ambient tunnel canvas — animate-ui "hole" background technique, reworked
+   in brand blue only (no purple/cyan/pink from the reference) and rewritten
+   as vanilla canvas since this site has no React/Motion runtime. Purely
+   decorative accent behind .hero-chat, not a replacement for hero-bg-img.
+   Driven by initHeroTunnel() in home-v2.js. */
+#top .hero-blob {
+  position:absolute; top:50%; left:50%;
+  width:150%; height:150%;
+  transform:translate(-50%,-50%);
+  z-index:0; overflow:hidden; opacity:.9; pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 55% 55% at 50% 45%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(ellipse 55% 55% at 50% 45%,#000 0%,transparent 72%);
+}
+/* Soft vignette under the canvas so the ring strokes have contrast to read
+   against -- the hero photo behind is pale, low-alpha blue strokes alone
+   were disappearing into it. */
+#top .hero-blob::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse 50% 50% at 50% 42%,rgba(9,13,22,.16) 0%,transparent 70%);
+}
+#top .hero-blob canvas {position:absolute;inset:0;width:100%;height:100%;display:block}
+#top .hero-blob-sweep {
+  position:absolute; top:8%; left:50%;
+  width:26%; height:120%;
+  transform:translateX(-50%);
+  border-radius:50%; filter:blur(46px); opacity:.45;
+  background:linear-gradient(20deg,var(--accent-on-dark) 0%,var(--accent-bright) 30%,var(--accent) 55%,var(--accent-deep) 75%,var(--accent-on-dark) 100%);
+  background-size:100% 260%;
+  animation:heroTunnelSweep 7s linear infinite;
+}
+@keyframes heroTunnelSweep { to { background-position:0 260%; } }
+@media (prefers-reduced-motion: reduce) {
+  #top .hero-blob-sweep {animation:none}
+}
 #top .hero-chat {position:relative;z-index:2;width:356px;max-width:100%;margin:0 0 0 54px;background:rgba(255,255,255,.68);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-radius:24px;box-shadow:0 24px 60px -14px rgba(15,23,42,.22),0 0 0 1px rgba(255,255,255,.6),inset 0 1px 1px rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.75);padding:14px;transition:border-color .2s,box-shadow .3s,transform .3s cubic-bezier(.22,1,.36,1)}
 #top .hero-chat:hover {transform:translateY(-3px);box-shadow:0 30px 70px -14px rgba(15,23,42,.28),0 0 0 1px rgba(255,255,255,.7),inset 0 1px 1px rgba(255,255,255,.95)}
 #top .hero-chat-browser {display:flex;align-items:center;gap:10px;padding:0 6px 10px;margin-bottom:10px;border-bottom:1px solid rgba(226,232,240,.7)}
@@ -1844,9 +1877,23 @@
 #top .inbox {display:grid;grid-template-columns:260px 1.4fr 250px;gap:16px;background:#ffffff}
 #top .convo-list {display:flex;flex-direction:column;gap:10px}
 #top .convo-search {background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:10px 14px;font-size:12.5px;color:#94a3b8;font-weight:500;display:flex;align-items:center;gap:8px}
-#top .convo {background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:12px 14px;cursor:pointer;transition:all .2s ease}
-#top .convo:hover {background:#f1f5f9;border-color:#cbd5e1;transform:translateY(-1px)}
+#top .convo {background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:12px 14px;cursor:pointer;position:relative;box-shadow:var(--shadow-sm);transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .34s var(--ease-ui);z-index:calc(4 - var(--i,0))}
+#top .convo:hover {background:#f1f5f9;border-color:#cbd5e1}
 #top .convo.sel {border-color:#93c5fd;background:#eff6ff;box-shadow:0 4px 14px rgba(37,99,235,.1)}
+/* Notification-stack hover-fan (animate-ui "notification-list" pattern,
+   rebuilt in plain CSS -- desktop/pointer only, see DESIGN_ANIMATION_SYSTEM.md
+   §1: hover/click motion always uses --ease-ui, never --ease-spring). Cards
+   rest collapsed into a peeking pile and fan out to the normal list on hover
+   or keyboard focus. Static mockup, no click-driven JS to preserve. */
+@media (hover:hover) and (pointer:fine) {
+  #top .convo-list .convo {transform:translateY(calc(var(--i,0) * -56px)) scaleX(calc(1 - var(--i,0) * .025))}
+  #top .convo-list:hover .convo,
+  #top .convo-list:focus-within .convo {transform:translateY(0) scaleX(1)}
+  #top .convo-list:hover .convo:hover {transform:translateY(-1px) scaleX(1)}
+}
+@media (prefers-reduced-motion: reduce) {
+  #top .convo-list .convo {transition:none}
+}
 #top .convo .c-top {display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:6px}
 #top .convo .c-ch {font-size:12px;font-weight:750;color:#0f172a;display:flex;align-items:center;gap:6px}
 #top .convo .c-ch .ci {width:18px;height:18px}
@@ -2511,6 +2558,7 @@
 #top .hero-grid {grid-template-columns:1fr;gap:70px}
 #top .hero-visual {min-height:0}
 #top .hero-notes {display:none}
+#top .hero-blob {display:none}
 #top .problem-grid, #top .cc-grid, #top .channels-grid, #top .auto-grid, #top .final-grid, #top .wa-head {grid-template-columns:1fr}
 #top .wa-icon-wrap {justify-self:start}
 #top .problem-copy, #top .cc-left {position:static}

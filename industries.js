@@ -214,4 +214,61 @@
   
   initScrollStack();
 
+  /* ---------- LIVE WIDGET MOUSE-TILT PHYSICS ----------
+     Same lerp-smoothed 3D tilt as the homepage's dashboard mockups
+     (initDashboard3DPhysics in home-v2.js) -- reused here so the
+     vertical-hero's .live-widget mockup card feels alive on hover
+     instead of sitting static. */
+  function initLiveWidgetTilt() {
+    var widgets = Array.prototype.slice.call(document.querySelectorAll('.live-widget'));
+    if (!widgets.length || reduceMotion) return;
+
+    widgets.forEach(function (widget) {
+      var isHovered = false;
+      var reqId = null;
+      var targetRotX = 0, targetRotY = 0;
+      var currentRotX = 0, currentRotY = 0;
+
+      function updatePhysics() {
+        currentRotX += (targetRotX - currentRotX) * 0.12;
+        currentRotY += (targetRotY - currentRotY) * 0.12;
+
+        if (isHovered) {
+          widget.style.transform = 'perspective(1000px) rotateX(' + currentRotX.toFixed(2) + 'deg) rotateY(' + currentRotY.toFixed(2) + 'deg) translateZ(14px) translateY(-3px) scale3d(1.012, 1.012, 1.012)';
+        } else {
+          widget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px) scale3d(1, 1, 1)';
+        }
+
+        if (isHovered || Math.abs(currentRotX) > 0.05 || Math.abs(currentRotY) > 0.05) {
+          reqId = requestAnimationFrame(updatePhysics);
+        } else {
+          reqId = null;
+        }
+      }
+
+      widget.addEventListener('mouseenter', function () {
+        isHovered = true;
+        if (!reqId) reqId = requestAnimationFrame(updatePhysics);
+      });
+
+      widget.addEventListener('mousemove', function (e) {
+        var rect = widget.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        targetRotX = -(y / (rect.height / 2)) * 6;
+        targetRotY = (x / (rect.width / 2)) * 6;
+        if (!reqId) reqId = requestAnimationFrame(updatePhysics);
+      });
+
+      widget.addEventListener('mouseleave', function () {
+        isHovered = false;
+        targetRotX = 0;
+        targetRotY = 0;
+        if (!reqId) reqId = requestAnimationFrame(updatePhysics);
+      });
+    });
+  }
+
+  initLiveWidgetTilt();
+
 })();

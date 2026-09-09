@@ -53,7 +53,7 @@ document.documentElement.classList.add('js');
     Array.prototype.slice.call(el.childNodes).forEach(walk);
   }
 
-  document.querySelectorAll('.hero-title, .how .sec-title').forEach(splitWords);
+  document.querySelectorAll('.hero-title, .how .sec-title, .knowledge-sec .sec-title').forEach(splitWords);
 
   // The hero headline is above the fold, so it isn't gated behind the
   // scroll-triggered .reveal system (that would hide LCP content until an
@@ -537,7 +537,9 @@ document.querySelectorAll('.ch-item').forEach(btn=>{
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 },{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Matches nav.js's revealSelector so reveal-left/right/grow/pop/stagger get
+// the same fallback coverage plain .reveal already had via this observer.
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-grow, .reveal-pop, .reveal-stagger').forEach(el=>io.observe(el));
 const ICONS = {
   website:`<svg viewBox="0 0 34 34" width="100%" height="100%"><circle cx="17" cy="17" r="15" fill="none" stroke="#3c3c48" stroke-width="2"/><path d="M2 17h30M17 2c-5 4-7 9.5-7 15s2 11 7 15c5-4 7-9.5 7-15S22 6 17 2z" fill="none" stroke="#3c3c48" stroke-width="2"/></svg>`,
   shopify:`<svg viewBox="0 0 34 34" width="100%" height="100%"><path d="M9 10.5 22.5 8l4 22-19.5 3.5L9 10.5z" fill="#95BF47"/><path d="M22.5 8l3 1 3.5 21-6 2.5L22.5 8z" fill="#5E8E3E"/><path d="M18.5 16.5c-.8-.4-2.6-.6-3.4.4-1.5-2 1.4-4.4 2.9-3.6l.5 3.2zm-2.8 4.2c1 .7 3 1 2.6 3-.3 2.2-3.6 2.4-5.3 1l.7-2c.9.6 2.3 1 2.5.3.2-.8-1.7-1.1-2.3-2.9-.7-2.2 1.6-4.5 4.4-3.6l-.5 2.4c-.7-.3-2.4-.5-2.4.7 0 .5.1.7.3 1.1z" fill="#fff"/></svg>`,
@@ -1788,6 +1790,153 @@ if(waSection && 'IntersectionObserver' in window){
       }, 1600);
     });
   }
+})();
+
+/* ---------- Hero ambient tunnel canvas ----------
+   Rebuilt from animate-ui's "hole" background (registry/components/backgrounds/
+   hole) as plain <canvas> + rAF, no React/Motion runtime available here.
+   Recolored to the site's own --accent blue ramp only (the reference used
+   purple/cyan/pink) -- reads the live custom properties so it stays in sync
+   if the brand ramp ever changes. Mounts on #heroTunnel, a decorative layer
+   behind .hero-chat (see .hero-blob in home-v2.css); never touches the real
+   hero-bg-img photo. Skipped entirely under reduced motion or the mobile
+   breakpoint that hides .hero-blob, matching the data-parallax convention
+   already documented in DESIGN_ANIMATION_SYSTEM.md §5. */
+(function initHeroTunnel(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const narrow = window.matchMedia('(max-width:1100px)').matches;
+  const canvas = document.getElementById('heroTunnel');
+  if (!canvas || reduceMotion || narrow) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  function hexToRgb(hex){
+    const clean = (hex || '').trim().replace('#', '');
+    const full = clean.length === 3 ? clean.split('').map(c => c + c).join('') : clean;
+    const n = parseInt(full, 16);
+    return isNaN(n) ? [59, 130, 246] : [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  const rootStyles = getComputedStyle(document.documentElement);
+  const rgb = hexToRgb(rootStyles.getPropertyValue('--accent') || '#2563EB');
+
+  const RING_COUNT = 24;
+  const PARTICLE_COUNT = 40;
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+
+  let width = 0, height = 0, rings = [], particles = [], rafId = 0, running = false;
+
+  function spawnParticle(atRandomHeight){
+    return {
+      x: 0.5 + (Math.random() - 0.5) * 0.55,
+      y: atRandomHeight ? Math.random() : 1,
+      vy: 0.0022 + Math.random() * 0.0032,
+      r: 0.6 + Math.random() * 2,
+      a: 0.15 + Math.random() * 0.5,
+    };
+  }
+
+  function resize(){
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.max(width * dpr, 1);
+    canvas.height = Math.max(height * dpr, 1);
+  }
+
+  function buildRings(){
+    rings = [];
+    for (let i = 0; i < RING_COUNT; i++) rings.push({ p: i / RING_COUNT });
+  }
+
+  function buildParticles(){
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(spawnParticle(true));
+  }
+
+  // p: 0 = wide ring nearest the viewer, 1 = vanishing point -- eased so
+  // rings accelerate as they recede, the core "tunnel" perspective cue.
+  function ringGeometry(p){
+    const easeIn = p * p;
+    return {
+      cx: width * 0.5,
+      cy: height * 0.42 + easeIn * height * 0.5,
+      w: Math.max(width * 0.62 * (1 - p), 0),
+      h: Math.max(height * 0.5 * (1 - easeIn), 0),
+    };
+  }
+
+  function draw(){
+    if (width <= 0 || height <= 0) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, width, height);
+
+    rings.forEach((ring) => {
+      const g = ringGeometry(ring.p);
+      if (g.w <= 1 || g.h <= 1) return;
+      const nearness = 1 - ring.p;
+      ctx.beginPath();
+      ctx.ellipse(g.cx, g.cy, g.w, g.h, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${(0.14 + nearness * 0.4).toFixed(3)})`;
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+    });
+
+    particles.forEach((pt) => {
+      const px = width * 0.5 + (pt.x - 0.5) * width * 0.5 * (1 - pt.y * 0.4);
+      const py = height * (0.92 - pt.y * 0.75);
+      ctx.beginPath();
+      ctx.arc(px, py, pt.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${(0.25 + pt.a * (1 - pt.y * 0.6)).toFixed(3)})`;
+      ctx.fill();
+    });
+  }
+
+  function tick(){
+    rings.forEach((r) => { r.p = (r.p + 0.0016) % 1; });
+    particles.forEach((pt, i) => {
+      pt.y += pt.vy;
+      if (pt.y > 1) particles[i] = spawnParticle(false);
+    });
+    draw();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function start(){
+    if (running) return;
+    running = true;
+    rafId = requestAnimationFrame(tick);
+  }
+  function stop(){
+    running = false;
+    cancelAnimationFrame(rafId);
+  }
+
+  resize();
+  buildRings();
+  buildParticles();
+  draw();
+
+  const heroEl = document.getElementById('hero');
+  if ('IntersectionObserver' in window && heroEl) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => (entry.isIntersecting ? start() : stop()));
+    }, { threshold: 0.05 });
+    io.observe(heroEl);
+  } else {
+    start();
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      resize();
+      buildRings();
+      buildParticles();
+      if (!running) draw();
+    }, 150);
+  });
 })();
 
 /*__JS3__*/

@@ -217,7 +217,8 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
-.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); transition-delay: calc(var(--i, 0) * 90ms); }
+.reveal-stagger.is-visible > *,
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); transition-delay: calc(var(--i, 0) * 90ms); }
 @keyframes fadeSlide { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
 
 /* ============================================================
@@ -392,26 +393,48 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-caret { transform: rotate(180deg); }
 
 .nav-dropdown-panel {
-  position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-6px);
+  position: absolute; top: 100%; left: 50%; transform-origin: top center;
+  transform: translateX(-50%) translateY(-8px) scale(.97);
   background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
   padding: 24px; opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 220ms;
+  /* Hover/click response, not a one-time entrance -- flat --ease-ui, not
+     the bouncy --ease-spring (see DESIGN_ANIMATION_SYSTEM.md §1). The
+     subtle scale-from-98%-toward-the-trigger reads as the panel unfolding
+     out of the nav bar rather than just fading in place. */
+  transition: opacity 190ms var(--ease-ui), transform 220ms var(--ease-ui), visibility 220ms;
   z-index: var(--z-dropdown); box-shadow: 0 24px 48px -18px rgba(18,20,27,.22), 0 0 0 1px rgba(0,0,0,0.03);
 }
-.nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-/* Product is the leftmost nav trigger but its panel is the widest (860px) --
-   centering it on the trigger (the shared default above) pins its left edge
-   almost flush against the viewport edge. Nudge it right so it reads as
-   centered under the nav bar rather than hugging the corner. */
-.nav-dropdown-panel--product { min-width: 860px; transform: translateX(calc(-50% + 140px)) translateY(-6px); }
-.nav-dropdown.is-open .nav-dropdown-panel--product { transform: translateX(calc(-50% + 140px)) translateY(0); }
+.nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
+/* Product is the leftmost nav trigger but its panel is by far the widest
+   (1160px, 4 columns). The shared rule above centers a panel on its OWN
+   trigger's box (left:50% is relative to .nav-dropdown, a narrow button) --
+   fine for the other, narrower dropdowns, but for this one it pinned the
+   panel's left edge almost flush against the trigger, which sits well
+   left of the page's actual center, so the whole panel read as shoved to
+   one side rather than centered. A hardcoded rightward pixel nudge
+   (previously +140px) "fixed" it at one viewport width but broke again
+   at every other width -- anchoring on 50vw instead centers it on the
+   viewport itself, independent of both the panel's width and wherever
+   the trigger happens to sit, so it's correctly centered at any size. */
+/* `left: 50vw` alone doesn't actually center on the viewport here: for an
+   absolutely-positioned element, left/vw is still an offset from its
+   containing block's own edge (.nav-dropdown, i.e. the trigger button),
+   not from the viewport's edge -- so it inherits the trigger's own
+   horizontal offset and drifts off-center exactly like the old fixed-px
+   nudge did. Switching this one panel to position:fixed makes the
+   viewport itself the containing block, so 50vw + translateX(-50%)
+   genuinely centers it regardless of viewport width or where the
+   trigger sits. top is an explicit px (fixed's containing block has no
+   "parent height" to be 100% of) matching the nav bar's own height. */
+.nav-dropdown-panel--product { position: fixed; top: 76px; left: 50vw; width: 1160px; max-width: calc(100vw - 48px); transform: translateX(-50%) translateY(-8px) scale(.97); }
+.nav-dropdown.is-open .nav-dropdown-panel--product { transform: translateX(-50%) translateY(0) scale(1); }
 .nav-dropdown-panel--solutions { min-width: 380px; }
 .nav-dropdown-panel--partnership { min-width: 600px; }
 .nav-dropdown-panel--resources { min-width: 680px; }
 .nav-dropdown-panel--industries { min-width: 340px; }
 
 .nav-mega-layout { display: grid; gap: 24px; }
-.nav-mega-layout--product { grid-template-columns: 1fr 1fr 280px; }
+.nav-mega-layout--product { grid-template-columns: 1fr 1fr 1fr 280px; }
 .nav-mega-layout--solutions { grid-template-columns: 1fr; }
 .nav-mega-layout--partnership { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .nav-mega-layout--resources { grid-template-columns: 1fr 1fr 220px; }
@@ -540,12 +563,19 @@ h1, h2, h3 { letter-spacing: -0.03em; }
    top-of-hero spacing recalculated) -- hidden on mobile where
    there's no room for it and the mobile nav takes priority.
    ============================================================ */
-.breadcrumb-bar { position: fixed; top: 76px; right: 40px; z-index: calc(var(--z-nav) - 2); pointer-events: none; }
-.breadcrumb-inner { display: flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); box-shadow: 0 4px 14px rgba(15,23,42,.06); font-size: 12.5px; color: var(--text-tertiary); pointer-events: auto; max-width: none; }
-.breadcrumb-inner a { color: var(--text-tertiary); transition: color 200ms var(--ease); }
+/* In-flow now, not a fixed floating pill -- it used to sit as its own
+   highlighted card in the top-right corner, fixed above the hero, which
+   both fought for attention with the hero content and forced the hero's
+   own top padding to be inflated to clear it. Centered, plain text now:
+   present but quiet, and it occupies real layout space right below the
+   nav instead of floating dead space around it (see .vertical-hero's
+   reduced padding, tuned to this bar's own height). */
+.breadcrumb-bar { padding: 92px 24px 8px; text-align: center; }
+.breadcrumb-inner { display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 0; max-width: none; font-size: 12px; color: var(--text-faint); }
+.breadcrumb-inner a { color: var(--text-faint); transition: color 200ms var(--ease); }
 .breadcrumb-inner a:hover { color: var(--accent); }
-.breadcrumb-inner span[aria-current] { color: var(--text-primary); font-weight: 600; }
-.breadcrumb-sep { color: var(--text-faint); }
+.breadcrumb-inner span[aria-current] { color: var(--text-tertiary); font-weight: 600; }
+.breadcrumb-sep { color: var(--text-faint); opacity: .55; }
 @media (max-width: 900px) { .breadcrumb-bar { display: none; } }
 
 /* ============================================================
@@ -1165,13 +1195,17 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .reveal-grow  { opacity: 0; transform: scale(0.85);        transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
 .reveal-left.is-visible,
 .reveal-right.is-visible,
-.reveal-grow.is-visible { opacity: 1; transform: translate(0, 0) scale(1); }
+.reveal-grow.is-visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-grow.visible { opacity: 1; transform: translate(0, 0) scale(1); }
 
 /* .reveal-pop — the one deliberately bouncy variant, for a single emphasis
    moment (a counter, a badge, a "new" tag). Fast scale-settle, then a
    springy overshoot — never used on body copy or full sections. */
 .reveal-pop { opacity: 0; transform: scale(0.75); transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out); }
-.reveal-pop.is-visible {
+.reveal-pop.is-visible,
+.reveal-pop.visible {
   opacity: 1;
   transition: opacity 250ms var(--ease-out),
               transform 250ms var(--ease-out) 0ms,
