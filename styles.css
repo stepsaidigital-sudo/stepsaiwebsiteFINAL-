@@ -287,9 +287,18 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .btn-accent, .btn-brand, .btn-cta {
   /* two-layer swipe-fill: a z-index:-1 ::before fill sweeps up from below on
-     hover, staying under the label with no markup changes needed. */
+     hover, staying under the label with no markup changes needed.
+     overflow:hidden is load-bearing, not decorative: isolation:isolate only
+     scopes z-index stacking, it doesn't clip anything. Without it, the
+     ::before layer's resting position (translateY(100%), i.e. one full
+     button-height below the button) renders as a solid, uncropped
+     rectangle sitting directly under the button -- invisible against nothing
+     below it, but a real bug wherever a button sits close above other
+     content (e.g. the final-cta-note directly under .final-cta's button).
+     Found via a screenshot artifact that turned out to be real. */
   position: relative;
   isolation: isolate;
+  overflow: hidden;
 }
 .btn-accent::before, .btn-brand::before, .btn-cta::before {
   content: "";

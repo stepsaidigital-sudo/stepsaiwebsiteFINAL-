@@ -24,6 +24,14 @@
   --ind-legal-glow: rgba(67, 56, 202, 0.35);
 }
 
+/* Toned-down atmo-blob variant -- used only on the 4 agent product pages
+   (sales/lead/support/meetings-agent.html), not a change to the shared
+   .atmo-blob used elsewhere sitewide. Same drift animation, same color,
+   half the wash intensity: keeps the section feeling alive without the
+   full-strength color reading as busy against the already-blue hero,
+   buttons and badges on these pages specifically. */
+.atmo-blob--soft { opacity: .5; }
+
 /* ---------- VERTICAL HERO ---------- */
 /* Padding used to be 220px/140px, sized to clear the fixed nav PLUS the
    old floating breadcrumb pill that sat fixed on top of everything --
