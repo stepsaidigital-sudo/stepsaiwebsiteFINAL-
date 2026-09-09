@@ -39,6 +39,10 @@
 .vertical-hero-link svg { transform: rotate(180deg); transition: transform 200ms var(--ease); }
 .vertical-hero-link:hover svg { transform: rotate(180deg) translateX(3px); }
 .vertical-hero-link:hover { color: #fff; }
+@media (max-width: 640px) {
+  .vertical-hero { padding: 140px 0 80px; }
+  .vertical-tagline { font-size: 16.5px; }
+}
 
 /* ============================================================
    DEFAULT VERTICAL-HERO BACKGROUND
