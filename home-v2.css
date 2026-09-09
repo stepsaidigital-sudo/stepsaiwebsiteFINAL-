@@ -154,7 +154,15 @@
 #top .hero-channels .ch[data-hero-ch="messenger"].active {background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%);border-color:#8b5cf6;color:#6d28d9;box-shadow:0 0 0 1px #8b5cf6,0 8px 20px -4px rgba(139,92,246,.25)}
 #top .hero-visual {position:relative;min-height:560px}
 #top .hero-blob {display:none}
-#top .hero-chat {position:relative;z-index:2;width:356px;max-width:100%;margin:0 0 0 54px;background:#fff;border-radius:24px;box-shadow:0 20px 48px -12px rgba(15,23,42,.14),0 0 0 1px rgba(226,232,240,.9);border:1px solid rgba(226,232,240,.8);padding:18px;transition:border-color .2s,box-shadow .2s}
+#top .hero-chat {position:relative;z-index:2;width:356px;max-width:100%;margin:0 0 0 54px;background:rgba(255,255,255,.68);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-radius:24px;box-shadow:0 24px 60px -14px rgba(15,23,42,.22),0 0 0 1px rgba(255,255,255,.6),inset 0 1px 1px rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.75);padding:14px;transition:border-color .2s,box-shadow .3s,transform .3s cubic-bezier(.22,1,.36,1)}
+#top .hero-chat:hover {transform:translateY(-3px);box-shadow:0 30px 70px -14px rgba(15,23,42,.28),0 0 0 1px rgba(255,255,255,.7),inset 0 1px 1px rgba(255,255,255,.95)}
+#top .hero-chat-browser {display:flex;align-items:center;gap:10px;padding:0 6px 10px;margin-bottom:10px;border-bottom:1px solid rgba(226,232,240,.7)}
+#top .hcb-dots {display:flex;gap:5px}
+#top .hcb-dots i {width:8px;height:8px;border-radius:50%;background:#e2e8f0}
+#top .hcb-dots i:nth-child(1) {background:#f87171}
+#top .hcb-dots i:nth-child(2) {background:#fbbf24}
+#top .hcb-dots i:nth-child(3) {background:#34d399}
+#top .hcb-url {flex:1;text-align:center;font-size:10.5px;font-weight:600;color:var(--muted);background:rgba(255,255,255,.6);border:1px solid rgba(226,232,240,.7);border-radius:999px;padding:3px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #top .hero-chat-body {transition:opacity .16s ease}
 #top .hero-chat .ch-input {background:#f8fafc;color:var(--muted);border:1px solid var(--border)}
 #top .hero-chat-head {display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:16px;background:#f8fafc;border:1px solid #f1f5f9;margin-bottom:14px;transition:all .25s ease}

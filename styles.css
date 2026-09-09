@@ -399,7 +399,12 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   z-index: var(--z-dropdown); box-shadow: 0 24px 48px -18px rgba(18,20,27,.22), 0 0 0 1px rgba(0,0,0,0.03);
 }
 .nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-.nav-dropdown-panel--product { min-width: 860px; }
+/* Product is the leftmost nav trigger but its panel is the widest (860px) --
+   centering it on the trigger (the shared default above) pins its left edge
+   almost flush against the viewport edge. Nudge it right so it reads as
+   centered under the nav bar rather than hugging the corner. */
+.nav-dropdown-panel--product { min-width: 860px; transform: translateX(calc(-50% + 140px)) translateY(-6px); }
+.nav-dropdown.is-open .nav-dropdown-panel--product { transform: translateX(calc(-50% + 140px)) translateY(0); }
 .nav-dropdown-panel--solutions { min-width: 380px; }
 .nav-dropdown-panel--partnership { min-width: 600px; }
 .nav-dropdown-panel--resources { min-width: 680px; }
@@ -440,14 +445,21 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   text-decoration: none; transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
   position: relative; overflow: hidden;
 }
+/* Frosted-glass finish (was a solid dark navy card) -- kept the class name
+   since it's shared markup across all 54 pages' nav, only the look changed. */
 .nav-bento-card--dark {
-  background: linear-gradient(145deg, #0f172a, #1e293b); border: 1px solid rgba(255,255,255,0.12); color: #ffffff;
+  background: linear-gradient(145deg, rgba(239,246,255,.92), rgba(219,234,254,.78));
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.7);
+  color: #0f172a;
+  box-shadow: 0 10px 30px -8px rgba(37,99,235,.18), inset 0 1px 1px rgba(255,255,255,.8);
 }
-.nav-bento-card--dark .nav-bento-tag { color: #60a5fa; }
-.nav-bento-card--dark .nav-bento-title { color: #ffffff; }
-.nav-bento-card--dark .nav-bento-desc { color: #94a3b8; }
-.nav-bento-card--dark .nav-bento-link { color: #60a5fa; font-weight: 600; }
-.nav-bento-card--dark:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -10px rgba(0,0,0,0.5); border-color: rgba(96, 165, 250, 0.5); }
+.nav-bento-card--dark .nav-bento-tag { color: #2563eb; }
+.nav-bento-card--dark .nav-bento-title { color: #0f172a; }
+.nav-bento-card--dark .nav-bento-desc { color: #475569; }
+.nav-bento-card--dark .nav-bento-link { color: #1d4ed8; font-weight: 600; }
+.nav-bento-card--dark:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -10px rgba(37,99,235,.28), inset 0 1px 1px rgba(255,255,255,.9); border-color: rgba(147,197,253,.7); }
 
 .nav-bento-card--light {
   background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a;
@@ -475,7 +487,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 /* Live Simulation Mini-Mockup */
 .nav-mockup-chat { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px; margin: 10px 0 14px; display: flex; flex-direction: column; gap: 6px; }
-.nav-mockup-bubble { font-size: 11px; padding: 6px 10px; border-radius: 8px; background: rgba(255,255,255,0.12); color: #ffffff; max-width: 90%; line-height: 1.35; }
+.nav-mockup-bubble { font-size: 11px; padding: 6px 10px; border-radius: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.9); color: #0f172a; max-width: 90%; line-height: 1.35; }
 .nav-mockup-bubble.is-agent { background: #2563eb; align-self: flex-end; color: #ffffff; }
 
 /* Bottom Mega Banner (Moonday style) */
@@ -522,9 +534,24 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 @media (min-width: 981px) { .nav-mobile { display: none; } }
 
 /* ============================================================
+   BREADCRUMB TRAIL — filled in by breadcrumbs.js from a lookup
+   table keyed on filename. Sits fixed, top-right, just under the
+   main nav (position:fixed so it doesn't need every page's own
+   top-of-hero spacing recalculated) -- hidden on mobile where
+   there's no room for it and the mobile nav takes priority.
+   ============================================================ */
+.breadcrumb-bar { position: fixed; top: 76px; right: 40px; z-index: calc(var(--z-nav) - 2); pointer-events: none; }
+.breadcrumb-inner { display: flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); box-shadow: 0 4px 14px rgba(15,23,42,.06); font-size: 12.5px; color: var(--text-tertiary); pointer-events: auto; max-width: none; }
+.breadcrumb-inner a { color: var(--text-tertiary); transition: color 200ms var(--ease); }
+.breadcrumb-inner a:hover { color: var(--accent); }
+.breadcrumb-inner span[aria-current] { color: var(--text-primary); font-weight: 600; }
+.breadcrumb-sep { color: var(--text-faint); }
+@media (max-width: 900px) { .breadcrumb-bar { display: none; } }
+
+/* ============================================================
    FOOTER
    ============================================================ */
-.footer { background: var(--bg-raised); border-top: 1px solid var(--border-subtle); padding-top: 72px; }
+.footer { background: linear-gradient(180deg, var(--bg-raised) 0%, var(--accent-tint) 130%); border-top: 1px solid var(--border-subtle); padding-top: 72px; }
 .footer-inner, .footer-inner--5col { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; }
 .footer-brand { max-width: 280px; }
 .footer-tagline { margin-top: 14px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
@@ -565,8 +592,8 @@ h1, h2, h3 { letter-spacing: -0.03em; }
    Executive Light Theme Edition With Living Atmosphere
    ============================================================ */
 .footer--9 {
-  background: linear-gradient(135deg, #FAF5FF 0%, #EEF2FF 25%, #F0FDF4 55%, #FFFBEB 80%, #FDF2F8 100%);
-  border-top: 1px solid rgba(99, 102, 241, 0.15);
+  background: linear-gradient(135deg, #EFF6FF 0%, #EAF2FE 30%, #F8FAFC 65%, #EFF6FF 100%);
+  border-top: 1px solid rgba(37, 99, 235, 0.15);
   padding: 96px 0 0;
   position: relative;
   overflow: hidden;
@@ -589,12 +616,12 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .footer-blob--indigo {
   width: 580px; height: 580px; top: -10%; left: -80px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 72%);
   animation: footerBlobFloat1 18s ease-in-out infinite alternate;
 }
 .footer-blob--violet {
   width: 550px; height: 550px; top: 20%; right: -60px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(236, 72, 153, 0.08) 50%, transparent 72%);
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.16) 0%, rgba(96, 165, 250, 0.08) 50%, transparent 72%);
   animation: footerBlobFloat2 22s ease-in-out infinite alternate;
 }
 .footer-blob--cyan {
@@ -604,7 +631,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .footer-blob--rose {
   width: 520px; height: 520px; bottom: -10%; right: 20%;
-  background: radial-gradient(circle, rgba(244, 63, 94, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
   animation: footerBlobFloat2 24s ease-in-out infinite alternate;
 }
 
@@ -1041,19 +1068,22 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .final-cta-note { color: var(--dark-ink-faint); font-size: 13px; margin-top: 16px; }
 
 /* ============================================================
-   FAQ — flat hairline accordion (shared by pages.js / pricing.js / home.js)
+   FAQ — card accordion (shared by pages.js / pricing.js / home.js)
+   Same visual system as the homepage's FAQ section (home-v2.css
+   #top .faq-*), translated onto the shared site tokens so every
+   page's existing .faq-grid/.faq-item/.faq-question/.faq-answer
+   markup renders identically without needing to change -- only
+   the look changed here, not the HTML or the toggle JS.
    ============================================================ */
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
-@media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; } }
-.faq-item { border-top: 1px solid var(--border-subtle); }
-.faq-grid > div > .faq-item:last-child, .faq-grid > .faq-item:last-child { border-bottom: 1px solid var(--border-subtle); }
-.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 2px; text-align: left; font-size: 15.5px; font-weight: 550; transition: color 200ms var(--ease); }
+.faq-grid { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin: 0 auto; }
+.faq-item { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: border-color 200ms var(--ease); }
+.faq-item.is-open { border-color: var(--border-strong); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; text-align: left; font-size: 15.5px; font-weight: 700; color: var(--text-primary); transition: color 200ms var(--ease); }
 .faq-question:hover { color: var(--accent); }
-.faq-question:hover .faq-chev { color: var(--accent); }
-.faq-question .faq-chev { width: 17px; height: 17px; flex-shrink: 0; color: var(--text-faint); transition: transform 260ms var(--ease); }
-.faq-item.is-open .faq-question .faq-chev { transform: rotate(45deg); color: var(--accent); }
+.faq-question .faq-chev, .faq-question .faq-chevron { width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; padding: 4px; border-radius: 50%; background: var(--accent-tint); color: var(--accent); transition: transform 260ms var(--ease); }
+.faq-item.is-open .faq-question .faq-chev, .faq-item.is-open .faq-question .faq-chevron { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease); }
-.faq-answer p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; padding: 0 2px 22px; max-width: 48ch; margin: 0; }
+.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; padding: 0 20px 18px; max-width: none; margin: 0; }
 
 /* ============================================================
    UNIVERSAL LIVING AURORA & CHROMATIC ANIMATION SYSTEM

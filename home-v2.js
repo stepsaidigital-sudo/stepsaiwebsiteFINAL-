@@ -903,6 +903,43 @@ document.querySelectorAll('.mini-feature[data-tab]').forEach(card=>{
 });
 if(heroChatBody) heroChatBody.style.transition='opacity .16s ease';
 
+/* ---------- Hero chat: auto-cycle channels on hover ----------
+   Static until the visitor's mouse is actually over the widget, then it
+   comes alive and steps through the channel scenarios on its own (like a
+   looping product demo) instead of sitting still waiting to be clicked.
+   Stops and holds on whatever channel it landed on when the mouse leaves. */
+(function heroChatAutoCycle(){
+  const widget = document.querySelector('.hero-chat');
+  const channelKeys = Object.keys(HERO_SCENARIOS);
+  if(!widget || !channelKeys.length) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion) return;
+
+  let timer = null;
+  function currentIndex(){
+    const activeBtn = document.querySelector('.hero-channels button.ch.active');
+    const key = activeBtn && activeBtn.dataset.heroCh;
+    const i = channelKeys.indexOf(key);
+    return i === -1 ? 0 : i;
+  }
+  function start(){
+    if(timer) return;
+    let i = currentIndex();
+    timer = setInterval(()=>{
+      i = (i + 1) % channelKeys.length;
+      renderHeroDestination(channelKeys[i]);
+    }, 2400);
+  }
+  function stop(){
+    clearInterval(timer);
+    timer = null;
+  }
+  widget.addEventListener('mouseenter', start);
+  widget.addEventListener('mouseleave', stop);
+  widget.addEventListener('focusin', start);
+  widget.addEventListener('focusout', stop);
+})();
+
 /* ---------- WhatsApp Broadcast Studio Interactivity (Pixel-to-Pixel) ---------- */
 const WA_STUDIO_DATA = [
   {
