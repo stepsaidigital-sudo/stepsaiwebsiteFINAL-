@@ -15,6 +15,10 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="styles.css?v=2.1">
   <link rel="stylesheet" href="home-v2.css?v=1.3">
+  <link rel="stylesheet" href="home-professional.css?v=2">
+  <link rel="stylesheet" href="home-finish.css?v=2">
+  <link rel="stylesheet" href="hero-premium.css?v=1">
+  <link rel="stylesheet" href="benefits.css?v=1">
 </head>
 
 <body>
@@ -646,8 +650,8 @@
       <h1 class="hero-title">Handle every customer without <span class="grad-text">touching your inbox</span>.</h1>
       <p class="sub">Your inbox is the ceiling on how fast you can grow. Steps AI is an AI agent trained on your business that answers questions, checks live information, books, qualifies and closes, on every channel your customers already use.</p>
       <div class="hero-btns">
-        <a href="#start" class="btn btn-dark">Start free <span class="arrow">→</span></a>
-        <a href="#whatsapp" class="btn btn-ghost">Ask our agent a question on WhatsApp <span class="arrow">→</span></a>
+        <a href="pricing.html" class="btn btn-dark">Start free <span class="arrow">→</span></a>
+        <a href="#whatsapp" class="btn btn-ghost">See it in action <span class="arrow">↗</span></a>
       </div>
       <div class="ticks">
         <span><span class="tk">✓</span> Free to start</span>
@@ -663,6 +667,49 @@
       </div>
     </div>
 
+    <div class="trust-container hero-metrics">
+    <div class="glass-showcase-panel">
+      
+      <!-- 4 Key Metrics Inside Compact Frosted Glass Plate -->
+      <div class="glass-metrics-grid">
+        
+        <!-- Metric 1 -->
+        <div class="glass-stat-card">
+          <div class="glass-stat-num">8 in 10</div>
+          <p class="glass-stat-desc">answered without a person</p>
+        </div>
+
+        <div class="glass-stat-divider" aria-hidden="true"></div>
+
+        <!-- Metric 2 -->
+        <div class="glass-stat-card">
+          <div class="glass-stat-num">95+</div>
+          <p class="glass-stat-desc">languages, answered in native tone</p>
+        </div>
+
+        <div class="glass-stat-divider" aria-hidden="true"></div>
+
+        <!-- Metric 3 -->
+        <div class="glass-stat-card">
+          <div class="glass-stat-num">0.5s</div>
+          <p class="glass-stat-desc">average first reply velocity</p>
+        </div>
+
+        <div class="glass-stat-divider" aria-hidden="true"></div>
+
+        <!-- Metric 4 -->
+        <div class="glass-stat-card">
+          <div class="glass-stat-num">
+            <span>11×</span>
+            <span class="glass-verify-badge">VERIFY</span>
+          </div>
+          <p class="glass-stat-desc">return on cost in the first quarter</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
     <div class="hero-visual">
       <div class="hero-blob" aria-hidden="true">
         <canvas id="heroTunnel"></canvas>
@@ -677,7 +724,7 @@
       <div class="hero-chat">
         <div class="hero-chat-browser" aria-hidden="true">
           <span class="hcb-dots"><i></i><i></i><i></i></span>
-          <span class="hcb-url">🔒 yourstore.com</span>
+          <span class="hcb-url">Your customer experience</span><span class="hero-demo-label">PRODUCT DEMO</span>
         </div>
         <div class="hero-chat-head" id="heroChatHead">
           <span class="brand-av" id="heroBrandAv">🏔️</span>
@@ -699,6 +746,7 @@
         </div>
         <div class="ch-input">Send a message… <span class="snd">➤</span></div>
       </div>
+      <div class="hero-demo-controls"><span><i></i>One agent. Every customer channel.</span><button type="button" id="heroReplay">Replay conversation <span aria-hidden="true">↻</span></button></div>
       <div class="hero-cards" aria-hidden="false">
         <div class="mini-feature active" data-tab="sales" tabindex="0" role="button" aria-pressed="true"><span class="mf-ic" style="background:var(--pink-soft)">🛍️</span><div><h5>Sell more</h5><p>Turn shoppers into customers</p></div></div>
         <div class="mini-feature" data-tab="book" tabindex="0" role="button" aria-pressed="false"><span class="mf-ic" style="background:var(--green-soft)">📅</span><div><h5>Capture &amp; book</h5><p>Get leads and book more meetings</p></div></div>
@@ -707,79 +755,9 @@
       <div class="hero-scribble hand" aria-hidden="true">Real conversations.<br>Real results.</div>
     </div>
   </div>
-</section>
 
-<!-- ================= 2. PROBLEM — disabled, replaced by the Trust Strip below.
-     Kept in the DOM but hidden (display:none, so it takes no scroll space)
-     rather than deleted, in case it's wanted back later. ================= -->
-<section class="problem" id="problem" style="display:none" aria-hidden="true">
-  <div class="container">
-    <div class="problem-grid">
-      <div class="problem-copy reveal">
-        <span class="badge">The problem</span>
-        <h2 class="sec-title">Customers are ready. Too many get stuck.</h2>
-        <p class="sec-sub">People come to your website and messages ready to buy, book, ask, or get help. But slow replies, too many steps, disconnected tools, and missed follow-ups get in the way.</p>
-        <span class="hand-note hand">Real moments<br>where journeys break. ⟶</span>
-      </div>
-      <div class="cloud reveal">
-        <span class="pb pb-quote tilt-l">"Which one is right for me?"</span>
-        <span class="pb pb-lg pb-pink tilt-r"><span class="pbi" style="background:#dbeafe">🔍</span>I can't find the right product</span>
-        <span class="pb pb-quote tilt-r">"Is this in stock?"</span>
-        <span class="pb pb-lg pb-pink tilt-l"><span class="pbi" style="background:#dbeafe">💭</span>No one replied</span>
-        <span class="pb pb-md tilt-r"><span class="pbi" style="background:var(--pink-soft)">📸</span>Instagram DMs get missed</span>
-        <span class="pb pb-lg pb-purple tilt-r"><span class="pbi" style="background:#c7ddfb">👥</span>Leads disappear before your team responds</span>
-        <span class="pb pb-md"><span class="pbi" style="background:var(--blue-soft)">📈</span>Website visitors leave without becoming leads</span>
-        <span class="pb pb-lg pb-blue tilt-l"><span class="pbi" style="background:#dbe7fb">📅</span>I want to book, but it's too much work</span>
-        <span class="pb pb-quote tilt-r">"Can I book tomorrow?"</span>
-        <span class="pb pb-lg pb-pink tilt-r"><span class="pbi" style="background:#dbeafe">🎧</span>The same questions keep taking up your team's time</span>
-        <span class="pb pb-quote tilt-l">"Where is my order?"</span>
-        <span class="pb pb-md"><span class="pbi" style="background:var(--pink-soft)">🛒</span>Shoppers abandon carts</span>
-        <span class="pb pb-quote tilt-l">"Can I talk to a person?"</span>
-        <span class="pb pb-lg pb-blue tilt-r"><span class="pbi" style="background:#dbe7fb">📊</span>You don't know why customers leave</span>
-        <span class="pb pb-md"><span class="pbi" style="background:var(--blue-soft)">🔗</span>Your tools do not talk to each other</span>
-      </div>
-    </div>
-    <span class="problem-scribble hand" aria-hidden="true">Customers are trying<br>to move forward. ↗</span>
-    <div class="problem-next reveal">
-      <span class="chev">⌄</span>
-      <p>Your AI agent can <u>actually</u> get things done.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 2b. TRUST STRIP & CUSTOMERS — Edge-to-Edge & True Glassmorphism ================= -->
-<section class="trust-strip" id="trust">
-  <!-- Atmospheric 3D Silk Fluid Wave Layer -->
-  <div class="trust-wave-bg" aria-hidden="true">
-    <svg class="trust-wave-svg" viewBox="0 0 1600 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="silkWave1" x1="0%" y1="20%" x2="100%" y2="80%">
-          <stop offset="0%" stop-color="#0284c7" stop-opacity="0.8"/>
-          <stop offset="30%" stop-color="#2563eb" stop-opacity="0.95"/>
-          <stop offset="60%" stop-color="#1d4ed8" stop-opacity="0.9"/>
-          <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.85"/>
-        </linearGradient>
-        <linearGradient id="silkWave2" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.9"/>
-          <stop offset="40%" stop-color="#60a5fa" stop-opacity="0.75"/>
-          <stop offset="70%" stop-color="#2563eb" stop-opacity="0.85"/>
-          <stop offset="100%" stop-color="#1e40af" stop-opacity="0.9"/>
-        </linearGradient>
-        <linearGradient id="silkGlint" x1="20%" y1="0%" x2="80%" y2="100%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/>
-          <stop offset="40%" stop-color="#bfdbfe" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <!-- Fluid Wave Ribbon 1 -->
-      <path d="M-100 200 C 300 50, 450 650, 850 420 C 1250 190, 1400 700, 1750 350 L 1750 850 L -100 850 Z" fill="url(#silkWave1)" opacity="0.28"/>
-      <!-- Fluid Wave Ribbon 2 (Main central S-curve) -->
-      <path d="M-150 450 C 250 150, 500 720, 950 320 C 1300 20, 1500 580, 1800 220" stroke="url(#silkWave2)" stroke-width="140" stroke-linecap="round" fill="none" opacity="0.42"/>
-      <path d="M-150 450 C 250 150, 500 720, 950 320 C 1300 20, 1500 580, 1800 220" stroke="url(#silkGlint)" stroke-width="36" stroke-linecap="round" fill="none" opacity="0.55"/>
-    </svg>
-    <div class="trust-ambient-sphere sphere-tl"></div>
-    <div class="trust-ambient-sphere sphere-br"></div>
-  </div>
+  <!-- ================= 2. TRUST STRIP & CUSTOMERS — Unified inside Hero canvas ================= -->
+  <div class="trust-strip" id="trust">
 
   <!-- Part A: Edge-to-Edge Full-Width Brand Logos Auto-Scroller -->
   <div class="trust-marquee-fullwidth">
@@ -880,57 +858,13 @@
   </div>
 
   <!-- Part B: The Authentic Frosted Glass Panel -->
-  <div class="container trust-container">
-    <div class="glass-showcase-panel">
-      
-      <!-- 4 Key Metrics Inside Compact Frosted Glass Plate -->
-      <div class="glass-metrics-grid">
-        
-        <!-- Metric 1 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">8 in 10</div>
-          <p class="glass-stat-desc">answered without a person</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 2 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">95+</div>
-          <p class="glass-stat-desc">languages, answered in native tone</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 3 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">0.5s</div>
-          <p class="glass-stat-desc">average first reply velocity</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 4 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">
-            <span>11×</span>
-            <span class="glass-verify-badge">VERIFY</span>
-          </div>
-          <p class="glass-stat-desc">return on cost in the first quarter</p>
-        </div>
-
-      </div>
-
-    </div>
+  
   </div>
 </section>
 
-<!-- ================= 3. WHAT IT DOES (formerly "How it works") =================
-     The old pipe-step grid (Understand/Check/Act/Done) was removed here — the
-     new copy replaces that generic framing with five concrete jobs below
-     instead. Not preserved anywhere in this file; ask if you want it restored. -->
+<!-- ================= 3. WHAT IT DOES (formerly "How it works") ================= -->
 <section class="how" id="one-agent">
-  <div class="container">
+  <div class="container how-container">
     <span class="how-note hand" aria-hidden="true">Same powerful agent.<br>Any business.</span>
     <div class="reveal">
       <span class="badge">What it does</span>
@@ -938,77 +872,138 @@
       <p class="sec-sub">It sells, answers, books, captures and follows up inside the same conversation. The customer is never handed off, never sent to a form, and never told to wait until morning.</p>
     </div>
 
-    <div class="sia-wrap reveal">
-      <div class="sia-bar">
-        <h3>See it in action</h3>
-        <span class="sia-live-badge">Live Interactive Demo</span>
-      </div>
-      <div class="sia-tabs" role="tablist" aria-label="Example scenarios">
-        <button class="sia-tab active" data-sia="0" role="tab" aria-selected="true">
-          <div class="tp">
-            <div class="tp-row"><span class="tp-ic">🧥</span><div class="tp-lines"><b>Trail Jacket</b><span>$129 · in stock</span></div></div>
-            <span class="tp-pill sel">Add to cart</span>
+    <!-- 5 Standalone Premium Cards (C-action background card and quotation disabled) -->
+    <div class="sia-tabs reveal" role="tablist" aria-label="Autonomous agent capabilities">
+      <!-- 1. Sales -->
+      <button class="sia-tab active" data-sia="0" role="tab" aria-selected="true">
+        <div class="tp">
+          <div class="tp-head">
+            <span class="tp-tag">🛍️ Catalog Match</span>
+            <span class="tp-live-pill"><span class="tp-live-dot"></span>In Stock</span>
           </div>
-          <span class="sia-tab-name">Sales</span><span class="sia-tab-desc">Sells what you actually have →</span>
-        </button>
-        <button class="sia-tab" data-sia="1" role="tab" aria-selected="false">
-          <div class="tp">
-            <div class="tp-row"><span class="tp-ic">📦</span><div class="tp-lines"><b>Order #8472</b><span>Shipped · Thu</span></div></div>
-            <div class="tp-track"><span class="tp-dot on"></span><span class="tp-tline on"></span><span class="tp-dot on"></span><span class="tp-tline"></span><span class="tp-dot"></span><span class="tp-tline"></span><span class="tp-dot"></span></div>
+          <div class="tp-row">
+            <span class="tp-ic">🧥</span>
+            <div class="tp-lines">
+              <b>Trail Jacket</b>
+              <span>Waterproof &middot; 4K fit</span>
+            </div>
           </div>
-          <span class="sia-tab-name">Support</span><span class="sia-tab-desc">Answers the same question for the fifteenth time →</span>
-        </button>
-        <button class="sia-tab" data-sia="2" role="tab" aria-selected="false">
-          <div class="tp">
-            <div class="tp-form-row"><span>Company size</span><b>20 seats</b></div>
-            <div class="tp-form-row"><span>Stack</span><b>Zendesk · HubSpot</b></div>
-            <div class="tp-form-row"><span>Demo</span><b>Mon, 11:00</b></div>
+          <div class="tp-foot-row">
+            <span class="tp-price">$129 <span class="tp-badge-tag">Best match</span></span>
+            <span class="tp-pill sel">+ Add to cart</span>
           </div>
-          <span class="sia-tab-name">Lead capture</span><span class="sia-tab-desc">Gets the details before they leave →</span>
-        </button>
-        <button class="sia-tab" data-sia="3" role="tab" aria-selected="false">
-          <div class="tp">
-            <div class="tp-row"><span class="tp-ic">📅</span><div class="tp-lines"><b>Tomorrow · Downtown</b><span>Pick a time</span></div></div>
-            <div class="tp-row" style="justify-content:center;gap:5px"><span class="tp-pill">9:00</span><span class="tp-pill sel">10:30</span><span class="tp-pill">2:30</span></div>
-          </div>
-          <span class="sia-tab-name">Booking</span><span class="sia-tab-desc">Books the meeting while they are still typing →</span>
-        </button>
-        <button class="sia-tab" data-sia="4" role="tab" aria-selected="false">
-          <div class="tp" style="align-items:stretch">
-            <span class="tp-bub out">📣 Weekend Sale — 20% off</span>
-            <span class="tp-bub in">Does that include gift sets?</span>
-          </div>
-          <span class="sia-tab-name">Marketing</span><span class="sia-tab-desc">Sends the campaign and answers the replies →</span>
-        </button>
-      </div>
-
-      <div class="sia-stage">
-        <div class="sia-chat">
-          <div class="sia-chat-head">
-            <span class="avatar bot" style="background:#eaf2fe;border:1px solid #bfdbfe;color:#2563eb"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-2.67 0-4.664-2.868-6.178-5.333C10.486 8.2 8.492 8 5.822 8c-5.096 0-5.096 8 0 8 2.67 0 4.664-2.868 6.178-5.333C13.514 13.8 15.508 16 18.178 16z"/></svg></span>
-            <div><h5 id="siaBrand">Veloce Home &amp; Kitchen</h5><p class="on">Online · replies instantly</p></div>
-            <span class="sia-ch" id="siaCh">📸 Instagram DM</span>
-          </div>
-          <div class="sia-msgs" id="siaMsgs"></div>
-          <div class="ch-input">Send a message… <span class="snd">➤</span></div>
         </div>
-
-        <div class="sia-trace">
-          <p class="sia-trace-title">What StepsAI did</p>
-          <div class="sia-steps" id="siaSteps"></div>
-          <div class="sia-outcome" id="siaOutcome"></div>
-          <div class="sia-time"><span class="sia-dot"></span><span id="siaTime">Resolved in 38 seconds · no human needed</span></div>
+        <div class="sia-tab-info">
+          <span class="sia-tab-name">Sales</span>
+          <span class="sia-tab-desc">Sells what you actually have →</span>
         </div>
-      </div>
+      </button>
 
-      <p class="sia-caption" id="siaNote">Steps AI recommends what is in stock, answers the price question, and clears the doubt that was about to end the chat.</p>
+      <!-- 2. Support -->
+      <button class="sia-tab" data-sia="1" role="tab" aria-selected="false">
+        <div class="tp">
+          <div class="tp-head">
+            <span class="tp-tag">📦 Instant Tracking</span>
+            <span class="tp-live-pill"><span class="tp-live-dot"></span>FedEx Live</span>
+          </div>
+          <div class="tp-row">
+            <span class="tp-ic">🚚</span>
+            <div class="tp-lines">
+              <b>Order #8472</b>
+              <span>Arriving Thu &middot; Office</span>
+            </div>
+          </div>
+          <div class="tp-track-wrap">
+            <div class="tp-track">
+              <span class="tp-dot on"></span>
+              <span class="tp-tline on"></span>
+              <span class="tp-dot on"></span>
+              <span class="tp-tline on"></span>
+              <span class="tp-dot on"></span>
+              <span class="tp-tline"></span>
+              <span class="tp-dot"></span>
+            </div>
+            <div class="tp-track-labels">
+              <span>Ordered</span>
+              <span class="active">Shipped</span>
+              <span>Delivered</span>
+            </div>
+          </div>
+        </div>
+        <div class="sia-tab-info">
+          <span class="sia-tab-name">Support</span>
+          <span class="sia-tab-desc">Answers repeat questions in 0.4s →</span>
+        </div>
+      </button>
 
-      <div class="sia-foot">
-        <div class="sia-dots" id="siaDots"></div>
-      </div>
+      <!-- 3. Lead capture -->
+      <button class="sia-tab" data-sia="2" role="tab" aria-selected="false">
+        <div class="tp">
+          <div class="tp-head">
+            <span class="tp-tag">👤 CRM Qualification</span>
+            <span class="tp-live-pill"><span class="tp-live-dot"></span>HubSpot Synced</span>
+          </div>
+          <div class="tp-form-box">
+            <div class="tp-form-row"><span>Team size</span><b>20 seats</b></div>
+            <div class="tp-form-row"><span>Stack</span><b>Zendesk &middot; HubSpot</b></div>
+            <div class="tp-form-row"><span>Walkthrough</span><b>Mon, 11:00 AM</b></div>
+          </div>
+          <div class="tp-note-pill">✓ Transcript attached</div>
+        </div>
+        <div class="sia-tab-info">
+          <span class="sia-tab-name">Lead capture</span>
+          <span class="sia-tab-desc">Qualifies and syncs to your CRM →</span>
+        </div>
+      </button>
+
+      <!-- 4. Booking -->
+      <button class="sia-tab" data-sia="3" role="tab" aria-selected="false">
+        <div class="tp">
+          <div class="tp-head">
+            <span class="tp-tag">📅 Calendar Dispatch</span>
+            <span class="tp-live-pill"><span class="tp-live-dot"></span>Available</span>
+          </div>
+          <div class="tp-row">
+            <span class="tp-ic">📍</span>
+            <div class="tp-lines">
+              <b>Dr. Ananya Mehta</b>
+              <span>Downtown Clinic &middot; Tomorrow</span>
+            </div>
+          </div>
+          <div class="tp-row tp-slots">
+            <span class="tp-pill">9:00 AM</span>
+            <span class="tp-pill sel">10:30 AM</span>
+            <span class="tp-pill">2:30 PM</span>
+          </div>
+        </div>
+        <div class="sia-tab-info">
+          <span class="sia-tab-name">Booking</span>
+          <span class="sia-tab-desc">Books meetings while they're typing →</span>
+        </div>
+      </button>
+
+      <!-- 5. Marketing -->
+      <button class="sia-tab" data-sia="4" role="tab" aria-selected="false">
+        <div class="tp">
+          <div class="tp-head">
+            <span class="tp-tag"><span class="channel-brand-icon" data-icon="whatsapp" aria-hidden="true"></span> WhatsApp Campaign</span>
+            <span class="tp-live-pill"><span class="tp-live-dot"></span>Active</span>
+          </div>
+          <div class="tp-chat-preview">
+            <div class="tp-bub out">📣 Weekend Sale — 20% off sets</div>
+            <div class="tp-bub in">Does that include gift sets?</div>
+          </div>
+          <div class="tp-note-pill green">⚡ Replied in 0.4s &middot; Ready to buy</div>
+        </div>
+        <div class="sia-tab-info">
+          <span class="sia-tab-name">Marketing</span>
+          <span class="sia-tab-desc">Sends campaigns &amp; answers replies →</span>
+        </div>
+      </button>
     </div>
 
-    <p class="how-closing">Built for conversations. Measured in outcomes.</p>
+    <!-- Quotation disabled per request to give cards full vertical height -->
+    <!-- <p class="how-closing">Built for conversations. Measured in outcomes.</p> -->
   </div>
 </section>
 
@@ -1140,108 +1135,50 @@
 </section>
 
 <!-- ================= 5. OMNICHANNEL MARKETING (WHATSAPP & INSTAGRAM) ================= -->
-<section class="wa" id="whatsapp">
+<section class="wa revenue-section" id="whatsapp">
   <div class="container">
-    <div class="reveal center" style="text-align:center;max-width:760px;margin:0 auto 10px">
-      <span class="badge">Direct Marketing &amp; Outreach</span>
-      <h2 class="sec-title">From audience to revenue — on <span class="grad-text">WhatsApp &amp; Instagram</span></h2>
-      <p class="sec-sub" style="margin-left:auto;margin-right:auto">Run hyper-targeted WhatsApp broadcasts and convert Instagram ad traffic, Reel comments, and stories into instant paying customers.</p>
+    <div class="revenue-heading">
+      <h2 class="sec-title">Your next customer<br>is already <span class="grad-text">in the conversation.</span></h2>
+      <div><p class="sec-sub">Send offers to your customers with WhatsApp broadcasts. Turn Instagram comments into automatic private messages. See how each one works.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp broadcasts <span aria-hidden="true">↗</span></a></div>
     </div>
-
-    <!-- Dual Container 2-Column Grid -->
-    <div class="wa-dual-grid reveal">
-      
-      <!-- CONTAINER 1: WhatsApp Broadcast & Campaigns -->
-      <div class="outreach-card wa-card">
-        <div class="outreach-card-top">
-          <span class="outreach-badge wa-badge">WhatsApp Broadcast &amp; Campaigns</span>
-          <h3>Reach the right people with personalized broadcasts</h3>
-          <p class="outreach-desc">Send segmented catalog drops, VIP flash sales, and abandoned cart alerts directly to your customers' WhatsApp with unmatched 98% open rates.</p>
-          
-          <div class="outreach-chips">
-            <span class="outreach-chip highlight-green">⚡ <b>98%</b> Open Rate</span>
-            <span class="outreach-chip">💬 <b>45%</b> Reply Rate</span>
-            <span class="outreach-chip">🛍️ 1-Tap Catalog Drops</span>
-          </div>
+    <div class="revenue-studio" data-channel="whatsapp">
+      <div class="studio-toolbar">
+        <div class="studio-tabs" role="tablist" aria-label="Marketing demo channel">
+          <button type="button" role="tab" id="revenue-wa" aria-controls="revenue-panel" aria-selected="true" data-revenue-channel="whatsapp"><span data-icon="whatsapp"></span>WhatsApp broadcasts</button>
+          <button type="button" role="tab" id="revenue-ig" aria-controls="revenue-panel" aria-selected="false" tabindex="-1" data-revenue-channel="instagram"><span data-icon="instagram"></span>Instagram comment → DM</button>
         </div>
-
-        <!-- Real WhatsApp Broadcast Message Box (Glassmorphic) -->
-        <div class="outreach-stage">
-          <div class="wa-glass-box">
-            <div class="wa-broadcast-bubble">
-              <div class="wa-sender-label">
-                <span>StepsAI Official 🟢 <span class="wa-sender-badge">✓ Verified Broadcast</span></span>
-                <span style="font-size:10.5px;color:#64748b;font-weight:600">4,125 VIPs</span>
-              </div>
-              <div class="wa-broadcast-text">
-                Hey Priya! 👋 As a valued VIP member, you have early access to our new <b>Titanium Haute 2026</b> collection with complimentary doorstep delivery:
-              </div>
-              <div class="wa-broadcast-card">
-                <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=800&q=80" alt="Titanium Haute Collection">
-                <div class="wa-broadcast-tag">
-                  <b>TITANIUM HAUTE</b>
-                  <span>20% Off VIP Early Drop</span>
-                </div>
-                <div class="wa-broadcast-btn">🔗 Shop Collection with 20% Off · Code: VIP20</div>
-              </div>
-              <div class="wa-bubble-footer">
-                <span>Dispatched instantly</span>
-                <span>11:30 AM <span style="color:#53bdeb;font-weight:800">✓✓</span></span>
-              </div>
+        <span class="demo-caption">Interactive product example</span>
+      </div>
+      <div class="revenue-panel" id="revenue-panel" role="tabpanel" aria-labelledby="revenue-wa">
+        <div class="campaign-art">
+          <img id="campaignImage" src="images/product-diamond-necklace.jpg" alt="Jewellery collection used in the campaign example" loading="lazy" width="640" height="760">
+          <div class="campaign-overlay"><span id="campaignContext">THE PRIVATE PREVIEW</span><h3 id="campaignTitle">An invitation.<br>A conversation.<br>A new favourite.</h3><p id="campaignSubtitle">Your collection. Their next discovery.</p></div>
+          <div class="campaign-trigger"><span class="trigger-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 10 16-6-6 16-3-7-7-3Z"/><path d="m11 13 9-9"/></svg></span><div><strong id="triggerTitle">A campaign worth replying to</strong><span id="triggerText">Personalized broadcast · VIP collection</span></div></div>
+        </div>
+        <div class="conversation-stage">
+          <div class="conversation-stage-head"><span>From first interest to next step</span><button class="replay-demo" type="button" id="revenueReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>Replay flow</button></div>
+          <div class="revenue-phone">
+            <div class="phone-brand"><img src="images/logo.png" alt="" width="30" height="22"><div><strong>Your brand</strong><span>Powered by StepsAI</span></div><span class="phone-channel" id="phoneChannel">WhatsApp</span></div>
+            <div class="broadcast-received" data-flow="0">
+              <div class="broadcast-poster"><img src="images/product-diamond-necklace.jpg" alt="Jewellery collection in the example broadcast" loading="lazy" width="380" height="300"><div><span>THE NEW COLLECTION</span><strong>A little sparkle.<br>A lovely gift.</strong></div></div>
+              <div class="broadcast-caption"><strong>Your next favourite is here.</strong><p>Hi Priya! Discover our new jewellery collection. Find a gift for someone special—or a little something for yourself.</p><span class="broadcast-timestamp">6:36 pm</span></div>
+              <button type="button" class="broadcast-shop" aria-expanded="false">↗ &nbsp; Shop now</button>
+              <p class="broadcast-shop-note" hidden>In your broadcast, this button opens your product or collection page.</p>
             </div>
+            <div class="revenue-messages">
+              <div class="flow-message flow-message-brand" data-flow="0"><p id="flowFirst">Hi Priya, your invitation to our new collection is here. Would you like a closer look?</p><span>11:30</span></div>
+              <div class="flow-message flow-message-customer" data-flow="1"><p id="flowReply">Yes! Can you help me choose a gift?</p><span>11:31</span></div>
+              <div class="flow-message flow-message-brand" data-flow="2"><p id="flowAnswer">Of course. This piece is a lovely place to start. Here’s the collection to explore.</p></div>
+              <div class="flow-product" data-flow="2"><img id="flowProductImage" src="images/product-diamond-necklace.jpg" alt="Product recommendation example" loading="lazy" width="66" height="76"><div><strong id="flowProductName">The signature collection</strong><span>Selected for you</span><span class="flow-product-action">View collection <span aria-hidden="true">↗</span></span></div></div>
+            </div>
+            <div class="phone-composer" aria-hidden="true">Message your brand<span>↗</span></div>
           </div>
+          <div class="flow-result" data-flow="3"><span class="result-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 12 4 4 8-8"/></svg></span><div><strong>Interest becomes an actionable next step.</strong><span>A relevant recommendation. A direct path to purchase.</span></div></div>
         </div>
       </div>
-
-      <!-- CONTAINER 2: Instagram Ads & DM Automation -->
-      <div class="outreach-card ig-card">
-        <div class="outreach-card-top">
-          <span class="outreach-badge ig-badge">Instagram Ads &amp; DM Automation</span>
-          <h3>Turn Reels &amp; Click-to-DM Ads into Direct Sales</h3>
-          <p class="outreach-desc">Transform Click-to-Instagram Direct ads, story mentions, and Reel comments into high-intent sales conversations on autopilot with instant product links.</p>
-          
-          <div class="outreach-chips">
-            <span class="outreach-chip highlight-pink">📈 <b>3.4×</b> Higher ROAS</span>
-            <span class="outreach-chip">⚡ <b>&lt; 2s</b> Instant DM</span>
-            <span class="outreach-chip">🎟️ Auto-DM Coupons</span>
-          </div>
-        </div>
-
-        <!-- Real Instagram Marketing & DM Box (Glassmorphic) -->
-        <div class="outreach-stage">
-          <div class="ig-glass-box">
-            <div class="ig-trigger-pill">
-              <span>💬</span>
-              <span><b>@sarah</b> commented on Reel: "How much is this jacket? Want link! 😍"</span>
-            </div>
-
-            <div class="ig-dm-bubble">
-              <div class="ig-sender-label">
-                <span>StepsAI Store <span class="ig-sender-badge">✓ Verified</span></span>
-                <span style="font-size:10.5px;color:#be185d;font-weight:700">&lt; 2s Reply</span>
-              </div>
-              <div style="margin-bottom:10px">Hey Sarah! ✨ It's $129 (100% waterproof, ultra-light). Here is an exclusive 15% VIP discount code for you:</div>
-              <div class="ig-product-card">
-                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80" alt="Alpine Trail Jacket">
-                <div class="ig-product-info">
-                  <div class="ig-product-row">
-                    <span>Alpine Trail Jacket</span>
-                    <span style="color:#059669">$129</span>
-                  </div>
-                  <div style="font-size:10px;color:#64748b;margin:3px 0 7px">⭐⭐⭐⭐⭐ 4.9 (420 reviews) · In Stock</div>
-                  <div class="ig-product-btn">🛍️ Claim 15% Off &amp; Buy ($109.65)</div>
-                </div>
-              </div>
-              <div class="wa-bubble-footer" style="margin-top:8px">
-                <span>Automated via Instagram DM API</span>
-                <span>11:30 AM · Instant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <div class="revenue-journey" aria-label="Example conversation flow"><div data-journey="0"><span>01</span><strong>Start the conversation</strong><p>A campaign, comment, or DM.</p></div><div data-journey="1"><span>02</span><strong>Make it personal</strong><p>Answer with your business knowledge.</p></div><div data-journey="2"><span>03</span><strong>Make the next step easy</strong><p>Bring the right product into the chat.</p></div></div>
     </div>
+    <div class="revenue-footnote"><p>One connected experience, from the first message to the next action.</p><a href="contact.html">See it with your business <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 
@@ -1729,15 +1666,15 @@
                   <div class="an-ch-bar"><div class="an-ch-fill" style="width:48%;background:#2563eb"></div></div>
                 </div>
                 <div class="an-ch-row">
-                  <div class="an-ch-info"><span>💬 WhatsApp Business</span><b>34% · ₹16.40L</b></div>
+                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="whatsapp" aria-hidden="true"></span> WhatsApp Business</span><b>34% · ₹16.40L</b></div>
                   <div class="an-ch-bar"><div class="an-ch-fill" style="width:34%;background:#25d366"></div></div>
                 </div>
                 <div class="an-ch-row">
-                  <div class="an-ch-info"><span>📸 Instagram Direct &amp; Reels</span><b>12% · ₹5.79L</b></div>
+                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="instagram" aria-hidden="true"></span> Instagram Direct &amp; Reels</span><b>12% · ₹5.79L</b></div>
                   <div class="an-ch-bar"><div class="an-ch-fill" style="width:12%;background:#e1306c"></div></div>
                 </div>
                 <div class="an-ch-row">
-                  <div class="an-ch-info"><span>💠 Messenger &amp; Ads</span><b>6% · ₹2.89L</b></div>
+                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="messenger" aria-hidden="true"></span> Messenger &amp; Ads</span><b>6% · ₹2.89L</b></div>
                   <div class="an-ch-bar"><div class="an-ch-fill" style="width:6%;background:#0084ff"></div></div>
                 </div>
               </div>
@@ -2349,47 +2286,17 @@
 </section>
 
 <!-- ================= 12. FINAL CTA ================= -->
-<section class="final" id="start">
-  <div class="final-blob" aria-hidden="true"></div>
-  <div class="container final-grid">
-    <div class="reveal-pop">
-      <span class="badge">Ready to see the difference?</span>
-      <h2 class="sec-title">Start turning more conversations into <span class="grad-text">customers</span>.</h2>
-      <p class="sec-sub">Add StepsAI to your website and customer channels and see what it can handle.</p>
-      <div class="final-btns">
-        <a href="pricing.html" class="btn btn-grad">Start free <span class="arrow">→</span></a>
-        <a href="contact.html" class="btn btn-ghost">📅 Book a demo</a>
-      </div>
-      <div class="final-ticks">
-        <span>⚡ Live in 5 minutes</span>
-        <span>&lt;/&gt; No code required</span>
-        <span>💳 No credit card needed</span>
+<section class="final founder-cta" id="start">
+  <div class="container">
+    <div class="cta-topline"><a href="#hero" aria-label="Back to StepsAI introduction"><img src="images/logo.png" alt="" width="38" height="26">StepsAI</a><span>Your business. Always in the conversation.</span></div>
+    <div class="cta-composition">
+      <div class="cta-main"><h2 class="sec-title">Give every conversation<br><span>a next step.</span></h2><p class="sec-sub">Your customers are ready to talk. Give them an agent that knows your business and knows what to do next.</p><div class="final-btns"><a href="pricing.html" class="btn btn-grad">Start free <span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html" class="btn btn-ghost">Book a personal demo <span aria-hidden="true">↗</span></a></div><p class="cta-assurance">Free to start <span>·</span> No code required <span>·</span> Your team stays in control</p></div>
+      <div class="cta-routing" aria-label="Website, WhatsApp and Instagram conversations connect to StepsAI">
+        <svg class="cta-routing-lines" viewBox="0 0 440 350" fill="none" aria-hidden="true"><path d="M65 62H180Q220 62 220 102V175M375 62H260Q220 62 220 102V175M65 286H180Q220 286 220 246V175M375 286H260Q220 286 220 246V175"/><path class="routing-current" d="M65 62H180Q220 62 220 102V175M375 286H260Q220 286 220 246V175"/></svg>
+        <span class="routing-node routing-web"><span data-icon="website"></span>Website</span><span class="routing-node routing-wa"><span data-icon="whatsapp"></span>WhatsApp</span><span class="routing-node routing-ig"><span data-icon="instagram"></span>Instagram</span><span class="routing-node routing-msg"><span data-icon="messenger"></span>Messenger</span><div class="routing-core"><img src="images/logo.png" alt="" width="48" height="34"><strong>StepsAI</strong><span>Ready for the next step</span></div>
       </div>
     </div>
-    <div class="final-visual reveal">
-      <div class="fv-channels hand" aria-hidden="true">Website<br>Store<br>Instagram<br>WhatsApp<br>Messenger</div>
-      <div class="fv-icons" aria-hidden="true">
-        <span class="fvi" data-icon="instagram"></span>
-        <span class="fvi" data-icon="whatsapp"></span>
-        <span class="fvi" data-icon="messenger"></span>
-      </div>
-      <div class="fv-chat">
-        <div class="fc-head">
-          <span class="logo-mark" style="width:34px;height:18px" aria-hidden="true"></span>
-          StepsAI <span class="dots">···</span>
-        </div>
-        <div class="msg-row right"><span class="avatar a3"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Customer"></span><span class="bub cust">I’m looking for a running shoe for long distances.</span></div>
-        <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Here are 3 great options for you.</span></div>
-        <div class="fv-shoes">
-          <span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=80" alt="CloudRunner Pro"></span>
-          <span><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=200&q=80" alt="Trail Velocity"></span>
-          <span><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=200&q=80" alt="Aero Cushion"></span>
-        </div>
-        <div class="fv-ask">Ask anything… <span class="snd">➤</span></div>
-      </div>
-      <span class="fv-note hand" aria-hidden="true">Real conversations.<br>Real customers. ↙</span>
-      <div class="fv-stat"><span class="bars"><i style="height:10px"></i><i style="height:17px"></i><i style="height:26px"></i></span>More conversions,<br>together</div>
-    </div>
+    <div class="cta-bottomline"><span>Built around your business.</span><a href="contact.html">Let’s build your customer experience <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 
@@ -2569,6 +2476,9 @@
   <script src="home.js?v=2.0"></script>
   <script src="home-v2.js?v=1.3"></script>
   <script src="analytics-charts.js?v=2.0"></script>
+  <script src="home-professional.js?v=2"></script>
+  <script src="hero-premium.js?v=1"></script>
+  <script src="benefits.js?v=1"></script>
 </body>
 
 </html>

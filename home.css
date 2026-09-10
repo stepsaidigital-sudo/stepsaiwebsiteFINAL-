@@ -10,6 +10,9 @@
 .section-link-out { display: inline-flex; align-items: center; gap: 6px; margin-top: 30px; font-size: 14px; font-weight: 620; color: var(--accent); }
 .section-link-out:hover { text-decoration: underline; }
 
+/* Disabled per request (2026-09-09) -- C-action background card, mockup, and quotation removed */
+.sia-stage, .sia-caption, .sia-foot, .sia-bar, .how-closing { display: none !important; }
+
 /* ---------- HERO — plain image, no overlay, no animation ----------
    Per Sai: no CSS-drawn "designs" competing with the image, no
    overlay/scrim in between, no animation — just the photo, directly,

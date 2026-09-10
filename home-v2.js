@@ -543,7 +543,7 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-grow, .
 const ICONS = {
   website:`<svg viewBox="0 0 34 34" width="100%" height="100%"><circle cx="17" cy="17" r="15" fill="none" stroke="#3c3c48" stroke-width="2"/><path d="M2 17h30M17 2c-5 4-7 9.5-7 15s2 11 7 15c5-4 7-9.5 7-15S22 6 17 2z" fill="none" stroke="#3c3c48" stroke-width="2"/></svg>`,
   shopify:`<svg viewBox="0 0 34 34" width="100%" height="100%"><path d="M9 10.5 22.5 8l4 22-19.5 3.5L9 10.5z" fill="#95BF47"/><path d="M22.5 8l3 1 3.5 21-6 2.5L22.5 8z" fill="#5E8E3E"/><path d="M18.5 16.5c-.8-.4-2.6-.6-3.4.4-1.5-2 1.4-4.4 2.9-3.6l.5 3.2zm-2.8 4.2c1 .7 3 1 2.6 3-.3 2.2-3.6 2.4-5.3 1l.7-2c.9.6 2.3 1 2.5.3.2-.8-1.7-1.1-2.3-2.9-.7-2.2 1.6-4.5 4.4-3.6l-.5 2.4c-.7-.3-2.4-.5-2.4.7 0 .5.1.7.3 1.1z" fill="#fff"/></svg>`,
-  instagram:`<svg viewBox="0 0 34 34" width="100%" height="100%"><rect x="2" y="2" width="30" height="30" rx="9" fill="url(#igg)"/><circle cx="17" cy="17" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="25.2" cy="8.8" r="2" fill="#fff"/></svg>`,
+  instagram:`<svg viewBox="0 0 34 34" width="100%" height="100%"><rect x="2" y="2" width="30" height="30" rx="9" fill="url(#igg)"/><rect x="8" y="8" width="18" height="18" rx="5.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17" cy="17" r="4.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="23" cy="11" r="1.3" fill="#fff"/></svg>`,
   whatsapp:`<svg viewBox="0 0 34 34" width="100%" height="100%"><circle cx="17" cy="17" r="15.5" fill="#25D366"/><path d="M17 7.5c-5.2 0-9.4 4.2-9.4 9.4 0 1.8.5 3.4 1.4 4.9L7.5 26.5l4.9-1.4a9.4 9.4 0 1 0 4.6-17.6z" fill="#fff"/><path d="M13.6 11.9c.9-.2 1 .3 1.4 1.3.4.9.5 1-.1 1.7-.4.5-.3.9.2 1.6.8 1.1 1.8 1.9 3 2.4.7.3 1 .2 1.4-.3.5-.7.7-.9 1.6-.5 1 .5 1.6.7 1.3 1.6-.9 2.6-4.6 1.6-7-.6-2.3-2.2-3.6-6.4-1.8-7.2z" fill="#25D366"/></svg>`,
   messenger:`<svg viewBox="0 0 34 34" width="100%" height="100%"><circle cx="17" cy="17" r="15.5" fill="url(#msg)"/><path d="M8.5 16.4c0-4.9 3.8-8.4 8.5-8.4s8.5 3.5 8.5 8.4-3.8 8.4-8.5 8.4c-.9 0-1.8-.1-2.6-.4l-2.9 1.3.1-2.9c-1.9-1.5-3.1-3.8-3.1-6.4z" fill="#fff"/><path d="m12 19.5 3.6-5.6 3 2.4 3.4-2.4-3.6 5.6-3-2.4-3.4 2.4z" fill="url(#msg)"/></svg>`,
   standalone:`<svg viewBox="0 0 34 34" width="100%" height="100%"><rect x="4" y="3" width="26" height="28" rx="6" fill="none" stroke="#2563eb" stroke-width="2"/><path d="M11 12h12M11 17h12M11 22h7" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>`
@@ -716,23 +716,31 @@ const BOT_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" str
 function siaClear(){ siaTimers.forEach(clearTimeout); siaTimers=[]; }
 function siaLater(fn,ms){ siaTimers.push(setTimeout(fn,ms)); }
 function siaRenderStatic(s){
-  document.getElementById('siaBrand').innerHTML = s.brand;
-  document.getElementById('siaCh').textContent = s.channel;
-  document.getElementById('siaNote').textContent = s.note;
-  document.getElementById('siaTime').textContent = s.time;
-  siaSteps.innerHTML = s.steps.map(st=>`
-    <div class="sia-step">
-      <div class="rail"><span class="rd" style="background:${st.bg.startsWith('--')?'var('+st.bg+'-soft)':st.bg}">${st.i}</span><span class="rl"></span></div>
-      <div class="sc"><div class="k" style="color:var(${st.c})">${st.k}</div><h6>${st.h}</h6><p>${st.p}</p></div>
-    </div>`).join('');
-  siaOutcome.className='sia-outcome';
-  siaOutcome.innerHTML = `<span class="oc-ic">${s.outcome.i}</span><div><h6>${s.outcome.h}</h6><p>${s.outcome.p}</p></div><span class="tick">✓</span>`;
-  [...siaDots.children].forEach((d,i)=>d.classList.toggle('active', i===siaIdx));
+  if(!siaMsgs) return;
+  const brandEl = document.getElementById('siaBrand'); if(brandEl) brandEl.innerHTML = s.brand;
+  const chEl = document.getElementById('siaCh'); if(chEl) chEl.textContent = s.channel;
+  const noteEl = document.getElementById('siaNote'); if(noteEl) noteEl.textContent = s.note;
+  const timeEl = document.getElementById('siaTime'); if(timeEl) timeEl.textContent = s.time;
+  if(siaSteps) {
+    siaSteps.innerHTML = s.steps.map(st=>`
+      <div class="sia-step">
+        <div class="rail"><span class="rd" style="background:${st.bg.startsWith('--')?'var('+st.bg+'-soft)':st.bg}">${st.i}</span><span class="rl"></span></div>
+        <div class="sc"><div class="k" style="color:var(${st.c})">${st.k}</div><h6>${st.h}</h6><p>${st.p}</p></div>
+      </div>`).join('');
+  }
+  if(siaOutcome) {
+    siaOutcome.className='sia-outcome';
+    siaOutcome.innerHTML = `<span class="oc-ic">${s.outcome.i}</span><div><h6>${s.outcome.h}</h6><p>${s.outcome.p}</p></div><span class="tick">✓</span>`;
+  }
+  if(siaDots) {
+    [...siaDots.children].forEach((d,i)=>d.classList.toggle('active', i===siaIdx));
+  }
   document.querySelectorAll('.sia-tab').forEach((t,i)=>{
     t.classList.toggle('active', i===siaIdx); t.setAttribute('aria-selected', i===siaIdx);
   });
 }
 function siaPlay(i){
+  if(!siaMsgs) return 0;
   siaClear(); siaIdx=i;
   const s=SIA[i];
   siaMsgs.innerHTML=''; siaRenderStatic(s);
@@ -741,7 +749,7 @@ function siaPlay(i){
       siaMsgs.scrollTo({top:siaMsgs.scrollHeight, behavior:'smooth'});
     });
   };
-  const stepEls=[...siaSteps.children];
+  const stepEls=siaSteps ? [...siaSteps.children] : [];
   let delay=180;
   s.msgs.forEach((m,mi)=>{
     if(m.t==='ai'){
@@ -777,27 +785,20 @@ function siaPlay(i){
     siaLater(()=>{ for(let k=0;k<=stepAt;k++) stepEls[k]?.classList.add('on'); }, delay+60);
     delay += 620;
   });
-  siaLater(()=>{ stepEls.forEach(e=>e.classList.add('on')); siaOutcome.classList.add('on'); }, delay);
+  siaLater(()=>{ stepEls.forEach(e=>e.classList.add('on')); if(siaOutcome) siaOutcome.classList.add('on'); }, delay);
   return delay + 3200;
 }
 
 function siaGo(i, manual){
   clearTimeout(siaAuto);
-  const total = siaPlay(i);
-  siaAuto = setTimeout(()=>siaGo((siaIdx+1)%SIA.length), total);
 }
 
-SIA.forEach((_,i)=>{
-  const b=document.createElement('button'); b.setAttribute('aria-label','Scenario '+(i+1));
-  b.onclick=()=>siaGo(i,true); siaDots.appendChild(b);
-});
-document.querySelectorAll('.sia-tab').forEach(t=>t.addEventListener('click',()=>siaGo(+t.dataset.sia,true)));
-
-/* start only when scrolled into view, so the animation isn't missed */
-const siaObs=new IntersectionObserver((es)=>{
-  es.forEach(e=>{ if(e.isIntersecting){ siaGo(0); siaObs.disconnect(); } });
-},{threshold:.25});
-siaObs.observe(document.querySelector('.sia-wrap'));
+document.querySelectorAll('.sia-tab').forEach((t,i)=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.sia-tab').forEach((tb,j)=>{
+    tb.classList.toggle('active', j===i);
+    tb.setAttribute('aria-selected', j===i);
+  });
+}));
 
 /* ---------- Nav: transparent over the hero, frosted once you scroll past it ---------- */
 (function(){
@@ -971,6 +972,8 @@ if(heroChatBody) heroChatBody.style.transition='opacity .16s ease';
    looping product demo) instead of sitting still waiting to be clicked.
    Stops and holds on whatever channel it landed on when the mouse leaves. */
 (function heroChatAutoCycle(){
+  // The redesigned preview uses explicit channel selection and replay.
+  if(document.getElementById('heroReplay')) return;
   const widget = document.querySelector('.hero-chat');
   const channelKeys = Object.keys(HERO_SCENARIOS);
   if(!widget || !channelKeys.length) return;
@@ -1504,6 +1507,7 @@ if(waSection && 'IntersectionObserver' in window){
 (function initDashboard3DPhysics() {
   const stages = document.querySelectorAll('.dash-stage');
   if (!stages.length) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   stages.forEach(stage => {
     const card = stage.querySelector('.dash');
@@ -1516,8 +1520,12 @@ if(waSection && 'IntersectionObserver' in window){
     let targetRotY = 0;
     let currentRotX = 0;
     let currentRotY = 0;
+    let inView = false;
+    let entrance = null;
 
     function updatePhysics() {
+      reqId = null;
+      if (!inView || document.hidden || reducedMotion.matches) return;
       // Smooth lerp physics
       currentRotX += (targetRotX - currentRotX) * 0.12;
       currentRotY += (targetRotY - currentRotY) * 0.12;
@@ -1541,7 +1549,7 @@ if(waSection && 'IntersectionObserver' in window){
 
     stage.addEventListener('mouseenter', () => {
       isHovered = true;
-      if (!reqId) reqId = requestAnimationFrame(updatePhysics);
+      if (inView && !reducedMotion.matches && !reqId) reqId = requestAnimationFrame(updatePhysics);
     });
 
     stage.addEventListener('mousemove', (e) => {
@@ -1551,7 +1559,7 @@ if(waSection && 'IntersectionObserver' in window){
       // Controlled, refined tilt angle (max 7 degrees)
       targetRotX = -(y / (rect.height / 2)) * 7.5;
       targetRotY = (x / (rect.width / 2)) * 7.5;
-      if (!reqId) reqId = requestAnimationFrame(updatePhysics);
+      if (inView && !reducedMotion.matches && !reqId) reqId = requestAnimationFrame(updatePhysics);
     });
 
     stage.addEventListener('mouseleave', () => {
@@ -1559,6 +1567,32 @@ if(waSection && 'IntersectionObserver' in window){
       targetRotX = 0;
       targetRotY = 0;
     });
+    function stopMotion() {
+      if(reqId) cancelAnimationFrame(reqId);
+      reqId = null;
+      entrance?.cancel();
+      isHovered = false;
+      currentRotX = currentRotY = targetRotX = targetRotY = 0;
+      card.style.transform = '';
+      if(bg) bg.style.transform = '';
+    }
+    function enterView() {
+      if(reducedMotion.matches || document.hidden) return;
+      entrance?.cancel();
+      entrance = stage.animate(
+        [{opacity:.65,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:650,easing:'cubic-bezier(.16,1,.3,1)'}
+      );
+    }
+    new IntersectionObserver(entries => entries.forEach(entry => {
+      if(entry.isIntersecting && !inView) { inView = true; enterView(); }
+      else if(!entry.isIntersecting) { inView = false; stopMotion(); }
+    }), {threshold:0,rootMargin:'-70px 0px 0px 0px'}).observe(stage);
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) stopMotion();
+      else if(inView) enterView();
+    });
+    reducedMotion.addEventListener('change',()=>{stopMotion();});
   });
 
   // Time pill interactive filter demo in Analytics

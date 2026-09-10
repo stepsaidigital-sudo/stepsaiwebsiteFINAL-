@@ -1,0 +1,133 @@
+/* Glass belongs to the presentation frame; the channel UI stays readable. */
+#top .hero { background:linear-gradient(120deg,#f6f8fc 35%,#e9effa); }
+#top .hero-grid { gap:65px; }
+#top .hero-visual { padding:18px; position:relative; }
+#top .hero-visual::before { inset:0 -14px 100px -6px; border:0; border-radius:50%; background:radial-gradient(ellipse at 75% 25%,#9eaef08c,transparent 65%),radial-gradient(ellipse at 20% 75%,#91d4e77a,transparent 65%); transform:rotate(-12deg); }
+#top .hero-visual::after { content:''; position:absolute; inset:4px 0 110px 40px; border:1px solid #ffffffc9; border-radius:22px; background:#ffffff25; transform:rotate(4deg); pointer-events:none; z-index:-1; }
+#top .hero-chat, #top .hero-chat:hover { padding:10px; border-radius:20px; background:#ffffff69; backdrop-filter:blur(24px) saturate(1.3); -webkit-backdrop-filter:blur(24px) saturate(1.3); border:1px solid #ffffffe6; box-shadow:0 28px 65px -24px #36548055,inset 0 1px 0 #fff; transform:none; animation:none; }
+#top .hero-chat-browser { margin:0; padding:4px 9px 13px; min-height:33px; border:0; background:transparent; }
+#top .hero-chat-browser .hcb-url { font-size:10px; color:#40516b; }
+#top .hero-demo-label { font-size:7px; letter-spacing:.07em; color:#52617a; }
+#top .hero-chat-head, #top .hero-chat-head[class*="brand-"] { margin:0; min-height:70px; padding:15px; background:#fff; border:0; border-bottom:1px solid #e8eaed; border-radius:12px 12px 0 0; color:#162323; }
+#top .hero-chat-head .brand-av { width:36px; height:36px; background:#f0f3f6; }
+#top .hero-chat-head .nm { display:flex; align-items:center; gap:5px; color:#172126; font-size:13px; }
+#top .hero-chat-head .on { color:#69777d; font-size:10px; margin-top:3px; font-weight:400; }
+#top .hero-chat-head .on::before, #top .hero-chat-head>.dots { display:none; }
+#top .hero-chat .hero-chat-head .nm { color:#172126; }
+#top .hero-chat .hero-chat-head .on { color:#69777d; }
+#top .hero-chat .hero-chat-head .on::before { display:none; }
+#top .native-verified { width:15px; height:15px; flex-shrink:0; }
+#top .native-header-tools { margin-left:auto; display:flex; gap:14px; color:#273c42; }
+#top .native-header-tools svg { width:18px; height:18px; }
+#top .hero-chat-body { height:375px; min-height:0; overflow:auto; padding:18px 19px; display:flex; flex-direction:column; gap:10px; background:#fff; scrollbar-width:thin; scrollbar-color:#bdc9d2 transparent; }
+#top .hero-chat[data-native="whatsapp"] .hero-chat-body { background:#efeae2; }
+#top .hero-chat[data-native="whatsapp"] .hero-chat-head { background:#f7faf8; }
+#top .native-day { color:#69777d; text-align:center; font-size:8px; letter-spacing:.04em; margin:0 0 8px; flex-shrink:0; }
+#top .native-message { max-width:84%; padding:9px 11px 5px; font-size:11px; line-height:1.6; border-radius:12px; flex-shrink:0; color:#172126; }
+#top .native-in { align-self:flex-start; background:#f1f2f4; border-bottom-left-radius:3px; }
+#top .native-out { align-self:flex-end; background:#395aff; color:#fff; border-bottom-right-radius:3px; }
+#top [data-native="whatsapp"] .native-in { background:#fff; border-radius:0 8px 8px 8px; box-shadow:0 1px 1px #0b282011; }
+#top [data-native="whatsapp"] .native-out { background:#d9fdd3; color:#172126; border-radius:8px 0 8px 8px; box-shadow:0 1px 1px #0b282011; }
+#top [data-native="instagram"] .native-out { background:#6744ed; }
+#top [data-native="messenger"] .native-out { background:#0866ff; }
+#top .native-time { display:block; text-align:right; font-size:8px; margin-top:3px; opacity:.7; }
+#top .native-read { color:#098cca; margin-left:2px; }
+#top [data-native="instagram"] .native-read, #top [data-native="messenger"] .native-read { display:none; }
+#top .native-product { display:flex; gap:12px; padding:10px; background:#fff; border-radius:8px; width:84%; align-items:center; flex-shrink:0; border:1px solid #e5e8ea; }
+#top .native-product img { width:65px; height:72px; object-fit:cover; border-radius:4px; }
+#top .native-product strong { display:block; font-size:11px; color:#192a2c; }
+#top .native-product div>span { display:block; font-size:9px; color:#68777b; margin-top:6px; }
+#top .native-product div>.native-product-link { color:#136b57; font-weight:600; }
+#top .native-reel { display:flex; gap:12px; align-self:flex-end; width:84%; flex-shrink:0; align-items:center; border-right:2px solid #dbdfe5; padding-right:12px; }
+#top .native-reel img { width:60px; height:72px; object-fit:cover; border-radius:6px; }
+#top .native-reel span { font-size:9px; color:#69777d; }
+#top .native-reel strong { display:block; font-size:12px; margin-top:5px; }
+#top .native-sync { display:flex; align-items:center; justify-content:center; gap:6px; font-size:10px; color:#146a43; }
+#top .native-sync>span { width:17px; height:17px; }
+#top .native-order { padding:18px; border:1px solid #e6e9ef; border-radius:10px; width:84%; }
+#top .native-order>span { font-size:8px; color:#68777b; }
+#top .native-order strong { display:block; font-size:15px; margin-top:6px; }
+#top .native-order p { font-size:9px; color:#68777b; }
+#top .native-order-line { height:2px; background:#d9e2f1; display:flex; justify-content:space-between; margin:18px 0 12px; }
+#top .native-order-line i { width:6px; height:6px; border-radius:50%; background:#0866ff; margin-top:-2px; }
+#top .hero-chat .ch-input { margin:0; border:0; border-top:1px solid #e5e9e8; border-radius:0 0 12px 12px; min-height:53px; padding:12px 16px; background:#fff; display:flex; align-items:center; gap:12px; color:#69777d; }
+#top .hero-chat .ch-input>svg { width:18px; height:18px; margin-left:auto; color:#42575d; }
+#top .native-compose-plus { font-size:23px; font-weight:300; }
+#top .hero-demo-controls { margin:18px 4px 0; }
+#top .hero-cards { margin-top:15px; }
+@media(min-width:1100px) { #top .hero-grid { grid-template-columns:1fr 1.05fr; } #top .hero-visual { margin-right:-12px; } }
+@media(max-width:800px) { #top .hero-visual { padding:12px; } #top .hero-chat-body { height:375px; } }
+@media(max-width:480px) { #top .hero-visual { padding:4px; } #top .hero-chat { padding:7px; border-radius:16px; } #top .hero-chat-body { padding:15px 12px; height:370px; } #top .hero-chat-head[class*="brand-"] { padding:12px; } #top .native-header-tools { gap:9px; } #top .native-header-tools svg { width:15px; height:15px; } #top .hero-demo-label { display:none; } #top .native-message { max-width:90%; } #top .native-product { width:90%; } }
+@supports not (backdrop-filter:blur(1px)) { #top .hero-chat { background:#e7edf8; } }
+/* Channel switcher sits beside the preview, rather than below the copy. */
+#top .hero-visual { padding-left:66px; }
+#top .hero-visual .hero-channels { position:absolute; left:0; top:70px; display:flex; flex-direction:column; flex-wrap:nowrap; gap:12px; margin:0; padding:0; border:0; z-index:4; }
+#top .hero-visual .hero-channels .ch { display:grid; place-items:center; width:46px; height:46px; padding:10px; border:1px solid #d4dfed; border-radius:12px; background:#ffffffb3; cursor:pointer; transition:background .2s,border-color .2s,box-shadow .2s; }
+#top .hero-visual .hero-channels .ch>span:not(.ic) { display:none; }
+#top .hero-visual .hero-channels .ch .ic { width:25px; height:25px; }
+#top .hero-visual .hero-channels .ch:hover { background:#fff; border-color:#789edc; box-shadow:0 5px 12px -7px #1a56db66; }
+#top .hero-visual .hero-channels .ch.active { background:#fff; border:2px solid #1a56db; box-shadow:0 5px 14px -8px #1a56db80; }
+@media(max-width:480px) {
+  #top .hero-visual { padding-left:46px; padding-right:0; }
+  #top .hero-visual .hero-channels { top:60px; gap:10px; }
+  #top .hero-visual .hero-channels .ch { width:36px; height:36px; padding:7px; border-radius:9px; }
+  #top .hero-visual .hero-channels .ch .ic { width:22px; height:22px; }
+}
+/* Compact desktop composition leaves space for the trust strip. */
+@media(min-width:801px) {
+  #top .hero { padding-top:112px; }
+  #top .hero-grid { padding-bottom:30px; gap:42px; }
+  #top .hero-visual { max-width:520px; width:100%; min-height:0; justify-self:end; padding-top:8px; padding-bottom:8px; }
+  #top .hero-chat-body { height:270px; }
+  #top .hero-chat-head, #top .hero-chat-head[class*="brand-"] { min-height:58px; padding:10px 13px; }
+  #top .hero-chat .ch-input { min-height:43px; padding-block:9px; }
+  #top .hero-demo-controls { margin-top:10px; }
+  #top .hero-cards { margin-top:9px; }
+  #top .mini-feature { padding-top:10px; }
+  #top h1.hero-title { font-size:clamp(40px,4vw,56px); }
+  #top .hero-copy .sub { margin-top:20px; font-size:15px; line-height:1.7; }
+  #top .hero-btns { margin-top:23px; }
+}
+#top .hero-chat-body>[hidden] { display:none!important; }
+#top .hero-demo-controls { flex-wrap:wrap; }
+#top .hero-motion-toggle { color:#1a56db; }
+#top .hero-chat .ch-input { position:relative; }
+#top .hero-chat.agent-typing .ch-input>span:nth-child(2) { font-size:0; }
+#top .hero-chat.agent-typing .ch-input>span:nth-child(2)::after { content:'Agent is typing'; font-size:11px; color:#526078; }
+#top .hero-chat.agent-typing .ch-input::after { content:'•••'; letter-spacing:3px; color:#1a56db; animation:typing-breathe .7s ease-in-out infinite alternate; }
+@keyframes typing-breathe { from { opacity:.3; transform:translateY(1px); } to { opacity:1; transform:translateY(-1px); } }
+@media(prefers-reduced-motion:reduce) { #top .hero-chat.agent-typing .ch-input::after { animation:none; } }
+/* Atmospheric brand motion stays behind the readable channel interface. */
+#top .hero-visual::before {
+  background:radial-gradient(ellipse at 70% 25%,rgba(103,134,224,.46),transparent 64%),radial-gradient(ellipse at 25% 70%,rgba(80,188,197,.32),transparent 66%);
+  animation:brand-atmosphere 12s ease-in-out infinite alternate;
+  animation-play-state:paused;
+  transform-origin:center;
+}
+#top .hero-visual::after {
+  background:linear-gradient(125deg,rgba(255,255,255,.48),rgba(221,233,255,.1) 44%,rgba(255,255,255,.32));
+  animation:glass-plane 14s ease-in-out infinite alternate;
+  animation-play-state:paused;
+}
+#top .hero-in-view .hero-visual::before, #top .hero-in-view .hero-visual::after { animation-play-state:running; }
+#top .hero-chat-browser { background:linear-gradient(110deg,rgba(255,255,255,.3),rgba(225,237,255,.2)); border-radius:10px 10px 0 0; }
+#top .hero-chat[data-native="whatsapp"] .hero-chat-head { background:#f6fbf8; border-bottom:1px solid #dfe9e3; }
+#top .hero-chat[data-native="whatsapp"] .hero-chat-body { background-color:#efeae2; background-image:radial-gradient(ellipse at top left,rgba(255,255,255,.4),transparent 70%); }
+#top .hero-chat[data-native="whatsapp"] .hcb-url { color:#176b52; font-weight:600; }
+@keyframes brand-atmosphere { from { transform:translate(-7px,4px) rotate(-12deg) scale(.97); opacity:.75; } to { transform:translate(9px,-7px) rotate(7deg) scale(1.06); opacity:1; } }
+@keyframes glass-plane { from { transform:rotate(3deg) translateY(0); } to { transform:rotate(5deg) translateY(-7px); } }
+@media(prefers-reduced-motion:reduce) { #top .hero-visual::before,#top .hero-visual::after { animation:none; } }
+/* One metrics block: beneath the copy on desktop, after the demo on phones. */
+#top .hero-grid { grid-template-areas:'copy mockup' 'metrics mockup'; row-gap:22px; align-items:center; }
+#top .hero-copy { grid-area:copy; align-self:end; }
+#top .hero-visual { grid-area:mockup; }
+#top .hero-grid .hero-metrics { grid-area:metrics; width:100%; max-width:none; margin:0; padding:0; align-self:start; }
+#top .hero-metrics .glass-showcase-panel { padding:16px 18px; margin:0; border-radius:12px; box-shadow:0 8px 24px -18px #25477744; }
+#top .hero-metrics .glass-metrics-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 20px; }
+#top .hero-metrics .glass-stat-divider { display:none; }
+#top .hero-metrics .glass-stat-card { padding:0; text-align:left; min-width:0; }
+#top .hero-metrics .glass-stat-num { font-size:25px; line-height:1.15; justify-content:flex-start; margin-bottom:5px; }
+#top .hero-metrics .glass-stat-desc { font-size:10px; line-height:1.5; max-width:180px; margin:0; }
+#top .hero-metrics .glass-verify-badge { font-size:7px; padding:2px 4px; }
+#top .trust-strip { padding-bottom:20px; }
+@media(max-width:800px) { #top .hero-grid { grid-template-areas:'copy' 'mockup' 'metrics'; grid-template-columns:minmax(0,1fr); row-gap:28px; } #top .hero-grid .hero-metrics { max-width:540px; margin-inline:auto; } }
