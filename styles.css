@@ -396,8 +396,12 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav-links > a:hover { color: var(--text-primary); }
 
 .nav-dropdown { position: relative; }
-.nav-dropdown-trigger { display: flex; align-items: center; gap: 6px; padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
-.nav-dropdown-trigger:hover, .nav-dropdown-trigger[aria-expanded="true"] { color: var(--text-primary); }
+.nav-dropdown-trigger { display: flex; align-items: center; gap: 6px; padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 999px; transition: color 180ms var(--ease), background-color 180ms var(--ease); }
+.nav-dropdown-trigger:hover { color: var(--text-primary); }
+/* Active-open state reads as a light-blue rounded pill, matching the
+   SEO-specialist reference mockup's "Product" trigger -- applies to
+   whichever dropdown is currently open, not just Product. */
+.nav-dropdown-trigger[aria-expanded="true"] { color: #2563eb; background: rgba(37, 99, 235, .12); }
 .nav-dropdown-caret { transition: transform 220ms var(--ease); flex-shrink: 0; }
 .nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-caret { transform: rotate(180deg); }
 
@@ -470,6 +474,54 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 .nav-badge { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2563eb; background: rgba(37, 99, 235, 0.12); padding: 2px 7px; border-radius: 999px; }
 .nav-badge--new { color: #059669; background: rgba(16, 185, 129, 0.14); }
 .nav-badge--hot { color: #e11d48; background: rgba(244, 63, 94, 0.14); }
+
+/* Product mega-menu v2 (SEO-specialist taxonomy: Platform/Sales+Marketing/
+   Support+Booking/Lead Capturing+More Features). Deliberately NEW selectors
+   (--product-v2) rather than editing .nav-dropdown-panel--product /
+   .nav-mega-layout--product directly -- those two are still what every
+   other page's Product panel uses (old 3-col + bento markup), so touching
+   them would break the other 53 pages until this rolls out sitewide.
+   Once rolled out everywhere, these v2 rules can be renamed back onto the
+   base selectors and the old .nav-mega-row/-icon/-desc rules (still used
+   by Solutions/Industries/Resources/Partnership panels) stay untouched
+   either way. */
+.nav-dropdown-panel--product-v2 { width: 980px; }
+.nav-mega-layout--product-v2 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+.nav-mega-col-head { display: flex; align-items: center; gap: 9px; padding: 4px 8px 10px; }
+.nav-mega-col-head .nav-mega-header { padding: 0; }
+.nav-mega-col .nav-mega-col-head:not(:first-child) { padding-top: 4px; }
+/* A column whose header IS the destination (e.g. "Lead Capture", linking
+   straight to lead-agent.html) -- used instead of a header + a duplicate
+   first row repeating the same label. */
+a.nav-mega-col-head--link { text-decoration: none; border-radius: 8px; margin: 0 -2px 2px; transition: background-color 160ms var(--ease-ui); }
+a.nav-mega-col-head--link:hover { background: #f1f5f9; }
+a.nav-mega-col-head--link:hover .nav-mega-header { color: #2563eb; }
+
+.nav-col-icon {
+  width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-col-icon--violet { background: rgba(124, 58, 237, .12); color: #7c3aed; }
+.nav-col-icon--green   { background: rgba(22, 163, 74, .12); color: #16a34a; }
+.nav-col-icon--orange  { background: rgba(249, 115, 22, .12); color: #ea580c; }
+.nav-col-icon--indigo  { background: rgba(79, 70, 229, .12); color: #4f46e5; }
+.nav-col-icon--teal    { background: rgba(13, 148, 136, .12); color: #0d9488; }
+.nav-col-icon--rose    { background: rgba(225, 29, 72, .12); color: #e11d48; }
+.nav-col-icon--blue    { background: rgba(37, 99, 235, .12); color: #2563eb; }
+
+.nav-mega-simple-row {
+  display: block; padding: 7px 10px; margin: 0 -2px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 500; color: #334155; text-decoration: none;
+  transition: background-color 160ms var(--ease-ui), color 160ms var(--ease-ui), transform 160ms var(--ease-ui);
+}
+.nav-mega-simple-row:hover { background: #f1f5f9; color: #2563eb; transform: translateX(2px); }
+.nav-mega-simple-row--sub { display: flex; align-items: center; gap: 6px; margin-left: 10px; font-size: 12.5px; color: #64748b; }
+.nav-mega-simple-row--sub:hover { color: #2563eb; }
+.nav-mega-subarrow { color: #94a3b8; font-size: 13px; line-height: 1; }
+.nav-mega-more-link { color: #2563eb; font-weight: 650; }
+
+.nav-mega-divider { height: 1px; background: var(--border-subtle); margin: 10px 8px 8px; }
 
 /* Bento Cards (MTRUST / Moonday inspired) */
 .nav-bento-card {
