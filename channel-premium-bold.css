@@ -1,0 +1,24 @@
+/* Direction B -- bold glass. Ambient wash drifts continuously (paused
+   off-screen via channel-premium.js's IntersectionObserver, same pattern
+   as the homepage's .hero-in-view gate), heavier blur/saturation, and the
+   hero mockup gets the homepage's mouse-tilt physics for free by carrying
+   the .live-widget class (industries.js already applies it site-wide). */
+.glass-stage::before {
+  filter: blur(2px);
+  animation: prem-atmosphere 12s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.glass-stage.in-view::before { animation-play-state: running; }
+@keyframes prem-atmosphere {
+  from { transform: translate(-8px, 5px) scale(.96); opacity: .8; }
+  to   { transform: translate(10px, -8px) scale(1.08); opacity: 1; }
+}
+.glass-stage::after { backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); }
+
+/* A touch more depth on the box row for this direction. */
+.prem-box { box-shadow: 0 18px 34px -26px rgba(20, 30, 60, .22); }
+.prem-box:hover { box-shadow: 0 22px 40px -24px rgba(20, 30, 60, .3); }
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-stage::before { animation: none; }
+}

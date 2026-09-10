@@ -1,0 +1,119 @@
+/* Shared structural CSS for the WhatsApp/Shopify premium-mockup round
+   (channel-whatsapp-mockup-a/b.html, shopify-mockup-a/b.html). Brand color
+   is set once per page via a data-brand attribute on <body>; both the
+   "restrained" and "bold" direction files layer their own intensity
+   on top of these same structural rules, so the two feel like siblings,
+   not unrelated pages. Additive only -- doesn't touch styles.css /
+   industries-deep.css / agents.css, so nothing else on the site is at risk
+   while these stay previews. */
+
+body:not([data-brand])      { --brand: #2563EB; --brand-deep: #1D4ED8; --brand-tint: rgba(37, 99, 235, .14); --brand-tint-strong: rgba(37, 99, 235, .22); }
+body[data-brand="whatsapp"] { --brand: #25D366; --brand-deep: #128C7E; --brand-tint: rgba(37, 211, 102, .14); --brand-tint-strong: rgba(37, 211, 102, .22); }
+body[data-brand="shopify"]  { --brand: #95BF47; --brand-deep: #004C3F; --brand-tint: rgba(149, 191, 71, .16); --brand-tint-strong: rgba(149, 191, 71, .24); }
+body[data-brand="instagram"] { --brand: #E1306C; --brand-deep: #C13584; --brand-tint: rgba(225, 48, 108, .14); --brand-tint-strong: rgba(225, 48, 108, .22); }
+body[data-brand="messenger"] { --brand: #0866FF; --brand-deep: #0052CC; --brand-tint: rgba(8, 102, 255, .14); --brand-tint-strong: rgba(8, 102, 255, .22); }
+body[data-brand="website"]  { --brand: #2563EB; --brand-deep: #1D4ED8; --brand-tint: rgba(37, 99, 235, .14); --brand-tint-strong: rgba(37, 99, 235, .22); }
+
+/* NOTE: .vertical-hero's default background (images/hero-vertical-
+   atmosphere.jpg, the Apple-style dome, applied automatically by
+   industries-deep.css to any hero without its own inline background) is
+   the site's existing, already-approved hero treatment -- kept as-is on
+   purpose. The glass-stage wash below layers on top of it around the
+   phone mockup only; it does not replace the hero's own background. */
+
+/* ---------- Glass stage: wraps the hero's phone/mockup column ---------- */
+.glass-stage { position: relative; padding: 34px; }
+.glass-stage::before {
+  /* Tight glow hugging the phone itself, not a page-wide wash -- the
+     hero's own dome background already supplies the atmosphere; this
+     only needs to read as "this card is brand-tinted," up close. */
+  content: ''; position: absolute; inset: -3% -6%; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 68% 28%, var(--brand-tint-strong), transparent 60%),
+    radial-gradient(ellipse at 22% 76%, var(--brand-tint-strong), transparent 62%);
+}
+.glass-stage::after {
+  content: ''; position: absolute; inset: 6px; z-index: -1; pointer-events: none;
+  border-radius: 28px; background: rgba(255, 255, 255, .4);
+  backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, .75);
+  box-shadow: 0 32px 64px -30px rgba(20, 30, 60, .28), inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+@supports not (backdrop-filter: blur(1px)) { .glass-stage::after { background: #eef2f9; } }
+
+/* ---------- Box-animation row (the homepage's benefit-card mechanic,
+   reused verbatim: slight rest-state tilt, straightens + lifts on
+   hover/focus) ---------- */
+.prem-box-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+.prem-box {
+  padding: 24px; border-radius: 18px; background: var(--brand-tint); text-align: left;
+  transition: background 250ms var(--ease-ui);
+}
+.prem-box:hover, .prem-box:focus-within { background: var(--brand-tint-strong); }
+.prem-box-icon {
+  width: 42px; height: 42px; border-radius: 11px; background: #fff; display: flex; align-items: center; justify-content: center;
+  color: var(--brand-deep); box-shadow: 0 12px 22px -14px rgba(20, 30, 60, .32);
+  transform: rotate(-3deg); transition: transform 420ms var(--ease-spring);
+}
+.prem-box:hover .prem-box-icon, .prem-box:focus-within .prem-box-icon { transform: rotate(0deg) translateY(-3px); }
+.prem-box-title { font-size: 15.5px; font-weight: 650; color: #0f172a; margin: 16px 0 6px; }
+.prem-box-desc { font-size: 12.5px; line-height: 1.65; color: #475569; }
+@media (max-width: 760px) { .prem-box-row { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .prem-box-icon { transition: none; } }
+
+/* Both mockup pages place this row inside a .section--dark band (matching
+   the real page's existing section 2) -- the light-page tint/text colors
+   above go low-contrast against that dark background, so give it its own
+   palette rather than assuming a light parent. */
+.section--dark .prem-box { background: rgba(255, 255, 255, .06); }
+.section--dark .prem-box:hover, .section--dark .prem-box:focus-within { background: rgba(255, 255, 255, .1); }
+.section--dark .prem-box-icon { background: rgba(255, 255, 255, .95); }
+.section--dark .prem-box-title { color: #fff; }
+.section--dark .prem-box-desc { color: rgba(255, 255, 255, .68); }
+
+/* ---------- Shopify hero/section widget: a generic browser-style chat
+   card (no homepage-only #top-scoped classes reused, this is self
+   contained so it works on a brand-new page) ---------- */
+.shop-widget {
+  width: 100%; max-width: 380px; margin: 0 auto; border-radius: 18px; overflow: hidden;
+  background: #fff; border: 1px solid rgba(15, 23, 42, .06);
+  box-shadow: 0 30px 60px -28px rgba(20, 30, 60, .3);
+}
+.shop-widget-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: #f8fafc; border-bottom: 1px solid rgba(15, 23, 42, .06); }
+.shop-widget-dot { width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; }
+.shop-widget-dot:nth-child(1) { background: #fca5a5; }
+.shop-widget-dot:nth-child(2) { background: #fcd34d; }
+.shop-widget-dot:nth-child(3) { background: #86efac; }
+.shop-widget-url { margin-left: 8px; font-size: 11px; color: #64748b; font-family: var(--font-mono); }
+.shop-widget-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; background: #fafbfe; }
+.shop-bubble { max-width: 84%; padding: 10px 13px; border-radius: 12px; font-size: 13px; line-height: 1.5; color: #0f172a; }
+.shop-bubble.in { align-self: flex-start; background: #eef2f7; border-bottom-left-radius: 3px; }
+.shop-bubble.out { align-self: flex-end; background: var(--brand-tint-strong); border-bottom-right-radius: 3px; }
+.shop-order-card { padding: 14px 16px; border-radius: 12px; background: #fff; border: 1px solid rgba(15, 23, 42, .08); box-shadow: 0 10px 20px -16px rgba(20, 30, 60, .3); }
+.shop-order-label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #94a3b8; margin-bottom: 6px; }
+.shop-order-card strong { display: block; font-size: 14.5px; color: #0f172a; }
+.shop-order-card p { margin: 4px 0 0; font-size: 12px; color: #64748b; }
+.shop-order-line { height: 2px; background: #e2e8f0; margin-top: 12px; position: relative; }
+.shop-order-line i { position: absolute; top: -3px; left: 62%; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-deep); }
+
+/* .wflow-rail (agents.css) is hardcoded to the --dark-ink/--dark-hairline
+   token set -- every other page uses it only inside a .section--dark
+   band, so its light-gray-on-near-black palette was never made to work
+   on a light background. This page (and any future light section that
+   reuses the rail) needs it to actually read, hence a scoped light
+   variant rather than editing the dark-only base rule everyone else
+   still depends on. */
+.section--base .wflow-tab { color: var(--text-secondary); border-color: var(--border-strong); }
+.section--base .wflow-rail::before { background: var(--border-strong); }
+.section--base .wflow-rail-node { color: var(--text-secondary); }
+.section--base .wflow-rail-node::before { background: var(--bg-base); border-color: var(--border-strong); }
+.section--base .wflow-rail-node.done::before { background: var(--accent); border-color: var(--accent); }
+.section--base .wflow-rail-node.done { color: var(--text-primary); }
+
+/* ---------- Direction label chip (dev-only, marks which mockup this is) ---------- */
+.prem-dir-chip {
+  position: fixed; top: 84px; right: 18px; z-index: 50; font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700;
+  color: var(--brand-deep); background: #fff; border: 1px solid var(--brand-tint-strong);
+  padding: 6px 12px; border-radius: 999px; box-shadow: 0 8px 20px -10px rgba(20, 30, 60, .3);
+}

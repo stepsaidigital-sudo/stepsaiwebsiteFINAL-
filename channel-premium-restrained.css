@@ -1,0 +1,5 @@
+/* Direction A -- restrained glass. Static ambient wash (no drift), no
+   mouse-tilt physics on the hero mockup, calm motion throughout: everything
+   moves only in response to hover/scroll, nothing runs on its own. */
+.glass-stage::before { opacity: .85; }
+.glass-stage::after { background: rgba(255, 255, 255, .38); }

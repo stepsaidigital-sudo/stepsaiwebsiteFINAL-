@@ -3,20 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Channels — StepsAI | Every surface, one agent</title>
-<meta name="description" content="Website, WhatsApp, Instagram, Messenger, and a shareable Standalone Page — the same agent, the same memory, wherever your customers already are.">
+<title>Skills — StepsAI | What your agent actually knows how to do.</title>
+<meta name="description" content="Book appointments, open tickets, hand off to a person, search the web, or run your own logic. See the six built-in skills a Steps AI agent uses, and how custom skills work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
+<link rel="stylesheet" href="agents.css">
+<link rel="stylesheet" href="channel-premium.css">
+<link rel="stylesheet" href="channel-premium-bold.css">
+<style>
+/* Page-specific: six-skill grid (section 2). Reuses site tokens/shadows
+   rather than inventing a new visual language. */
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
+.skill-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 26px 24px; transition: border-color 200ms var(--ease), transform 200ms var(--ease); }
+.skill-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.skill-card-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.skill-card-title { font-size: 15.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.skill-card-desc { font-size: 13px; line-height: 1.65; color: var(--text-secondary); }
+@media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAV — synced from index.html; edit there and re-run the
-       propagation pass, don't hand-edit this block.
-       ============================================================ -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
@@ -414,78 +425,180 @@
     <!-- ============================================================
          1. HERO
          ============================================================ -->
-    <section class="vertical-hero" style="padding-bottom:40px">
+    <section class="vertical-hero">
 
-      <div class="container">
-        <div class="reveal" style="max-width:760px">
-          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Channels</span>
-          <h1 class="vertical-headline" style="font-size:clamp(32px,4.4vw,50px)">Every surface, one agent.</h1>
-          <p class="vertical-tagline">Same brain, same memory, same answer &mdash; whether they message you on WhatsApp, land on your website, or click an ad into Messenger.</p>
+      <div class="container vertical-hero-inner">
+        <div class="reveal">
+          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Skills</span>
+          <h1 class="vertical-headline">What your agent actually knows how to do.</h1>
+          <p class="vertical-tagline">Answering a question is the baseline. Skills are the specific jobs it can finish: book the slot, open the ticket, hand off to a person, search the web only when it has to. Each one has its own rules for when to run.</p>
+          <div class="vertical-hero-actions">
+            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
+            <a href="agents.html" class="vertical-hero-link">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              All agent features
+            </a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="live-widget">
+            <div class="lw-head">
+              <span class="lw-avatar">N</span>
+              <div><div class="lw-name">Agent</div><div class="lw-status">Nyra Store &middot; Active</div></div>
+            </div>
+            <div class="lw-body">
+              <div class="lw-bubble user">Can I get a fitting slot this week?</div>
+              <div class="lw-bubble agent">Here's what's open:</div>
+              <div class="chat-card">
+                <p class="chat-card-slot-label">This week</p>
+                <div class="chat-card-slots">
+                  <span class="chat-card-slot">Thu, 2:00 PM</span>
+                  <span class="chat-card-slot">Thu, 5:30 PM</span>
+                  <span class="chat-card-slot">Fri, 11:00 AM</span>
+                </div>
+              </div>
+              <div class="lw-bubble user">Thursday 2pm works</div>
+              <div class="lw-bubble agent">Booked, Thursday at 2:00 PM. I've saved your name and email for the reminder.</div>
+            </div>
+            <div class="lw-footer">
+              <div class="lw-input">Ask me anything</div>
+              <span class="lw-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 18 9-18 9 4-9-4-9Z"/></svg></span>
+            </div>
+            <div class="lw-powered">Powered by <b>StepsAI</b></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         2. THE FULL GRID — all 5 channels
+         2. THE SIX PREDEFINED SKILLS
          ============================================================ -->
-    <section class="section section--base section--atmo" style="padding-top:0">
+    <section class="section section--raised section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--violet atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--amber atmo-blob--br"></div>
+        <div class="atmo-blob atmo-blob--violet atmo-blob--tl atmo-blob--soft"></div>
+        <div class="atmo-blob atmo-blob--amber atmo-blob--br atmo-blob--soft"></div>
       </div>
       <div class="container">
-        <div class="scroll-stack-container" id="scroll-stack">
-
-          <a class="scroll-stack-card" href="channel-website.html" style="--i:0">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12H21M12 3C14.5 5.5 15.8 8.6 15.8 12C15.8 15.4 14.5 18.5 12 21C9.5 18.5 8.2 15.4 8.2 12C8.2 8.6 9.5 5.5 12 3Z" stroke="currentColor" stroke-width="1.6"/></svg></span>
-            <h3>Website</h3>
-            <p>Answer before they leave the page.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="scroll-stack-card" href="channel-whatsapp.html" style="--i:1">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M17.472 14.383c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
-            <h3>WhatsApp</h3>
-            <p>Sell where they already message you.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="scroll-stack-card" href="channel-instagram.html" style="--i:2">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
-            <h3>Instagram</h3>
-            <p>Turn a comment into a customer.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="scroll-stack-card" href="channel-messenger.html" style="--i:3">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.84 1.44 5.38 3.7 7.03V22l3.4-1.87c.9.25 1.87.38 2.9.38 5.52 0 10-4.02 10-9S17.52 2 12 2Z"/><path d="M7 12.5L10.5 9L13 11.5L17 8"/></svg></span>
-            <h3>Messenger</h3>
-            <p>Ad clicks and Page DMs, already in context.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
-          <a class="scroll-stack-card" href="channel-standalone.html" style="--i:4">
-            <span class="industry-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M14 4H20V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4L11 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-            <h3>Agent Page</h3>
-            <p>A shareable page for your agent.</p>
-            <span class="industry-hub-card-arrow">See how it works <svg viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">02</span> Built in, ready before you turn one on</p>
+          <h2 class="section-title">Six skills. Each one has its own job.</h2>
+          <p class="section-sub">Turn on what you need. Every skill is matched by intent, so it only runs when a conversation actually calls for it.</p>
         </div>
 
-        <div class="ind-crosslink">
-          <p>Every channel shares the same memory of who's already a customer.</p>
-          <a href="agents.html">See the platform capabilities <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="skills-grid reveal reveal-stagger">
+          <div class="skill-card" style="--i:0">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <div class="skill-card-title">Book appointment</div>
+            <p class="skill-card-desc">Connects to one booking provider you choose per skill, though you can connect as many providers as you need. Collects name, email, company or job title, whichever fields you've turned on, then books the slot directly.</p>
+          </div>
+          <div class="skill-card" style="--i:1">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="skill-card-title">Customer creation</div>
+            <p class="skill-card-desc">Turns a conversation into a CRM record without anyone typing it in twice. Someone asks a question, gets an answer, and they're already saved when you check your CRM later.</p>
+          </div>
+          <div class="skill-card" style="--i:2">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+            <div class="skill-card-title">Human handoff</div>
+            <p class="skill-card-desc">Waits 10 seconds, 30 seconds, 1 minute, or 2 minutes, whichever you set, before it passes the conversation to a person. Sends a fallback message so nobody's left staring at nothing, and emails whoever you choose to notify. Leave that list empty and the emails just don't go out.</p>
+          </div>
+          <div class="skill-card" style="--i:3">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.4"/></svg></span>
+            <div class="skill-card-title">Ticket creation</div>
+            <p class="skill-card-desc">Opens a ticket with the fields the issue actually needs: text, long text, numbers, email, phone, a dropdown, even a file. Mark any of them required, and email as many people as the issue calls for.</p>
+          </div>
+          <div class="skill-card" style="--i:4">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
+            <div class="skill-card-title">Web search</div>
+            <p class="skill-card-desc">Checks your own content first. It only reaches the web when the answer isn't in what you've given it, so it doesn't go wandering off answering things you never approved.</p>
+          </div>
+          <div class="skill-card" style="--i:5">
+            <span class="skill-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H2v13h14V3z"/><path d="M16 8h4l2 3v5h-6V8z"/><circle cx="6" cy="18.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/></svg></span>
+            <div class="skill-card-title">Shipment landed cost calculator</div>
+            <p class="skill-card-desc">Built for Indian importers and sourcing agents pricing a shipment before it's cleared. Set your own air and sea freight rates, a density surcharge, insurance, banking margin and commission, or leave them blank and it falls back to built-in estimates.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ============================================================
+         3. HOW SKILLS ACTUALLY WORK
+         ============================================================ -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">03</span> How skills actually work</p>
+          <h2 class="section-title">Built from real complaints, not a features list.</h2>
+          <p class="section-sub">Every skill has a plain-English "when to use," a set of trigger examples, and its own configuration. None of it is generic.</p>
+        </div>
+
+        <div class="prem-box-row reveal reveal-stagger">
+          <div class="prem-box">
+            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <div class="prem-box-title">Built from real complaints</div>
+            <p class="prem-box-desc">Every skill has should-trigger and should-not-trigger examples, written in plain English, with a reason attached. That's how it knows the difference between a genuine handoff moment and a question outside the knowledge base.</p>
+          </div>
+          <div class="prem-box">
+            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+            <div class="prem-box-title">Custom skills, two kinds</div>
+            <p class="prem-box-desc">An AI skill is just instructions for the model: a display name, when to use it, how to behave. A Flow skill goes further, it collects information in the widget first, then runs an HTTP request or an action in a connected app.</p>
+          </div>
+          <div class="prem-box">
+            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <div class="prem-box-title">Built because someone asked</div>
+            <p class="prem-box-desc">The shipment cost calculator wasn't on a roadmap. A customer needed to price landed cost before a shipment cleared, so it exists now, with real freight fields instead of a generic estimate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. FAQ
+         ============================================================ -->
+    <section class="section section--base section--atmo" id="faq">
+      <div class="atmo-mesh" aria-hidden="true">
+        <div class="atmo-blob atmo-blob--blue atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--rose atmo-blob--bl"></div>
+      </div>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">04</span> Questions</p>
+          <h2 class="section-title">About skills.</h2>
+        </div>
+
+        <div class="faq-grid reveal">
+          <div>
+            <div class="faq-item">
+              <button class="faq-question">Can I add my own skill?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>Yes. Build a custom skill as an AI skill, which is model instructions with trigger examples, or a Flow skill, which collects information from the widget first and then runs an HTTP request or a connected app action.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">What happens when a skill doesn't apply?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>Nothing, on purpose. Skills are matched by intent, so a skill only runs when a conversation actually calls for it. The rest of the time your agent just answers from what it already knows.</p></div>
+            </div>
+          </div>
+          <div>
+            <div class="faq-item">
+              <button class="faq-question">Does web search mean it can answer anything from the internet?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>No. It checks your own content first and only reaches the web when your knowledge base doesn't cover the question. It won't go looking for information you haven't given it.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">Who is the shipment landed cost calculator actually for?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>Indian importers and sourcing agents pricing a shipment before it arrives, not a typical Shopify store. Leave your own freight rates unset and it falls back to built-in estimates.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. FINAL CTA
+         ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Wherever they message you, someone's asking a question right now.</h2>
-        <p class="final-cta-sub">Set it up this afternoon. See what it handles tonight.</p>
+        <h2 class="final-cta-headline">Give your agent something to finish, not just answer.</h2>
+        <p class="final-cta-sub">Turn on the skills you need today. Add more, including your own, whenever the job calls for it.</p>
         <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
-        <p class="final-cta-note">No credit card. Live in under an hour.</p>
+        <p class="final-cta-note">No credit card. Cancel any time.</p>
       </div>
     </section>
 
@@ -560,5 +673,6 @@
   <script src="nav.js"></script>
   <script src="breadcrumbs.js"></script>
   <script src="industries.js"></script>
+  <script src="channel-premium.js"></script>
 </body>
 </html>
