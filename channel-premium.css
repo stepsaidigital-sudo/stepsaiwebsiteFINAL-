@@ -43,13 +43,18 @@ body[data-brand="website"]  { --brand: #2563EB; --brand-deep: #1D4ED8; --brand-t
 
 /* ---------- Box-animation row (the homepage's benefit-card mechanic,
    reused verbatim: slight rest-state tilt, straightens + lifts on
-   hover/focus) ---------- */
+   hover/focus) ----------
+   Per SUBPAGE_DESIGN_SYSTEM.md §1: channel colors (WhatsApp green,
+   Instagram pink, etc.) are confined to icons/status indicators only and
+   must never tint a whole surface -- the box itself always stays on
+   Steps AI blue (--accent-tint), regardless of which data-brand the page
+   carries. Only .prem-box-icon is allowed to use --brand/--brand-deep. */
 .prem-box-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
 .prem-box {
-  padding: 24px; border-radius: 18px; background: var(--brand-tint); text-align: left;
+  padding: 24px; border-radius: 18px; background: var(--accent-tint); text-align: left;
   transition: background 250ms var(--ease-ui);
 }
-.prem-box:hover, .prem-box:focus-within { background: var(--brand-tint-strong); }
+.prem-box:hover, .prem-box:focus-within { background: #E0EBFC; }
 .prem-box-icon {
   width: 42px; height: 42px; border-radius: 11px; background: #fff; display: flex; align-items: center; justify-content: center;
   color: var(--brand-deep); box-shadow: 0 12px 22px -14px rgba(20, 30, 60, .32);
