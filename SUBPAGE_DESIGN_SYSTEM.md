@@ -110,6 +110,38 @@ Simple, commercially clear. No AI buzzwords, no jargon, no long paragraphs, no g
 
 Unmistakably Steps AI? Every section on the same grid? Every section earn its place? Showing the product more than describing it? Does motion help explain behavior (not decorate)? Any unnecessary cards/gradients/empty space? Is the CTA hierarchy obvious? Does mobile feel intentionally designed, not shrunk? Does the whole page read as one continuous experience? If something exists only to "look designed," cut it.
 
+## 16. Add-on: subpage visual creativity + professionalism (2026-09-11, supersedes generic-card default)
+
+This section is a real course-correction on §10 above ("Cards") and the box-row pattern built in the first redesign pass — read it as overriding, not additive, wherever they conflict.
+
+**The homepage is a quality benchmark only** — never copy its literal section layouts or copy. Do not touch `index.html` itself for any of this.
+
+**Do not keep defaulting to "heading, paragraph, 3 cards" repeated down the page.** That includes the `.prem-box-row` component from the first pass — it's a legitimate one-off element, not the section-type answer for every page. Build richer product compositions instead: full-width interface, split-screen scenario, connected conversation flow, sticky product journey, animated timeline, floating UI layers, dashboard with callouts, conversation+analytics combined, before/after state, customer journey map, interactive tabbed use cases, workflow canvas, channel switcher, scrolling message sequence, product card carousel, live status/typing interaction. Cards may support a story; they should not BE the story.
+
+**Every subpage needs ONE signature, memorable interaction** — its visual identity, built around its specific feature. Examples given directly by Sai:
+- **Sales Agent**: follow one customer, discovery → questions → recommendation → checkout, as a sticky conversation.
+- **WhatsApp**: one broadcast expanding into several reply threads, each handled differently by the agent.
+- **Instagram**: a comment visually moves into DM, becomes a sale.
+- **Lead Capture**: an "Anonymous Visitor" gradually becomes a full profile — name, email, company, intent, qualification, lead score, filling in live.
+- **Appointment Booking**: conversation sits beside a calendar; calendar availability responds live as the conversation progresses.
+- **Cart Recovery**: an abandoned cart sits visually abandoned, AI conversation resolves the objection, cart state changes to "Recovered."
+- **Customer Support**: repetitive tickets visually collapse into AI-handled conversations; only complex cases visibly reach a human.
+- (Extend the same spirit to pages without a given example — Website, Messenger, CRM, Analytics, Unified Inbox, Integrations, Workflows, Broadcast, Skills — invent one signature moment per page, grounded in that page's real product facts.)
+
+**Controlled color variation, not white+blue+cards everywhere**: pale blue, soft lavender, mint, subtle pink, warm off-white, soft peach, deep navy sections, electric blue highlights, channel accents — all soft/premium, never a rainbow. Color should be **functional**: blue = primary Steps AI actions, green = success/live/confirmed/WhatsApp context, purple = AI action/automation/Instagram/Messenger accent, pink = Instagram interaction specifically, orange = attention/cart/pending, soft red = problem/abandoned state only when truly needed. Don't overuse any of them.
+
+**Visual depth via layering**: background gradient → soft abstract shape → main product surface → floating utility cards → tiny status elements. Soft shadows, translucent surfaces, thin borders, slight blur, restrained glow, subtle overlap. Not glassmorphism-heavy, no giant floating blobs — everything precise.
+
+**Animation shows the product operating**, not decorating a section: message arrives → AI understands → response appears → action happens → result updates. Good instances: sequential chat bubbles, typing indicators, a recommendation card sliding in, stock status updating, a lead profile filling gradually, a calendar slot being selected, cart status changing, a dashboard metric incrementing, a channel tab switching, a workflow line activating, a small success confirmation, a notification arriving, a tiny pulse on a live/active status. Never animate a whole section continuously just because it can move.
+
+**Section transitions should feel like one continuous product story**, not a hard cut: a gradient softly changing color, a UI panel expanding into the next section, a floating card moving into a new composition, a channel-icon selection transitioning the interface, a chat conversation continuing into the next section, a product card becoming a dashboard record, a customer profile becoming CRM data, a message becoming an order/lead/booking confirmation.
+
+**Product UI must feel real**: realistic labels/states only (Active, Available, Out of stock, Lead captured, Qualified, Meeting booked, Order placed, Human handoff, Cart recovered, Conversation closed), believable timestamps/details/action buttons — never filler/lorem-ipsum-shaped content.
+
+**Suggested (not forced) page rhythm**: Hero (promise + product visual) → animated transition → Signature product story (the feature in action) → lighter section: How it works → colored section: Use case/business scenario (a realistic customer journey) → product-heavy section: Control/dashboard/operations (what the business sees) → proof/integrations/outcomes → FAQ → dark minimal CTA → footer. Deviate from this whenever a better narrative fits the specific feature.
+
+**Professionalism test, run before calling any subpage done**: Does this feel custom-designed for this product? Is there one visual idea worth remembering? Does each major section look intentionally composed? Enough color variation to feel premium without going childish? Is product UI doing most of the storytelling (not prose)? Does animation clarify the product rather than decorate it? Does the page avoid template-like repetition? Does it read as a high-end SaaS product page rather than an AI-generated landing page? If any answer is no, refine further before considering it done.
+
 ## Critical development rule
 
 Before building or editing a subpage: inspect the existing index and shared components first. Reuse the navbar, footer, buttons, fonts, color tokens, FAQ component, container widths, responsive breakpoints, and any other shared component that already exists — never recreate one. Build inside the established system; the page should feel like another page of the same site, never a new site inspired by it.
