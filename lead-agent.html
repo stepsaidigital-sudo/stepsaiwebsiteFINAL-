@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="agents.css">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-lead.css">
 </head>
 <body>
 
@@ -544,21 +545,33 @@
           </div>
         </div>
 
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l2.5-3.5a8.5 8.5 0 1 1 13.5-5Z"/></svg></span>
-            <div class="prem-box-title">A conversation, not a form</div>
-            <p class="prem-box-desc">It asks for budget, timeline, and what you're looking for the way your team would, right inside the chat. No dead-end form to abandon halfway through.</p>
+        <div class="sig-lead reveal">
+          <div class="sig-lead-head">
+            <span class="sig-lead-label">Same visitor, one card</span>
+            <h3 class="sig-lead-title">"Anonymous Visitor" becomes a qualified lead, field by field.</h3>
           </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <div class="prem-box-title">Every lead arrives with context</div>
-            <p class="prem-box-desc">It syncs to HubSpot or Salesforce with the whole conversation attached. Nobody on your team asks a customer to repeat themselves.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
-            <div class="prem-box-title">High-intent leads reach a person fast</div>
-            <p class="prem-box-desc">A bulk order or a serious buyer gets routed straight to the right person, not left waiting in a queue.</p>
+          <div class="sig-lead-stage">
+            <div class="sig-lead-convo">
+              <div class="sig-lead-msg in">Looking for a 2BHK near the tech park</div>
+              <div class="sig-lead-msg out">Got it. What's your budget and how soon are you moving?</div>
+              <div class="sig-lead-msg in">&#8377;85L&ndash;1.1Cr, ideally within 60 days</div>
+              <div class="sig-lead-msg out">And your name and number, so our team can send matching listings?</div>
+              <div class="sig-lead-msg in">Ananya Rao, 98765 43210</div>
+            </div>
+            <div class="sig-lead-card">
+              <div class="sig-lead-card-head">
+                <span class="sig-lead-avatar">?</span>
+                <div><div class="sig-lead-name">Anonymous Visitor</div><div class="sig-lead-sub">Just started chatting</div></div>
+              </div>
+              <div class="sig-lead-fields reveal reveal-stagger">
+                <div class="sig-lead-field" style="--i:0"><span class="k">Name</span><span class="v">Ananya Rao</span></div>
+                <div class="sig-lead-field" style="--i:1"><span class="k">Contact</span><span class="v">98765 43210</span></div>
+                <div class="sig-lead-field" style="--i:2"><span class="k">Interested in</span><span class="v">2BHK, near tech park</span></div>
+                <div class="sig-lead-field" style="--i:3"><span class="k">Budget</span><span class="v">&#8377;85L&ndash;1.1Cr</span></div>
+                <div class="sig-lead-field" style="--i:4"><span class="k">Timeline</span><span class="v">60 days</span></div>
+                <div class="sig-lead-field sig-lead-field--score" style="--i:5"><span class="k">Lead score</span><span class="v">Qualified &middot; Hot</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -598,7 +611,7 @@
           <p class="kicker"><span class="n">04</span> FAQ</p>
           <h2 class="section-title">Questions about the Lead Agent.</h2>
         </div>
-        <div class="faq-grid reveal-stagger">
+        <div class="faq-grid reveal">
           <div style="--i:0">
             <div class="faq-item">
               <button class="faq-question">Will it replace my sales team?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>

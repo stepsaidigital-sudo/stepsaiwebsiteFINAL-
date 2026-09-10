@@ -1,0 +1,55 @@
+/* One Inbox's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): three
+   incoming streams -- WhatsApp, Instagram, Website -- converging into
+   a single unified list. Complements the .inbox-dash mockup already on
+   this page (that shows the result; this shows the convergence
+   itself). Replaces the generic .prem-box-row on this page. */
+.sig-inbox-diagram { position: relative; max-width: 760px; margin: 48px auto 0; }
+
+.sig-inbox-sources { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.sig-inbox-source {
+  padding: 16px 18px; border-radius: 14px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2); transition: transform 200ms var(--ease-ui), box-shadow 200ms var(--ease-ui);
+}
+.sig-inbox-source:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -22px rgba(20, 30, 60, .28); }
+.sig-inbox-source .inbox-dash-chan { margin-bottom: 10px; }
+.sig-inbox-source-msg { font-size: 13px; font-style: italic; color: #0f172a; margin: 0; line-height: 1.5; }
+
+.sig-inbox-connectors { display: block; width: 100%; height: 64px; overflow: visible; }
+.sig-inbox-connectors path {
+  fill: none; stroke: var(--border-strong); stroke-width: 1.5;
+  stroke-dasharray: 4 220; stroke-dashoffset: 0;
+  animation: sig-inbox-flow 2.6s linear infinite;
+}
+.sig-inbox-connectors path:nth-child(2) { animation-delay: .4s; }
+.sig-inbox-connectors path:nth-child(3) { animation-delay: .8s; }
+
+@keyframes sig-inbox-flow {
+  0%   { stroke-dasharray: 4 220; stroke-dashoffset: 0; }
+  90%  { stroke-dasharray: 4 220; stroke-dashoffset: -220; }
+  100% { stroke-dasharray: 4 220; stroke-dashoffset: -220; }
+}
+
+.sig-inbox-unified {
+  max-width: 460px; margin: 0 auto; padding: 8px 0; border-radius: 16px;
+  background: var(--accent-tint); border: 1px solid rgba(37, 99, 235, .18);
+}
+.sig-inbox-unified-label {
+  display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent-deep); padding: 10px 18px 6px;
+}
+.sig-inbox-unified-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 18px;
+  border-top: 1px solid rgba(37, 99, 235, .12); font-size: 13px;
+}
+.sig-inbox-unified-row:first-of-type { border-top: none; }
+.sig-inbox-unified-text { flex: 1; color: #0f172a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sig-inbox-unified-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); flex-shrink: 0; }
+
+@media (max-width: 760px) {
+  .sig-inbox-sources { grid-template-columns: 1fr; }
+  .sig-inbox-connectors { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-inbox-connectors path { animation: none; }
+}

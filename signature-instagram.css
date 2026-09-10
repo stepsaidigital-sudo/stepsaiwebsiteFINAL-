@@ -1,0 +1,66 @@
+/* Instagram's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): a public
+   comment on a post visually continues into a DM thread, ending in a
+   confirmed sale. Replaces the generic .prem-box-row on this page; the
+   comment-to-DM transition itself IS the story, not a card grid. */
+.sig-ig-diagram { position: relative; max-width: 420px; margin: 48px auto 0; }
+
+.sig-ig-post {
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2);
+}
+.sig-ig-post-head { display: flex; align-items: center; gap: 9px; padding: 12px 14px; }
+.sig-ig-post-avatar {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700;
+}
+.sig-ig-post-user { font-size: 13px; font-weight: 650; color: #0f172a; }
+.sig-ig-post-more { margin-left: auto; color: var(--text-faint); letter-spacing: 1px; }
+
+.sig-ig-post-media { aspect-ratio: 4 / 3; background: var(--bg-raised); overflow: hidden; }
+.sig-ig-post-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.sig-ig-post-actions { display: flex; gap: 14px; padding: 12px 14px 6px; color: #0f172a; }
+.sig-ig-post-actions svg { width: 21px; height: 21px; }
+
+.sig-ig-post-caption { font-size: 13px; line-height: 1.45; color: #0f172a; padding: 6px 14px 12px; margin: 0; }
+
+.sig-ig-post-comment {
+  display: flex; gap: 9px; align-items: flex-start; padding: 10px 14px 14px;
+  border-top: 1px solid var(--border-subtle); background: rgba(236, 72, 153, .05);
+}
+.sig-ig-comment-avatar {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; background: var(--bg-raised-2);
+  color: var(--text-secondary); display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700;
+}
+.sig-ig-comment-body { font-size: 12.5px; line-height: 1.45; color: #0f172a; margin: 2px 0 0; }
+.sig-ig-comment-body strong { font-weight: 650; }
+
+.sig-ig-connector { display: block; width: 100%; height: 56px; overflow: visible; }
+.sig-ig-connector path { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+
+.sig-ig-dm {
+  display: flex; flex-direction: column; gap: 9px; padding: 18px;
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px;
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2);
+}
+.sig-ig-dm-label {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  color: #BE185D; margin: 0 0 2px;
+}
+.sig-ig-bubble { max-width: 82%; padding: 9px 13px; border-radius: 14px; font-size: 12.5px; line-height: 1.48; }
+.sig-ig-bubble.in { align-self: flex-start; background: var(--bg-raised); color: #0f172a; border-bottom-left-radius: 4px; }
+.sig-ig-bubble.out {
+  align-self: flex-end; color: #fff; border-bottom-right-radius: 4px;
+  background: linear-gradient(135deg, #4776e6, #8e54e9);
+}
+.sig-ig-pill {
+  align-self: flex-start; margin-top: 2px; display: inline-block; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .03em; padding: 4px 10px; border-radius: 999px;
+}
+.sig-ig-pill--sale { background: rgba(22, 163, 74, .12); color: #15803D; }
+
+@media (max-width: 760px) {
+  .sig-ig-diagram { max-width: 100%; }
+}

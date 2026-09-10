@@ -1,0 +1,46 @@
+/* Support Agent's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): five
+   repetitive tickets collapse into resolved conversations, only the one
+   genuinely complex case reaches a human. Replaces the generic
+   .prem-box-row on this page; the funnel ratio IS the story, not a card
+   grid. Modeled on signature-whatsapp.css's structure. */
+.sig-sup-diagram { position: relative; max-width: 920px; margin: 48px auto 0; }
+
+.sig-sup-incoming { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.sig-sup-ticket {
+  padding: 12px 13px; border-radius: 12px; background: var(--bg-raised); border: 1px solid var(--border-subtle);
+  font-size: 11.5px; line-height: 1.45; color: var(--text-secondary); font-style: italic;
+}
+.sig-sup-ticket--complex { background: rgba(249, 115, 22, .08); border-color: rgba(249, 115, 22, .28); color: #9A3412; }
+
+.sig-sup-connectors { display: block; width: 100%; height: 64px; overflow: visible; }
+.sig-sup-connectors path { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+.sig-sup-connectors path.sig-sup-path--handoff { stroke: rgba(249, 115, 22, .5); }
+
+.sig-sup-outcomes { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; align-items: stretch; }
+.sig-sup-outcome {
+  padding: 20px; border-radius: 14px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2); transition: transform 200ms var(--ease-ui), box-shadow 200ms var(--ease-ui);
+}
+.sig-sup-outcome:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -22px rgba(20, 30, 60, .28); }
+
+.sig-sup-status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+.sig-sup-status--resolved { background: rgba(16, 185, 129, .12); color: #15803D; }
+.sig-sup-status--handoff  { background: rgba(249, 115, 22, .14); color: #C2410C; }
+
+.sig-sup-resolved-list { display: flex; flex-direction: column; gap: 9px; }
+.sig-sup-resolved-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #0f172a; }
+.sig-sup-resolved-row svg { flex-shrink: 0; color: var(--success); }
+
+.sig-sup-handoff-body { display: flex; align-items: flex-start; gap: 12px; }
+.sig-sup-handoff-avatar {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F97316; color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 700;
+}
+.sig-sup-handoff-name { font-size: 13px; font-weight: 650; color: #0f172a; }
+.sig-sup-handoff-note { font-size: 12px; line-height: 1.5; color: var(--text-tertiary); margin-top: 3px; }
+
+@media (max-width: 760px) {
+  .sig-sup-incoming { grid-template-columns: 1fr 1fr; }
+  .sig-sup-connectors { display: none; }
+  .sig-sup-outcomes { grid-template-columns: 1fr; }
+}

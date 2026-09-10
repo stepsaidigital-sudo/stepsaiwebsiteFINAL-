@@ -214,7 +214,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
    risk for anything that captures the page without a live, dwelled
    scroll (exports, screenshots, a presentation). Shorter transitions
    shrink that window without losing the effect for real scrolling. */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
 .reveal-stagger.is-visible > *,
@@ -509,6 +509,80 @@ a.nav-mega-col-head--link:hover .nav-mega-header { color: #2563eb; }
 .nav-col-icon--teal    { background: rgba(13, 148, 136, .12); color: #0d9488; }
 .nav-col-icon--rose    { background: rgba(225, 29, 72, .12); color: #e11d48; }
 .nav-col-icon--blue    { background: rgba(37, 99, 235, .12); color: #2563eb; }
+
+/* Solutions mega-menu v2 (Use Case / Industries / Integrations, 3 equal
+   columns) -- deliberately new selectors (--v2) rather than editing
+   .nav-dropdown-panel--solutions / .nav-mega-layout--solutions directly,
+   same reasoning as the Product menu's v2 rollout: those two are what
+   every other page's Solutions panel still uses until this rolls out
+   sitewide, so touching them in place would break the other pages. The
+   standalone "Industries" nav item is retired -- its content now lives
+   as this panel's middle column. */
+.nav-dropdown-panel--solutions-v2 { width: 1000px; }
+.nav-mega-layout--solutions-v2 { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+/* Column header with a description line under the bold title (reference
+   mockup shows "USE CASE / Solve key business challenges..." stacked) --
+   a bigger icon than the Product menu's plain column heads, aligned to
+   the top of the two-line text block rather than centered. */
+.nav-mega-col-head--desc { align-items: flex-start; gap: 12px; padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--border-subtle); }
+.nav-mega-col-head--desc .nav-mega-header { display: block; font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: normal; text-transform: none; color: #0f172a; padding: 0; }
+.nav-mega-header-desc { display: block; font-size: 11.5px; color: #64748b; line-height: 1.4; margin-top: 2px; }
+
+/* Bigger colored icon chip for this menu's list rows -- reuses the same
+   .nav-col-icon color tokens, just larger (the Product menu only uses
+   this size for column headers; here every row gets one). */
+.nav-sol-icon { width: 38px; height: 38px; border-radius: 10px; }
+.nav-sol-icon svg { width: 19px; height: 19px; }
+
+.nav-sol-row {
+  display: flex; align-items: center; gap: 14px; padding: 9px 10px; border-radius: 10px;
+  text-decoration: none; transition: background-color 160ms var(--ease-ui);
+}
+.nav-sol-row:hover, .nav-sol-row:focus-visible { background: #f1f5f9; }
+.nav-sol-row .nav-mega-row-body { min-width: 0; }
+.nav-sol-chevron { margin-left: auto; flex-shrink: 0; color: #cbd5e1; transition: transform 160ms var(--ease-ui), color 160ms var(--ease-ui); }
+.nav-sol-row:hover .nav-sol-chevron, .nav-sol-row:focus-visible .nav-sol-chevron { color: #94a3b8; transform: translateX(2px); }
+.nav-sol-more { color: #2563eb; font-weight: 650; font-size: 12.5px; padding: 8px 10px 2px; display: block; text-decoration: none; }
+.nav-sol-more:hover { color: #1d4ed8; }
+
+/* Resources mega-menu v2: 4 flat items (no column headers/categories),
+   each a big icon chip + title + description + arrow, divided by thin
+   vertical hairlines -- deliberately new selectors, same reasoning as
+   the Product/Solutions v2 rollouts (other pages still use the old
+   2-column + bento-card markup until this rolls out sitewide). */
+.nav-dropdown-panel--resources-v2 { width: 900px; }
+.nav-mega-layout--resources-v2 { grid-template-columns: repeat(4, 1fr); gap: 0; }
+.nav-res-item {
+  display: flex; flex-direction: column; align-items: flex-start; padding: 4px 26px; text-decoration: none;
+  border-left: 1px solid var(--border-subtle);
+}
+.nav-mega-layout--resources-v2 > .nav-res-item:first-child { border-left: none; padding-left: 4px; }
+.nav-mega-layout--resources-v2 > .nav-res-item:last-child { padding-right: 4px; }
+.nav-res-icon {
+  width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; transition: transform 200ms var(--ease-ui);
+}
+.nav-res-item:hover .nav-res-icon { transform: translateY(-2px); }
+.nav-res-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.nav-res-desc { font-size: 13.5px; line-height: 1.45; color: #64748b; margin-bottom: 22px; }
+.nav-res-arrow { color: #0f172a; transition: transform 200ms var(--ease-ui); }
+.nav-res-item:hover .nav-res-arrow { transform: translateX(3px); }
+@media (max-width: 900px) {
+  .nav-mega-layout--resources-v2 { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }
+  .nav-mega-layout--resources-v2 > .nav-res-item:nth-child(2n+1) { border-left: none; }
+}
+
+/* Partnership mega-menu v2: same flat icon+title+desc+arrow item as
+   Resources v2, just 3 columns instead of 4 -- reuses .nav-res-item
+   etc. wholesale, only the panel width/column count differ. */
+.nav-dropdown-panel--partnership-v2 { width: 880px; }
+.nav-mega-layout--partnership-v2 { grid-template-columns: repeat(3, 1fr); gap: 0; }
+@media (max-width: 760px) {
+  .nav-mega-layout--partnership-v2 { grid-template-columns: 1fr; }
+  .nav-mega-layout--partnership-v2 > .nav-res-item { border-left: none; border-top: 1px solid var(--border-subtle); padding-top: 20px; }
+  .nav-mega-layout--partnership-v2 > .nav-res-item:first-child { border-top: none; padding-top: 4px; }
+}
 
 .nav-mega-simple-row {
   display: block; padding: 7px 10px; margin: 0 -2px; border-radius: 8px;

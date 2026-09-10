@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="agents.css">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-integrations.css">
 </head>
 <body>
 
@@ -451,28 +452,13 @@
           </div>
         </div>
 
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="m9 11 1.5 1.5L14 9"/></svg></span>
-            <div class="prem-box-title">Checks your tools, doesn't just talk about them</div>
-            <p class="prem-box-desc">Ask about stock or a booking slot and it looks it up in Shopify, Calendly or Google Calendar before it answers, not after.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
-            <div class="prem-box-title">From Shopify to Slack, one list</div>
-            <p class="prem-box-desc">Ecommerce, calendars, your CRM and your team's chat all connect from the same screen. No separate setup for each one.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            <div class="prem-box-title">Shows up where you already work</div>
-            <p class="prem-box-desc">A handover lands in Slack. A new lead lands in HubSpot, with the whole conversation attached. Nothing new to open.</p>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. NOTHING GATED
+         3. SIGNATURE MOMENT — one connect action, every tool
+         activates in sequence with its own real outcome
+         (SUBPAGE_DESIGN_SYSTEM.md §16)
          ============================================================ -->
     <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
@@ -481,7 +467,60 @@
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> No integration required</p>
+          <p class="kicker"><span class="n">03</span> One connection, every action</p>
+          <h2 class="section-title">Connect once. It works everywhere.</h2>
+          <p class="section-sub">One toggle, and each tool does its own real job, not just a green checkmark next to a logo.</p>
+        </div>
+
+        <div class="sig-integ-demo reveal">
+          <div class="sig-integ-trigger">
+            <span class="sig-integ-toggle" role="img" aria-label="Connected">
+              <span class="sig-integ-toggle-track"><span class="sig-integ-toggle-thumb"></span></span>
+              Connect your store
+            </span>
+          </div>
+          <div class="sig-integ-list reveal reveal-stagger">
+            <div class="sig-integ-row" style="--i:0">
+              <span class="sig-integ-row-dot" aria-hidden="true"></span>
+              <span class="sig-integ-row-name">Shopify</span>
+              <span class="sig-integ-row-outcome">Order data synced</span>
+            </div>
+            <div class="sig-integ-row" style="--i:1">
+              <span class="sig-integ-row-dot" aria-hidden="true"></span>
+              <span class="sig-integ-row-name">Slack</span>
+              <span class="sig-integ-row-outcome">Team notified on handover</span>
+            </div>
+            <div class="sig-integ-row" style="--i:2">
+              <span class="sig-integ-row-dot" aria-hidden="true"></span>
+              <span class="sig-integ-row-name">HubSpot</span>
+              <span class="sig-integ-row-outcome">Lead pushed, full conversation attached</span>
+            </div>
+            <div class="sig-integ-row" style="--i:3">
+              <span class="sig-integ-row-dot" aria-hidden="true"></span>
+              <span class="sig-integ-row-name">Google Calendar</span>
+              <span class="sig-integ-row-outcome">New booking synced instantly</span>
+            </div>
+            <div class="sig-integ-row" style="--i:4">
+              <span class="sig-integ-row-dot" aria-hidden="true"></span>
+              <span class="sig-integ-row-name">Zendesk</span>
+              <span class="sig-integ-row-outcome">Ticket created automatically</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. NOTHING GATED
+         ============================================================ -->
+    <section class="section section--raised section--atmo">
+      <div class="atmo-mesh" aria-hidden="true">
+        <div class="atmo-blob atmo-blob--amber atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--blue atmo-blob--bl"></div>
+      </div>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">04</span> No integration required</p>
           <h2 class="section-title">Nothing to connect? It still works.</h2>
           <p class="section-sub">Your agent learns from your website and documents from day one. Every integration adds a capability — none of them are required to get started.</p>
         </div>
@@ -494,16 +533,16 @@
     </section>
 
     <!-- ============================================================
-         4. FAQ
+         5. FAQ
          ============================================================ -->
-    <section class="section section--raised section--atmo">
+    <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--amber atmo-blob--tr"></div>
-        <div class="atmo-blob atmo-blob--blue atmo-blob--bl"></div>
+        <div class="atmo-blob atmo-blob--emerald atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--violet atmo-blob--bl"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> Questions</p>
+          <p class="kicker"><span class="n">05</span> Questions</p>
           <h2 class="section-title">About connecting your tools.</h2>
         </div>
         <div class="faq-grid reveal">
@@ -532,7 +571,7 @@
     </section>
 
     <!-- ============================================================
-         5. FINAL CTA
+         6. FINAL CTA
          ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">

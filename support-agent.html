@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="agents.css">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-support.css">
 </head>
 <body>
 
@@ -522,35 +523,69 @@
           </div>
         </div>
 
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
-            <div class="prem-box-title">Real status, not a canned reply</div>
-            <p class="prem-box-desc">It pulls live order and ticket status from Shopify, your helpdesk, and your CRM, so "where's my order" gets a real answer instead of "we're looking into it."</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. SIGNATURE MOMENT — many repetitive tickets, few human handoffs
+         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">03</span> Most of it never reaches a person</p>
+          <h2 class="section-title">Five tickets come in. Four get answered on the spot.</h2>
+          <p class="section-sub">The repetitive questions collapse into resolved conversations automatically. The one that actually needs a person reaches one, with the full thread attached.</p>
+        </div>
+
+        <div class="sig-sup-diagram reveal">
+          <div class="sig-sup-incoming reveal reveal-stagger">
+            <div class="sig-sup-ticket" style="--i:0">&ldquo;Where's my order #2453?&rdquo;</div>
+            <div class="sig-sup-ticket" style="--i:1">&ldquo;Can I exchange this for a different size?&rdquo;</div>
+            <div class="sig-sup-ticket" style="--i:2">&ldquo;Do you ship to Mumbai?&rdquo;</div>
+            <div class="sig-sup-ticket" style="--i:3">&ldquo;Is the return window still open?&rdquo;</div>
+            <div class="sig-sup-ticket sig-sup-ticket--complex" style="--i:4">&ldquo;I was charged twice for the same order&rdquo;</div>
           </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
-            <div class="prem-box-title">Never invents a policy</div>
-            <p class="prem-box-desc">It answers only from your website and your documents. No made-up refund window, no made-up deadline, ever.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
-            <div class="prem-box-title">Hands off with full context</div>
-            <p class="prem-box-desc">When it's not confident, it says so and passes your team the whole conversation. Your customer never has to repeat themselves.</p>
+          <svg class="sig-sup-connectors" viewBox="0 0 800 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M80,0 C80,55 260,45 260,100" />
+            <path d="M260,0 L260,100" />
+            <path d="M440,0 C440,55 260,45 260,100" />
+            <path d="M620,0 C620,55 260,45 260,100" />
+            <path class="sig-sup-path--handoff" d="M720,0 C720,55 650,45 650,100" />
+          </svg>
+          <div class="sig-sup-outcomes reveal reveal-stagger">
+            <div class="sig-sup-outcome sig-sup-outcome--resolved" style="--i:0">
+              <span class="sig-sup-status sig-sup-status--resolved">4 resolved automatically</span>
+              <div class="sig-sup-resolved-list">
+                <div class="sig-sup-resolved-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Order status answered from Shopify</div>
+                <div class="sig-sup-resolved-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Exchange started, no policy guesswork</div>
+                <div class="sig-sup-resolved-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Shipping coverage confirmed</div>
+                <div class="sig-sup-resolved-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Return window confirmed from policy doc</div>
+              </div>
+            </div>
+            <div class="sig-sup-outcome sig-sup-outcome--handoff" style="--i:1">
+              <span class="sig-sup-status sig-sup-status--handoff">Human handoff</span>
+              <div class="sig-sup-handoff-body">
+                <span class="sig-sup-handoff-avatar">P</span>
+                <div>
+                  <div class="sig-sup-handoff-name">Priya &middot; Support team</div>
+                  <div class="sig-sup-handoff-note">Full conversation and order history attached. The customer never repeats themselves.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. TOOLS USED HERE — page-specific integration callout,
+         4. TOOLS USED HERE — page-specific integration callout,
          reuses integrations.html's .integ-band/.integ-logo-row
          ============================================================ -->
     <section class="section section--dark">
       <div class="container">
         <div class="integ-band">
           <div class="reveal-right">
-            <p class="kicker"><span class="n">03</span> Built to work with</p>
+            <p class="kicker"><span class="n">04</span> Built to work with</p>
             <h2 class="section-title">Tickets land where your team already works.</h2>
             <p class="section-sub">A handover isn't a dead end — it arrives with the whole conversation attached.</p>
           </div>
@@ -564,7 +599,7 @@
     </section>
 
     <!-- ============================================================
-         4. FAQ
+         5. FAQ
          ============================================================ -->
     <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
@@ -573,10 +608,10 @@
       </div>
       <div class="container">
         <div class="section-head reveal-grow">
-          <p class="kicker"><span class="n">04</span> FAQ</p>
+          <p class="kicker"><span class="n">05</span> FAQ</p>
           <h2 class="section-title">Questions about the Support Agent.</h2>
         </div>
-        <div class="faq-grid reveal-stagger">
+        <div class="faq-grid reveal">
           <div style="--i:0">
             <div class="faq-item">
               <button class="faq-question">What happens when it doesn't know an answer?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>

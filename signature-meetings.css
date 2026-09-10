@@ -1,0 +1,49 @@
+/* Meetings Agent's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): the
+   booking conversation sits beside a live calendar, and the slot picked
+   in chat is the slot that shows booked on the grid. Replaces the
+   generic .prem-box-row on this page. Modeled on signature-whatsapp.css's
+   structure. */
+.sig-meet-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;
+  max-width: 920px; margin: 48px auto 0;
+}
+
+.sig-meet-convo, .sig-meet-calendar {
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px;
+  box-shadow: 0 16px 32px -26px rgba(20, 30, 60, .2); padding: 20px;
+}
+.sig-meet-convo-head, .sig-meet-calendar-head {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 14px;
+}
+
+.sig-meet-thread { display: flex; flex-direction: column; gap: 9px; }
+.sig-meet-bubble { max-width: 88%; padding: 10px 13px; border-radius: 13px; font-size: 13px; line-height: 1.5; }
+.sig-meet-bubble.in { align-self: flex-end; background: var(--accent-tint); color: #0f172a; border-bottom-right-radius: 4px; }
+.sig-meet-bubble.out { align-self: flex-start; background: var(--bg-raised); color: #0f172a; border-bottom-left-radius: 4px; }
+.sig-meet-bubble--confirm { background: var(--success-tint); color: #065F46; font-weight: 550; }
+
+.sig-meet-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sig-meet-day {
+  display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 6px;
+  border-radius: 10px; background: var(--bg-raised); border: 1px solid transparent;
+}
+.sig-meet-day-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--text-tertiary); }
+.sig-meet-day-empty { font-size: 10px; color: var(--text-faint); }
+.sig-meet-slot {
+  font-size: 10px; font-weight: 650; text-align: center; padding: 5px 6px; border-radius: 8px;
+  background: #fff; border: 1px solid var(--accent-deep); color: var(--accent-deep);
+}
+.sig-meet-day--active { background: var(--accent-tint); border-color: rgba(37, 99, 235, .22); }
+.sig-meet-slot--booked { background: var(--success); border-color: var(--success); color: #fff; }
+
+.sig-meet-confirmed { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-subtle); }
+.sig-meet-status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 4px 10px; border-radius: 999px; }
+.sig-meet-status--booked { background: rgba(16, 185, 129, .12); color: #15803D; }
+.sig-meet-confirmed-detail { margin-top: 8px; font-size: 13px; font-weight: 600; color: #0f172a; }
+
+@media (max-width: 760px) {
+  .sig-meet-layout { grid-template-columns: 1fr; }
+  .sig-meet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .sig-meet-day { padding: 10px 4px; }
+}

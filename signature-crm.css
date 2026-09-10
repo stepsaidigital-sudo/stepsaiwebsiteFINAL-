@@ -1,0 +1,51 @@
+/* CRM's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): the same
+   customer messaging on three different channels, converging into
+   one record -- not three contacts. Compact by design: this supports
+   the .inbox-dash "Ritu Sharma" mockup already on this page, it
+   doesn't replace it. Replaces the generic .prem-box-row. */
+.sig-crm { max-width: 720px; margin: 40px auto 0; }
+.sig-crm-head { text-align: center; margin-bottom: 24px; }
+.sig-crm-label {
+  display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent-deep); margin-bottom: 8px;
+}
+.sig-crm-title { font-size: clamp(18px, 2vw, 22px); color: #0f172a; margin: 0; }
+
+.sig-crm-threads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.sig-crm-channel {
+  padding: 14px; border-radius: 12px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 28px -24px rgba(20, 30, 60, .2);
+}
+.sig-crm-badge {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .03em;
+  padding: 3px 8px; border-radius: 999px; margin-bottom: 8px;
+}
+.sig-crm-badge--wa  { background: rgba(22, 163, 74, .12); color: #15803D; }
+.sig-crm-badge--web { background: rgba(37, 99, 235, .12); color: #1D4ED8; }
+.sig-crm-badge--ig  { background: rgba(219, 39, 119, .12); color: #BE185D; }
+.sig-crm-msg { font-size: 12.5px; line-height: 1.45; color: #0f172a; margin: 0; }
+
+.sig-crm-connectors { display: block; width: 100%; height: 46px; overflow: visible; }
+.sig-crm-connectors path { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+
+.sig-crm-record {
+  display: flex; align-items: center; gap: 14px; max-width: 420px; margin: 0 auto;
+  padding: 16px 20px; border-radius: 16px; background: var(--accent-tint); border: 1px solid rgba(37, 99, 235, .18);
+}
+.sig-crm-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: #fff; color: var(--accent-deep);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;
+}
+.sig-crm-name { font-weight: 600; font-size: 14px; color: #0f172a; }
+.sig-crm-sub { font-size: 12px; color: var(--text-tertiary); }
+.sig-crm-note {
+  margin-left: auto; font-size: 11px; font-weight: 700; letter-spacing: .02em; color: var(--accent-deep);
+  text-align: right; white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .sig-crm-threads { grid-template-columns: 1fr; }
+  .sig-crm-connectors { display: none; }
+  .sig-crm-record { flex-wrap: wrap; }
+  .sig-crm-note { margin-left: 0; text-align: left; }
+}

@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="agents.css">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-inbox.css">
 </head>
 <body>
 
@@ -503,29 +504,14 @@
             </div>
           </div>
         </div>
-
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2.59 12.58A2 2 0 0 1 2 11.17V4a2 2 0 0 1 2-2h7.17a2 2 0 0 1 1.41.59l7.99 8a2 2 0 0 1 .02 2.82Z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/></svg></span>
-            <div class="prem-box-title">Tagged the moment it lands</div>
-            <p class="prem-box-desc">Every conversation gets tagged as it comes in: needs handover, lead, order question, resolved. You know what needs you without opening a single thread.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            <div class="prem-box-title">The full thread, not a summary</div>
-            <p class="prem-box-desc">Open any conversation and see exactly what was asked and what the agent answered, word for word, before you decide whether to step in.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
-            <div class="prem-box-title">Side by side, not tab by tab</div>
-            <p class="prem-box-desc">Website, WhatsApp and Instagram show up in the same list. No switching between apps to figure out who's waiting.</p>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. YOU STAY IN CONTROL
+         3. SIGNATURE MOMENT — three channels converging into one list
+         (SUBPAGE_DESIGN_SYSTEM.md §16). Complements the .inbox-dash
+         mockup above (section 2): that shows the inbox already
+         unified; this shows the convergence itself happening.
          ============================================================ -->
     <section class="section section--raised section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
@@ -534,7 +520,52 @@
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> You stay in control</p>
+          <p class="kicker"><span class="n">03</span> Three channels, one list</p>
+          <h2 class="section-title">Stop checking three apps for the same thing.</h2>
+          <p class="section-sub">A message on WhatsApp, a comment turned DM on Instagram, a question typed into your website widget. All three land in the same list, in the order they arrive.</p>
+        </div>
+
+        <div class="sig-inbox-diagram reveal">
+          <div class="sig-inbox-sources reveal reveal-stagger">
+            <div class="sig-inbox-source" style="--i:0">
+              <span class="inbox-dash-chan"><i class="wa"></i>WhatsApp</span>
+              <p class="sig-inbox-source-msg">"Do you have slots open this weekend?"</p>
+            </div>
+            <div class="sig-inbox-source" style="--i:1">
+              <span class="inbox-dash-chan"><i class="ig"></i>Instagram</span>
+              <p class="sig-inbox-source-msg">"Is the 3BHK still available?"</p>
+            </div>
+            <div class="sig-inbox-source" style="--i:2">
+              <span class="inbox-dash-chan"><i class="web"></i>Website</span>
+              <p class="sig-inbox-source-msg">"Where's my order #2453?"</p>
+            </div>
+          </div>
+          <svg class="sig-inbox-connectors" viewBox="0 0 800 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M150,0 C150,55 400,45 400,100" />
+            <path d="M400,0 L400,100" />
+            <path d="M650,0 C650,55 400,45 400,100" />
+          </svg>
+          <div class="sig-inbox-unified reveal">
+            <span class="sig-inbox-unified-label">One inbox &middot; 3 channels</span>
+            <div class="sig-inbox-unified-row"><span class="inbox-channel-tag">WA</span><span class="sig-inbox-unified-text">Do you have slots open this weekend?</span><span class="sig-inbox-unified-time">4m</span></div>
+            <div class="sig-inbox-unified-row"><span class="inbox-channel-tag">IG</span><span class="sig-inbox-unified-text">Is the 3BHK still available?</span><span class="sig-inbox-unified-time">9m</span></div>
+            <div class="sig-inbox-unified-row"><span class="inbox-channel-tag">Web</span><span class="sig-inbox-unified-text">Where's my order #2453?</span><span class="sig-inbox-unified-time">31m</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. YOU STAY IN CONTROL
+         ============================================================ -->
+    <section class="section section--base section--atmo">
+      <div class="atmo-mesh" aria-hidden="true">
+        <div class="atmo-blob atmo-blob--amber atmo-blob--bl"></div>
+        <div class="atmo-blob atmo-blob--rose atmo-blob--mid"></div>
+      </div>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">04</span> You stay in control</p>
           <h2 class="section-title">It handles what it can. You handle what matters.</h2>
           <p class="section-sub">Nothing happens off the record. Every answer, every handover, visible the moment it happens.</p>
         </div>
@@ -557,16 +588,16 @@
     </section>
 
     <!-- ============================================================
-         4. WHY ONE INBOX — differentiators
+         5. WHY ONE INBOX — differentiators
          ============================================================ -->
-    <section class="section section--base section--atmo">
+    <section class="section section--raised section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--amber atmo-blob--bl"></div>
-        <div class="atmo-blob atmo-blob--rose atmo-blob--mid"></div>
+        <div class="atmo-blob atmo-blob--blue atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--violet atmo-blob--bl"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> Why it matters</p>
+          <p class="kicker"><span class="n">05</span> Why it matters</p>
           <h2 class="section-title">Five channels don't mean five inboxes.</h2>
         </div>
         <div class="diff-grid reveal reveal-stagger">
@@ -578,16 +609,16 @@
     </section>
 
     <!-- ============================================================
-         5. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
+         6. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
          ============================================================ -->
-    <section class="section section--raised section--atmo">
+    <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--blue atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--violet atmo-blob--br"></div>
+        <div class="atmo-blob atmo-blob--teal atmo-blob--tl"></div>
+        <div class="atmo-blob atmo-blob--amber atmo-blob--br"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg><span class="n">05</span> Questions</p>
+          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg><span class="n">06</span> Questions</p>
           <h2 class="section-title">About the inbox.</h2>
           <p class="section-sub">Answered the way the inbox itself would answer them.</p>
         </div>
@@ -654,7 +685,7 @@
     </section>
 
     <!-- ============================================================
-         6. FINAL CTA
+         7. FINAL CTA
          ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">

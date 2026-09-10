@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="agents.css">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-sales.css">
 </head>
 <body>
 
@@ -524,35 +525,74 @@
           </div>
         </div>
 
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-            <div class="prem-box-title">Reads your real catalogue</div>
-            <p class="prem-box-desc">It knows your prices, sizes, and what pairs well, so a sizing or fit question gets a straight answer instead of a redirect to your homepage.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. SIGNATURE MOMENT — one customer, discovery to checkout
+         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">03</span> One conversation, start to finish</p>
+          <h2 class="section-title">Follow one customer from "does this exist" to "order placed."</h2>
+          <p class="section-sub">No separate chats and no lost thread. Discovery, the stock check, the recommendation, and checkout all happen in the same conversation.</p>
+        </div>
+
+        <div class="sig-sales-thread reveal reveal-stagger">
+          <div class="sig-sales-beat" style="--i:0">
+            <span class="sig-sales-num">1</span>
+            <div class="sig-sales-card">
+              <span class="sig-sales-status sig-sales-status--ask">Discovery</span>
+              <div class="sig-sales-bubble in">Do you have the Aria linen shirt, under &#8377;2,000?</div>
+            </div>
           </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
-            <div class="prem-box-title">Never oversells</div>
-            <p class="prem-box-desc">It checks live inventory on Shopify or WooCommerce before it answers, so you never promise a size or color you don't actually have.</p>
+          <div class="sig-sales-beat" style="--i:1">
+            <span class="sig-sales-num">2</span>
+            <div class="sig-sales-card">
+              <span class="sig-sales-status sig-sales-status--check">Checking stock</span>
+              <div class="sig-sales-bubble out">Checking your size and colour against live inventory&hellip;</div>
+            </div>
           </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
-            <div class="prem-box-title">Checkout link, right there</div>
-            <p class="prem-box-desc">Once a customer says yes, the checkout link lands in the same chat with their size already selected. No separate cart-recovery email needed.</p>
+          <div class="sig-sales-beat" style="--i:2">
+            <span class="sig-sales-num">3</span>
+            <div class="sig-sales-card sig-sales-card--product">
+              <span class="sig-sales-status sig-sales-status--recommend">Recommended</span>
+              <div class="sig-sales-product">
+                <span class="sig-sales-product-name">Aria Linen Shirt &middot; Size M</span>
+                <span class="sig-sales-product-meta">&#8377;1,799 &middot; In stock</span>
+              </div>
+              <div class="sig-sales-bubble out">In stock in M, &#8377;1,799. It runs slightly small, so I'd size up if you're in between.</div>
+            </div>
+          </div>
+          <div class="sig-sales-beat" style="--i:3">
+            <span class="sig-sales-num">4</span>
+            <div class="sig-sales-card">
+              <span class="sig-sales-status sig-sales-status--ask">Buying</span>
+              <div class="sig-sales-bubble in">Perfect, I'll take it in M</div>
+            </div>
+          </div>
+          <div class="sig-sales-beat sig-sales-beat--final" style="--i:4">
+            <span class="sig-sales-num">5</span>
+            <div class="sig-sales-card sig-sales-card--success">
+              <span class="sig-sales-status sig-sales-status--placed">Order placed</span>
+              <div class="sig-sales-bubble out">Reserved for 15 minutes &mdash; here's your checkout link, size M already selected.</div>
+              <div class="sig-sales-order">Order #5193 &middot; &#8377;1,799</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. TOOLS USED HERE — page-specific integration callout,
+         4. TOOLS USED HERE — page-specific integration callout,
          reuses integrations.html's .integ-band/.integ-logo-row
          ============================================================ -->
     <section class="section section--dark">
       <div class="container">
         <div class="integ-band">
           <div class="reveal-right">
-            <p class="kicker"><span class="n">03</span> Built to work with</p>
+            <p class="kicker"><span class="n">04</span> Built to work with</p>
             <h2 class="section-title">Connects to the store and CRM you already run.</h2>
             <p class="section-sub">It doesn't just talk about your catalogue — it checks it, live, before it recommends anything.</p>
           </div>
@@ -566,7 +606,7 @@
     </section>
 
     <!-- ============================================================
-         4. FAQ
+         5. FAQ
          ============================================================ -->
     <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
@@ -575,10 +615,10 @@
       </div>
       <div class="container">
         <div class="section-head reveal-grow">
-          <p class="kicker"><span class="n">04</span> FAQ</p>
+          <p class="kicker"><span class="n">05</span> FAQ</p>
           <h2 class="section-title">Questions about the Sales Agent.</h2>
         </div>
-        <div class="faq-grid reveal-stagger">
+        <div class="faq-grid reveal">
           <div style="--i:0">
             <div class="faq-item">
               <button class="faq-question">Does it work with Shopify and WooCommerce?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>

@@ -1,0 +1,53 @@
+/* Messenger's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): the ad
+   or post someone clicked walks into the conversation with them -- an
+   ad thumbnail connecting straight into a Messenger thread that opens
+   already primed with context. Replaces the generic .prem-box-row on
+   this page; the referral-to-context handoff itself IS the story, not
+   a card grid. */
+.sig-mg-diagram { position: relative; max-width: 420px; margin: 48px auto 0; }
+
+.sig-mg-ad {
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden;
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2);
+}
+.sig-mg-ad-label {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-tertiary); margin: 0; padding: 10px 14px 0;
+}
+.sig-mg-ad-media { aspect-ratio: 4 / 3; background: var(--bg-raised); overflow: hidden; margin-top: 8px; }
+.sig-mg-ad-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sig-mg-ad-body { padding: 12px 14px 16px; position: relative; }
+.sig-mg-ad-title { font-size: 13.5px; font-weight: 650; color: #0f172a; margin: 0; }
+.sig-mg-ad-sub { font-size: 11.5px; color: var(--text-tertiary); margin: 2px 0 12px; }
+.sig-mg-ad-cta {
+  display: inline-block; font-size: 12.5px; font-weight: 650; padding: 9px 16px; border-radius: 8px;
+  background: linear-gradient(135deg, #00B2FF, #006AFF); color: #fff;
+}
+
+.sig-mg-connector { display: block; width: 100%; height: 56px; overflow: visible; }
+.sig-mg-connector path { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+
+.sig-mg-convo {
+  display: flex; flex-direction: column; gap: 9px; padding: 18px;
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px;
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2);
+}
+.sig-mg-convo-ref {
+  align-self: center; font-size: 11px; color: var(--text-secondary); background: var(--bg-raised);
+  border: 1px solid var(--border-subtle); border-radius: 999px; padding: 4px 12px; margin: 0 0 2px;
+}
+.sig-mg-bubble { max-width: 82%; padding: 9px 13px; border-radius: 14px; font-size: 12.5px; line-height: 1.48; }
+.sig-mg-bubble.in { align-self: flex-start; background: var(--bg-raised); color: #0f172a; border-bottom-left-radius: 4px; }
+.sig-mg-bubble.out {
+  align-self: flex-end; color: #fff; border-bottom-right-radius: 4px;
+  background: linear-gradient(135deg, #00B2FF, #006AFF);
+}
+.sig-mg-pill {
+  align-self: flex-start; margin-top: 2px; display: inline-block; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .03em; padding: 4px 10px; border-radius: 999px;
+}
+.sig-mg-pill--handled { background: rgba(124, 58, 237, .12); color: #6D28D9; }
+
+@media (max-width: 760px) {
+  .sig-mg-diagram { max-width: 100%; }
+}

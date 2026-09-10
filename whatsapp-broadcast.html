@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="agents.css?v=2.0">
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-broadcast.css">
 </head>
 <body data-brand="whatsapp">
 
@@ -502,38 +503,78 @@
           </div>
         </div>
 
-        <div class="prem-box-row reveal reveal-stagger">
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            <div class="prem-box-title">Every reply handled on its own</div>
-            <p class="prem-box-desc">A size question, a stop request, a thank you. Each reply gets answered the moment it lands, not a queue for someone to work through later.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. SIGNATURE MOMENT — build a segment, watch it send
+         (SUBPAGE_DESIGN_SYSTEM.md §16): the audience narrows filter by
+         filter to a real, capped number, then it sends, then replies
+         start landing back with the agent.
+         ============================================================ -->
+    <section class="section section--raised section--atmo">
+      <div class="atmo-mesh" aria-hidden="true">
+        <div class="atmo-blob atmo-blob--blue atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--amber atmo-blob--bl"></div>
+      </div>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">03</span> Build a segment, watch it send</p>
+          <h2 class="section-title">Start with everyone. Send to who actually matters.</h2>
+          <p class="section-sub">Every filter narrows the number for real. This is one real audience, built down from your whole customer list.</p>
+        </div>
+
+        <div class="sig-bcast-diagram reveal">
+          <div class="sig-bcast-funnel reveal reveal-stagger">
+            <div class="sig-bcast-step" style="--i:0">
+              <span class="sig-bcast-step-count">8,400</span>
+              <span class="sig-bcast-step-label">All customers</span>
+            </div>
+            <div class="sig-bcast-filter" style="--i:1">booked before</div>
+            <div class="sig-bcast-step" style="--i:2">
+              <span class="sig-bcast-step-count">3,150</span>
+              <span class="sig-bcast-step-label">Booked before</span>
+            </div>
+            <div class="sig-bcast-filter" style="--i:3">inactive 60+ days</div>
+            <div class="sig-bcast-step" style="--i:4">
+              <span class="sig-bcast-step-count">1,240</span>
+              <span class="sig-bcast-step-label">Inactive 60+ days</span>
+            </div>
+            <div class="sig-bcast-filter sig-bcast-filter--cap" style="--i:5">capped at 1,000 per send</div>
+            <div class="sig-bcast-step sig-bcast-step--final" style="--i:6">
+              <span class="sig-bcast-step-count">1,000</span>
+              <span class="sig-bcast-step-label">Sending now</span>
+            </div>
           </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
-            <div class="prem-box-title">Real segments, not an exported list</div>
-            <p class="prem-box-desc">The audience comes from real order and chat history: bought in 90 days, gone quiet for 60. Not a spreadsheet somebody pulled once and forgot.</p>
-          </div>
-          <div class="prem-box">
-            <span class="prem-box-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-            <div class="prem-box-title">One send, up to 1,000 people</div>
-            <p class="prem-box-desc">Each broadcast reaches up to 1,000 people in one send. Every reply routes back to the same agent handling everything else on WhatsApp.</p>
+
+          <div class="sig-bcast-live reveal">
+            <div class="sig-bcast-live-row">
+              <span class="sig-bcast-live-dot" aria-hidden="true"></span>
+              <strong>1,000 delivered</strong>
+              <span class="sig-bcast-live-time">just now</span>
+            </div>
+            <div class="sig-bcast-live-reply">
+              <span class="inbox-dash-chan"><i class="wa"></i>WhatsApp</span>
+              <p>&ldquo;Does this include the linen shirts?&rdquo;</p>
+              <span class="sig-bcast-live-badge">Replied by the agent</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. YOU STAY IN CONTROL — same .inbox-controls-row pattern
+         4. YOU STAY IN CONTROL — same .inbox-controls-row pattern
          as one-inbox.html, WhatsApp-compliance-specific copy
          ============================================================ -->
-    <section class="section section--raised section--atmo">
+    <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--amber atmo-blob--tr"></div>
-        <div class="atmo-blob atmo-blob--blue atmo-blob--bl"></div>
+        <div class="atmo-blob atmo-blob--teal atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--rose atmo-blob--bl"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">03</span> You stay in control</p>
+          <p class="kicker"><span class="n">04</span> You stay in control</p>
           <h2 class="section-title">Every rule WhatsApp has, already built in.</h2>
           <p class="section-sub">Nothing sends that shouldn't, to anyone who's opted out, outside the hours you'd expect.</p>
         </div>
@@ -548,16 +589,16 @@
     </section>
 
     <!-- ============================================================
-         4. WHY IT MATTERS — differentiators
+         5. WHY IT MATTERS — differentiators
          ============================================================ -->
-    <section class="section section--base section--atmo">
+    <section class="section section--raised section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--rose atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--teal atmo-blob--br"></div>
+        <div class="atmo-blob atmo-blob--violet atmo-blob--tl"></div>
+        <div class="atmo-blob atmo-blob--amber atmo-blob--br"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">04</span> Why it matters</p>
+          <p class="kicker"><span class="n">05</span> Why it matters</p>
           <h2 class="section-title">A broadcast isn't a dead end.</h2>
         </div>
         <div class="diff-grid reveal reveal-stagger">
@@ -569,16 +610,16 @@
     </section>
 
     <!-- ============================================================
-         5. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
+         6. FAQ — message-style, chat bubbles (see agents.css .faq-chat)
          ============================================================ -->
-    <section class="section section--raised section--atmo">
+    <section class="section section--base section--atmo">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--violet atmo-blob--tr"></div>
-        <div class="atmo-blob atmo-blob--amber atmo-blob--bl"></div>
+        <div class="atmo-blob atmo-blob--emerald atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--blue atmo-blob--bl"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg><span class="n">05</span> Questions</p>
+          <p class="kicker"><svg class="kicker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.2-8.5 7.2 0 2.3 1.25 4.35 3.2 5.7-.1.95-.5 2.1-1.35 3.3 1.7-.2 3.15-.85 4.3-1.65.75.2 1.55.3 2.35.3 4.7 0 8.5-3.2 8.5-7.2S16.7 3.5 12 3.5Z"/><path d="M10.3 9.4c0-1 .75-1.7 1.7-1.7s1.7.6 1.7 1.5c0 1.1-1.7 1.2-1.7 2.5"/><circle cx="12" cy="14.4" r=".5" fill="currentColor" stroke="none"/></svg><span class="n">06</span> Questions</p>
           <h2 class="section-title">About broadcasting.</h2>
           <p class="section-sub">Answered the way the inbox itself would answer them.</p>
         </div>
@@ -645,7 +686,7 @@
     </section>
 
     <!-- ============================================================
-         6. FINAL CTA
+         7. FINAL CTA
          ============================================================ -->
     <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">
