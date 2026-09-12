@@ -58,10 +58,10 @@
     studio.querySelector('.flow-result div>span').textContent=whatsapp?'Customers can reply directly. StepsAI keeps helping.':'StepsAI handles the next question, too.';
     const link=document.querySelector('.revenue-heading .editorial-link');
     link.href=whatsapp?'whatsapp-broadcast.html':'channel-instagram.html';
-    link.innerHTML=whatsapp?'Explore WhatsApp broadcasts <span aria-hidden="true">↗</span>':'Explore Instagram automation <span aria-hidden="true">↗</span>';
+    link.innerHTML=whatsapp?'Explore WhatsApp automation <span aria-hidden="true">↗</span>':'Explore Instagram automation <span aria-hidden="true">↗</span>';
   }
   const copy = {
-    whatsapp: { image:'images/product-diamond-necklace.jpg', alt:'Jewellery collection used in the campaign example', context:'THE PRIVATE PREVIEW', title:'An invitation.<br>A conversation.<br>A new favourite.', subtitle:'Your collection. Their next discovery.', triggerTitle:'A campaign worth replying to', triggerText:'Personalized broadcast · VIP collection', first:'Hi Priya, your invitation to our new collection is here. Would you like a closer look?', reply:'Yes! Can you help me choose a gift?', answer:'Of course. This piece is a lovely place to start. Here’s the collection to explore.', product:'The signature collection', channel:'WhatsApp' },
+    whatsapp: { image:'images/product-diamond-necklace.jpg', alt:'Jewellery collection used in the campaign example', context:'THE PRIVATE PREVIEW', title:'An invitation.<br>A conversation.<br>A new favourite.', subtitle:'Your collection. Their next discovery.', triggerTitle:'A campaign worth replying to', triggerText:'Personalized broadcast · VIP collection', first:'Hi Priya, your invitation to our new collection is here. Would you like a closer look?', reply:'Yes! Can you help me pick a gift?', answer:'Of course. This piece is a lovely place to start. Here’s the collection to explore.', product:'The signature collection', channel:'WhatsApp' },
     instagram: { image:'images/product-oxford-shirts.jpg', alt:'Shirt collection used in the Instagram example', context:'FROM THE FEED TO THE FIT', title:'They see it.<br>They ask.<br>You’re already there.', subtitle:'Make every moment of interest count.', triggerTitle:'A comment starts the conversation', triggerText:'@sarah · “Love this. Can you send the link?”', first:'Hi Sarah! Thanks for your comment. Looking for something from our latest collection?', reply:'Yes, the Oxford shirt. Where can I find it?', answer:'Here’s the Oxford collection you spotted. You can explore the colours and find your fit here.', product:'The Oxford collection', channel:'Instagram' }
   };
   function finishFlow() {
@@ -126,11 +126,18 @@
   });
   replay?.addEventListener('click',playFlow);
   explainFeature('whatsapp');
+  // The markup already ships the finished conversation, so it must render that
+  // way immediately — no scroll-triggered replay. (This used to auto-play the
+  // typing sequence the first time the section hit 25% visible, which wiped
+  // the already-correct messages to opacity:0 and spent ~4.2 real seconds
+  // retyping them back in. Anyone who scrolled through at a normal pace, or
+  // didn't linger that long, saw an empty or half-built demo.) Replay stays
+  // opt-in: the button below, or switching the WhatsApp/Instagram tab, where
+  // content is actually changing and the animation earns its keep.
+  finishFlow();
   if(studio && 'IntersectionObserver' in window) {
-    let played=false;
     new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting && !played) { played=true; playFlow(); }
-      else if(!entry.isIntersecting) finishFlow();
+      if(!entry.isIntersecting) finishFlow();
     }),{threshold:.25}).observe(studio.querySelector('.conversation-stage'));
   }
   document.addEventListener('visibilitychange',()=>{if(document.hidden) finishFlow();});

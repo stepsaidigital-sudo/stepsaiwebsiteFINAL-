@@ -4,7 +4,7 @@
   if(!grid) return;
   grid.removeAttribute('role');
   const routes=['sales-agent.html','support-agent.html','lead-agent.html','meetings-agent.html','whatsapp-broadcast.html'];
-  const descriptions=['Recommend the right product. Help customers take the next step.','Find the order. Answer the question. Keep the customer moving.','Turn a conversation into a qualified contact in your CRM.','Find a time that works and bring the booking into the conversation.','Start with a campaign. Keep going with a personal conversation.'];
+  const descriptions=['Picks the right product, answers the doubt, and adds it to the cart.','Opens the real order, gives the real status, and keeps the customer calm.','Turns a chat into a named contact in your CRM, with the full conversation attached.','Shows your open slots and confirms the appointment inside the chat.','Starts with a WhatsApp broadcast and keeps going as a real conversation.'];
   [...grid.querySelectorAll('.sia-tab')].forEach((old,index)=>{
     const card=document.createElement('a');
     card.className='benefit-card'; card.href=routes[index]; card.innerHTML=old.innerHTML;

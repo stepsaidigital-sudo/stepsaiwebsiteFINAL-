@@ -19,9 +19,647 @@
   <link rel="stylesheet" href="home-finish.css?v=2">
   <link rel="stylesheet" href="hero-premium.css?v=1">
   <link rel="stylesheet" href="benefits.css?v=1">
+  <style id="homepage-layout-qa">
+    /* Homepage-only design QA: preserve the approved visual language while
+       normalizing hierarchy, spacing and large desktop mockup proportions. */
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #12213a;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transform: translateY(-160%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 3px solid #8fb5f4;
+      outline-offset: 2px;
+    }
+
+    /* Homepage Product menu: every capability family is an equal visual
+       section. Seven matching columns use the viewport end to end without
+       stacking a smaller category beneath a larger one. */
+    #nav .nav-dropdown-panel--product-v2 {
+      width: min(1500px, calc(100vw - 32px));
+      max-width: none;
+      padding: 20px;
+    }
+
+    #nav .nav-mega-layout--product-v2 {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    #nav .nav-mega-layout--product-v2 > .nav-mega-col {
+      min-width: 0;
+      padding: 0 16px;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    #nav .nav-mega-layout--product-v2 > .nav-mega-col:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    #nav .nav-mega-layout--product-v2 > .nav-mega-col:last-child {
+      padding-right: 0;
+    }
+
+    #nav .nav-mega-thumb {
+      width: 100%;
+      height: 90px;
+      display: block;
+      object-fit: cover;
+      border-radius: 11px;
+      margin-bottom: 15px;
+      background: #eef3fb;
+    }
+
+    #nav .nav-mega-thumb--platform {
+      object-fit: contain;
+      object-position: center 16%;
+      background: #edf3ff;
+    }
+
+    #nav .nav-mega-thumb--sales {
+      object-position: center 62%;
+    }
+
+    #nav .nav-mega-thumb--support {
+      object-position: center 46%;
+    }
+
+    #nav .nav-mega-thumb--growth {
+      object-position: center 28%;
+    }
+
+    #nav .nav-mega-layout--product-v2 .nav-mega-col-head {
+      min-height: 34px;
+      padding: 0 2px 9px;
+    }
+
+    #nav .nav-mega-layout--product-v2 .nav-mega-simple-row {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      padding: 7px 4px;
+      margin: 0;
+      line-height: 1.28;
+    }
+
+    #nav .nav-mega-layout--product-v2 .nav-mega-more-link {
+      margin-top: 3px;
+    }
+
+    /* Hero direction: preserve the StepsAI visual system while giving the
+       message and product conversation one unmistakable reading path. */
+    #top .hero-metrics,
+    #top .hero-channels,
+    #top .hero-demo-controls,
+    #top .hero-scribble,
+    #top .hero-chat-browser,
+    #top .hero-chat .ch-input {
+      display: none;
+    }
+
+    #top .hero-bg-img {
+      opacity: .2;
+      filter: saturate(.72) brightness(1.08);
+    }
+
+    #top .hero-light-veil {
+      background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(248,250,255,.9) 48%, rgba(239,244,255,.76) 100%);
+    }
+
+    #top .hero-copy .sub {
+      max-width: 570px;
+      text-wrap: pretty;
+    }
+
+    #top .hero .badge {
+      display: inline-flex;
+    }
+
+    #top .hero .hero-play {
+      width: 26px;
+      height: 26px;
+      display: inline-grid;
+      place-items: center;
+      margin-left: 2px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    @media (min-width: 1101px) {
+      #top .hero-grid {
+        grid-template-areas: "copy mockup";
+        grid-template-columns: minmax(0, 1.08fr) minmax(500px, .92fr);
+        column-gap: 64px;
+        align-items: center;
+        min-height: calc(100svh - 100px);
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      #top .hero-copy {
+        grid-area: copy;
+        align-self: center;
+      }
+
+      #top h1.hero-title {
+        max-width: 650px;
+        font-size: clamp(52px, 4.45vw, 66px);
+        line-height: 1.03;
+        letter-spacing: -.035em;
+        text-wrap: balance;
+      }
+
+      #top .hero-visual {
+        grid-area: mockup;
+        width: 100%;
+        max-width: 560px;
+        min-height: 520px;
+        justify-self: end;
+        padding: 18px 38px 18px 48px;
+        margin-right: 0;
+      }
+
+      #top .hero-chat {
+        width: min(430px, 100%);
+        margin: 30px 0 0;
+      }
+
+      #top .hero-chat-body {
+        height: 350px;
+        padding: 18px 20px;
+      }
+
+      #top .hero-cards {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 92px;
+        right: -8px;
+        width: 205px;
+        gap: 16px;
+        margin-top: 0;
+      }
+
+      #top .hero-cards .mini-feature {
+        width: 100%;
+        min-height: 74px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 13px 14px;
+        border: 0;
+        border-radius: 14px;
+        background: rgba(255,255,255,.96);
+        box-shadow: 0 14px 32px -18px rgba(26,86,219,.42), 0 4px 12px -8px rgba(15,23,42,.2);
+      }
+
+      #top .hero-cards .mini-feature.active {
+        background: #fff;
+        box-shadow: 0 16px 36px -18px rgba(26,86,219,.52), 0 4px 14px -8px rgba(15,23,42,.24);
+      }
+
+      #top .hero-cards .mf-ic {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 34px;
+        border-radius: 10px;
+        font-size: 15px;
+      }
+
+      #top .hero-cards h5 {
+        font-size: 13px;
+        line-height: 1.25;
+        margin-bottom: 3px;
+      }
+
+      #top .hero-cards p {
+        font-size: 10.5px;
+        line-height: 1.35;
+      }
+
+      #top .hero-notes {
+        display: flex;
+        left: -56px;
+        top: 118px;
+        gap: 68px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      #top .hero-notes {
+        display: none;
+      }
+
+      #top .hero-visual {
+        max-width: 600px;
+      }
+    }
+
+    #top .ind-header .sec-title,
+    #top .revenue-heading .sec-title {
+      font-size: clamp(30px, 3.6vw, 48px);
+      font-weight: 600;
+      line-height: 1.13;
+      letter-spacing: -.035em;
+    }
+
+    #top section {
+      scroll-margin-top: 104px;
+    }
+
+    @media (min-width: 1101px) and (min-height: 801px) {
+      #top .hero {
+        padding-block: 104px 32px;
+      }
+
+      #top .how,
+      #top .industries,
+      #top .channels,
+      #top .revenue-section,
+      #top .knowledge-sec,
+      #top .setup,
+      #top .faq-sec,
+      #top .sp4-section {
+        padding-block: 80px;
+      }
+
+      #top .automation,
+      #top .command,
+      #top .inbox-sec {
+        padding-block: 48px;
+      }
+
+      #top .dash-stage {
+        width: 100%;
+        max-width: 1180px;
+        margin-top: 24px;
+        margin-inline: auto;
+        padding: 38px 32px;
+      }
+
+      #top .command .cc-feat-row,
+      #top .inbox-sec .cc-pillars {
+        margin-top: 24px;
+      }
+
+      #top .ib-close {
+        margin-top: 18px;
+      }
+
+      #top .automation .auto-header-center {
+        max-width: 850px;
+        margin-bottom: 20px;
+      }
+
+      #top .automation .auto-tabs-bar {
+        margin-block: 16px 24px;
+      }
+
+    #top .automation .wf-canvas-card {
+      width: 100%;
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+    }
+
+    /* Industries: a light editorial accordion. Photography introduces each
+       business, while the useful detail lives on a calm white surface rather
+       than inside a dark image overlay. */
+    #top #industries .ind-accordion {
+      height: 500px;
+      max-height: 500px;
+      gap: 14px;
+    }
+
+    #top #industries .ind-card {
+      flex: 1.15;
+      min-width: 0;
+      border: 1px solid #dce5f3;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 16px 38px -28px rgba(30, 64, 175, .32);
+    }
+
+    #top #industries .ind-card.active {
+      flex: 2.8;
+      border-color: #9dbcf5;
+      box-shadow: 0 22px 48px -30px rgba(37, 99, 235, .42), 0 0 0 1px rgba(37, 99, 235, .06);
+    }
+
+    #top #industries .ind-card:hover {
+      border-color: #b8cced;
+      box-shadow: 0 20px 42px -28px rgba(37, 99, 235, .38);
+    }
+
+    #top #industries .ind-bg-img {
+      top: 0;
+      height: 66%;
+      border-radius: 21px 21px 0 0;
+      filter: saturate(.88) contrast(.98) brightness(1.04);
+      transform: none;
+    }
+
+    #top #industries .ind-card.active .ind-bg-img {
+      height: 42%;
+      filter: saturate(.92) contrast(.98) brightness(1.04);
+      transform: none;
+    }
+
+    #top #industries .ind-card:hover .ind-bg-img,
+    #top #industries .ind-card.active:hover .ind-bg-img {
+      transform: scale(1.015);
+      filter: saturate(.96) contrast(1) brightness(1.04);
+    }
+
+    #top #industries .ind-overlay {
+      display: none;
+    }
+
+    #top #industries .ind-content {
+      inset: 66% 0 0;
+      justify-content: center;
+      padding: 18px 18px 20px;
+      color: #12213a;
+      background: linear-gradient(180deg, #fff 0%, #f8faff 100%);
+    }
+
+    #top #industries .ind-card.active .ind-content {
+      inset: 42% 0 0;
+      justify-content: flex-start;
+      padding: 20px 22px 22px;
+    }
+
+    #top #industries .ind-collapsed-title {
+      color: #12213a;
+      text-align: left;
+      text-shadow: none;
+      white-space: normal;
+      overflow: visible;
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    #top #industries .ind-collapsed-title small {
+      display: block;
+      margin-top: 7px;
+      color: #75829a;
+      font-size: 11.5px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    #top #industries .ind-ifc-kicker {
+      margin-bottom: 8px;
+      padding: 5px 11px;
+      border-color: #c8dafb;
+      background: #edf4ff;
+      color: #2859bd;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    #top #industries .ind-ifc-kicker::before {
+      background: #2563eb;
+      box-shadow: none;
+    }
+
+    #top #industries .ind-expanded h3 {
+      margin-bottom: 7px;
+      color: #12213a;
+      text-shadow: none;
+    }
+
+    #top #industries .ind-story-p {
+      max-width: 600px;
+      margin-bottom: 11px;
+      color: #526078;
+      text-shadow: none;
+    }
+
+    #top #industries .ind-scope-glass {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 0;
+      margin-bottom: 12px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    #top #industries .ind-scope-item {
+      display: block;
+      padding: 10px 11px;
+      border: 1px solid #e1e9f6;
+      border-radius: 12px;
+      background: #f5f8ff;
+      color: #5f6d84;
+      font-size: 10.5px;
+      line-height: 1.4;
+    }
+
+    #top #industries .ind-scope-item b {
+      display: block;
+      margin-bottom: 3px;
+      color: #233552;
+    }
+
+    #top #industries .ind-scope-item .sc-dot {
+      display: none;
+    }
+
+    #top #industries .ind-cta-pill {
+      border-color: #2563eb;
+      border-radius: 10px;
+      background: #2563eb;
+      box-shadow: 0 10px 22px -14px rgba(37, 99, 235, .7);
+    }
+
+    /* Short desktop displays: size the actual layout instead of scaling the
+       page. This keeps type and controls at their designed, readable size. */
+    @media (min-width: 1101px) and (max-height: 800px) {
+      html {
+        scroll-padding-top: 92px;
+      }
+
+      #top section {
+        scroll-margin-top: 90px;
+      }
+
+      #top .hero {
+        padding-block: 100px 24px;
+      }
+
+      #top #industries {
+        min-height: calc(100svh - 91px);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+      }
+
+      #top #industries > .container {
+        width: calc(100% - 48px);
+        max-width: 1320px;
+        margin-inline: auto;
+      }
+
+      #top #industries {
+        padding-block: 24px;
+      }
+
+      #top #industries .ind-header {
+        max-width: 820px;
+        margin-bottom: 18px;
+      }
+
+      #top #industries .ind-header .badge {
+        margin-bottom: 8px;
+      }
+
+      #top #industries .ind-header .sec-title {
+        font-size: clamp(34px, 3vw, 44px);
+        margin-bottom: 8px;
+      }
+
+      #top #industries .ind-header .sec-sub {
+        font-size: 15px;
+      }
+
+      #top #industries .ind-accordion {
+        height: 480px;
+        max-height: 480px;
+        gap: 12px;
+      }
+
+      #top #industries .ind-card {
+        border-radius: 22px;
+      }
+
+      #top #industries .ind-content {
+        padding: 16px 17px 18px;
+      }
+
+      #top #industries .ind-card.active .ind-content {
+        padding: 15px 18px 18px;
+      }
+
+      #top #industries .ind-expanded h3 {
+        font-size: 23px;
+      }
+
+      #top #industries .ind-story-p {
+        font-size: 12.5px;
+        margin-bottom: 8px;
+      }
+
+      #top #industries .ind-scope-glass {
+        padding: 0;
+        gap: 7px;
+        margin-bottom: 9px;
+      }
+
+      #top #industries .ind-scope-item {
+        padding: 8px 9px;
+        font-size: 9.5px;
+      }
+
+      #top #industries .ind-foot-cta {
+        margin-top: 16px;
+      }
+
+      #top #industries .ind-foot-btn {
+        padding: 9px 22px;
+      }
+
+      #top #industries .ind-foot-note {
+        margin-top: 6px;
+      }
+
+      #top .channels,
+      #top .revenue-section,
+      #top .knowledge-sec,
+      #top .automation,
+      #top .command,
+      #top .inbox-sec,
+      #top .setup,
+      #top .sp4-section {
+        padding-block: 56px;
+      }
+
+      #top .dash-stage,
+      #top .automation .wf-canvas-card {
+        width: 100%;
+        max-width: 1180px;
+        margin-inline: auto;
+      }
+
+      #top .dash-stage {
+        margin-top: 24px;
+        padding: 30px 24px;
+      }
+
+      #top .command .cc-feat-row,
+      #top .inbox-sec .cc-pillars {
+        margin-top: 24px;
+      }
+
+      #top .ib-close {
+        margin-top: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #top #industries .ind-accordion {
+        height: auto;
+        max-height: none;
+      }
+
+      #top #industries .ind-card {
+        height: 112px;
+        min-width: 100%;
+      }
+
+      #top #industries .ind-card.active {
+        height: 500px;
+      }
+
+      #top #industries .ind-card.active .ind-bg-img {
+        height: 38%;
+      }
+
+      #top #industries .ind-card.active .ind-content {
+        inset: 38% 0 0;
+      }
+
+      #top #industries .ind-scope-glass {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#top">Skip to main content</a>
 
   <!-- ============================================================
        NAV — unchanged from the working mega-menu, restyled via CSS
@@ -47,6 +685,8 @@
             <div class="nav-mega-layout nav-mega-layout--product-v2">
               <!-- Col 1: Platform (channels) -->
               <div class="nav-mega-col">
+                <img class="nav-mega-thumb nav-mega-thumb--platform" src="images/hero-person.png"
+                  alt="StepsAI agent helping a customer on mobile">
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--violet"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -60,8 +700,10 @@
                 <a href="channel-messenger.html" class="nav-mega-simple-row">Facebook</a>
               </div>
 
-              <!-- Col 2: Sales + Marketing -->
+              <!-- Col 2: Sales -->
               <div class="nav-mega-col">
+                <img class="nav-mega-thumb nav-mega-thumb--sales" src="images/ecommerce-luxury.jpg"
+                  alt="Curated products in a modern retail showroom">
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--green"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -72,21 +714,14 @@
                 </div>
                 <a href="sales-agent.html" class="nav-mega-simple-row">Checkout Conversion</a>
                 <a href="sales-agent.html" class="nav-mega-simple-row">Cart Abandonment</a>
-                <a href="sales-agent.html" class="nav-mega-simple-row">Qualified Lead Capture</a>
-                <a href="meetings-agent.html" class="nav-mega-simple-row">Appointment Booking</a>
-                <div class="nav-mega-divider"></div>
-                <div class="nav-mega-col-head">
-                  <span class="nav-col-icon nav-col-icon--orange"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
-                    </svg></span>
-                  <span class="nav-mega-header">Marketing</span>
-                </div>
-                <a href="whatsapp-broadcast.html" class="nav-mega-simple-row">Broadcasting</a>
+                <a href="sales-agent.html" class="nav-mega-simple-row">Product Recommendations</a>
+                <a href="sales-agent.html" class="nav-mega-simple-row">Guided Checkout</a>
               </div>
 
-              <!-- Col 3: Support + Booking -->
+              <!-- Col 3: Support -->
               <div class="nav-mega-col">
+                <img class="nav-mega-thumb nav-mega-thumb--support" src="images/healthcare-luxury.jpg"
+                  alt="Customer receiving professional assistance at a clinic">
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--indigo"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,7 +733,47 @@
                 <a href="support-agent.html" class="nav-mega-simple-row">Order Tracking</a>
                 <a href="support-agent.html" class="nav-mega-simple-row">Human Handoff</a>
                 <a href="support-agent.html" class="nav-mega-simple-row">Ticket Creation</a>
-                <div class="nav-mega-divider"></div>
+              </div>
+
+              <!-- Col 4: Lead Capture -->
+              <div class="nav-mega-col">
+                <img class="nav-mega-thumb nav-mega-thumb--growth" src="images/grow-human-savings.jpg"
+                  alt="Business owner representing measurable customer growth">
+                <div class="nav-mega-col-head">
+                  <span class="nav-col-icon nav-col-icon--rose"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg></span>
+                  <span class="nav-mega-header">Lead Capture</span>
+                </div>
+                <a href="lead-agent.html" class="nav-mega-simple-row">Lead Qualification</a>
+                <a href="crm.html" class="nav-mega-simple-row">CRM Sync</a>
+                <a href="lead-agent.html" class="nav-mega-simple-row">Contact Capture</a>
+                <a href="lead-agent.html" class="nav-mega-simple-row">Smart Routing</a>
+              </div>
+
+              <!-- Col 5: Marketing -->
+              <div class="nav-mega-col">
+                <img class="nav-mega-thumb" src="images/team-collaboration.jpg"
+                  alt="Marketing team coordinating customer campaigns">
+                <div class="nav-mega-col-head">
+                  <span class="nav-col-icon nav-col-icon--orange"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
+                    </svg></span>
+                  <span class="nav-mega-header">Marketing</span>
+                </div>
+                <a href="whatsapp-broadcast.html" class="nav-mega-simple-row">Broadcasting</a>
+                <a href="whatsapp-broadcast.html" class="nav-mega-simple-row">Campaign Replies</a>
+                <a href="whatsapp-broadcast.html" class="nav-mega-simple-row">Audience Segments</a>
+                <a href="whatsapp-broadcast.html" class="nav-mega-simple-row">Automated Follow-ups</a>
+              </div>
+
+              <!-- Col 6: Booking -->
+              <div class="nav-mega-col">
+                <img class="nav-mega-thumb" src="images/hero-hotels.jpg"
+                  alt="Hospitality team managing customer bookings">
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--teal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -108,23 +783,15 @@
                   <span class="nav-mega-header">Booking</span>
                 </div>
                 <a href="meetings-agent.html" class="nav-mega-simple-row">Slot Reservation</a>
-                <a href="meetings-agent.html" class="nav-mega-simple-row">Demo Rescheduling</a>
+                <a href="meetings-agent.html" class="nav-mega-simple-row">Rescheduling</a>
                 <a href="meetings-agent.html" class="nav-mega-simple-row">Reminders</a>
                 <a href="meetings-agent.html" class="nav-mega-simple-row">Calendar Sync</a>
               </div>
 
-              <!-- Col 4: Lead Capture (header IS the link, no redundant row beneath it) + More Features -->
+              <!-- Col 7: More Features -->
               <div class="nav-mega-col">
-                <a href="lead-agent.html" class="nav-mega-col-head nav-mega-col-head--link">
-                  <span class="nav-col-icon nav-col-icon--rose"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg></span>
-                  <span class="nav-mega-header">Lead Capture</span>
-                </a>
-                <a href="crm.html" class="nav-mega-simple-row nav-mega-simple-row--sub"><span class="nav-mega-subarrow" aria-hidden="true">&#8618;</span>CRM</a>
-                <div class="nav-mega-divider"></div>
+                <img class="nav-mega-thumb" src="images/hero-bg-v2.jpg"
+                  alt="Connected StepsAI product capabilities">
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--blue"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -136,8 +803,6 @@
                 <a href="analytics.html" class="nav-mega-simple-row">Analytics</a>
                 <a href="one-inbox.html" class="nav-mega-simple-row">Unified Inbox</a>
                 <a href="integrations.html" class="nav-mega-simple-row">Integrations</a>
-                <a href="workflows.html" class="nav-mega-simple-row">Workflows</a>
-                <a href="skills.html" class="nav-mega-simple-row">Skills</a>
                 <a href="agents.html" class="nav-mega-simple-row nav-mega-more-link">See all features &rarr;</a>
               </div>
             </div>
@@ -469,17 +1134,23 @@
   </div>
   <div class="container hero-grid">
     <div class="hero-copy">
-      <span class="badge">Your 24/7 AI customer agent</span>
-      <h1 class="hero-title">Handle every customer without <span class="grad-text">touching your inbox</span>.</h1>
-      <p class="sub">Your inbox is the ceiling on how fast you can grow. Steps AI is an AI agent trained on your business that answers questions, checks live information, books, qualifies and closes, on every channel your customers already use.</p>
+      <span class="badge">AI AGENT FOR SALES AND SUPPORT</span>
+      <h1 class="hero-title">Turn more visitors and messages into <span class="grad-text">sales, leads, and bookings.</span></h1>
+      <p class="sub">Steps AI answers customer questions on your website, WhatsApp, Instagram and Messenger. Your agent connects to your store, your calendar and your CRM, so every answer comes from your real records instead of a guess. Live in about five minutes.</p>
       <div class="hero-btns">
         <a href="pricing.html" class="btn btn-dark">Start free <span class="arrow">→</span></a>
-        <a href="#whatsapp" class="btn btn-ghost">See it in action <span class="arrow">↗</span></a>
+        <a href="#whatsapp" class="btn btn-ghost">Watch it work <span class="hero-play" aria-hidden="true">▶</span></a>
       </div>
       <div class="ticks">
         <span><span class="tk">✓</span> Free to start</span>
         <span><span class="tk">✓</span> No code</span>
         <span><span class="tk">✓</span> Live in minutes</span>
+      </div>
+      <div class="hero-metric-plate" style="display:flex;flex-wrap:wrap;gap:22px;margin:18px 0 4px">
+        <div><b class="grad-text" style="font-size:20px;font-weight:800">8 in 10</b><span style="display:block;font-size:12px;color:var(--text-secondary)">questions answered without you</span></div>
+        <div><b class="grad-text" style="font-size:20px;font-weight:800">95+</b><span style="display:block;font-size:12px;color:var(--text-secondary)">languages</span></div>
+        <div><b class="grad-text" style="font-size:20px;font-weight:800">0.5s</b><span style="display:block;font-size:12px;color:var(--text-secondary)">average reply time</span></div>
+        <div><b class="grad-text" style="font-size:20px;font-weight:800">3×</b><span style="display:block;font-size:12px;color:var(--text-secondary)">conversion lift, results vary</span></div>
       </div>
       <div class="hero-channels" role="tablist" aria-label="Customer channels">
         <button class="ch active" data-hero-ch="website" type="button" role="tab" aria-selected="true"><span class="ic" data-icon="website"></span><span>Website</span></button>
@@ -490,49 +1161,6 @@
       </div>
     </div>
 
-    <div class="trust-container hero-metrics">
-    <div class="glass-showcase-panel">
-      
-      <!-- 4 Key Metrics Inside Compact Frosted Glass Plate -->
-      <div class="glass-metrics-grid">
-        
-        <!-- Metric 1 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">8 in 10</div>
-          <p class="glass-stat-desc">answered without a person</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 2 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">95+</div>
-          <p class="glass-stat-desc">languages, answered in native tone</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 3 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">0.5s</div>
-          <p class="glass-stat-desc">average first reply velocity</p>
-        </div>
-
-        <div class="glass-stat-divider" aria-hidden="true"></div>
-
-        <!-- Metric 4 -->
-        <div class="glass-stat-card">
-          <div class="glass-stat-num">
-            <span>11×</span>
-            <span class="glass-verify-badge">VERIFY</span>
-          </div>
-          <p class="glass-stat-desc">return on cost in the first quarter</p>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
     <div class="hero-visual">
       <div class="hero-blob" aria-hidden="true">
         <canvas id="heroTunnel"></canvas>
@@ -540,7 +1168,7 @@
       </div>
       <div class="hero-notes" aria-hidden="true">
         <span class="nt hand">Answers questions</span>
-        <span class="nt hand">Recommends options</span>
+        <span class="nt hand">Checks your records</span>
         <span class="nt hand">Takes action</span>
         <span class="nt hand">Gets results</span>
       </div>
@@ -556,16 +1184,16 @@
         </div>
         <div class="hero-chat-body" id="heroChatBody">
           <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">I need a waterproof jacket for hiking. Which one should I get?</span></div>
-          <div class="msg-row"><span class="avatar bot" style="background:#fff;border:1px solid #e6eaf2"><span class="logo-mark" style="width:17px;height:9px"></span></span><span class="bub ai">The Trail Jacket is a great fit — waterproof, lightweight, and available in your size.</span></div>
+          <div class="msg-row"><span class="avatar bot" style="background:#fff;border:1px solid #e6eaf2"><span class="logo-mark" style="width:17px;height:9px"></span></span><span class="bub ai">The Trail Jacket is a good fit. Waterproof, lightweight, and in stock in your size right now.</span></div>
           <div class="prod-card">
             <span class="prod-thumb"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=150&q=80" alt="Trail Jacket"></span>
             <div>
               <h6>Trail Jacket</h6>
-              <div class="pr">$129 <span class="stars">★★★★★ 4.8</span></div>
+              <div class="pr">₹10,999 <span class="stars">★★★★★ 4.8</span></div>
               <span class="mini-btn">Add to cart</span>
             </div>
           </div>
-          <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Perfect, I'll take it!</span></div>
+          <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Perfect. Added.</span></div>
         </div>
         <div class="ch-input">Send a message… <span class="snd">➤</span></div>
       </div>
@@ -575,7 +1203,7 @@
         <div class="mini-feature" data-tab="book" tabindex="0" role="button" aria-pressed="false"><span class="mf-ic" style="background:var(--green-soft)">📅</span><div><h5>Capture &amp; book</h5><p>Get leads and book more meetings</p></div></div>
         <div class="mini-feature" data-tab="support" tabindex="0" role="button" aria-pressed="false"><span class="mf-ic" style="background:var(--purple-soft)">🎧</span><div><h5>Support better</h5><p>Resolve issues faster</p></div></div>
       </div>
-      <div class="hero-scribble hand" aria-hidden="true">Real conversations.<br>Real results.</div>
+      <div class="hero-scribble hand" aria-hidden="true">Real conversations.<br>Real records.<br>Real results.</div>
     </div>
   </div>
 
@@ -587,8 +1215,10 @@
     <div class="trust-marquee-title-wrap">
       <span class="trust-marquee-title">
         <span class="tag-pulse"></span>
-        Trusted by 2,500+ forward-thinking brands &amp; high-growth teams
+        Trusted by 2,500+ growing brands and busy teams
       </span>
+      <span class="badge" style="margin-left:10px">Meta Business Partner</span>
+      <span class="badge" style="margin-left:6px">Shopify Partner</span>
     </div>
 
     <div class="trust-marquee-edge-wrap" aria-label="Customer Brands Marquee">
@@ -690,9 +1320,9 @@
   <div class="container how-container">
     <span class="how-note hand" aria-hidden="true">Same powerful agent.<br>Any business.</span>
     <div class="reveal">
-      <span class="badge">What it does</span>
-      <h2 class="sec-title">One agent. Every job your front desk does.</h2>
-      <p class="sec-sub">It sells, answers, books, captures and follows up inside the same conversation. The customer is never handed off, never sent to a form, and never told to wait until morning.</p>
+      <span class="badge">What your AI customer support agent does</span>
+      <h2 class="sec-title">One AI agent. Every job your front desk <span class="grad-text">does today.</span></h2>
+      <p class="sec-sub">Steps AI sells, answers, books, captures leads and follows up inside the same chat. Your customer is never sent to a form, never put on hold, and never told to wait until morning.</p>
     </div>
 
     <!-- 5 Standalone Premium Cards (C-action background card and quotation disabled) -->
@@ -701,7 +1331,7 @@
       <button class="sia-tab active" data-sia="0" role="tab" aria-selected="true">
         <div class="tp">
           <div class="tp-head">
-            <span class="tp-tag">🛍️ Catalog Match</span>
+            <span class="tp-tag">Catalog Match</span>
             <span class="tp-live-pill"><span class="tp-live-dot"></span>In Stock</span>
           </div>
           <div class="tp-row">
@@ -718,7 +1348,7 @@
         </div>
         <div class="sia-tab-info">
           <span class="sia-tab-name">Sales</span>
-          <span class="sia-tab-desc">Sells what you actually have →</span>
+          <span class="sia-tab-desc">Picks the right product, answers the doubt, and adds it to the cart.</span>
         </div>
       </button>
 
@@ -726,7 +1356,7 @@
       <button class="sia-tab" data-sia="1" role="tab" aria-selected="false">
         <div class="tp">
           <div class="tp-head">
-            <span class="tp-tag">📦 Instant Tracking</span>
+            <span class="tp-tag">Instant Tracking</span>
             <span class="tp-live-pill"><span class="tp-live-dot"></span>FedEx Live</span>
           </div>
           <div class="tp-row">
@@ -755,7 +1385,7 @@
         </div>
         <div class="sia-tab-info">
           <span class="sia-tab-name">Support</span>
-          <span class="sia-tab-desc">Answers repeat questions in 0.4s →</span>
+          <span class="sia-tab-desc">Opens the real order, gives the real status, and keeps the customer calm.</span>
         </div>
       </button>
 
@@ -763,7 +1393,7 @@
       <button class="sia-tab" data-sia="2" role="tab" aria-selected="false">
         <div class="tp">
           <div class="tp-head">
-            <span class="tp-tag">👤 CRM Qualification</span>
+            <span class="tp-tag">CRM Qualification</span>
             <span class="tp-live-pill"><span class="tp-live-dot"></span>HubSpot Synced</span>
           </div>
           <div class="tp-form-box">
@@ -775,7 +1405,7 @@
         </div>
         <div class="sia-tab-info">
           <span class="sia-tab-name">Lead capture</span>
-          <span class="sia-tab-desc">Qualifies and syncs to your CRM →</span>
+          <span class="sia-tab-desc">Turns a chat into a named contact in your CRM, with the full conversation attached.</span>
         </div>
       </button>
 
@@ -783,7 +1413,7 @@
       <button class="sia-tab" data-sia="3" role="tab" aria-selected="false">
         <div class="tp">
           <div class="tp-head">
-            <span class="tp-tag">📅 Calendar Dispatch</span>
+            <span class="tp-tag">Calendar Dispatch</span>
             <span class="tp-live-pill"><span class="tp-live-dot"></span>Available</span>
           </div>
           <div class="tp-row">
@@ -801,7 +1431,7 @@
         </div>
         <div class="sia-tab-info">
           <span class="sia-tab-name">Booking</span>
-          <span class="sia-tab-desc">Books meetings while they're typing →</span>
+          <span class="sia-tab-desc">Shows your open slots and confirms the appointment inside the chat.</span>
         </div>
       </button>
 
@@ -816,11 +1446,11 @@
             <div class="tp-bub out">📣 Weekend Sale — 20% off sets</div>
             <div class="tp-bub in">Does that include gift sets?</div>
           </div>
-          <div class="tp-note-pill green">⚡ Replied in 0.4s &middot; Ready to buy</div>
+          <div class="tp-note-pill green">Replied in 0.4s &middot; Ready to buy</div>
         </div>
         <div class="sia-tab-info">
           <span class="sia-tab-name">Marketing</span>
-          <span class="sia-tab-desc">Sends campaigns &amp; answers replies →</span>
+          <span class="sia-tab-desc">Starts with a WhatsApp broadcast and keeps going as a real conversation.</span>
         </div>
       </button>
     </div>
@@ -835,84 +1465,84 @@
   <div class="container">
     <span class="ind-note hand" aria-hidden="true">Same AI.<br>Greater possibilities.</span>
     <div class="ind-header reveal-left">
-      <span class="badge">Built for your business</span>
-      <h2 class="sec-title">It works like someone who <span class="grad-text">already works for you</span>.</h2>
-      <p class="sec-sub">Same agent, different business. It answers while the customer is typing, and follows through after they leave.</p>
+      <span class="badge">AI chatbot for business, in any industry</span>
+      <h2 class="sec-title">Answers like your best staff member. <span class="grad-text">Works like a team of them.</span></h2>
+      <p class="sec-sub">Your best person holds one conversation at a time, during working hours. <strong>Steps AI holds a hundred, in 95 languages, at 2 am, and every one of them sounds like your business.</strong></p>
     </div>
 
     <div class="ind-accordion reveal" id="indAccordion">
       <!-- 1. E-Commerce & D2C -->
       <div class="ind-card active" data-ind="ecommerce" tabindex="0" role="button" aria-expanded="true">
-        <img class="ind-bg-img" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="E-Commerce & D2C" loading="lazy">
+        <img class="ind-bg-img" src="images/ecommerce-luxury.jpg" alt="E-Commerce & D2C" loading="lazy">
         <div class="ind-overlay"></div>
         <div class="ind-content">
-          <div class="ind-collapsed-title">E-Commerce</div>
+          <div class="ind-collapsed-title">E-Commerce<small>Sales and checkout</small></div>
           <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Works like your best salesperson, never off the floor</span>
+            <span class="ind-ifc-kicker">Sells like your best floor staff, even at 11 pm</span>
             <h3>E-Commerce &amp; D2C</h3>
-            <p class="ind-story-p">“Do you have this in medium?” arrives at 11 pm, on Instagram. It answers from real Shopify stock, suggests what goes with it, and you find the order placed in the morning.</p>
+            <p class="ind-story-p">“Do you have this in medium?” lands at 11 pm on Instagram. Your agent checks live Shopify stock, shows the exact product, adds it to the cart, and you wake up to the order already placed.</p>
             <div class="ind-scope-glass">
               <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Product Questions · Live Stock · Order Tracking · Returns &amp; Exchanges · Recommendations</span></div>
-              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Cart Abandonment · Checkout Recovery · Shipping Updates · Review Requests · Back In Stock</span></div>
+              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Cart Recovery · Checkout Nudges · Shipping Updates · Review Requests</span></div>
             </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the e-commerce agent →</a>
+            <a href="#deploy-everywhere" class="ind-cta-pill">See the ecommerce AI agent →</a>
           </div>
         </div>
       </div>
 
       <!-- 2. Real Estate -->
       <div class="ind-card" data-ind="real-estate" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Real Estate" loading="lazy">
+        <img class="ind-bg-img" src="images/real-estate-luxury.jpg" alt="Real Estate" loading="lazy">
         <div class="ind-overlay"></div>
         <div class="ind-content">
-          <div class="ind-collapsed-title">Real Estate</div>
+          <div class="ind-collapsed-title">Real Estate<small>Enquiries and viewings</small></div>
           <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Works like a broker who answers at midnight</span>
+            <span class="ind-ifc-kicker">Qualifies like your sharpest broker, at midnight</span>
             <h3>Real Estate</h3>
-            <p class="ind-story-p">Someone asks about a 2BHK at midnight. It answers the price question, sends the floor plan, and gets their budget and timeline while they are still typing.</p>
+            <p class="ind-story-p">Someone asks the price of a 2BHK at midnight. Your agent answers, sends the floor plan, and captures their budget and timeline while they are still typing. Your team wakes up to a hot lead, not a missed call.</p>
             <div class="ind-scope-glass">
               <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Property Questions · Floor Plans &amp; Brochures · Budget &amp; Timeline · Site Visit Booking · Hot Lead Routing</span></div>
               <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Site Visit Reminders · Post-Visit Follow-Up · New Listing Alerts · Cold Enquiry Revival · High Budget Alerts</span></div>
             </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the real estate agent →</a>
+            <a href="#deploy-everywhere" class="ind-cta-pill">See the real estate AI agent →</a>
           </div>
         </div>
       </div>
 
       <!-- 3. Healthcare & Clinics -->
       <div class="ind-card" data-ind="healthcare" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Healthcare & Clinics" loading="lazy">
+        <img class="ind-bg-img" src="images/healthcare-luxury.jpg" alt="Healthcare & Clinics" loading="lazy">
         <div class="ind-overlay"></div>
         <div class="ind-content">
-          <div class="ind-collapsed-title">Healthcare</div>
+          <div class="ind-collapsed-title">Healthcare<small>Appointments and support</small></div>
           <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Works like a receptionist who never puts anyone on hold</span>
+            <span class="ind-ifc-kicker">Runs the front desk without putting anyone on hold</span>
             <h3>Healthcare &amp; Clinics</h3>
-            <p class="ind-story-p">Your front desk repeats timings and insurance forty times a day. Now it does not have to, and anything medical goes to a person immediately.</p>
+            <p class="ind-story-p">Your front desk repeats timings, directions and insurance rules forty times a day. Your agent takes every one of them and books the slot, then sends anything medical to a real person straight away.</p>
             <div class="ind-scope-glass">
               <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Appointment Booking · Rescheduling · Insurance Questions · Timings &amp; Directions · Medical Escalation</span></div>
               <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Appointment Reminders · No-Show Follow-Up · Report Ready Alerts · Follow-Up Visit Nudges · Urgent Escalation</span></div>
             </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the healthcare agent →</a>
+            <a href="#deploy-everywhere" class="ind-cta-pill">See the healthcare AI agent →</a>
           </div>
         </div>
       </div>
 
       <!-- 4. Education & Training -->
       <div class="ind-card" data-ind="education" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Education & Training" loading="lazy">
+        <img class="ind-bg-img" src="images/hero-edtech.jpg" alt="Education & Training" loading="lazy">
         <div class="ind-overlay"></div>
         <div class="ind-content">
-          <div class="ind-collapsed-title">Education</div>
+          <div class="ind-collapsed-title">Education<small>Admissions and follow-up</small></div>
           <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Works like a counsellor who speaks every language</span>
+            <span class="ind-ifc-kicker">Counsels every enquiry, in the language they wrote in</span>
             <h3>Education &amp; Training</h3>
-            <p class="ind-story-p">A student asks about fees at 11 pm, then goes quiet for a week. It answers in the language they asked in, follows up on its own, and walks them through the form.</p>
+            <p class="ind-story-p">A student asks about fees at 11 pm, then goes quiet for a week. Your agent replies in their own language, follows up without being told to, and walks them through the application form.</p>
             <div class="ind-scope-glass">
               <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Fee &amp; Eligibility · Application Walkthrough · Prospectus &amp; Dates · Counsellor Calls · 95+ Languages</span></div>
               <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Application Drop-Off Follow-Up · Deadline Reminders · Missing Document Nudges · Fee Instalment Reminders</span></div>
             </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the education agent →</a>
+            <a href="#deploy-everywhere" class="ind-cta-pill">See the education AI agent →</a>
           </div>
         </div>
       </div>
@@ -920,8 +1550,8 @@
 
     <!-- Section Footer -->
     <div class="ind-foot-cta reveal">
-      <a href="#start" class="ind-foot-btn">Explore custom industry solutions <span class="arrow">→</span></a>
-      <p class="ind-foot-note">Not on this list? It learns from your own pages and documents, whatever business you run.</p>
+      <a href="#start" class="ind-foot-btn">Explore more industries <span class="arrow">→</span></a>
+      <p class="ind-foot-note">Not on this list? Your agent learns from your own pages and documents, whatever business you run.</p>
     </div>
   </div>
 </section>
@@ -932,8 +1562,8 @@
     <span class="channels-note hand" aria-hidden="true">Same agent. Every channel.<br>Bigger opportunities.</span>
     <div class="reveal-right">
       <span class="badge">Deploy everywhere</span>
-      <h2 class="sec-title">Set it up once. <span class="grad-text">It shows up everywhere they do.</span></h2>
-      <p class="sec-sub">Same agent, same memory, same answer, whether they message you on WhatsApp or land on your website at 2am. Change an answer once and it changes on every channel.</p>
+      <h2 class="sec-title">Set up once. <span class="grad-text">Show up wherever your customers already are.</span></h2>
+      <p class="sec-sub">Steps AI is one AI chatbot for your website, WhatsApp, Instagram and Messenger, not four separate ones. Most teams build an agent for the site, another for WhatsApp, and answer Instagram by hand. Steps AI runs all of them as one agent with one memory. WhatsApp, Instagram and Messenger connect through a single Meta login.</p>
     </div>
 
     <div class="deploy-hub-row reveal">
@@ -961,14 +1591,15 @@
 <section class="wa revenue-section" id="whatsapp">
   <div class="container">
     <div class="revenue-heading">
-      <h2 class="sec-title">Your next customer<br>is already <span class="grad-text">in the conversation.</span></h2>
-      <div><p class="sec-sub">Send offers to your customers with WhatsApp broadcasts. Turn Instagram comments into automatic private messages. See how each one works.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp broadcasts <span aria-hidden="true">↗</span></a></div>
+      <div><span class="badge">Marketing</span>
+      <h2 class="sec-title">WhatsApp automation that does not stop <span class="grad-text">at the broadcast.</span></h2></div>
+      <div><p class="sec-sub">Email gets ignored. WhatsApp gets opened. Send your offer into the app your customers check forty times a day, turn every Instagram comment into a private message, and let your agent answer each reply personally. <strong>One broadcast, hundreds of real conversations.</strong></p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp automation <span aria-hidden="true">↗</span></a></div>
     </div>
     <div class="revenue-studio" data-channel="whatsapp">
       <div class="studio-toolbar">
         <div class="studio-tabs" role="tablist" aria-label="Marketing demo channel">
           <button type="button" role="tab" id="revenue-wa" aria-controls="revenue-panel" aria-selected="true" data-revenue-channel="whatsapp"><span data-icon="whatsapp"></span>WhatsApp broadcasts</button>
-          <button type="button" role="tab" id="revenue-ig" aria-controls="revenue-panel" aria-selected="false" tabindex="-1" data-revenue-channel="instagram"><span data-icon="instagram"></span>Instagram comment → DM</button>
+          <button type="button" role="tab" id="revenue-ig" aria-controls="revenue-panel" aria-selected="false" tabindex="-1" data-revenue-channel="instagram"><span data-icon="instagram"></span>Instagram comment to DM</button>
         </div>
         <span class="demo-caption">Interactive product example</span>
       </div>
@@ -990,7 +1621,7 @@
             </div>
             <div class="revenue-messages">
               <div class="flow-message flow-message-brand" data-flow="0"><p id="flowFirst">Hi Priya, your invitation to our new collection is here. Would you like a closer look?</p><span>11:30</span></div>
-              <div class="flow-message flow-message-customer" data-flow="1"><p id="flowReply">Yes! Can you help me choose a gift?</p><span>11:31</span></div>
+              <div class="flow-message flow-message-customer" data-flow="1"><p id="flowReply">Yes! Can you help me pick a gift?</p><span>11:31</span></div>
               <div class="flow-message flow-message-brand" data-flow="2"><p id="flowAnswer">Of course. This piece is a lovely place to start. Here’s the collection to explore.</p></div>
               <div class="flow-product" data-flow="2"><img id="flowProductImage" src="images/product-diamond-necklace.jpg" alt="Product recommendation example" loading="lazy" width="66" height="76"><div><strong id="flowProductName">The signature collection</strong><span>Selected for you</span><span class="flow-product-action">View collection <span aria-hidden="true">↗</span></span></div></div>
             </div>
@@ -1001,7 +1632,7 @@
       </div>
       <div class="revenue-journey" aria-label="Example conversation flow"><div data-journey="0"><span>01</span><strong>Start the conversation</strong><p>A campaign, comment, or DM.</p></div><div data-journey="1"><span>02</span><strong>Make it personal</strong><p>Answer with your business knowledge.</p></div><div data-journey="2"><span>03</span><strong>Make the next step easy</strong><p>Bring the right product into the chat.</p></div></div>
     </div>
-    <div class="revenue-footnote"><p>One connected experience, from the first message to the next action.</p><a href="contact.html">See it with your business <span aria-hidden="true">↗</span></a></div>
+    <div class="revenue-footnote"><p>One connected experience, from the first message to the paid order.</p><a href="contact.html">See it with your business <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 
@@ -1013,9 +1644,9 @@
   <div class="know-glow-2" aria-hidden="true"></div>
   <div class="container">
     <div class="center reveal">
-      <span class="badge">Knowledge · 100+ Connectors</span>
-      <h2 class="sec-title" style="letter-spacing:-.03em">It already knows your business · <span class="grad-text">Connects to 100+ apps</span></h2>
-      <p class="sec-sub">Point it at what already exists — your store, CRM, calendar, PDFs, and website. It reads everything once and stays in sync 24/7.</p>
+      <span class="badge">Integrations</span>
+      <h2 class="sec-title" style="letter-spacing:-.03em">Connected to the tools <span class="grad-text">your business already runs on.</span></h2>
+      <p class="sec-sub">Connect your store, CRM, calendar and courier with a login. No API key, no developer. Ask where an order is and your agent checks the courier rather than your shipping page.</p>
     </div>
 
     <!-- Dual Marquee Ticker Matching Reference Design -->
@@ -1147,15 +1778,15 @@
     
     <!-- Centered Header -->
     <div class="auto-header-center reveal">
-      <span class="auto-badge">⚡ RUNS ON ITS OWN</span>
-      <h2 class="auto-title">It does not just answer. <span class="grad-text">It follows through.</span></h2>
-      <p class="auto-sub">A cart gets abandoned at 2am. Nobody is awake to notice. The workflow already is.</p>
-      
+      <span class="auto-badge">RUNS ON ITS OWN</span>
+      <h2 class="auto-title">96 out of 100 visitors leave without buying. <span class="grad-text">Your workflow chases the ones who left a full cart.</span></h2>
+      <p class="auto-sub">A cart gets abandoned at 2 am. Nobody is awake to notice. Your workflow already is. <strong>Steps AI waits thirty minutes, sends a WhatsApp message with the exact product, answers the last question, and sends the customer back to checkout.</strong></p>
+
       <!-- Interactive Playbook Filter Tabs Bar -->
       <div class="auto-tabs-bar" id="autoTabsBar">
-        <button class="auto-tab-pill active" data-wf="cart" type="button"><span class="dot"></span>🛒 Cart recovery</button>
-        <button class="auto-tab-pill" data-wf="lead" type="button"><span class="dot"></span>👤 Lead routing</button>
-        <button class="auto-tab-pill" data-wf="booking" type="button"><span class="dot"></span>📅 Appointment booking</button>
+        <button class="auto-tab-pill active" data-wf="cart" type="button"><span class="dot"></span>Cart recovery</button>
+        <button class="auto-tab-pill" data-wf="lead" type="button"><span class="dot"></span>Lead routing</button>
+        <button class="auto-tab-pill" data-wf="booking" type="button"><span class="dot"></span>Appointment booking</button>
       </div>
     </div>
 
@@ -1170,12 +1801,12 @@
             <span class="wf-mac-dot wf-mac-yellow"></span>
             <span class="wf-mac-dot wf-mac-green"></span>
           </div>
-          <span class="wf-canvas-title" id="wfCanvasTitle">Cart recovery · Multi-Channel Flow</span>
-          <span class="badge" style="margin:0;padding:3px 10px;font-size:10px;background:#ecfdf5;color:#059669;border:1px solid #a7f3d0">● Live Flow Active</span>
+          <span class="wf-canvas-title" id="wfCanvasTitle">Cart recovery · WhatsApp flow</span>
+          <span class="badge" style="margin:0;padding:3px 10px;font-size:10px;background:#ecfdf5;color:#059669;border:1px solid #a7f3d0">● Live flow active</span>
         </div>
         <div class="wf-toolbar-right">
           <span class="wf-autosaved-note">Autosaved just now</span>
-          <button class="wf-sim-btn" id="wfSimulateBtn" type="button">⚡ Simulate Run</button>
+          <button class="wf-sim-btn" id="wfSimulateBtn" type="button">Simulate run</button>
         </div>
       </div>
 
@@ -1314,15 +1945,15 @@
       <div class="wf-canvas-foot-features">
         <div class="wf-foot-feat-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-          <span>40+ Ready-made blocks</span>
+          <span>Ready-made templates to start from</span>
         </div>
         <div class="wf-foot-feat-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-          <span>Connects directly to Shopify, HubSpot &amp; CRMs</span>
+          <span>Connects to Shopify, HubSpot and your CRM</span>
         </div>
         <div class="wf-foot-feat-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
-          <span>Runs 24/7 on auto-pilot</span>
+          <span>Runs 24/7 without you</span>
         </div>
       </div>
 
@@ -1330,9 +1961,9 @@
 
     <!-- Bottom Preset Templates Carousel -->
     <div class="auto-chips reveal" id="autoChipsPreset" style="margin-top:28px">
-      <span class="ac" data-wf="cart">🛒 Cart recovery</span>
-      <span class="ac" data-wf="lead">👤 Lead routing</span>
-      <span class="ac" data-wf="booking">📅 Appointment booking</span>
+      <span class="ac" data-wf="cart">Cart recovery</span>
+      <span class="ac" data-wf="lead">Lead routing</span>
+      <span class="ac" data-wf="booking">Appointment booking</span>
       <span class="ac more" id="autoMoreChipsBtn">+ 28 Pre-Built Workflows</span>
     </div>
 
@@ -1346,11 +1977,11 @@
     <span class="cc-note hand" aria-hidden="true">Insights today.<br>Bigger outcomes tomorrow.</span>
     <div class="center reveal-left">
       <span class="badge">Analytics and insights</span>
-      <h2 class="sec-title">Find out what customers keep asking, <span class="grad-text">before your team has to tell you.</span></h2>
-      <p class="sec-sub">Every conversation becomes a data point. What people ask, where they get stuck, what actually got resolved. There is nothing to build. It is already counting.</p>
+      <h2 class="sec-title">See what your customers actually ask, <span class="grad-text">and which page keeps making them ask it.</span></h2>
+      <p class="sec-sub">You have answered messages for two years and still cannot say, with numbers, what people ask about most. Steps AI counts every question, every hour people message you, and every chat that ended in a sale. <strong>Refund requests become a figure instead of a feeling.</strong> Nothing to set up. The counting has already started.</p>
     </div>
 
-    <p class="panel-label reveal">What you will see from your own account, on day one.</p>
+    <p class="panel-label reveal">A look at the Steps AI analytics dashboard.</p>
     <div class="dash-stage reveal" data-3d-stage="true">
       <img class="dash-stage-bg" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=85" alt="Modern business executive workspace" loading="lazy">
       <div class="dash-stage-overlay"></div>
@@ -1456,22 +2087,22 @@
               <!-- Key Conversion Outcomes Grid -->
               <div class="an-outcomes-grid">
                 <div class="an-outcome-tile">
-                  <div class="an-outcome-top"><span>🛒</span> Abandoned Cart Recoveries</div>
+                  <div class="an-outcome-top">Abandoned Cart Recoveries</div>
                   <div class="an-outcome-val">₹18,74,200</div>
                   <div class="an-outcome-sub">684 automated WhatsApp checkouts</div>
                 </div>
                 <div class="an-outcome-tile">
-                  <div class="an-outcome-top"><span>📅</span> Consultations Booked</div>
+                  <div class="an-outcome-top">Consultations Booked</div>
                   <div class="an-outcome-val">492 Meetings</div>
                   <div class="an-outcome-sub">Direct calendar sync with 0 double-booking</div>
                 </div>
                 <div class="an-outcome-tile">
-                  <div class="an-outcome-top"><span>👥</span> High-Intent Leads</div>
+                  <div class="an-outcome-top">High-Intent Leads</div>
                   <div class="an-outcome-val">1,280 Qualified</div>
                   <div class="an-outcome-sub">Synced instantly into CRM &amp; HubSpot</div>
                 </div>
                 <div class="an-outcome-tile">
-                  <div class="an-outcome-top"><span>🎫</span> Repetitive Tickets Deflected</div>
+                  <div class="an-outcome-top">Repetitive Tickets Deflected</div>
                   <div class="an-outcome-val">94.2% Auto-Resolved</div>
                   <div class="an-outcome-sub">Instant answers with zero wait queue</div>
                 </div>
@@ -1485,7 +2116,7 @@
                 <div class="an-panel-sub">Where high-converting visitors engage</div>
 
                 <div class="an-ch-row">
-                  <div class="an-ch-info"><span>🌐 Website Web-Widget</span><b>48% · ₹23.16L</b></div>
+                  <div class="an-ch-info"><span>Website Web-Widget</span><b>48% · ₹23.16L</b></div>
                   <div class="an-ch-bar"><div class="an-ch-fill" style="width:48%;background:#2563eb"></div></div>
                 </div>
                 <div class="an-ch-row">
@@ -1504,7 +2135,7 @@
 
               <!-- ROI & Human Handoff Efficiency Card -->
               <div class="an-eff-box">
-                <div class="an-eff-title"><span>⚡</span> Agent Autonomy &amp; Time Saved</div>
+                <div class="an-eff-title">Agent Autonomy &amp; Time Saved</div>
                 <div class="an-eff-stat">91.4% <span style="font-size:13px;font-weight:700;color:#1e3a8a">Resolved End-to-End</span></div>
                 <div class="an-eff-desc">
                   StepsAI resolved <b>13,545 conversations</b> without requiring human agents, saving your team <b>384 work hours</b> this month.
@@ -1516,12 +2147,6 @@
       </div>
     </div>
 
-    <div class="cc-feat-row reveal-stagger">
-      <div class="cc-feat" style="--i:0"><span class="ic">💬</span><div><h5>Monitor conversations</h5><p>Chats, messages and response time in real-time.</p></div></div>
-      <div class="cc-feat" style="--i:1"><span class="ic">📊</span><div><h5>Understand engagement</h5><p>Trends and channel performance at a glance.</p></div></div>
-      <div class="cc-feat" style="--i:2"><span class="ic">🎯</span><div><h5>Optimize performance</h5><p>Spot top intents and resolve more conversations.</p></div></div>
-      <div class="cc-feat" style="--i:3"><span class="ic">👥</span><div><h5>Increase impact</h5><p>Convert more visitors and boost revenue.</p></div></div>
-    </div>
     <p class="center reveal" style="margin-top:12px"><a href="#analytics-teaser" class="section-link-out">See the full analytics dashboard →</a></p>
   </div>
 </section>
@@ -1532,8 +2157,8 @@
     <span class="ib-note hand" aria-hidden="true">All your conversations.<br>One inbox.</span>
     <div class="center reveal-right">
       <span class="badge">One inbox · Nothing sits unanswered</span>
-      <h2 class="sec-title">Every conversation in one place, <span class="grad-text">with a person who can step in anytime.</span></h2>
-      <p class="sec-sub">Website, WhatsApp, Instagram and Messenger side by side. The agent handles what it can. Your team sees exactly when it does not, so nothing waits in a tab nobody checks.</p>
+      <h2 class="sec-title">Four channels, one inbox. <span class="grad-text">A person steps in only when a person is needed.</span></h2>
+      <p class="sec-sub">The fear is not automation. The fear is losing control. <strong>Steps AI handles the routine and hands the conversation over the moment judgement is required, with everything the customer already said attached.</strong> Nobody has to repeat themselves.</p>
     </div>
 
     <div class="dash-stage reveal" data-3d-stage="true">
@@ -1550,7 +2175,7 @@
         <div class="dash-body" id="viewInbox">
             <div class="inbox">
               <div class="convo-list">
-                <div class="convo-search">🔍 Search all conversations…</div>
+                <div class="convo-search">Search all conversations…</div>
                 <div class="convo sel" style="--i:0">
                   <div class="c-top"><span class="c-ch"><span class="ci" data-icon="website"></span>Website</span><span class="t">2m</span></div>
                   <p class="c-msg">Can I book tomorrow?</p>
@@ -1595,19 +2220,14 @@
                 <div class="act"><span class="g">✓</span>Added to CRM (HubSpot)</div>
                 <h6>Conversation context</h6>
                 <div class="ctx-chips"><span>Facial Treatment</span><span>Downtown</span><span>New Customer</span></div>
-                <button class="takeover">👤 Take over conversation</button>
+                <button class="takeover">Take over this chat</button>
               </div>
             </div>
           </div>
       </div>
     </div>
 
-    <div class="cc-pillars reveal-stagger">
-      <div class="cc-pillar" style="--i:0"><span class="ic" style="background:var(--purple-soft)">🤖</span><div><h5>AI handles the routine</h5><p>Questions and actions are resolved automatically.</p></div></div>
-      <div class="cc-pillar" style="--i:1"><span class="ic" style="background:var(--orange-soft)">🙋</span><div><h5>Your team takes over anytime</h5><p>Every handoff includes history and customer context.</p></div></div>
-      <div class="cc-pillar" style="--i:2"><span class="ic" style="background:var(--green-soft)">✅</span><div><h5>Nothing slips through</h5><p>See how every conversation ended, on every channel.</p></div></div>
-    </div>
-    <p class="ib-close reveal">AI handles what it can. <span class="grad-text">Your team stays in control.</span></p>
+    <p class="ib-close reveal">Steps AI handles what it can. <span class="grad-text">You stay in control.</span></p>
     <p class="center reveal" style="margin-top:12px"><a href="#inbox-teaser" class="section-link-out">See how One Inbox works →</a></p>
   </div>
 </section>
@@ -1617,9 +2237,9 @@
   <div class="container">
     <span class="crm-note hand" aria-hidden="true">Every record.<br>Always in sync.</span>
     <div class="center reveal-grow">
-      <span class="badge">Built-in CRM · Records and tickets</span>
-      <h2 class="sec-title">Every contact and conversation, <span class="grad-text">already where you need it.</span></h2>
-      <p class="sec-sub">Nothing lives only in someone’s memory. Pull up the full record before you call, or push it into the CRM you already use.</p>
+      <span class="badge">Built-in CRM · Contacts and tickets</span>
+      <h2 class="sec-title">Every chat becomes a customer record, <span class="grad-text">ready before you pick up the phone.</span></h2>
+      <p class="sec-sub">Names, numbers, order history and open tickets, saved automatically from the conversation. <strong>No contact limit, and no second subscription.</strong> Push everything to HubSpot if you already have a CRM, or use the built-in one.</p>
     </div>
 
     <div class="dash-stage reveal" data-3d-stage="true">
@@ -1631,29 +2251,29 @@
               <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
               StepsAI
             </div>
-          <span class="dash-label">🤝 CRM</span>
+          <span class="dash-label">CRM</span>
         </div>
         <div class="dash-body" id="viewCRM">
             <div class="inbox">
               <div class="convo-list">
-                <div class="convo-search">🔍 Search contacts &amp; companies…</div>
+                <div class="convo-search">Search contacts &amp; companies…</div>
                 <div class="convo sel">
-                  <div class="c-top"><span class="c-ch">👩🏽 Priya Sharma</span><span class="t">2m</span></div>
+                  <div class="c-top"><span class="c-ch">Priya Sharma</span><span class="t">2m</span></div>
                   <p class="c-msg">Titanium Haute Collection · Repeat buyer</p>
                   <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
                 </div>
                 <div class="convo">
-                  <div class="c-top"><span class="c-ch">🧑🏻 Marcus Lee</span><span class="t">18m</span></div>
+                  <div class="c-top"><span class="c-ch">Marcus Lee</span><span class="t">18m</span></div>
                   <p class="c-msg">Downtown Clinic · New patient</p>
                   <div style="margin-top:6px"><span class="status st-ai">Syncing…</span></div>
                 </div>
                 <div class="convo">
-                  <div class="c-top"><span class="c-ch">👨🏽 Ananya Rao</span><span class="t">1h</span></div>
+                  <div class="c-top"><span class="c-ch">Ananya Rao</span><span class="t">1h</span></div>
                   <p class="c-msg">Verve Living · Open ticket</p>
                   <div style="margin-top:6px"><span class="status st-human">Ticket open</span></div>
                 </div>
                 <div class="convo">
-                  <div class="c-top"><span class="c-ch">👩🏻 Karan Mehta</span><span class="t">3h</span></div>
+                  <div class="c-top"><span class="c-ch">Karan Mehta</span><span class="t">3h</span></div>
                   <p class="c-msg">Meridian Clinic · Follow-up due</p>
                   <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
                 </div>
@@ -1686,18 +2306,13 @@
                 <div class="act"><span class="g">🎫</span>Delivery delay · Logistics</div>
                 <h6>Conversation context</h6>
                 <div class="ctx-chips"><span>Repeat Buyer</span><span>WhatsApp</span><span>High LTV</span></div>
-                <button class="takeover">🔄 Push to CRM now</button>
+                <button class="takeover">Push to CRM now</button>
               </div>
             </div>
           </div>
       </div>
     </div>
 
-    <div class="cc-pillars reveal-stagger">
-      <div class="cc-pillar" style="--i:0"><span class="ic" style="background:var(--purple-soft)">🤝</span><div><h5>One record, every channel</h5><p>Website, WhatsApp, Instagram and Messenger all update the same contact.</p></div></div>
-      <div class="cc-pillar" style="--i:1"><span class="ic" style="background:var(--orange-soft)">🎫</span><div><h5>Tickets live with the record</h5><p>Support issues sit next to the conversation and order history that caused them.</p></div></div>
-      <div class="cc-pillar" style="--i:2"><span class="ic" style="background:var(--green-soft)">🔁</span><div><h5>Pushed to your CRM automatically</h5><p>HubSpot and Zendesk stay current automatically, or use StepsAI’s own built-in CRM.</p></div></div>
-    </div>
     <p class="ib-close reveal">Synced automatically. <span class="grad-text">No copy and paste.</span></p>
     <p class="center reveal" style="margin-top:12px"><a href="#integrations" class="section-link-out">See all platform capabilities →</a></p>
   </div>
@@ -1710,8 +2325,8 @@
     <span class="setup-note-r hand pink" aria-hidden="true">No code<br>required.</span>
     <div class="center reveal-left">
       <span class="badge">Setup</span>
-      <h2 class="sec-title">Set up your AI agent <span class="grad-text">in minutes</span>.</h2>
-      <p class="sec-sub">Powerful AI for your business. No complexity. No waiting.</p>
+      <h2 class="sec-title">Live in about five minutes. <span class="grad-text">No code, no developer, no card.</span></h2>
+      <p class="sec-sub">Paste your website link and watch your pages load in front of you. <strong>Connect your store and ask your agent where your last order is, before you pay anything.</strong> If you get stuck, our team will finish the setup with you on a call.</p>
     </div>
 
     <div class="setup-grid reveal">
@@ -1723,10 +2338,10 @@
           <p>Give StepsAI your website, products, FAQs and documents.</p>
           <div class="setup-ui">
             <h6>Add knowledge</h6>
-            <div class="know-row">🌐 Website <span class="st">Added</span></div>
-            <div class="know-row">🏷️ Product catalog <span class="st">Added</span></div>
-            <div class="know-row">📄 FAQs <span class="st">Added</span></div>
-            <div class="know-row">🔺 Documents <span class="st">Added</span></div>
+            <div class="know-row">Website <span class="st">Added</span></div>
+            <div class="know-row">Product catalog <span class="st">Added</span></div>
+            <div class="know-row">FAQs <span class="st">Added</span></div>
+            <div class="know-row">Documents <span class="st">Added</span></div>
             <div class="know-up">＋ Upload files · PDF, DOC, TXT…</div>
           </div>
         </div>
@@ -1743,7 +2358,7 @@
             <h6>Chat appearance</h6>
             <div class="tone-wrap">
               <div class="tone-chat">
-                <div class="tc-head">👤 Your Brand · Online</div>
+                <div class="tc-head">Your Brand · Online</div>
                 <div class="tc-body">
                   Hi! I’m your AI assistant. How can I help you today?
                   <span class="tc-sugg">Find a product</span>
@@ -1789,7 +2404,7 @@
           <div class="setup-ui live-ui">
             <div class="win-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
             <div class="big-check">✓</div>
-            <b>Your AI agent is live!</b>
+            <b>Your agent is live.</b>
             <p>Helping your customers 24/7</p>
             <span class="view-btn">View your agent ↗</span>
           </div>
@@ -1940,8 +2555,8 @@
   <div class="container">
     <div class="center reveal-right">
       <span class="badge">Wall of love</span>
-      <h2 class="sec-title">Real impact, <span class="grad-text">real growth.</span></h2>
-      <p class="sec-sub">Real outcomes, in their own words.</p>
+      <h2 class="sec-title">What brand owners like you say <span class="grad-text">about us</span></h2>
+      <p class="sec-sub"><strong>Same size of business. Same problem you have right now.</strong></p>
     </div>
 
     <div class="sp4-wall reveal">
@@ -2052,57 +2667,57 @@
   <div class="container">
     <div class="center reveal-grow">
       <span class="badge">Frequently asked</span>
-      <h2 class="sec-title">Questions people ask <span class="grad-text">before they start.</span></h2>
+      <h2 class="sec-title">Got questions? <span class="grad-text">We have you covered.</span></h2>
     </div>
 
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>I have bought software before and nobody used it. Why is this different?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>That is a fair question. Most tools fail because your team has to learn them first. Your agent works inside WhatsApp, Instagram and Gmail, which your team already opens every day. You will know within a week whether it is working.</p></div>
+        <button class="faq-q" aria-expanded="false"><span>I tried a chatbot before and switched it off. Why is this different?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Most chatbots only read your website and repeat it back. Ask one where an order is and you get the shipping policy. Steps AI connects to your store and opens the actual order, so the customer gets the real answer. <strong>Connect your store and ask your agent where your last order is. That one test settles it.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>What is the difference between an AI agent and a chatbot?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>A chatbot reads your pages and answers from them. An AI agent connects to your systems and acts: it opens the order, adds to the cart, books the slot, raises the ticket, and brings in a person when it should. Steps AI is an agent.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>What if the AI says something wrong to my customer?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Your agent cannot invent a price or a policy, and you set rules for topics it must never touch, like medical, legal or financial advice. When your agent does not know something, it says so and brings in a person instead of guessing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Will this replace my team?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>No. Your team stops answering "where is my order" forty times a day and starts talking only to people who need a human.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Will it work with the tools I already use?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Yes. It connects to Shopify, HubSpot, Gmail, Slack, Zendesk and WooCommerce, and there are more on the integrations page. If you do not use any of them, your agent still works on its own.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Will it replace my team?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>No. It will make sure they only talk to people worth talking to.</p></div>
+        <div class="faq-a"><p>Yes. Steps AI connects to Shopify, WooCommerce, HubSpot, Zendesk, Klaviyo, Slack, Google Calendar, Calendly, Notion, Airtable and Google Drive. For Indian sellers, your agent also connects to Shiprocket, Delhivery, DTDC, iThink Logistics and WareIQ, so it checks the actual shipment rather than reading your shipping page. If you use none of these, your agent still works on its own.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>How long does setup take?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Minutes. Give it your website address, check what it has learned, turn it on. If you want help, we will do it with you on a fifteen minute call.</p></div>
+        <div class="faq-a"><p>About five minutes. Paste your website link, check what your agent has learned, turn it on. If you would like help, our team will do it with you on a call.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Where does it work?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Your website, WhatsApp, Instagram, Messenger and Gmail. Same agent everywhere.</p></div>
+        <button class="faq-q" aria-expanded="false"><span>Where does my agent work?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Your website, WhatsApp, Instagram and Messenger, plus a branded chat page if you do not have a website. One setup covers all of them, and WhatsApp, Instagram and Messenger connect through a single Meta login.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Which languages does it support?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>More than 95, including Tamil, Telugu, Malayalam, Kannada, Marathi, Bengali, Gujarati, Hindi, English and Arabic. Train it once in one language and it replies to every customer in the language they wrote in.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Will it work for my type of business?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Yes. It learns from your website and your documents, so it becomes whatever you train it on. We work with online shops, property companies, clinics, colleges and software companies.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>What if it says something wrong to my customer?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>It cannot make up a price or a policy. When it does not know something, it says so and calls a person instead of guessing.</p></div>
+        <div class="faq-a"><p>More than 95, including Hindi, Tamil, Telugu, Malayalam, Kannada, Marathi, Bengali, Gujarati, English and Arabic. Train your agent once and each customer gets a reply in the language they wrote in.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Do I need a developer?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>No. If you can use WhatsApp, you can set this up.</p></div>
+        <div class="faq-a"><p>No. If you can use WhatsApp, you can set this up. WordPress users install a plugin and never see any code.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>What if I get stuck?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Message us on WhatsApp and we will finish the setup with you on a call.</p></div>
+        <button class="faq-q" aria-expanded="false"><span>Who should not buy this?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>If very few people visit your website or message you today, Steps AI has nothing to answer, and you will not see a return. Bring the traffic first. <strong>This is the most common reason people cancel, and we would rather say it now than take your money.</strong></p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>What happens when it cannot answer?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>It tells the customer that a person will help them, and sends your team the chat with everything already said.</p></div>
+        <button class="faq-q" aria-expanded="false"><span>What happens when my agent cannot answer?</span><span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Your customer is told a person will help, and your team gets the full chat with everything already said. The customer never has to explain twice.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Can I cancel?</span><span class="faq-ic">+</span></button>
-        <div class="faq-a"><p>Yes, any time. Nothing is locked in.</p></div>
+        <div class="faq-a"><p>Yes, any time. Nothing is locked in, and you can export your data for up to thirty days after you leave.</p></div>
       </div>
     </div>
   </div>
@@ -2113,13 +2728,13 @@
   <div class="container">
     <div class="cta-topline"><a href="#hero" aria-label="Back to StepsAI introduction"><img src="images/logo.png" alt="" width="38" height="26">StepsAI</a><span>Your business. Always in the conversation.</span></div>
     <div class="cta-composition">
-      <div class="cta-main"><h2 class="sec-title">Give every conversation<br><span>a next step.</span></h2><p class="sec-sub">Your customers are ready to talk. Give them an agent that knows your business and knows what to do next.</p><div class="final-btns"><a href="pricing.html" class="btn btn-grad">Start free <span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html" class="btn btn-ghost">Book a personal demo <span aria-hidden="true">↗</span></a></div><p class="cta-assurance">Free to start <span>·</span> No code required <span>·</span> Your team stays in control</p></div>
+      <div class="cta-main"><h2 class="sec-title">Turn the messages you already get<br><span>into the sales you are missing.</span></h2><p class="sec-sub">Free to start, no card, live in about five minutes. <strong>Connect your store and ask your agent where your last order is.</strong> That single test will tell you everything you need to know.</p><div class="final-btns"><a href="pricing.html" class="btn btn-grad">Start free <span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html" class="btn btn-ghost">Book a personal demo <span aria-hidden="true">↗</span></a></div><p class="cta-assurance">Free to start <span>·</span> No card needed <span>·</span> Cancel any time</p></div>
       <div class="cta-routing" aria-label="Website, WhatsApp and Instagram conversations connect to StepsAI">
         <svg class="cta-routing-lines" viewBox="0 0 440 350" fill="none" aria-hidden="true"><path d="M65 62H180Q220 62 220 102V175M375 62H260Q220 62 220 102V175M65 286H180Q220 286 220 246V175M375 286H260Q220 286 220 246V175"/><path class="routing-current" d="M65 62H180Q220 62 220 102V175M375 286H260Q220 286 220 246V175"/></svg>
         <span class="routing-node routing-web"><span data-icon="website"></span>Website</span><span class="routing-node routing-wa"><span data-icon="whatsapp"></span>WhatsApp</span><span class="routing-node routing-ig"><span data-icon="instagram"></span>Instagram</span><span class="routing-node routing-msg"><span data-icon="messenger"></span>Messenger</span><div class="routing-core"><img src="images/logo.png" alt="" width="48" height="34"><strong>StepsAI</strong><span>Ready for the next step</span></div>
       </div>
     </div>
-    <div class="cta-bottomline"><span>Built around your business.</span><a href="contact.html">Let’s build your customer experience <span aria-hidden="true">↗</span></a></div>
+    <div class="cta-bottomline"><span>Built around your business.</span><a href="contact.html">Build your customer experience <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 

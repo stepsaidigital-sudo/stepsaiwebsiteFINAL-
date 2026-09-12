@@ -818,14 +818,14 @@ const HERO_SCENARIOS = {
   website: {
     featureTab: 'sales',
     brandAv: '🏔️',
-    brandNm: 'Acme Outdoor (Store)',
-    brandOn: 'Online · Replies in &lt;1s',
+    brandNm: 'Your brand',
+    brandOn: 'Online',
     headClass: '',
     html: `
       <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Customer"></span><span class="bub cust">I need a waterproof jacket for hiking. Which one should I get?</span></div>
-      <div class="msg-row">${BOT}<span class="bub ai">The Trail Jacket is a great fit — waterproof, lightweight, and available in your size.</span></div>
-      <div class="prod-card"><span class="prod-thumb"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=150&q=80" alt="Trail Jacket"></span><div><h6>Trail Jacket</h6><div class="pr">$129 <span class="stars">★★★★★ 4.8</span></div><span class="mini-btn">Add to cart</span></div></div>
-      <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Customer"></span><span class="bub cust">Perfect, I'll take it!</span></div>`
+      <div class="msg-row">${BOT}<span class="bub ai">The Trail Jacket is a good fit. Waterproof, lightweight, and in stock in your size right now.</span></div>
+      <div class="prod-card"><span class="prod-thumb"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=150&q=80" alt="Trail Jacket"></span><div><h6>Trail Jacket</h6><div class="pr">₹10,999 <span class="stars">★★★★★ 4.8</span></div><span class="mini-btn">Add to cart</span></div></div>
+      <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Customer"></span><span class="bub cust">Perfect. Added.</span></div>`
   },
   shopify: {
     featureTab: 'sales',
@@ -1611,7 +1611,7 @@ if(waSection && 'IntersectionObserver' in window){
 (function initAutomationStudio() {
   const WF_DATA = {
     cart: {
-      title: "Cart recovery · Multi-Channel Flow",
+      title: "Cart recovery · WhatsApp flow",
       banner: "₹11,64,871 recovered by this flow · 1,420 orders saved on auto-pilot",
       node1: { ic: "🛒", bg: "#eff6ff", col: "#2563eb", tag: "TRIGGER", title: "The cart they walked away from", desc: "Shopper left items in checkout without completing purchase (Shopify Storefront)" },
       node2: { ic: "⏱️", bg: "#f5f3ff", col: "#7c3aed", tag: "TIMED DELAY", title: "Holding for thirty minutes, so they can finish on their own", delay: "⏳ 30 mins" },

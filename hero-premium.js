@@ -102,5 +102,5 @@
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
   reduce.addEventListener('change',stop);
-  renderHeroDestination('whatsapp');
+  renderHeroDestination('website');
 })();
