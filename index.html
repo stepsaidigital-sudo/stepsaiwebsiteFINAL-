@@ -2001,146 +2001,144 @@
           </div>
         </div>
         <div class="dash-body" id="viewAnalytics">
+          <!-- Store Info Banner -->
+          <div class="an-store-banner">
+            <div class="an-store-info">
+              <span class="an-store-name">WearBliss</span>
+              <span class="an-store-dot"></span>
+              <span>Shopify Clothing Brand</span>
+              <span class="an-store-dot"></span>
+              <span>~190–200 orders/month</span>
+              <span class="an-store-dot"></span>
+              <span>AOV ₹750</span>
+            </div>
+            <span class="an-store-pill">30 Days</span>
+          </div>
+
           <!-- 4 Top Executive KPI Cards -->
           <div class="an-kpi-grid">
             <div class="an-kpi-card">
               <div class="an-kpi-head">
-                <span class="an-kpi-lbl">Revenue Generated</span>
-                <span class="an-kpi-ic" style="background:#ecfdf5;color:#059669">₹</span>
+                <span class="an-kpi-lbl">Steps AI Assisted Revenue</span>
+                <span class="an-kpi-ic" style="background:#eff6ff;color:#2563eb">₹</span>
               </div>
-              <div class="an-kpi-val">₹48,25,000</div>
-              <div class="an-kpi-sub"><span class="up">↑ 34.8%</span> <span>vs last 30 days</span></div>
+              <div class="an-kpi-val" id="anStatRevenue">₹41,800</div>
+              <div class="an-kpi-sub"><span class="up">↑ 12.6%</span> <span>vs last 30 days</span></div>
             </div>
             <div class="an-kpi-card">
               <div class="an-kpi-head">
                 <span class="an-kpi-lbl">Conversations Handled</span>
                 <span class="an-kpi-ic" style="background:#eff6ff;color:#2563eb">💬</span>
               </div>
-              <div class="an-kpi-val">14,820</div>
-              <div class="an-kpi-sub"><span class="up">91.4%</span> <span>automated resolution</span></div>
+              <div class="an-kpi-val">612</div>
+              <div class="an-kpi-sub"><span style="color:#334155;font-weight:750">84.5%</span> <span>automated resolution</span></div>
             </div>
             <div class="an-kpi-card">
               <div class="an-kpi-head">
                 <span class="an-kpi-lbl">Avg Response Time</span>
                 <span class="an-kpi-ic" style="background:#fffbeb;color:#d97706">⚡</span>
               </div>
-              <div class="an-kpi-val">0.8s</div>
-              <div class="an-kpi-sub"><span class="up">↓ 98%</span> <span>vs human queue</span></div>
+              <div class="an-kpi-val">2.2 sec</div>
+              <div class="an-kpi-sub"><span class="up">↑ 94%</span> <span>vs human response</span></div>
             </div>
             <div class="an-kpi-card">
               <div class="an-kpi-head">
                 <span class="an-kpi-lbl">Conversion Rate</span>
                 <span class="an-kpi-ic" style="background:#fdf2f8;color:#db2777">🎯</span>
               </div>
-              <div class="an-kpi-val">19.4%</div>
-              <div class="an-kpi-sub"><span class="up">↑ 5.2%</span> <span>visitor to customer</span></div>
+              <div class="an-kpi-val">9.0%</div>
+              <div class="an-kpi-sub"><span class="up">↑ 1.4%</span> <span>vs last 30 days</span></div>
             </div>
           </div>
 
           <!-- Main Analytics Breakdown Grid -->
           <div class="an-main-grid">
-            <!-- Left 60%: Interactive SVG Growth Chart & Outcome Cards -->
+            <!-- Left: Chats & Messages line chart (Chart.js) -->
             <div class="an-chart-panel">
               <div class="an-panel-hdr">
                 <div>
-                  <div class="an-panel-title">Revenue &amp; Conversation Trajectory</div>
-                  <div class="an-panel-sub">Real-time daily conversion volume across all active channels</div>
+                  <div class="an-panel-title">Chats &amp; Messages Over Time</div>
+                  <div class="an-panel-sub">Daily volume across the selected date range</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:14px;font-size:11.5px;font-weight:700">
-                  <span style="color:#2563eb;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;border-radius:50%;background:#2563eb;display:inline-block"></i> Revenue (₹)</span>
-                  <span style="color:#10b981;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block"></i> Converted Chats</span>
+                  <span style="color:#2563eb;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;border-radius:50%;background:#2563eb;display:inline-block"></i> Chats</span>
+                  <span style="color:#10b981;display:flex;align-items:center;gap:5px"><i style="width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block"></i> Messages</span>
                 </div>
               </div>
-
-              <!-- Interactive Area Chart SVG -->
-              <div style="position:relative;width:100%;height:150px;margin-top:6px">
-                <svg width="100%" height="100%" viewBox="0 0 540 150" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="anRevGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.28"/>
-                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0"/>
-                    </linearGradient>
-                    <linearGradient id="anConvGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#10b981" stop-opacity="0.22"/>
-                      <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
-                    </linearGradient>
-                  </defs>
-                  <!-- Grid lines -->
-                  <line x1="0" y1="30" x2="540" y2="30" stroke="#f1f5f9" stroke-width="1"/>
-                  <line x1="0" y1="75" x2="540" y2="75" stroke="#f1f5f9" stroke-width="1"/>
-                  <line x1="0" y1="120" x2="540" y2="120" stroke="#f1f5f9" stroke-width="1"/>
-
-                  <!-- Revenue Area + Path -->
-                  <path d="M 0 130 C 60 120, 100 80, 170 85 C 240 90, 290 40, 360 45 C 430 50, 480 20, 540 15 L 540 150 L 0 150 Z" fill="url(#anRevGrad)"/>
-                  <path d="M 0 130 C 60 120, 100 80, 170 85 C 240 90, 290 40, 360 45 C 430 50, 480 20, 540 15" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
-
-                  <!-- Converted Chats Area + Path -->
-                  <path d="M 0 140 C 60 135, 110 110, 170 115 C 240 120, 300 75, 360 80 C 430 85, 480 55, 540 45 L 540 150 L 0 150 Z" fill="url(#anConvGrad)"/>
-                  <path d="M 0 140 C 60 135, 110 110, 170 115 C 240 120, 300 75, 360 80 C 430 85, 480 55, 540 45" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-
-                  <!-- Active Highlight Dot at Day 30 -->
-                  <circle cx="540" cy="15" r="4.5" fill="#2563eb" stroke="#ffffff" stroke-width="2.5"/>
-                  <circle cx="540" cy="45" r="4" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
-                </svg>
-              </div>
-
-              <!-- Key Conversion Outcomes Grid -->
-              <div class="an-outcomes-grid">
-                <div class="an-outcome-tile">
-                  <div class="an-outcome-top">Abandoned Cart Recoveries</div>
-                  <div class="an-outcome-val">₹18,74,200</div>
-                  <div class="an-outcome-sub">684 automated WhatsApp checkouts</div>
-                </div>
-                <div class="an-outcome-tile">
-                  <div class="an-outcome-top">Consultations Booked</div>
-                  <div class="an-outcome-val">492 Meetings</div>
-                  <div class="an-outcome-sub">Direct calendar sync with 0 double-booking</div>
-                </div>
-                <div class="an-outcome-tile">
-                  <div class="an-outcome-top">High-Intent Leads</div>
-                  <div class="an-outcome-val">1,280 Qualified</div>
-                  <div class="an-outcome-sub">Synced instantly into CRM &amp; HubSpot</div>
-                </div>
-                <div class="an-outcome-tile">
-                  <div class="an-outcome-top">Repetitive Tickets Deflected</div>
-                  <div class="an-outcome-val">94.2% Auto-Resolved</div>
-                  <div class="an-outcome-sub">Instant answers with zero wait queue</div>
-                </div>
+              <div class="an-chart-canvas-wrap">
+                <canvas id="homeAnalyticsLine" aria-label="Chats and messages volume, Sep 2 to Sep 10" role="img"></canvas>
               </div>
             </div>
 
-            <!-- Right 40%: Channel ROI & Automation Efficiency -->
+            <!-- Right: Channel Revenue & Traffic donut (Chart.js) -->
             <div class="an-side-panel">
               <div class="an-channels-box">
                 <div class="an-panel-title">Channel Revenue &amp; Traffic</div>
-                <div class="an-panel-sub">Where high-converting visitors engage</div>
-
-                <div class="an-ch-row">
-                  <div class="an-ch-info"><span>Website Web-Widget</span><b>48% · ₹23.16L</b></div>
-                  <div class="an-ch-bar"><div class="an-ch-fill" style="width:48%;background:#2563eb"></div></div>
-                </div>
-                <div class="an-ch-row">
-                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="whatsapp" aria-hidden="true"></span> WhatsApp Business</span><b>34% · ₹16.40L</b></div>
-                  <div class="an-ch-bar"><div class="an-ch-fill" style="width:34%;background:#25d366"></div></div>
-                </div>
-                <div class="an-ch-row">
-                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="instagram" aria-hidden="true"></span> Instagram Direct &amp; Reels</span><b>12% · ₹5.79L</b></div>
-                  <div class="an-ch-bar"><div class="an-ch-fill" style="width:12%;background:#e1306c"></div></div>
-                </div>
-                <div class="an-ch-row">
-                  <div class="an-ch-info"><span><span class="channel-brand-icon" data-icon="messenger" aria-hidden="true"></span> Messenger &amp; Ads</span><b>6% · ₹2.89L</b></div>
-                  <div class="an-ch-bar"><div class="an-ch-fill" style="width:6%;background:#0084ff"></div></div>
+                <div class="an-panel-sub">Revenue distribution across channels</div>
+                <div class="an-donut-row">
+                  <div class="an-donut-wrap">
+                    <canvas id="homeAnalyticsDonut" aria-label="Revenue share by channel" role="img"></canvas>
+                    <div class="an-donut-center"><span id="anDonutTotal">₹41.8K</span><small>Total</small></div>
+                  </div>
+                  <div class="an-donut-legend">
+                    <div class="an-donut-item"><i style="background:#2563eb"></i><span>Website Widget</span><b>62%</b></div>
+                    <div class="an-donut-item"><i style="background:#25d366"></i><span>WhatsApp</span><b>26%</b></div>
+                    <div class="an-donut-item"><i style="background:#e1306c"></i><span>Instagram</span><b>10%</b></div>
+                    <div class="an-donut-item"><i style="background:#0084ff"></i><span>Messenger</span><b>2%</b></div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <!-- ROI & Human Handoff Efficiency Card -->
-              <div class="an-eff-box">
-                <div class="an-eff-title">Agent Autonomy &amp; Time Saved</div>
-                <div class="an-eff-stat">91.4% <span style="font-size:13px;font-weight:700;color:#1e3a8a">Resolved End-to-End</span></div>
-                <div class="an-eff-desc">
-                  StepsAI resolved <b>13,545 conversations</b> without requiring human agents, saving your team <b>384 work hours</b> this month.
-                </div>
-              </div>
+          <!-- Key Conversion Outcomes -->
+          <div class="an-outcomes-grid">
+            <div class="an-outcome-tile">
+              <div class="an-outcome-top">Abandoned Cart Recoveries</div>
+              <div class="an-outcome-val">₹10,640</div>
+              <div class="an-outcome-sub">14 recovered checkouts</div>
+            </div>
+            <div class="an-outcome-tile">
+              <div class="an-outcome-top">High-Intent Leads</div>
+              <div class="an-outcome-val">74</div>
+              <div class="an-outcome-sub">Leads captured</div>
+            </div>
+            <div class="an-outcome-tile">
+              <div class="an-outcome-top">Repetitive Tickets Deflected</div>
+              <div class="an-outcome-val">88.2%</div>
+              <div class="an-outcome-sub an-outcome-tags"><span>Sizing</span><span>·</span><span>Delivery</span><span>·</span><span>COD</span><span>·</span><span>Returns</span><span>·</span><span>Exchanges</span><span>·</span><span>Availability</span><span>·</span><span>Tracking</span></div>
+            </div>
+          </div>
+
+          <!-- Agent Performance table -->
+          <div class="an-table-card">
+            <div class="an-table-head">
+              <div class="an-panel-title">Agent Performance</div>
+              <div class="an-panel-sub">Conversations, response times, and CRM activity per agent</div>
+            </div>
+            <div class="an-table-scroll">
+              <table class="an-table">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <th class="right">Conversations</th>
+                    <th class="center">Avg Msgs/Chat</th>
+                    <th class="center">Avg Response Time</th>
+                    <th class="center">Tickets</th>
+                    <th class="center">Leads</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="an-table-agent"><span class="logo-mark" style="width:16px;height:9px" aria-hidden="true"></span> WearBliss</span></td>
+                    <td class="right">612</td>
+                    <td class="center">3.4</td>
+                    <td class="center">2.2 sec</td>
+                    <td class="center">95</td>
+                    <td class="center">74</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -2917,6 +2915,8 @@
   <script src="home-professional.js?v=2"></script>
   <script src="hero-premium.js?v=1"></script>
   <script src="benefits.js?v=1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="home-analytics-chart.js?v=1"></script>
 </body>
 
 </html>
