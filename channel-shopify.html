@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Studies — StepsAI</title>
-<meta name="description" content="How real StepsAI capabilities perform across e-commerce, real estate, and support — grounded in what's actually built, not invented results.">
+<title>Shopify — StepsAI | Answers with the order in front of it.</title>
+<meta name="description" content="Connected straight to your Shopify store, so it checks the real order, discount code and stock instead of reciting a policy page.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="industries-deep.css">
 <link rel="stylesheet" href="agents.css">
-<link rel="stylesheet" href="blog.css">
+<link rel="stylesheet" href="channel-premium.css">
+<link rel="stylesheet" href="channel-premium-bold.css">
+<link rel="stylesheet" href="signature-shopify.css">
 </head>
-<body>
+<body data-brand="shopify">
 
   <header class="nav" id="nav">
     <div class="nav-inner">
@@ -130,7 +132,7 @@
           </div>
         </div>
 
-                <!-- 2. SOLUTIONS MEGA MENU v2 (Use Case / Industries / Integrations
+        <!-- 2. SOLUTIONS MEGA MENU v2 (Use Case / Industries / Integrations
              -- absorbs the old standalone Industries dropdown as its
              middle column, since that was a separate top-level nav item
              duplicating this one's content in two places) -->
@@ -253,7 +255,7 @@
           </div>
         </div>
 
-                <!-- 4. PARTNERSHIP MEGA MENU v2 (flat icon+title+desc+arrow items,
+        <!-- 4. PARTNERSHIP MEGA MENU v2 (flat icon+title+desc+arrow items,
              same visual language as the Resources v2 menu) -->
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
@@ -290,7 +292,7 @@
         <!-- 5. PRICING -->
         <a href="pricing.html">Pricing</a>
 
-                <!-- 6. RESOURCES MEGA MENU v2 (4 flat items, no categories --
+        <!-- 6. RESOURCES MEGA MENU v2 (4 flat items, no categories --
              Company & Trust links (About/Team/Security/Careers) still
              live in the footer, just no longer duplicated in this menu) -->
         <div class="nav-dropdown">
@@ -414,122 +416,199 @@
     </div>
     </header>
 
-  <div id="breadcrumbBar"></div>
-
   <main id="top">
 
     <!-- ============================================================
          1. HERO
          ============================================================ -->
     <section class="vertical-hero">
-
-      <div class="container reveal" style="max-width:800px">
-        <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Case Studies</span>
-        <h1 class="vertical-headline">What the agent actually does, by industry.</h1>
-        <p class="vertical-tagline">Not invented results. Each case below is a real, built capability — the same workflows and conversations covered on the blog, walked through by industry.</p>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         2. TRUSTED BY — real partnerships only, no invented count
-         ============================================================ -->
-    <section class="section section--raised section--atmo">
-      <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--violet atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--teal atmo-blob--br"></div>
-      </div>
-      <div class="container">
-        <p class="analytics-note reveal" style="justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>A customer-logo strip goes here once we can name names. For now, here's what's actually confirmed.</p>
-        <div class="trust-strip reveal" style="margin-top:20px">
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Meta Business Partner</span></div>
-          <div class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg><span>Shopify Partner</span></div>
+      <div class="container vertical-hero-inner">
+        <div class="reveal">
+          <span class="vertical-hero-eyebrow"><span class="vertical-hero-eyebrow-num">01</span>Shopify</span>
+          <h1 class="vertical-headline">Answers with the order in front of it.</h1>
+          <p class="vertical-tagline">Connected straight to your Shopify store, so it doesn't answer from a policy page. It checks the order, the stock and the discount code, then replies with what's actually true.</p>
+          <div class="vertical-hero-actions">
+            <a href="pricing.html" class="btn btn-accent btn-lg">Start free trial</a>
+            <a href="agents.html#channels" class="vertical-hero-link">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              All channels
+            </a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="shop-widget">
+            <div class="shop-widget-head">
+              <span class="shop-widget-dot"></span><span class="shop-widget-dot"></span><span class="shop-widget-dot"></span>
+              <span class="shop-widget-url">nyrastore.com</span>
+            </div>
+            <div class="shop-widget-body">
+              <div class="shop-bubble in">Hey, where's order #10482?</div>
+              <div class="shop-bubble out">Checking your Shopify order now.</div>
+              <div class="shop-order-card">
+                <span class="shop-order-label">Order #10482</span>
+                <strong>Out for delivery</strong>
+                <p>Arriving by 6:00 PM today &middot; Bluedart</p>
+                <div class="shop-order-line"><i></i></div>
+              </div>
+              <div class="shop-bubble out">Want me to text you when it's delivered?</div>
+            </div>
+          </div>
+          <div class="mock-annotation" style="margin-top:14px">
+            <span class="wa-mock-avatar" style="width:26px;height:26px;font-size:10px;background:var(--brand-deep)">N</span>
+            <p>It didn't recite a policy page. It checked the real order in <strong>Shopify</strong> and answered with today's status.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         3. CASE STUDIES GRID — real capabilities, anonymised by
-         industry (no invented company names or fake quotes)
+         2. CART ABANDONMENT, AUTOMATICALLY
          ============================================================ -->
-    <section class="section section--base section--atmo" id="cases">
+    <section class="section section--base">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">02</span> Cart abandonment, automatically</p>
+          <h2 class="section-title">The cart gets checked before the customer forgets it.</h2>
+          <p class="section-sub">A workflow already built for this: item added, ten minutes pass with no purchase, a nudge goes out naming the exact item still sitting in the cart.</p>
+        </div>
+        <div class="wflow-rail-wrap reveal">
+          <div class="wflow-rail">
+            <div class="wflow-rail-node done">Item added to cart, no purchase in 10 minutes</div>
+            <div class="wflow-rail-node done">Widget nudge shows what's still in the cart</div>
+            <div class="wflow-rail-node done">No response in 2 hours &rarr; recovery email sent</div>
+            <div class="wflow-rail-node done">Reply lands in the same inbox as any other question</div>
+          </div>
+          <div class="shop-widget">
+            <div class="shop-widget-head">
+              <span class="shop-widget-dot"></span><span class="shop-widget-dot"></span><span class="shop-widget-dot"></span>
+              <span class="shop-widget-url">nyrastore.com</span>
+            </div>
+            <div class="shop-widget-body">
+              <div class="shop-bubble out">Still deciding on the Oxford shirt in Medium?</div>
+              <div class="shop-order-card">
+                <span class="shop-order-label">Still in your cart</span>
+                <strong>Oxford Shirt &mdash; Medium</strong>
+                <p>$68.00 &middot; 2 left in stock</p>
+              </div>
+              <div class="shop-bubble in">yes still deciding</div>
+              <div class="shop-bubble out">No rush. Here's 10% off if you check out today.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ind-crosslink">
+          <p>This is one tab inside the full Workflows builder.</p>
+          <a href="workflows.html">See all workflow types <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. SIGNATURE MOMENT — one question, three real checks
+         ============================================================ -->
+    <section class="section section--raised">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span class="n">03</span> One question, three different checks</p>
+          <h2 class="section-title">One question becomes three different lookups.</h2>
+          <p class="section-sub">A discount code, a stock count and a return each live in a different part of Shopify. Whatever the question is actually about, that's the one it checks.</p>
+        </div>
+        <div class="sig-shop-diagram reveal">
+          <div class="sig-shop-question">
+            <span class="sig-shop-question-label">Connected to your Shopify store</span>
+            <p class="sig-shop-question-msg">Orders. Discount codes. Stock, by variant.</p>
+          </div>
+          <svg class="sig-shop-connectors" viewBox="0 0 800 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M400,0 C400,55 150,45 150,100" />
+            <path d="M400,0 L400,100" />
+            <path d="M400,0 C400,55 650,45 650,100" />
+          </svg>
+          <div class="sig-shop-threads reveal reveal-stagger">
+            <div class="sig-shop-thread" style="--i:0">
+              <div class="sig-shop-thread-head"><span class="sig-shop-status sig-shop-status--discount">Discount checked</span></div>
+              <div class="sig-shop-bubble in">Is SAVE20 still valid?</div>
+              <div class="sig-shop-bubble out">Yes. 12% off, expires in 2 days.</div>
+            </div>
+            <div class="sig-shop-thread" style="--i:1">
+              <div class="sig-shop-thread-head"><span class="sig-shop-status sig-shop-status--stock">Stock checked</span></div>
+              <div class="sig-shop-bubble in">Any of the Oxford shirt left in Medium?</div>
+              <div class="sig-shop-bubble out">3 left. Restocking Friday if you'd rather wait.</div>
+            </div>
+            <div class="sig-shop-thread" style="--i:2">
+              <div class="sig-shop-thread-head"><span class="sig-shop-status sig-shop-status--return">Return started</span></div>
+              <div class="sig-shop-bubble in">This doesn't fit. Can I return it?</div>
+              <div class="sig-shop-bubble out">Return started for order #10482. Label emailed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. CONNECTED TO THE REAL STORE
+         ============================================================ -->
+    <section class="section section--base">
+      <div class="container">
+        <div class="spread reverse reveal">
+          <div>
+            <div class="spread-index">04 / Connected to the real thing</div>
+            <h3>It reads your Shopify store. It doesn't create discount codes or override your return policy.</h3>
+            <p>Paste your store URL and it connects through the Shopify API: products, orders, discount codes and inventory by variant. What it tells a customer is only ever what's already true in your store, checked in real time, not a guess dressed up as an answer.</p>
+          </div>
+          <div class="setup-visual">
+            <div class="setup-integ-row"><span>Shopify store</span><span class="state">Connected</span></div>
+            <div class="setup-integ-row"><span>Product &amp; inventory data</span><span class="state">Synced</span></div>
+            <div class="setup-integ-row"><span>Order &amp; fulfillment status</span><span class="state">Connected</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. FAQ
+         ============================================================ -->
+    <section class="section section--raised section--atmo" id="faq">
       <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--amber atmo-blob--tr"></div>
-        <div class="atmo-blob atmo-blob--blue atmo-blob--bl"></div>
+        <div class="atmo-blob atmo-blob--emerald atmo-blob--tr"></div>
+        <div class="atmo-blob atmo-blob--amber atmo-blob--bl"></div>
       </div>
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker"><span class="n">02</span> By industry</p>
-          <h2 class="section-title">Four real capabilities, four industries.</h2>
+          <p class="kicker"><span class="n">05</span> Questions</p>
+          <h2 class="section-title">About the Shopify channel.</h2>
         </div>
-        <div class="blog-grid reveal reveal-stagger">
-          <a href="blog-support-triage.html" class="blog-card" style="--i:0">
-            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12H8L10 15H14L16 12H21" stroke-linejoin="round"/><path d="M5.5 5H18.5L21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V12L5.5 5Z" stroke-linejoin="round"/></svg></div>
-            <div class="blog-card-body">
-              <span class="blog-tag">E-Commerce &amp; Support</span>
-              <h3 class="blog-card-title">Ending support triage with One Inbox</h3>
-              <p class="blog-card-excerpt">WhatsApp, Instagram and website messages, sorted and mostly answered before a human ever opens the list.</p>
+
+        <div class="faq-grid reveal">
+          <div>
+            <div class="faq-item">
+              <button class="faq-question">What happens if it can't find the order?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>It says so, and hands the conversation to a person instead of guessing. Wrong information is worse than no information, so it doesn't fill the gap with one.</p></div>
             </div>
-          </a>
-          <a href="blog-cart-recovery.html" class="blog-card" style="--i:1">
-            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="5" cy="18" r="2.2"/><path d="M7 6H14C16.8 6 19 8.2 19 11V15.8M7 18H14"/></svg></div>
-            <div class="blog-card-body">
-              <span class="blog-tag">E-Commerce &amp; D2C</span>
-              <h3 class="blog-card-title">Recovering carts on autopilot</h3>
-              <p class="blog-card-excerpt">The exact five-node workflow that follows up on every abandoned Shopify cart, automatically.</p>
+            <div class="faq-item">
+              <button class="faq-question">Does it create discount codes for customers?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>No. It checks whether a code you've already created is still valid, then applies it. It doesn't generate new discounts on its own.</p></div>
             </div>
-          </a>
-          <a href="blog-real-estate-agent.html" class="blog-card" style="--i:2">
-            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11L12 4L20 11"/><path d="M6 10V20H18V10"/></svg></div>
-            <div class="blog-card-body">
-              <span class="blog-tag">Real Estate</span>
-              <h3 class="blog-card-title">Qualifying and booking, after hours</h3>
-              <p class="blog-card-excerpt">Budget qualified, listing matched, site visit booked — three minutes, no human awake for it.</p>
+          </div>
+          <div>
+            <div class="faq-item">
+              <button class="faq-question">I already have a tracking or returns app installed.<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>Most stores do. The difference is where the answer comes from: this checks the actual order in Shopify, in the same conversation as everything else, instead of sending a customer to another page.</p></div>
             </div>
-          </a>
-          <a href="blog-analytics-dashboard.html" class="blog-card" style="--i:3">
-            <div class="blog-card-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20H20"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor" stroke="none"/><rect x="11.5" y="9" width="2.6" height="11" fill="currentColor" stroke="none"/><rect x="16" y="5" width="2.6" height="15" fill="currentColor" stroke="none"/></svg></div>
-            <div class="blog-card-body">
-              <span class="blog-tag">Cross-industry</span>
-              <h3 class="blog-card-title">Reading a real analytics account</h3>
-              <p class="blog-card-excerpt">What handled itself, what needed a human, and what the numbers actually said — from one real account.</p>
+            <div class="faq-item">
+              <button class="faq-question">Does it only work with Shopify?<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq-answer"><p>No, it also connects to WooCommerce. Ask if you're on a different platform and aren't sure it's supported yet.</p></div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         4. WITH STEPSAI, OUR CLIENTS ARE ACHIEVING — reuses the
-         same real example-account numbers published on the
-         Analytics page, not a separate invented aggregate
+         6. FINAL CTA
          ============================================================ -->
-    <section class="section section--dark">
-      <div class="container">
-        <div class="section-head center reveal">
-          <p class="kicker"><span class="n">03</span> What the numbers say</p>
-          <h2 class="section-title">From one real account, published in full.</h2>
-        </div>
-        <div class="stats-grid reveal reveal-stagger" data-count-container>
-          <div class="stat-cell" style="--i:0"><div class="stat-value" data-count="412">0</div><div class="stat-label">Conversations this month</div></div>
-          <div class="stat-cell" style="--i:1"><div class="stat-value" data-count="358">0</div><div class="stat-label">Answered without a human</div></div>
-          <div class="stat-cell" style="--i:2"><div class="stat-value" data-count="24">0</div><div class="stat-label">Meetings booked</div></div>
-          <div class="stat-cell" style="--i:3"><div class="stat-value" data-count="30">0</div><div class="stat-label">Passed to the team</div></div>
-        </div>
-        <a href="analytics.html" class="section-link-out" style="display:block;text-align:center;margin-top:8px">See the full analytics dashboard &rarr;</a>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         5. FINAL CTA
-         ============================================================ -->
-    <section class="section section--dark final-cta section--atmo" id="final-cta">
-      <div class="atmo-mesh" aria-hidden="true">
-        <div class="atmo-blob atmo-blob--rose atmo-blob--tl"></div>
-        <div class="atmo-blob atmo-blob--emerald atmo-blob--br"></div>
-      </div>
+    <section class="section section--dark final-cta" id="final-cta">
       <div class="container reveal" style="text-align:center">
-        <h2 class="final-cta-headline">Want to be the next real one on this page?</h2>
-        <p class="final-cta-sub">Set it up this afternoon. We'll ask before we ever put your name on a page like this.</p>
+        <h2 class="final-cta-headline">Every order question, answered before it becomes a refund.</h2>
+        <p class="final-cta-sub">Connects to Shopify in minutes. No developer needed.</p>
         <a href="pricing.html" class="btn btn-cta btn-lg">Start free trial</a>
         <p class="final-cta-note">No credit card. Cancel any time.</p>
       </div>
@@ -708,7 +787,7 @@
   </main>
 
   <script src="nav.js"></script>
-  <script src="breadcrumbs.js"></script>
   <script src="industries.js"></script>
+  <script src="channel-premium.js"></script>
 </body>
 </html>

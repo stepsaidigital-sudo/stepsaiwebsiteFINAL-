@@ -1,0 +1,40 @@
+/* Shopify's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): one question
+   branches into three different checks, because a discount code, a stock
+   count and a return each live in a different part of the store. Same
+   branching-diagram mechanic as signature-whatsapp.css, restyled for the
+   Shopify brand tint. Replaces the generic .prem-box-row on this page. */
+.sig-shop-diagram { position: relative; max-width: 920px; margin: 48px auto 0; }
+.sig-shop-question {
+  max-width: 440px; margin: 0 auto; padding: 18px 24px; border-radius: 16px;
+  background: var(--brand-tint); border: 1px solid rgba(149, 191, 71, .3); text-align: center;
+}
+.sig-shop-question-label {
+  display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--brand-deep); margin-bottom: 8px;
+}
+.sig-shop-question-msg { font-size: 14px; font-style: italic; color: #0f172a; margin: 0; }
+
+.sig-shop-connectors { display: block; width: 100%; height: 64px; overflow: visible; }
+.sig-shop-connectors path { fill: none; stroke: var(--border-strong); stroke-width: 1.5; }
+
+.sig-shop-threads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.sig-shop-thread {
+  padding: 18px; border-radius: 14px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 32px -24px rgba(20, 30, 60, .2); transition: transform 200ms var(--ease-ui), box-shadow 200ms var(--ease-ui);
+}
+.sig-shop-thread:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -22px rgba(20, 30, 60, .28); }
+.sig-shop-thread-head { margin-bottom: 12px; }
+.sig-shop-status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 4px 10px; border-radius: 999px; }
+.sig-shop-status--discount { background: var(--brand-tint-strong); color: var(--brand-deep); }
+.sig-shop-status--stock    { background: rgba(249, 115, 22, .14); color: #C2410C; }
+.sig-shop-status--return   { background: rgba(37, 99, 235, .12); color: #1D4ED8; }
+
+.sig-shop-bubble { padding: 9px 12px; border-radius: 11px; font-size: 12.5px; line-height: 1.5; margin-bottom: 8px; }
+.sig-shop-bubble:last-child { margin-bottom: 0; }
+.sig-shop-bubble.in { background: var(--bg-raised); color: #0f172a; }
+.sig-shop-bubble.out { background: var(--brand-tint); color: #0f172a; }
+
+@media (max-width: 760px) {
+  .sig-shop-threads { grid-template-columns: 1fr; }
+  .sig-shop-connectors { display: none; }
+}
