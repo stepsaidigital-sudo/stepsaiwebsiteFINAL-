@@ -432,24 +432,6 @@
 
   blocks.forEach(initShowcase);
 
-  /* ---------- UNIVERSAL SCROLL REVEAL (for all 42+ subpages) ---------- */
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealSelector = '.reveal, .reveal-stagger, .reveal-left, .reveal-right, .reveal-grow, .reveal-pop';
-  var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
-  }
-
   /* ---------- SMOOTHED PARALLAX (opt-in via data-parallax) ----------
      Mirrors the Taskopia audit's PAGE_SCROLL recipe: position tied to
      scroll offset, but eased toward its target with heavy smoothing
@@ -476,5 +458,36 @@
       });
       requestAnimationFrame(parallaxLoop);
     })();
+  }
+})();
+
+/* ============================================================
+   UNIVERSAL SCROLL REVEAL (for all 42+ subpages)
+   Must run unconditionally on every page — it used to live inside
+   the .capability-showcase IIFE above and silently no-op'd (via
+   that IIFE's early return) on the 47 of 56 pages that don't have
+   a capability-showcase block, leaving every .reveal-left/-right/
+   -grow/-pop/-stagger element stuck at its opacity:0 entrance state
+   forever. home.js and pages.js both defer to this as the single
+   sitewide source of truth — see the comment in home.js.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealSelector = '.reveal, .reveal-stagger, .reveal-left, .reveal-right, .reveal-grow, .reveal-pop';
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 })();
