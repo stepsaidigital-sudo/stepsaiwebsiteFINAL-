@@ -189,6 +189,86 @@ Type scale (size / weight / line-height / letter-spacing):
 
 This is noticeably smaller/tighter than §3's current hero H1 (~60–72px) and section H2 (~42–52px) ranges — reconcile the two once this is wired in: either the H1/H2 ranges in §3 come down to match this scale, or this scale's Display/H1 rows are meant to sit alongside (not replace) the existing larger hero sizes. Flag to Sai before assuming either way.
 
+## 18. Brand palette v2 — usage rules + migration checklist (2026-09-15)
+
+Sai asked for the full sitewide rollout of §17 (colors, sizes, fonts, where each token is used) so "every single page" is consistent. **Blocked on `styles.css` and `index.html`/`home.js`/`home.css`/`home-v2.css`/`home-v2.js`** — another session has a large, live, uncommitted change in those files right now. Nothing below has been applied yet. This section is the complete, ready-to-execute plan for the moment that file is free — read it top to bottom and it should require no further judgment calls except the two flagged open questions.
+
+### Where each token gets used
+
+| Element | Token | Notes |
+|---|---|---|
+| H1–H4, Display headings (light sections) | Ink `#14161A` | |
+| H1–H4, Display headings (Deep/dark sections) | `#FFFFFF` | not Ink — dark sections invert to pure white headings |
+| Body text (light sections) | Ink `#14161A` | |
+| Body text (Deep/dark sections) | Body-on-Deep `#C9D6F2` | never plain white — keeps dark-section body text visibly secondary to its heading |
+| Secondary/muted body copy | Muted `#5E5E57` | |
+| Links, eyebrow labels | Signal `#1A56DB` | |
+| Primary button (default) | Signal `#1A56DB` background, white text | |
+| Primary button (hover) | Rise `#5997FC` | Rise's defined role is exactly "hover states" — don't invent a separate hover shade |
+| Focus rings (any interactive element) | Signal `#1A56DB` | |
+| Page background | Paper `#FFFFFF` | |
+| Card/surface background | Paper-card `#FBFBF9` | must read as *slightly* off-white against a pure-white page — this is a flip from the current site (see Open question 1) |
+| Dark sections, footer, final CTA | Deep `#0C1A3D` background | |
+| Highlights/illustration accents on Deep sections | Rise `#5997FC` | |
+| **Act (orange, `#FFB067`)** | Automation / proactive states **only** | Use for: a badge/status chip that says the agent acted on its own (e.g. workflows.html's "● Live flow active" pill, the "AUTONOMOUS EXECUTION" kicker, a "Sent automatically" or "Triggered by workflow" tag). **Never** use it as a general accent, a second brand color, a CTA color, or the generic "cart/pending" orange the current §16 lists — that would blow the "ration hard" instruction from the brand PDF. If in doubt, don't use Act. |
+| Mono/data text | Muted `#5E5E57`, or Signal only when the number/data point itself is the thing being emphasized | |
+| Channel colors (WhatsApp green, Instagram pink, etc.) | Unchanged | Still confined to icons/status-chrome only, per §1 — this palette update doesn't touch that rule |
+| Semantic success/warning colors (current `--success` green, `--warning` amber) | Unchanged | Not part of the brand PDF; these are functional/status colors, not brand identity — leave as-is unless told otherwise |
+
+### Ready-to-paste `:root` token diff for `styles.css`
+
+Old → new, once the file is free. `--font-sans`/`--font-mono` need the new Google Fonts `<link>` added to every page's `<head>` (Schibsted Grotesk, JetBrains Mono) alongside/replacing the current Inter/Geist Mono/Caveat/Geist Mono import.
+
+```css
+/* was: --text-primary: #090E17; */
+--text-primary:   #14161A;   /* Ink */
+/* was: --text-secondary: #475569; */
+--text-secondary: #5E5E57;   /* Muted */
+
+/* was: --accent: #2563EB; */
+--accent:         #1A56DB;   /* Signal */
+/* was: --accent-bright: #3B82F6; */
+--accent-bright:  #5997FC;   /* Rise — used for hover states */
+/* was: --accent-on-dark: #60A5FA; */
+--accent-on-dark: #5997FC;   /* Rise, same value on dark surfaces */
+
+/* was: --bg-base: #FAFBFC; */
+--bg-base:        #FFFFFF;   /* Paper */
+/* was: --bg-surface: #FFFFFF; */
+--bg-surface:     #FBFBF9;   /* Paper (card) */
+
+/* was: --dark-canvas: #090D16; */
+--dark-canvas:    #0C1A3D;   /* Deep */
+/* was: --dark-ink: #F8FAFC; */
+--dark-ink:       #FFFFFF;
+/* was: --dark-ink-muted: #94A3B8; */
+--dark-ink-muted: #C9D6F2;   /* Body on Deep */
+
+/* was: --font-sans: 'Inter', ...; */
+--font-sans: 'Schibsted Grotesk', -apple-system, "Segoe UI", Roboto, sans-serif;
+/* was: --font-mono: 'Geist Mono', ...; */
+--font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+```
+
+### Open questions — don't guess, ask Sai first
+
+1. **Card/page brightness flips.** Today `--bg-base` (page, #FAFBFC) is *dimmer* than `--bg-surface` (card, #FFFFFF). The new palette wants the opposite: page pure white, cards the dimmer `#FBFBF9`. That's a real visual change (cards get very slightly warmer/duller than the page instead of standing out bright), not a copy-paste. Confirm before applying.
+2. **Gradients.** The current site uses blue→blue gradients everywhere (`--gradient-accent`, `--gradient-brand`, button glows, shadow tints) built from `--accent-bright`/`--accent`/`--accent-deep`. The brand PDF specifies flat, single-hex swatches only — no gradient guidance at all. Decide: keep the gradient system and just recompute its three stops from Signal/Rise (and pick a third "deep" stop, since the PDF has no equivalent to `#1D4ED8`), or move to flat Signal fills sitewide. Not decided here.
+3. `--accent-tint` (`#EFF6FF`, used for pill/badge backgrounds) and border colors (`--border-subtle`, `--border-strong`) have no PDF equivalent — plan is to derive them from Signal/Ink at low opacity rather than invent new named colors, unless Sai wants them added to the palette.
+4. The type-scale size mismatch already flagged in §17 (this system's H1 44px vs the current site's hero H1 ~60–72px) is still open.
+
+### Migration checklist, in order
+
+1. **Confirm the other session's work in `styles.css`/`index.html`/`home.js`/`home.css`/`home-v2.css`/`home-v2.js` is committed and settled.**
+2. Resolve the two open questions above with Sai.
+3. Add the Schibsted Grotesk + JetBrains Mono Google Fonts `<link>` sitewide (55+ pages' `<head>`, same link block on all of them — mechanical find/replace).
+4. Apply the `:root` token diff above to `styles.css`. Because almost everything else in the codebase already consumes these as `var(--accent)`/`var(--font-sans)` etc. rather than hardcoding hex, this one edit re-colors and re-fonts the large majority of the site automatically.
+5. Fix the exceptions that bypass the tokens (found by grep, confirmed not yet touched by the other session):
+   - **Hardcoded `#2563EB`/`#1D4ED8` hex** (bypasses the token, won't update from step 4) in: `agents.css`, `channel-premium.css`, `creative-showcase.css`, `industries-deep.css`, `pricing.css`, `signature-broadcast.css`, `signature-crm.css`, `signature-shopify.css`, `signature-skills.css`, `signature-whatsapp.css`. (`home.css`/`home-v2.css` have the same issue but are homepage-scoped — defer with `index.html`.)
+   - **Hardcoded `font-family: 'Inter'`** (3 spots, all in `home-v2.css:40,227,484`) — homepage-scoped, defer with `index.html`.
+6. Re-check every subpage hero/section against the new Ink/Muted/Signal/Deep/Act usage table above — most should just work once tokens update, but anywhere a component was styled with a raw hex instead of a token (same grep pattern as step 5) needs a manual look.
+7. Re-run this document's own §15 and §16 quality checklists per page as a final pass, since the "controlled color variation" list in §16 needs re-reading against the new, narrower Act definition above.
+
 ## Critical development rule
 
 Before building or editing a subpage: inspect the existing index and shared components first. Reuse the navbar, footer, buttons, fonts, color tokens, FAQ component, container widths, responsive breakpoints, and any other shared component that already exists — never recreate one. Build inside the established system; the page should feel like another page of the same site, never a new site inspired by it.
