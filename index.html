@@ -72,32 +72,74 @@
       padding-right: 0;
     }
 
+    /* Category thumbnails: a living gradient-mesh tile carrying that
+       column's own accent (the same violet/green/indigo/rose/orange/teal/
+       blue used by .nav-col-icon below it) with its glyph enlarged on top
+       -- not a stock photo of people/offices. Keeps the menu reading as
+       StepsAI's own atmo-mesh visual system (used sitewide on section
+       backgrounds) rather than the generic "photo per category" pattern
+       common to other product menus. */
     #nav .nav-mega-thumb {
       width: 100%;
-      height: 90px;
-      display: block;
-      object-fit: cover;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
       border-radius: 11px;
       margin-bottom: 15px;
       background: #eef3fb;
+      transition: transform 220ms var(--ease-ui), box-shadow 220ms var(--ease-ui);
     }
 
-    #nav .nav-mega-thumb--platform {
-      object-fit: contain;
-      object-position: center 16%;
-      background: #edf3ff;
+    #nav .nav-mega-col:hover .nav-mega-thumb {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px -10px rgba(15, 23, 42, .22);
     }
 
-    #nav .nav-mega-thumb--sales {
-      object-position: center 62%;
+    #nav .nav-mega-thumb::before {
+      content: '';
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 28% 26%, var(--thumb-tint-1) 0%, transparent 62%),
+        radial-gradient(circle at 76% 78%, var(--thumb-tint-2) 0%, transparent 66%);
+      filter: blur(16px);
     }
 
-    #nav .nav-mega-thumb--support {
-      object-position: center 46%;
+    #nav .nav-mega-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 48%);
+      mix-blend-mode: overlay;
     }
 
-    #nav .nav-mega-thumb--growth {
-      object-position: center 28%;
+    #nav .nav-mega-thumb svg {
+      position: relative;
+      z-index: 1;
+      width: 28px;
+      height: 28px;
+    }
+
+    #nav .nav-mega-thumb--violet { --thumb-tint-1: rgba(124, 58, 237, .55); --thumb-tint-2: rgba(99, 102, 241, .38); }
+    #nav .nav-mega-thumb--violet svg { color: #7c3aed; }
+    #nav .nav-mega-thumb--green { --thumb-tint-1: rgba(22, 163, 74, .5); --thumb-tint-2: rgba(52, 211, 153, .36); }
+    #nav .nav-mega-thumb--green svg { color: #16a34a; }
+    #nav .nav-mega-thumb--indigo { --thumb-tint-1: rgba(79, 70, 229, .52); --thumb-tint-2: rgba(129, 140, 248, .36); }
+    #nav .nav-mega-thumb--indigo svg { color: #4f46e5; }
+    #nav .nav-mega-thumb--rose { --thumb-tint-1: rgba(225, 29, 72, .48); --thumb-tint-2: rgba(251, 113, 133, .34); }
+    #nav .nav-mega-thumb--rose svg { color: #e11d48; }
+    #nav .nav-mega-thumb--orange { --thumb-tint-1: rgba(234, 88, 12, .5); --thumb-tint-2: rgba(251, 146, 60, .36); }
+    #nav .nav-mega-thumb--orange svg { color: #ea580c; }
+    #nav .nav-mega-thumb--teal { --thumb-tint-1: rgba(13, 148, 136, .5); --thumb-tint-2: rgba(45, 212, 191, .36); }
+    #nav .nav-mega-thumb--teal svg { color: #0d9488; }
+    #nav .nav-mega-thumb--blue { --thumb-tint-1: rgba(37, 99, 235, .5); --thumb-tint-2: rgba(96, 165, 250, .36); }
+    #nav .nav-mega-thumb--blue svg { color: #2563eb; }
+
+    @media (prefers-reduced-motion: reduce) {
+      #nav .nav-mega-thumb { transition: none; }
     }
 
     #nav .nav-mega-layout--product-v2 .nav-mega-col-head {
@@ -685,25 +727,32 @@
             <div class="nav-mega-layout nav-mega-layout--product-v2">
               <!-- Col 1: Platform (channels) -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb nav-mega-thumb--platform" src="images/hero-person.png"
-                  alt="StepsAI agent helping a customer on mobile">
+                <div class="nav-mega-thumb nav-mega-thumb--violet" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--violet"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
                     </svg></span>
-                  <span class="nav-mega-header">Platform</span>
+                  <span class="nav-mega-header">Agents</span>
                 </div>
-                <a href="channel-whatsapp.html" class="nav-mega-simple-row">WhatsApp</a>
-                <a href="channel-website.html" class="nav-mega-simple-row">Website</a>
-                <a href="channel-instagram.html" class="nav-mega-simple-row">Instagram</a>
-                <a href="channel-messenger.html" class="nav-mega-simple-row">Facebook</a>
+                <a href="channel-whatsapp.html" class="nav-mega-simple-row">WhatsApp Agent</a>
+                <a href="channel-website.html" class="nav-mega-simple-row">Website Agent</a>
+                <a href="channel-instagram.html" class="nav-mega-simple-row">Instagram Agent</a>
+                <a href="channel-messenger.html" class="nav-mega-simple-row">Facebook Agent</a>
               </div>
 
               <!-- Col 2: Sales -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb nav-mega-thumb--sales" src="images/ecommerce-luxury.jpg"
-                  alt="Curated products in a modern retail showroom">
+                <div class="nav-mega-thumb nav-mega-thumb--green" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--green"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -720,8 +769,11 @@
 
               <!-- Col 3: Support -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb nav-mega-thumb--support" src="images/healthcare-luxury.jpg"
-                  alt="Customer receiving professional assistance at a clinic">
+                <div class="nav-mega-thumb nav-mega-thumb--indigo" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z" /><path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--indigo"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -737,8 +789,12 @@
 
               <!-- Col 4: Lead Capture -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb nav-mega-thumb--growth" src="images/grow-human-savings.jpg"
-                  alt="Business owner representing measurable customer growth">
+                <div class="nav-mega-thumb nav-mega-thumb--rose" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--rose"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -755,8 +811,11 @@
 
               <!-- Col 5: Marketing -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb" src="images/team-collaboration.jpg"
-                  alt="Marketing team coordinating customer campaigns">
+                <div class="nav-mega-thumb nav-mega-thumb--orange" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--orange"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -772,8 +831,12 @@
 
               <!-- Col 6: Booking -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb" src="images/hero-hotels.jpg"
-                  alt="Hospitality team managing customer bookings">
+                <div class="nav-mega-thumb nav-mega-thumb--teal" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--teal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -790,8 +853,12 @@
 
               <!-- Col 7: More Features -->
               <div class="nav-mega-col">
-                <img class="nav-mega-thumb" src="images/hero-bg-v2.jpg"
-                  alt="Connected StepsAI product capabilities">
+                <div class="nav-mega-thumb nav-mega-thumb--blue" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
+                    <rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
+                  </svg>
+                </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--blue"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
