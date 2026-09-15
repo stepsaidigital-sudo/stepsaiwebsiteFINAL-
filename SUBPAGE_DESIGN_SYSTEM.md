@@ -142,6 +142,53 @@ This section is a real course-correction on §10 above ("Cards") and the box-row
 
 **Professionalism test, run before calling any subpage done**: Does this feel custom-designed for this product? Is there one visual idea worth remembering? Does each major section look intentionally composed? Enough color variation to feel premium without going childish? Is product UI doing most of the storytelling (not prose)? Does animation clarify the product rather than decorate it? Does the page avoid template-like repetition? Does it read as a high-end SaaS product page rather than an AI-generated landing page? If any answer is no, refine further before considering it done.
 
+## 17. Brand palette v2 (2026-09-15 update, from Sai's Brand Palette PDF)
+
+Sourced from `Steps AI Brand pallete.pdf` (+ a corrected page-1 resend). **The brand blue itself hasn't changed conceptually** — this refines it into a named, precise token set for specific buttons/states/sections, and adds a real type scale + a font-family change. Supersedes the color/typography specifics in §1, §3, §9, and the functional color list in §16 wherever they conflict; everything else in this document (layout, motion, section story, copy rules) still stands.
+
+**Not yet wired into `styles.css`** — another session is actively working in that file, so nothing there has been touched. This section is the source of truth for whoever wires these in as CSS custom properties next (`--accent` currently holds `#2563EB`, close to but not identical to the new Signal blue below — expect that token, and the ones named after it, to move to these exact values).
+
+### Color tokens
+
+| Token | Hex | Use |
+|---|---|---|
+| **Signal** | `#1A56DB` | Logo, links, primary buttons, focus rings — the one primary action blue. (The PDF's font-color table separately lists links at `#2149C9`; a corrected resend of page 1 groups "links" under the same `#1A56DB` swatch as buttons, so treat `#2149C9` as a stale figure from an earlier pass unless told otherwise.) |
+| **Rise** | `#5997FC` | Highlights on dark surfaces, illustration accents, hover states |
+| **Deep** | `#0C1A3D` | Dark sections, footer, "anchor" — gives the page a floor |
+| **Act** | `#FFB067` | Automation / proactive states — the "acts, not just answers" story specifically. Ration hard: this is a narrow-purpose accent, not a general-use color |
+| **Paper** | `#FFFFFF` | Page background |
+| **Paper (card)** | `#FBFBF9` | Card surfaces — barely-off-white so white cards read as cards against the page background |
+| **Ink** | `#14161A` | Headings, body text |
+| **Muted** | `#5E5E57` | Secondary body text; mono/data text unless the data itself is the point (then Signal) |
+| **Body on Deep** | `#C9D6F2` | Body text on Deep-navy sections (headings on Deep stay `#FFFFFF`) |
+
+Functional mapping for §16's "controlled color variation" list: Signal = primary Steps AI actions (unchanged role), Act/orange = automation & proactive states specifically (narrower than the old generic "orange = attention/cart/pending" — reserve it for "the agent acted on its own" moments), Deep = the dark/anchor sections already described in §12's final-CTA pattern, Rise = hover states and highlights against Deep backgrounds. Channel colors (WhatsApp green, Instagram pink, etc.) are untouched by this update — §1's rule confining them to icons/status-chrome only still applies.
+
+### Typography
+
+Font family changes from Inter + Geist Mono to:
+- **Text:** Schibsted Grotesk
+- **Data / code:** JetBrains Mono
+
+Type scale (size / weight / line-height / letter-spacing):
+
+| Role | Size | Weight | Line height | Letter spacing |
+|---|---|---|---|---|
+| Display | 56px | 500 | 1.1 | −0.02em |
+| H1 | 44px | 500 | 1.15 | −0.02em |
+| H2 | 32px | 500 | 1.2 | −0.01em |
+| H3 | 24px | 500 | 1.3 | −0.01em |
+| H4 | 19px | 500 | 1.4 | 0 |
+| Body large | 19px | 400 | 1.6 | 0 |
+| Body | 17px | 400 | 1.65 | 0 |
+| Small | 15px | 400 | 1.55 | 0 |
+| Caption | 13px | 400 | 1.5 | 0 |
+| Eyebrow | 12px | 500 | 1.4 | 0.08em, uppercase |
+| Data (mono) | 15px | 400 | 1.5 | 0 |
+| Button | 16px | 500 | 1 | 0 |
+
+This is noticeably smaller/tighter than §3's current hero H1 (~60–72px) and section H2 (~42–52px) ranges — reconcile the two once this is wired in: either the H1/H2 ranges in §3 come down to match this scale, or this scale's Display/H1 rows are meant to sit alongside (not replace) the existing larger hero sizes. Flag to Sai before assuming either way.
+
 ## Critical development rule
 
 Before building or editing a subpage: inspect the existing index and shared components first. Reuse the navbar, footer, buttons, fonts, color tokens, FAQ component, container widths, responsive breakpoints, and any other shared component that already exists — never recreate one. Build inside the established system; the page should feel like another page of the same site, never a new site inspired by it.
