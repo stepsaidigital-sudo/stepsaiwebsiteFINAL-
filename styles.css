@@ -1233,22 +1233,35 @@ a.nav-mega-col-head--link:hover .nav-mega-header { color: #2563eb; }
 .final-cta-note { color: var(--dark-ink-faint); font-size: 13px; margin-top: 16px; }
 
 /* ============================================================
-   FAQ — card accordion (shared by pages.js / pricing.js / home.js)
-   Same visual system as the homepage's FAQ section (home-v2.css
-   #top .faq-*), translated onto the shared site tokens so every
-   page's existing .faq-grid/.faq-item/.faq-question/.faq-answer
-   markup renders identically without needing to change -- only
-   the look changed here, not the HTML or the toggle JS.
+   FAQ — flat hairline list (shared by pages.js / pricing.js / home.js)
+   Matches the homepage's CURRENT FAQ section (home-professional.css
+   #top .faq-*: a plain divided list on a white section, no card
+   boxes). The block this replaced predated that homepage redesign —
+   it still built boxed/shadowed cards, so every subpage's FAQ had
+   drifted out of sync with the homepage. Every page's existing
+   .faq-grid/.faq-item/.faq-question/.faq-answer markup renders
+   identically -- only the look changed here, not the HTML or the
+   toggle JS.
    ============================================================ */
-.faq-grid { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin: 0 auto; }
-.faq-item { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: border-color 200ms var(--ease); }
-.faq-item.is-open { border-color: var(--border-strong); }
-.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; text-align: left; font-size: 15.5px; font-weight: 700; color: var(--text-primary); transition: color 200ms var(--ease); }
+.faq-grid { display: flex; flex-direction: column; gap: 0; max-width: 880px; margin: 0 auto; }
+.faq-item { background: transparent; border: 0; border-bottom: 1px solid var(--border-subtle); border-radius: 0; }
+.faq-item:last-child { border-bottom: 0; }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; text-align: left; font-size: 16px; font-weight: 500; color: var(--text-primary); transition: color 200ms var(--ease); }
 .faq-question:hover { color: var(--accent); }
 .faq-question .faq-chev, .faq-question .faq-chevron { width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; padding: 4px; border-radius: 50%; background: var(--accent-tint); color: var(--accent); transition: transform 260ms var(--ease); }
 .faq-item.is-open .faq-question .faq-chev, .faq-item.is-open .faq-question .faq-chevron { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease); }
-.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; padding: 0 20px 18px; max-width: none; margin: 0; }
+.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; padding: 0 32px 24px 0; max-width: none; margin: 0; }
+
+/* FAQ sections read as a calm, editorial list on a plain background —
+   matching the homepage's #top .faq-sec (white, no atmosphere blobs) —
+   never the colorful gradient wash used for other "section--atmo"
+   sections on the same page. Covers both the standard .faq-grid
+   accordion and the chat-bubble .faq-chat variant (crm/whatsapp-
+   broadcast/one-inbox) -- that variant keeps its own bubble styling,
+   only the section background is unified here. */
+.section:has(.faq-grid), .section:has(.faq-chat) { background: var(--bg-surface); }
+.section:has(.faq-grid) .atmo-mesh, .section:has(.faq-chat) .atmo-mesh { display: none; }
 
 /* ============================================================
    UNIVERSAL LIVING AURORA & CHROMATIC ANIMATION SYSTEM
