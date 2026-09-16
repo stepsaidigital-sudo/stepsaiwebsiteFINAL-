@@ -94,6 +94,7 @@
 
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
+      clearTimeout(hoverTimer);
       clearTimeout(closeTimer);
       var isOpen = dropdown.classList.contains('is-open');
       closeAllDropdowns();

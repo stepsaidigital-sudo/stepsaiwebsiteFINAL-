@@ -18,7 +18,11 @@
   <link rel="stylesheet" href="home-professional.css?v=2">
   <link rel="stylesheet" href="home-finish.css?v=2">
   <link rel="stylesheet" href="hero-premium.css?v=4">
+  <link rel="stylesheet" href="workflows-premium.css?v=3">
   <link rel="stylesheet" href="benefits.css?v=1">
+  <link rel="stylesheet" href="solutions-menu.css?v=1">
+  <link rel="stylesheet" href="partnership-menu.css?v=1">
+  <link rel="stylesheet" href="resources-menu.css?v=1">
   <style id="homepage-layout-qa">
     /* Homepage-only design QA: preserve the approved visual language while
        normalizing hierarchy, spacing and large desktop mockup proportions. */
@@ -47,7 +51,7 @@
        section. Seven matching columns use the viewport end to end without
        stacking a smaller category beneath a larger one. */
     #nav .nav-dropdown-panel--product-v2 {
-      width: min(1500px, calc(100vw - 32px));
+      width: min(1180px, calc(100vw - 48px));
       max-width: none;
       padding: 20px;
     }
@@ -72,74 +76,77 @@
       padding-right: 0;
     }
 
-    /* Category thumbnails: a living gradient-mesh tile carrying that
-       column's own accent (the same violet/green/indigo/rose/orange/teal/
-       blue used by .nav-col-icon below it) with its glyph enlarged on top
-       -- not a stock photo of people/offices. Keeps the menu reading as
-       StepsAI's own atmo-mesh visual system (used sitewide on section
-       backgrounds) rather than the generic "photo per category" pattern
-       common to other product menus. */
+    /* Purpose-made transparent illustrations turn each category into a
+       recognizable scene while the quiet stage keeps the menu compact. */
     #nav .nav-mega-thumb {
       width: 100%;
-      height: 74px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: hidden;
-      border-radius: 11px;
-      margin-bottom: 15px;
-      background: #eef3fb;
-      transition: transform 220ms var(--ease-ui), box-shadow 220ms var(--ease-ui);
+      overflow: visible;
+      margin-bottom: 10px;
+      background: transparent;
+      transition: transform 240ms var(--ease-ui);
     }
 
     #nav .nav-mega-col:hover .nav-mega-thumb {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px -10px rgba(15, 23, 42, .22);
+      transform: none;
     }
 
     #nav .nav-mega-thumb::before {
       content: '';
       position: absolute;
-      inset: -30%;
-      background:
-        radial-gradient(circle at 28% 26%, var(--thumb-tint-1) 0%, transparent 62%),
-        radial-gradient(circle at 76% 78%, var(--thumb-tint-2) 0%, transparent 66%);
-      filter: blur(16px);
+      inset: auto 19% 0;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--thumb-glow);
+      filter: blur(17px);
+      opacity: .48;
     }
 
     #nav .nav-mega-thumb::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 48%);
-      mix-blend-mode: overlay;
+      display: none;
     }
 
-    #nav .nav-mega-thumb svg {
+    #nav .nav-mega-thumb img {
       position: relative;
       z-index: 1;
-      width: 28px;
-      height: 28px;
+      width: 94%;
+      height: 76px;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 7px 7px rgba(15,23,42,.10));
+      transform-origin: 50% 82%;
+      transition: transform 280ms cubic-bezier(.16,1,.3,1), filter 280ms ease;
     }
 
-    #nav .nav-mega-thumb--violet { --thumb-tint-1: rgba(124, 58, 237, .55); --thumb-tint-2: rgba(99, 102, 241, .38); }
-    #nav .nav-mega-thumb--violet svg { color: #7c3aed; }
-    #nav .nav-mega-thumb--green { --thumb-tint-1: rgba(22, 163, 74, .5); --thumb-tint-2: rgba(52, 211, 153, .36); }
-    #nav .nav-mega-thumb--green svg { color: #16a34a; }
-    #nav .nav-mega-thumb--indigo { --thumb-tint-1: rgba(79, 70, 229, .52); --thumb-tint-2: rgba(129, 140, 248, .36); }
-    #nav .nav-mega-thumb--indigo svg { color: #4f46e5; }
-    #nav .nav-mega-thumb--rose { --thumb-tint-1: rgba(225, 29, 72, .48); --thumb-tint-2: rgba(251, 113, 133, .34); }
-    #nav .nav-mega-thumb--rose svg { color: #e11d48; }
-    #nav .nav-mega-thumb--orange { --thumb-tint-1: rgba(234, 88, 12, .5); --thumb-tint-2: rgba(251, 146, 60, .36); }
-    #nav .nav-mega-thumb--orange svg { color: #ea580c; }
-    #nav .nav-mega-thumb--teal { --thumb-tint-1: rgba(13, 148, 136, .5); --thumb-tint-2: rgba(45, 212, 191, .36); }
-    #nav .nav-mega-thumb--teal svg { color: #0d9488; }
-    #nav .nav-mega-thumb--blue { --thumb-tint-1: rgba(37, 99, 235, .5); --thumb-tint-2: rgba(96, 165, 250, .36); }
-    #nav .nav-mega-thumb--blue svg { color: #2563eb; }
+    #nav .nav-mega-col:hover .nav-mega-thumb img { transform: none; }
+    #nav .nav-dropdown.is-open .nav-mega-thumb img { animation: none; }
+    #nav .nav-dropdown-panel--product-v2 {
+      top: 83px;
+      transform: translateX(-50%) translateY(-4px);
+      transition: opacity 160ms ease-out, transform 180ms ease-out, visibility 180ms;
+      max-height: calc(100dvh - 100px);
+      overflow-y: auto;
+      border-radius: 16px;
+    }
+    #nav .nav-dropdown.is-open .nav-dropdown-panel--product-v2 { transform: translateX(-50%); }
+
+    #nav .nav-mega-thumb--violet { --thumb-accent:#6d4cff; --thumb-glow:rgba(109,76,255,.20); }
+    #nav .nav-mega-thumb--green { --thumb-accent:#16a34a; --thumb-glow:rgba(16,185,129,.18); }
+    #nav .nav-mega-thumb--indigo { --thumb-accent:#4f46e5; --thumb-glow:rgba(79,70,229,.18); }
+    #nav .nav-mega-thumb--rose { --thumb-accent:#e11d48; --thumb-glow:rgba(244,63,94,.16); }
+    #nav .nav-mega-thumb--orange { --thumb-accent:#ea580c; --thumb-glow:rgba(249,115,22,.16); }
+    #nav .nav-mega-thumb--teal { --thumb-accent:#0d9488; --thumb-glow:rgba(20,184,166,.18); }
+    #nav .nav-mega-thumb--blue { --thumb-accent:#2563eb; --thumb-glow:rgba(37,99,235,.18); }
 
     @media (prefers-reduced-motion: reduce) {
-      #nav .nav-mega-thumb { transition: none; }
+      #nav .nav-mega-thumb, #nav .nav-mega-thumb img { transition: none; animation: none !important; }
     }
 
     #nav .nav-mega-layout--product-v2 .nav-mega-col-head {
@@ -160,6 +167,9 @@
       margin-top: 3px;
     }
 
+    /* Solutions menu: the three commercial paths receive the same
+       transparent illustration treatment as Product, with no card or
+       sticker surface behind the artwork. */
     /* Hero styling is handled pixel-to-pixel in hero-premium.css */
 
     #top .ind-header .sec-title,
@@ -1587,9 +1597,7 @@
               <!-- Col 1: Platform (channels) -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--violet" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-agents.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--violet"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1607,10 +1615,7 @@
               <!-- Col 2: Sales -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--green" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-sales.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--green"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1629,9 +1634,7 @@
               <!-- Col 3: Support -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--indigo" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z" /><path d="M9 12l2 2 4-4" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-support.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--indigo"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1649,10 +1652,7 @@
               <!-- Col 4: Lead Capture -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--rose" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-lead-capture.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--rose"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1671,9 +1671,7 @@
               <!-- Col 5: Marketing -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--orange" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-marketing.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--orange"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1691,10 +1689,7 @@
               <!-- Col 6: Booking -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--teal" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-booking.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--teal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1713,10 +1708,7 @@
               <!-- Col 7: More Features -->
               <div class="nav-mega-col">
                 <div class="nav-mega-thumb nav-mega-thumb--blue" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
-                    <rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
-                  </svg>
+                  <img src="images/nav-illustrations/nav-analytics.png" alt="" width="480" height="320">
                 </div>
                 <div class="nav-mega-col-head">
                   <span class="nav-col-icon nav-col-icon--blue"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -1751,9 +1743,12 @@
             <div class="nav-mega-layout nav-mega-layout--solutions-v2">
               <!-- Col 1: Use Case -->
               <div class="nav-mega-col">
+                <div class="nav-sol-visual nav-sol-visual--violet" aria-hidden="true">
+                  <img src="images/nav-illustrations/nav-solutions-use-cases.png" alt="" width="720" height="320">
+                </div>
                 <div class="nav-mega-col-head nav-mega-col-head--desc">
                   <span class="nav-col-icon nav-col-icon--violet nav-sol-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-                  <div><span class="nav-mega-header">Use Case</span><span class="nav-mega-header-desc">Solve key business challenges with AI agents</span></div>
+                  <div><span class="nav-mega-header">Use Cases</span><span class="nav-mega-header-desc">Solve key business challenges with AI agents</span></div>
                 </div>
                 <a href="support-agent.html" class="nav-sol-row">
                   <span class="nav-col-icon nav-col-icon--indigo nav-sol-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>
@@ -1780,10 +1775,14 @@
                   <span class="nav-mega-row-body"><span class="nav-mega-row-label">Lead Capture</span><span class="nav-mega-row-desc">Capture and qualify leads</span></span>
                   <svg class="nav-sol-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
                 </a>
+                <a href="solutions.html" class="nav-sol-more">See all use cases &rarr;</a>
               </div>
 
               <!-- Col 2: Industries (was the standalone Industries dropdown) -->
               <div class="nav-mega-col">
+                <div class="nav-sol-visual nav-sol-visual--blue" aria-hidden="true">
+                  <img src="images/nav-illustrations/nav-solutions-industries.png" alt="" width="720" height="320">
+                </div>
                 <div class="nav-mega-col-head nav-mega-col-head--desc">
                   <span class="nav-col-icon nav-col-icon--blue nav-sol-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="15" y2="12"/><line x1="9" y1="17" x2="9" y2="17"/><line x1="15" y1="17" x2="15" y2="17"/></svg></span>
                   <div><span class="nav-mega-header">Industries</span><span class="nav-mega-header-desc">Tailored solutions for every business</span></div>
@@ -1818,11 +1817,14 @@
                   <span class="nav-mega-row-body"><span class="nav-mega-row-label">Travel &amp; Hospitality</span><span class="nav-mega-row-desc">Hotels, resorts &amp; travel brands</span></span>
                   <svg class="nav-sol-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
                 </a>
-                <a href="industries.html" class="nav-sol-more">See all 12 industries &rarr;</a>
+                <a href="industries.html" class="nav-sol-more">See all industries &rarr;</a>
               </div>
 
               <!-- Col 3: Integrations -->
               <div class="nav-mega-col">
+                <div class="nav-sol-visual nav-sol-visual--green" aria-hidden="true">
+                  <img src="images/nav-illustrations/nav-solutions-integrations.png" alt="" width="720" height="320">
+                </div>
                 <div class="nav-mega-col-head nav-mega-col-head--desc">
                   <span class="nav-col-icon nav-col-icon--green nav-sol-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
                   <div><span class="nav-mega-header">Integrations</span><span class="nav-mega-header-desc">Works with the tools you already love</span></div>
@@ -1871,19 +1873,19 @@
           <div class="nav-dropdown-panel nav-dropdown-panel--partnership nav-dropdown-panel--partnership-v2" role="menu">
             <div class="nav-mega-layout nav-mega-layout--partnership-v2">
               <a href="become-an-affiliate.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--violet nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+                <span class="nav-partner-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Affiliate Marketing</span>
                 <span class="nav-res-desc">Earn rewards by referring StepsAI to your audience.</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="hire-an-agency.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--green nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span>
+                <span class="nav-partner-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Affiliate Partnership</span>
                 <span class="nav-res-desc">Partner with us for long-term growth and revenue.</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="partner.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--orange nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="15" r="2.5"/><path d="M18 11.2v.8M18 18v.8M14.8 15h.8M20.4 15h.8M15.7 12.9l.6.6M19.7 17.5l.6.6M15.7 17.1l.6-.6M19.7 12.5l.6-.6"/></svg></span>
+                <span class="nav-partner-art" aria-hidden="true"></span>
                 <span class="nav-res-title">White-labeling Agent Partner</span>
                 <span class="nav-res-desc">Power your brand with our AI agents.</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1909,25 +1911,25 @@
           <div class="nav-dropdown-panel nav-dropdown-panel--resources nav-dropdown-panel--resources-v2" role="menu">
             <div class="nav-mega-layout nav-mega-layout--resources-v2">
               <a href="academy.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--violet nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <span class="nav-resource-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Blocks</span>
                 <span class="nav-res-desc">Ready-to-use resources and building blocks</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="help-center.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--blue nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                <span class="nav-resource-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Help Center</span>
                 <span class="nav-res-desc">Get help and find answers</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="case-studies.html" class="nav-res-item">
-                <span class="nav-col-icon nav-col-icon--green nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+                <span class="nav-resource-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Case Studies</span>
                 <span class="nav-res-desc">See how businesses use StepsAI</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="https://docs.stepsai.co" class="nav-res-item" target="_blank" rel="noopener">
-                <span class="nav-col-icon nav-col-icon--orange nav-res-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></span>
+                <span class="nav-resource-art" aria-hidden="true"></span>
                 <span class="nav-res-title">Docs</span>
                 <span class="nav-res-desc">Product documentation and setup guides</span>
                 <svg class="nav-res-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -3463,10 +3465,10 @@
       <p class="auto-sub">Chases the abandoned cart at 2 am. Reminds the customer who forgot. Wakes up the lead that went quiet last week. Nobody has to remember any of it.</p>
 
       <!-- Interactive Playbook Filter Tabs Bar -->
-      <div class="auto-tabs-bar" id="autoTabsBar">
-        <button class="auto-tab-pill active" data-wf="cart" type="button"><span class="dot"></span>Cart recovery</button>
-        <button class="auto-tab-pill" data-wf="lead" type="button"><span class="dot"></span>Lead routing</button>
-        <button class="auto-tab-pill" data-wf="booking" type="button"><span class="dot"></span>Appointment booking</button>
+      <div class="auto-tabs-bar" id="autoTabsBar" role="tablist" aria-label="Workflow examples">
+        <button class="auto-tab-pill active" data-wf="cart" type="button" role="tab" aria-selected="true"><span class="dot"></span>Cart recovery</button>
+        <button class="auto-tab-pill" data-wf="lead" type="button" role="tab" aria-selected="false" tabindex="-1"><span class="dot"></span>Lead routing</button>
+        <button class="auto-tab-pill" data-wf="booking" type="button" role="tab" aria-selected="false" tabindex="-1"><span class="dot"></span>Appointment booking</button>
       </div>
     </div>
 
@@ -3486,7 +3488,7 @@
         </div>
         <div class="wf-toolbar-right">
           <span class="wf-autosaved-note">Autosaved just now</span>
-          <button class="wf-sim-btn" id="wfSimulateBtn" type="button">Simulate run</button>
+          <button class="wf-sim-btn" id="wfSimulateBtn" type="button" aria-live="polite">Simulate run</button>
         </div>
       </div>
 
@@ -3494,7 +3496,9 @@
       <div class="wf-canvas-stage" id="wfCanvasStage">
         
         <div class="wf-banner" id="wfBannerStats">
-          <span>📈</span> <span id="wfBannerText">₹11,64,871 recovered by this flow · 1,420 orders saved on auto-pilot</span>
+          <span class="wf-banner-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg></span>
+          <strong class="wf-banner-label">Example result</strong>
+          <span id="wfBannerText">₹11,64,871 recovered by this flow · 1,420 orders saved on auto-pilot</span>
         </div>
 
         <!-- 1. Trigger Node -->
@@ -3507,10 +3511,14 @@
             <span class="wf-fnode-dots">•••</span>
           </div>
           <div class="wf-flownode-body">
-            <div class="wf-fnode-ic" id="wfFIc1" style="background:#eff6ff;color:#2563eb">🛒</div>
-            <div class="wf-fnode-text">
-              <h6 id="wfFTitle1">The cart they walked away from</h6>
-              <p id="wfFDesc1">Shopper left items in checkout without completing purchase</p>
+            <div class="wf-trigger-preview">
+              <img id="wfTriggerImg" src="images/hero/trail-jacket.png" alt="Trail Jacket">
+              <div class="wf-trigger-copy">
+                <span class="wf-preview-source" id="wfTriggerSource">Shopify checkout</span>
+                <h6 id="wfFTitle1">Trail Jacket · Size XL</h6>
+                <p id="wfFDesc1">1 item · ₹10,999</p>
+              </div>
+              <span class="wf-event-status" id="wfTriggerStatus"><i></i>Checkout incomplete</span>
             </div>
           </div>
           <!-- Output Port -->
@@ -3534,10 +3542,13 @@
             <span class="wf-fnode-dots">•••</span>
           </div>
           <div class="wf-flownode-body">
-            <div class="wf-fnode-ic" id="wfFIc2" style="background:#f5f3ff;color:#7c3aed">⏱️</div>
-            <div class="wf-fnode-text">
-              <h6 id="wfFTitle2">Holding for thirty minutes, so they can finish on their own</h6>
-              <div style="margin-top:4px"><span class="badge" id="wfFDelayBadge" style="margin:0;padding:2px 8px;font-size:10px;background:#f1f5f9;color:#475569;font-family:monospace;font-weight:750">⏳ 30 mins</span></div>
+            <div class="wf-wait-ui">
+              <div class="wf-wait-head">
+                <div class="wf-fnode-ic" id="wfFIc2" style="background:#f5f3ff;color:#7c3aed" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></div>
+                <div class="wf-fnode-text"><h6 id="wfFTitle2">Wait before following up</h6><p id="wfWaitCaption">Give the customer time to finish</p></div>
+              </div>
+              <div class="wf-wait-track" aria-hidden="true"><span id="wfWaitProgress"></span></div>
+              <div class="wf-wait-meta"><span id="wfFDelayBadge">30 minutes</span><strong id="wfWaitState">Ready</strong></div>
             </div>
           </div>
           <!-- Output Port -->
@@ -3561,12 +3572,10 @@
             <span class="wf-fnode-dots">•••</span>
           </div>
           <div class="wf-flownode-body" style="flex-direction:column;align-items:stretch">
-            <div class="wf-fnode-text">
-              <h6 id="wfFTitle3">Scoring budget, timeline &amp; cart status</h6>
-              <div class="wf-cond-eval-box" id="wfCondEvalBox">
-                <span id="wfCondLabel">Has completed purchase?</span>
-                <b id="wfCondVal" style="color:#dc2626">False (Cart Unpaid)</b>
-              </div>
+            <div class="wf-decision-ui">
+              <div class="wf-decision-head"><span class="wf-decision-spinner" aria-hidden="true"></span><div><span>Live data check</span><h6 id="wfFTitle3">Look up checkout status</h6></div></div>
+              <div class="wf-decision-row" id="wfCondEvalBox"><span id="wfCondLabel">Purchase completed?</span><b id="wfCondVal" style="color:#dc2626">No</b></div>
+              <div class="wf-decision-row"><span>Next action</span><b id="wfDecisionNext">Send recovery message</b></div>
             </div>
           </div>
           <!-- Branching Ports -->
@@ -3575,11 +3584,9 @@
         </div>
 
         <!-- Branching SVG Curved Connectors -->
-        <svg class="wf-branch-svg-wrap" id="wfFBranchSvg" viewBox="0 0 380 44" fill="none" stroke="#cbd5e1">
-          <!-- Left Curve to IF NO -->
-          <path stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" d="M142.5 0 Q 142.5 22 95 22 T 47.5 44"/>
-          <!-- Right Curve to IF YES -->
-          <path stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" d="M237.5 0 Q 237.5 22 285 22 T 332.5 44"/>
+        <svg class="wf-branch-svg-wrap" id="wfFBranchSvg" viewBox="0 0 42 224" preserveAspectRatio="none" fill="none" stroke="#cbd5e1">
+          <path stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" d="M0 82 H14 Q25 82 25 68 V48 Q25 32 42 32"/>
+          <path stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" d="M0 145 H14 Q25 145 25 160 V176 Q25 192 42 192"/>
         </svg>
 
         <!-- 4. Side-by-Side Action Nodes -->
@@ -3587,21 +3594,26 @@
           
           <!-- Left Action Card: IF NO / UNPAID (The message that actually goes out) -->
           <div class="wf-action-card" id="wfFCardAction">
-            <div class="wf-if-badge badge-no" id="wfIfNoTag">⚡ IF UNPAID · ACTION</div>
+            <div class="wf-if-badge badge-no" id="wfIfNoTag">IF UNPAID · ACTION</div>
             <div class="wf-port-top"></div>
             <div class="wf-action-body">
-              <div class="wf-action-header">
-                <div class="wf-fnode-ic" style="width:28px;height:28px;font-size:13px;background:#eff6ff;color:#2563eb">💬</div>
-                <h6 id="wfActionHeaderTitle">Send WhatsApp Media Card</h6>
-              </div>
-              <div class="wf-msg-preview-box">
-                <div id="wfActionMsgText">"Hi Priya, you left items in your cart. Still interested?"</div>
-                <div class="wf-msg-media-row" id="wfActionMediaRow">
-                  <img class="wf-msg-media-img" id="wfActionImg" src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=150&q=80" alt="Cart product">
-                  <div class="wf-msg-media-details">
-                    <b id="wfActionMediaTitle">Titanium Polarized Aviators</b>
-                    <span id="wfActionMediaSub">✓ 10% Discount: CART10</span>
-                    <span class="wf-msg-media-cta" id="wfActionMediaCta">🔗 View Cart</span>
+              <div class="wf-wa-preview" aria-label="Example WhatsApp Business message received by a customer">
+                <div class="wf-wa-head">
+                  <span class="wf-wa-back" aria-hidden="true">‹</span>
+                  <span class="wf-wa-avatar"><img src="images/logo.png" alt=""></span>
+                  <span class="wf-wa-identity"><strong>StepsAI Store</strong><small>Business account</small></span>
+                  <span class="wf-wa-tools" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"/></svg></span>
+                </div>
+                <div class="wf-wa-chat">
+                  <span class="wf-wa-template" id="wfWaTemplateType">Marketing template · Opted-in example</span>
+                  <div class="wf-wa-bubble">
+                    <div class="wf-wa-product" id="wfActionMediaRow">
+                      <img id="wfActionImg" src="images/hero/trail-jacket.png" alt="Trail Jacket">
+                      <div><strong id="wfActionMediaTitle">Trail Jacket</strong><span id="wfActionMediaSub">Size XL · ₹10,999</span></div>
+                    </div>
+                    <p id="wfActionMsgText">Hi Priya, your Trail Jacket is still waiting in your cart. Complete your order while it’s in stock.</p>
+                    <time>10:24 AM</time>
+                    <button type="button" tabindex="-1" id="wfActionMediaCta">View cart</button>
                   </div>
                 </div>
               </div>
@@ -3637,14 +3649,6 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- Bottom Preset Templates Carousel -->
-    <div class="auto-chips reveal" id="autoChipsPreset" style="margin-top:28px">
-      <span class="ac" data-wf="cart">Cart recovery</span>
-      <span class="ac" data-wf="lead">Lead routing</span>
-      <span class="ac" data-wf="booking">Appointment booking</span>
-      <span class="ac more" id="autoMoreChipsBtn">+ 28 Pre-Built Workflows</span>
     </div>
 
   </div>
@@ -4531,7 +4535,7 @@
 
   <script src="nav.js?v=2.0"></script>
   <script src="home.js?v=2.0"></script>
-  <script src="home-v2.js?v=1.4"></script>
+  <script src="home-v2.js?v=1.6"></script>
   <script src="analytics-charts.js?v=2.0"></script>
   <script src="home-professional.js?v=2"></script>
   <script src="hero-premium.js?v=3"></script>

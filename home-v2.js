@@ -1683,18 +1683,19 @@ if(waSection && 'IntersectionObserver' in window){
     cart: {
       title: "Cart recovery · WhatsApp flow",
       banner: "₹11,64,871 recovered by this flow · 1,420 orders saved on auto-pilot",
-      node1: { ic: "🛒", bg: "#eff6ff", col: "#2563eb", tag: "TRIGGER", title: "The cart they walked away from", desc: "Shopper left items in checkout without completing purchase (Shopify Storefront)" },
-      node2: { ic: "⏱️", bg: "#f5f3ff", col: "#7c3aed", tag: "TIMED DELAY", title: "Holding for thirty minutes, so they can finish on their own", delay: "⏳ 30 mins" },
-      node3: { tag: "CONDITION", title: "Check order checkout status", condLabel: "Has completed purchase?", condVal: "False (Cart Unpaid)", condCol: "#dc2626" },
+      node1: { icon: "cart", bg: "#eff6ff", col: "#2563eb", tag: "TRIGGER", image: "images/hero/trail-jacket.png", source: "Shopify checkout", status: "Checkout incomplete", title: "Trail Jacket · Size XL", desc: "1 item · ₹10,999" },
+      node2: { icon: "clock", bg: "#f5f3ff", col: "#7c3aed", tag: "TIMED DELAY", title: "Wait before following up", caption: "Give the customer time to finish", delay: "30 minutes" },
+      node3: { tag: "CONDITION", title: "Look up checkout status", condLabel: "Purchase completed?", condVal: "No", condCol: "#dc2626", next: "Send recovery message" },
       actionLeft: {
-        badge: "⚡ IF UNPAID · ACTION",
-        ic: "💬",
+        badge: "IF UNPAID · ACTION",
+        icon: "message",
         header: "The message that actually goes out",
-        msg: '"Hi Priya, you left items in your cart. Still interested?"',
-        img: "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=150&q=80",
-        title: "Titanium Polarized Aviators",
-        sub: "✓ 10% Discount: CART10",
-        cta: "🔗 View Cart"
+        template: "Marketing template · Opted-in example",
+        msg: "Hi Priya, your Trail Jacket is still waiting in your cart. Complete your order while it’s in stock.",
+        img: "images/hero/trail-jacket.png",
+        title: "Trail Jacket",
+        sub: "Size XL · ₹10,999",
+        cta: "View cart"
       },
       actionRight: {
         badge: "✓ IF PAID · RESOLVED",
@@ -1703,58 +1704,86 @@ if(waSection && 'IntersectionObserver' in window){
     },
     lead: {
       title: "Lead routing · High-Value Pipeline",
-      banner: "⚡ 4.2x Faster Response Time · 84% Discovery Call Booking Rate",
-      node1: { ic: "💬", bg: "#f5f3ff", col: "#7c3aed", tag: "TRIGGER", title: "The conversation that just started", desc: "Prospect begins high-intent inquiry on website, Instagram or WhatsApp" },
-      node2: { ic: "🎯", bg: "#eff6ff", col: "#1d4ed8", tag: "AI ENRICHMENT", title: "Enriching company profile & tech stack", delay: "⚡ < 3 seconds" },
-      node3: { tag: "AI SCORING", title: "Scoring budget, timeline and company size against your bar", condLabel: "Qualifies as Tier 1 Enterprise?", condVal: "True (High Value ICP)", condCol: "#16a34a" },
+      banner: "4.2x Faster Response Time · 84% Discovery Call Booking Rate",
+      node1: { icon: "message", bg: "#f5f3ff", col: "#7c3aed", tag: "TRIGGER", image: "images/avatar-1.jpg", source: "Website conversation", status: "New high-intent lead", title: "Priya Sharma", desc: "Acme Corp · 250+ seats" },
+      node2: { icon: "target", bg: "#eff6ff", col: "#1d4ed8", tag: "AI ENRICHMENT", title: "Enrich lead profile", caption: "Company, role and intent signals", delay: "Under 3 seconds" },
+      node3: { tag: "AI SCORING", title: "Compare against qualification rules", condLabel: "Tier 1 lead?", condVal: "Yes", condCol: "#16a34a", next: "Notify enterprise sales" },
       actionLeft: {
-        badge: "🚨 IF QUALIFIED · INSTANT DISPATCH",
-        ic: "⚡",
+        badge: "IF QUALIFIED · INSTANT DISPATCH",
+        icon: "bolt",
         header: "The alert your sales team sees",
-        msg: '"🔥 Hot Lead: Priya Sharma (VP Tech, Acme Corp, 250+ seats). Routing to Enterprise AE now."',
-        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+        template: "Internal WhatsApp alert · Sales team",
+        msg: "Hot lead: Priya Sharma, VP Tech at Acme Corp. Budget and timeline match your Tier 1 rules.",
+        img: "images/avatar-1.jpg",
         title: "Priya Sharma · VP Tech",
-        sub: "⚡ $50k+ Budget · Slack & WhatsApp Paged",
-        cta: "🚨 Claim Lead"
+        sub: "Qualified · Enterprise",
+        cta: "Open lead"
       },
       actionRight: {
-        badge: "📅 IF SELF-SERVE · CALENDAR",
+        badge: "IF SELF-SERVE · CALENDAR",
         desc: "Sends instant self-serve calendar booking link & interactive product video."
       }
     },
     booking: {
       title: "Appointment booking · 24/7 Calendar Sync",
-      banner: "🛡️ 0% No-Shows · 99.1% On-Time Meeting Attendance",
-      node1: { ic: "🌙", bg: "#eff6ff", col: "#1d4ed8", tag: "TRIGGER", title: "The request that came in after hours", desc: "Customer requests strategy call at 11:30 PM when team is offline" },
-      node2: { ic: "📅", bg: "#f5f3ff", col: "#7c3aed", tag: "CALENDAR SCAN", title: "Checking Thursday against every calendar", delay: "⚡ Real-time" },
-      node3: { tag: "CONFLICT CHECK", title: "Checking calendar availability & timezone", condLabel: "Selected slot available?", condVal: "True (Thu 3:00 PM Open)", condCol: "#16a34a" },
+      banner: "0% No-Shows · 99.1% On-Time Meeting Attendance",
+      node1: { icon: "moon", bg: "#eff6ff", col: "#1d4ed8", tag: "TRIGGER", image: "images/avatar-2.jpg", source: "WhatsApp · after hours", status: "Booking request", title: "Thursday · 3:00 PM", desc: "Strategy consultation" },
+      node2: { icon: "calendar", bg: "#f5f3ff", col: "#7c3aed", tag: "CALENDAR SCAN", title: "Check connected calendars", caption: "Match timezone and availability", delay: "Real-time" },
+      node3: { tag: "CONFLICT CHECK", title: "Confirm the requested slot", condLabel: "Slot available?", condVal: "Yes", condCol: "#16a34a", next: "Send booking confirmation" },
       actionLeft: {
-        badge: "📅 IF CONFIRMED · CALENDAR INVITE",
-        ic: "📆",
+        badge: "IF CONFIRMED · CALENDAR INVITE",
+        icon: "calendar",
         header: "The invite that lands in both calendars",
-        msg: '"You\'re all set! Confirmed for Thursday at 3:00 PM IST with Nitish. Google Meet link attached."',
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=150&q=80",
+        template: "Utility template · Booking confirmation",
+        msg: "You’re all set, Priya. Your strategy consultation is confirmed for Thursday at 3:00 PM IST.",
+        img: "images/team-collaboration.jpg",
         title: "Product Strategy Consultation",
-        sub: "✓ Google Meet & Calendar Invite Synced",
-        cta: "📅 Add to Calendar"
+        sub: "Thu · 3:00 PM IST",
+        cta: "View booking"
       },
       actionRight: {
-        badge: "🔄 IF CONFLICT · AUTO-RESCHEDULE",
+        badge: "IF CONFLICT · AUTO-RESCHEDULE",
         desc: "Offers customer the next 3 optimal open slots automatically."
       }
     }
   };
 
+  const WORKFLOW_ICONS = {
+    cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H7"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',
+    message: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>',
+    target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M15 9l5-5"/></svg>',
+    bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></svg>',
+    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>',
+    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>'
+  };
+
   let activeWfKey = 'cart';
+  let resetSimulation = () => {};
+  const workflowStage = document.getElementById('wfCanvasStage');
 
   function applyWorkflow(key) {
     const data = WF_DATA[key];
-    if (!data) return;
+    if (!data || key === activeWfKey) return;
+    resetSimulation();
     activeWfKey = key;
+
+    if (workflowStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      workflowStage.animate(
+        [
+          { opacity: .56, filter: 'blur(2px)', transform: 'translateY(3px)' },
+          { opacity: 1, filter: 'blur(0)', transform: 'translateY(0)' }
+        ],
+        { duration: 420, easing: 'cubic-bezier(.16,1,.3,1)' }
+      );
+    }
 
     // Update Tab Pills in Header
     document.querySelectorAll('#autoTabsBar .auto-tab-pill').forEach(pill => {
-      pill.classList.toggle('active', pill.dataset.wf === key);
+      const selected = pill.dataset.wf === key;
+      pill.classList.toggle('active', selected);
+      pill.setAttribute('aria-selected', String(selected));
+      pill.tabIndex = selected ? 0 : -1;
     });
 
     // Update Bottom Preset Chips
@@ -1776,21 +1805,31 @@ if(waSection && 'IntersectionObserver' in window){
     const tag1 = document.querySelector('#wfFTag1 span');
     if (tag1) tag1.textContent = data.node1.tag;
     const ic1 = document.getElementById('wfFIc1');
-    if (ic1) { ic1.textContent = data.node1.ic; ic1.style.background = data.node1.bg; ic1.style.color = data.node1.col; }
+    if (ic1) { ic1.innerHTML = WORKFLOW_ICONS[data.node1.icon] || ''; ic1.style.background = data.node1.bg; ic1.style.color = data.node1.col; }
     const title1 = document.getElementById('wfFTitle1');
     if (title1) title1.textContent = data.node1.title;
     const desc1 = document.getElementById('wfFDesc1');
     if (desc1) desc1.textContent = data.node1.desc;
+    const triggerImg = document.getElementById('wfTriggerImg');
+    if (triggerImg) { triggerImg.src = data.node1.image; triggerImg.alt = data.node1.title; }
+    const triggerSource = document.getElementById('wfTriggerSource');
+    if (triggerSource) triggerSource.textContent = data.node1.source;
+    const triggerStatus = document.getElementById('wfTriggerStatus');
+    if (triggerStatus) triggerStatus.textContent = data.node1.status;
 
     // Update Node 2 (Delay)
     const tag2 = document.querySelector('#wfFTag2 span');
     if (tag2) tag2.textContent = data.node2.tag;
     const ic2 = document.getElementById('wfFIc2');
-    if (ic2) { ic2.textContent = data.node2.ic; ic2.style.background = data.node2.bg; ic2.style.color = data.node2.col; }
+    if (ic2) { ic2.innerHTML = WORKFLOW_ICONS[data.node2.icon] || ''; ic2.style.background = data.node2.bg; ic2.style.color = data.node2.col; }
     const title2 = document.getElementById('wfFTitle2');
     if (title2) title2.textContent = data.node2.title;
     const delayBadge = document.getElementById('wfFDelayBadge');
     if (delayBadge) delayBadge.textContent = data.node2.delay;
+    const waitCaption = document.getElementById('wfWaitCaption');
+    if (waitCaption) waitCaption.textContent = data.node2.caption;
+    const waitState = document.getElementById('wfWaitState');
+    if (waitState) waitState.textContent = 'Ready';
 
     // Update Node 3 (Condition)
     const tag3 = document.querySelector('#wfFTag3 span');
@@ -1804,14 +1843,20 @@ if(waSection && 'IntersectionObserver' in window){
       condVal.textContent = data.node3.condVal;
       condVal.style.color = data.node3.condCol || '#0f172a';
     }
+    const decisionNext = document.getElementById('wfDecisionNext');
+    if (decisionNext) decisionNext.textContent = data.node3.next;
 
     // Update Left Action Node
     const ifNoTag = document.getElementById('wfIfNoTag');
     if (ifNoTag) ifNoTag.textContent = data.actionLeft.badge;
     const actionHeaderTitle = document.getElementById('wfActionHeaderTitle');
     if (actionHeaderTitle) actionHeaderTitle.textContent = data.actionLeft.header;
+    const actionIcon = document.getElementById('wfActionIcon');
+    if (actionIcon) actionIcon.innerHTML = WORKFLOW_ICONS[data.actionLeft.icon] || WORKFLOW_ICONS.message;
     const actionMsgText = document.getElementById('wfActionMsgText');
     if (actionMsgText) actionMsgText.textContent = data.actionLeft.msg;
+    const templateType = document.getElementById('wfWaTemplateType');
+    if (templateType) templateType.textContent = data.actionLeft.template;
     const actionImg = document.getElementById('wfActionImg');
     if (actionImg) actionImg.src = data.actionLeft.img;
     const actionMediaTitle = document.getElementById('wfActionMediaTitle');
@@ -1836,6 +1881,21 @@ if(waSection && 'IntersectionObserver' in window){
     });
   });
 
+  const workflowTabs = [...document.querySelectorAll('#autoTabsBar .auto-tab-pill')];
+  workflowTabs.forEach((pill, index) => {
+    pill.addEventListener('keydown', (event) => {
+      let nextIndex = null;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % workflowTabs.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + workflowTabs.length) % workflowTabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = workflowTabs.length - 1;
+      if (nextIndex === null) return;
+      event.preventDefault();
+      workflowTabs[nextIndex].focus();
+      applyWorkflow(workflowTabs[nextIndex].dataset.wf);
+    });
+  });
+
   // Preset chips click listeners
   document.querySelectorAll('#autoChipsPreset .ac').forEach(chip => {
     chip.addEventListener('click', () => {
@@ -1844,54 +1904,118 @@ if(waSection && 'IntersectionObserver' in window){
     });
   });
 
-  // Live Simulation Button Pulse Engine
+  // A single legible run: trigger → wait → decision → customer message.
   const simBtn = document.getElementById('wfSimulateBtn');
   if (simBtn) {
     let isSimulating = false;
+    let runId = 0;
+    let timers = [];
+    const originalButtonMarkup = simBtn.innerHTML;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const n1 = document.getElementById('wfFNode1');
+    const p1 = document.getElementById('wfFPipe1');
+    const n2 = document.getElementById('wfFNode2');
+    const p2 = document.getElementById('wfFPipe2');
+    const n3 = document.getElementById('wfFNode3');
+    const bSvg = document.getElementById('wfFBranchSvg');
+    const cardAction = document.getElementById('wfFCardAction');
+    const waitState = document.getElementById('wfWaitState');
+    const condVal = document.getElementById('wfCondVal');
+    const decisionNext = document.getElementById('wfDecisionNext');
+
+    const schedule = (id, callback, delay) => {
+      timers.push(window.setTimeout(() => {
+        if (id === runId) callback();
+      }, delay));
+    };
+
+    resetSimulation = () => {
+      runId += 1;
+      timers.forEach(window.clearTimeout);
+      timers = [];
+      isSimulating = false;
+      [n1, n2, n3, cardAction].forEach(node => {
+        if (!node) return;
+        node.classList.remove('executing', 'is-triggered', 'is-waiting', 'is-wait-complete', 'is-checking', 'is-decided', 'is-sent');
+      });
+      if (p1) p1.style.color = '';
+      if (p2) p2.style.color = '';
+      if (bSvg) bSvg.style.stroke = '';
+      if (waitState) waitState.textContent = 'Ready';
+      const data = WF_DATA[activeWfKey];
+      if (condVal && data) {
+        condVal.textContent = data.node3.condVal;
+        condVal.style.color = data.node3.condCol || '#0f172a';
+      }
+      if (decisionNext && data) decisionNext.textContent = data.node3.next;
+      simBtn.innerHTML = originalButtonMarkup;
+      simBtn.style.background = '';
+      simBtn.removeAttribute('aria-busy');
+    };
+
     simBtn.addEventListener('click', () => {
       if (isSimulating) return;
       isSimulating = true;
-      const origText = simBtn.innerHTML;
-      simBtn.innerHTML = '⚡ Simulating Event...';
+      const currentRun = ++runId;
+      simBtn.textContent = 'Running workflow…';
+      simBtn.setAttribute('aria-busy', 'true');
       simBtn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
 
-      const n1 = document.getElementById('wfFNode1');
-      const p1 = document.getElementById('wfFPipe1');
-      const n2 = document.getElementById('wfFNode2');
-      const p2 = document.getElementById('wfFPipe2');
-      const n3 = document.getElementById('wfFNode3');
-      const bSvg = document.getElementById('wfFBranchSvg');
-      const cardAction = document.getElementById('wfFCardAction');
+      if (n1) n1.classList.add('executing', 'is-triggered');
 
-      if (n1) n1.classList.add('executing');
+      const finishRun = () => {
+        simBtn.textContent = 'Run completed';
+        simBtn.removeAttribute('aria-busy');
+        schedule(currentRun, resetSimulation, 1800);
+      };
 
-      setTimeout(() => {
+      const showFinishedState = () => {
         if (p1) p1.style.color = '#2563eb';
-        if (n2) n2.classList.add('executing');
-      }, 350);
-
-      setTimeout(() => {
+        if (n2) n2.classList.add('executing', 'is-wait-complete');
+        if (waitState) waitState.textContent = 'Wait complete';
         if (p2) p2.style.color = '#7c3aed';
-        if (n3) n3.classList.add('executing');
-      }, 700);
-
-      setTimeout(() => {
+        if (n3) n3.classList.add('executing', 'is-decided');
         if (bSvg) bSvg.style.stroke = '#2563eb';
-        if (cardAction) cardAction.classList.add('executing');
-      }, 1050);
+        if (cardAction) cardAction.classList.add('executing', 'is-sent');
+      };
 
-      setTimeout(() => {
-        simBtn.innerHTML = '✓ Run Succeeded (200 OK)';
-        setTimeout(() => {
-          simBtn.innerHTML = origText;
-          simBtn.style.background = '';
-          isSimulating = false;
-          [n1, n2, n3, cardAction].forEach(n => n && n.classList.remove('executing'));
-          if (p1) p1.style.color = '';
-          if (p2) p2.style.color = '';
-          if (bSvg) bSvg.style.stroke = '';
-        }, 1800);
-      }, 1600);
+      if (reducedMotion.matches) {
+        showFinishedState();
+        finishRun();
+        return;
+      }
+
+      schedule(currentRun, () => {
+        if (p1) p1.style.color = '#2563eb';
+        if (n2) n2.classList.add('executing', 'is-waiting');
+        if (waitState) waitState.textContent = 'Waiting…';
+      }, 650);
+
+      schedule(currentRun, () => {
+        if (n2) n2.classList.remove('is-waiting');
+        if (n2) n2.classList.add('is-wait-complete');
+        if (waitState) waitState.textContent = 'Wait complete';
+        if (p2) p2.style.color = '#7c3aed';
+        if (n3) n3.classList.add('executing', 'is-checking');
+        if (condVal) { condVal.textContent = 'Checking…'; condVal.style.color = '#7c3aed'; }
+        if (decisionNext) decisionNext.textContent = 'Waiting for decision';
+      }, 1800);
+
+      schedule(currentRun, () => {
+        const data = WF_DATA[activeWfKey];
+        if (n3) n3.classList.remove('is-checking');
+        if (n3) n3.classList.add('is-decided');
+        if (condVal && data) { condVal.textContent = data.node3.condVal; condVal.style.color = data.node3.condCol || '#0f172a'; }
+        if (decisionNext && data) decisionNext.textContent = data.node3.next;
+        if (bSvg) bSvg.style.stroke = '#2563eb';
+      }, 2750);
+
+      schedule(currentRun, () => {
+        if (cardAction) cardAction.classList.add('executing', 'is-sent');
+      }, 3300);
+
+      schedule(currentRun, finishRun, 4200);
     });
   }
 })();
