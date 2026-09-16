@@ -947,5 +947,26 @@
     });
   })();
 
+  /* ---------------------------------------------------------
+     TRUSTED CLIENT LOGOS SLIDER ARROWS
+     --------------------------------------------------------- */
+  (function initTrustedLogosSlider() {
+    var prevBtn = document.getElementById('trustedPrevBtn');
+    var nextBtn = document.getElementById('trustedNextBtn');
+    var row = document.getElementById('trustedLogosRow');
+    if (!row) return;
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        row.scrollBy({ left: -240, behavior: 'smooth' });
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        row.scrollBy({ left: 240, behavior: 'smooth' });
+      });
+    }
+  })();
+
 })();
 

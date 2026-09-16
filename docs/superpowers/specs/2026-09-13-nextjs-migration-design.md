@@ -72,20 +72,48 @@ independent Node/Next.js project living alongside the HTML files.
 
 Built **before** the homepage is assembled, since every section depends on it.
 
-- **Tailwind theme**: colors (`--accent`, `--text-primary`, `--bg-surface`,
-  etc.), spacing, radii, and the blue gradient used by `.grad-text` extracted
-  from the current `styles.css` / `home-v2.css` custom properties into
-  `tailwind.config.ts` — matched exactly, not approximated.
-- **shadcn/ui primitives** installed and re-themed (never left at shadcn
-  default styling): `Button`, `Badge`, `Tabs`, `Accordion`, `Dialog` — back the
-  FAQ accordion and the channel/marketing/workflow tab switchers.
+### Amendment (2026-09-13): CSS strategy revised after inspecting the cascade
+
+The original plan was to re-derive every color/spacing/typography value into
+`tailwind.config.ts` from scratch. On inspection, `index.html` actually loads
+**six** cascading stylesheets (`styles.css` → `home-v2.css` →
+`home-professional.css` → `home-finish.css` → `hero-premium.css` →
+`benefits.css`), each overriding shared classes like `.badge`, `.sec-title`,
+`.grad-text` for later sections (e.g. `home-professional.css` sets
+`#top .badge { display:none }`, overridden again downstream). Hand-translating
+this resolved cascade into fresh Tailwind utilities, section by section, risks
+silently breaking pixel fidelity on exactly the requirement this phase cares
+about most.
+
+**Revised approach:** port all six CSS files **verbatim** into the Next.js app
+as global stylesheets, and keep the **same class names** on the new JSX
+(`className="badge"`, `"sec-title"`, `"grad-text"`, `"container"`, etc.). This
+guarantees exact visual fidelity by construction — it is the same CSS cascade,
+now serving React-rendered markup instead of static HTML. Tailwind's own
+utility classes and `tailwind.config.ts` theme tokens (still configured, using
+the site's existing CSS custom properties as their values, e.g.
+`accent: 'var(--accent)'`) are used only for genuinely new code — the custom
+primitives below and any new layout `next-app`-specific pages need. shadcn/ui
+primitives are installed for behavior/accessibility (Tabs, Accordion, Dialog)
+but styled by the **existing** classes on their root elements, not shadcn's
+default theme.
+
+- **Global CSS**: the six stylesheets imported as-is into `app/globals.css`
+  (via `@import`), load order preserved exactly.
+- **shadcn/ui primitives**: `Button`, `Badge`, `Tabs`, `Accordion`, `Dialog` —
+  installed via the shadcn CLI, then each wrapped so its rendered DOM carries
+  the original site's class names (e.g. shadcn's `Accordion` renders the
+  `.faq-item` / `.faq-q` / `.faq-a` structure the ported CSS already styles).
 - **Custom primitives** (site-specific, not in shadcn):
-  - `GradText` — the blue-gradient span used in every section heading
-  - `SectionHeading` — the repeated badge + H2 + sub pattern
-  - `RevealOnScroll` — Framer Motion `whileInView` wrapper, replacing the
-    current `IntersectionObserver`-based `.reveal` classes
-  - `Marquee` — infinite-scroll logo/app-pill strip
-  - `StatPlate` — the hero's 4-metric row
+  - `GradText` — thin wrapper emitting `<span className="grad-text">`
+  - `SectionHeading` — the repeated badge + H2 + sub markup pattern
+  - `RevealOnScroll` — Framer Motion `whileInView` wrapper that toggles the
+    existing `.is-visible` class (so the ported `.reveal`/`.reveal-left`/
+    `.reveal-right`/`.reveal-grow` CSS transitions fire unchanged), replacing
+    the current hand-rolled `IntersectionObserver` JS
+  - `Marquee` — wrapper emitting the existing `.trust-marquee-*` /
+    `.app-marquee-*` markup structure (CSS `@keyframes` unchanged)
+  - `StatPlate` — the hero's 4-metric row, emitting the existing markup/classes
 
 ## Content/data model
 

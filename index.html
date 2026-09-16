@@ -10,14 +10,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="styles.css?v=2.1">
   <link rel="stylesheet" href="home-v2.css?v=1.3">
   <link rel="stylesheet" href="home-professional.css?v=2">
   <link rel="stylesheet" href="home-finish.css?v=2">
-  <link rel="stylesheet" href="hero-premium.css?v=1">
+  <link rel="stylesheet" href="hero-premium.css?v=4">
   <link rel="stylesheet" href="benefits.css?v=1">
   <style id="homepage-layout-qa">
     /* Homepage-only design QA: preserve the approved visual language while
@@ -160,159 +160,7 @@
       margin-top: 3px;
     }
 
-    /* Hero direction: preserve the StepsAI visual system while giving the
-       message and product conversation one unmistakable reading path. */
-    #top .hero-metrics,
-    #top .hero-channels,
-    #top .hero-demo-controls,
-    #top .hero-scribble,
-    #top .hero-chat-browser,
-    #top .hero-chat .ch-input {
-      display: none;
-    }
-
-    #top .hero-bg-img {
-      opacity: .2;
-      filter: saturate(.72) brightness(1.08);
-    }
-
-    #top .hero-light-veil {
-      background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(248,250,255,.9) 48%, rgba(239,244,255,.76) 100%);
-    }
-
-    #top .hero-copy .sub {
-      max-width: 570px;
-      text-wrap: pretty;
-    }
-
-    #top .hero .badge {
-      display: inline-flex;
-    }
-
-    #top .hero .hero-play {
-      width: 26px;
-      height: 26px;
-      display: inline-grid;
-      place-items: center;
-      margin-left: 2px;
-      border: 1px solid currentColor;
-      border-radius: 50%;
-      font-size: 10px;
-      line-height: 1;
-    }
-
-    @media (min-width: 1101px) {
-      #top .hero-grid {
-        grid-template-areas: "copy mockup";
-        grid-template-columns: minmax(0, 1.08fr) minmax(500px, .92fr);
-        column-gap: 64px;
-        align-items: center;
-        min-height: calc(100svh - 100px);
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      #top .hero-copy {
-        grid-area: copy;
-        align-self: center;
-      }
-
-      #top h1.hero-title {
-        max-width: 650px;
-        font-size: clamp(52px, 4.45vw, 66px);
-        line-height: 1.03;
-        letter-spacing: -.035em;
-        text-wrap: balance;
-      }
-
-      #top .hero-visual {
-        grid-area: mockup;
-        width: 100%;
-        max-width: 560px;
-        min-height: 520px;
-        justify-self: end;
-        padding: 18px 38px 18px 48px;
-        margin-right: 0;
-      }
-
-      #top .hero-chat {
-        width: min(430px, 100%);
-        margin: 30px 0 0;
-      }
-
-      #top .hero-chat-body {
-        height: 350px;
-        padding: 18px 20px;
-      }
-
-      #top .hero-cards {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        top: 92px;
-        right: -8px;
-        width: 205px;
-        gap: 16px;
-        margin-top: 0;
-      }
-
-      #top .hero-cards .mini-feature {
-        width: 100%;
-        min-height: 74px;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 13px 14px;
-        border: 0;
-        border-radius: 14px;
-        background: rgba(255,255,255,.96);
-        box-shadow: 0 14px 32px -18px rgba(26,86,219,.42), 0 4px 12px -8px rgba(15,23,42,.2);
-      }
-
-      #top .hero-cards .mini-feature.active {
-        background: #fff;
-        box-shadow: 0 16px 36px -18px rgba(26,86,219,.52), 0 4px 14px -8px rgba(15,23,42,.24);
-      }
-
-      #top .hero-cards .mf-ic {
-        width: 34px;
-        height: 34px;
-        display: grid;
-        place-items: center;
-        flex: 0 0 34px;
-        border-radius: 10px;
-        font-size: 15px;
-      }
-
-      #top .hero-cards h5 {
-        font-size: 13px;
-        line-height: 1.25;
-        margin-bottom: 3px;
-      }
-
-      #top .hero-cards p {
-        font-size: 10.5px;
-        line-height: 1.35;
-      }
-
-      #top .hero-notes {
-        display: flex;
-        left: -56px;
-        top: 118px;
-        gap: 68px;
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      #top .hero-notes {
-        display: none;
-      }
-
-      #top .hero-visual {
-        max-width: 600px;
-      }
-    }
+    /* Hero styling is handled pixel-to-pixel in hero-premium.css */
 
     #top .ind-header .sec-title,
     #top .revenue-heading .sec-title {
@@ -381,159 +229,1074 @@
     }
     }
 
-    /* Industries: a light editorial accordion. Photography introduces each
-       business, while the useful detail lives on a calm white surface rather
-       than inside a dark image overlay. */
+    /* ============================================================
+       INDUSTRIES: Pixel-to-Pixel Modern Card Accordion Architecture
+       Matches exact reference screenshot layout, typography & physics
+       ============================================================ */
+    #top #industries {
+      padding: 84px 0 88px;
+      position: relative;
+      background: linear-gradient(180deg, #f8faff 0%, #f1f6fe 100%);
+      overflow: hidden;
+    }
+
+    #top #industries .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    /* Dot grid matrix top-right */
+    #top #industries .ind-dot-grid {
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      width: 140px;
+      height: 80px;
+      background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+      background-size: 14px 14px;
+      opacity: 0.75;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header Row */
+    #top #industries .ind-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 34px;
+      position: relative;
+      z-index: 1;
+      gap: 20px;
+    }
+
+    #top #industries .ind-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #64748b;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    #top #industries .ind-title {
+      font-size: clamp(32px, 3.6vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    #top #industries .ind-title-blue {
+      color: #2563eb;
+    }
+
+    #top #industries .ind-sub {
+      font-size: 14.5px;
+      color: #64748b;
+      max-width: 550px;
+      margin-top: 9px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    /* Top-right Navigation Pill */
+    #top #industries .ind-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 5px 8px 5px 16px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    #top #industries .ind-nav-pill:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+    }
+    #top #industries .ind-nav-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      padding: 0;
+    }
+    #top #industries .ind-nav-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+
+    /* Cards Flex Track */
+    #top #industries .ind-track,
     #top #industries .ind-accordion {
-      height: 500px;
-      max-height: 500px;
-      gap: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+      position: relative;
+      z-index: 1;
+      height: auto;
+      min-height: 480px;
+      max-height: none;
+      margin: 0;
+      box-sizing: border-box;
     }
 
+    /* Individual Card */
     #top #industries .ind-card {
-      flex: 1.15;
+      flex: 1;
       min-width: 0;
-      border: 1px solid #dce5f3;
-      border-radius: 22px;
-      background: #fff;
-      box-shadow: 0 16px 38px -28px rgba(30, 64, 175, .32);
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+      transition: flex 0.62s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: pointer;
+      outline: none;
+      overflow: visible;
+      height: auto;
+      max-height: none;
     }
-
-    #top #industries .ind-card.active {
-      flex: 2.8;
-      border-color: #9dbcf5;
-      box-shadow: 0 22px 48px -30px rgba(37, 99, 235, .42), 0 0 0 1px rgba(37, 99, 235, .06);
-    }
-
     #top #industries .ind-card:hover {
-      border-color: #b8cced;
-      box-shadow: 0 20px 42px -28px rgba(37, 99, 235, .38);
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
-    #top #industries .ind-bg-img {
-      top: 0;
-      height: 66%;
-      border-radius: 21px 21px 0 0;
-      filter: saturate(.88) contrast(.98) brightness(1.04);
-      transform: none;
+    /* Active Expanded Card */
+    #top #industries .ind-card.active {
+      flex: 1.68;
+      border-color: #93c5fd;
+      box-shadow: 0 20px 48px -10px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(147, 197, 253, 0.4);
+      cursor: default;
     }
 
-    #top #industries .ind-card.active .ind-bg-img {
-      height: 42%;
-      filter: saturate(.92) contrast(.98) brightness(1.04);
-      transform: none;
+    /* Popular Badge on Active Card */
+    #top #industries .ind-badge-popular {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 4.5px 14px;
+      display: none;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.38);
+      z-index: 5;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    #top #industries .ind-badge-popular svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+    #top #industries .ind-card.active .ind-badge-popular {
+      display: inline-flex;
     }
 
-    #top #industries .ind-card:hover .ind-bg-img,
-    #top #industries .ind-card.active:hover .ind-bg-img {
-      transform: scale(1.015);
-      filter: saturate(.96) contrast(1) brightness(1.04);
+    /* Card Image Container */
+    #top #industries .ind-media {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0f172a;
+      height: 160px;
+      transition: height 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+    #top #industries .ind-card.active .ind-media {
+      height: 185px;
+    }
+    #top #industries .ind-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+    }
+    #top #industries .ind-card:hover .ind-media img {
+      transform: scale(1.025);
+    }
+    #top #industries .ind-card.active .ind-media img {
+      transform: scale(1.035);
     }
 
-    #top #industries .ind-overlay {
+    /* Top-Left Icon Badge (Collapsed state) */
+    #top #industries .ind-img-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      z-index: 2;
+      transition: opacity 0.2s ease;
+    }
+    #top #industries .ind-img-badge svg {
+      width: 19px;
+      height: 19px;
+    }
+    #top #industries .ind-card.active .ind-img-badge {
       display: none;
     }
 
-    #top #industries .ind-content {
-      inset: 66% 0 0;
+    /* Frosted "See how it works" Pill (Active state) */
+    #top #industries .ind-play-pill {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 650;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      user-select: none;
+    }
+    #top #industries .ind-play-pill svg {
+      width: 11px;
+      height: 11px;
+      fill: currentColor;
+    }
+    #top #industries .ind-card.active .ind-play-pill {
+      display: inline-flex;
+    }
+
+    /* Normal / Collapsed Content */
+    #top #industries .ind-content-collapsed {
+      display: flex;
+      flex-direction: column;
+      padding: 15px 4px 4px;
+      flex: 1;
+    }
+    #top #industries .ind-card.active .ind-content-collapsed {
+      display: none;
+    }
+
+    #top #industries .ind-col-head {
+      margin-bottom: 14px;
+    }
+    #top #industries .ind-col-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #top #industries .ind-col-sub {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 450;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #top #industries .ind-col-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 18px;
+      padding: 0;
+    }
+    #top #industries .ind-col-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12.5px;
+      font-weight: 550;
+      color: #334155;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #top #industries .ind-col-ic {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #dbeafe;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 18px 18px 20px;
-      color: #12213a;
-      background: linear-gradient(180deg, #fff 0%, #f8faff 100%);
+      flex-shrink: 0;
+    }
+    #top #industries .ind-col-ic svg {
+      width: 13px;
+      height: 13px;
     }
 
-    #top #industries .ind-card.active .ind-content {
-      inset: 42% 0 0;
-      justify-content: flex-start;
-      padding: 20px 22px 22px;
+    #top #industries .ind-btn-outline {
+      margin-top: auto;
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #2563eb;
+      font-size: 12.5px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 9.5px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    #top #industries .ind-btn-outline:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
     }
 
-    #top #industries .ind-collapsed-title {
-      color: #12213a;
-      text-align: left;
-      text-shadow: none;
-      white-space: normal;
-      overflow: visible;
-      font-size: 15px;
-      line-height: 1.2;
+    /* Active / Expanded Content */
+    #top #industries .ind-content-expanded {
+      display: none;
+      flex-direction: column;
+      padding: 16px 4px 4px;
+      flex: 1;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #top #industries .ind-card.active .ind-content-expanded {
+      display: flex;
+    }
+    #top #industries .ind-card.is-leaving .ind-content-expanded {
+      opacity: 0;
+      transform: translateY(6px);
+      filter: blur(2px);
+      transition: opacity 120ms ease, transform 150ms ease, filter 150ms ease;
+    }
+    #top #industries .ind-card.is-entering .ind-media {
+      animation: indMediaReveal 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    #top #industries .ind-card.is-entering .ind-content-expanded > * {
+      animation: indContentReveal 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    #top #industries .ind-card.is-entering .ind-content-expanded > :nth-child(1) { animation-delay: 90ms; }
+    #top #industries .ind-card.is-entering .ind-content-expanded > :nth-child(2) { animation-delay: 135ms; }
+    #top #industries .ind-card.is-entering .ind-content-expanded > :nth-child(3) { animation-delay: 180ms; }
+    #top #industries .ind-card.is-entering .ind-content-expanded > :nth-child(4) { animation-delay: 225ms; }
+    #top #industries .ind-card.is-collapsing .ind-content-collapsed {
+      animation: indCollapsedReveal 360ms cubic-bezier(0.16, 1, 0.3, 1) 90ms both;
+    }
+    #top #industries .ind-track.is-switching { pointer-events: none; }
+    @keyframes indMediaReveal {
+      from { opacity: .72; transform: translateY(5px) scale(.985); filter: saturate(.82) blur(2px); }
+      to { opacity: 1; transform: translateY(0) scale(1); filter: saturate(1) blur(0); }
+    }
+    @keyframes indContentReveal {
+      from { opacity: 0; transform: translateY(9px); filter: blur(2px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    @keyframes indCollapsedReveal {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #top #industries .ind-card,
+      #top #industries .ind-media,
+      #top #industries .ind-media img,
+      #top #industries .ind-content-expanded,
+      #top #industries .ind-content-expanded > *,
+      #top #industries .ind-content-collapsed {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        filter: none !important;
+      }
     }
 
-    #top #industries .ind-collapsed-title small {
-      display: block;
-      margin-top: 7px;
-      color: #75829a;
-      font-size: 11.5px;
-      font-weight: 500;
-      line-height: 1.35;
+    #top #industries .ind-exp-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+    #top #industries .ind-exp-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.48;
+      margin-bottom: 16px;
     }
 
-    #top #industries .ind-ifc-kicker {
-      margin-bottom: 8px;
-      padding: 5px 11px;
-      border-color: #c8dafb;
-      background: #edf4ff;
-      color: #2859bd;
-      box-shadow: none;
-      backdrop-filter: none;
-    }
-
-    #top #industries .ind-ifc-kicker::before {
-      background: #2563eb;
-      box-shadow: none;
-    }
-
-    #top #industries .ind-expanded h3 {
-      margin-bottom: 7px;
-      color: #12213a;
-      text-shadow: none;
-    }
-
-    #top #industries .ind-story-p {
-      max-width: 600px;
-      margin-bottom: 11px;
-      color: #526078;
-      text-shadow: none;
-    }
-
-    #top #industries .ind-scope-glass {
+    /* 2-Column Grid of 6 Feature Pills */
+    #top #industries .ind-exp-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
+      margin-bottom: 20px;
+    }
+    #top #industries .ind-pill {
+      background: #f0f7ff;
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 11px;
+      font-weight: 650;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #top #industries .ind-pill svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    /* Primary CTA Button on Active Card */
+    #top #industries .ind-btn-primary {
+      margin-top: auto;
+      width: 100%;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 12px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.38);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    #top #industries .ind-btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.48);
+      transform: translateY(-1px);
+    }
+
+    /* Bottom Controls */
+    #top #industries .ind-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      position: relative;
+    }
+
+    /* Bottom Dots / Dashes */
+    #top #industries .ind-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+    #top #industries .ind-dot {
+      width: 14px;
+      height: 4px;
+      border-radius: 999px;
+      background: #cbd5e1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       padding: 0;
+    }
+    #top #industries .ind-dot.active {
+      width: 28px;
+      background: #2563eb;
+    }
+
+    /* Center Pill Button */
+    #top #industries .ind-center-action {
+      flex: 1;
+      text-align: center;
+    }
+    #top #industries .ind-btn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 9px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+      transition: all 0.2s ease;
+    }
+    #top #industries .ind-btn-more:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Right Handwritten Hint with Curved Vector Arrow */
+    #top #industries .ind-hint {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      position: relative;
+      user-select: none;
+    }
+    #top #industries .ind-hint-arrow {
+      color: #60a5fa;
+      width: 36px;
+      height: 32px;
+      transform: translateY(-4px);
+    }
+    #top #industries .ind-hint-text {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      font-weight: 600;
+      color: #60a5fa;
+      letter-spacing: 0.01em;
+      transform: rotate(-3deg);
+      white-space: nowrap;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      #top #industries .ind-track {
+        gap: 12px;
+      }
+    }
+    @media (max-width: 860px) {
+      #top #industries .ind-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      #top #industries .ind-track {
+        flex-direction: column;
+      }
+      #top #industries .ind-card.active {
+        flex: none;
+      }
+      #top #industries .ind-bottom {
+        flex-direction: column;
+        gap: 18px;
+      }
+      #top #industries .ind-dots,
+      #top #industries .ind-center-action,
+      #top #industries .ind-hint {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Compact Analytics section so it fits in a single screen scroll */
+    #top #analytics-teaser {
+      padding-block: 64px 48px;
+    }
+
+    #top #analytics-teaser .dash-stage {
+      padding: 26px 24px;
+      margin-top: 20px;
+      max-width: 1040px;
+    }
+
+    #top #analytics-teaser .dash-body {
+      padding: 16px 18px;
+    }
+
+    #top #analytics-teaser .an-store-banner {
+      padding: 9px 14px;
       margin-bottom: 12px;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      backdrop-filter: none;
     }
 
-    #top #industries .ind-scope-item {
+    #top #analytics-teaser .an-kpi-grid {
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    #top #analytics-teaser .an-kpi-card {
+      padding: 12px 14px;
+    }
+
+    #top #analytics-teaser .an-kpi-val {
+      font-size: 22px;
+    }
+
+    #top #analytics-teaser .an-chart-panel,
+    #top #analytics-teaser .an-channels-box {
+      padding: 16px;
+    }
+
+    #top #analytics-teaser .an-chart-canvas-wrap {
+      height: 175px;
+    }
+
+    /* Official Corporate Partner Badges */
+    #top .partner-corp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s ease;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    #top .partner-corp-badge:hover {
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.1);
+      transform: translateY(-1px);
+    }
+
+    #top .meta-corp-badge svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    #top .meta-corp-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #1c2b33;
       display: block;
-      padding: 10px 11px;
-      border: 1px solid #e1e9f6;
-      border-radius: 12px;
-      background: #f5f8ff;
-      color: #5f6d84;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    #top .meta-corp-sub {
+      font-size: 10px;
+      font-weight: 800;
+      color: #1c2b33;
+      display: block;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    #top .shopify-corp-badge svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    #top .shopify-corp-brand {
+      font-size: 13px;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.02em;
+    }
+
+    #top .shopify-corp-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: #111827;
+      font-style: italic;
+      margin-left: 2px;
+    }
+
+    /* ============================================================
+       PROVEN IMPACT & OFFICIAL PARTNERS & TRUST: Pixel-to-Pixel Spec
+       Matches exact reference design screenshot layout, colors & typography
+       ============================================================ */
+    #top .proven-impact-section {
+      position: relative;
+      background: #ffffff;
+      background-image: 
+        radial-gradient(ellipse 650px 520px at -5% 10%, rgba(219, 234, 254, 0.45) 0%, transparent 68%),
+        radial-gradient(ellipse 700px 550px at 105% 8%, rgba(219, 234, 254, 0.5) 0%, transparent 70%),
+        radial-gradient(ellipse 650px 500px at -5% 92%, rgba(224, 242, 254, 0.38) 0%, transparent 68%);
+      padding: 56px 0 68px;
+      overflow: hidden;
+      z-index: 2;
+      font-family: var(--font-sans, 'Schibsted Grotesk', -apple-system, sans-serif);
+    }
+
+    #top .proven-impact-section .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Block A: Official Partners */
+    #top .official-partners-eyebrow {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    #top .official-partners-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 54px;
+    }
+
+    #top .partner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 9px 24px 9px 20px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: all 0.22s ease;
+      user-select: none;
+    }
+    #top .partner-pill:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+    }
+
+    #top .partner-pill-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    #top .partner-meta-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.12;
+      text-align: left;
+    }
+    #top .partner-meta-brand {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+    #top .partner-meta-sub {
       font-size: 10.5px;
-      line-height: 1.4;
+      font-weight: 600;
+      color: #475569;
     }
 
-    #top #industries .ind-scope-item b {
+    #top .partner-shopify-text {
+      display: flex;
+      align-items: baseline;
+      gap: 3.5px;
+    }
+    #top .partner-shopify-brand {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+    #top .partner-shopify-sub {
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+      color: #475569;
+    }
+
+    #top .partner-v-divider {
+      width: 1px;
+      height: 32px;
+      background: #e2e8f0;
+      margin: 0 6px;
+    }
+
+    #top .partner-statement {
+      font-size: 8.5px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: #64748b;
+      text-align: left;
+    }
+
+    /* Block B: Real Impact */
+    #top .real-impact-eyebrow {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    #top .real-impact-title {
+      text-align: center;
+      font-size: clamp(32px, 3.4vw, 45px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #0f172a;
+      line-height: 1.12;
+      margin: 0 0 14px;
+    }
+    #top .real-impact-blue {
+      color: #2563eb;
+      display: inline;
+    }
+
+    #top .real-impact-sub {
+      text-align: center;
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: #475569;
+      max-width: 660px;
+      margin: 0 auto 46px;
+      font-weight: 450;
+    }
+
+    #top .real-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    #top .impact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+    }
+
+    #top .impact-icon-box {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      border-radius: 14px;
+      background: #ebf3ff;
+      display: grid;
+      place-items: center;
+      color: #2563eb;
+    }
+    #top .impact-icon-box svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+
+    #top .impact-data {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #top .impact-number {
+      font-size: clamp(32px, 3.1vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #2563eb;
+      line-height: 1.05;
+      margin-bottom: 5px;
       display: block;
-      margin-bottom: 3px;
-      color: #233552;
     }
 
-    #top #industries .ind-scope-item .sc-dot {
+    #top .impact-label {
+      font-size: 13.5px;
+      font-weight: 450;
+      color: #64748b;
+      line-height: 1.35;
+      max-width: 170px;
+      display: block;
+    }
+
+    #top .impact-footnote {
+      position: absolute;
+      right: 0;
+      bottom: -26px;
+      font-size: 10.5px;
+      font-weight: 400;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    /* Hairline Divider */
+    #top .impact-hairline-sep {
+      width: 100%;
+      height: 1px;
+      background: #e8eef5;
+      margin: 50px 0 42px;
+      border: none;
+    }
+
+    /* Block C: Trusted By Clients */
+    #top .trusted-eyebrow {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 26px;
+    }
+
+    #top .trusted-slider-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+    }
+
+    #top .trusted-nav-btn {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+      display: grid;
+      place-items: center;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    #top .trusted-nav-btn:hover {
+      border-color: #cbd5e1;
+      color: #0f172a;
+      background: #f8fafc;
+      transform: scale(1.05);
+    }
+    #top .trusted-nav-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.2;
+    }
+
+    #top .trusted-logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 6px 8px;
+    }
+    #top .trusted-logos-row::-webkit-scrollbar {
       display: none;
     }
 
-    #top #industries .ind-cta-pill {
-      border-color: #2563eb;
-      border-radius: 10px;
-      background: #2563eb;
-      box-shadow: 0 10px 22px -14px rgba(37, 99, 235, .7);
+    #top .client-logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      opacity: 0.88;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    #top .client-logo-card:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    #top .client-logo-svg {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    #top .trusted-footer-caption {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 450;
+      color: #64748b;
+      margin: 26px 0 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      #top .real-impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+      }
+      #top .impact-footnote {
+        position: static;
+        margin-top: 6px;
+        white-space: normal;
+      }
+      #top .partner-statement {
+        text-align: center;
+      }
+      #top .partner-v-divider {
+        display: none;
+      }
+    }
+    @media (max-width: 600px) {
+      #top .proven-impact-section {
+        padding: 44px 0 52px;
+      }
+      #top .real-impact-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      #top .official-partners-wrap {
+        flex-direction: column;
+        gap: 12px;
+      }
     }
 
     /* Short desktop displays: size the actual layout instead of scaling the
@@ -577,64 +1340,7 @@
         margin-bottom: 8px;
       }
 
-      #top #industries .ind-header .sec-title {
-        font-size: clamp(34px, 3vw, 44px);
-        margin-bottom: 8px;
-      }
 
-      #top #industries .ind-header .sec-sub {
-        font-size: 15px;
-      }
-
-      #top #industries .ind-accordion {
-        height: 480px;
-        max-height: 480px;
-        gap: 12px;
-      }
-
-      #top #industries .ind-card {
-        border-radius: 22px;
-      }
-
-      #top #industries .ind-content {
-        padding: 16px 17px 18px;
-      }
-
-      #top #industries .ind-card.active .ind-content {
-        padding: 15px 18px 18px;
-      }
-
-      #top #industries .ind-expanded h3 {
-        font-size: 23px;
-      }
-
-      #top #industries .ind-story-p {
-        font-size: 12.5px;
-        margin-bottom: 8px;
-      }
-
-      #top #industries .ind-scope-glass {
-        padding: 0;
-        gap: 7px;
-        margin-bottom: 9px;
-      }
-
-      #top #industries .ind-scope-item {
-        padding: 8px 9px;
-        font-size: 9.5px;
-      }
-
-      #top #industries .ind-foot-cta {
-        margin-top: 16px;
-      }
-
-      #top #industries .ind-foot-btn {
-        padding: 9px 22px;
-      }
-
-      #top #industries .ind-foot-note {
-        margin-top: 6px;
-      }
 
       #top .channels,
       #top .revenue-section,
@@ -667,35 +1373,188 @@
       #top .ib-close {
         margin-top: 18px;
       }
+    /* ============================================================
+       FINAL CTA: Reference Centered Architecture with Floating Icons
+       Matches exact reference screenshot layout, typography & physics
+       ============================================================ */
+    #top .final.final-reference-cta {
+      padding: 110px 0 125px;
+      background: radial-gradient(circle at 50% 36%, rgba(239, 246, 255, 0.8) 0%, #ffffff 65%) !important;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      color: #0f172a !important;
     }
 
-    @media (max-width: 768px) {
-      #top #industries .ind-accordion {
-        height: auto;
-        max-height: none;
-      }
-
-      #top #industries .ind-card {
-        height: 112px;
-        min-width: 100%;
-      }
-
-      #top #industries .ind-card.active {
-        height: 500px;
-      }
-
-      #top #industries .ind-card.active .ind-bg-img {
-        height: 38%;
-      }
-
-      #top #industries .ind-card.active .ind-content {
-        inset: 38% 0 0;
-      }
-
-      #top #industries .ind-scope-glass {
-        grid-template-columns: 1fr;
-      }
+    #top .final-cta-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
     }
+
+    /* Floating Channel Icons */
+    #top .final-float-icon {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      z-index: 2;
+      pointer-events: none;
+      filter: drop-shadow(0 16px 30px rgba(15, 23, 42, 0.16));
+      transition: transform 0.3s ease;
+    }
+    #top .final-float-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #top .final-float-wa {
+      top: 36px;
+      left: 64px;
+      transform: rotate(-10deg);
+      animation: floatWA 6s ease-in-out infinite alternate;
+    }
+    #top .final-float-ig {
+      bottom: 24px;
+      left: 56px;
+      transform: rotate(-12deg);
+      animation: floatIG 7s ease-in-out infinite alternate;
+    }
+    #top .final-float-msg {
+      top: 36px;
+      right: 64px;
+      transform: rotate(8deg);
+      animation: floatMSG 6.5s ease-in-out infinite alternate;
+    }
+    #top .final-float-web {
+      bottom: 24px;
+      right: 60px;
+      transform: rotate(10deg);
+      animation: floatWEB 7.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatWA {
+      0% { transform: translateY(0) rotate(-10deg); }
+      100% { transform: translateY(-12px) rotate(-6deg); }
+    }
+    @keyframes floatIG {
+      0% { transform: translateY(0) rotate(-12deg); }
+      100% { transform: translateY(-14px) rotate(-16deg); }
+    }
+    @keyframes floatMSG {
+      0% { transform: translateY(0) rotate(8deg); }
+      100% { transform: translateY(-12px) rotate(12deg); }
+    }
+    @keyframes floatWEB {
+      0% { transform: translateY(0) rotate(10deg); }
+      100% { transform: translateY(-10px) rotate(6deg); }
+    }
+
+    /* Content */
+    #top .final-cta-content {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #top .final-cta-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #2563eb;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 7px 22px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+      user-select: none;
+    }
+
+    #top .final-cta-title {
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #0f172a !important;
+      line-height: 1.12;
+      margin: 0 0 20px;
+      text-align: center;
+    }
+
+    #top .final-title-blue {
+      color: #2563eb !important;
+      display: inline;
+    }
+
+    #top .final-cta-sub {
+      font-size: clamp(15px, 1.35vw, 17.5px);
+      color: #475569 !important;
+      line-height: 1.55;
+      max-width: 660px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    #top .final-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff !important;
+      font-size: 15.5px;
+      font-weight: 700;
+      padding: 14px 38px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.42);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    #top .final-btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.52);
+      transform: translateY(-2px);
+      color: #ffffff !important;
+    }
+
+    #top .final-cta-guarantee {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 15px;
+      font-size: 13.5px;
+      font-weight: 550;
+      color: #64748b;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      #top .final-float-wa { left: 14px; width: 44px; height: 44px; }
+      #top .final-float-ig { left: 14px; width: 44px; height: 44px; }
+      #top .final-float-msg { right: 14px; width: 44px; height: 44px; }
+      #top .final-float-web { right: 14px; width: 44px; height: 44px; }
+    }
+    @media (max-width: 720px) {
+      #top .final.final-reference-cta {
+        padding: 76px 0 84px;
+      }
+      #top .final-float-icon {
+        opacity: 0.85;
+      }
+      #top .final-float-wa { top: 0; left: 8px; width: 36px; height: 36px; }
+      #top .final-float-ig { bottom: 0; left: 8px; width: 36px; height: 36px; }
+      #top .final-float-msg { top: 0; right: 8px; width: 36px; height: 36px; }
+      #top .final-float-web { bottom: 0; right: 8px; width: 36px; height: 36px; }
+    }
+
   </style>
 </head>
 
@@ -1194,191 +2053,682 @@
 
 
 <!-- ================= 1. HERO ================= -->
-<section class="hero" id="hero">
-  <div class="hero-bg-layer" aria-hidden="true">
-    <img class="hero-bg-img" src="images/hero-bg-v2.jpg" alt="" loading="eager">
-    <div class="hero-light-veil"></div>
+<section class="hero hero--centered-v3" id="hero">
+  <!-- Atmospheric Air/Light Glow Backdrop -->
+  <div class="hero-atmos-bg" aria-hidden="true">
+    <div class="hero-radial-glow hero-radial-glow--top"></div>
+    <div class="hero-radial-glow hero-radial-glow--left"></div>
+    <div class="hero-radial-glow hero-radial-glow--right"></div>
+    <div class="hero-mesh-grid"></div>
   </div>
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="badge">AI AGENT FOR SALES AND SUPPORT</span>
-      <h1 class="hero-title">Turn more visitors and messages into <span class="grad-text">sales, leads, and bookings.</span></h1>
-      <p class="sub">Steps AI answers customer questions on your website, WhatsApp, Instagram and Messenger. Your agent connects to your store, your calendar and your CRM, so every answer comes from your real records instead of a guess. Live in about five minutes.</p>
-      <div class="hero-btns">
-        <a href="pricing.html" class="btn btn-dark">Start free <span class="arrow">→</span></a>
-        <a href="#whatsapp" class="btn btn-ghost">Watch it work <span class="hero-play" aria-hidden="true">▶</span></a>
+
+  <div class="container hero-centered-wrap">
+    <!-- Top Eyebrow Badge -->
+    <div class="hero-badge-wrap">
+      <span class="badge hero-badge-v3">
+        <svg class="hero-sparkle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+        </svg>
+        AI AGENT FOR SALES AND SUPPORT
+      </span>
+    </div>
+
+    <!-- Centered Headline (Exact copy and tag preserved) -->
+    <h1 class="hero-title hero-title--centered">
+      <span class="hero-title-line">Turn more visitors and messages</span>
+      <span class="hero-title-line">into <span class="grad-text">sales, leads, and bookings.</span></span>
+    </h1>
+
+    <!-- Centered Subtitle (Exact copy preserved) -->
+    <p class="sub hero-sub--centered">
+      Steps AI answers customer questions on your website, WhatsApp, Instagram and Messenger. Your agent connects to your store, your calendar and your CRM, so every answer comes from your real records instead of a guess. Live in about five minutes.
+    </p>
+
+    <!-- Centered CTA Buttons -->
+    <div class="hero-btns hero-btns--centered">
+      <a href="pricing.html" class="btn btn-hero-primary">
+        <span>Get started for free</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="contact.html" class="btn btn-hero-secondary">
+        <span class="hero-play-circle" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="16" rx="3"/>
+            <path d="M16 3v4M8 3v4M3 10h18"/>
+          </svg>
+        </span>
+        <span>Book a Demo</span>
+      </a>
+    </div>
+
+    <!-- Micro-trust Checks Row -->
+    <div class="ticks hero-ticks--centered">
+      <span><span class="tk">✓</span> No credit card required</span>
+      <span><span class="tk">✓</span> No code</span>
+      <span><span class="tk">✓</span> Live in minutes</span>
+    </div>
+
+    <!-- Channel Selector Pill Bar with Handwritten Doodles -->
+    <div class="hero-channel-bar-wrap">
+      <!-- Left Annotation Note -->
+      <div class="hero-hand-note hero-hand-note--left" aria-hidden="true">
+        <span>From conversations<br>to real results.</span>
+        <svg class="hand-arrow hand-arrow--left" width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor">
+          <path d="M8 6 C 18 10, 24 22, 26 34 M 18 28 L 26 34 L 32 25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
-      <div class="ticks">
-        <span><span class="tk">✓</span> Free to start</span>
-        <span><span class="tk">✓</span> No code</span>
-        <span><span class="tk">✓</span> Live in minutes</span>
+
+      <!-- Pill Bar -->
+      <div class="hero-channels-pills" role="tablist" aria-label="Select demo channel">
+        <button class="channel-pill" data-hero-ch="website" type="button" role="tab" aria-selected="false" aria-controls="heroLaptopDeck" tabindex="-1">
+          <span class="pill-ic pill-ic--website">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </span>
+          <span class="pill-lbl">Website</span>
+        </button>
+
+        <button class="channel-pill active" data-hero-ch="whatsapp" type="button" role="tab" aria-selected="true" aria-controls="heroPhonesDeck" tabindex="0">
+          <span class="pill-ic pill-ic--whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67C16.58 3.67 20.28 7.37 20.28 11.91C20.28 16.45 16.58 20.15 12.04 20.15ZM16.56 14.39C16.31 14.26 15.09 13.66 14.86 13.58C14.64 13.5 14.47 13.46 14.31 13.71C14.14 13.96 13.67 14.51 13.53 14.68C13.38 14.84 13.24 14.86 12.99 14.74C12.74 14.61 11.94 14.35 10.99 13.5C10.25 12.84 9.75 12.03 9.61 11.78C9.46 11.53 9.59 11.39 9.72 11.27C9.83 11.16 9.97 10.98 10.09 10.84C10.21 10.7 10.26 10.6 10.34 10.43C10.42 10.26 10.38 10.12 10.32 10C10.26 9.88 9.76 8.65 9.55 8.15C9.35 7.66 9.15 7.73 8.99 7.72C8.85 7.71 8.68 7.71 8.52 7.71C8.35 7.71 8.08 7.77 7.85 8.02C7.62 8.27 6.98 8.87 6.98 10.09C6.98 11.31 7.87 12.48 8 12.65C8.12 12.81 9.73 15.3 12.21 16.37C12.8 16.62 13.26 16.78 13.62 16.89C14.21 17.08 14.75 17.05 15.18 16.99C15.65 16.92 16.63 16.4 16.84 15.82C17.04 15.24 17.04 14.74 16.98 14.64C16.92 14.53 16.81 14.51 16.56 14.39Z"/>
+            </svg>
+          </span>
+          <span class="pill-lbl">WhatsApp</span>
+        </button>
+
+        <button class="channel-pill" data-hero-ch="messenger" type="button" role="tab" aria-selected="false" aria-controls="heroPhonesDeck" tabindex="-1">
+          <span class="pill-ic pill-ic--messenger">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.08 2 11.12c0 2.87 1.44 5.43 3.69 7.07V22l3.63-1.99c.87.24 1.79.37 2.74.37 5.52 0 10-4.08 10-9.12S17.52 2 12 2zm1.09 12.27l-2.77-2.95-5.41 2.95 5.95-6.32 2.84 2.95 5.34-2.95-5.95 6.32z"/>
+            </svg>
+          </span>
+          <span class="pill-lbl">Messenger</span>
+        </button>
+
+        <button class="channel-pill" data-hero-ch="instagram" type="button" role="tab" aria-selected="false" aria-controls="heroPhonesDeck" tabindex="-1">
+          <span class="pill-ic pill-ic--instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </span>
+          <span class="pill-lbl">Instagram</span>
+        </button>
       </div>
-      <div class="hero-metric-plate" style="display:flex;flex-wrap:wrap;gap:22px;margin:18px 0 4px">
-        <div><b class="grad-text" style="font-size:20px;font-weight:800">8 in 10</b><span style="display:block;font-size:12px;color:var(--text-secondary)">questions answered without you</span></div>
-        <div><b class="grad-text" style="font-size:20px;font-weight:800">95+</b><span style="display:block;font-size:12px;color:var(--text-secondary)">languages</span></div>
-        <div><b class="grad-text" style="font-size:20px;font-weight:800">0.5s</b><span style="display:block;font-size:12px;color:var(--text-secondary)">average reply time</span></div>
-        <div><b class="grad-text" style="font-size:20px;font-weight:800">3×</b><span style="display:block;font-size:12px;color:var(--text-secondary)">conversion lift, results vary</span></div>
-      </div>
-      <div class="hero-channels" role="tablist" aria-label="Customer channels">
-        <button class="ch active" data-hero-ch="website" type="button" role="tab" aria-selected="true"><span class="ic" data-icon="website"></span><span>Website</span></button>
-        <button class="ch" data-hero-ch="shopify" type="button" role="tab" aria-selected="false"><span class="ic" data-icon="shopify"></span><span>Shopify</span></button>
-        <button class="ch" data-hero-ch="instagram" type="button" role="tab" aria-selected="false"><span class="ic" data-icon="instagram"></span><span>Instagram</span></button>
-        <button class="ch" data-hero-ch="whatsapp" type="button" role="tab" aria-selected="false"><span class="ic" data-icon="whatsapp"></span><span>WhatsApp</span></button>
-        <button class="ch" data-hero-ch="messenger" type="button" role="tab" aria-selected="false"><span class="ic" data-icon="messenger"></span><span>Messenger</span></button>
+
+      <!-- Right Annotation Note -->
+      <div class="hero-hand-note hero-hand-note--right" aria-hidden="true">
+        <span>One agent.<br>Every channel.</span>
+        <svg class="hand-arrow hand-arrow--right" width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor">
+          <path d="M32 6 C 22 10, 16 22, 14 34 M 22 28 L 14 34 L 8 25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-blob" aria-hidden="true">
-        <canvas id="heroTunnel"></canvas>
-        <span class="hero-blob-sweep"></span>
-      </div>
-      <div class="hero-notes" aria-hidden="true">
-        <span class="nt hand">Answers questions</span>
-        <span class="nt hand">Checks your records</span>
-        <span class="nt hand">Takes action</span>
-        <span class="nt hand">Gets results</span>
-      </div>
-      <div class="hero-chat">
-        <div class="hero-chat-browser" aria-hidden="true">
-          <span class="hcb-dots"><i></i><i></i><i></i></span>
-          <span class="hcb-url">Your customer experience</span><span class="hero-demo-label">PRODUCT DEMO</span>
-        </div>
-        <div class="hero-chat-head" id="heroChatHead">
-          <span class="brand-av" id="heroBrandAv">🏔️</span>
-          <div><div class="nm" id="heroBrandNm">Your brand</div><div class="on" id="heroBrandOn">Online</div></div>
-          <span class="dots">···</span>
-        </div>
-        <div class="hero-chat-body" id="heroChatBody">
-          <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">I need a waterproof jacket for hiking. Which one should I get?</span></div>
-          <div class="msg-row"><span class="avatar bot" style="background:#fff;border:1px solid #e6eaf2"><span class="logo-mark" style="width:17px;height:9px"></span></span><span class="bub ai">The Trail Jacket is a good fit. Waterproof, lightweight, and in stock in your size right now.</span></div>
-          <div class="prod-card">
-            <span class="prod-thumb"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=150&q=80" alt="Trail Jacket"></span>
-            <div>
-              <h6>Trail Jacket</h6>
-              <div class="pr">₹10,999 <span class="stars">★★★★★ 4.8</span></div>
-              <span class="mini-btn">Add to cart</span>
+    <!-- Centerpiece Device Mockup Stage -->
+    <div class="hero-stage-container" id="heroStage">
+      
+      <!-- ================= 3D MOBILE PHONES DECK ================= -->
+      <div class="hero-phones-deck" id="heroPhonesDeck" role="tabpanel" aria-label="Messaging channel demonstration">
+        
+        <!-- Receding Perspective Left Phone 2 (Far Left) -->
+        <div class="side-phone side-phone--far-left" aria-hidden="true">
+          <div class="side-phone-inner">
+            <div class="sp-status-bar">
+              <span>9:41</span>
+              <span class="sp-status-icons">📶 🔋</span>
+            </div>
+            <div class="side-phone-header">
+              <div class="sp-avatar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <circle cx="8" cy="12" r="4.5" stroke="#2563eb" stroke-width="2.2"/>
+                  <circle cx="16" cy="12" r="4.5" stroke="#2563eb" stroke-width="2.2"/>
+                </svg>
+              </div>
+              <div>
+                <div class="sp-title">StepsAI ✓</div>
+                <div class="sp-sub">Concierge</div>
+              </div>
+            </div>
+            <div class="side-phone-body">
+              <div class="sp-bubble sp-bubble--bot">Hello! How may I assist you today?</div>
+              <div class="sp-pill-list">
+                <span>📦 Track order</span>
+                <span>🛍️ Product check</span>
+                <span>📅 Book a demo</span>
+              </div>
+              <div class="sp-bubble sp-bubble--user">Track order #4892</div>
+              <div class="sp-bubble sp-bubble--bot">Your order is out for delivery today! 🚚</div>
+            </div>
+            <div class="sp-mini-composer">
+              <span>Type a message...</span>
+              <span>➤</span>
             </div>
           </div>
-          <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Perfect. Added.</span></div>
         </div>
-        <div class="ch-input">Send a message… <span class="snd">➤</span></div>
+
+        <!-- Receding Perspective Left Phone 1 (Near Left - Website Concierge) -->
+        <div class="side-phone side-phone--near-left" aria-hidden="true">
+          <div class="side-phone-inner">
+            <div class="sp-status-bar">
+              <span>9:41</span>
+              <span class="sp-status-icons">📶 🔋</span>
+            </div>
+            <div class="side-phone-header">
+              <div class="sp-avatar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <circle cx="8" cy="12" r="4.5" stroke="#2563eb" stroke-width="2.2"/>
+                  <circle cx="16" cy="12" r="4.5" stroke="#2563eb" stroke-width="2.2"/>
+                </svg>
+              </div>
+              <div style="flex:1">
+                <div class="sp-title">StepsAI <span style="color:#10b981;font-size:10px">● Online</span></div>
+              </div>
+              <span style="font-size:16px;color:#64748b;font-weight:700">+</span>
+            </div>
+            <div class="side-phone-body">
+              <div class="sp-bubble sp-bubble--bot">Hi! How can I help you today?</div>
+              <div class="sp-pill-list">
+                <span>○ Track my order</span>
+                <span>○ Check product availability</span>
+                <span>○ Book a demo</span>
+                <span>○ Talk to support</span>
+              </div>
+              <div class="sp-bubble sp-bubble--user">Check product availability</div>
+              <div class="sp-bubble sp-bubble--bot">Sure! What product are you looking for?</div>
+            </div>
+            <div class="sp-mini-composer">
+              <span>Type a message...</span>
+              <span>😊</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTER PRIMARY PHONE (iPhone 16 Pro Chassis) -->
+        <div class="center-phone" id="centerPhone">
+          <div class="phone-frame">
+            <!-- Dynamic Island -->
+            <div class="phone-island">
+              <div class="island-camera"></div>
+            </div>
+            
+            <!-- Status Bar -->
+            <div class="phone-status-bar">
+              <span class="status-time">9:41</span>
+              <div class="status-icons">
+                <svg width="15" height="11" viewBox="0 0 17 11" fill="currentColor">
+                  <path d="M1 9.5h2v-2H1v2zm4 0h2v-4H5v4zm4 0h2v-6H9v6zm4 0h2V1h-2v8.5z"/>
+                </svg>
+                <svg width="15" height="11" viewBox="0 0 16 11" fill="currentColor">
+                  <path d="M8 3.5c2.3 0 4.4.9 6 2.4l1.4-1.4C13.5 2.6 10.9 1.5 8 1.5S2.5 2.6.6 4.5L2 5.9C3.6 4.4 5.7 3.5 8 3.5zm0 4c1.2 0 2.3.5 3.1 1.3L12.5 7.4C11.3 6.3 9.7 5.5 8 5.5s-3.3.8-4.5 1.9l1.4 1.4C5.7 8 6.8 7.5 8 7.5zm0 4c.8 0 1.5-.7 1.5-1.5S8.8 8.5 8 8.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5z"/>
+                </svg>
+                <svg width="22" height="11" viewBox="0 0 25 12" fill="currentColor">
+                  <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="currentColor"/>
+                  <rect x="2" y="2" width="16" height="8" rx="2"/>
+                  <path d="M23 4v4c.8-.5 1-1.3 1-2s-.2-1.5-1-2z"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Screen Viewport (Dynamically switches between WhatsApp, Instagram, Messenger) -->
+            <div class="phone-screen" id="phoneScreen">
+              <!-- Content rendered here dynamically via hero-premium.js -->
+            </div>
+
+            <!-- Home Indicator -->
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+
+        <!-- Receding Perspective Right Phone 1 (Near Right) -->
+        <div class="side-phone side-phone--near-right" aria-hidden="true">
+          <div class="side-phone-inner">
+            <div class="sp-status-bar">
+              <span>9:41</span>
+              <span class="sp-status-icons">📶 🔋</span>
+            </div>
+            <div class="side-phone-header sp-header--ms">
+              <div class="sp-avatar sp-avatar--ms">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.08 2 11.12c0 2.87 1.44 5.43 3.69 7.07V22l3.63-1.99c.87.24 1.79.37 2.74.37 5.52 0 10-4.08 10-9.12S17.52 2 12 2zm1.09 12.27l-2.77-2.95-5.41 2.95 5.95-6.32 2.84 2.95 5.34-2.95-5.95 6.32z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="sp-title">StepsAI ✓</div>
+                <div class="sp-sub">Active now</div>
+              </div>
+            </div>
+            <div class="side-phone-body">
+              <div class="sp-bubble sp-bubble--user sp-bubble--ms-user">Best hoodie options?</div>
+              <div class="sp-bubble sp-bubble--bot">Sure! Here are a few options for you.</div>
+              <div class="sp-card">
+                <img src="images/hero/trail-jacket.png" alt="Black Trail Jacket">
+                <div>
+                  <strong>Trail Jacket</strong>
+                  <span>₹10,999</span>
+                  <span class="sp-link">View product</span>
+                </div>
+              </div>
+              <div class="sp-bubble sp-bubble--user sp-bubble--ms-user">Looks great! Can you deliver this by Friday?</div>
+              <div class="sp-bubble sp-bubble--bot">Yes! ✅ It will be delivered by this Friday.</div>
+            </div>
+            <div class="sp-mini-composer">
+              <span>Type a message...</span>
+              <span>👍</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Receding Perspective Right Phone 2 (Far Right) -->
+        <div class="side-phone side-phone--far-right" aria-hidden="true">
+          <div class="side-phone-inner">
+            <div class="sp-status-bar">
+              <span>9:41</span>
+              <span class="sp-status-icons">📶 🔋</span>
+            </div>
+            <div class="side-phone-header sp-header--ig">
+              <div class="sp-avatar sp-avatar--ig">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#d946ef" stroke-width="2.2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="#d946ef"/>
+                </svg>
+              </div>
+              <div>
+                <div class="sp-title">StepsAI ✓</div>
+                <div class="sp-sub">Active now</div>
+              </div>
+            </div>
+            <div class="side-phone-body">
+              <div class="sp-card sp-card--full">
+                <img src="images/hero/trail-jacket.png" alt="Black Trail Jacket">
+                <p>Here's the Trail Jacket you asked about! ✨</p>
+                <span class="sp-link">View product</span>
+              </div>
+              <div class="sp-bubble sp-bubble--user sp-bubble--ig-user">Can you share the size guide?</div>
+              <div class="sp-bubble sp-bubble--bot">Of course! Here's the size guide 👇</div>
+              <div class="sp-bubble sp-bubble--user sp-bubble--ig-user">Thanks! Ordering right now</div>
+            </div>
+            <div class="sp-mini-composer">
+              <span>Message...</span>
+              <span>😊</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="hero-demo-controls"><span><i></i>One agent. Every customer channel.</span><button type="button" id="heroReplay">Replay conversation <span aria-hidden="true">↻</span></button></div>
-      <div class="hero-cards" aria-hidden="false">
-        <div class="mini-feature active" data-tab="sales" tabindex="0" role="button" aria-pressed="true"><span class="mf-ic" style="background:var(--pink-soft)">🛍️</span><div><h5>Sell more</h5><p>Turn shoppers into customers</p></div></div>
-        <div class="mini-feature" data-tab="book" tabindex="0" role="button" aria-pressed="false"><span class="mf-ic" style="background:var(--green-soft)">📅</span><div><h5>Capture &amp; book</h5><p>Get leads and book more meetings</p></div></div>
-        <div class="mini-feature" data-tab="support" tabindex="0" role="button" aria-pressed="false"><span class="mf-ic" style="background:var(--purple-soft)">🎧</span><div><h5>Support better</h5><p>Resolve issues faster</p></div></div>
+
+      <!-- ================= MACBOOK LAPTOP DECK (Website Channel) ================= -->
+      <div class="hero-laptop-deck is-hidden" id="heroLaptopDeck" role="tabpanel" aria-label="Website chat demonstration" aria-hidden="true">
+        <div class="laptop-shell">
+          <div class="laptop-screen">
+            <!-- Browser Bar -->
+            <div class="laptop-browser-bar">
+              <div class="browser-dots">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <div class="browser-url">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>yourstore.com</span>
+              </div>
+              <div class="browser-actions">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                  <polyline points="16 6 12 2 8 6"/>
+                  <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- E-Commerce Store Body -->
+            <div class="store-viewport">
+              <nav class="store-nav">
+                <div class="store-logo">Altitude</div>
+                <div class="store-links">
+                  <span>Men</span>
+                  <span>Women</span>
+                  <span>Gear</span>
+                  <span>New Arrivals</span>
+                  <span class="store-sale">Sale</span>
+                </div>
+                <div class="store-icons">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                </div>
+              </nav>
+
+              <div class="store-hero">
+                <div class="store-hero-content">
+                  <span class="store-eyebrow">BUILT FOR WHAT'S NEXT</span>
+                  <h3 class="store-title">Adventure<br>without limits</h3>
+                  <p class="store-desc">Premium outdoor gear for every journey.</p>
+                  <a href="#pricing" class="store-btn">Shop now →</a>
+                </div>
+              </div>
+
+              <div class="store-badges-strip">
+                <div><span>🚚</span> Free shipping on orders above ₹2,999</div>
+                <div><span>🛡️</span> 1 year warranty on all products</div>
+                <div><span>🔄</span> Easy returns hassle free process</div>
+              </div>
+
+              <!-- Floating Live Chat Widget on Store -->
+              <div class="laptop-chat-widget">
+                <div class="lcw-head">
+                  <div class="lcw-brand">
+                    <span class="lcw-logo">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                        <circle cx="8" cy="12" r="5" fill="none" stroke="white" stroke-width="2.5"/>
+                        <circle cx="16" cy="12" r="5" fill="none" stroke="white" stroke-width="2.5"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="lcw-title">StepsAI <span class="lcw-v">✓</span></div>
+                      <div class="lcw-status">● Online</div>
+                    </div>
+                  </div>
+                  <div class="lcw-controls">
+                    <span>−</span>
+                    <span>×</span>
+                  </div>
+                </div>
+
+                <div class="lcw-body">
+                  <div class="lcw-msg lcw-msg--user">
+                    <span>Hi! Do you have the Trail Jacket in XL?</span>
+                    <time>10:24 AM</time>
+                  </div>
+
+                  <div class="lcw-msg lcw-msg--bot">
+                    <span class="lcw-bot-av">∞</span>
+                    <div class="lcw-bubble">
+                      <p>Yes! The Trail Jacket is available in XL, and can be delivered by this weekend.</p>
+                      <p>Would you like me to add it to your cart?</p>
+                      <time>10:24 AM</time>
+                    </div>
+                  </div>
+
+                  <!-- Product Card inside Widget -->
+                  <div class="lcw-prod-card">
+                    <img src="images/hero/trail-jacket.png" alt="Black Trail Jacket">
+                    <div class="lcw-prod-info">
+                      <h6>Trail Jacket</h6>
+                      <div class="lcw-price">₹10,999</div>
+                      <div class="lcw-rating">★★★★★ 4.8 (320)</div>
+                      <button type="button" class="lcw-add-btn">Add to cart</button>
+                    </div>
+                  </div>
+
+                  <!-- Quick Chips -->
+                  <div class="lcw-chips">
+                    <button type="button">Check delivery</button>
+                    <button type="button">See size guide</button>
+                    <button type="button">Talk to a human</button>
+                  </div>
+                </div>
+
+                <div class="lcw-input-bar">
+                  <span class="lcw-attach">📎</span>
+                  <input type="text" placeholder="Type a message..." readonly>
+                  <span class="lcw-emoji">😊</span>
+                  <button type="button" class="lcw-send" aria-label="Send">➤</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="laptop-base">
+            <div class="laptop-notch"></div>
+          </div>
+        </div>
       </div>
-      <div class="hero-scribble hand" aria-hidden="true">Real conversations.<br>Real records.<br>Real results.</div>
+
     </div>
+
   </div>
+</section>
 
-  <!-- ================= 2. TRUST STRIP & CUSTOMERS — Unified inside Hero canvas ================= -->
-  <div class="trust-strip" id="trust">
-
-  <!-- Part A: Edge-to-Edge Full-Width Brand Logos Auto-Scroller -->
-  <div class="trust-marquee-fullwidth">
-    <div class="trust-marquee-title-wrap">
-      <span class="trust-marquee-title">
-        <span class="tag-pulse"></span>
-        Trusted by 2,500+ growing brands
-      </span>
-      <span class="badge" style="margin-left:10px">Meta Business Partner</span>
-      <span class="badge" style="margin-left:6px">Shopify Partner</span>
-    </div>
-
-    <div class="trust-marquee-edge-wrap" aria-label="Customer Brands Marquee">
-      <div class="trust-marquee-edge-track">
-        <!-- ================= TRACK SET 1 (Easily change brand names and logos here) ================= -->
-        <div class="brand-item" title="Notion">
-          <svg viewBox="0 0 24 24" fill="#000000"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
-          <span class="brand-name">Notion</span>
-        </div>
-        <div class="brand-item" title="Linear">
-          <svg viewBox="0 0 24 24" fill="#5E6AD2"><path d="M2.886 4.18A11.982 11.982 0 0 1 11.99 0C18.624 0 24 5.376 24 12.009c0 3.64-1.62 6.903-4.18 9.105L2.887 4.18ZM1.817 5.626l16.556 16.556c-.524.33-1.075.62-1.65.866L.951 7.277c.247-.575.537-1.126.866-1.65ZM.322 9.163l14.515 14.515c-.71.172-1.443.282-2.195.322L0 11.358a12 12 0 0 1 .322-2.195Zm-.17 4.862 9.823 9.824a12.02 12.02 0 0 1-9.824-9.824Z"/></svg>
-          <span class="brand-name">Linear</span>
-        </div>
-        <div class="brand-item" title="Ramp">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="17" fill="#000000">R</text></svg>
-          <span class="brand-name">Ramp</span>
-        </div>
-        <div class="brand-item" title="Raycast">
-          <svg viewBox="0 0 24 24" fill="#FF6363"><path d="M6.004 15.492v2.504L0 11.992l1.258-1.249Zm2.504 2.504H6.004L12.008 24l1.253-1.253zm14.24-4.747L24 11.997 12.003 0 10.75 1.251 15.491 6h-2.865L9.317 2.692 8.065 3.944l2.06 2.06H8.691v9.31H18v-1.432l2.06 2.06 1.252-1.252-3.312-3.32V8.506ZM6.63 5.372 5.38 6.625l1.342 1.343 1.251-1.253Zm10.655 10.655-1.247 1.251 1.342 1.343 1.253-1.251zM3.944 8.059 2.692 9.31l3.312 3.314v-2.506zm9.936 9.937h-2.504l3.314 3.312 1.25-1.252z"/></svg>
-          <span class="brand-name">Raycast</span>
-        </div>
-        <div class="brand-item" title="Shopify Plus">
-          <svg viewBox="0 0 24 24" fill="#95BF47"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg>
-          <span class="brand-name">Shopify Plus</span>
-        </div>
-        <div class="brand-item" title="Vercel">
-          <svg viewBox="0 0 24 24" fill="#000000"><path d="m12 1.608 12 20.784H0Z"/></svg>
-          <span class="brand-name">Vercel</span>
-        </div>
-        <div class="brand-item" title="Supabase">
-          <svg viewBox="0 0 24 24" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg>
-          <span class="brand-name">Supabase</span>
-        </div>
-        <div class="brand-item" title="Retool">
-          <svg viewBox="0 0 24 24" fill="#3D3D3D"><path d="M0 2.2A2.2 2.2 0 0 1 2.2 0h8.6A2.2 2.2 0 0 1 13 2.2v1.7A1.1 1.1 0 0 1 11.9 5H1.1A1.1 1.1 0 0 1 0 3.9V2.2zm0 6.9A1.1 1.1 0 0 1 1.1 8h20.7a2.2 2.2 0 0 1 2.2 2.2v5.7a1.1 1.1 0 0 1-1.1 1.1H2.2A2.2 2.2 0 0 1 0 14.8V9.1zm11 12a1.1 1.1 0 0 1 1.1-1.1h10.8a1.1 1.1 0 0 1 1.1 1.1v.7a2.2 2.2 0 0 1-2.2 2.2h-8.6a2.2 2.2 0 0 1-2.2-2.2v-.7z"/></svg>
-          <span class="brand-name">Retool</span>
-        </div>
-        <div class="brand-item" title="Loom">
-          <svg viewBox="0 0 24 24" fill="#625DF5"><path d="M24 10.665h-7.018l6.078-3.509-1.335-2.312-6.078 3.509 3.508-6.077L16.843.94l-3.508 6.077V0h-2.67v7.018L7.156.94 4.844 2.275l3.509 6.077-6.078-3.508L.94 7.156l6.078 3.509H0v2.67h7.017L.94 16.844l1.335 2.313 6.077-3.508-3.509 6.077 2.312 1.335 3.509-6.078V24h2.67v-7.017l3.508 6.077 2.312-1.335-3.509-6.078 6.078 3.509 1.335-2.313-6.077-3.508h7.017v-2.67H24zm-12 4.966a3.645 3.645 0 1 1 0-7.29 3.645 3.645 0 0 1 0 7.29z"/></svg>
-          <span class="brand-name">Loom</span>
-        </div>
-        <div class="brand-item" title="Brex">
-          <svg viewBox="0 0 24 24" fill="#212121"><path d="M18.69 2.319a3.868 3.868 0 0 0-3.108 1.547l-.759 1.007a1.658 1.658 0 0 1-1.313.656H0V21.68h5.296a3.87 3.87 0 0 0 3.108-1.547l.759-1.006a1.656 1.656 0 0 1 1.313-.657H24V2.319h-5.31Zm1.108 11.949h-5.66a3.87 3.87 0 0 0-3.108 1.547l-.759 1.007a1.658 1.658 0 0 1-1.313.656H4.202V9.731h5.661a3.868 3.868 0 0 0 3.107-1.547l.759-1.006a1.658 1.658 0 0 1 1.313-.657h4.771l-.015 7.747Z"/></svg>
-          <span class="brand-name">Brex</span>
-        </div>
-
-        <!-- ================= TRACK SET 2 (Duplicate for 100% gapless infinite loop) ================= -->
-        <div class="brand-item" title="Notion" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#000000"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
-          <span class="brand-name">Notion</span>
-        </div>
-        <div class="brand-item" title="Linear" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#5E6AD2"><path d="M2.886 4.18A11.982 11.982 0 0 1 11.99 0C18.624 0 24 5.376 24 12.009c0 3.64-1.62 6.903-4.18 9.105L2.887 4.18ZM1.817 5.626l16.556 16.556c-.524.33-1.075.62-1.65.866L.951 7.277c.247-.575.537-1.126.866-1.65ZM.322 9.163l14.515 14.515c-.71.172-1.443.282-2.195.322L0 11.358a12 12 0 0 1 .322-2.195Zm-.17 4.862 9.823 9.824a12.02 12.02 0 0 1-9.824-9.824Z"/></svg>
-          <span class="brand-name">Linear</span>
-        </div>
-        <div class="brand-item" title="Ramp" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="17" fill="#000000">R</text></svg>
-          <span class="brand-name">Ramp</span>
-        </div>
-        <div class="brand-item" title="Raycast" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#FF6363"><path d="M6.004 15.492v2.504L0 11.992l1.258-1.249Zm2.504 2.504H6.004L12.008 24l1.253-1.253zm14.24-4.747L24 11.997 12.003 0 10.75 1.251 15.491 6h-2.865L9.317 2.692 8.065 3.944l2.06 2.06H8.691v9.31H18v-1.432l2.06 2.06 1.252-1.252-3.312-3.32V8.506ZM6.63 5.372 5.38 6.625l1.342 1.343 1.251-1.253Zm10.655 10.655-1.247 1.251 1.342 1.343 1.253-1.251zM3.944 8.059 2.692 9.31l3.312 3.314v-2.506zm9.936 9.937h-2.504l3.314 3.312 1.25-1.252z"/></svg>
-          <span class="brand-name">Raycast</span>
-        </div>
-        <div class="brand-item" title="Shopify Plus" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#95BF47"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg>
-          <span class="brand-name">Shopify Plus</span>
-        </div>
-        <div class="brand-item" title="Vercel" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#000000"><path d="m12 1.608 12 20.784H0Z"/></svg>
-          <span class="brand-name">Vercel</span>
-        </div>
-        <div class="brand-item" title="Supabase" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#3FCF8E"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg>
-          <span class="brand-name">Supabase</span>
-        </div>
-        <div class="brand-item" title="Retool" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#3D3D3D"><path d="M0 2.2A2.2 2.2 0 0 1 2.2 0h8.6A2.2 2.2 0 0 1 13 2.2v1.7A1.1 1.1 0 0 1 11.9 5H1.1A1.1 1.1 0 0 1 0 3.9V2.2zm0 6.9A1.1 1.1 0 0 1 1.1 8h20.7a2.2 2.2 0 0 1 2.2 2.2v5.7a1.1 1.1 0 0 1-1.1 1.1H2.2A2.2 2.2 0 0 1 0 14.8V9.1zm11 12a1.1 1.1 0 0 1 1.1-1.1h10.8a1.1 1.1 0 0 1 1.1 1.1v.7a2.2 2.2 0 0 1-2.2 2.2h-8.6a2.2 2.2 0 0 1-2.2-2.2v-.7z"/></svg>
-          <span class="brand-name">Retool</span>
-        </div>
-        <div class="brand-item" title="Loom" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#625DF5"><path d="M24 10.665h-7.018l6.078-3.509-1.335-2.312-6.078 3.509 3.508-6.077L16.843.94l-3.508 6.077V0h-2.67v7.018L7.156.94 4.844 2.275l3.509 6.077-6.078-3.508L.94 7.156l6.078 3.509H0v2.67h7.017L.94 16.844l1.335 2.313 6.077-3.508-3.509 6.077 2.312 1.335 3.509-6.078V24h2.67v-7.017l3.508 6.077 2.312-1.335-3.509-6.078 6.078 3.509 1.335-2.313-6.077-3.508h7.017v-2.67H24zm-12 4.966a3.645 3.645 0 1 1 0-7.29 3.645 3.645 0 0 1 0 7.29z"/></svg>
-          <span class="brand-name">Loom</span>
-        </div>
-        <div class="brand-item" title="Brex" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="#212121"><path d="M18.69 2.319a3.868 3.868 0 0 0-3.108 1.547l-.759 1.007a1.658 1.658 0 0 1-1.313.656H0V21.68h5.296a3.87 3.87 0 0 0 3.108-1.547l.759-1.006a1.656 1.656 0 0 1 1.313-.657H24V2.319h-5.31Zm1.108 11.949h-5.66a3.87 3.87 0 0 0-3.108 1.547l-.759 1.007a1.658 1.658 0 0 1-1.313.656H4.202V9.731h5.661a3.868 3.868 0 0 0 3.107-1.547l.759-1.006a1.658 1.658 0 0 1 1.313-.657h4.771l-.015 7.747Z"/></svg>
-          <span class="brand-name">Brex</span>
+<!-- ================= 2. PROVEN IMPACT, OFFICIAL PARTNERS & TRUSTED CLIENTS ================= -->
+<section class="proven-impact-section" id="metrics">
+  <div class="container">
+    
+    <!-- Block A: Official Partners -->
+    <div class="official-partners-eyebrow">OFFICIAL PARTNERS</div>
+    <div class="official-partners-wrap">
+      <!-- Meta Business Partner -->
+      <div class="partner-pill" title="Meta Business Partner">
+        <svg class="partner-pill-icon" viewBox="0 0 24 24" fill="#0064E0" aria-hidden="true">
+          <path d="M12 15.545c-1.127-1.423-2.39-3.415-3.42-5.462-1.39-2.766-2.58-5.083-4.496-5.083C1.82 5 0 7.373 0 11.758c0 4.708 2.19 7.242 5.093 7.242 2.379 0 3.868-1.745 5.514-4.225.433-.655.882-1.353 1.393-2.074.453.642.853 1.258 1.237 1.838 1.77 2.68 3.328 4.461 5.67 4.461C21.81 19 24 16.466 24 11.758 24 7.373 22.18 5 19.916 5c-1.916 0-3.106 2.317-4.496 5.083-1.03 2.047-2.293 4.04-3.42 5.462zm-6.907-7.85c.983 0 1.772 1.488 2.67 3.328.783 1.603 1.666 3.242 2.454 4.38-1.412 1.992-2.395 3.125-3.69 3.125-1.764 0-3.13-1.745-3.13-5.266 0-3.52 1.366-5.567 3.696-5.567zm13.72 0c2.33 0 3.696 2.046 3.696 5.567 0 3.52-1.366 5.266-3.13 5.266-1.295 0-2.278-1.133-3.69-3.125.788-1.138 1.67-2.777 2.453-4.38.899-1.84 1.688-3.328 2.671-3.328z"/>
+        </svg>
+        <div class="partner-meta-text">
+          <span class="partner-meta-brand">Meta</span>
+          <span class="partner-meta-sub">Business Partner</span>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Part B: The Authentic Frosted Glass Panel -->
-  
+      <!-- Shopify Partner -->
+      <div class="partner-pill" title="Shopify Partner">
+        <svg class="partner-pill-icon" viewBox="0 0 24 24" fill="#95BF47" aria-hidden="true">
+          <path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/>
+        </svg>
+        <div class="partner-shopify-text">
+          <strong class="partner-shopify-brand">shopify</strong>
+          <span class="partner-shopify-sub">Partner</span>
+        </div>
+      </div>
+
+      <!-- Vertical Divider -->
+      <div class="partner-v-divider" aria-hidden="true"></div>
+
+      <!-- Statement Text -->
+      <div class="partner-statement">
+        BUILDING<br>THE FUTURE OF<br>CONVERSATIONAL COMMERCE<br>TOGETHER
+      </div>
+    </div>
+
+    <!-- Block B: Real Impact -->
+    <div class="real-impact-eyebrow">REAL IMPACT</div>
+    <h2 class="real-impact-title">
+      Built to deliver <span class="real-impact-blue">measurable results.</span>
+    </h2>
+    <p class="real-impact-sub">
+      From faster support to higher conversions, StepsAI helps businesses create exceptional customer experiences.
+    </p>
+
+    <div class="real-impact-grid">
+      <!-- Card 1 -->
+      <div class="impact-card">
+        <div class="impact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="impact-data">
+          <span class="impact-number">8 in 10</span>
+          <span class="impact-label">questions answered without you</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="impact-card">
+        <div class="impact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="impact-data">
+          <span class="impact-number">95+</span>
+          <span class="impact-label">languages supported</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="impact-card">
+        <div class="impact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="impact-data">
+          <span class="impact-number">0.5s</span>
+          <span class="impact-label">average reply time</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="impact-card">
+        <div class="impact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="impact-data">
+          <span class="impact-number">3×</span>
+          <span class="impact-label">conversion lift*</span>
+        </div>
+        <span class="impact-footnote">*Based on customer-reported results. Results vary.</span>
+      </div>
+    </div>
+
+    <!-- Hairline Separator -->
+    <hr class="impact-hairline-sep" aria-hidden="true">
+
+    <!-- Block C: Trusted By Our Clients -->
+    <div class="trusted-clients-section" id="trust">
+      <div class="trusted-eyebrow">TRUSTED BY OUR CLIENTS</div>
+      
+      <div class="trusted-slider-wrap">
+        <button class="trusted-nav-btn" type="button" aria-label="Scroll left" id="trustedPrevBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="trusted-logos-row" id="trustedLogosRow">
+          <!-- 1. Audible -->
+          <div class="client-logo-card" title="Audible">
+            <svg viewBox="0 0 100 28" fill="none" class="client-logo-svg">
+              <path d="M12 4C16 8 16 18 12 22" stroke="#FF9900" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M8 7C11 10 11 15 8 18" stroke="#FF9900" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M4 10C6 11.5 6 13.5 4 15" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+              <text x="21" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="700" font-size="16" fill="#0f172a" letter-spacing="-0.03em">audible</text>
+            </svg>
+          </div>
+
+          <!-- 2. Zapier -->
+          <div class="client-logo-card" title="Zapier">
+            <svg viewBox="0 0 95 28" fill="none" class="client-logo-svg">
+              <rect x="0" y="16" width="8" height="3.5" rx="0.8" fill="#FF4A00"/>
+              <text x="12" y="19.5" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.03em">zapier</text>
+            </svg>
+          </div>
+
+          <!-- 3. Calendly -->
+          <div class="client-logo-card" title="Calendly">
+            <svg viewBox="0 0 112 28" fill="none" class="client-logo-svg">
+              <circle cx="11" cy="13.5" r="9.5" stroke="#006BFF" stroke-width="2.6"/>
+              <path d="M13.5 9A4.5 4.5 0 0 0 9 13.5A4.5 4.5 0 0 0 13.5 18" stroke="#006BFF" stroke-width="2.3" stroke-linecap="round"/>
+              <text x="26" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="750" font-size="16.5" fill="#0f172a" letter-spacing="-0.02em">Calendly</text>
+            </svg>
+          </div>
+
+          <!-- 4. Figma -->
+          <div class="client-logo-card" title="Figma">
+            <svg viewBox="0 0 95 28" fill="none" class="client-logo-svg">
+              <g transform="translate(1, 2) scale(0.72)">
+                <path d="M8 0h8a8 8 0 0 1 0 16H8a8 8 0 0 1 0-16z" fill="#FF7262"/>
+                <path d="M8 0H0a8 8 0 0 0 0 16h8V0z" fill="#F24E1E"/>
+                <path d="M0 16a8 8 0 0 0 8 8V16H0z" fill="#A259FF"/>
+                <path d="M16 16a8 8 0 1 1-8-8h8v8z" fill="#1ABCFE"/>
+                <path d="M0 24a8 8 0 0 0 8 8 8 8 0 0 0 8-8V24H0z" fill="#0ACF83"/>
+              </g>
+              <text x="24" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.02em">Figma</text>
+            </svg>
+          </div>
+
+          <!-- 5. Notion -->
+          <div class="client-logo-card" title="Notion">
+            <svg viewBox="0 0 95 28" fill="none" class="client-logo-svg">
+              <path d="M3 5c.7.5 1 .5 2.2.4l11-.7c.3 0 0-.3-.1-.3l-2.2-1.7c-.4-.3-.9-.6-1.7-.5L1.8 3.4c-.4 0-.5.2-.3.4zm.7 2.6v11.6c0 .7.3.8 1 .8l12-.7c.7 0 .8-.5.8-.9V6.9c0-.5-.2-.8-.7-.8l-12.6.8c-.5 0-.6.3-.6.7zm11.9.6c.1.3 0 .7-.4.8l-.6.1v8.5c-.5.3-.9.4-1.3.4-.7 0-.8-.2-1.2-.7l-3.8-6v5.7l-1.5.2s0 .6-.9.6l-2.6.2c-.1-.2 0-.6.3-.7l.7-.2V9.5l-1.4-.1c-.1-.4.1-.8.6-.8l2.8-.2 3.9 6v-5.3l-1-.1c-.1-.4.2-.8.6-.8z" fill="#0f172a"/>
+              <text x="23" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.02em">Notion</text>
+            </svg>
+          </div>
+
+          <!-- 6. Linear -->
+          <div class="client-logo-card" title="Linear">
+            <svg viewBox="0 0 95 28" fill="none" class="client-logo-svg">
+              <g transform="translate(1, 4) scale(0.72)">
+                <path d="M2.886 4.18A11.982 11.982 0 0 1 11.99 0C18.624 0 24 5.376 24 12.009c0 3.64-1.62 6.903-4.18 9.105L2.887 4.18ZM1.817 5.626l16.556 16.556c-.524.33-1.075.62-1.65.866L.951 7.277c.247-.575.537-1.126.866-1.65ZM.322 9.163l14.515 14.515c-.71.172-1.443.282-2.195.322L0 11.358a12 12 0 0 1 .322-2.195Zm-.17 4.862 9.823 9.824a12.02 12.02 0 0 1-9.824-9.824Z" fill="#5E6AD2"/>
+              </g>
+              <text x="25" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="750" font-size="16.5" fill="#0f172a" letter-spacing="-0.02em">Linear</text>
+            </svg>
+          </div>
+
+          <!-- 7. Vercel -->
+          <div class="client-logo-card" title="Vercel">
+            <svg viewBox="0 0 92 28" fill="none" class="client-logo-svg">
+              <polygon points="10,6 19,20 1,20" fill="#0f172a"/>
+              <text x="24" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.02em">Vercel</text>
+            </svg>
+          </div>
+
+          <!-- 8. Shopify -->
+          <div class="client-logo-card" title="Shopify">
+            <svg viewBox="0 0 96 28" fill="none" class="client-logo-svg">
+              <g transform="translate(1, 4) scale(0.72)">
+                <path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023z" fill="#95BF47"/>
+                <path d="M11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01z" fill="#95BF47"/>
+              </g>
+              <text x="24" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.02em">shopify</text>
+            </svg>
+          </div>
+
+          <!-- 9. Retool -->
+          <div class="client-logo-card" title="Retool">
+            <svg viewBox="0 0 96 28" fill="none" class="client-logo-svg">
+              <g transform="translate(1, 6) scale(0.65)">
+                <path d="M0 2.2A2.2 2.2 0 0 1 2.2 0h8.6A2.2 2.2 0 0 1 13 2.2v1.7A1.1 1.1 0 0 1 11.9 5H1.1A1.1 1.1 0 0 1 0 3.9V2.2zm0 6.9A1.1 1.1 0 0 1 1.1 8h20.7a2.2 2.2 0 0 1 2.2 2.2v5.7a1.1 1.1 0 0 1-1.1 1.1H2.2A2.2 2.2 0 0 1 0 14.8V9.1zm11 12a1.1 1.1 0 0 1 1.1-1.1h10.8a1.1 1.1 0 0 1 1.1 1.1v.7a2.2 2.2 0 0 1-2.2 2.2h-8.6a2.2 2.2 0 0 1-2.2-2.2v-.7z" fill="#0f172a"/>
+              </g>
+              <text x="23" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="750" font-size="16.5" fill="#0f172a" letter-spacing="-0.02em">Retool</text>
+            </svg>
+          </div>
+
+          <!-- 10. Loom -->
+          <div class="client-logo-card" title="Loom">
+            <svg viewBox="0 0 88 28" fill="none" class="client-logo-svg">
+              <g transform="translate(1, 5) scale(0.68)">
+                <path d="M24 10.665h-7.018l6.078-3.509-1.335-2.312-6.078 3.509 3.508-6.077L16.843.94l-3.508 6.077V0h-2.67v7.018L7.156.94 4.844 2.275l3.509 6.077-6.078-3.508L.94 7.156l6.078 3.509H0v2.67h7.017L.94 16.844l1.335 2.313 6.077-3.508-3.509 6.077 2.312 1.335 3.509-6.078V24h2.67v-7.017l3.508 6.077 2.312-1.335-3.509-6.078 6.078 3.509 1.335-2.313-6.077-3.508h7.017v-2.67H24zm-12 4.966a3.645 3.645 0 1 1 0-7.29 3.645 3.645 0 0 1 0 7.29z" fill="#625DF5"/>
+              </g>
+              <text x="25" y="19" font-family="'Schibsted Grotesk', -apple-system, sans-serif" font-weight="800" font-size="17" fill="#0f172a" letter-spacing="-0.02em">loom</text>
+            </svg>
+          </div>
+        </div>
+
+        <button class="trusted-nav-btn" type="button" aria-label="Scroll right" id="trustedNextBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="trusted-footer-caption">And more forward-thinking businesses use StepsAI to power their customer experience.</p>
+    </div>
+
   </div>
 </section>
 
@@ -1530,95 +2880,277 @@
 <!-- ================= 4. BUILT FOR YOUR BUSINESS ================= -->
 <section class="industries" id="industries">
   <div class="container">
-    <span class="ind-note hand" aria-hidden="true">Same AI.<br>Greater possibilities.</span>
-    <div class="ind-header reveal-left">
-      <span class="badge">Industries</span>
-      <h2 class="sec-title">Works in your industry, <span class="grad-text">from day one.</span></h2>
-      <p class="sec-sub">Steps AI reads your own website, products, and documents, so it sounds like your best staff member on a good day.</p>
-    </div>
+    <div class="ind-dot-grid" aria-hidden="true"></div>
 
-    <div class="ind-accordion reveal" id="indAccordion">
-      <!-- 1. E-Commerce & D2C -->
-      <div class="ind-card active" data-ind="ecommerce" tabindex="0" role="button" aria-expanded="true">
-        <img class="ind-bg-img" src="images/ecommerce-luxury.jpg" alt="E-Commerce & D2C" loading="lazy">
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <div class="ind-collapsed-title">E-Commerce<small>Sales and checkout</small></div>
-          <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Sells like your best floor staff, even at 11 pm</span>
-            <h3>E-Commerce &amp; D2C</h3>
-            <p class="ind-story-p">“Do you have this in medium?” lands at 11 pm on Instagram. Your agent checks live Shopify stock, shows the exact product, adds it to the cart, and you wake up to the order already placed.</p>
-            <div class="ind-scope-glass">
-              <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Product Questions · Live Stock · Order Tracking · Returns &amp; Exchanges · Recommendations</span></div>
-              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Cart Recovery · Checkout Nudges · Shipping Updates · Review Requests</span></div>
-            </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the ecommerce AI agent →</a>
-          </div>
-        </div>
+    <!-- Header Row -->
+    <div class="ind-header-row">
+      <div class="ind-header-left">
+        <span class="ind-kicker">INDUSTRIES</span>
+        <h2 class="ind-title">Built for <span class="ind-title-blue">every business.</span></h2>
+        <p class="ind-sub">From e-commerce to healthcare, StepsAI adapts to your industry and helps you deliver exceptional customer experiences.</p>
       </div>
-
-      <!-- 2. Real Estate -->
-      <div class="ind-card" data-ind="real-estate" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="images/real-estate-luxury.jpg" alt="Real Estate" loading="lazy">
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <div class="ind-collapsed-title">Real Estate<small>Enquiries and viewings</small></div>
-          <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Qualifies like your sharpest broker, at midnight</span>
-            <h3>Real Estate</h3>
-            <p class="ind-story-p">Someone asks the price of a 2BHK at midnight. Your agent answers, sends the floor plan, and captures their budget and timeline while they are still typing. Your team wakes up to a hot lead, not a missed call.</p>
-            <div class="ind-scope-glass">
-              <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Property Questions · Floor Plans &amp; Brochures · Budget &amp; Timeline · Site Visit Booking · Hot Lead Routing</span></div>
-              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Site Visit Reminders · Post-Visit Follow-Up · New Listing Alerts · Cold Enquiry Revival · High Budget Alerts</span></div>
-            </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the real estate AI agent →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Healthcare & Clinics -->
-      <div class="ind-card" data-ind="healthcare" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="images/healthcare-luxury.jpg" alt="Healthcare & Clinics" loading="lazy">
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <div class="ind-collapsed-title">Healthcare<small>Appointments and support</small></div>
-          <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Runs the front desk without putting anyone on hold</span>
-            <h3>Healthcare &amp; Clinics</h3>
-            <p class="ind-story-p">Your front desk repeats timings, directions and insurance rules forty times a day. Your agent takes every one of them and books the slot, then sends anything medical to a real person straight away.</p>
-            <div class="ind-scope-glass">
-              <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Appointment Booking · Rescheduling · Insurance Questions · Timings &amp; Directions · Medical Escalation</span></div>
-              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Appointment Reminders · No-Show Follow-Up · Report Ready Alerts · Follow-Up Visit Nudges · Urgent Escalation</span></div>
-            </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the healthcare AI agent →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Education & Training -->
-      <div class="ind-card" data-ind="education" tabindex="0" role="button" aria-expanded="false">
-        <img class="ind-bg-img" src="images/hero-edtech.jpg" alt="Education & Training" loading="lazy">
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <div class="ind-collapsed-title">Education<small>Admissions and follow-up</small></div>
-          <div class="ind-expanded">
-            <span class="ind-ifc-kicker">Counsels every enquiry, in the language they wrote in</span>
-            <h3>Education &amp; Training</h3>
-            <p class="ind-story-p">A student asks about fees at 11 pm, then goes quiet for a week. Your agent replies in their own language, follows up without being told to, and walks them through the application form.</p>
-            <div class="ind-scope-glass">
-              <div class="ind-scope-item"><span class="sc-dot blue">●</span><b>Handles ·</b><span>Fee &amp; Eligibility · Application Walkthrough · Prospectus &amp; Dates · Counsellor Calls · 95+ Languages</span></div>
-              <div class="ind-scope-item"><span class="sc-dot green">●</span><b>Automates ·</b><span>Application Drop-Off Follow-Up · Deadline Reminders · Missing Document Nudges · Fee Instalment Reminders</span></div>
-            </div>
-            <a href="#deploy-everywhere" class="ind-cta-pill">See the education AI agent →</a>
-          </div>
+      <div class="ind-header-right">
+        <div class="ind-nav-pill">
+          <button class="ind-nav-btn prev" type="button" aria-label="Previous Industry">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span>Explore all industries</span>
+          <button class="ind-nav-btn next" type="button" aria-label="Next Industry">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Section Footer -->
-    <div class="ind-foot-cta reveal">
-      <a href="#start" class="ind-foot-btn">Explore more industries <span class="arrow">→</span></a>
-      <p class="ind-foot-note">Not on this list? Your agent learns from your own pages and documents, whatever business you run.</p>
+    <!-- 4 Cards Track -->
+    <div class="ind-track" id="indAccordion">
+
+      <!-- Card 0: E-Commerce -->
+      <div class="ind-card" data-ind="0" tabindex="0" role="button" aria-expanded="false">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+          <img src="images/ecommerce-luxury.jpg" alt="E-Commerce & Retail" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">E-Commerce</h3>
+            <p class="ind-col-sub">Sales and checkout</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
+              Product recommendations
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></span>
+              Cart &amp; checkout support
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              Order tracking
+            </li>
+          </ul>
+          <a href="industry-ecommerce.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">E-Commerce &amp; Retail</h3>
+          <p class="ind-exp-desc">“Do you have this in medium?” lands at 11 pm on Instagram. Your agent checks live Shopify stock, shows the exact product, adds it to the cart, and you wake up to the order already placed.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path></svg>Product Questions</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>Cart Recovery</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>Live Stock Sync</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Checkout Nudges</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>Order Tracking</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Review Requests</div>
+          </div>
+          <a href="industry-ecommerce.html" class="ind-btn-primary">Explore E-Commerce →</a>
+        </div>
+      </div>
+
+      <!-- Card 1: Real Estate -->
+      <div class="ind-card" data-ind="1" tabindex="0" role="button" aria-expanded="false">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </div>
+          <img src="images/real-estate-luxury.jpg" alt="Real Estate & Rentals" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">Real Estate</h3>
+            <p class="ind-col-sub">Enquiries and viewings</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+              Capture &amp; qualify leads
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+              Schedule site visits
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>
+              Answer property questions
+            </li>
+          </ul>
+          <a href="industry-real-estate.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">Real Estate &amp; Rentals</h3>
+          <p class="ind-exp-desc">Someone asks the price of a 2BHK at midnight. Your agent answers, sends the floor plan, and captures their budget and timeline while they are still typing. Your team wakes up to a hot lead.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Property Questions</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Site Visit Reminders</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>Floor Plans &amp; Docs</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Post-Visit Follow-Up</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Budget &amp; Timeline</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Hot Lead Routing</div>
+          </div>
+          <a href="industry-real-estate.html" class="ind-btn-primary">Explore Real Estate →</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Healthcare & Clinics (Active by default matching screenshot) -->
+      <div class="ind-card active" data-ind="2" tabindex="0" role="button" aria-expanded="true">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <img src="images/healthcare-luxury.jpg" alt="Healthcare & Clinics" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">Healthcare &amp; Clinics</h3>
+            <p class="ind-col-sub">Appointments and support</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+              Appointment Booking
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+              Insurance Questions
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>
+              Timings &amp; Directions
+            </li>
+          </ul>
+          <a href="industry-healthcare.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">Healthcare &amp; Clinics</h3>
+          <p class="ind-exp-desc">Your front desk repeats timings, directions and insurance rules forty times a day. Your agent takes every one of them and books the slot.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Appointment Booking</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Reminders &amp; Follow-ups</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Insurance Questions</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>Medical Escalation</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>Timings &amp; Directions</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg>Multi-location Support</div>
+          </div>
+          <a href="industry-healthcare.html" class="ind-btn-primary">Explore Healthcare →</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Education & Training -->
+      <div class="ind-card" data-ind="3" tabindex="0" role="button" aria-expanded="false">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <img src="images/hero-edtech.jpg" alt="Education & Training" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">Education &amp; Training</h3>
+            <p class="ind-col-sub">Admissions and follow-up</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg></span>
+              Answer course enquiries
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+              Guide application process
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              Schedule counselling calls
+            </li>
+          </ul>
+          <a href="industry-edtech.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">Education &amp; Training</h3>
+          <p class="ind-exp-desc">A student asks about fees at 11 pm, then goes quiet for a week. Your agent replies in their own language, follows up without being told to, and walks them through the application form.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>Course Enquiries</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Drop-Off Follow-Up</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>Fee &amp; Eligibility</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Deadline Reminders</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Walkthrough Guide</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Counsellor Calls</div>
+          </div>
+          <a href="industry-edtech.html" class="ind-btn-primary">Explore Education →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation Row -->
+    <div class="ind-bottom">
+      <div class="ind-dots">
+        <button type="button" class="ind-dot" data-ind-dot="0" aria-label="E-Commerce"></button>
+        <button type="button" class="ind-dot" data-ind-dot="1" aria-label="Real Estate"></button>
+        <button type="button" class="ind-dot active" data-ind-dot="2" aria-label="Healthcare & Clinics"></button>
+        <button type="button" class="ind-dot" data-ind-dot="3" aria-label="Education & Training"></button>
+      </div>
+
+      <div class="ind-center-action">
+        <a href="industries.html" class="ind-btn-more">Explore more industries <span>→</span></a>
+      </div>
+
+      <div class="ind-hint">
+        <!-- Curved sketch arrow pointing up and left toward cards -->
+        <svg class="ind-hint-arrow" viewBox="0 0 42 36" fill="none" aria-hidden="true">
+          <path d="M38 30 C 26 28, 10 24, 7 8 M 7 8 L 16 9 M 7 8 L 9 17" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="ind-hint-text">Hover to see details</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1627,15 +3159,10 @@
 <section class="channels" id="deploy-everywhere">
   <div class="container">
     <span class="channels-note hand" aria-hidden="true">Same agent. Every channel.<br>Bigger opportunities.</span>
-    <div class="reveal-right">
-      <span class="badge">Channels</span>
-      <h2 class="sec-title">Set up once, <span class="grad-text">show up on every channel.</span></h2>
-      <p class="sec-sub">Website, WhatsApp, Instagram, and Messenger, answered by the same agent. Change your return policy once, and all four say the new thing.</p>
-    </div>
-
-    <div class="deploy-hub-row reveal">
-      <div class="deploy-hub"><span class="logo-mark" style="width:26px;height:14px" aria-hidden="true"></span></div>
-      <p class="deploy-hub-caption">One agent brain. <span class="grad-text">Trained once, working everywhere.</span></p>
+    <div class="center reveal" style="max-width: 780px; margin: 0 auto 36px;">
+      <span class="badge" style="margin-bottom: 12px; display: inline-flex;">Channels</span>
+      <h2 class="sec-title" style="text-align: center; margin-inline: auto;">Set up once, <span class="grad-text">show up on every channel.</span></h2>
+      <p class="sec-sub" style="text-align: center; margin-inline: auto; max-width: 620px;">Website, WhatsApp, Instagram, and Messenger, answered by the same agent. Change your return policy once, and all four say the new thing.</p>
     </div>
 
     <div class="channels-grid reveal">
@@ -1651,55 +3178,11 @@
         <div class="fade-panel" id="chPanel"><!-- filled by JS --></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ================= 5. OMNICHANNEL MARKETING (WHATSAPP & INSTAGRAM) ================= -->
-<section class="wa revenue-section" id="whatsapp">
-  <div class="container">
-    <div class="revenue-heading">
-      <div><span class="badge">WhatsApp · Instagram</span>
-      <h2 class="sec-title">Turn broadcasts and comments into <span class="grad-text">private conversations that sell.</span></h2></div>
-      <div><p class="sec-sub">Steps AI sends your offer to your whole WhatsApp list, DMs everyone who comments on Instagram, and handles every reply that comes back.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp automation <span aria-hidden="true">↗</span></a></div>
+    <div class="deploy-hub-row reveal" style="margin-top: 40px; margin-bottom: 0;">
+      <div class="deploy-hub"><span class="logo-mark" style="width:26px;height:14px" aria-hidden="true"></span></div>
+      <p class="deploy-hub-caption">One agent brain. <span class="grad-text">Trained once, working everywhere.</span></p>
     </div>
-    <div class="revenue-studio" data-channel="whatsapp">
-      <div class="studio-toolbar">
-        <div class="studio-tabs" role="tablist" aria-label="Marketing demo channel">
-          <button type="button" role="tab" id="revenue-wa" aria-controls="revenue-panel" aria-selected="true" data-revenue-channel="whatsapp"><span data-icon="whatsapp"></span>WhatsApp broadcasts</button>
-          <button type="button" role="tab" id="revenue-ig" aria-controls="revenue-panel" aria-selected="false" tabindex="-1" data-revenue-channel="instagram"><span data-icon="instagram"></span>Instagram comment to DM</button>
-        </div>
-        <span class="demo-caption">Interactive product example</span>
-      </div>
-      <div class="revenue-panel" id="revenue-panel" role="tabpanel" aria-labelledby="revenue-wa">
-        <div class="campaign-art">
-          <img id="campaignImage" src="images/product-diamond-necklace.jpg" alt="Jewellery collection used in the campaign example" loading="lazy" width="640" height="760">
-          <div class="campaign-overlay"><span id="campaignContext">THE PRIVATE PREVIEW</span><h3 id="campaignTitle">An invitation.<br>A conversation.<br>A new favourite.</h3><p id="campaignSubtitle">Your collection. Their next discovery.</p></div>
-          <div class="campaign-trigger"><span class="trigger-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 10 16-6-6 16-3-7-7-3Z"/><path d="m11 13 9-9"/></svg></span><div><strong id="triggerTitle">A campaign worth replying to</strong><span id="triggerText">Personalized broadcast · VIP collection</span></div></div>
-        </div>
-        <div class="conversation-stage">
-          <div class="conversation-stage-head"><span>From first interest to next step</span><button class="replay-demo" type="button" id="revenueReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>Replay flow</button></div>
-          <div class="revenue-phone">
-            <div class="phone-brand"><img src="images/logo.png" alt="" width="30" height="22"><div><strong>Your brand</strong><span>Powered by StepsAI</span></div><span class="phone-channel" id="phoneChannel">WhatsApp</span></div>
-            <div class="broadcast-received" data-flow="0">
-              <div class="broadcast-poster"><img src="images/product-diamond-necklace.jpg" alt="Jewellery collection in the example broadcast" loading="lazy" width="380" height="300"><div><span>THE NEW COLLECTION</span><strong>A little sparkle.<br>A lovely gift.</strong></div></div>
-              <div class="broadcast-caption"><strong>Your next favourite is here.</strong><p>Hi Priya! Discover our new jewellery collection. Find a gift for someone special—or a little something for yourself.</p><span class="broadcast-timestamp">6:36 pm</span></div>
-              <button type="button" class="broadcast-shop" aria-expanded="false">↗ &nbsp; Shop now</button>
-              <p class="broadcast-shop-note" hidden>In your broadcast, this button opens your product or collection page.</p>
-            </div>
-            <div class="revenue-messages">
-              <div class="flow-message flow-message-brand" data-flow="0"><p id="flowFirst">Hi Priya, your invitation to our new collection is here. Would you like a closer look?</p><span>11:30</span></div>
-              <div class="flow-message flow-message-customer" data-flow="1"><p id="flowReply">Yes! Can you help me pick a gift?</p><span>11:31</span></div>
-              <div class="flow-message flow-message-brand" data-flow="2"><p id="flowAnswer">Of course. This piece is a lovely place to start. Here’s the collection to explore.</p></div>
-              <div class="flow-product" data-flow="2"><img id="flowProductImage" src="images/product-diamond-necklace.jpg" alt="Product recommendation example" loading="lazy" width="66" height="76"><div><strong id="flowProductName">The signature collection</strong><span>Selected for you</span><span class="flow-product-action">View collection <span aria-hidden="true">↗</span></span></div></div>
-            </div>
-            <div class="phone-composer" aria-hidden="true">Message your brand<span>↗</span></div>
-          </div>
-          <div class="flow-result" data-flow="3"><span class="result-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 12 4 4 8-8"/></svg></span><div><strong>Interest becomes an actionable next step.</strong><span>A relevant recommendation. A direct path to purchase.</span></div></div>
-        </div>
-      </div>
-      <div class="revenue-journey" aria-label="Example conversation flow"><div data-journey="0"><span>01</span><strong>Start the conversation</strong><p>A campaign, comment, or DM.</p></div><div data-journey="1"><span>02</span><strong>Make it personal</strong><p>Answer with your business knowledge.</p></div><div data-journey="2"><span>03</span><strong>Make the next step easy</strong><p>Bring the right product into the chat.</p></div></div>
-    </div>
-    <div class="revenue-footnote"><p>One connected experience, from the first message to the paid order.</p><a href="contact.html">See it with your business <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
 
@@ -1838,6 +3321,136 @@
   </div>
 </section>
 -->
+
+<!-- ================= 5. OMNICHANNEL MARKETING (WHATSAPP & INSTAGRAM) ================= -->
+<section class="wa revenue-section" id="whatsapp">
+  <div class="container">
+    <div class="revenue-heading">
+      <div><span class="badge">WhatsApp · Instagram</span>
+      <h2 class="sec-title">Turn broadcasts and comments into <span class="grad-text">private conversations that sell.</span></h2></div>
+      <div><p class="sec-sub">Steps AI sends your offer to your whole WhatsApp list, DMs everyone who comments on Instagram, and handles every reply that comes back.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp automation <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="revenue-studio" data-channel="whatsapp">
+      <div class="studio-toolbar">
+        <div class="studio-tabs" role="tablist" aria-label="Marketing demo channel">
+          <button type="button" role="tab" id="revenue-wa" aria-controls="revenue-panel" aria-selected="true" data-revenue-channel="whatsapp"><span data-icon="whatsapp"></span>WhatsApp broadcasts</button>
+          <button type="button" role="tab" id="revenue-ig" aria-controls="revenue-panel" aria-selected="false" tabindex="-1" data-revenue-channel="instagram"><span data-icon="instagram"></span>Instagram comment to DM</button>
+        </div>
+        <span class="demo-caption">Interactive product example</span>
+      </div>
+      <div class="revenue-panel" id="revenue-panel" role="tabpanel" aria-labelledby="revenue-wa">
+        <div class="campaign-art">
+          <img id="campaignImage" src="images/product-diamond-necklace.jpg" alt="Jewellery collection used in the campaign example" loading="lazy" width="640" height="760">
+          <div class="campaign-overlay"><span id="campaignContext">THE PRIVATE PREVIEW</span><h3 id="campaignTitle">An invitation.<br>A conversation.<br>A new favourite.</h3><p id="campaignSubtitle">Your collection. Their next discovery.</p></div>
+          <div class="campaign-trigger"><span class="trigger-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 10 16-6-6 16-3-7-7-3Z"/><path d="m11 13 9-9"/></svg></span><div><strong id="triggerTitle">A campaign worth replying to</strong><span id="triggerText">Personalized broadcast · VIP collection</span></div></div>
+        </div>
+        <div class="conversation-stage">
+          <div class="conversation-stage-head"><span>From first interest to next step</span><button class="replay-demo" type="button" id="revenueReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>Replay flow</button></div>
+          <div class="revenue-phone">
+            <div class="phone-brand"><img src="images/logo.png" alt="" width="30" height="22"><div><strong>Your brand</strong><span>Powered by StepsAI</span></div><span class="phone-channel" id="phoneChannel">WhatsApp</span></div>
+            <div class="broadcast-received" data-flow="0">
+              <div class="broadcast-poster"><img src="images/product-diamond-necklace.jpg" alt="Jewellery collection in the example broadcast" loading="lazy" width="380" height="300"><div><span>THE NEW COLLECTION</span><strong>A little sparkle.<br>A lovely gift.</strong></div></div>
+              <div class="broadcast-caption"><strong>Your next favourite is here.</strong><p>Hi Priya! Discover our new jewellery collection. Find a gift for someone special—or a little something for yourself.</p><span class="broadcast-timestamp">6:36 pm</span></div>
+              <button type="button" class="broadcast-shop" aria-expanded="false">↗ &nbsp; Shop now</button>
+              <p class="broadcast-shop-note" hidden>In your broadcast, this button opens your product or collection page.</p>
+            </div>
+            <div class="revenue-messages">
+              <div class="flow-message flow-message-brand" data-flow="0"><p id="flowFirst">Hi Priya, your invitation to our new collection is here. Would you like a closer look?</p><span>11:30</span></div>
+              <div class="flow-message flow-message-customer" data-flow="1"><p id="flowReply">Yes! Can you help me pick a gift?</p><span>11:31</span></div>
+              <div class="flow-message flow-message-brand" data-flow="2"><p id="flowAnswer">Of course. This piece is a lovely place to start. Here’s the collection to explore.</p></div>
+              <div class="flow-product" data-flow="2"><img id="flowProductImage" src="images/product-diamond-necklace.jpg" alt="Product recommendation example" loading="lazy" width="66" height="76"><div><strong id="flowProductName">The signature collection</strong><span>Selected for you</span><span class="flow-product-action">View collection <span aria-hidden="true">↗</span></span></div></div>
+            </div>
+            <div class="phone-composer" aria-hidden="true">Message your brand<span>↗</span></div>
+          </div>
+          <div class="flow-result" data-flow="3"><span class="result-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 12 4 4 8-8"/></svg></span><div><strong>Interest becomes an actionable next step.</strong><span>A relevant recommendation. A direct path to purchase.</span></div></div>
+        </div>
+      </div>
+      <div class="revenue-journey" aria-label="Example conversation flow"><div data-journey="0"><span>01</span><strong>Start the conversation</strong><p>A campaign, comment, or DM.</p></div><div data-journey="1"><span>02</span><strong>Make it personal</strong><p>Answer with your business knowledge.</p></div><div data-journey="2"><span>03</span><strong>Make the next step easy</strong><p>Bring the right product into the chat.</p></div></div>
+    </div>
+    <div class="revenue-footnote"><p>One connected experience, from the first message to the paid order.</p><a href="contact.html">See it with your business <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<!-- ================= 8b. UNIFIED INBOX ================= -->
+<section class="inbox-sec" id="inbox-teaser">
+  <div class="container">
+    <span class="ib-note hand" aria-hidden="true">All your conversations.<br>One inbox.</span>
+    <div class="center reveal-right">
+      <span class="badge">Unified Inbox</span>
+      <h2 class="sec-title">Four channels, one inbox. <span class="grad-text">You step in only when you are needed.</span></h2>
+      <p class="sec-sub">Steps AI answers, checks, books, and closes. When something genuinely needs you, it arrives with the full chat already there.</p>
+    </div>
+
+    <div class="dash-stage reveal" data-3d-stage="true">
+      <img class="dash-stage-bg" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=85" alt="Customer success collaboration studio" loading="lazy">
+      <div class="dash-stage-overlay"></div>
+      <div class="dash">
+        <div class="dash-top">
+          <div class="dash-brand">
+              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
+              StepsAI
+            </div>
+          <span class="dash-label" style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;color:#0f172a;font-weight:750;padding:5px 14px;border-radius:999px;font-size:12px"><span style="width:16px;height:16px;border-radius:50%;background:#ef4444;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:9px">📥</span> Inbox</span>
+        </div>
+        <div class="dash-body" id="viewInbox">
+            <div class="inbox">
+              <div class="convo-list">
+                <div class="convo-search">Search all conversations…</div>
+                <div class="convo sel" style="--i:0">
+                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="website"></span>Website</span><span class="t">2m</span></div>
+                  <p class="c-msg">Can I book tomorrow?</p>
+                  <div style="margin-top:6px"><span class="status st-ai">AI handling</span></div>
+                </div>
+                <div class="convo" style="--i:1">
+                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="instagram"></span>Instagram</span><span class="t">12m</span></div>
+                  <p class="c-msg">I’d like to know more about your services.</p>
+                  <div style="margin-top:6px"><span class="status st-human">Assigned to Sarah</span></div>
+                </div>
+                <div class="convo" style="--i:2">
+                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="whatsapp"></span>WhatsApp</span><span class="t">28m</span></div>
+                  <p class="c-msg">Can you help with my order?</p>
+                  <div style="margin-top:6px"><span class="status st-done">Resolved</span></div>
+                </div>
+                <div class="convo" style="--i:3">
+                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="messenger"></span>Messenger</span><span class="t">1h</span></div>
+                  <p class="c-msg">Do you have this in my size?</p>
+                  <div style="margin-top:6px"><span class="status st-ai">AI handling</span></div>
+                </div>
+              </div>
+              <div class="thread">
+                <div class="thread-head">
+                  <div><div class="t-name">Can I book tomorrow? · Website</div><div class="t-meta">First visit · 10:24 AM</div></div>
+                  <span class="status st-ai">AI handling</span>
+                </div>
+                <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Hi! Can I book a facial for tomorrow morning?</span></div>
+                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Yes! We have availability tomorrow. Would you prefer our Downtown or Uptown location?</span></div>
+                <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Downtown works. What times are available?</span></div>
+                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Here are the available times:</span></div>
+                <div class="time-chips"><span>9:00 AM</span><span class="sel">10:30 AM</span><span>12:00 PM</span></div>
+                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Perfect! Your appointment is booked. You’ll receive a confirmation shortly.</span></div>
+                <div class="thread-input"><span>Write a reply…</span><div class="ti-tools"><span>📎</span><span>🙂</span><span style="color:#2563eb;font-weight:800">➤</span></div></div>
+              </div>
+              <div class="cust-side">
+                <h6>Customer</h6>
+                <div class="cs-prof"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya M."></span><div><b>Priya M.</b><p>priya@example.com<br>+91 98·······10</p></div></div>
+                <h6>Actions taken by StepsAI</h6>
+                <div class="act"><span class="g">✓</span>Checked availability</div>
+                <div class="act"><span class="g">✓</span>Booked appointment</div>
+                <div class="act"><span class="g">✓</span>Sent confirmation email</div>
+                <div class="act"><span class="g">✓</span>Added to CRM (HubSpot)</div>
+                <h6>Conversation context</h6>
+                <div class="ctx-chips"><span>Facial Treatment</span><span>Downtown</span><span>New Customer</span></div>
+                <button class="takeover">Take over this chat</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <p class="ib-close reveal">Steps AI does the work. <span class="grad-text">You make the calls that matter.</span></p>
+    <p class="center reveal" style="margin-top:12px"><a href="#inbox-teaser" class="section-link-out">See how One Inbox works →</a></p>
+  </div>
+</section>
 
 <!-- ================= 9. WORKFLOWS (#workflows-teaser) ================= -->
 <section class="automation" id="workflows-teaser">
@@ -2037,6 +3650,92 @@
   </div>
 </section>
 
+<!-- ================= 8c. CRM ================= -->
+<section class="inbox-sec crm-sec" id="crm-teaser">
+  <div class="container">
+    <span class="crm-note hand" aria-hidden="true">Every record.<br>Always in sync.</span>
+    <div class="center reveal-grow">
+      <span class="badge">CRM</span>
+      <h2 class="sec-title">The CRM you never have <span class="grad-text">to update.</span></h2>
+      <p class="sec-sub">Steps AI qualifies the lead, captures the details, and updates your CRM itself. No contact limit and no extra fee, however big your list gets.</p>
+    </div>
+
+    <div class="dash-stage reveal" data-3d-stage="true">
+      <img class="dash-stage-bg" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85" alt="Customer relationships client workspace" loading="lazy">
+      <div class="dash-stage-overlay"></div>
+      <div class="dash">
+        <div class="dash-top">
+          <div class="dash-brand">
+              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
+              StepsAI
+            </div>
+          <span class="dash-label">CRM</span>
+        </div>
+        <div class="dash-body" id="viewCRM">
+            <div class="inbox">
+              <div class="convo-list">
+                <div class="convo-search">Search contacts &amp; companies…</div>
+                <div class="convo sel">
+                  <div class="c-top"><span class="c-ch">Priya Sharma</span><span class="t">2m</span></div>
+                  <p class="c-msg">Titanium Haute Collection · Repeat buyer</p>
+                  <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
+                </div>
+                <div class="convo">
+                  <div class="c-top"><span class="c-ch">Marcus Lee</span><span class="t">18m</span></div>
+                  <p class="c-msg">Downtown Clinic · New patient</p>
+                  <div style="margin-top:6px"><span class="status st-ai">Syncing…</span></div>
+                </div>
+                <div class="convo">
+                  <div class="c-top"><span class="c-ch">Ananya Rao</span><span class="t">1h</span></div>
+                  <p class="c-msg">Verve Living · Open ticket</p>
+                  <div style="margin-top:6px"><span class="status st-human">Ticket open</span></div>
+                </div>
+                <div class="convo">
+                  <div class="c-top"><span class="c-ch">Karan Mehta</span><span class="t">3h</span></div>
+                  <p class="c-msg">Meridian Clinic · Follow-up due</p>
+                  <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
+                </div>
+              </div>
+              <div class="thread">
+                <div class="thread-head">
+                  <div><div class="t-name">Priya Sharma</div><div class="t-meta">Titanium Haute Collection · Customer since Jun 2026</div></div>
+                  <span class="status st-done">Synced 2m ago</span>
+                </div>
+                <div class="crm-field-grid">
+                  <div class="crm-field"><span>Phone</span><b>+91 98·······10</b></div>
+                  <div class="crm-field"><span>Email</span><b>priya@example.com</b></div>
+                  <div class="crm-field"><span>Last order</span><b>₹18,400 · Aug 29</b></div>
+                  <div class="crm-field"><span>Lifetime value</span><b>₹1,42,000</b></div>
+                </div>
+                <h6 class="crm-h6">Timeline</h6>
+                <div class="act"><span class="g">✓</span>Asked about Titanium Haute stock on WhatsApp</div>
+                <div class="act"><span class="g">✓</span>StepsAI shared availability and price</div>
+                <div class="act"><span class="g">✓</span>Order placed · confirmation sent</div>
+                <div class="act"><span class="g">✓</span>Record updated in HubSpot</div>
+                <div class="thread-input">Add a note… <span style="margin-left:auto">📎 🙂 ➤</span></div>
+              </div>
+              <div class="cust-side">
+                <h6>Synced with</h6>
+                <div class="crm-sync-row"><span class="is-lg"><b style="color:#ff7a59">✳</b>HubSpot</span><span class="status st-done">Live</span></div>
+                <div class="crm-sync-row"><span class="is-lg"><b style="color:#111827">K</b>Klaviyo</span><span class="status st-done">Live</span></div>
+                <div class="crm-sync-row"><span class="is-lg"><b style="color:#2563eb">S</b>Built-in CRM</span><span class="status st-done">Always on</span></div>
+                <h6>Open tickets</h6>
+                <div class="act"><span class="g">🎫</span>Sizing question · Support</div>
+                <div class="act"><span class="g">🎫</span>Delivery delay · Logistics</div>
+                <h6>Conversation context</h6>
+                <div class="ctx-chips"><span>Repeat Buyer</span><span>WhatsApp</span><span>High LTV</span></div>
+                <button class="takeover">Push to CRM now</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <p class="ib-close reveal">Synced automatically. <span class="grad-text">No copy and paste.</span></p>
+    <p class="center reveal" style="margin-top:12px"><a href="#integrations" class="section-link-out">See all platform capabilities →</a></p>
+  </div>
+</section>
+
 <!-- ================= 8. COMMAND CENTER ================= -->
 <!-- ================= 8a. TRACK RESULTS (Analytics) ================= -->
 <section class="command" id="analytics-teaser">
@@ -2155,231 +3854,12 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Key Conversion Outcomes -->
-          <div class="an-outcomes-grid">
-            <div class="an-outcome-tile">
-              <div class="an-outcome-top">Abandoned Cart Recoveries</div>
-              <div class="an-outcome-val">₹10,640</div>
-              <div class="an-outcome-sub">14 recovered checkouts</div>
-            </div>
-            <div class="an-outcome-tile">
-              <div class="an-outcome-top">High-Intent Leads</div>
-              <div class="an-outcome-val">74</div>
-              <div class="an-outcome-sub">Leads captured</div>
-            </div>
-            <div class="an-outcome-tile">
-              <div class="an-outcome-top">Repetitive Tickets Deflected</div>
-              <div class="an-outcome-val">88.2%</div>
-              <div class="an-outcome-sub an-outcome-tags"><span>Sizing</span><span>·</span><span>Delivery</span><span>·</span><span>COD</span><span>·</span><span>Returns</span><span>·</span><span>Exchanges</span><span>·</span><span>Availability</span><span>·</span><span>Tracking</span></div>
-            </div>
-          </div>
-
-          <!-- Agent Performance table -->
-          <div class="an-table-card">
-            <div class="an-table-head">
-              <div class="an-panel-title">Agent Performance</div>
-              <div class="an-panel-sub">Conversations, response times, and CRM activity per agent</div>
-            </div>
-            <div class="an-table-scroll">
-              <table class="an-table">
-                <thead>
-                  <tr>
-                    <th>Agent</th>
-                    <th class="right">Conversations</th>
-                    <th class="center">Avg Msgs/Chat</th>
-                    <th class="center">Avg Response Time</th>
-                    <th class="center">Tickets</th>
-                    <th class="center">Leads</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="an-table-agent"><span class="logo-mark" style="width:16px;height:9px" aria-hidden="true"></span> WearBliss</span></td>
-                    <td class="right">612</td>
-                    <td class="center">3.4</td>
-                    <td class="center">2.2 sec</td>
-                    <td class="center">95</td>
-                    <td class="center">74</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="center reveal" style="margin-top:12px"><a href="#analytics-teaser" class="section-link-out">See the full analytics dashboard →</a></p>
-  </div>
-</section>
-
-<!-- ================= 8b. UNIFIED INBOX ================= -->
-<section class="inbox-sec" id="inbox-teaser">
-  <div class="container">
-    <span class="ib-note hand" aria-hidden="true">All your conversations.<br>One inbox.</span>
-    <div class="center reveal-right">
-      <span class="badge">Unified Inbox</span>
-      <h2 class="sec-title">Four channels, one inbox. <span class="grad-text">You step in only when you are needed.</span></h2>
-      <p class="sec-sub">Steps AI answers, checks, books, and closes. When something genuinely needs you, it arrives with the full chat already there.</p>
-    </div>
-
-    <div class="dash-stage reveal" data-3d-stage="true">
-      <img class="dash-stage-bg" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=85" alt="Customer success collaboration studio" loading="lazy">
-      <div class="dash-stage-overlay"></div>
-      <div class="dash">
-        <div class="dash-top">
-          <div class="dash-brand">
-              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
-              StepsAI
-            </div>
-          <span class="dash-label" style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;color:#0f172a;font-weight:750;padding:5px 14px;border-radius:999px;font-size:12px"><span style="width:16px;height:16px;border-radius:50%;background:#ef4444;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:9px">📥</span> Inbox</span>
-        </div>
-        <div class="dash-body" id="viewInbox">
-            <div class="inbox">
-              <div class="convo-list">
-                <div class="convo-search">Search all conversations…</div>
-                <div class="convo sel" style="--i:0">
-                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="website"></span>Website</span><span class="t">2m</span></div>
-                  <p class="c-msg">Can I book tomorrow?</p>
-                  <div style="margin-top:6px"><span class="status st-ai">AI handling</span></div>
-                </div>
-                <div class="convo" style="--i:1">
-                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="instagram"></span>Instagram</span><span class="t">12m</span></div>
-                  <p class="c-msg">I’d like to know more about your services.</p>
-                  <div style="margin-top:6px"><span class="status st-human">Assigned to Sarah</span></div>
-                </div>
-                <div class="convo" style="--i:2">
-                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="whatsapp"></span>WhatsApp</span><span class="t">28m</span></div>
-                  <p class="c-msg">Can you help with my order?</p>
-                  <div style="margin-top:6px"><span class="status st-done">Resolved</span></div>
-                </div>
-                <div class="convo" style="--i:3">
-                  <div class="c-top"><span class="c-ch"><span class="ci" data-icon="messenger"></span>Messenger</span><span class="t">1h</span></div>
-                  <p class="c-msg">Do you have this in my size?</p>
-                  <div style="margin-top:6px"><span class="status st-ai">AI handling</span></div>
-                </div>
-              </div>
-              <div class="thread">
-                <div class="thread-head">
-                  <div><div class="t-name">Can I book tomorrow? · Website</div><div class="t-meta">First visit · 10:24 AM</div></div>
-                  <span class="status st-ai">AI handling</span>
-                </div>
-                <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Hi! Can I book a facial for tomorrow morning?</span></div>
-                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Yes! We have availability tomorrow. Would you prefer our Downtown or Uptown location?</span></div>
-                <div class="msg-row right"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya"></span><span class="bub cust">Downtown works. What times are available?</span></div>
-                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Here are the available times:</span></div>
-                <div class="time-chips"><span>9:00 AM</span><span class="sel">10:30 AM</span><span>12:00 PM</span></div>
-                <div class="msg-row"><span class="avatar bot">✦</span><span class="bub ai">Perfect! Your appointment is booked. You’ll receive a confirmation shortly.</span></div>
-                <div class="thread-input"><span>Write a reply…</span><div class="ti-tools"><span>📎</span><span>🙂</span><span style="color:#2563eb;font-weight:800">➤</span></div></div>
-              </div>
-              <div class="cust-side">
-                <h6>Customer</h6>
-                <div class="cs-prof"><span class="avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Priya M."></span><div><b>Priya M.</b><p>priya@example.com<br>+91 98·······10</p></div></div>
-                <h6>Actions taken by StepsAI</h6>
-                <div class="act"><span class="g">✓</span>Checked availability</div>
-                <div class="act"><span class="g">✓</span>Booked appointment</div>
-                <div class="act"><span class="g">✓</span>Sent confirmation email</div>
-                <div class="act"><span class="g">✓</span>Added to CRM (HubSpot)</div>
-                <h6>Conversation context</h6>
-                <div class="ctx-chips"><span>Facial Treatment</span><span>Downtown</span><span>New Customer</span></div>
-                <button class="takeover">Take over this chat</button>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <p class="ib-close reveal">Steps AI handles what it can. <span class="grad-text">You stay in control.</span></p>
-    <p class="center reveal" style="margin-top:12px"><a href="#inbox-teaser" class="section-link-out">See how One Inbox works →</a></p>
-  </div>
-</section>
-
-<!-- ================= 8c. CRM ================= -->
-<section class="inbox-sec crm-sec" id="crm-teaser">
-  <div class="container">
-    <span class="crm-note hand" aria-hidden="true">Every record.<br>Always in sync.</span>
-    <div class="center reveal-grow">
-      <span class="badge">CRM</span>
-      <h2 class="sec-title">The CRM you never have <span class="grad-text">to update.</span></h2>
-      <p class="sec-sub">Steps AI qualifies the lead, captures the details, and updates your CRM itself. No contact limit and no extra fee, however big your list gets.</p>
-    </div>
-
-    <div class="dash-stage reveal" data-3d-stage="true">
-      <img class="dash-stage-bg" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85" alt="Customer relationships client workspace" loading="lazy">
-      <div class="dash-stage-overlay"></div>
-      <div class="dash">
-        <div class="dash-top">
-          <div class="dash-brand">
-              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
-              StepsAI
-            </div>
-          <span class="dash-label">CRM</span>
-        </div>
-        <div class="dash-body" id="viewCRM">
-            <div class="inbox">
-              <div class="convo-list">
-                <div class="convo-search">Search contacts &amp; companies…</div>
-                <div class="convo sel">
-                  <div class="c-top"><span class="c-ch">Priya Sharma</span><span class="t">2m</span></div>
-                  <p class="c-msg">Titanium Haute Collection · Repeat buyer</p>
-                  <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
-                </div>
-                <div class="convo">
-                  <div class="c-top"><span class="c-ch">Marcus Lee</span><span class="t">18m</span></div>
-                  <p class="c-msg">Downtown Clinic · New patient</p>
-                  <div style="margin-top:6px"><span class="status st-ai">Syncing…</span></div>
-                </div>
-                <div class="convo">
-                  <div class="c-top"><span class="c-ch">Ananya Rao</span><span class="t">1h</span></div>
-                  <p class="c-msg">Verve Living · Open ticket</p>
-                  <div style="margin-top:6px"><span class="status st-human">Ticket open</span></div>
-                </div>
-                <div class="convo">
-                  <div class="c-top"><span class="c-ch">Karan Mehta</span><span class="t">3h</span></div>
-                  <p class="c-msg">Meridian Clinic · Follow-up due</p>
-                  <div style="margin-top:6px"><span class="status st-done">Synced</span></div>
-                </div>
-              </div>
-              <div class="thread">
-                <div class="thread-head">
-                  <div><div class="t-name">Priya Sharma</div><div class="t-meta">Titanium Haute Collection · Customer since Jun 2026</div></div>
-                  <span class="status st-done">Synced 2m ago</span>
-                </div>
-                <div class="crm-field-grid">
-                  <div class="crm-field"><span>Phone</span><b>+91 98·······10</b></div>
-                  <div class="crm-field"><span>Email</span><b>priya@example.com</b></div>
-                  <div class="crm-field"><span>Last order</span><b>₹18,400 · Aug 29</b></div>
-                  <div class="crm-field"><span>Lifetime value</span><b>₹1,42,000</b></div>
-                </div>
-                <h6 class="crm-h6">Timeline</h6>
-                <div class="act"><span class="g">✓</span>Asked about Titanium Haute stock on WhatsApp</div>
-                <div class="act"><span class="g">✓</span>StepsAI shared availability and price</div>
-                <div class="act"><span class="g">✓</span>Order placed · confirmation sent</div>
-                <div class="act"><span class="g">✓</span>Record updated in HubSpot</div>
-                <div class="thread-input">Add a note… <span style="margin-left:auto">📎 🙂 ➤</span></div>
-              </div>
-              <div class="cust-side">
-                <h6>Synced with</h6>
-                <div class="crm-sync-row"><span class="is-lg"><b style="color:#ff7a59">✳</b>HubSpot</span><span class="status st-done">Live</span></div>
-                <div class="crm-sync-row"><span class="is-lg"><b style="color:#111827">K</b>Klaviyo</span><span class="status st-done">Live</span></div>
-                <div class="crm-sync-row"><span class="is-lg"><b style="color:#2563eb">S</b>Built-in CRM</span><span class="status st-done">Always on</span></div>
-                <h6>Open tickets</h6>
-                <div class="act"><span class="g">🎫</span>Sizing question · Support</div>
-                <div class="act"><span class="g">🎫</span>Delivery delay · Logistics</div>
-                <h6>Conversation context</h6>
-                <div class="ctx-chips"><span>Repeat Buyer</span><span>WhatsApp</span><span>High LTV</span></div>
-                <button class="takeover">Push to CRM now</button>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <p class="ib-close reveal">Synced automatically. <span class="grad-text">No copy and paste.</span></p>
-    <p class="center reveal" style="margin-top:12px"><a href="#integrations" class="section-link-out">See all platform capabilities →</a></p>
+    <p class="center reveal" style="margin-top:16px"><a href="#analytics-teaser" class="section-link-out">See the full analytics dashboard →</a></p>
   </div>
 </section>
 
@@ -2390,8 +3870,11 @@
     <span class="setup-note-r hand pink" aria-hidden="true">No code<br>required.</span>
     <div class="center reveal-left">
       <span class="badge">Setup</span>
-      <h2 class="sec-title">Live in about five minutes. <span class="grad-text">No code, no developer, no card.</span></h2>
+      <h2 class="sec-title">Live in about <span class="grad-text">five minutes.</span></h2>
       <p class="sec-sub">Test it free on your own business before you pay anything. Stuck? Our team will finish the setup with you on a call.</p>
+      <p class="setup-micro-tags" style="font-size: 13.5px; color: #8896ab; margin-top: 12px; font-weight: 450; letter-spacing: 0.01em;">
+        No code &nbsp;&middot;&nbsp; No developer &nbsp;&middot;&nbsp; No credit card required
+      </p>
     </div>
 
     <div class="setup-grid reveal">
@@ -2789,17 +4272,88 @@
 </section>
 
 <!-- ================= 12. FINAL CTA ================= -->
-<section class="final founder-cta" id="start">
-  <div class="container">
-    <div class="cta-topline"><a href="#hero" aria-label="Back to StepsAI introduction"><img src="images/logo.png" alt="" width="38" height="26">StepsAI</a><span>Your business. Always in the conversation.</span></div>
-    <div class="cta-composition">
-      <div class="cta-main"><h2 class="sec-title">Turn the messages you are getting<br><span>into the sales you are missing.</span></h2><p class="sec-sub">Free to start. No card. Live in five minutes.</p><div class="final-btns"><a href="pricing.html" class="btn btn-grad">Start free <span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html" class="btn btn-ghost">Book a personal demo <span aria-hidden="true">↗</span></a></div><p class="cta-assurance">Free to start <span>·</span> No card needed <span>·</span> Cancel any time</p></div>
-      <div class="cta-routing" aria-label="Website, WhatsApp and Instagram conversations connect to StepsAI">
-        <svg class="cta-routing-lines" viewBox="0 0 440 350" fill="none" aria-hidden="true"><path d="M65 62H180Q220 62 220 102V175M375 62H260Q220 62 220 102V175M65 286H180Q220 286 220 246V175M375 286H260Q220 286 220 246V175"/><path class="routing-current" d="M65 62H180Q220 62 220 102V175M375 286H260Q220 286 220 246V175"/></svg>
-        <span class="routing-node routing-web"><span data-icon="website"></span>Website</span><span class="routing-node routing-wa"><span data-icon="whatsapp"></span>WhatsApp</span><span class="routing-node routing-ig"><span data-icon="instagram"></span>Instagram</span><span class="routing-node routing-msg"><span data-icon="messenger"></span>Messenger</span><div class="routing-core"><img src="images/logo.png" alt="" width="48" height="34"><strong>StepsAI</strong><span>Ready for the next step</span></div>
+<section class="final final-reference-cta" id="start">
+  <div class="container final-cta-container">
+    
+    <!-- Floating Channel 3D Badges -->
+    <div class="final-float-icon final-float-wa" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <path d="M32 6C17.64 6 6 17.64 6 32C6 36.94 7.37 41.56 9.75 45.49L7 57L18.84 54.26C22.64 56.46 27.17 57.73 32 57.73C46.36 57.73 58 46.09 58 31.73C58 17.37 46.36 6 32 6Z" fill="#25D366"/>
+        <path d="M43.8 38.65C43.14 40.52 40.54 42.06 38.74 42.45C37.51 42.71 35.93 42.92 30.5 40.67C23.57 37.8 19.11 30.76 18.76 30.3C18.43 29.86 15.95 26.55 15.95 23.12C15.95 19.69 17.68 18.04 18.34 17.36C18.88 16.8 19.76 16.55 20.61 16.55C20.88 16.55 21.13 16.57 21.36 16.59C22.01 16.61 22.34 16.65 22.78 17.69C23.34 19.04 24.67 22.35 24.84 22.68C25 23.03 25.17 23.49 24.94 23.95C24.73 24.43 24.54 24.62 24.21 25.01C23.88 25.4 23.57 25.69 23.23 26.11C22.92 26.46 22.56 26.85 22.94 27.5C23.33 28.16 24.66 30.33 26.62 32.08C29.16 34.33 31.22 35.06 31.97 35.37C32.63 35.64 33.03 35.58 33.41 35.14C33.81 34.68 35.12 33.14 35.6 32.47C36.08 31.8 36.58 31.9 37.23 32.13C37.89 32.36 41.37 34.07 42.1 34.44C42.83 34.81 43.31 34.98 43.48 35.27C43.64 35.58 43.64 37.04 42.98 38.91L43.8 38.65Z" fill="white"/>
+      </svg>
+    </div>
+
+    <div class="final-float-icon final-float-ig" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <defs>
+          <radialGradient id="igGradCta2" cx="30%" cy="105%" r="115%">
+            <stop offset="0%" stop-color="#FFD600"/>
+            <stop offset="35%" stop-color="#FF7A00"/>
+            <stop offset="60%" stop-color="#FF0069"/>
+            <stop offset="100%" stop-color="#7638FA"/>
+          </radialGradient>
+        </defs>
+        <rect width="64" height="64" rx="18" fill="url(#igGradCta2)"/>
+        <rect x="17" y="17" width="30" height="30" rx="8" stroke="white" stroke-width="3.2"/>
+        <circle cx="32" cy="32" r="7.2" stroke="white" stroke-width="3.2"/>
+        <circle cx="39.5" cy="24.5" r="2" fill="white"/>
+      </svg>
+    </div>
+
+    <div class="final-float-icon final-float-msg" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <defs>
+          <linearGradient id="msgGradCta2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00C6FF"/>
+            <stop offset="55%" stop-color="#0078FF"/>
+            <stop offset="100%" stop-color="#A033FF"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 8C18.75 8 8 17.85 8 30C8 36.92 11.36 43.03 16.62 46.9V55L24.48 50.7C26.85 51.36 29.38 51.73 32 51.73C45.25 51.73 56 41.88 56 29.73C56 17.58 45.25 8 32 8Z" fill="url(#msgGradCta2)"/>
+        <path d="M33.6 35.8L28.1 30L17.4 35.8L29.1 23.4L34.7 29.2L45.3 23.4L33.6 35.8Z" fill="white"/>
+      </svg>
+    </div>
+
+    <div class="final-float-icon final-float-web" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="25" fill="#ffffff" stroke="#3b82f6" stroke-width="2.8"/>
+        <!-- Globe latitude lines -->
+        <line x1="8" y1="32" x2="56" y2="32" stroke="#3b82f6" stroke-width="2.5"/>
+        <path d="M12 21 Q32 28 52 21" stroke="#3b82f6" stroke-width="2" fill="none"/>
+        <path d="M12 43 Q32 36 52 43" stroke="#3b82f6" stroke-width="2" fill="none"/>
+        <!-- Globe longitude lines -->
+        <ellipse cx="32" cy="32" rx="14" ry="25" stroke="#3b82f6" stroke-width="2.4"/>
+        <line x1="32" y1="7" x2="32" y2="57" stroke="#3b82f6" stroke-width="2.4"/>
+        <!-- Ribbon banner angled across -->
+        <g transform="rotate(-12 32 32)">
+          <rect x="10" y="24" width="44" height="16" rx="4" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.4"/>
+          <text x="32" y="36.5" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="900" fill="#1d4ed8" letter-spacing="1px">WWW</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Center Content -->
+    <div class="final-cta-content">
+      <span class="final-cta-badge">AI agent for sales and support</span>
+      
+      <h2 class="final-cta-title">
+        Turn the messages you are getting<br>
+        <span class="final-title-blue">into the sales you are missing.</span>
+      </h2>
+
+      <p class="final-cta-sub">
+        StepsAI answers questions, recommends products, captures leads, books meetings and resolves support requests the moment customers reach out.
+      </p>
+
+      <div class="final-cta-actions">
+        <a href="pricing.html" class="final-btn-primary">Get Started For Free</a>
+      </div>
+
+      <div class="final-cta-guarantee">
+        <span class="card-icon" aria-hidden="true">💳</span> No credit card required
       </div>
     </div>
-    <div class="cta-bottomline"><span>Built around your business.</span><a href="contact.html">Build your customer experience <span aria-hidden="true">↗</span></a></div>
+
   </div>
 </section>
 
@@ -2977,10 +4531,10 @@
 
   <script src="nav.js?v=2.0"></script>
   <script src="home.js?v=2.0"></script>
-  <script src="home-v2.js?v=1.3"></script>
+  <script src="home-v2.js?v=1.4"></script>
   <script src="analytics-charts.js?v=2.0"></script>
   <script src="home-professional.js?v=2"></script>
-  <script src="hero-premium.js?v=1"></script>
+  <script src="hero-premium.js?v=3"></script>
   <script src="benefits.js?v=1"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <script src="home-analytics-chart.js?v=1"></script>

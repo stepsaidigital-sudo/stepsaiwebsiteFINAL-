@@ -1475,32 +1475,102 @@ if(waSection && 'IntersectionObserver' in window){
   waObserver.observe(waSection);
 }
 
-// Industries Accordion Fluid Expansion Handler
+// Industries Accordion Fluid Expansion Handler (Pixel-to-Pixel)
 (function initIndustriesAccordion() {
   const accordion = document.getElementById('indAccordion');
   if (!accordion) return;
   const cards = accordion.querySelectorAll('.ind-card');
   if (!cards.length) return;
+  const dots = document.querySelectorAll('.ind-dot');
+  const prevBtn = document.querySelector('.ind-nav-btn.prev');
+  const nextBtn = document.querySelector('.ind-nav-btn.next');
 
-  function setActiveCard(targetCard) {
-    cards.forEach(c => {
-      c.classList.remove('active');
-      c.setAttribute('aria-expanded', 'false');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let activeIndex = [...cards].findIndex((card) => card.classList.contains('active'));
+  if (activeIndex < 0) activeIndex = 0;
+  let transitionId = 0;
+  let transitionTimer = null;
+
+  function commitActiveIndex(idx, previousCard, currentTransition) {
+    if (currentTransition !== transitionId) return;
+    activeIndex = idx;
+    cards.forEach((card, cardIndex) => {
+      const selected = cardIndex === idx;
+      card.classList.toggle('active', selected);
+      card.setAttribute('aria-expanded', String(selected));
     });
-    targetCard.classList.add('active');
-    targetCard.setAttribute('aria-expanded', 'true');
+    dots.forEach((dot, dotIndex) => {
+      const selected = dotIndex === idx;
+      dot.classList.toggle('active', selected);
+      if (selected) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+
+    const nextCard = cards[idx];
+    previousCard?.classList.remove('is-leaving');
+    if (!reducedMotion.matches) {
+      previousCard?.classList.add('is-collapsing');
+      nextCard.classList.add('is-entering');
+      accordion.classList.add('is-switching');
+      window.setTimeout(() => {
+        if (currentTransition !== transitionId) return;
+        previousCard?.classList.remove('is-collapsing');
+        nextCard.classList.remove('is-entering');
+        accordion.classList.remove('is-switching');
+      }, 720);
+    }
   }
 
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => setActiveCard(card));
-    card.addEventListener('click', () => setActiveCard(card));
+  function setActiveIndex(idx) {
+    if (idx < 0 || idx >= cards.length || idx === activeIndex) return;
+    transitionId += 1;
+    const currentTransition = transitionId;
+    const previousCard = cards[activeIndex];
+    window.clearTimeout(transitionTimer);
+    cards.forEach((card) => card.classList.remove('is-leaving', 'is-entering', 'is-collapsing'));
+    accordion.classList.remove('is-switching');
+
+    if (reducedMotion.matches) {
+      commitActiveIndex(idx, previousCard, currentTransition);
+      return;
+    }
+
+    previousCard?.classList.add('is-leaving');
+    transitionTimer = window.setTimeout(() => {
+      commitActiveIndex(idx, previousCard, currentTransition);
+    }, 125);
+  }
+
+  cards.forEach((card, idx) => {
+    card.addEventListener('mouseenter', () => setActiveIndex(idx));
+    card.addEventListener('click', () => setActiveIndex(idx));
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        setActiveCard(card);
+        setActiveIndex(idx);
       }
     });
   });
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => setActiveIndex(idx));
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const prevIdx = (activeIndex - 1 + cards.length) % cards.length;
+      setActiveIndex(prevIdx);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nextIdx = (activeIndex + 1) % cards.length;
+      setActiveIndex(nextIdx);
+    });
+  }
 })();
 
 // 3D Spatial Live Perspective Physics for All Dashboard Mockups
