@@ -72,11 +72,21 @@
   var CLOSE_INTENT_DELAY = 300;
   var hoverTimer = null;
 
+  /* Nav bar background (white + blurred) and the page-content scrim behind
+     the panel both key off .nav.menu-open, not .is-open on the individual
+     dropdown -- so it has to stay in sync across every path that opens or
+     closes a dropdown (click, hover, mouseleave, focusout, Escape). */
+  function syncMenuOpenState() {
+    var anyOpen = dropdowns.some(function (d) { return d.classList.contains('is-open'); });
+    nav.classList.toggle('menu-open', anyOpen);
+  }
+
   function openDropdown(dropdown, trigger) {
     if (dropdown.classList.contains('is-open')) return;
     closeAllDropdowns();
     dropdown.classList.add('is-open');
     trigger.setAttribute('aria-expanded', 'true');
+    syncMenuOpenState();
   }
 
   function closeAllDropdowns() {
@@ -85,6 +95,7 @@
       var trigger = d.querySelector('.nav-dropdown-trigger');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
     });
+    syncMenuOpenState();
   }
 
   dropdowns.forEach(function (dropdown) {
@@ -112,6 +123,7 @@
       closeTimer = setTimeout(function () {
         dropdown.classList.remove('is-open');
         trigger.setAttribute('aria-expanded', 'false');
+        syncMenuOpenState();
       }, CLOSE_INTENT_DELAY);
     });
   });
@@ -125,6 +137,7 @@
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
       }
     });
+    syncMenuOpenState();
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeAllDropdowns();

@@ -382,7 +382,27 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   border-bottom: 1px solid transparent;
   transition: background-color 320ms var(--ease), border-color 320ms var(--ease);
 }
-.nav.scrolled { background: rgba(255,255,255,.8); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+/* menu-open (JS-toggled while any .nav-dropdown is open, see nav.js) gets the
+   same solid/blurred treatment as .scrolled -- otherwise, hovering a dropdown
+   near the top of the page (before scroll passes 40px) left the nav bar fully
+   transparent behind the white dropdown panel, an inconsistent half-white/
+   half-see-through look. */
+.nav.scrolled, .nav.menu-open { background: rgba(255,255,255,.8); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+/* Scrim behind the open dropdown panel: blurs whatever page content (hero,
+   sections) is still visible below the nav bar and around the panel's edges,
+   so the panel reads as sitting on top of a dimmed/blurred backdrop instead
+   of just floating over sharp content. A ::after pseudo-element (rather than
+   a new element in the markup) so this works on every page's nav without
+   touching the ~50 pages that include this header. Positioned/z-indexed
+   inside .nav's own stacking context, below .nav-dropdown-panel's z-index:60,
+   so panels still render above it. */
+.nav::after {
+  content: ''; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,.5); backdrop-filter: blur(16px);
+  opacity: 0; visibility: hidden; pointer-events: none; z-index: 1;
+  transition: opacity 220ms var(--ease-ui), visibility 220ms var(--ease-ui);
+}
+.nav.menu-open::after { opacity: 1; visibility: visible; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: var(--container); margin: 0 auto; padding: 20px 40px; }
 @media (max-width: 640px) { .nav-inner { padding: 16px 22px; } }
 
