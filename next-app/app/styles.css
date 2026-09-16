@@ -1,0 +1,1471 @@
+/* ============================================================
+   STEPSAI — SHARED DESIGN SYSTEM
+   Tokens, reset, typography, buttons, nav, footer, faq, section
+   utilities. Loaded on every page. Homepage-only components live
+   in home.css; other page families keep pricing.css / pages.css /
+   industries-deep.css as before.
+   ============================================================ */
+:root {
+  /* Light editorial canvas — clean, luminous modern foundation */
+  --bg-base:        #FAFBFC;
+  --bg-raised:      #F1F5F9;
+  --bg-raised-2:    #E2E8F0;
+  --bg-surface:     #FFFFFF;
+  --bg-surface-2:   #F8FAFC;
+
+  --text-primary:   #090E17;
+  --text-secondary: #475569;
+  --text-tertiary:  #64748B;
+  --text-faint:     #94A3B8;
+
+  /* Premium Brand accent — gradient-ready, high-vibrancy tech palette */
+  --accent:         #2563EB;
+  --accent-deep:    #1D4ED8;
+  --accent-bright:  #3B82F6;
+  --accent-tint:    #EFF6FF;
+  
+  --gradient-accent: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+  /* Brand gradient unified to the single royal-blue family used across the
+     redesigned homepage (was blue->violet->pink) -- see index.html hero. */
+  --gradient-brand:  linear-gradient(135deg, #3B82F6 0%, #2563EB 55%, #1D4ED8 100%);
+  --gradient-glow:   linear-gradient(135deg, rgba(37,99,235,0.18) 0%, rgba(59,130,246,0.12) 50%, rgba(29,78,216,0.08) 100%);
+  --gradient-brand-subtle: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(59,130,246,0.06) 50%, rgba(29,78,216,0.06) 100%);
+
+  --success:        #10B981;
+  --success-tint:   #ECFDF5;
+  --warning:        #F59E0B;
+  --warning-tint:   #FEF3C7;
+  --whatsapp:       #25D366;
+  --whatsapp-tint:  #ECFDF5;
+
+  --border-subtle:  #E2E8F0;
+  --border-strong:  #CBD5E1;
+  --line:           #E2E8F0;
+
+  /* Dark product bands — deep midnight navy scale */
+  --dark-canvas:    #090D16;
+  --dark-surface:   #111726;
+  --dark-surface-2: #1A2238;
+  --dark-ink:       #F8FAFC;
+  --dark-ink-muted: #94A3B8;
+  --dark-ink-faint: #64748B;
+  --dark-hairline:  rgba(255,255,255,.08);
+  --dark-hairline-strong: rgba(255,255,255,.16);
+  --accent-on-dark: #60A5FA;
+  --accent-on-dark-tint: rgba(96,165,250,.14);
+
+  /* Final CTA tokens */
+  --cta-bg:         var(--dark-canvas);
+  --cta-bg-2:       #111726;
+  --cta-text:       #FFFFFF;
+  --cta-text-dim:   var(--dark-ink-muted);
+
+  --radius:     12px;
+  --radius-sm:  8px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --ease:       cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Interaction easing vocabulary: bouncy/spring curves are for one-time
+     ENTRANCES only (.reveal, .reveal-pop, first paint). Hover/click feedback
+     always uses this flat, fast curve — mixing the two is what makes cloned
+     "polish" read as slightly off. See DESIGN_ANIMATION_SYSTEM.md §3. */
+  --ease-ui:    cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-sm:  0 4px 6px -1px rgba(15,23,42,0.04), 0 2px 4px -1px rgba(15,23,42,0.02);
+  --shadow-md:  0 10px 15px -3px rgba(15,23,42,0.06), 0 4px 6px -2px rgba(15,23,42,0.03);
+  --shadow-lg:  0 20px 25px -5px rgba(15,23,42,0.08), 0 10px 10px -5px rgba(15,23,42,0.04);
+  --shadow-soft: 0 12px 24px -8px rgba(37, 99, 235, 0.16), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 20px 32px -12px rgba(37, 99, 235, 0.22), 0 8px 16px -8px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.2);
+  --shadow-brand: 0 12px 26px -8px rgba(37, 99, 235, 0.28), 0 4px 14px -6px rgba(29, 78, 216, 0.16);
+  --shadow-brand-hover: 0 20px 36px -10px rgba(37, 99, 235, 0.36), 0 8px 20px -8px rgba(29, 78, 216, 0.22);
+  --glass-bg:   rgba(255, 255, 255, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+  
+  --container:  1280px;
+
+  --font-sans: 'Inter', -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, Menlo, monospace;
+
+  --z-step-line: 0;
+  --z-content:   10;
+  --z-nav:       50;
+  --z-dropdown:  60;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { letter-spacing: -0.03em; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* ============================================================
+   LEGAL CONTENT — shared prose component for Privacy/Terms and
+   any future legal/policy page. Base reset above strips list
+   bullets and heading/paragraph margins globally, so this scopes
+   its own readable prose rules back on inside .legal-content.
+   ============================================================ */
+.legal-content { max-width: 760px; margin: 0 auto; }
+.legal-content .legal-updated { font-size: 13px; color: var(--text-secondary); margin-bottom: 28px; }
+.legal-content h2 { font-size: 24px; font-weight: 650; letter-spacing: -0.02em; color: var(--text-primary); margin-top: 48px; }
+.legal-content h2:first-of-type { margin-top: 0; }
+.legal-content h3 { font-size: 17.5px; font-weight: 650; color: var(--text-primary); margin-top: 28px; }
+.legal-content p { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-top: 14px; }
+.legal-content ul { list-style: disc; padding-left: 22px; margin-top: 14px; }
+.legal-content li { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-top: 6px; }
+.legal-content a { color: var(--accent); text-decoration: underline; }
+.legal-content .legal-toc { background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 22px 26px; margin: 0 0 40px; }
+.legal-content .legal-toc-title { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); }
+.legal-content .legal-toc a { display: block; font-size: 14.5px; padding: 6px 0 0; color: var(--text-secondary); text-decoration: none; }
+.legal-content .legal-toc a:hover { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: var(--z-content);
+}
+@media (max-width: 640px) { .container { padding: 0 22px; } }
+
+/* ============================================================
+   SECTION RHYTHM — alternating stone/white, dark bands opt in
+   ============================================================ */
+.section { position: relative; padding: 120px 0; }
+.section--base { background: var(--bg-base); }
+.section--raised { background: var(--bg-raised); }
+.section--atmo { overflow: visible; }
+
+/* ============================================================
+   ATMOSPHERE BACKGROUNDS — same colored-blob recipe as the
+   homepage's aurora sections (home.css .ind-aurora-*), generalized
+   so any section anywhere can use it. Usage: add "section--atmo"
+   to the section's class list, then drop <div class="atmo-mesh">
+   as the FIRST child (before .container) with 2-3 <div class="atmo-blob
+   atmo-blob--COLOR atmo-blob--POSITION"> children. .container
+   already sits at z-index:var(--z-content) above this, no extra
+   wrapping needed.
+   ============================================================ */
+.atmo-mesh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+.atmo-blob { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform, opacity; pointer-events: none; }
+
+/* All six variants unified to the brand-blue family (was a violet/emerald/
+   amber/rose/teal rainbow) -- kept as distinct names so existing markup
+   doesn't need touching, each just a different blue depth/tint now. */
+.atmo-blob--violet  { background: radial-gradient(circle, rgba(29,78,216,.42) 0%, rgba(99,102,241,.28) 45%, transparent 72%); }
+.atmo-blob--blue    { background: radial-gradient(circle, rgba(37,99,235,.46) 0%, rgba(56,189,248,.34) 45%, transparent 72%); }
+.atmo-blob--emerald { background: radial-gradient(circle, rgba(37,99,235,.4) 0%, rgba(6,182,212,.32) 45%, transparent 72%); }
+.atmo-blob--amber   { background: radial-gradient(circle, rgba(59,130,246,.44) 0%, rgba(96,165,250,.3) 45%, transparent 72%); }
+.atmo-blob--rose    { background: radial-gradient(circle, rgba(37,99,235,.36) 0%, rgba(99,102,241,.24) 50%, transparent 70%); }
+.atmo-blob--teal    { background: radial-gradient(circle, rgba(14,116,144,.4) 0%, rgba(45,212,191,.26) 45%, transparent 72%); }
+
+.atmo-blob--tl  { width: 640px; height: 640px; top: -10%; left: -12%; animation: atmoDrift1 18s ease-in-out infinite alternate; }
+.atmo-blob--br  { width: 680px; height: 680px; bottom: -12%; right: -10%; animation: atmoDrift2 20s ease-in-out infinite alternate; }
+.atmo-blob--mid { width: 560px; height: 560px; top: 30%; right: 18%; animation: atmoDrift3 17s ease-in-out infinite alternate-reverse; }
+.atmo-blob--tr  { width: 600px; height: 600px; top: -8%; right: -10%; animation: atmoDrift3 19s ease-in-out infinite alternate; }
+.atmo-blob--bl  { width: 620px; height: 620px; bottom: -10%; left: 6%; animation: atmoDrift1 21s ease-in-out infinite alternate-reverse; }
+
+@keyframes atmoDrift1 { 0% { transform: translate(0,0) scale(1); opacity: .85; } 50% { transform: translate(45px,-30px) scale(1.1); opacity: 1; } 100% { transform: translate(-30px,35px) scale(.92); opacity: .88; } }
+@keyframes atmoDrift2 { 0% { transform: translate(0,0) scale(1); opacity: .8; } 50% { transform: translate(-45px,35px) scale(1.08); opacity: 1; } 100% { transform: translate(35px,-30px) scale(.94); opacity: .82; } }
+@keyframes atmoDrift3 { 0% { transform: translate(0,0) scale(1); opacity: .85; } 50% { transform: translate(40px,25px) scale(1.1); opacity: 1; } 100% { transform: translate(-35px,-25px) scale(.93); opacity: .88; } }
+@media (prefers-reduced-motion: reduce) { .atmo-blob { animation: none !important; } }
+.section--dark { background: var(--dark-canvas); color: var(--dark-ink); }
+.section--dark .kicker { color: var(--dark-ink-muted); }
+.section--dark .section-title { color: var(--dark-ink); }
+.section--dark .section-sub { color: var(--dark-ink-muted); }
+@media (max-width: 900px) { .section { padding: 84px 0; } }
+@media (max-width: 640px) { .section { padding: 64px 0; } }
+
+/* ============================================================
+   REVEAL-ON-SCROLL
+   ============================================================ */
+/* Durations shortened (800/700ms -> 450/400ms): a full-page screenshot
+   tool caught at least one .reveal heading mid-fade (near-invisible,
+   just past its IntersectionObserver trigger) during review — a real
+   risk for anything that captures the page without a live, dwelled
+   scroll (exports, screenshots, a presentation). Shorter transitions
+   shrink that window without losing the effect for real scrolling. */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+.reveal-stagger.is-visible > *,
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); transition-delay: calc(var(--i, 0) * 90ms); }
+@keyframes fadeSlide { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.kicker {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+.kicker .n { color: var(--accent); }
+.section--dark .kicker .n { color: var(--accent-on-dark); }
+.kicker-icon { width: 15px; height: 15px; flex-shrink: 0; color: var(--accent); }
+.section--dark .kicker-icon { color: var(--accent-on-dark); }
+
+.section-title {
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 630;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  max-width: 760px;
+}
+.section-title .text-accent { color: var(--accent); }
+.section-sub {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 58ch;
+  margin-top: 18px;
+  line-height: 1.6;
+}
+.section-head.center { 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-head.center .kicker { 
+  justify-content: center; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-head.center .section-title { 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: center; 
+}
+.section-head.center .section-sub { 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: center; 
+}
+
+/* ============================================================
+   BUTTONS — ink-first, blue as a deliberate accent (not a default fill)
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-weight: 600; font-size: 15px; padding: 15px 28px; border-radius: var(--radius-sm);
+  min-height: 50px; white-space: nowrap;
+  /* Hover feedback is flat + fast (var(--ease-ui)), never the bouncy spring —
+     spring is reserved for one-time entrances. See DESIGN_ANIMATION_SYSTEM.md. */
+  transition: transform 220ms var(--ease-ui), box-shadow 220ms var(--ease-ui), background 220ms var(--ease-ui), color 220ms var(--ease-ui);
+}
+.btn-accent, .btn-brand, .btn-cta {
+  /* two-layer swipe-fill: a z-index:-1 ::before fill sweeps up from below on
+     hover, staying under the label with no markup changes needed.
+     overflow:hidden is load-bearing, not decorative: isolation:isolate only
+     scopes z-index stacking, it doesn't clip anything. Without it, the
+     ::before layer's resting position (translateY(100%), i.e. one full
+     button-height below the button) renders as a solid, uncropped
+     rectangle sitting directly under the button -- invisible against nothing
+     below it, but a real bug wherever a button sits close above other
+     content (e.g. the final-cta-note directly under .final-cta's button).
+     Found via a screenshot artifact that turned out to be real. */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn-accent::before, .btn-brand::before, .btn-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--dark-canvas);
+  transform: translateY(100%);
+  transition: transform 380ms var(--ease-ui);
+}
+.btn-accent:hover::before, .btn-brand:hover::before, .btn-cta:hover::before {
+  transform: translateY(0);
+}
+.btn-accent {
+  background: var(--gradient-brand); color: #fff;
+  box-shadow: var(--shadow-brand);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brand-hover);
+}
+.btn-outline {
+  background: var(--glass-bg); backdrop-filter: blur(8px);
+  color: var(--text-primary); border: 1px solid var(--border-strong);
+}
+.btn-outline:hover {
+  border-color: var(--accent); background: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.btn-sm { font-size: 14px; padding: 10px 20px; min-height: 42px; }
+.btn-lg { font-size: 16px; padding: 18px 36px; min-height: 56px; }
+.btn-block { width: 100%; }
+.btn-cta { background: #fff; color: var(--dark-canvas); }
+.btn-cta::before { background: var(--accent); }
+.btn-cta:hover { color: #fff; transform: translateY(-2px); }
+.btn-cta-outline { background: transparent; color: #fff; border: 1.5px solid var(--dark-hairline-strong); }
+.btn-cta-outline:hover { border-color: rgba(255,255,255,.5); }
+
+/* ============================================================
+   GLASSMORPHISM UTILITIES — reusable premium frosted glass styles
+   ============================================================ */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px -20px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition: transform 240ms cubic-bezier(.22,1,.36,1), box-shadow 240ms var(--ease), border-color 240ms var(--ease), background 240ms var(--ease);
+}
+.glass-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 20px 44px -14px rgba(15, 23, 42, 0.12);
+}
+.glass-pill {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+}
+
+/* ============================================================
+   NAV — edge-to-edge, solidifies on scroll, mega-menu on hairlines
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-nav);
+  border-bottom: 1px solid transparent;
+  transition: background-color 320ms var(--ease), border-color 320ms var(--ease);
+}
+.nav.scrolled { background: rgba(255,255,255,.8); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: var(--container); margin: 0 auto; padding: 20px 40px; }
+@media (max-width: 640px) { .nav-inner { padding: 16px 22px; } }
+
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.01em; color: var(--text-primary); transition: opacity 220ms var(--ease); text-decoration: none; }
+.nav-logo:hover { opacity: .9; }
+.nav-logo img, .nav-logo-img { height: 28px; width: auto; max-width: 44px; object-fit: contain; display: block; }
+.nav-logo svg { color: #1A56DB; transition: color 320ms var(--ease); }
+
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-links > a { padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
+.nav-links > a:hover { color: var(--text-primary); }
+
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger { display: flex; align-items: center; gap: 6px; padding: 9px 15px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 999px; transition: color 180ms var(--ease), background-color 180ms var(--ease); }
+.nav-dropdown-trigger:hover { color: var(--text-primary); }
+/* Active-open state reads as a light-blue rounded pill, matching the
+   SEO-specialist reference mockup's "Product" trigger -- applies to
+   whichever dropdown is currently open, not just Product. */
+.nav-dropdown-trigger[aria-expanded="true"] { color: #2563eb; background: rgba(37, 99, 235, .12); }
+.nav-dropdown-caret { transition: transform 220ms var(--ease); flex-shrink: 0; }
+.nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-caret { transform: rotate(180deg); }
+
+.nav-dropdown-panel {
+  position: absolute; top: 100%; left: 50%; transform-origin: top center;
+  transform: translateX(-50%) translateY(-8px) scale(.97);
+  background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+  padding: 24px; opacity: 0; visibility: hidden; pointer-events: none;
+  /* Hover/click response, not a one-time entrance -- flat --ease-ui, not
+     the bouncy --ease-spring (see DESIGN_ANIMATION_SYSTEM.md §1). The
+     subtle scale-from-98%-toward-the-trigger reads as the panel unfolding
+     out of the nav bar rather than just fading in place. */
+  transition: opacity 190ms var(--ease-ui), transform 220ms var(--ease-ui), visibility 220ms;
+  z-index: var(--z-dropdown); box-shadow: 0 24px 48px -18px rgba(18,20,27,.22), 0 0 0 1px rgba(0,0,0,0.03);
+}
+.nav-dropdown.is-open .nav-dropdown-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
+/* Product is the leftmost nav trigger but its panel is by far the widest
+   (1160px, 4 columns). The shared rule above centers a panel on its OWN
+   trigger's box (left:50% is relative to .nav-dropdown, a narrow button) --
+   fine for the other, narrower dropdowns, but for this one it pinned the
+   panel's left edge almost flush against the trigger, which sits well
+   left of the page's actual center, so the whole panel read as shoved to
+   one side rather than centered. A hardcoded rightward pixel nudge
+   (previously +140px) "fixed" it at one viewport width but broke again
+   at every other width -- anchoring on 50vw instead centers it on the
+   viewport itself, independent of both the panel's width and wherever
+   the trigger happens to sit, so it's correctly centered at any size. */
+/* `left: 50vw` alone doesn't actually center on the viewport here: for an
+   absolutely-positioned element, left/vw is still an offset from its
+   containing block's own edge (.nav-dropdown, i.e. the trigger button),
+   not from the viewport's edge -- so it inherits the trigger's own
+   horizontal offset and drifts off-center exactly like the old fixed-px
+   nudge did. Switching this one panel to position:fixed makes the
+   viewport itself the containing block, so 50vw + translateX(-50%)
+   genuinely centers it regardless of viewport width or where the
+   trigger sits. top is an explicit px (fixed's containing block has no
+   "parent height" to be 100% of) matching the nav bar's own height. */
+.nav-dropdown-panel--product { position: fixed; top: 76px; left: 50vw; width: 1160px; max-width: calc(100vw - 48px); transform: translateX(-50%) translateY(-8px) scale(.97); }
+.nav-dropdown.is-open .nav-dropdown-panel--product { transform: translateX(-50%) translateY(0) scale(1); }
+.nav-dropdown-panel--solutions { min-width: 380px; }
+.nav-dropdown-panel--partnership { min-width: 600px; }
+.nav-dropdown-panel--resources { min-width: 680px; }
+.nav-dropdown-panel--industries { min-width: 340px; }
+
+.nav-mega-layout { display: grid; gap: 24px; }
+.nav-mega-layout--product { grid-template-columns: 1fr 1fr 1fr 280px; }
+.nav-mega-layout--solutions { grid-template-columns: 1fr; }
+.nav-mega-layout--partnership { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nav-mega-layout--resources { grid-template-columns: 1fr 1fr 220px; }
+
+.nav-mega-col { display: flex; flex-direction: column; gap: 2px; }
+.nav-mega-header { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #64748b; padding: 4px 8px 8px; }
+.nav-mega-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 10px; border-radius: 10px; transition: background-color 160ms var(--ease), transform 160ms var(--ease); text-decoration: none; }
+.nav-mega-row:hover { background: #f1f5f9; transform: translateX(2px); }
+.nav-mega-row-icon {
+  width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; background: #0f172a; border: 1px solid #0f172a;
+  color: #ffffff; margin-top: 1px; transition: all 220ms var(--ease);
+}
+.nav-mega-row:hover .nav-mega-row-icon {
+  background: #2563eb; border-color: #2563eb; color: #ffffff;
+  transform: translateY(-1px) scale(1.06); box-shadow: 0 6px 14px -3px rgba(37, 99, 235, 0.4);
+}
+
+.nav-mega-row-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-mega-row-label { font-size: 13.5px; font-weight: 650; color: #0f172a; display: flex; align-items: center; gap: 6px; line-height: 1.3; }
+.nav-mega-row:hover .nav-mega-row-label { color: #2563eb; }
+.nav-mega-row-desc { font-size: 12px; color: #475569; line-height: 1.4; white-space: normal; }
+
+.nav-badge { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2563eb; background: rgba(37, 99, 235, 0.12); padding: 2px 7px; border-radius: 999px; }
+.nav-badge--new { color: #059669; background: rgba(16, 185, 129, 0.14); }
+.nav-badge--hot { color: #e11d48; background: rgba(244, 63, 94, 0.14); }
+
+/* Product mega-menu v2 (SEO-specialist taxonomy: Platform/Sales+Marketing/
+   Support+Booking/Lead Capturing+More Features). Deliberately NEW selectors
+   (--product-v2) rather than editing .nav-dropdown-panel--product /
+   .nav-mega-layout--product directly -- those two are still what every
+   other page's Product panel uses (old 3-col + bento markup), so touching
+   them would break the other 53 pages until this rolls out sitewide.
+   Once rolled out everywhere, these v2 rules can be renamed back onto the
+   base selectors and the old .nav-mega-row/-icon/-desc rules (still used
+   by Solutions/Industries/Resources/Partnership panels) stay untouched
+   either way. */
+.nav-dropdown-panel--product-v2 { width: 980px; }
+.nav-mega-layout--product-v2 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+.nav-mega-col-head { display: flex; align-items: center; gap: 9px; padding: 4px 8px 10px; }
+.nav-mega-col-head .nav-mega-header { padding: 0; }
+.nav-mega-col .nav-mega-col-head:not(:first-child) { padding-top: 4px; }
+/* A column whose header IS the destination (e.g. "Lead Capture", linking
+   straight to lead-agent.html) -- used instead of a header + a duplicate
+   first row repeating the same label. */
+a.nav-mega-col-head--link { text-decoration: none; border-radius: 8px; margin: 0 -2px 2px; transition: background-color 160ms var(--ease-ui); }
+a.nav-mega-col-head--link:hover { background: #f1f5f9; }
+a.nav-mega-col-head--link:hover .nav-mega-header { color: #2563eb; }
+
+.nav-col-icon {
+  width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-col-icon--violet { background: rgba(124, 58, 237, .12); color: #7c3aed; }
+.nav-col-icon--green   { background: rgba(22, 163, 74, .12); color: #16a34a; }
+.nav-col-icon--orange  { background: rgba(249, 115, 22, .12); color: #ea580c; }
+.nav-col-icon--indigo  { background: rgba(79, 70, 229, .12); color: #4f46e5; }
+.nav-col-icon--teal    { background: rgba(13, 148, 136, .12); color: #0d9488; }
+.nav-col-icon--rose    { background: rgba(225, 29, 72, .12); color: #e11d48; }
+.nav-col-icon--blue    { background: rgba(37, 99, 235, .12); color: #2563eb; }
+
+/* Solutions mega-menu v2 (Use Case / Industries / Integrations, 3 equal
+   columns) -- deliberately new selectors (--v2) rather than editing
+   .nav-dropdown-panel--solutions / .nav-mega-layout--solutions directly,
+   same reasoning as the Product menu's v2 rollout: those two are what
+   every other page's Solutions panel still uses until this rolls out
+   sitewide, so touching them in place would break the other pages. The
+   standalone "Industries" nav item is retired -- its content now lives
+   as this panel's middle column. */
+.nav-dropdown-panel--solutions-v2 { width: 1000px; }
+.nav-mega-layout--solutions-v2 { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+/* Column header with a description line under the bold title (reference
+   mockup shows "USE CASE / Solve key business challenges..." stacked) --
+   a bigger icon than the Product menu's plain column heads, aligned to
+   the top of the two-line text block rather than centered. */
+.nav-mega-col-head--desc { align-items: flex-start; gap: 12px; padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--border-subtle); }
+.nav-mega-col-head--desc .nav-mega-header { display: block; font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: normal; text-transform: none; color: #0f172a; padding: 0; }
+.nav-mega-header-desc { display: block; font-size: 11.5px; color: #64748b; line-height: 1.4; margin-top: 2px; }
+
+/* Bigger colored icon chip for this menu's list rows -- reuses the same
+   .nav-col-icon color tokens, just larger (the Product menu only uses
+   this size for column headers; here every row gets one). */
+.nav-sol-icon { width: 38px; height: 38px; border-radius: 10px; }
+.nav-sol-icon svg { width: 19px; height: 19px; }
+
+.nav-sol-row {
+  display: flex; align-items: center; gap: 14px; padding: 9px 10px; border-radius: 10px;
+  text-decoration: none; transition: background-color 160ms var(--ease-ui);
+}
+.nav-sol-row:hover, .nav-sol-row:focus-visible { background: #f1f5f9; }
+.nav-sol-row .nav-mega-row-body { min-width: 0; }
+.nav-sol-chevron { margin-left: auto; flex-shrink: 0; color: #cbd5e1; transition: transform 160ms var(--ease-ui), color 160ms var(--ease-ui); }
+.nav-sol-row:hover .nav-sol-chevron, .nav-sol-row:focus-visible .nav-sol-chevron { color: #94a3b8; transform: translateX(2px); }
+.nav-sol-more { color: #2563eb; font-weight: 650; font-size: 12.5px; padding: 8px 10px 2px; display: block; text-decoration: none; }
+.nav-sol-more:hover { color: #1d4ed8; }
+
+/* Resources mega-menu v2: 4 flat items (no column headers/categories),
+   each a big icon chip + title + description + arrow, divided by thin
+   vertical hairlines -- deliberately new selectors, same reasoning as
+   the Product/Solutions v2 rollouts (other pages still use the old
+   2-column + bento-card markup until this rolls out sitewide). */
+.nav-dropdown-panel--resources-v2 { width: 900px; }
+.nav-mega-layout--resources-v2 { grid-template-columns: repeat(4, 1fr); gap: 0; }
+.nav-res-item {
+  display: flex; flex-direction: column; align-items: flex-start; padding: 4px 26px; text-decoration: none;
+  border-left: 1px solid var(--border-subtle);
+}
+.nav-mega-layout--resources-v2 > .nav-res-item:first-child { border-left: none; padding-left: 4px; }
+.nav-mega-layout--resources-v2 > .nav-res-item:last-child { padding-right: 4px; }
+.nav-res-icon {
+  width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; transition: transform 200ms var(--ease-ui);
+}
+.nav-res-item:hover .nav-res-icon { transform: translateY(-2px); }
+.nav-res-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.nav-res-desc { font-size: 13.5px; line-height: 1.45; color: #64748b; margin-bottom: 22px; }
+.nav-res-arrow { color: #0f172a; transition: transform 200ms var(--ease-ui); }
+.nav-res-item:hover .nav-res-arrow { transform: translateX(3px); }
+@media (max-width: 900px) {
+  .nav-mega-layout--resources-v2 { grid-template-columns: repeat(2, 1fr); gap: 20px 0; }
+  .nav-mega-layout--resources-v2 > .nav-res-item:nth-child(2n+1) { border-left: none; }
+}
+
+/* Partnership mega-menu v2: same flat icon+title+desc+arrow item as
+   Resources v2, just 3 columns instead of 4 -- reuses .nav-res-item
+   etc. wholesale, only the panel width/column count differ. */
+.nav-dropdown-panel--partnership-v2 { width: 880px; }
+.nav-mega-layout--partnership-v2 { grid-template-columns: repeat(3, 1fr); gap: 0; }
+@media (max-width: 760px) {
+  .nav-mega-layout--partnership-v2 { grid-template-columns: 1fr; }
+  .nav-mega-layout--partnership-v2 > .nav-res-item { border-left: none; border-top: 1px solid var(--border-subtle); padding-top: 20px; }
+  .nav-mega-layout--partnership-v2 > .nav-res-item:first-child { border-top: none; padding-top: 4px; }
+}
+
+.nav-mega-simple-row {
+  display: block; padding: 7px 10px; margin: 0 -2px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 500; color: #334155; text-decoration: none;
+  transition: background-color 160ms var(--ease-ui), color 160ms var(--ease-ui), transform 160ms var(--ease-ui);
+}
+.nav-mega-simple-row:hover { background: #f1f5f9; color: #2563eb; transform: translateX(2px); }
+.nav-mega-simple-row--sub { display: flex; align-items: center; gap: 6px; margin-left: 10px; font-size: 12.5px; color: #64748b; }
+.nav-mega-simple-row--sub:hover { color: #2563eb; }
+.nav-mega-subarrow { color: #94a3b8; font-size: 13px; line-height: 1; }
+.nav-mega-more-link { color: #2563eb; font-weight: 650; }
+
+.nav-mega-divider { height: 1px; background: var(--border-subtle); margin: 10px 8px 8px; }
+
+/* Bento Cards (MTRUST / Moonday inspired) */
+.nav-bento-card {
+  border-radius: 14px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;
+  text-decoration: none; transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), border-color 200ms var(--ease);
+  position: relative; overflow: hidden;
+}
+/* Frosted-glass finish (was a solid dark navy card) -- kept the class name
+   since it's shared markup across all 54 pages' nav, only the look changed. */
+.nav-bento-card--dark {
+  background: linear-gradient(145deg, rgba(239,246,255,.92), rgba(219,234,254,.78));
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.7);
+  color: #0f172a;
+  box-shadow: 0 10px 30px -8px rgba(37,99,235,.18), inset 0 1px 1px rgba(255,255,255,.8);
+}
+.nav-bento-card--dark .nav-bento-tag { color: #2563eb; }
+.nav-bento-card--dark .nav-bento-title { color: #0f172a; }
+.nav-bento-card--dark .nav-bento-desc { color: #475569; }
+.nav-bento-card--dark .nav-bento-link { color: #1d4ed8; font-weight: 600; }
+.nav-bento-card--dark:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -10px rgba(37,99,235,.28), inset 0 1px 1px rgba(255,255,255,.9); border-color: rgba(147,197,253,.7); }
+
+.nav-bento-card--light {
+  background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a;
+}
+.nav-bento-card--light .nav-bento-tag { color: #2563eb; }
+.nav-bento-card--light .nav-bento-title { color: #0f172a; }
+.nav-bento-card--light .nav-bento-desc { color: #475569; }
+.nav-bento-card--light .nav-bento-link { color: #2563eb; font-weight: 600; }
+.nav-bento-card--light:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -6px rgba(0,0,0,0.08); border-color: #2563eb; background: #ffffff; }
+
+.nav-bento-card--accent {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(99, 102, 241, 0.08));
+  border: 1px solid rgba(37, 99, 235, 0.25); color: #0f172a;
+}
+.nav-bento-card--accent .nav-bento-tag { color: #2563eb; }
+.nav-bento-card--accent .nav-bento-title { color: #0f172a; }
+.nav-bento-card--accent .nav-bento-desc { color: #475569; }
+.nav-bento-card--accent .nav-bento-link { color: #2563eb; font-weight: 600; }
+.nav-bento-card--accent:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.28); border-color: #2563eb; }
+
+.nav-bento-tag { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 4px; }
+.nav-bento-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+.nav-bento-desc { font-size: 12px; line-height: 1.5; margin-bottom: 14px; }
+.nav-bento-link { font-size: 12.5px; display: inline-flex; align-items: center; gap: 4px; }
+
+/* Live Simulation Mini-Mockup */
+.nav-mockup-chat { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px; margin: 10px 0 14px; display: flex; flex-direction: column; gap: 6px; }
+.nav-mockup-bubble { font-size: 11px; padding: 6px 10px; border-radius: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.9); color: #0f172a; max-width: 90%; line-height: 1.35; }
+.nav-mockup-bubble.is-agent { background: #2563eb; align-self: flex-end; color: #ffffff; }
+
+/* Bottom Mega Banner (Moonday style) */
+.nav-mega-footer-bar {
+  grid-column: 1 / -1; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0;
+  display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #475569;
+}
+.nav-mega-footer-bar a { font-weight: 650; color: #2563eb; display: inline-flex; align-items: center; gap: 4px; }
+
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.nav-signin { padding: 10px 14px; font-size: 14.5px; font-weight: 500; color: var(--text-secondary); border-radius: 8px; transition: color 180ms var(--ease); }
+.nav-signin:hover { color: var(--text-primary); }
+
+.nav-burger { display: none; width: 40px; height: 40px; border-radius: 8px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; border: none; background: transparent; cursor: pointer; padding: 0; }
+.nav-burger span { width: 18px; height: 1.5px; background: var(--text-primary); transition: transform 220ms var(--ease), opacity 220ms var(--ease); }
+.nav.open .nav-burger span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav.open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav.open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .nav-actions { display: none !important; }
+  .nav-burger { display: flex; }
+}
+
+.nav-mobile {
+  position: fixed; inset: 0; top: 0; z-index: calc(var(--z-nav) - 1);
+  background: var(--bg-base); padding: 96px 24px 40px;
+  display: flex; flex-direction: column; gap: 2px; overflow-y: auto;
+  transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 220ms;
+}
+/* pointer-events flips immediately (it isn't in the transition list), so the
+   full-viewport panel can never swallow clicks meant for the nav bar while
+   it's mid-close — visibility alone would stay hit-testable for nearly the
+   whole closing transition per spec. */
+.nav.open .nav-mobile { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.nav-mobile > a { display: block; padding: 17px 4px; font-size: 18px; font-weight: 550; border-bottom: 1px solid var(--border-subtle); }
+.nav-mobile-group summary { padding: 17px 4px; font-size: 18px; font-weight: 550; border-bottom: 1px solid var(--border-subtle); list-style: none; cursor: pointer; }
+.nav-mobile-group summary::-webkit-details-marker { display: none; }
+.nav-mobile-group[open] summary { border-bottom-color: transparent; }
+.nav-mobile-group a { display: block; padding: 11px 4px 11px 14px; font-size: 15px; color: var(--text-secondary); }
+.nav-mobile-actions { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 981px) { .nav-mobile { display: none; } }
+
+/* ============================================================
+   BREADCRUMB TRAIL — filled in by breadcrumbs.js from a lookup
+   table keyed on filename. Sits fixed, top-right, just under the
+   main nav (position:fixed so it doesn't need every page's own
+   top-of-hero spacing recalculated) -- hidden on mobile where
+   there's no room for it and the mobile nav takes priority.
+   ============================================================ */
+/* In-flow now, not a fixed floating pill -- it used to sit as its own
+   highlighted card in the top-right corner, fixed above the hero, which
+   both fought for attention with the hero content and forced the hero's
+   own top padding to be inflated to clear it. Centered, plain text now:
+   present but quiet, and it occupies real layout space right below the
+   nav instead of floating dead space around it (see .vertical-hero's
+   reduced padding, tuned to this bar's own height). */
+.breadcrumb-bar { padding: 92px 24px 8px; text-align: center; }
+.breadcrumb-inner { display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 0; max-width: none; font-size: 12px; color: var(--text-faint); }
+.breadcrumb-inner a { color: var(--text-faint); transition: color 200ms var(--ease); }
+.breadcrumb-inner a:hover { color: var(--accent); }
+.breadcrumb-inner span[aria-current] { color: var(--text-tertiary); font-weight: 600; }
+.breadcrumb-sep { color: var(--text-faint); opacity: .55; }
+@media (max-width: 900px) { .breadcrumb-bar { display: none; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: linear-gradient(180deg, var(--bg-raised) 0%, var(--accent-tint) 130%); border-top: 1px solid var(--border-subtle); padding-top: 72px; }
+.footer-inner, .footer-inner--5col { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; }
+.footer-brand { max-width: 280px; }
+.footer-tagline { margin-top: 14px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.footer-cols, .footer-cols--5 { display: flex; gap: 40px; flex-wrap: wrap; flex: 1; justify-content: space-between; }
+.footer-col { display: flex; flex-direction: column; gap: 4px; }
+.footer-col-title { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px; }
+.footer-col a { font-size: 13.5px; color: var(--text-secondary); padding: 5px 0; transition: color 200ms var(--ease); }
+.footer-col a:hover { color: var(--text-primary); }
+.footer-bottom { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding: 24px 0; border-top: 1px solid var(--border-subtle); font-size: 13px; color: var(--text-faint); }
+.footer-bottom > :last-child { margin-left: auto; }
+.footer-status { display: flex; align-items: center; gap: 7px; }
+.footer-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { color: var(--text-faint); transition: color 200ms var(--ease); }
+.footer-social a:hover { color: var(--text-primary); }
+.footer-legal { display: flex; gap: 16px; }
+.footer-legal a { color: var(--text-faint); }
+.footer-legal a:hover { color: var(--text-primary); }
+@media (max-width: 640px) { .footer-bottom > :last-child { margin-left: 0; } }
+
+/* ---------- FOOTER 5 — card footer with a staggered-fade background
+   (React Bits Pro "Footer 5" concept, hand-built: this project has no
+   React/shadcn toolchain to install the real package into). A dark
+   "card" sits inset from the page edges — matching the site's existing
+   --dark-canvas bands used for high-impact sections — with three blurred
+   glow blobs that fade in one after another (staggered, not simultaneous)
+   the first time it scrolls into view, and the nav columns fade up in
+   sequence using the shared .reveal-stagger utility.
+
+/* ============================================================
+   REACT BITS PRO — FOOTER 9 (Maximal Sitemap, Capsule Labels,
+   Newsletter Card, Social Strip & Edge-to-Edge Wordmark)
+   Completely Light Theme Edition
+   ============================================================ */
+/* ============================================================
+   REACT BITS PRO — FOOTER 9 (Maximal Sitemap, Capsule Labels,
+   Newsletter Card, Social Strip & Edge-to-Edge Wordmark)
+   Executive Light Theme Edition With Living Atmosphere
+   ============================================================ */
+.footer--9 {
+  background: linear-gradient(135deg, #EFF6FF 0%, #EAF2FE 30%, #F8FAFC 65%, #EFF6FF 100%);
+  border-top: 1px solid rgba(37, 99, 235, 0.15);
+  padding: 96px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-bg-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(95px);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+.footer-blob--indigo {
+  width: 580px; height: 580px; top: -10%; left: -80px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 72%);
+  animation: footerBlobFloat1 18s ease-in-out infinite alternate;
+}
+.footer-blob--violet {
+  width: 550px; height: 550px; top: 20%; right: -60px;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.16) 0%, rgba(96, 165, 250, 0.08) 50%, transparent 72%);
+  animation: footerBlobFloat2 22s ease-in-out infinite alternate;
+}
+.footer-blob--cyan {
+  width: 480px; height: 480px; bottom: 15%; left: 30%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.14) 0%, transparent 70%);
+  animation: footerBlobFloat1 20s ease-in-out infinite alternate-reverse;
+}
+.footer-blob--rose {
+  width: 520px; height: 520px; bottom: -10%; right: 20%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  animation: footerBlobFloat2 24s ease-in-out infinite alternate;
+}
+
+.footer-bg-waves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.25;
+  filter: drop-shadow(0 12px 24px rgba(99, 102, 241, 0.06));
+}
+.footer-wave-path--1 {
+  animation: footerWaveFloat1 20s ease-in-out infinite alternate;
+}
+.footer-wave-path--2 {
+  animation: footerWaveFloat2 26s ease-in-out infinite alternate;
+}
+
+@keyframes footerBlobFloat1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(30px, -20px) scale(1.06); opacity: 1; }
+  100% { transform: translate(-20px, 25px) scale(0.95); opacity: 0.85; }
+}
+@keyframes footerBlobFloat2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.75; }
+  50% { transform: translate(-35px, 25px) scale(1.05); opacity: 1; }
+  100% { transform: translate(25px, -20px) scale(0.96); opacity: 0.8; }
+}
+
+@keyframes footerWaveFloat1 {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-20px) scale(1.02) rotate(1deg); }
+  100% { transform: translateY(18px) scale(0.98) rotate(-1deg); }
+}
+@keyframes footerWaveFloat2 {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(22px) scale(0.98) rotate(-1.5deg); }
+  100% { transform: translateY(-18px) scale(1.02) rotate(1.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-blob, .footer-wave-path { animation: none !important; }
+}
+
+.footer-9-container {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top Section */
+.footer-9-top {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.footer-9-brand-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.footer-9-brand-box .nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-9-tagline {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.footer-9-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0F766E;
+  background: rgba(204, 251, 241, 0.85);
+  border: 1px solid #99F6E4;
+  padding: 5px 14px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-top: 4px;
+  backdrop-filter: blur(8px);
+}
+.footer-9-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0D9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
+  animation: footerDotPulse 2.2s infinite;
+}
+@keyframes footerDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* Newsletter Card */
+.footer-9-newsletter-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px 28px;
+  box-shadow: 0 20px 48px -16px rgba(30, 58, 138, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.footer-9-newsletter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 56px -16px rgba(30, 58, 138, 0.14);
+}
+
+.footer-9-nl-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+
+.footer-9-nl-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.footer-9-input-wrap {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.footer-9-input {
+  flex: 1;
+  background: var(--bg-base);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+.footer-9-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.footer-9-submit-btn {
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.footer-9-nl-note {
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* Capsule Badges */
+.footer-capsule-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.footer-capsule-badge--accent {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.2);
+  color: var(--accent);
+}
+
+/* Sitemap Columns */
+.footer-9-sitemap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+}
+
+.footer-9-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-9-col a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 200ms var(--ease), transform 200ms var(--ease);
+  display: inline-block;
+  padding: 2px 0;
+}
+.footer-9-col a:hover {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* Bottom Row */
+.footer-9-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.footer-9-legal-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+  flex-wrap: wrap;
+}
+
+.footer-9-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-9-legal-links a {
+  color: var(--text-tertiary);
+  transition: color 200ms var(--ease);
+}
+.footer-9-legal-links a:hover {
+  color: var(--text-primary);
+}
+.footer-9-divider {
+  color: var(--border-strong);
+}
+
+.footer-9-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-9-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: all 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.footer-9-social-link:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+.footer-9-social-link[aria-label="LinkedIn"]:hover {
+  background: #0A66C2;
+  color: #FFFFFF;
+  border-color: #0A66C2;
+  box-shadow: 0 10px 24px -4px rgba(10, 102, 194, 0.45);
+}
+.footer-9-social-link[aria-label="Instagram"]:hover {
+  background: linear-gradient(135deg, #833AB4, #FD1D1D 50%, #FCB045);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 10px 24px -4px rgba(225, 48, 108, 0.45);
+}
+.footer-9-social-link[aria-label="X / Twitter"]:hover {
+  background: #090E17;
+  color: #FFFFFF;
+  border-color: #090E17;
+  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.4);
+}
+.footer-9-social-link[aria-label="GitHub"]:hover {
+  background: #24292F;
+  color: #FFFFFF;
+  border-color: #24292F;
+  box-shadow: 0 10px 24px -4px rgba(36, 41, 47, 0.4);
+}
+
+/* Edge-to-Edge Brand Wordmark (Animated Chromatic Wave & Aura) */
+.footer-9-wordmark-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 10px 0 20px;
+}
+
+.footer-wordmark-aura {
+  position: absolute;
+  width: 80%;
+  height: 140px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 65% 80% at 50% 50%, rgba(99, 102, 241, 0.32) 0%, rgba(236, 72, 153, 0.22) 50%, rgba(16, 185, 129, 0.15) 75%, transparent 90%);
+  filter: blur(52px);
+  pointer-events: none;
+  animation: auraPulse 6s ease-in-out infinite alternate;
+}
+@keyframes auraPulse {
+  0% { opacity: 0.65; transform: translateX(-50%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+
+.footer-9-wordmark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 0.82;
+  user-select: none;
+  cursor: default;
+}
+
+.wm-letter {
+  font-size: clamp(68px, 14.8vw, 215px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  display: inline-block;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 45%, #2563EB 70%, #1D4ED8 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 8px 24px rgba(59, 130, 246, 0.22));
+  animation: letterShimmer 8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.35s);
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 350ms ease;
+  will-change: transform, background-position;
+}
+
+.footer-9-wordmark:hover .wm-letter {
+  animation-duration: 4s;
+}
+
+.wm-letter:hover {
+  transform: translateY(-12px) scale(1.08);
+  filter: drop-shadow(0 16px 36px rgba(124, 58, 237, 0.45));
+}
+
+@keyframes letterShimmer {
+  0% {
+    background-position: 0% 50%;
+    transform: translateY(0);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: translateY(-5px);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm-letter { animation: none !important; }
+  .footer-wordmark-aura { animation: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .footer-9-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-9-sitemap { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+}
+
+@media (max-width: 640px) {
+  .footer-9-sitemap { grid-template-columns: repeat(2, 1fr); }
+  .footer-9-input-wrap { flex-direction: column; }
+  .footer-9-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* ============================================================
+   FOUNDER QUOTE — shared (used on index.html + about.html)
+   ============================================================ */
+.founder-quote { max-width: 780px; margin: 0 auto; text-align: center; }
+.founder-quote blockquote { font-size: clamp(22px, 3vw, 34px); font-weight: 550; line-height: 1.35; letter-spacing: -.015em; }
+.founder-quote blockquote::before { content: "\201C"; color: var(--accent); }
+.founder-quote blockquote::after { content: "\201D"; color: var(--accent); }
+.founder-quote cite { display: block; margin-top: 26px; font-style: normal; font-size: 14px; color: var(--text-tertiary); }
+.founder-quote cite b { color: var(--text-primary); font-weight: 650; }
+.founder-quote cite a { color: var(--accent); font-weight: 600; }
+.founder-quote cite a:hover { color: var(--accent-deep); }
+
+/* ============================================================
+   FINAL CTA — shared across every page (dark band)
+   ============================================================ */
+.final-cta { text-align: center; position: relative; overflow: hidden; }
+.final-cta-headline { font-size: clamp(30px, 4.4vw, 52px); font-weight: 630; letter-spacing: -.03em; max-width: 700px; margin: 0 auto; line-height: 1.06; color: var(--dark-ink); }
+.final-cta-sub { color: var(--dark-ink-muted); font-size: 16.5px; margin-top: 18px; }
+.final-cta .btn { margin-top: 8px; }
+.final-cta-note { color: var(--dark-ink-faint); font-size: 13px; margin-top: 16px; }
+
+/* ============================================================
+   FAQ — flat hairline list (shared by pages.js / pricing.js / home.js)
+   Matches the homepage's CURRENT FAQ section (home-professional.css
+   #top .faq-*: a plain divided list on a white section, no card
+   boxes). The block this replaced predated that homepage redesign —
+   it still built boxed/shadowed cards, so every subpage's FAQ had
+   drifted out of sync with the homepage. Every page's existing
+   .faq-grid/.faq-item/.faq-question/.faq-answer markup renders
+   identically -- only the look changed here, not the HTML or the
+   toggle JS.
+   ============================================================ */
+.faq-grid { display: flex; flex-direction: column; gap: 0; max-width: 880px; margin: 0 auto; }
+.faq-item { background: transparent; border: 0; border-bottom: 1px solid var(--border-subtle); border-radius: 0; }
+.faq-item:last-child { border-bottom: 0; }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; text-align: left; font-size: 16px; font-weight: 500; color: var(--text-primary); transition: color 200ms var(--ease); }
+.faq-question:hover { color: var(--accent); }
+.faq-question .faq-chev, .faq-question .faq-chevron { width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; padding: 4px; border-radius: 50%; background: var(--accent-tint); color: var(--accent); transition: transform 260ms var(--ease); }
+.faq-item.is-open .faq-question .faq-chev, .faq-item.is-open .faq-question .faq-chevron { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 320ms var(--ease); }
+.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; padding: 0 32px 24px 0; max-width: none; margin: 0; }
+
+/* FAQ sections read as a calm, editorial list on a plain background —
+   matching the homepage's #top .faq-sec (white, no atmosphere blobs) —
+   never the colorful gradient wash used for other "section--atmo"
+   sections on the same page. Covers both the standard .faq-grid
+   accordion and the chat-bubble .faq-chat variant (crm/whatsapp-
+   broadcast/one-inbox) -- that variant keeps its own bubble styling,
+   only the section background is unified here. */
+.section:has(.faq-grid), .section:has(.faq-chat) { background: var(--bg-surface); }
+.section:has(.faq-grid) .atmo-mesh, .section:has(.faq-chat) .atmo-mesh { display: none; }
+
+/* ============================================================
+   UNIVERSAL LIVING AURORA & CHROMATIC ANIMATION SYSTEM
+   (Shared across all 42 subpages)
+   ============================================================ */
+.site-aurora-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.site-blob--violet {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #7C3AED 0%, rgba(124,58,237,0.1) 70%);
+  animation: siteBlobFloat1 22s ease-in-out infinite alternate;
+}
+
+.site-blob--blue {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #2563EB 0%, rgba(37,99,235,0.1) 70%);
+  animation: siteBlobFloat2 26s ease-in-out infinite alternate;
+}
+
+.site-blob--emerald {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #10B981 0%, rgba(16,185,129,0.1) 70%);
+  animation: siteBlobFloat1 20s ease-in-out infinite alternate-reverse;
+}
+
+.site-blob--rose {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #EC4899 0%, rgba(236,72,153,0.1) 70%);
+  animation: siteBlobFloat2 24s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes siteBlobFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-30px, 35px) scale(0.95); }
+}
+
+@keyframes siteBlobFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-35px, 25px) scale(1.06); }
+  100% { transform: translate(30px, -20px) scale(0.96); }
+}
+
+/* NOTE: .reveal / .reveal-stagger base rules live once, up in the
+   REVEAL-ON-SCROLL block near the top of this file (~line 203) — a
+   duplicate definition used to sit here at longer durations (480/440ms)
+   and silently won the cascade over the intentional 450/400ms fix
+   (same selector, later in file = wins). Removed; see that block plus
+   the direction variants immediately below for the full reveal system.
+   Do not re-add a second .reveal definition anywhere in this file. */
+
+/* Reveal direction variants — opt-in alternatives to the default
+   .reveal (fade+slide-up). Same duration/easing family, same
+   IntersectionObserver (nav.js), just a different initial offset.
+   Use sparingly, for emphasis (a badge, a stat, a callout) — the
+   default straight-up .reveal should stay the workhorse everywhere
+   else; consistency reads as more "expensive" than variety. */
+.reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-grow  { opacity: 0; transform: scale(0.85);        transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out); }
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-grow.is-visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-grow.visible { opacity: 1; transform: translate(0, 0) scale(1); }
+
+/* .reveal-pop — the one deliberately bouncy variant, for a single emphasis
+   moment (a counter, a badge, a "new" tag). Fast scale-settle, then a
+   springy overshoot — never used on body copy or full sections. */
+.reveal-pop { opacity: 0; transform: scale(0.75); transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out); }
+.reveal-pop.is-visible,
+.reveal-pop.visible {
+  opacity: 1;
+  transition: opacity 250ms var(--ease-out),
+              transform 250ms var(--ease-out) 0ms,
+              transform 550ms var(--ease-spring) 120ms;
+  transform: scale(1);
+}
+
+/* ============================================================
+   BROWSER-CHROME MOCKUP FRAME — reusable "framed product shot"
+   wrapper for screenshots/mockups that aren't already a hand-built
+   dashboard (the homepage One Inbox panel builds its own dark chrome
+   bar inline — use that pattern for a full custom dashboard; use this
+   component when you just need to drop a screenshot/image/panel into
+   a premium browser window instead of a bare rectangle).
+   Usage:
+     <div class="browser-frame">
+       <div class="browser-frame-bar">
+         <span class="browser-frame-dot browser-frame-dot--red"></span>
+         <span class="browser-frame-dot browser-frame-dot--yellow"></span>
+         <span class="browser-frame-dot browser-frame-dot--green"></span>
+       </div>
+       <div class="browser-frame-body"> ...screenshot / mockup markup... </div>
+     </div>
+   ============================================================ */
+.browser-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 40px -18px rgba(15, 23, 42, 0.45);
+  overflow: hidden;
+  isolation: isolate;
+}
+.browser-frame::before {
+  /* soft radial colour wash behind the frame — pink -> purple -> blue,
+     matching --gradient-brand's hues, at low opacity so it reads as
+     ambient light rather than a background fill */
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background: radial-gradient(60% 60% at 30% 20%, rgba(236,72,153,0.16), transparent 60%),
+              radial-gradient(55% 55% at 75% 30%, rgba(124,58,237,0.14), transparent 60%),
+              radial-gradient(60% 60% at 50% 90%, rgba(37,99,235,0.14), transparent 60%);
+  filter: blur(28px);
+}
+.browser-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: var(--bg-surface-2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.browser-frame-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.browser-frame-dot--red    { background: #FF5F56; }
+.browser-frame-dot--yellow { background: #FFBD2E; }
+.browser-frame-dot--green  { background: #27C93F; }
+.browser-frame-body { overflow: hidden; }
+.browser-frame-body img,
+.browser-frame-body video { display: block; width: 100%; height: auto; }
+
+/* Radiant CTA button shimmer */
+.btn-accent, .btn-brand {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-accent::after, .btn-brand::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  animation: btnShimmer 5s ease-in-out infinite;
+}
+
+@keyframes btnShimmer {
+  0%, 80% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(450%) rotate(25deg); }
+}
+
+/* Glowing Live Status Pip */
+.live-dot-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  animation: dotPulse 2.2s infinite;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-blob, .btn-accent::after, .live-dot-pulse, .reveal, .reveal-stagger > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
