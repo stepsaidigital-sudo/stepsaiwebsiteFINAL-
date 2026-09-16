@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/vitest"
+import { vi } from "vitest"
 
 // jsdom has no IntersectionObserver; Framer Motion's whileInView/onViewportEnter
 // (used by RevealOnScroll) needs one to mount without throwing.

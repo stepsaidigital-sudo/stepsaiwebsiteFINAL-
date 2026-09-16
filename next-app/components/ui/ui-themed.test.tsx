@@ -6,7 +6,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs"
 describe("themed Accordion", () => {
   it("accepts the site's faq-item/faq-q/faq-a classes", () => {
     render(
-      <Accordion type="single" collapsible>
+      <Accordion>
         <AccordionItem value="a" className="faq-item">
           <AccordionTrigger className="faq-q">Question</AccordionTrigger>
           <AccordionContent className="faq-a">
