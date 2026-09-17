@@ -387,18 +387,16 @@ h1, h2, h3 { letter-spacing: -0.03em; }
    near the top of the page (before scroll passes 40px) left the nav bar fully
    transparent behind the white dropdown panel, an inconsistent half-white/
    half-see-through look. */
-.nav.scrolled, .nav.menu-open { background: rgba(255,255,255,.8); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-/* Scrim behind the open dropdown panel: blurs whatever page content (hero,
-   sections) is still visible below the nav bar and around the panel's edges,
-   so the panel reads as sitting on top of a dimmed/blurred backdrop instead
-   of just floating over sharp content. A ::after pseudo-element (rather than
-   a new element in the markup) so this works on every page's nav without
-   touching the ~50 pages that include this header. Positioned/z-indexed
-   inside .nav's own stacking context, below .nav-dropdown-panel's z-index:60,
-   so panels still render above it. */
+.nav.scrolled { background: rgba(255,255,255,.8); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.nav.menu-open { background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom-color: var(--border-subtle); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+/* Dark scrim behind the open dropdown panel: dims the page content (hero,
+   sections) below the nav bar so the dropdown panel reads with crisp contrast
+   and focused concentration against a dark/black backdrop instead of blending
+   into a washed-out white screen. Positioned/z-indexed inside .nav's own stacking
+   context, below .nav-dropdown-panel's z-index:60, so panels still render above it. */
 .nav::after {
   content: ''; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
-  background: rgba(255,255,255,.5); backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   opacity: 0; visibility: hidden; pointer-events: none; z-index: 1;
   transition: opacity 220ms var(--ease-ui), visibility 220ms var(--ease-ui);
 }
