@@ -1,10 +1,98 @@
 /* Homepage refinement. Shared pages retain their existing styles. */
-body:has(#hero) { background:#fafbfe; }
+body:has(#hero) { --home-nav-height:76px; background:#fafbfe; }
 body:has(#hero) ::selection { background:#cbdcff; color:#102650; }
 body:has(#hero) :focus-visible { outline:3px solid #1a56db; outline-offset:5px; }
-body:has(#hero) .nav { background:#fff; border-bottom:1px solid #e4e9f1; box-shadow:none; }
-body:has(#hero) .nav-inner { max-width:1360px; }
-body:has(#hero) .nav-logo { letter-spacing:-.035em; }
+body:has(#hero) #nav {
+  min-height:var(--home-nav-height);
+  background:transparent;
+  border-bottom-color:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  transition:background-color 200ms ease,border-color 200ms ease,box-shadow 200ms ease;
+}
+body:has(#hero) #nav.scrolled {
+  background:#fafcff;
+  background:rgba(250,252,255,.94);
+  border-bottom-color:rgba(20,45,85,.08);
+  box-shadow:0 4px 18px rgba(20,45,85,.05);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+body:has(#hero) #nav.menu-open,
+body:has(#hero) #nav.open {
+  background:#fafcff;
+  background:rgba(250,252,255,.98);
+  border-bottom-color:rgba(20,45,85,.09);
+  box-shadow:0 8px 24px rgba(20,45,85,.07);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+body:has(#hero) #nav::after { top:var(--home-nav-height); }
+body:has(#hero) #nav .nav-inner {
+  box-sizing:border-box;
+  width:100%;
+  max-width:1320px;
+  height:var(--home-nav-height);
+  padding:0 32px;
+  gap:20px;
+}
+body:has(#hero) #nav .nav-logo { gap:10px; color:#0a1020; font:700 23px/1 'Schibsted Grotesk',sans-serif; letter-spacing:-.03em; }
+body:has(#hero) #nav .nav-logo img { width:42px; max-width:42px; height:30px; object-fit:contain; }
+body:has(#hero) #nav .nav-links { gap:2px; }
+body:has(#hero) #nav .nav-dropdown-trigger,
+body:has(#hero) #nav .nav-links > a {
+  min-height:44px;
+  padding:0 13px;
+  color:#172039;
+  font:500 14px/1 'Schibsted Grotesk',sans-serif;
+}
+body:has(#hero) #nav .nav-links > a {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+body:has(#hero) #nav .nav-actions { gap:14px; }
+body:has(#hero) #nav .nav-lang-picker,
+body:has(#hero) #nav .nav-signin { color:#172039; font:500 14px/1 'Schibsted Grotesk',sans-serif; }
+body:has(#hero) #nav .nav-lang-picker { gap:7px; }
+body:has(#hero) #nav .nav-signin { display:flex; align-items:center; min-height:44px; padding:0 4px; }
+body:has(#hero) #nav .nav-cta-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:44px;
+  padding:0 18px;
+  border-radius:11px;
+  background:#0868f7;
+  color:#fff;
+  font:600 14px/1 'Schibsted Grotesk',sans-serif;
+  box-shadow:0 8px 18px rgba(8,104,247,.16);
+  white-space:nowrap;
+}
+body:has(#hero) #nav .nav-dropdown-panel--product,
+body:has(#hero) #nav .nav-dropdown-panel--product-v2 { top:var(--home-nav-height); }
+body:has(#hero) #nav .nav-mobile { padding-top:calc(var(--home-nav-height) + 20px); }
+@media (max-width:1180px) and (min-width:981px) {
+  body:has(#hero) #nav .nav-inner { padding-inline:24px; gap:12px; }
+  body:has(#hero) #nav .nav-dropdown-trigger,
+  body:has(#hero) #nav .nav-links > a { padding-inline:9px; }
+  body:has(#hero) #nav .nav-actions { gap:9px; }
+  body:has(#hero) #nav .nav-lang-picker svg,
+  body:has(#hero) #nav .nav-lang-caret { display:none; }
+}
+@media (max-width:980px) {
+  body:has(#hero) { --home-nav-height:64px; }
+  body:has(#hero) #nav .nav-inner { padding:0 20px; }
+  body:has(#hero) #nav .nav-logo { font-size:21px; }
+  body:has(#hero) #nav .nav-logo img { width:36px; max-width:36px; height:27px; }
+  body:has(#hero) #nav .nav-burger { width:44px; height:44px; }
+  body:has(#hero) #nav .nav-mobile { max-height:100dvh; background:#fafcff; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body:has(#hero) #nav { transition:none; }
+}
 #top { --ink:#12213a; --body:#526078; --muted:#627089; --purple:#1a56db; --border:#dfe6f0; --r:14px; background:#fff; }
 #top .container { max-width:1320px; padding-inline:48px; }
 #top section { scroll-margin-top:90px; }

@@ -7,17 +7,39 @@
   <title>StepsAI — Turn more visitors and messages into sales, leads and bookings</title>
   <meta name="description"
     content="StepsAI is an AI agent for your website, store and social channels. It understands what customers need, answers their questions and takes the next step — helping you sell more, capture leads, book meetings and resolve support. 24/7.">
+  <script>
+    /* Start ordinary homepage visits at the hero. Browsers otherwise restore
+       the previous scroll position on refresh, which can make the page appear
+       to open at the metrics section. Preserve explicit anchors and history
+       traversal so deep links and Back/Forward navigation keep working. */
+    (function () {
+      if (!('scrollRestoration' in history) || location.hash) return;
+      var navigation = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (navigation && navigation.type !== 'navigate' && navigation.type !== 'reload') return;
+      history.scrollRestoration = 'manual';
+      window.addEventListener('pageshow', function () {
+        window.scrollTo(0, 0);
+        window.requestAnimationFrame(function () {
+          window.scrollTo(0, 0);
+          window.setTimeout(function () {
+            window.scrollTo(0, 0);
+            history.scrollRestoration = 'auto';
+          }, 120);
+        });
+      }, { once: true });
+    }());
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="icon" type="image/png" href="images/stepsai-logo-blue-transparent.png">
   <link rel="stylesheet" href="styles.css?v=2.1">
   <link rel="stylesheet" href="home-v2.css?v=1.3">
-  <link rel="stylesheet" href="home-professional.css?v=2">
+  <link rel="stylesheet" href="home-professional.css?v=3">
   <link rel="stylesheet" href="home-finish.css?v=2">
-  <link rel="stylesheet" href="hero-premium.css?v=4">
+  <link rel="stylesheet" href="hero-premium.css?v=5">
   <link rel="stylesheet" href="workflows-premium.css?v=3">
   <link rel="stylesheet" href="benefits.css?v=1">
   <link rel="stylesheet" href="solutions-menu.css?v=1">
@@ -128,7 +150,7 @@
     #nav .nav-mega-col:hover .nav-mega-thumb img { transform: none; }
     #nav .nav-dropdown.is-open .nav-mega-thumb img { animation: none; }
     #nav .nav-dropdown-panel--product-v2 {
-      top: 83px;
+      top: var(--home-nav-height, 76px);
       transform: translateX(-50%) translateY(-4px);
       transition: opacity 160ms ease-out, transform 180ms ease-out, visibility 180ms;
       max-height: calc(100dvh - 100px);
@@ -1209,14 +1231,14 @@
        page. This keeps type and controls at their designed, readable size. */
     @media (min-width: 1101px) and (max-height: 800px) {
       html {
-        scroll-padding-top: 92px;
+        scroll-padding-top: 84px;
       }
 
       #top section {
-        scroll-margin-top: 90px;
+        scroll-margin-top: 84px;
       }
 
-      #top .hero {
+      #top #hero {
         padding-block: 100px 24px;
       }
 
@@ -1474,7 +1496,7 @@
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html#top" class="nav-logo" aria-label="StepsAI home">
-        <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="38" height="26">
+        <img src="images/stepsai-logo-blue-transparent.png" alt="StepsAI Logo" class="nav-logo-img" width="42" height="30">
         <span>StepsAI</span>
       </a>
 
@@ -3070,7 +3092,7 @@
     </div>
 
     <div class="deploy-hub-row reveal" style="margin-top: 40px; margin-bottom: 0;">
-      <div class="deploy-hub"><span class="logo-mark" style="width:26px;height:14px" aria-hidden="true"></span></div>
+      <div class="deploy-hub"><img src="images/stepsai-logo-blue-transparent.png" alt="" style="width:26px;height:14px;object-fit:contain" aria-hidden="true"></div>
       <p class="deploy-hub-caption">One agent brain. <span class="grad-text">Trained once, working everywhere.</span></p>
     </div>
   </div>
@@ -3162,7 +3184,7 @@
         <span class="flow-arrow2">→</span>
         <div>
           <div class="flow-hub">
-            <span class="logo-mark" style="width:44px;height:23px" aria-hidden="true"></span>
+            <img src="images/stepsai-logo-blue-transparent.png" alt="" style="width:44px;height:23px;object-fit:contain" aria-hidden="true">
             <span class="lbl">StepsAI</span>
           </div>
         </div>
@@ -3237,7 +3259,7 @@
         <div class="conversation-stage">
           <div class="conversation-stage-head"><span>From first interest to next step</span><button class="replay-demo" type="button" id="revenueReplay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg>Replay flow</button></div>
           <div class="revenue-phone">
-            <div class="phone-brand"><img src="images/logo.png" alt="" width="30" height="22"><div><strong>Your brand</strong><span>Powered by StepsAI</span></div><span class="phone-channel" id="phoneChannel">WhatsApp</span></div>
+            <div class="phone-brand"><img src="images/stepsai-logo-blue-transparent.png" alt="" width="30" height="22"><div><strong>Your brand</strong><span>Powered by StepsAI</span></div><span class="phone-channel" id="phoneChannel">WhatsApp</span></div>
             <div class="broadcast-received" data-flow="0">
               <div class="broadcast-poster"><img src="images/product-diamond-necklace.jpg" alt="Jewellery collection in the example broadcast" loading="lazy" width="380" height="300"><div><span>THE NEW COLLECTION</span><strong>A little sparkle.<br>A lovely gift.</strong></div></div>
               <div class="broadcast-caption"><strong>Your next favourite is here.</strong><p>Hi Priya! Discover our new jewellery collection. Find a gift for someone special—or a little something for yourself.</p><span class="broadcast-timestamp">6:36 pm</span></div>
@@ -3277,7 +3299,7 @@
       <div class="dash">
         <div class="dash-top">
           <div class="dash-brand">
-              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
+              <img src="images/stepsai-logo-blue-transparent.png" alt="" style="width:30px;height:16px;object-fit:contain" aria-hidden="true">
               StepsAI
             </div>
           <span class="dash-label" style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;color:#0f172a;font-weight:750;padding:5px 14px;border-radius:999px;font-size:12px"><span style="width:16px;height:16px;border-radius:50%;background:#ef4444;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:9px">📥</span> Inbox</span>
@@ -3488,7 +3510,7 @@
               <div class="wf-wa-preview" aria-label="Example WhatsApp Business message received by a customer">
                 <div class="wf-wa-head">
                   <span class="wf-wa-back" aria-hidden="true">‹</span>
-                  <span class="wf-wa-avatar"><img src="images/logo.png" alt=""></span>
+                  <span class="wf-wa-avatar"><img src="images/stepsai-logo-blue-transparent.png" alt=""></span>
                   <span class="wf-wa-identity"><strong>StepsAI Store</strong><small>Business account</small></span>
                   <span class="wf-wa-tools" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"/></svg></span>
                 </div>
@@ -3558,7 +3580,7 @@
       <div class="dash">
         <div class="dash-top">
           <div class="dash-brand">
-              <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
+              <img src="images/stepsai-logo-blue-transparent.png" alt="" style="width:30px;height:16px;object-fit:contain" aria-hidden="true">
               StepsAI
             </div>
           <span class="dash-label">CRM</span>
@@ -3646,7 +3668,7 @@
       <div class="dash">
         <div class="dash-top">
           <div class="dash-brand">
-            <span class="logo-mark" style="width:30px;height:16px" aria-hidden="true"></span>
+            <img src="images/stepsai-logo-blue-transparent.png" alt="" style="width:30px;height:16px;object-fit:contain" aria-hidden="true">
             StepsAI Executive Analytics
           </div>
           <div style="display:flex;align-items:center;gap:12px">
@@ -4283,7 +4305,7 @@
       <div class="footer-9-top">
         <div class="footer-9-brand-box">
           <a href="index.html#top" class="nav-logo">
-            <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="44" height="30">
+            <img src="images/stepsai-logo-blue-transparent.png" alt="StepsAI Logo" class="nav-logo-img" width="44" height="30">
             <span>StepsAI</span>
           </a>
           <p class="footer-9-tagline">The complete AI agent platform for modern businesses. Instant sales, 24/7 customer
