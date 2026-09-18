@@ -1,0 +1,123 @@
+/* Product mega-menu (v2): seven-column layout, illustration thumbs, sizing.
+   Extracted from index.html's inline stylesheet so every page's nav
+   (all pages share the same nav markup) renders this menu identically. */
+
+/* Homepage Product menu: every capability family is an equal visual
+   section. Seven matching columns use the viewport end to end without
+   stacking a smaller category beneath a larger one. */
+#nav .nav-dropdown-panel--product-v2 {
+  width: min(1180px, calc(100vw - 48px));
+  max-width: none;
+  padding: 20px;
+}
+
+#nav .nav-mega-layout--product-v2 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0;
+}
+
+#nav .nav-mega-layout--product-v2 > .nav-mega-col {
+  min-width: 0;
+  padding: 0 16px;
+  border-left: 1px solid var(--border-subtle);
+}
+
+#nav .nav-mega-layout--product-v2 > .nav-mega-col:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+#nav .nav-mega-layout--product-v2 > .nav-mega-col:last-child {
+  padding-right: 0;
+}
+
+/* Purpose-made transparent illustrations turn each category into a
+   recognizable scene while the quiet stage keeps the menu compact. */
+#nav .nav-mega-thumb {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  margin-bottom: 10px;
+  background: transparent;
+  transition: transform 240ms var(--ease-ui);
+}
+
+#nav .nav-mega-col:hover .nav-mega-thumb {
+  transform: none;
+}
+
+#nav .nav-mega-thumb::before {
+  content: '';
+  position: absolute;
+  inset: auto 19% 0;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--thumb-glow);
+  filter: blur(17px);
+  opacity: .48;
+}
+
+#nav .nav-mega-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+#nav .nav-mega-thumb img {
+  position: relative;
+  z-index: 1;
+  width: 94%;
+  height: 76px;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 7px 7px rgba(15,23,42,.10));
+  transform-origin: 50% 82%;
+  transition: transform 280ms cubic-bezier(.16,1,.3,1), filter 280ms ease;
+}
+
+#nav .nav-mega-col:hover .nav-mega-thumb img { transform: none; }
+#nav .nav-dropdown.is-open .nav-mega-thumb img { animation: none; }
+#nav .nav-dropdown-panel--product-v2 {
+  top: var(--home-nav-height, 76px);
+  transform: translateX(-50%) translateY(-4px);
+  transition: opacity 160ms ease-out, transform 180ms ease-out, visibility 180ms;
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  border-radius: 16px;
+}
+#nav .nav-dropdown.is-open .nav-dropdown-panel--product-v2 { transform: translateX(-50%); }
+
+#nav .nav-mega-thumb--violet { --thumb-accent:#6d4cff; --thumb-glow:rgba(109,76,255,.20); }
+#nav .nav-mega-thumb--green { --thumb-accent:#16a34a; --thumb-glow:rgba(16,185,129,.18); }
+#nav .nav-mega-thumb--indigo { --thumb-accent:#4f46e5; --thumb-glow:rgba(79,70,229,.18); }
+#nav .nav-mega-thumb--rose { --thumb-accent:#e11d48; --thumb-glow:rgba(244,63,94,.16); }
+#nav .nav-mega-thumb--orange { --thumb-accent:#ea580c; --thumb-glow:rgba(249,115,22,.16); }
+#nav .nav-mega-thumb--teal { --thumb-accent:#0d9488; --thumb-glow:rgba(20,184,166,.18); }
+#nav .nav-mega-thumb--blue { --thumb-accent:#2563eb; --thumb-glow:rgba(37,99,235,.18); }
+
+@media (prefers-reduced-motion: reduce) {
+  #nav .nav-mega-thumb, #nav .nav-mega-thumb img { transition: none; animation: none !important; }
+}
+
+#nav .nav-mega-layout--product-v2 .nav-mega-col-head {
+  min-height: 34px;
+  padding: 0 2px 9px;
+}
+
+#nav .nav-mega-layout--product-v2 .nav-mega-simple-row {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 7px 4px;
+  margin: 0;
+  line-height: 1.28;
+}
+
+#nav .nav-mega-layout--product-v2 .nav-mega-more-link {
+  margin-top: 3px;
+}

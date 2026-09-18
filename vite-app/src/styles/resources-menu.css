@@ -1,0 +1,67 @@
+/* Reference illustrations with live resource labels and destinations. */
+#nav .nav-dropdown-panel--resources-v2 {
+  position: fixed;
+  top: 83px;
+  left: 50vw;
+  width: min(852px, calc(100vw - 48px));
+  min-width: 0;
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  padding: 19px 0 20px;
+  border: 1px solid #e3eaf7;
+  border-radius: 20px;
+  background: #fcfdff;
+  box-shadow: 0 12px 28px -16px #9fb9e3;
+  transform: translateX(-50%) translateY(-4px);
+  transition: opacity 160ms ease-out, transform 180ms ease-out, visibility 180ms;
+}
+#nav .nav-dropdown.is-open .nav-dropdown-panel--resources-v2 { transform: translateX(-50%); }
+#nav .nav-mega-layout--resources-v2 { grid-template-columns: 211fr 207fr 216fr 218fr; gap: 0; }
+#nav .nav-mega-layout--resources-v2 .nav-res-item {
+  min-width: 0;
+  padding: 0 24px;
+  border-left: 1px solid #e7edf9;
+}
+#nav .nav-mega-layout--resources-v2 .nav-res-item:first-child { border-left: 0; }
+#nav .nav-resource-art {
+  display: block;
+  flex: 0 0 120px;
+  width: calc(100% + 48px);
+  margin: 0 -24px 8px;
+  background: url('/images/nav-illustrations/resources-reference.png') no-repeat 0 -19px / 873px 293px;
+}
+#nav .nav-res-item:nth-child(2) .nav-resource-art { background-position-x: -211px; }
+#nav .nav-res-item:nth-child(3) .nav-resource-art { background-position-x: -418px; }
+#nav .nav-res-item:nth-child(4) .nav-resource-art { background-position-x: -634px; }
+#nav .nav-mega-layout--resources-v2 .nav-res-title {
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  color: #0b102e;
+  margin-bottom: 8px;
+}
+#nav .nav-mega-layout--resources-v2 .nav-res-desc {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #7585a2;
+  margin-bottom: 15px;
+}
+#nav .nav-mega-layout--resources-v2 .nav-res-arrow {
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border-radius: 50%;
+  background: #eaf0ff;
+  color: #122044;
+  margin-top: auto;
+  transition: background-color 160ms ease-out;
+}
+#nav .nav-mega-layout--resources-v2 .nav-res-item:nth-child(2) .nav-res-arrow { background: #e3eeff; }
+#nav .nav-mega-layout--resources-v2 .nav-res-item:nth-child(3) .nav-res-arrow { background: #e4f5ec; }
+#nav .nav-mega-layout--resources-v2 .nav-res-item:nth-child(4) .nav-res-arrow { background: #fceee6; }
+#nav .nav-mega-layout--resources-v2 .nav-res-item:hover .nav-res-arrow { transform: none; background: #dce7ff; }
+#nav .nav-mega-layout--resources-v2 .nav-res-item:focus-visible { outline: 2px solid #0060ff; outline-offset: -4px; border-radius: 10px; }
+@media (prefers-reduced-motion: reduce) {
+  #nav .nav-dropdown-panel--resources-v2, #nav .nav-mega-layout--resources-v2 .nav-res-arrow { transition: none; }
+}
