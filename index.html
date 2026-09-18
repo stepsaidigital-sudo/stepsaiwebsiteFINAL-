@@ -42,9 +42,12 @@
   <link rel="stylesheet" href="hero-premium.css?v=5">
   <link rel="stylesheet" href="workflows-premium.css?v=3">
   <link rel="stylesheet" href="benefits.css?v=1">
-  <link rel="stylesheet" href="solutions-menu.css?v=1">
-  <link rel="stylesheet" href="partnership-menu.css?v=1">
-  <link rel="stylesheet" href="resources-menu.css?v=1">
+  <link rel="stylesheet" href="home-mobile.css?v=1">
+  <link rel="stylesheet" href="one-agent-showcase.css?v=1">
+  <script src="home-mobile.js?v=1" defer></script>
+  <script src="storefront-demo.js?v=1" defer></script>
+  <script src="one-agent-showcase.js?v=1" defer></script>
+  <link rel="stylesheet" href="storefront-demo.css?v=1">
   <style id="homepage-layout-qa">
     /* Homepage-only design QA: preserve the approved visual language while
        normalizing hierarchy, spacing and large desktop mockup proportions. */
@@ -69,129 +72,6 @@
       outline-offset: 2px;
     }
 
-    /* Homepage Product menu: every capability family is an equal visual
-       section. Seven matching columns use the viewport end to end without
-       stacking a smaller category beneath a larger one. */
-    #nav .nav-dropdown-panel--product-v2 {
-      width: min(1180px, calc(100vw - 48px));
-      max-width: none;
-      padding: 20px;
-    }
-
-    #nav .nav-mega-layout--product-v2 {
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 0;
-    }
-
-    #nav .nav-mega-layout--product-v2 > .nav-mega-col {
-      min-width: 0;
-      padding: 0 16px;
-      border-left: 1px solid var(--border-subtle);
-    }
-
-    #nav .nav-mega-layout--product-v2 > .nav-mega-col:first-child {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    #nav .nav-mega-layout--product-v2 > .nav-mega-col:last-child {
-      padding-right: 0;
-    }
-
-    /* Purpose-made transparent illustrations turn each category into a
-       recognizable scene while the quiet stage keeps the menu compact. */
-    #nav .nav-mega-thumb {
-      width: 100%;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: visible;
-      margin-bottom: 10px;
-      background: transparent;
-      transition: transform 240ms var(--ease-ui);
-    }
-
-    #nav .nav-mega-col:hover .nav-mega-thumb {
-      transform: none;
-    }
-
-    #nav .nav-mega-thumb::before {
-      content: '';
-      position: absolute;
-      inset: auto 19% 0;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--thumb-glow);
-      filter: blur(17px);
-      opacity: .48;
-    }
-
-    #nav .nav-mega-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      display: none;
-    }
-
-    #nav .nav-mega-thumb img {
-      position: relative;
-      z-index: 1;
-      width: 94%;
-      height: 76px;
-      object-fit: contain;
-      object-position: center bottom;
-      filter: drop-shadow(0 7px 7px rgba(15,23,42,.10));
-      transform-origin: 50% 82%;
-      transition: transform 280ms cubic-bezier(.16,1,.3,1), filter 280ms ease;
-    }
-
-    #nav .nav-mega-col:hover .nav-mega-thumb img { transform: none; }
-    #nav .nav-dropdown.is-open .nav-mega-thumb img { animation: none; }
-    #nav .nav-dropdown-panel--product-v2 {
-      top: var(--home-nav-height, 76px);
-      transform: translateX(-50%) translateY(-4px);
-      transition: opacity 160ms ease-out, transform 180ms ease-out, visibility 180ms;
-      max-height: calc(100dvh - 100px);
-      overflow-y: auto;
-      border-radius: 16px;
-    }
-    #nav .nav-dropdown.is-open .nav-dropdown-panel--product-v2 { transform: translateX(-50%); }
-
-    #nav .nav-mega-thumb--violet { --thumb-accent:#6d4cff; --thumb-glow:rgba(109,76,255,.20); }
-    #nav .nav-mega-thumb--green { --thumb-accent:#16a34a; --thumb-glow:rgba(16,185,129,.18); }
-    #nav .nav-mega-thumb--indigo { --thumb-accent:#4f46e5; --thumb-glow:rgba(79,70,229,.18); }
-    #nav .nav-mega-thumb--rose { --thumb-accent:#e11d48; --thumb-glow:rgba(244,63,94,.16); }
-    #nav .nav-mega-thumb--orange { --thumb-accent:#ea580c; --thumb-glow:rgba(249,115,22,.16); }
-    #nav .nav-mega-thumb--teal { --thumb-accent:#0d9488; --thumb-glow:rgba(20,184,166,.18); }
-    #nav .nav-mega-thumb--blue { --thumb-accent:#2563eb; --thumb-glow:rgba(37,99,235,.18); }
-
-    @media (prefers-reduced-motion: reduce) {
-      #nav .nav-mega-thumb, #nav .nav-mega-thumb img { transition: none; animation: none !important; }
-    }
-
-    #nav .nav-mega-layout--product-v2 .nav-mega-col-head {
-      min-height: 34px;
-      padding: 0 2px 9px;
-    }
-
-    #nav .nav-mega-layout--product-v2 .nav-mega-simple-row {
-      min-height: 34px;
-      display: flex;
-      align-items: center;
-      padding: 7px 4px;
-      margin: 0;
-      line-height: 1.28;
-    }
-
-    #nav .nav-mega-layout--product-v2 .nav-mega-more-link {
-      margin-top: 3px;
-    }
-
-    /* Solutions menu: the three commercial paths receive the same
-       transparent illustration treatment as Product, with no card or
-       sticker surface behind the artwork. */
     /* Hero styling is handled pixel-to-pixel in hero-premium.css */
 
     #top .ind-header .sec-title,
@@ -2644,148 +2524,65 @@
   </div>
 </section>
 
-<!-- ================= 3. WHAT IT DOES (formerly "How it works") ================= -->
-<section class="how" id="one-agent">
-  <div class="container how-container">
-    <span class="how-note hand" aria-hidden="true">Same powerful agent.<br>Any business.</span>
-    <div class="reveal">
-      <span class="badge">What it does</span>
-      <h2 class="sec-title">Your whole front desk, run by <span class="grad-text">one AI agent.</span></h2>
-      <p class="sec-sub">One agent that sells, answers questions, books appointments, and follows up. It has never once said, "Let me check and get back to you."</p>
+<!-- ================= 3. ONE AGENT SHOWCASE ================= -->
+<section class="how oa-section" id="one-agent">
+  <div class="container oa-container">
+    <header class="oa-heading reveal">
+      <h2 class="sec-title">Your whole front desk, run by <span>one AI agent.</span></h2>
+      <p class="sec-sub">One conversation can become a sale, a resolved question, a qualified lead, or a confirmed booking.</p>
+    </header>
+
+    <div class="oa-showcase reveal" data-scenario="sales">
+      <div class="oa-tabbar" role="tablist" aria-label="See what the StepsAI agent can do">
+        <button class="oa-tab is-active" id="oa-tab-sales" type="button" role="tab" aria-selected="true" aria-controls="oa-stage" tabindex="0" data-oa-scenario="sales">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 10h-13zM8 7V5.5A3.5 3.5 0 0 1 11.5 2h1A3.5 3.5 0 0 1 16 5.5V7M9 11h6"/></svg>
+          <span>Sales</span>
+        </button>
+        <button class="oa-tab" id="oa-tab-support" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="support">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1ZM20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1ZM17 15v1a4 4 0 0 1-4 4h-2"/></svg>
+          <span>Support</span>
+        </button>
+        <button class="oa-tab" id="oa-tab-leads" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="leads">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19a6 6 0 0 0-12 0M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM16 8h5M18.5 5.5v5"/></svg>
+          <span>Lead capture</span>
+        </button>
+        <button class="oa-tab" id="oa-tab-booking" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="booking">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2ZM7 2v4M17 2v4M3 9h18M8 14l2.5 2.5L16 12"/></svg>
+          <span>Booking</span>
+        </button>
+        <button class="oa-tab" id="oa-tab-marketing" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="marketing">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 13 2.5 6h3L8 13M4 8v5h4l9 4V4L8 8H4ZM20 8.5a4 4 0 0 1 0 4"/></svg>
+          <span>Marketing</span>
+        </button>
+      </div>
+
+      <div class="oa-stage" id="oa-stage" role="tabpanel" aria-labelledby="oa-tab-sales" tabindex="0">
+        <div class="oa-stagebar">
+          <div class="oa-agent-state"><span class="oa-agent-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 7.5c5 0 5 9 0 9-2.7 0-4.4-2.8-5.5-4.5-1.1-1.7-2.8-4.5-5.5-4.5-5 0-5 9 0 9 2.7 0 4.4-2.8 5.5-4.5 1.1-1.7 2.8-4.5 5.5-4.5Z"/></svg></span><span><strong>StepsAI agent</strong><small><i></i> Working live</small></span></div>
+          <button class="oa-replay" type="button" data-oa-replay aria-label="Replay this example">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M5.5 15a7 7 0 1 0 1-8L4 10"/></svg>
+            Replay
+          </button>
+        </div>
+
+        <div class="oa-demo-grid">
+          <div class="oa-conversation">
+            <div class="oa-pane-label"><span>Customer conversation</span><span data-oa-channel>Website</span></div>
+            <div class="oa-messages" data-oa-messages aria-live="polite"></div>
+          </div>
+          <div class="oa-action">
+            <div class="oa-pane-label"><span>Action taken</span><span data-oa-status>Ready</span></div>
+            <div class="oa-result" data-oa-result aria-live="polite"></div>
+          </div>
+        </div>
+
+        <footer class="oa-outcome">
+          <span class="oa-outcome-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></svg></span>
+          <p><strong data-oa-outcome>A product question becomes a ready cart.</strong><span data-oa-detail>The customer gets an answer and the next step in the same conversation.</span></p>
+          <a href="sales-agent.html" data-oa-link>Explore Sales Agent <span aria-hidden="true">→</span></a>
+        </footer>
+      </div>
     </div>
-
-    <!-- 5 Standalone Premium Cards (C-action background card and quotation disabled) -->
-    <div class="sia-tabs reveal" role="tablist" aria-label="Autonomous agent capabilities">
-      <!-- 1. Sales -->
-      <button class="sia-tab active" data-sia="0" role="tab" aria-selected="true">
-        <div class="tp">
-          <div class="tp-head">
-            <span class="tp-tag">Catalog Match</span>
-            <span class="tp-live-pill"><span class="tp-live-dot"></span>In Stock</span>
-          </div>
-          <div class="tp-row">
-            <span class="tp-ic">🧥</span>
-            <div class="tp-lines">
-              <b>Trail Jacket</b>
-              <span>Waterproof &middot; 4K fit</span>
-            </div>
-          </div>
-          <div class="tp-foot-row">
-            <span class="tp-price">$129 <span class="tp-badge-tag">Best match</span></span>
-            <span class="tp-pill sel">+ Add to cart</span>
-          </div>
-        </div>
-        <div class="sia-tab-info">
-          <span class="sia-tab-name">Sales</span>
-          <span class="sia-tab-desc">Picks the right product, answers the doubt, and adds it to the cart.</span>
-        </div>
-      </button>
-
-      <!-- 2. Support -->
-      <button class="sia-tab" data-sia="1" role="tab" aria-selected="false">
-        <div class="tp">
-          <div class="tp-head">
-            <span class="tp-tag">Instant Tracking</span>
-            <span class="tp-live-pill"><span class="tp-live-dot"></span>FedEx Live</span>
-          </div>
-          <div class="tp-row">
-            <span class="tp-ic">🚚</span>
-            <div class="tp-lines">
-              <b>Order #8472</b>
-              <span>Arriving Thu &middot; Office</span>
-            </div>
-          </div>
-          <div class="tp-track-wrap">
-            <div class="tp-track">
-              <span class="tp-dot on"></span>
-              <span class="tp-tline on"></span>
-              <span class="tp-dot on"></span>
-              <span class="tp-tline on"></span>
-              <span class="tp-dot on"></span>
-              <span class="tp-tline"></span>
-              <span class="tp-dot"></span>
-            </div>
-            <div class="tp-track-labels">
-              <span>Ordered</span>
-              <span class="active">Shipped</span>
-              <span>Delivered</span>
-            </div>
-          </div>
-        </div>
-        <div class="sia-tab-info">
-          <span class="sia-tab-name">Support</span>
-          <span class="sia-tab-desc">Opens the real order, gives the real status, and keeps the customer calm.</span>
-        </div>
-      </button>
-
-      <!-- 3. Lead capture -->
-      <button class="sia-tab" data-sia="2" role="tab" aria-selected="false">
-        <div class="tp">
-          <div class="tp-head">
-            <span class="tp-tag">CRM Qualification</span>
-            <span class="tp-live-pill"><span class="tp-live-dot"></span>HubSpot Synced</span>
-          </div>
-          <div class="tp-form-box">
-            <div class="tp-form-row"><span>Team size</span><b>20 seats</b></div>
-            <div class="tp-form-row"><span>Stack</span><b>Zendesk &middot; HubSpot</b></div>
-            <div class="tp-form-row"><span>Walkthrough</span><b>Mon, 11:00 AM</b></div>
-          </div>
-          <div class="tp-note-pill">✓ Transcript attached</div>
-        </div>
-        <div class="sia-tab-info">
-          <span class="sia-tab-name">Lead capture</span>
-          <span class="sia-tab-desc">Turns a chat into a named contact in your CRM, with the full conversation attached.</span>
-        </div>
-      </button>
-
-      <!-- 4. Booking -->
-      <button class="sia-tab" data-sia="3" role="tab" aria-selected="false">
-        <div class="tp">
-          <div class="tp-head">
-            <span class="tp-tag">Calendar Dispatch</span>
-            <span class="tp-live-pill"><span class="tp-live-dot"></span>Available</span>
-          </div>
-          <div class="tp-row">
-            <span class="tp-ic">📍</span>
-            <div class="tp-lines">
-              <b>Dr. Ananya Mehta</b>
-              <span>Downtown Clinic &middot; Tomorrow</span>
-            </div>
-          </div>
-          <div class="tp-row tp-slots">
-            <span class="tp-pill">9:00 AM</span>
-            <span class="tp-pill sel">10:30 AM</span>
-            <span class="tp-pill">2:30 PM</span>
-          </div>
-        </div>
-        <div class="sia-tab-info">
-          <span class="sia-tab-name">Booking</span>
-          <span class="sia-tab-desc">Shows your open slots and confirms the appointment inside the chat.</span>
-        </div>
-      </button>
-
-      <!-- 5. Marketing -->
-      <button class="sia-tab" data-sia="4" role="tab" aria-selected="false">
-        <div class="tp">
-          <div class="tp-head">
-            <span class="tp-tag"><span class="channel-brand-icon" data-icon="whatsapp" aria-hidden="true"></span> WhatsApp Campaign</span>
-            <span class="tp-live-pill"><span class="tp-live-dot"></span>Active</span>
-          </div>
-          <div class="tp-chat-preview">
-            <div class="tp-bub out">📣 Weekend Sale — 20% off sets</div>
-            <div class="tp-bub in">Does that include gift sets?</div>
-          </div>
-          <div class="tp-note-pill green">Replied in 0.4s &middot; Ready to buy</div>
-        </div>
-        <div class="sia-tab-info">
-          <span class="sia-tab-name">Marketing</span>
-          <span class="sia-tab-desc">Starts with a WhatsApp broadcast and keeps going as a real conversation.</span>
-        </div>
-      </button>
-    </div>
-
-    <!-- Quotation disabled per request to give cards full vertical height -->
-    <!-- <p class="how-closing">Built for conversations. Measured in outcomes.</p> -->
   </div>
 </section>
 

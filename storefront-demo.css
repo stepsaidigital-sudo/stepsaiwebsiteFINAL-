@@ -1,0 +1,25 @@
+#heroLaptopDeck [hidden] { display: none !important; }
+#hero .lcw-body { overflow-y: auto; scrollbar-width: thin; scroll-behavior: smooth; }
+#hero .lcw-logo svg { stroke: #0664ff; }
+#hero .lcw-logo svg circle { stroke: #0664ff; }
+#hero .lcw-controls button { border: 0; background: transparent; color: white; cursor: pointer; padding: 4px; }
+#hero .store-demo-arrive { animation: storeDemoArrive 320ms ease-out both; }
+#hero .store-demo-typing { display: flex; flex-shrink: 0; gap: 4px; align-self: flex-start; padding: 12px; border-radius: 10px; background: white; }
+#hero .store-demo-typing i { width: 5px; height: 5px; border-radius: 50%; background: #6b8dbb; animation: storeDemoTyping 900ms ease-in-out infinite alternate; }
+#hero .store-demo-typing i:nth-child(2) { animation-delay: 150ms; }
+#hero .store-demo-typing i:nth-child(3) { animation-delay: 300ms; }
+#hero .store-demo-response { flex-shrink: 0; padding: 10px; font-size: 10px; line-height: 1.45; border-radius: 10px; background: #eaf5ff; color: #164778; }
+#hero .lcw-prod-card, #hero .lcw-msg, #hero .lcw-chips { flex-shrink: 0; }
+#hero .lcw-add-btn { cursor: pointer; transition: background-color 160ms ease; }
+#hero .lcw-add-btn[aria-disabled='true'] { background: #09835a; }
+#hero .store-icons { position: relative; }
+#hero .store-icons[data-cart-count]::after { content: attr(data-cart-count); position: absolute; right: -5px; top: -9px; width: 14px; height: 14px; border-radius: 50%; color: white; background: #0664ff; font: 10px/14px sans-serif; text-align: center; }
+#hero .store-demo-minimized { display: none; }
+#hero .store-demo-launcher { position: absolute; right: 20px; bottom: 20px; padding: 12px 16px; min-height: 44px; border: 0; border-radius: 24px; color: white; background: #0664ff; cursor: pointer; }
+#hero .laptop-chat-widget button:focus-visible, #hero .store-demo-launcher:focus-visible { outline: 2px solid #66aaff; outline-offset: 2px; }
+@keyframes storeDemoArrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes storeDemoTyping { from { opacity: .35; transform: translateY(0); } to { opacity: 1; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) {
+  #hero .store-demo-arrive, #hero .store-demo-typing i { animation: none; }
+  #hero .lcw-body { scroll-behavior: auto; }
+}

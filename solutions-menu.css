@@ -1,5 +1,4 @@
-/* Solutions reference: 1765 × 891. Keep text and destinations live;
-   the supplied artwork is positioned from the unmodified reference. */
+/* Compact Solutions menu used consistently across every page. */
 #nav { font-family: 'Schibsted Grotesk', 'Segoe UI', sans-serif; }
 #nav .nav-dropdown-panel--solutions-v2 {
   --sol-scale: min(.67px, .052vw);
@@ -77,15 +76,15 @@
 #nav .nav-mega-layout--solutions-v2 > .nav-mega-col:nth-child(3) > a:nth-of-type(5) { order: 5; }
 @media (prefers-reduced-motion: reduce) { #nav .nav-dropdown-panel--solutions-v2 { transition: none; } }
 @media (min-width: 981px) {
-  #top #nav .nav-inner { max-width: 1765px; height: 83px; padding: 12px 3.1vw; gap: 20px; }
-  #nav .nav-logo { font-size: clamp(22px, 1.8vw, 32px); color: #0c0d30; }
-  #nav .nav-logo img { width: 70px; max-width: 70px; height: 42px; }
-  #nav .nav-dropdown-trigger, #nav .nav-links > a { font-size: clamp(14px, 1.133vw, 20px); padding: 17px 24px; color: #0c0d30; }
+  #nav .nav-inner { width: 100%; max-width: 1320px; height: 76px; padding: 0 32px; gap: 24px; }
+  #nav .nav-logo { font-size: 23px; line-height: 1; letter-spacing: -.03em; color: #0c0d30; }
+  #nav .nav-logo img { width: 42px; max-width: 42px; height: 30px; }
+  #nav .nav-dropdown-trigger, #nav .nav-links > a { min-height: 44px; font-size: 14px; line-height: 1; padding: 0 13px; color: #0c0d30; }
   #nav .nav-dropdown-trigger[aria-expanded="true"] { color: #0060ff; background: #e6edff; }
-  #nav .nav-actions { gap: clamp(12px, 2vw, 36px); }
-  #nav .nav-lang-picker { display: flex; align-items: center; gap: 12px; font-size: 19px; }
-  #nav .nav-signin { font-size: clamp(14px, 1.133vw, 20px); color: #0c0d30; white-space: nowrap; }
-  #nav .nav-cta-btn { display: flex; align-items: center; gap: 20px; padding: 14px 25px; border-radius: 16px; background: #0060ff; color: white; font-size: clamp(14px, 1.25vw, 22px); white-space: nowrap; box-shadow: 0 4px 10px #0060ff30; }
+  #nav .nav-actions { gap: 14px; }
+  #nav .nav-lang-picker { display: flex; align-items: center; gap: 7px; font-size: 14px; line-height: 1; }
+  #nav .nav-signin { min-height: 44px; display: flex; align-items: center; padding: 0 4px; font-size: 14px; line-height: 1; color: #0c0d30; white-space: nowrap; }
+  #nav .nav-cta-btn { min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 11px; background: #0060ff; color: white; font-size: 14px; line-height: 1; white-space: nowrap; box-shadow: 0 4px 10px #0060ff30; }
 }
 @media (min-width: 981px) and (max-width: 1250px) {
   #nav .nav-dropdown-trigger, #nav .nav-links > a { padding-inline: 12px; }

@@ -115,19 +115,26 @@
   /* ---------- FAQ ACCORDION — same pattern as pages.js / pricing.js ---------- */
   Array.prototype.slice.call(document.querySelectorAll('.faq-grid')).forEach(function (grid) {
     var items = Array.prototype.slice.call(grid.querySelectorAll('.faq-item'));
-    items.forEach(function (item) {
+    items.forEach(function (item, index) {
       var question = item.querySelector('.faq-question');
       var answer = item.querySelector('.faq-answer');
       if (!question || !answer) return;
+      var answerId = answer.id || 'faq-answer-' + index;
+      answer.id = answerId;
+      question.setAttribute('aria-controls', answerId);
+      question.setAttribute('aria-expanded', item.classList.contains('is-open') ? 'true' : 'false');
       question.addEventListener('click', function () {
         var isOpen = item.classList.contains('is-open');
         items.forEach(function (other) {
           other.classList.remove('is-open');
+          var otherQuestion = other.querySelector('.faq-question');
+          if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
           var otherAnswer = other.querySelector('.faq-answer');
           if (otherAnswer) otherAnswer.style.maxHeight = '0px';
         });
         if (!isOpen) {
           item.classList.add('is-open');
+          question.setAttribute('aria-expanded', 'true');
           answer.style.maxHeight = answer.scrollHeight + 'px';
         }
       });
@@ -220,7 +227,9 @@
      vertical-hero's .live-widget mockup card feels alive on hover
      instead of sitting static. */
   function initLiveWidgetTilt() {
-    var widgets = Array.prototype.slice.call(document.querySelectorAll('.live-widget'));
+    var widgets = Array.prototype.slice.call(document.querySelectorAll('.live-widget')).filter(function (widget) {
+      return !widget.closest('[data-feature-demo]');
+    });
     if (!widgets.length || reduceMotion) return;
 
     widgets.forEach(function (widget) {

@@ -2372,14 +2372,6 @@
 #top .how-closing {display:none !important}
 #top .sia-wrap, #top .sia-bar, #top .sia-stage, #top .sia-caption, #top .sia-foot {display:none !important}
 
-/* Section static & no animation enforcement */
-#top #one-agent *,
-#top #one-agent *::before,
-#top #one-agent *::after {
-  animation: none !important;
-  -webkit-animation: none !important;
-}
-
 #top .sia-tabs {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

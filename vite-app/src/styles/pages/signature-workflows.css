@@ -1,0 +1,53 @@
+/* Workflows' signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): the
+   existing interactive 5-tab canvas demo already IS the signature
+   moment on this page, so this file only (a) makes the trunk feel
+   like it's actively running via a traveling pulse along each
+   connector line, and (b) replaces the generic .prem-box-row 3-card
+   default with a slim live-status readout instead of another
+   heading/paragraph/cards block. */
+
+.sig-wf-live-strip {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 14px;
+  max-width: 620px; margin: 40px auto 0; padding: 14px 22px; border-radius: 999px;
+  background: var(--dark-surface); border: 1px solid var(--dark-hairline-strong);
+}
+.sig-wf-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-on-dark); flex-shrink: 0; animation: sig-wf-pulse-dot 1.8s ease-in-out infinite; }
+.sig-wf-live-text { font-size: 13.5px; color: var(--dark-ink-muted); }
+.sig-wf-live-text strong { color: var(--dark-ink); font-weight: 650; }
+.sig-wf-live-divider { width: 1px; height: 14px; background: var(--dark-hairline-strong); flex-shrink: 0; }
+
+@keyframes sig-wf-pulse-dot { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-on-dark-tint); } 50% { opacity: .5; box-shadow: 0 0 0 4px var(--accent-on-dark-tint); } }
+
+@media (max-width: 560px) {
+  .sig-wf-live-strip { border-radius: 16px; justify-content: flex-start; }
+}
+
+/* Traveling pulse along the cart-recovery canvas connector lines --
+   a small dot runs top to bottom of each .wf-line in sequence, so the
+   whole trunk reads as one flow moving through the workflow rather
+   than four static ticks. Scoped to .wf-canvas so it only touches
+   this demo (this file only loads on workflows.html regardless). */
+.wf-canvas .wf-line { position: relative; overflow: visible; }
+.wf-canvas .wf-line::after {
+  content: ""; position: absolute; left: 50%; top: 0; width: 5px; height: 5px;
+  margin-left: -2.5px; border-radius: 50%; background: var(--accent-on-dark);
+  box-shadow: 0 0 6px 1.5px var(--accent-on-dark-tint); opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wf-canvas .wf-line::after { animation: sig-wf-travel 2.2s ease-in-out infinite; }
+  /* .wf-trunk children alternate node/line — the 4 connector lines land
+     at positions 2, 4, 6, 8, staggered so the dot reads as one signal
+     flowing down through the whole trunk. */
+  .wf-canvas .wf-trunk > .wf-line:nth-child(2) { animation-delay: 0s; }
+  .wf-canvas .wf-trunk > .wf-line:nth-child(4) { animation-delay: .45s; }
+  .wf-canvas .wf-trunk > .wf-line:nth-child(6) { animation-delay: .9s; }
+  .wf-canvas .wf-trunk > .wf-line:nth-child(8) { animation-delay: 1.35s; }
+}
+
+@keyframes sig-wf-travel {
+  0%   { top: 0;    opacity: 0; }
+  10%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}

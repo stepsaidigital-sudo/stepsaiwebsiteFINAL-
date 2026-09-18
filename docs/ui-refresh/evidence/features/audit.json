@@ -1,0 +1,246 @@
+[
+  {
+    "file": "sales-agent.html",
+    "rows": [
+      {
+        "heading": "Reads your catalogue, not a script.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Something to go with the linen shirt?",
+            "opacity": "1"
+          },
+          {
+            "text": "The tan belt and the canvas tote are popular pairings — both in stock.",
+            "opacity": "0"
+          },
+          {
+            "text": "I'll take the belt too",
+            "opacity": "0"
+          },
+          {
+            "text": "Added — bundling both saves you 10%, already applied to your cart.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": false
+      },
+      {
+        "heading": "It never promises something you don't have.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Do you have the tote in black?",
+            "opacity": "1"
+          },
+          {
+            "text": "Just sold the last one — but it's back in stock next Tuesday. Want a notify?",
+            "opacity": "1"
+          },
+          {
+            "text": "Yes please",
+            "opacity": "1"
+          },
+          {
+            "text": "You're set — I'll message you the moment it's back.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 1,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      },
+      {
+        "heading": "The conversation ends at checkout, not at \"let me check.\"",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Ok I'll take the shirt, size M",
+            "opacity": "1"
+          },
+          {
+            "text": "Reserved for 15 minutes — here's your checkout link.",
+            "opacity": "0"
+          },
+          {
+            "text": "Just paid!",
+            "opacity": "0"
+          },
+          {
+            "text": "Confirmed — order #5192. You'll get tracking details within the hour.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": false
+      }
+    ],
+    "sectionHeight": 1442
+  },
+  {
+    "file": "lead-agent.html",
+    "rows": [
+      {
+        "heading": "Who they are, what they need, how soon.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Interested in your 3BHK listing",
+            "opacity": "1"
+          },
+          {
+            "text": "Great — is this for you to live in, or an investment?",
+            "opacity": "0"
+          },
+          {
+            "text": "To live in, moving from out of state",
+            "opacity": "0"
+          },
+          {
+            "text": "Good to know. What's the best number to reach you on?",
+            "opacity": "0"
+          },
+          {
+            "text": "98123 45678",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      },
+      {
+        "heading": "Every lead arrives with the whole conversation.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Passed this along to our team, with everything attached:",
+            "opacity": "0"
+          },
+          {
+            "text": "Perfect, thanks!",
+            "opacity": "0"
+          },
+          {
+            "text": "Priya from our sales team will reach out today with your matching listings.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 1,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      },
+      {
+        "heading": "High-intent leads reach a human fast.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "We need 12 units for our team, relocating next month",
+            "opacity": "1"
+          },
+          {
+            "text": "That's a priority enquiry — flagging this for our leasing manager right now.",
+            "opacity": "0"
+          },
+          {
+            "text": "Appreciate the quick response",
+            "opacity": "0"
+          },
+          {
+            "text": "Of course — expect a call within the hour with unit options.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      }
+    ],
+    "sectionHeight": 2541
+  },
+  {
+    "file": "support-agent.html",
+    "rows": [
+      {
+        "heading": "\"Where's my order\" gets a real answer.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Any update on ticket #118?",
+            "opacity": "1"
+          },
+          {
+            "text": "Your replacement shipped this morning — arriving Thursday.",
+            "opacity": "0"
+          },
+          {
+            "text": "Perfect, thank you",
+            "opacity": "0"
+          },
+          {
+            "text": "Anytime! I'll close out the ticket once it's delivered.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      },
+      {
+        "heading": "It cannot make things up.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "Can I exchange for a different color?",
+            "opacity": "1"
+          },
+          {
+            "text": "Yes, within 14 days, same as our return window — I'll start that for you.",
+            "opacity": "1"
+          },
+          {
+            "text": "Black instead of navy, please",
+            "opacity": "0"
+          },
+          {
+            "text": "Done — exchange started for black. You'll get a prepaid return label by email.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": true
+      },
+      {
+        "heading": "When it doesn't know, it says so — and hands off cleanly.",
+        "images": 0,
+        "messages": [
+          {
+            "text": "I want to speak to someone about a refund",
+            "opacity": "1"
+          },
+          {
+            "text": "Connecting you with Priya now — she has the full order and our chat already.",
+            "opacity": "0"
+          }
+        ],
+        "typingIndicators": 0,
+        "controls": [],
+        "width": 1200,
+        "messageSequenceChangedDuringObservation": false
+      }
+    ],
+    "sectionHeight": 1532
+  }
+]

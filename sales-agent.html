@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sales Agent — StepsAI | It doesn't just chat. It sells.</title>
 <meta name="description" content="Recommends products by size, fit and budget, checks your real stock, and closes the sale inside the conversation — on WhatsApp, Instagram, and your website.">
+<link rel="icon" type="image/png" href="images/stepsai-logo-blue-transparent.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,8 +16,10 @@
 <link rel="stylesheet" href="channel-premium.css">
 <link rel="stylesheet" href="channel-premium-bold.css">
 <link rel="stylesheet" href="signature-sales.css">
+<link rel="stylesheet" href="sales-agent-polish.css">
+<link rel="stylesheet" href="feature-demos.css">
 </head>
-<body>
+<body class="sales-agent-page">
 
   <header class="nav" id="nav">
     <div class="nav-inner">
@@ -530,7 +533,7 @@
     <!-- ============================================================
          2. WHAT IT DOES
          ============================================================ -->
-    <section class="section section--raised section--atmo">
+    <section class="section section--raised section--atmo sales-feature-section">
       <div class="atmo-mesh" aria-hidden="true">
         <div class="atmo-blob atmo-blob--violet atmo-blob--tl atmo-blob--soft"></div>
         <div class="atmo-blob atmo-blob--amber atmo-blob--br atmo-blob--soft"></div>
@@ -549,14 +552,33 @@
             <p>It knows your products, prices, sizes and what pairs well together — so a "what should I get" question gets a real answer, not a deflection to your homepage.</p>
           </div>
           <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Something to go with the linen shirt?</div>
-                <div class="lw-bubble agent">The tan belt and the canvas tote are popular pairings — both in stock.</div>
-                <div class="lw-bubble user">I'll take the belt too</div>
-                <div class="lw-bubble agent">Added &mdash; bundling both saves you 10%, already applied to your cart.</div>
+            <div class="feature-demo feature-demo--recommend" data-feature-demo="recommendation">
+              <div class="feature-demo-bar">
+                <span class="feature-demo-label"><span class="feature-demo-live" aria-hidden="true"></span>Example conversation</span>
+                <span class="feature-demo-state" data-demo-status aria-live="polite">Ready to play</span>
               </div>
+              <div class="feature-demo-canvas" aria-hidden="true">
+                <div class="feature-demo-message feature-demo-message--customer" data-demo-step>A casual shirt under ₹2,000. Do you have medium?</div>
+                <div class="feature-demo-loading" data-demo-step data-demo-loading>
+                  <span class="feature-demo-loading-icon"><span></span><span></span><span></span></span>
+                  <span>Checking the catalogue</span>
+                </div>
+                <div class="feature-demo-message feature-demo-message--agent" data-demo-step>This Classic Oxford Shirt is ₹1,799. Navy in medium is available.</div>
+                <article class="feature-product-card" data-demo-step>
+                  <img src="images/product-oxford-shirts-card.webp" width="640" height="640" loading="lazy" alt="Three folded Oxford shirts in burgundy, white and navy">
+                  <div class="feature-product-copy">
+                    <div class="feature-product-top"><span>Classic Oxford Shirt</span><strong>₹1,799</strong></div>
+                    <p>Navy · Medium</p>
+                    <span class="feature-stock feature-stock--available"><span></span>In stock</span>
+                  </div>
+                </article>
+              </div>
+              <div class="feature-demo-controls">
+                <button type="button" class="feature-demo-control feature-demo-control--primary" data-demo-toggle aria-label="Play recommendation example">Play</button>
+                <button type="button" class="feature-demo-control" data-demo-replay aria-label="Replay recommendation example">Replay</button>
+                <span>Illustrative example</span>
+              </div>
+              <p class="feature-demo-transcript">Example: A shopper asks for a casual shirt under ₹2,000 in medium. The agent checks the catalogue and presents the Classic Oxford Shirt for ₹1,799, with navy in medium shown as available.</p>
             </div>
           </div>
         </div>
@@ -568,14 +590,33 @@
             <p>Connected directly to Shopify or WooCommerce, it checks live inventory before it answers a size or availability question — no overselling, no awkward follow-up email.</p>
           </div>
           <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Do you have the tote in black?</div>
-                <div class="lw-bubble agent">Just sold the last one — but it's back in stock next Tuesday. Want a notify?</div>
-                <div class="lw-bubble user">Yes please</div>
-                <div class="lw-bubble agent">You're set &mdash; I'll message you the moment it's back.</div>
+            <div class="feature-demo feature-demo--stock" data-feature-demo="inventory">
+              <div class="feature-demo-bar">
+                <span class="feature-demo-label"><span class="feature-demo-live" aria-hidden="true"></span>Example conversation</span>
+                <span class="feature-demo-state" data-demo-status aria-live="polite">Ready to play</span>
               </div>
+              <div class="feature-demo-canvas" aria-hidden="true">
+                <div class="feature-demo-message feature-demo-message--customer" data-demo-step>Is medium available in navy?</div>
+                <div class="feature-demo-loading" data-demo-step data-demo-loading>
+                  <span class="feature-demo-loading-icon"><span></span><span></span><span></span></span>
+                  <span>Checking inventory</span>
+                </div>
+                <article class="feature-inventory-card" data-demo-step>
+                  <img src="images/product-oxford-shirts-card.webp" width="640" height="640" loading="lazy" alt="Three folded Oxford shirts including a navy shirt">
+                  <div class="feature-inventory-copy">
+                    <span class="feature-inventory-caption">Live inventory example</span>
+                    <strong>Classic Oxford Shirt</strong>
+                    <div class="feature-inventory-specs"><span>Navy</span><span>Size M</span><span class="is-available">Available</span></div>
+                  </div>
+                </article>
+                <div class="feature-demo-message feature-demo-message--agent" data-demo-step>Yes—navy in medium is available. I can prepare it for checkout.</div>
+              </div>
+              <div class="feature-demo-controls">
+                <button type="button" class="feature-demo-control feature-demo-control--primary" data-demo-toggle aria-label="Play inventory example">Play</button>
+                <button type="button" class="feature-demo-control" data-demo-replay aria-label="Replay inventory example">Replay</button>
+                <span>Illustrative example</span>
+              </div>
+              <p class="feature-demo-transcript">Example: A shopper asks whether the navy Oxford shirt is available in medium. The agent checks inventory, displays the selected variant as available, and offers to prepare checkout.</p>
             </div>
           </div>
         </div>
@@ -587,14 +628,39 @@
             <p>It clears the doubt that was about to end the chat, then shares the checkout link right there — no separate cart-recovery email needed for a sale that could've closed in the moment.</p>
           </div>
           <div class="spread-visual">
-            <div class="live-widget">
-              <div class="lw-head"><span class="lw-avatar">N</span><div><div class="lw-name">Agent</div><div class="lw-status">Active</div></div></div>
-              <div class="lw-body">
-                <div class="lw-bubble user">Ok I'll take the shirt, size M</div>
-                <div class="lw-bubble agent">Reserved for 15 minutes — here's your checkout link.</div>
-                <div class="lw-bubble user">Just paid!</div>
-                <div class="lw-bubble agent">Confirmed &mdash; order #5192. You'll get tracking details within the hour.</div>
+            <div class="feature-demo feature-demo--checkout" data-feature-demo="checkout">
+              <div class="feature-demo-bar">
+                <span class="feature-demo-label"><span class="feature-demo-live" aria-hidden="true"></span>Example conversation</span>
+                <span class="feature-demo-state" data-demo-status aria-live="polite">Ready to play</span>
               </div>
+              <div class="feature-demo-canvas" aria-hidden="true">
+                <div class="feature-demo-message feature-demo-message--customer" data-demo-step>I’ll take the navy shirt in medium.</div>
+                <div class="feature-demo-loading" data-demo-step data-demo-loading>
+                  <span class="feature-demo-loading-icon"><span></span><span></span><span></span></span>
+                  <span>Preparing checkout</span>
+                </div>
+                <article class="feature-order-card" data-demo-step>
+                  <img src="images/product-oxford-shirts-card.webp" width="640" height="640" loading="lazy" alt="Three folded Oxford shirts including a navy shirt">
+                  <div class="feature-order-copy"><span>Classic Oxford Shirt</span><small>Navy · Medium · Qty 1</small></div>
+                  <strong>₹1,799</strong>
+                  <span class="feature-order-state">Ready for checkout</span>
+                </article>
+                <div class="feature-demo-message feature-demo-message--customer" data-demo-step>Payment is complete.</div>
+                <div class="feature-demo-loading" data-demo-step data-demo-loading>
+                  <span class="feature-demo-loading-icon"><span></span><span></span><span></span></span>
+                  <span>Checking payment</span>
+                </div>
+                <div class="feature-confirmation" data-demo-step>
+                  <span class="feature-confirmation-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m7 12 3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <div><strong>Payment confirmed</strong><span>Example order #5193 · ₹1,799</span></div>
+                </div>
+              </div>
+              <div class="feature-demo-controls">
+                <button type="button" class="feature-demo-control feature-demo-control--primary" data-demo-toggle aria-label="Play checkout example">Play</button>
+                <button type="button" class="feature-demo-control" data-demo-replay aria-label="Replay checkout example">Replay</button>
+                <span>Illustrative example</span>
+              </div>
+              <p class="feature-demo-transcript">Example: A shopper selects the navy Oxford shirt in medium. The agent prepares a ₹1,799 checkout summary. After the example shopper reports payment, the demonstration checks payment and displays example order 5193 as confirmed.</p>
             </div>
           </div>
         </div>
@@ -662,7 +728,7 @@
          4. TOOLS USED HERE — page-specific integration callout,
          reuses integrations.html's .integ-band/.integ-logo-row
          ============================================================ -->
-    <section class="section section--dark">
+    <section class="section section--integrations-light sales-integrations">
       <div class="container">
         <div class="integ-band">
           <div class="reveal-right">
@@ -671,9 +737,21 @@
             <p class="section-sub">It doesn't just talk about your catalogue — it checks it, live, before it recommends anything.</p>
           </div>
           <div class="integ-logos reveal-stagger">
-              <div class="integ-logo-row" style="--i:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.349 7.086c-.035-.047-.07-.082-.105-.117a.64.64 0 0 0-.258-.164L15.342.152a.774.774 0 0 0-.305-.129A1.066 1.066 0 0 0 14.628 0h-.012c-.105 0-.2.023-.293.047L8.694 1.84c-.035.012-.059.023-.082.047a.9.9 0 0 0-.305.21c-.047.059-.094.106-.117.165l-2.027 6.164a61.16 61.16 0 0 0-1.418.176c-.539.082-.926.152-1.125.21a.7.7 0 0 0-.504.657 1.83 1.83 0 0 0 .14.62c.188.458.551 1.043 1.137 1.77 1.348 1.64 3.012 3.328 4.887 5.086 2.309 2.156 4.793 4.254 7.277 6.28.188.153.422.235.656.235h.023c.27 0 .528-.117.715-.317a364.5 364.5 0 0 0 3.328-3.668c.95-1.078 1.758-2.086 2.309-2.918.574-.879.797-1.547.785-2.051v-.012a.855.855 0 0 0-.27-.61 5.92 5.92 0 0 0-.761-.597c-.668-.469-1.63-.996-2.73-1.57-1.442-.762-3.13-1.559-4.302-2.156 2.051-1.395 3.305-2.285 3.305-2.285a.732.732 0 0 0 .152-1.02Zm-11.414 1.85L9.67 3.513c-.024-.035-.047-.046-.07-.07a2.533 2.533 0 0 0-.469.153l-2.004.61-1.031 3.104a37.398 37.398 0 0 1 1.84-.374Zm8.168-1.523a1.443 1.443 0 0 0-1.066.457c-2.11 2.015-3.082 3.656-3.235 3.937a.64.64 0 0 0 .422.95 240.24 240.24 0 0 0 5.461 1.183c-1.535-1.523-2.344-3.164-2.508-4.101a1.278 1.278 0 0 0 .164 0c.281 0 .527.152.715.35.492.54 1.195 1.548 1.886 2.872a56.544 56.544 0 0 0 1.266-3.575l-3.105-2.074ZM15 1.196L18.42 6.84c-1.36-.61-3.657-1.22-6.528-1.56L15 1.195Zm-4.3 1.3a74.1 74.1 0 0 1 6.809 1.63 70.083 70.083 0 0 0-4.043-4.501c-.13-.153-.305-.153-.352-.14l-2.414.807Z"/></svg><div class="integ-logo-row-text"><div class="t1">Shopify</div><div class="t2">Live stock, orders, checkout status</div></div><span class="integ-logo-row-badge">Connect</span></div>
-              <div class="integ-logo-row" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="7" r="3"/><path d="M9.5 14.5 14.5 9.5"/></svg><div class="integ-logo-row-text"><div class="t1">HubSpot</div><div class="t2">Every qualified conversation lands with full context</div></div><span class="integ-logo-row-badge">Connect</span></div>
-              <div class="integ-logo-row" style="--i:2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z"/></svg><div class="integ-logo-row-text"><div class="t1">Salesforce</div><div class="t2">Leads and conversation history, synced both ways</div></div><span class="integ-logo-row-badge">Connect</span></div>
+              <div class="integ-logo-row" style="--i:0">
+                <span class="provider-mark provider-mark--shopify" aria-hidden="true"><img src="images/partners/shopify.svg" alt=""></span>
+                <div class="integ-logo-row-text"><div class="t1">Shopify</div><div class="t2">Live stock, orders and checkout status</div></div>
+                <span class="integ-logo-row-badge">Supported</span>
+              </div>
+              <div class="integ-logo-row" style="--i:1">
+                <span class="provider-mark provider-mark--hubspot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8.2 5.2v5.1a4.6 4.6 0 1 0 2.4-1.1V6.4l2.1-1.6a2.4 2.4 0 1 0-1.2-1.7L8.2 5.2Z" fill="currentColor"/><circle cx="8.2" cy="13.7" r="2.1" fill="#fff"/><path d="m12 12.2 3.8-3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="7.5" r="2.5" fill="currentColor"/></svg></span>
+                <div class="integ-logo-row-text"><div class="t1">HubSpot</div><div class="t2">Qualified conversations arrive with full context</div></div>
+                <span class="integ-logo-row-badge">Supported</span>
+              </div>
+              <div class="integ-logo-row" style="--i:2">
+                <span class="provider-mark provider-mark--salesforce" aria-hidden="true"><svg viewBox="0 0 28 22" fill="none"><path d="M8.2 20.1a6.1 6.1 0 0 1-1.5-12 7.4 7.4 0 0 1 13.7-1.6 5.7 5.7 0 1 1 1.4 11.2 7 7 0 0 1-5.7 2.4H8.2Z" fill="currentColor"/></svg></span>
+                <div class="integ-logo-row-text"><div class="t1">Salesforce</div><div class="t2">Leads and conversation history sync both ways</div></div>
+                <span class="integ-logo-row-badge">Supported</span>
+              </div>
           </div>
         </div>
       </div>
@@ -720,7 +798,7 @@
     <!-- ============================================================
          4. FINAL CTA
          ============================================================ -->
-    <section class="section section--dark final-cta" id="final-cta">
+    <section class="section final-cta final-cta--light" id="final-cta">
       <div class="container reveal-pop" style="text-align:center">
         <h2 class="final-cta-headline">Your next sale is one recommendation away.</h2>
         <p class="final-cta-sub">Set it up this afternoon. Stop losing sales to slow replies tonight.</p>
@@ -761,7 +839,7 @@
         <div class="footer-9-top">
           <div class="footer-9-brand-box">
             <a href="index.html#top" class="nav-logo">
-              <img src="images/logo.png" alt="StepsAI Logo" class="nav-logo-img" width="44" height="30">
+              <img src="images/stepsai-logo-blue-transparent.png" alt="StepsAI Logo" class="nav-logo-img" width="44" height="30">
               <span>StepsAI</span>
             </a>
             <p class="footer-9-tagline">The complete AI agent platform for modern businesses. Instant sales, 24/7 customer
@@ -780,7 +858,7 @@
               <p class="footer-9-nl-desc">Get monthly product drops, AI conversion playbooks, and industry benchmarks.</p>
             </div>
             <form class="footer-9-nl-form"
-              onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='<span>Subscribed!</span>'; this.querySelector('button').style.background='#10B981';">
+              onsubmit="event.preventDefault(); this.closest('.footer-9-newsletter-card').querySelector('.footer-9-nl-status').textContent='Newsletter signup is not connected yet.';">
               <div class="footer-9-input-wrap">
                 <input type="email" placeholder="Enter your work email" required class="footer-9-input"
                   aria-label="Email address">
@@ -793,7 +871,7 @@
                 </button>
               </div>
             </form>
-            <span class="footer-9-nl-note">No spam. Unsubscribe anytime in one click.</span>
+            <span class="footer-9-nl-note footer-9-nl-status" aria-live="polite">No spam. Unsubscribe anytime in one click.</span>
           </div>
         </div>
 
@@ -905,5 +983,6 @@
   <script src="breadcrumbs.js"></script>
   <script src="industries.js"></script>
   <script src="channel-premium.js"></script>
+  <script src="feature-demos.js"></script>
 </body>
 </html>

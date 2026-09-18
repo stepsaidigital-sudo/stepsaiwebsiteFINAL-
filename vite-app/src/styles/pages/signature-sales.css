@@ -1,0 +1,53 @@
+/* Sales Agent's signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): follow
+   one customer, discovery through checkout, as a single connected
+   conversation thread. Replaces the generic .prem-box-row on this page;
+   the numbered beats ARE the story, not a card grid. Modeled on
+   signature-whatsapp.css's structure. */
+.sig-sales-thread { position: relative; max-width: 640px; margin: 48px auto 0; }
+
+.sig-sales-beat { display: grid; grid-template-columns: 32px 1fr; gap: 18px; padding-bottom: 28px; }
+.sig-sales-beat:last-child { padding-bottom: 0; }
+
+.sig-sales-num {
+  position: relative; width: 32px; height: 32px; border-radius: 50%;
+  background: #fff; border: 1.5px solid var(--border-strong);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--text-secondary);
+  z-index: 1;
+}
+.sig-sales-beat:not(:last-child) .sig-sales-num::after {
+  content: ""; position: absolute; top: 32px; height: 28px; left: 50%; width: 1.5px;
+  background: var(--border-subtle); transform: translateX(-50%);
+}
+.sig-sales-beat--final .sig-sales-num { background: var(--success); border-color: var(--success); color: #fff; }
+
+.sig-sales-card {
+  padding: 16px 18px; border-radius: 14px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 32px -26px rgba(20, 30, 60, .2);
+}
+.sig-sales-card--success { background: var(--success-tint); border-color: rgba(16, 185, 129, .28); }
+
+.sig-sales-status { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+.sig-sales-status--ask       { background: var(--bg-raised); color: var(--text-secondary); }
+.sig-sales-status--check     { background: rgba(124, 58, 237, .12); color: #7C3AED; }
+.sig-sales-status--recommend { background: var(--accent-tint); color: var(--accent-deep); }
+.sig-sales-status--placed    { background: rgba(16, 185, 129, .14); color: #15803D; }
+
+.sig-sales-bubble { font-size: 13.5px; line-height: 1.55; color: #0f172a; }
+.sig-sales-bubble.in { font-weight: 550; }
+.sig-sales-bubble.out { color: var(--text-secondary); }
+
+.sig-sales-product {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--bg-raised); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px;
+}
+.sig-sales-product-name { font-size: 13px; font-weight: 650; color: #0f172a; }
+.sig-sales-product-meta { font-size: 12px; color: var(--text-tertiary); flex-shrink: 0; }
+
+.sig-sales-order { margin-top: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; color: #15803D; }
+
+@media (max-width: 560px) {
+  .sig-sales-beat { grid-template-columns: 26px 1fr; gap: 12px; }
+  .sig-sales-num { width: 26px; height: 26px; font-size: 11.5px; }
+  .sig-sales-beat:not(:last-child) .sig-sales-num::after { top: 26px; height: 28px; }
+}

@@ -157,7 +157,9 @@
 (function () {
   'use strict';
 
-  var bodies = Array.prototype.slice.call(document.querySelectorAll('.wa-real-body, .ig-real-body, .lw-body'));
+  var bodies = Array.prototype.slice.call(document.querySelectorAll('.wa-real-body, .ig-real-body, .lw-body')).filter(function (body) {
+    return !body.closest('[data-feature-demo]');
+  });
   if (!bodies.length) return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
