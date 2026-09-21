@@ -394,7 +394,7 @@ export function Pricing() {
 
             <div className="faq-grid" id="pricingFaqGrid">
               {PRICING_FAQS.map((item, i) => (
-                <FaqItem key={item.q} question={item.q} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} chevronClassName="faq-chevron">
+                <FaqItem key={item.q} question={item.q} isOpen={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} chevronClassName="faq-chevron" variant="caret">
                   <p>{item.a}</p>
                 </FaqItem>
               ))}

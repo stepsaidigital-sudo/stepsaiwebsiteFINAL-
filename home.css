@@ -5716,3 +5716,849 @@
   }
 }
 
+
+
+/* =========================================================
+   USE CASES / ONE AGENT SHOWCASE - PIXEL-TO-PIXEL REPLICA
+   ========================================================= */
+
+#top #one-agent.uc-section {
+  position: relative;
+  background-color: #f8fbff;
+  background-image: 
+    radial-gradient(circle at 12% 16%, rgba(200, 226, 255, 0.75) 0%, rgba(240, 246, 255, 0.25) 50%, transparent 70%),
+    radial-gradient(circle at 92% 84%, rgba(254, 226, 226, 0.55) 0%, rgba(255, 241, 242, 0.2) 50%, transparent 70%);
+  padding: clamp(64px, 7vw, 92px) 0 clamp(72px, 8vw, 104px);
+  border-block: 1px solid rgba(226, 232, 240, 0.6);
+  overflow: hidden;
+}
+
+#top #one-agent .uc-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* --------------------------------------------------
+   CELL 1: INTRO / HERO BLOCK (Canvas / No background)
+   -------------------------------------------------- */
+#top #one-agent .uc-hero {
+  padding: 6px 12px 10px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#top #one-agent .uc-kicker {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+#top #one-agent .uc-hero-title {
+  margin: 0 0 16px;
+  color: #0f172a;
+  font-size: clamp(34px, 3.1vw, 42px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+#top #one-agent .uc-hero-accent {
+  color: #0062ff;
+  display: inline;
+}
+
+#top #one-agent .uc-hero-desc {
+  margin: 0 0 24px;
+  color: #475569;
+  font-size: 14.5px;
+  line-height: 1.58;
+  max-width: 325px;
+}
+
+#top #one-agent .uc-hero-actions {
+  margin-bottom: 28px;
+}
+
+#top #one-agent .uc-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #0062ff;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 98, 255, 0.35);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#top #one-agent .uc-btn-primary:hover {
+  background: #0052d9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 98, 255, 0.42);
+}
+
+#top #one-agent .uc-arrow {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+#top #one-agent .uc-btn-primary:hover .uc-arrow {
+  transform: translateX(3px);
+}
+
+#top #one-agent .uc-trust-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+#top #one-agent .uc-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+}
+
+#top #one-agent .uc-check-icon {
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------
+   CARDS COMMON (Cells 2 to 6)
+   -------------------------------------------------- */
+#top #one-agent .uc-card {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 24px;
+  padding: 26px 24px 22px;
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#top #one-agent .uc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08);
+}
+
+/* Card Header */
+#top #one-agent .uc-card-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#top #one-agent .uc-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#top #one-agent .uc-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+#top #one-agent .uc-icon--blue {
+  background: #eff6ff;
+  color: #0062ff;
+}
+
+#top #one-agent .uc-icon--green {
+  background: #ecfdf5;
+  color: #10b981;
+}
+
+#top #one-agent .uc-icon--purple {
+  background: #f5f3ff;
+  color: #8b5cf6;
+}
+
+#top #one-agent .uc-icon--orange {
+  background: #fff7ed;
+  color: #f97316;
+}
+
+#top #one-agent .uc-icon--pink {
+  background: #fff1f2;
+  color: #f43f5e;
+}
+
+#top #one-agent .uc-pill-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#top #one-agent .uc-pill--blue {
+  background: #eff6ff;
+  color: #0062ff;
+}
+
+#top #one-agent .uc-pill--green {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+#top #one-agent .uc-pill--purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+#top #one-agent .uc-pill--orange {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+#top #one-agent .uc-pill--pink {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+#top #one-agent .uc-card-title {
+  margin: 0 0 4px;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#top #one-agent .uc-card-desc {
+  margin: 0 0 16px;
+  color: #64748b;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* Mockup Windows */
+#top #one-agent .uc-preview-box {
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 16px;
+  padding: 14px;
+}
+
+#top #one-agent .uc-preview-box--crm,
+#top #one-agent .uc-preview-box--booking,
+#top #one-agent .uc-preview-box--marketing {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+}
+
+/* Chat rows in Sales / Support */
+#top #one-agent .uc-chat-row {
+  margin-bottom: 10px;
+}
+
+#top #one-agent .uc-chat-row--user {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#top #one-agent .uc-chat-bubble--user {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px 12px 3px 12px;
+  padding: 7px 11px;
+  font-size: 12px;
+  color: #1e293b;
+  max-width: 84%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+#top #one-agent .uc-chat-row--agent {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+#top #one-agent .uc-bot-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #0062ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+#top #one-agent .uc-bot-avatar svg {
+  width: 14px;
+  height: 14px;
+}
+
+#top #one-agent .uc-chat-bubble--agent {
+  background: #f1f5f9;
+  border-radius: 3px 12px 12px 12px;
+  padding: 7px 11px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #1e293b;
+}
+
+/* Product Card in Sales */
+#top #one-agent .uc-product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+#top #one-agent .uc-product-img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  border: 1px solid #f1f5f9;
+}
+
+#top #one-agent .uc-product-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#top #one-agent .uc-product-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#top #one-agent .uc-product-cat {
+  font-size: 10.5px;
+  color: #64748b;
+  margin: 1px 0 3px;
+}
+
+#top #one-agent .uc-product-bottom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#top #one-agent .uc-product-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-stock-badge {
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+#top #one-agent .uc-action-btn {
+  margin-left: auto;
+  border: 0;
+  border-radius: 6px;
+  padding: 6px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+#top #one-agent .uc-action-btn--blue {
+  background: #0062ff;
+  color: #ffffff;
+}
+
+#top #one-agent .uc-action-btn--blue:hover {
+  opacity: 0.9;
+}
+
+/* Order Widget in Support */
+#top #one-agent .uc-order-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+#top #one-agent .uc-order-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+#top #one-agent .uc-truck-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #0062ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+#top #one-agent .uc-truck-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+#top #one-agent .uc-order-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+#top #one-agent .uc-order-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-order-dest {
+  font-size: 10.5px;
+  color: #64748b;
+}
+
+#top #one-agent .uc-stepper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+#top #one-agent .uc-step-line-bg {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+#top #one-agent .uc-step-line-active {
+  width: 33.3%;
+  height: 100%;
+  background: #0062ff;
+}
+
+#top #one-agent .uc-step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 25%;
+}
+
+#top #one-agent .uc-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  margin-bottom: 5px;
+  transition: transform 0.2s;
+}
+
+#top #one-agent .uc-step.is-complete .uc-step-dot {
+  background: #0062ff;
+}
+
+#top #one-agent .uc-step.is-active .uc-step-dot {
+  background: #0062ff;
+  box-shadow: 0 0 0 3px rgba(0, 98, 255, 0.2);
+  transform: scale(1.15);
+}
+
+#top #one-agent .uc-step-label {
+  font-size: 9px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+#top #one-agent .uc-step.is-complete .uc-step-label {
+  color: #475569;
+}
+
+#top #one-agent .uc-step.is-active .uc-step-label {
+  color: #0062ff;
+  font-weight: 700;
+}
+
+/* Lead Capture Card */
+#top #one-agent .uc-lead-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#top #one-agent .uc-lead-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-status-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#top #one-agent .uc-status-tag--green {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+#top #one-agent .uc-lead-table {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+#top #one-agent .uc-lead-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+#top #one-agent .uc-lead-label {
+  font-size: 11px;
+  color: #64748b;
+}
+
+#top #one-agent .uc-lead-val {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-conv-btn {
+  width: 100%;
+  border: 1px solid #dbeafe;
+  border-radius: 7px;
+  background: #eff6ff;
+  color: #0062ff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#top #one-agent .uc-conv-btn:hover {
+  background: #e0edfe;
+}
+
+#top #one-agent .uc-conv-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Booking Card */
+#top #one-agent .uc-doctor-card {
+  background: #f0f7ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+#top #one-agent .uc-cal-icon {
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 6px;
+  color: #0062ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+#top #one-agent .uc-cal-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+#top #one-agent .uc-doctor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+#top #one-agent .uc-doctor-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-doctor-sub {
+  font-size: 10.5px;
+  color: #64748b;
+}
+
+#top #one-agent .uc-slots-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+#top #one-agent .uc-slot-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+#top #one-agent .uc-slot-btn:hover {
+  border-color: #0062ff;
+  color: #0062ff;
+}
+
+#top #one-agent .uc-slot-btn--active {
+  background: #0062ff !important;
+  border-color: #0062ff !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 98, 255, 0.25);
+}
+
+#top #one-agent .uc-confirm-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 7px;
+  background: #0062ff;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 98, 255, 0.25);
+  transition: background-color 0.15s ease;
+}
+
+#top #one-agent .uc-confirm-btn:hover {
+  background: #0050d8;
+}
+
+/* Marketing Card */
+#top #one-agent .uc-wa-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#top #one-agent .uc-wa-svg {
+  width: 15px;
+  height: 15px;
+  color: #25D366;
+}
+
+#top #one-agent .uc-promo-card {
+  background: #fafafa;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+
+#top #one-agent .uc-promo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#top #one-agent .uc-promo-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#top #one-agent .uc-promo-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#top #one-agent .uc-promo-desc {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#top #one-agent .uc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+#top #one-agent .uc-stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#top #one-agent .uc-stat-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#top #one-agent .uc-stat-label {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+/* Card Explore Links (Bottom) */
+#top #one-agent .uc-card-footer {
+  margin-top: 18px;
+}
+
+#top #one-agent .uc-explore-link {
+  color: #0062ff;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+#top #one-agent .uc-explore-link:hover {
+  color: #004ecc;
+}
+
+#top #one-agent .uc-explore-link:hover .uc-link-arrow {
+  transform: translate(2px, -2px);
+}
+
+#top #one-agent .uc-link-arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------- */
+@media (max-width: 1060px) {
+  #top #one-agent .uc-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  #top #one-agent .uc-hero {
+    grid-column: span 2;
+    padding-bottom: 20px;
+  }
+  #top #one-agent .uc-hero-desc {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 640px) {
+  #top #one-agent.uc-section {
+    padding: 52px 0 64px;
+  }
+  #top #one-agent .uc-container {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 16px;
+  }
+  #top #one-agent .uc-hero {
+    grid-column: span 1;
+    padding: 0 4px 16px;
+  }
+  #top #one-agent .uc-hero-title {
+    font-size: 32px;
+  }
+  #top #one-agent .uc-card {
+    padding: 22px 18px 18px;
+    border-radius: 20px;
+  }
+}

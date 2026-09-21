@@ -1,0 +1,42 @@
+/* Integrations' signature moment (SUBPAGE_DESIGN_SYSTEM.md §16): one
+   "Connect" action, then real integrations light up in sequence, each
+   with its own real outcome label. Replaces the generic .prem-box-row
+   on this page. */
+.sig-integ-demo { max-width: 560px; margin: 48px auto 0; }
+
+.sig-integ-trigger { display: flex; justify-content: center; margin-bottom: 28px; }
+.sig-integ-toggle {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px 10px 10px;
+  border-radius: 999px; background: #fff; border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 28px -20px rgba(20, 30, 60, .3); font-size: 14px; font-weight: 600; color: #0f172a;
+}
+.sig-integ-toggle-track { width: 34px; height: 20px; border-radius: 999px; background: var(--accent); position: relative; flex-shrink: 0; }
+.sig-integ-toggle-thumb { position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+
+.sig-integ-list { display: flex; flex-direction: column; gap: 10px; }
+.sig-integ-row {
+  display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--border-subtle); box-shadow: 0 14px 28px -24px rgba(20, 30, 60, .22);
+}
+.sig-integ-row-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; box-shadow: 0 0 0 3px var(--success-tint); }
+.sig-integ-row-name { font-weight: 650; color: #0f172a; font-size: 14px; min-width: 130px; }
+.sig-integ-row-outcome { color: var(--text-tertiary); font-size: 13px; margin-left: auto; text-align: right; }
+
+@media (max-width: 640px) {
+  .sig-integ-row { flex-wrap: wrap; }
+  .sig-integ-row-outcome { margin-left: 20px; text-align: left; }
+}
+
+/* Lit-up pulse per row, staggered by the same --i used for the entrance
+   stagger -- reads as each integration activating in turn after Connect. */
+@media (prefers-reduced-motion: no-preference) {
+  .sig-integ-list.is-visible .sig-integ-row-dot {
+    animation: sig-integ-light 900ms var(--ease-ui) both;
+    animation-delay: calc(var(--i, 0) * 140ms + 300ms);
+  }
+}
+@keyframes sig-integ-light {
+  0%   { background: var(--border-strong); box-shadow: 0 0 0 3px transparent; }
+  55%  { background: var(--success); box-shadow: 0 0 0 5px var(--success-tint); }
+  100% { background: var(--success); box-shadow: 0 0 0 3px var(--success-tint); }
+}

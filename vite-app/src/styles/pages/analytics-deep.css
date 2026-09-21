@@ -1,0 +1,148 @@
+/* ============================================================
+   ANALYTICS-DEEP.CSS — components for analytics.html: the
+   per-agent performance table and proof card below (styles.css
+   tokens for type/ink/surfaces), plus the PDASH dark-dashboard
+   replica further down this file (its own self-contained tokens,
+   reused on index.html's analytics teaser too).
+   ============================================================ */
+
+/* ---- Performance-table agent filter ---- */
+.an-perf-filter { display: flex; align-items: center; gap: 8px; margin-top: 20px; }
+.an-filter-label { font-family: var(--font-mono); font-size: 10.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); }
+.an-filter-select {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--text-secondary);
+  background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="%2364748B" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 11px center;
+  border: 1px solid var(--border-subtle); border-radius: 8px; padding: 7px 30px 7px 13px; appearance: none; cursor: pointer;
+}
+
+/* ---- Performance table ---- */
+.an-perf-table-wrap { overflow-x: auto; margin-top: 22px; }
+.an-perf-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14px; }
+.an-perf-table th { text-align: left; font-family: var(--font-mono); font-size: 10.5px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); padding: 0 14px 12px 0; border-bottom: 1px solid var(--border-strong); }
+.an-perf-table td { padding: 16px 14px 16px 0; border-bottom: 1px solid var(--border-subtle); vertical-align: top; font-variant-numeric: tabular-nums; transition: opacity 200ms ease; }
+.an-perf-agent-name { font-weight: 650; color: var(--text-primary); }
+.an-perf-agent-outcome { display: block; font-size: 12px; color: var(--accent); font-weight: 550; margin-top: 2px; }
+.an-perf-table tr.is-dimmed td { opacity: .3; }
+.an-perf-table td.is-empty { color: var(--text-faint); }
+
+/* ---- Proof ---- */
+.an-proof-card { background: var(--bg-raised); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 34px 32px; margin-top: 8px; max-width: 680px; }
+.an-proof-quote { font-size: 18px; line-height: 1.55; color: var(--text-primary); letter-spacing: -.005em; }
+.an-proof-byline { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.an-proof-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 650; font-size: 13px; flex-shrink: 0; }
+.an-proof-name { font-size: 13.5px; font-weight: 650; color: var(--text-primary); }
+.an-proof-role { font-size: 12.5px; color: var(--text-tertiary); }
+
+/* ============================================================
+   PDASH — pixel-matched replica of the real StepsAI in-app
+   Analytics dashboard (dark theme), built from real screenshots
+   captured Aug 25–31, 2026. Self-contained dark tokens (this is
+   the one dark surface on an otherwise light-editorial site) —
+   nothing here reads from styles.css's light palette on purpose.
+   Used on analytics.html (full, with working Performance/Geography
+   tabs) and reused smaller on index.html's analytics teaser.
+   ============================================================ */
+.pdash {
+  --pd-bg: #0a0c11; --pd-card: #14161d; --pd-card-alt: #16181f; --pd-border: #23262f;
+  --pd-text: #f5f6f8; --pd-sub: #9195a1; --pd-faint: #565a66;
+  --pd-purple: #6c6af2; --pd-purple-tint: rgba(108,106,242,.16);
+  --pd-orange: #f5a524; --pd-orange-tint: rgba(245,165,36,.14);
+  --pd-green: #22c55e;
+  --pd-grid: #1f222a;
+  --pd-heat-0: #12141c; --pd-heat-1: #1d2c4a; --pd-heat-2: #2c4270; --pd-heat-3: #4166a8; --pd-heat-4: #6c9ce8;
+  --pd-map-ocean: #05060a; --pd-map-1: #2a2f3d; --pd-map-2: #363c4f; --pd-map-3: #454d66; --pd-map-hi: #ffffff;
+  background: var(--pd-bg); border: 1px solid var(--pd-border); border-radius: 18px;
+  padding: 22px; color: var(--pd-text); font-family: var(--font-sans);
+}
+.pdash-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+.pdash-title { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.pdash-sub { font-size: 13.5px; color: var(--pd-sub); margin-top: 3px; }
+.pdash-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.pdash-tabs { display: flex; background: var(--pd-card); border: 1px solid var(--pd-border); border-radius: 10px; padding: 3px; gap: 2px; }
+.pdash-tab { display: flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--pd-sub); background: transparent; border: none; border-radius: 8px; padding: 7px 13px; cursor: pointer; transition: background 150ms ease, color 150ms ease; }
+.pdash-tab svg { width: 14px; height: 14px; flex-shrink: 0; }
+.pdash-tab.is-active { background: #262a35; color: var(--pd-text); }
+.pdash-range { font-size: 13px; font-weight: 600; color: var(--pd-sub); background: var(--pd-card); border: 1px solid var(--pd-border); border-radius: 10px; padding: 9px 14px; white-space: nowrap; }
+
+.pdash-panel { display: none; }
+.pdash-panel.is-active { display: block; }
+
+/* KPI cards */
+.pdash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+@media (max-width: 700px) { .pdash-kpis { grid-template-columns: 1fr; } }
+.pdash-kpi { background: var(--pd-card); border: 1px solid var(--pd-border); border-radius: 14px; padding: 18px 20px; }
+.pdash-kpi-label { font-size: 13px; color: var(--pd-sub); }
+.pdash-kpi-value { font-family: var(--font-mono); font-size: 34px; font-weight: 600; margin: 10px 0 14px; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.pdash-kpi-note { font-size: 12px; color: var(--pd-faint); }
+
+/* Two-col row: chart + donut */
+.pdash-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; margin-bottom: 14px; align-items: stretch; }
+@media (max-width: 860px) { .pdash-row { grid-template-columns: 1fr; } }
+.pdash-card { background: var(--pd-card); border: 1px solid var(--pd-border); border-radius: 14px; padding: 18px 20px 16px; }
+.pdash-card-title { font-size: 14.5px; font-weight: 650; }
+.pdash-card-sub { font-size: 12px; color: var(--pd-sub); margin-top: 2px; }
+
+.pdash-chart-svg { width: 100%; height: 220px; display: block; overflow: visible; margin-top: 10px; }
+.pdash-grid-line { stroke: var(--pd-grid); stroke-width: 1; }
+.pdash-axis-label { font-family: var(--font-mono); font-size: 10px; fill: var(--pd-faint); }
+.pdash-area { opacity: .9; }
+.pdash-area-orange { fill: var(--pd-orange-tint); }
+.pdash-area-purple { fill: var(--pd-purple-tint); }
+.pdash-line { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pdash-line-orange { stroke: var(--pd-orange); }
+.pdash-line-purple { stroke: var(--pd-purple); }
+@media (prefers-reduced-motion: reduce) { .pdash-line { transition: none !important; } }
+.pdash-chart-legend { display: flex; gap: 18px; margin-top: 8px; }
+.pdash-chart-legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+.pdash-chart-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.pdash-donut-wrap { position: relative; display: flex; align-items: center; justify-content: center; margin-top: 6px; height: 138px; }
+.pdash-donut-tip { position: absolute; background: #05060a; color: #fff; font-size: 12px; font-weight: 600; padding: 7px 12px; border-radius: 8px; white-space: nowrap; box-shadow: 0 8px 20px -8px rgba(0,0,0,.6); }
+.pdash-donut-legend { margin-top: 14px; }
+.pdash-donut-legend-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 5px 0; }
+.pdash-donut-legend-row .name { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.pdash-donut-legend-row .name i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.pdash-donut-legend-row .val { font-family: var(--font-mono); color: var(--pd-sub); font-variant-numeric: tabular-nums; }
+.pdash-donut-legend-row .val b { color: var(--pd-text); font-weight: 600; margin-right: 6px; }
+
+/* Heatmap */
+.pdash-heatmap-grid { display: grid; grid-template-columns: 76px repeat(24, 1fr); gap: 3px; margin-top: 14px; min-width: 760px; }
+.pdash-heatmap-day { font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; color: var(--pd-sub); display: flex; align-items: center; text-transform: uppercase; }
+.pdash-heatmap-cell { aspect-ratio: 1.15; border-radius: 3px; background: var(--pd-heat-0); }
+.pdash-heatmap-hours { display: grid; grid-template-columns: 76px repeat(24, 1fr); gap: 3px; margin-top: 6px; }
+.pdash-heatmap-hour { font-family: var(--font-mono); font-size: 9px; color: var(--pd-faint); text-align: center; }
+.pdash-heatmap-scroll { overflow-x: auto; }
+
+/* Geography */
+.pdash-map-card { background: var(--pd-card); border: 1px solid var(--pd-border); border-radius: 14px; padding: 18px 20px 14px; margin-bottom: 14px; }
+.pdash-map-frame { position: relative; margin-top: 12px; border-radius: 10px; overflow: hidden; background: var(--pd-map-ocean); }
+.pdash-map-svg { display: block; width: 100%; height: auto; }
+.pdash-map-svg .landxx { fill: var(--pd-map-1); stroke: var(--pd-map-ocean); stroke-width: 1; }
+.pdash-map-svg .oceanxx { fill: var(--pd-map-ocean); stroke: none; }
+.pdash-map-svg .circlexx, .pdash-map-svg .subxx, .pdash-map-svg .noxx, .pdash-map-svg .unxx, .pdash-map-svg .antxx { opacity: 0; }
+.pdash-map-svg .limitxx { fill: var(--pd-map-1); }
+.pdash-map-svg .in { fill: var(--pd-map-hi) !important; }
+.pdash-map-svg .us, .pdash-map-svg .ca, .pdash-map-svg .ru, .pdash-map-svg .cn, .pdash-map-svg .au,
+.pdash-map-svg .br, .pdash-map-svg .gb, .pdash-map-svg .fr, .pdash-map-svg .de, .pdash-map-svg .es,
+.pdash-map-svg .se, .pdash-map-svg .no, .pdash-map-svg .fi, .pdash-map-svg .pl, .pdash-map-svg .ua,
+.pdash-map-svg .kz, .pdash-map-svg .mn, .pdash-map-svg .ar, .pdash-map-svg .cd, .pdash-map-svg .dz,
+.pdash-map-svg .ly, .pdash-map-svg .sa, .pdash-map-svg .id, .pdash-map-svg .gl { fill: var(--pd-map-3); }
+.pdash-map-svg .mx, .pdash-map-svg .pe, .pdash-map-svg .co, .pdash-map-svg .bo, .pdash-map-svg .cl,
+.pdash-map-svg .eg, .pdash-map-svg .ng, .pdash-map-svg .za, .pdash-map-svg .et, .pdash-map-svg .ke,
+.pdash-map-svg .tz, .pdash-map-svg .ir, .pdash-map-svg .tr, .pdash-map-svg .pk, .pdash-map-svg .my,
+.pdash-map-svg .th, .pdash-map-svg .jp, .pdash-map-svg .kr, .pdash-map-svg .it, .pdash-map-svg .gr,
+.pdash-map-svg .ro, .pdash-map-svg .eg { fill: var(--pd-map-2); }
+.pdash-map-hint { position: absolute; right: 14px; bottom: 12px; font-size: 11.5px; color: rgba(245,246,248,.55); }
+.pdash-geo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 700px) { .pdash-geo-row { grid-template-columns: 1fr; } }
+.pdash-list-row { display: grid; grid-template-columns: minmax(64px, auto) 1fr 30px; align-items: center; gap: 12px; padding: 10px 0; }
+.pdash-list-row .lname { font-size: 13.5px; font-weight: 650; white-space: nowrap; }
+.pdash-list-track { height: 6px; border-radius: 4px; background: #1c1e26; overflow: hidden; }
+.pdash-list-fill { height: 100%; border-radius: 4px; background: var(--pd-purple); }
+.pdash-list-val { font-family: var(--font-mono); font-size: 13px; color: var(--pd-sub); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Homepage teaser variant — condensed, no tabs/map, dark card sits on the light page */
+.pdash-mini { max-width: 560px; }
+.pdash-mini .pdash-kpi-value { font-size: 26px; margin: 8px 0 4px; }
+.pdash-mini .pdash-kpi-note { display: none; }
+.pdash-mini .pdash-row { grid-template-columns: 1fr; }

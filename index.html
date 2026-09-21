@@ -43,10 +43,10 @@
   <link rel="stylesheet" href="workflows-premium.css?v=3">
   <link rel="stylesheet" href="benefits.css?v=1">
   <link rel="stylesheet" href="home-mobile.css?v=1">
-  <link rel="stylesheet" href="one-agent-showcase.css?v=1">
+  <link rel="stylesheet" href="one-agent-showcase.css?v=2">
   <script src="home-mobile.js?v=1" defer></script>
   <script src="storefront-demo.js?v=1" defer></script>
-  <script src="one-agent-showcase.js?v=1" defer></script>
+  <script src="one-agent-showcase.js?v=2" defer></script>
   <link rel="stylesheet" href="storefront-demo.css?v=1">
   <style id="homepage-layout-qa">
     /* Homepage-only design QA: preserve the approved visual language while
@@ -1869,25 +1869,25 @@
         <svg class="hero-sparkle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
         </svg>
-        AI AGENT FOR SALES AND SUPPORT
+        AI agent for sales and support
       </span>
     </div>
 
     <!-- Centered Headline (Exact copy and tag preserved) -->
     <h1 class="hero-title hero-title--centered">
-      <span class="hero-title-line">Turn more visitors and messages</span>
-      <span class="hero-title-line">into <span class="grad-text">sales, leads, and bookings.</span></span>
+      <span class="hero-title-line">Your whole front desk,</span>
+      <span class="hero-title-line">live in about <span class="grad-text">5 minutes.</span></span>
     </h1>
 
     <!-- Centered Subtitle (Exact copy preserved) -->
     <p class="sub hero-sub--centered">
-      Steps AI answers customer questions on your website, WhatsApp, Instagram and Messenger. Your agent connects to your store, your calendar and your CRM, so every answer comes from your real records instead of a guess. Live in about five minutes.
+      Steps AI learns your business and talks to customers like someone on your team. It answers questions, checks orders, recommends products, captures leads, and books meetings.
     </p>
 
     <!-- Centered CTA Buttons -->
     <div class="hero-btns hero-btns--centered">
       <a href="pricing.html" class="btn btn-hero-primary">
-        <span>Get started for free</span>
+        <span>Start for free</span>
         <span class="arrow">→</span>
       </a>
       <a href="contact.html" class="btn btn-hero-secondary">
@@ -1897,7 +1897,7 @@
             <path d="M16 3v4M8 3v4M3 10h18"/>
           </svg>
         </span>
-        <span>Book a Demo</span>
+        <span>Book a demo</span>
       </a>
     </div>
 
@@ -2525,64 +2525,339 @@
 </section>
 
 <!-- ================= 3. ONE AGENT SHOWCASE ================= -->
-<section class="how oa-section" id="one-agent">
-  <div class="container oa-container">
-    <header class="oa-heading reveal">
-      <h2 class="sec-title">Your whole front desk, run by <span>one AI agent.</span></h2>
-      <p class="sec-sub">One conversation can become a sale, a resolved question, a qualified lead, or a confirmed booking.</p>
-    </header>
+<section class="how oa-section uc-section" id="one-agent">
+  <div class="uc-container">
 
-    <div class="oa-showcase reveal" data-scenario="sales">
-      <div class="oa-tabbar" role="tablist" aria-label="See what the StepsAI agent can do">
-        <button class="oa-tab is-active" id="oa-tab-sales" type="button" role="tab" aria-selected="true" aria-controls="oa-stage" tabindex="0" data-oa-scenario="sales">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 10h-13zM8 7V5.5A3.5 3.5 0 0 1 11.5 2h1A3.5 3.5 0 0 1 16 5.5V7M9 11h6"/></svg>
-          <span>Sales</span>
-        </button>
-        <button class="oa-tab" id="oa-tab-support" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="support">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1ZM20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1ZM17 15v1a4 4 0 0 1-4 4h-2"/></svg>
-          <span>Support</span>
-        </button>
-        <button class="oa-tab" id="oa-tab-leads" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="leads">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19a6 6 0 0 0-12 0M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM16 8h5M18.5 5.5v5"/></svg>
-          <span>Lead capture</span>
-        </button>
-        <button class="oa-tab" id="oa-tab-booking" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="booking">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2ZM7 2v4M17 2v4M3 9h18M8 14l2.5 2.5L16 12"/></svg>
-          <span>Booking</span>
-        </button>
-        <button class="oa-tab" id="oa-tab-marketing" type="button" role="tab" aria-selected="false" aria-controls="oa-stage" tabindex="-1" data-oa-scenario="marketing">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 13 2.5 6h3L8 13M4 8v5h4l9 4V4L8 8H4ZM20 8.5a4 4 0 0 1 0 4"/></svg>
-          <span>Marketing</span>
-        </button>
+    <!-- Cell 1: Intro / Hero Column -->
+    <div class="uc-hero">
+      <div class="uc-kicker">USE CASES</div>
+      <h2 class="uc-hero-title">
+        One agent.<br>
+        Every job<br>
+        <span class="uc-hero-accent">your front desk<br>does.</span>
+      </h2>
+      <p class="uc-hero-desc">
+        From sales to support, lead capture to bookings and marketing — StepsAI handles it all, in a single conversation.
+      </p>
+      <div class="uc-hero-actions">
+        <a href="#demo" class="uc-btn-primary">
+          See it in action <span class="uc-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
-
-      <div class="oa-stage" id="oa-stage" role="tabpanel" aria-labelledby="oa-tab-sales" tabindex="0">
-        <div class="oa-stagebar">
-          <div class="oa-agent-state"><span class="oa-agent-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 7.5c5 0 5 9 0 9-2.7 0-4.4-2.8-5.5-4.5-1.1-1.7-2.8-4.5-5.5-4.5-5 0-5 9 0 9 2.7 0 4.4-2.8 5.5-4.5 1.1-1.7 2.8-4.5 5.5-4.5Z"/></svg></span><span><strong>StepsAI agent</strong><small><i></i> Working live</small></span></div>
-          <button class="oa-replay" type="button" data-oa-replay aria-label="Replay this example">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M5.5 15a7 7 0 1 0 1-8L4 10"/></svg>
-            Replay
-          </button>
-        </div>
-
-        <div class="oa-demo-grid">
-          <div class="oa-conversation">
-            <div class="oa-pane-label"><span>Customer conversation</span><span data-oa-channel>Website</span></div>
-            <div class="oa-messages" data-oa-messages aria-live="polite"></div>
-          </div>
-          <div class="oa-action">
-            <div class="oa-pane-label"><span>Action taken</span><span data-oa-status>Ready</span></div>
-            <div class="oa-result" data-oa-result aria-live="polite"></div>
-          </div>
-        </div>
-
-        <footer class="oa-outcome">
-          <span class="oa-outcome-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></svg></span>
-          <p><strong data-oa-outcome>A product question becomes a ready cart.</strong><span data-oa-detail>The customer gets an answer and the next step in the same conversation.</span></p>
-          <a href="sales-agent.html" data-oa-link>Explore Sales Agent <span aria-hidden="true">→</span></a>
-        </footer>
-      </div>
+      <ul class="uc-trust-list" aria-label="Key guarantees">
+        <li class="uc-trust-item">
+          <svg class="uc-check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>No credit card required</span>
+        </li>
+        <li class="uc-trust-item">
+          <svg class="uc-check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Setup in minutes</span>
+        </li>
+        <li class="uc-trust-item">
+          <svg class="uc-check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm3.707-9.293a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Works across all channels</span>
+        </li>
+      </ul>
     </div>
+
+    <!-- Cell 2: Sales Card -->
+    <article class="uc-card uc-card--sales">
+      <div class="uc-card-header">
+        <div class="uc-card-header-top">
+          <div class="uc-card-icon uc-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <span class="uc-pill-badge uc-pill--blue">More sales ↗</span>
+        </div>
+        <h3 class="uc-card-title">Sales</h3>
+        <p class="uc-card-desc">Recommend the right product, answer buying questions, and move shoppers to checkout.</p>
+      </div>
+
+      <!-- Preview inside Sales -->
+      <div class="uc-preview-box">
+        <!-- User Chat Bubble -->
+        <div class="uc-chat-row uc-chat-row--user">
+          <div class="uc-chat-bubble uc-chat-bubble--user">
+            Do you have this shirt in M size?
+          </div>
+        </div>
+
+        <!-- Agent Response -->
+        <div class="uc-chat-row uc-chat-row--agent">
+          <div class="uc-bot-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.38-1 1.72V7h2a5 5 0 0 1 5 5v1h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v1a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-1H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-1a5 5 0 0 1 5-5h2V5.72A2 2 0 0 1 12 2Z"/></svg>
+          </div>
+          <div class="uc-chat-bubble uc-chat-bubble--agent">
+            Yes! It's in stock. Would you like to add it to your cart?
+          </div>
+        </div>
+
+        <!-- Product Card Snippet -->
+        <div class="uc-product-card">
+          <img src="images/product-oxford-shirt-blue.jpg" alt="Oxford shirt" class="uc-product-img" width="52" height="52" loading="lazy">
+          <div class="uc-product-info">
+            <strong class="uc-product-name">Oxford shirt</strong>
+            <span class="uc-product-cat">Your catalogue · In stock</span>
+            <div class="uc-product-bottom">
+              <span class="uc-product-price">₹2,499</span>
+              <span class="uc-stock-badge">In stock</span>
+            </div>
+          </div>
+          <button type="button" class="uc-action-btn uc-action-btn--blue">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="uc-card-footer">
+        <a href="sales-agent.html" class="uc-explore-link">Explore AI Sales Agent <span class="uc-link-arrow">↗</span></a>
+      </div>
+    </article>
+
+    <!-- Cell 3: Support Card -->
+    <article class="uc-card uc-card--support">
+      <div class="uc-card-header">
+        <div class="uc-card-header-top">
+          <div class="uc-card-icon uc-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+            </svg>
+          </div>
+          <span class="uc-pill-badge uc-pill--green">Happier customers ↗</span>
+        </div>
+        <h3 class="uc-card-title">Support</h3>
+        <p class="uc-card-desc">Check real orders, answer routine questions and bring in your team when needed.</p>
+      </div>
+
+      <!-- Preview inside Support -->
+      <div class="uc-preview-box">
+        <!-- User Chat Bubble -->
+        <div class="uc-chat-row uc-chat-row--user">
+          <div class="uc-chat-bubble uc-chat-bubble--user">
+            Where is my order #8472?
+          </div>
+        </div>
+
+        <!-- Agent Response -->
+        <div class="uc-chat-row uc-chat-row--agent">
+          <div class="uc-bot-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.38-1 1.72V7h2a5 5 0 0 1 5 5v1h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v1a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-1H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-1a5 5 0 0 1 5-5h2V5.72A2 2 0 0 1 12 2Z"/></svg>
+          </div>
+          <div class="uc-chat-bubble uc-chat-bubble--agent">
+            It left the local hub and is scheduled to arrive Thursday.
+          </div>
+        </div>
+
+        <!-- Order Tracking Widget -->
+        <div class="uc-order-card">
+          <div class="uc-order-head">
+            <div class="uc-truck-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17h4V5H2v12h3m9 0h2m-2-6h4l3 3v3h-7m-7 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0Zm12 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0Z"/>
+              </svg>
+            </div>
+            <div class="uc-order-meta">
+              <strong class="uc-order-num">Order #8472</strong>
+              <span class="uc-order-dest">Arriving Thu · Office</span>
+            </div>
+          </div>
+          
+          <!-- Stepper tracker -->
+          <div class="uc-stepper">
+            <div class="uc-step-line-bg">
+              <div class="uc-step-line-active"></div>
+            </div>
+            <div class="uc-step is-complete">
+              <span class="uc-step-dot"></span>
+              <span class="uc-step-label">Ordered</span>
+            </div>
+            <div class="uc-step is-active">
+              <span class="uc-step-dot"></span>
+              <span class="uc-step-label">Shipped</span>
+            </div>
+            <div class="uc-step">
+              <span class="uc-step-dot"></span>
+              <span class="uc-step-label">Out for delivery</span>
+            </div>
+            <div class="uc-step">
+              <span class="uc-step-dot"></span>
+              <span class="uc-step-label">Delivered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-card-footer">
+        <a href="support-agent.html" class="uc-explore-link">Explore AI Support Agent <span class="uc-link-arrow">↗</span></a>
+      </div>
+    </article>
+
+    <!-- Cell 4: Lead capture Card -->
+    <article class="uc-card uc-card--lead">
+      <div class="uc-card-header">
+        <div class="uc-card-header-top">
+          <div class="uc-card-icon uc-icon--purple" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+          </div>
+          <span class="uc-pill-badge uc-pill--purple">More qualified leads ↗</span>
+        </div>
+        <h3 class="uc-card-title">Lead capture</h3>
+        <p class="uc-card-desc">Turn interested visitors into leads before they leave.</p>
+      </div>
+
+      <!-- Preview inside Lead capture -->
+      <div class="uc-preview-box uc-preview-box--crm">
+        <div class="uc-lead-top">
+          <strong class="uc-lead-title">New lead captured</strong>
+          <span class="uc-status-tag uc-status-tag--green">↗ Added to CRM</span>
+        </div>
+        <div class="uc-lead-table">
+          <div class="uc-lead-row">
+            <span class="uc-lead-label">Name</span>
+            <span class="uc-lead-val">Priya Mehta</span>
+          </div>
+          <div class="uc-lead-row">
+            <span class="uc-lead-label">Email</span>
+            <span class="uc-lead-val">priya@acme.com</span>
+          </div>
+          <div class="uc-lead-row">
+            <span class="uc-lead-label">Interest</span>
+            <span class="uc-lead-val">Demo for 20 users</span>
+          </div>
+          <div class="uc-lead-row">
+            <span class="uc-lead-label">Source</span>
+            <span class="uc-lead-val">Website</span>
+          </div>
+        </div>
+        <button type="button" class="uc-conv-btn">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="uc-conv-icon" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 0 1-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zm-4 0h-2v2h2V9z" clip-rule="evenodd"/>
+          </svg>
+          View conversation →
+        </button>
+      </div>
+
+      <div class="uc-card-footer">
+        <a href="lead-agent.html" class="uc-explore-link">Explore AI Lead Capture Agent <span class="uc-link-arrow">↗</span></a>
+      </div>
+    </article>
+
+    <!-- Cell 5: Booking Card -->
+    <article class="uc-card uc-card--booking">
+      <div class="uc-card-header">
+        <div class="uc-card-header-top">
+          <div class="uc-card-icon uc-icon--orange" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <span class="uc-pill-badge uc-pill--orange">More bookings ↗</span>
+        </div>
+        <h3 class="uc-card-title">Booking</h3>
+        <p class="uc-card-desc">Turn an enquiry into a booked meeting or appointment.</p>
+      </div>
+
+      <!-- Preview inside Booking -->
+      <div class="uc-preview-box uc-preview-box--booking">
+        <div class="uc-lead-top">
+          <strong class="uc-lead-title">Book an appointment</strong>
+          <span class="uc-status-tag uc-status-tag--green">↗ Available</span>
+        </div>
+
+        <div class="uc-doctor-card">
+          <div class="uc-cal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="uc-doctor-info">
+            <strong class="uc-doctor-name">Dr. Ananya Mehta</strong>
+            <span class="uc-doctor-sub">Downtown Clinic · Tomorrow</span>
+          </div>
+        </div>
+
+        <div class="uc-slots-row">
+          <button type="button" class="uc-slot-btn">9:00 AM</button>
+          <button type="button" class="uc-slot-btn uc-slot-btn--active">10:30 AM</button>
+          <button type="button" class="uc-slot-btn">2:30 PM</button>
+        </div>
+
+        <button type="button" class="uc-confirm-btn">Confirm booking</button>
+      </div>
+
+      <div class="uc-card-footer">
+        <a href="meetings-agent.html" class="uc-explore-link">Explore AI Booking Agent <span class="uc-link-arrow">↗</span></a>
+      </div>
+    </article>
+
+    <!-- Cell 6: Marketing Card -->
+    <article class="uc-card uc-card--marketing">
+      <div class="uc-card-header">
+        <div class="uc-card-header-top">
+          <div class="uc-card-icon uc-icon--pink" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+            </svg>
+          </div>
+          <span class="uc-pill-badge uc-pill--pink">Higher conversions ↗</span>
+        </div>
+        <h3 class="uc-card-title">Marketing</h3>
+        <p class="uc-card-desc">Send broadcasts, automate follow-ups, and let AI handle the replies.</p>
+      </div>
+
+      <!-- Preview inside Marketing -->
+      <div class="uc-preview-box uc-preview-box--marketing">
+        <div class="uc-lead-top">
+          <span class="uc-wa-label">
+            <svg class="uc-wa-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            WhatsApp Campaign
+          </span>
+          <span class="uc-status-tag uc-status-tag--green">↗ Active</span>
+        </div>
+
+        <div class="uc-promo-card">
+          <img src="images/marketing-sale-promo.jpg" alt="Weekend Sale" class="uc-promo-img" width="42" height="42" loading="lazy">
+          <div class="uc-promo-copy">
+            <strong class="uc-promo-title">Weekend Sale – 20% off sets</strong>
+            <span class="uc-promo-desc">Explore our new collection. Limited time offer!</span>
+          </div>
+        </div>
+
+        <div class="uc-stats-grid">
+          <div class="uc-stat-col">
+            <strong class="uc-stat-num">1,248</strong>
+            <span class="uc-stat-label">Sent</span>
+          </div>
+          <div class="uc-stat-col">
+            <strong class="uc-stat-num">892</strong>
+            <span class="uc-stat-label">Delivered</span>
+          </div>
+          <div class="uc-stat-col">
+            <strong class="uc-stat-num">623</strong>
+            <span class="uc-stat-label">Opened</span>
+          </div>
+          <div class="uc-stat-col">
+            <strong class="uc-stat-num">214</strong>
+            <span class="uc-stat-label">Replied</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-card-footer">
+        <a href="whatsapp-broadcast.html" class="uc-explore-link">Explore AI Marketing Agent <span class="uc-link-arrow">↗</span></a>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -2595,8 +2870,8 @@
     <div class="ind-header-row">
       <div class="ind-header-left">
         <span class="ind-kicker">INDUSTRIES</span>
-        <h2 class="ind-title">Built for <span class="ind-title-blue">every business.</span></h2>
-        <p class="ind-sub">From e-commerce to healthcare, StepsAI adapts to your industry and helps you deliver exceptional customer experiences.</p>
+        <h2 class="ind-title">Works in your industry, <span class="ind-title-blue">from day one.</span></h2>
+        <p class="ind-sub">Steps AI learns your products, services, policies, and workflows, then adapts to the questions your customers actually ask.</p>
       </div>
       <div class="ind-header-right">
         <div class="ind-nav-pill">
@@ -2611,11 +2886,11 @@
       </div>
     </div>
 
-    <!-- 4 Cards Track -->
+    <!-- 5 Cards Track -->
     <div class="ind-track" id="indAccordion">
 
-      <!-- Card 0: E-Commerce -->
-      <div class="ind-card" data-ind="0" tabindex="0" role="button" aria-expanded="false">
+      <!-- Card 0: E-commerce -->
+      <div class="ind-card active" data-ind="0" tabindex="0" role="button" aria-expanded="true">
         <div class="ind-badge-popular">
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Most popular
@@ -2624,7 +2899,7 @@
           <div class="ind-img-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           </div>
-          <img src="images/ecommerce-luxury.jpg" alt="E-Commerce & Retail" loading="lazy">
+          <img src="images/ecommerce-luxury.jpg" alt="E-commerce" loading="lazy">
           <div class="ind-play-pill">
             <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             See how it works
@@ -2634,21 +2909,25 @@
         <!-- Collapsed Content -->
         <div class="ind-content-collapsed">
           <div class="ind-col-head">
-            <h3 class="ind-col-title">E-Commerce</h3>
-            <p class="ind-col-sub">Sales and checkout</p>
+            <h3 class="ind-col-title">E-commerce</h3>
+            <p class="ind-col-sub">Recommend products, track orders and bring stalled purchases back.</p>
           </div>
           <ul class="ind-col-list">
             <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              Track orders
+            </li>
+            <li class="ind-col-item">
               <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-              Product recommendations
+              Recommend products
             </li>
             <li class="ind-col-item">
               <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></span>
-              Cart &amp; checkout support
+              Recover carts
             </li>
             <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
-              Order tracking
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+              Answer return questions
             </li>
           </ul>
           <a href="industry-ecommerce.html" class="ind-btn-outline">Learn more →</a>
@@ -2656,78 +2935,20 @@
 
         <!-- Expanded Content -->
         <div class="ind-content-expanded">
-          <h3 class="ind-exp-title">E-Commerce &amp; Retail</h3>
-          <p class="ind-exp-desc">“Do you have this in medium?” lands at 11 pm on Instagram. Your agent checks live Shopify stock, shows the exact product, adds it to the cart, and you wake up to the order already placed.</p>
+          <h3 class="ind-exp-title">E-commerce</h3>
+          <p class="ind-exp-desc">Recommend products, track orders and bring stalled purchases back.</p>
           <div class="ind-exp-grid">
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path></svg>Product Questions</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>Cart Recovery</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>Live Stock Sync</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Checkout Nudges</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>Order Tracking</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Review Requests</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Track orders</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path></svg>Recommend products</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>Recover carts</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Answer return questions</div>
           </div>
           <a href="industry-ecommerce.html" class="ind-btn-primary">Explore E-Commerce →</a>
         </div>
       </div>
 
-      <!-- Card 1: Real Estate -->
+      <!-- Card 1: Healthcare -->
       <div class="ind-card" data-ind="1" tabindex="0" role="button" aria-expanded="false">
-        <div class="ind-badge-popular">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Most popular
-        </div>
-        <div class="ind-media">
-          <div class="ind-img-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-          </div>
-          <img src="images/real-estate-luxury.jpg" alt="Real Estate & Rentals" loading="lazy">
-          <div class="ind-play-pill">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            See how it works
-          </div>
-        </div>
-
-        <!-- Collapsed Content -->
-        <div class="ind-content-collapsed">
-          <div class="ind-col-head">
-            <h3 class="ind-col-title">Real Estate</h3>
-            <p class="ind-col-sub">Enquiries and viewings</p>
-          </div>
-          <ul class="ind-col-list">
-            <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
-              Capture &amp; qualify leads
-            </li>
-            <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-              Schedule site visits
-            </li>
-            <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>
-              Answer property questions
-            </li>
-          </ul>
-          <a href="industry-real-estate.html" class="ind-btn-outline">Learn more →</a>
-        </div>
-
-        <!-- Expanded Content -->
-        <div class="ind-content-expanded">
-          <h3 class="ind-exp-title">Real Estate &amp; Rentals</h3>
-          <p class="ind-exp-desc">Someone asks the price of a 2BHK at midnight. Your agent answers, sends the floor plan, and captures their budget and timeline while they are still typing. Your team wakes up to a hot lead.</p>
-          <div class="ind-exp-grid">
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Property Questions</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Site Visit Reminders</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>Floor Plans &amp; Docs</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Post-Visit Follow-Up</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Budget &amp; Timeline</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Hot Lead Routing</div>
-          </div>
-          <a href="industry-real-estate.html" class="ind-btn-primary">Explore Real Estate →</a>
-        </div>
-      </div>
-
-      <!-- Card 2: Healthcare & Clinics (Active by default matching screenshot) -->
-      <div class="ind-card active" data-ind="2" tabindex="0" role="button" aria-expanded="true">
         <div class="ind-badge-popular">
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Most popular
@@ -2736,7 +2957,7 @@
           <div class="ind-img-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
           </div>
-          <img src="images/healthcare-luxury.jpg" alt="Healthcare & Clinics" loading="lazy">
+          <img src="images/healthcare-luxury.jpg" alt="Healthcare" loading="lazy">
           <div class="ind-play-pill">
             <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             See how it works
@@ -2746,21 +2967,25 @@
         <!-- Collapsed Content -->
         <div class="ind-content-collapsed">
           <div class="ind-col-head">
-            <h3 class="ind-col-title">Healthcare &amp; Clinics</h3>
-            <p class="ind-col-sub">Appointments and support</p>
+            <h3 class="ind-col-title">Healthcare</h3>
+            <p class="ind-col-sub">Answer patient questions and get appointments booked.</p>
           </div>
           <ul class="ind-col-list">
             <li class="ind-col-item">
               <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-              Appointment Booking
-            </li>
-            <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-              Insurance Questions
+              Book appointments
             </li>
             <li class="ind-col-item">
               <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>
-              Timings &amp; Directions
+              Share timings
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+              Capture details
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
+              Hand off when needed
             </li>
           </ul>
           <a href="industry-healthcare.html" class="ind-btn-outline">Learn more →</a>
@@ -2768,22 +2993,20 @@
 
         <!-- Expanded Content -->
         <div class="ind-content-expanded">
-          <h3 class="ind-exp-title">Healthcare &amp; Clinics</h3>
-          <p class="ind-exp-desc">Your front desk repeats timings, directions and insurance rules forty times a day. Your agent takes every one of them and books the slot.</p>
+          <h3 class="ind-exp-title">Healthcare</h3>
+          <p class="ind-exp-desc">Answer patient questions and get appointments booked.</p>
           <div class="ind-exp-grid">
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Appointment Booking</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Reminders &amp; Follow-ups</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Insurance Questions</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>Medical Escalation</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>Timings &amp; Directions</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg>Multi-location Support</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Book appointments</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>Share timings</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Capture details</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>Hand off when needed</div>
           </div>
           <a href="industry-healthcare.html" class="ind-btn-primary">Explore Healthcare →</a>
         </div>
       </div>
 
-      <!-- Card 3: Education & Training -->
-      <div class="ind-card" data-ind="3" tabindex="0" role="button" aria-expanded="false">
+      <!-- Card 2: Education -->
+      <div class="ind-card" data-ind="2" tabindex="0" role="button" aria-expanded="false">
         <div class="ind-badge-popular">
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Most popular
@@ -2792,7 +3015,7 @@
           <div class="ind-img-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
           </div>
-          <img src="images/hero-edtech.jpg" alt="Education & Training" loading="lazy">
+          <img src="images/hero-edtech.jpg" alt="Education" loading="lazy">
           <div class="ind-play-pill">
             <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             See how it works
@@ -2802,21 +3025,25 @@
         <!-- Collapsed Content -->
         <div class="ind-content-collapsed">
           <div class="ind-col-head">
-            <h3 class="ind-col-title">Education &amp; Training</h3>
-            <p class="ind-col-sub">Admissions and follow-up</p>
+            <h3 class="ind-col-title">Education</h3>
+            <p class="ind-col-sub">Answer admission questions and move enquiries towards counselling.</p>
           </div>
           <ul class="ind-col-list">
             <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></span>
+              Answer fees
+            </li>
+            <li class="ind-col-item">
               <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg></span>
-              Answer course enquiries
+              Explain courses
             </li>
             <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
-              Guide application process
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></span>
+              Capture enquiries
             </li>
             <li class="ind-col-item">
-              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
-              Schedule counselling calls
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"></path></svg></span>
+              Book counselling
             </li>
           </ul>
           <a href="industry-edtech.html" class="ind-btn-outline">Learn more →</a>
@@ -2824,17 +3051,131 @@
 
         <!-- Expanded Content -->
         <div class="ind-content-expanded">
-          <h3 class="ind-exp-title">Education &amp; Training</h3>
-          <p class="ind-exp-desc">A student asks about fees at 11 pm, then goes quiet for a week. Your agent replies in their own language, follows up without being told to, and walks them through the application form.</p>
+          <h3 class="ind-exp-title">Education</h3>
+          <p class="ind-exp-desc">Answer admission questions and move enquiries towards counselling.</p>
           <div class="ind-exp-grid">
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>Course Enquiries</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Drop-Off Follow-Up</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>Fee &amp; Eligibility</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Deadline Reminders</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Walkthrough Guide</div>
-            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Counsellor Calls</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>Answer fees</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>Explain courses</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Capture enquiries</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"></path></svg>Book counselling</div>
           </div>
           <a href="industry-edtech.html" class="ind-btn-primary">Explore Education →</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Real estate -->
+      <div class="ind-card" data-ind="3" tabindex="0" role="button" aria-expanded="false">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </div>
+          <img src="images/real-estate-luxury.jpg" alt="Real estate" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">Real estate</h3>
+            <p class="ind-col-sub">Answer property questions and turn interest into site visits.</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+              Share pricing
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              Check availability
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+              Capture buyers
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg></span>
+              Book site visits
+            </li>
+          </ul>
+          <a href="industry-real-estate.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">Real estate</h3>
+          <p class="ind-exp-desc">Answer property questions and turn interest into site visits.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Share pricing</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Check availability</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Capture buyers</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Book site visits</div>
+          </div>
+          <a href="industry-real-estate.html" class="ind-btn-primary">Explore Real Estate →</a>
+        </div>
+      </div>
+
+      <!-- Card 4: SaaS -->
+      <div class="ind-card" data-ind="4" tabindex="0" role="button" aria-expanded="false">
+        <div class="ind-badge-popular">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Most popular
+        </div>
+        <div class="ind-media">
+          <div class="ind-img-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <img src="images/team-collaboration.jpg" alt="SaaS" loading="lazy">
+          <div class="ind-play-pill">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            See how it works
+          </div>
+        </div>
+
+        <!-- Collapsed Content -->
+        <div class="ind-content-collapsed">
+          <div class="ind-col-head">
+            <h3 class="ind-col-title">SaaS</h3>
+            <p class="ind-col-sub">Answer product questions, capture leads and book demos.</p>
+          </div>
+          <ul class="ind-col-list">
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
+              Explain plans
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span>
+              Capture leads
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg></span>
+              Book demos
+            </li>
+            <li class="ind-col-item">
+              <span class="ind-col-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></span>
+              Hand off conversations
+            </li>
+          </ul>
+          <a href="industry-saas.html" class="ind-btn-outline">Learn more →</a>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="ind-content-expanded">
+          <h3 class="ind-exp-title">SaaS</h3>
+          <p class="ind-exp-desc">Answer product questions, capture leads and book demos.</p>
+          <div class="ind-exp-grid">
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>Explain plans</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Capture leads</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>Book demos</div>
+            <div class="ind-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Hand off conversations</div>
+          </div>
+          <a href="industry-saas.html" class="ind-btn-primary">Explore SaaS →</a>
         </div>
       </div>
 
@@ -2843,10 +3184,11 @@
     <!-- Bottom Navigation Row -->
     <div class="ind-bottom">
       <div class="ind-dots">
-        <button type="button" class="ind-dot" data-ind-dot="0" aria-label="E-Commerce"></button>
-        <button type="button" class="ind-dot" data-ind-dot="1" aria-label="Real Estate"></button>
-        <button type="button" class="ind-dot active" data-ind-dot="2" aria-label="Healthcare & Clinics"></button>
-        <button type="button" class="ind-dot" data-ind-dot="3" aria-label="Education & Training"></button>
+        <button type="button" class="ind-dot active" data-ind-dot="0" aria-label="E-commerce"></button>
+        <button type="button" class="ind-dot" data-ind-dot="1" aria-label="Healthcare"></button>
+        <button type="button" class="ind-dot" data-ind-dot="2" aria-label="Education"></button>
+        <button type="button" class="ind-dot" data-ind-dot="3" aria-label="Real estate"></button>
+        <button type="button" class="ind-dot" data-ind-dot="4" aria-label="SaaS"></button>
       </div>
 
       <div class="ind-center-action">
@@ -2904,8 +3246,8 @@
   <div class="container">
     <div class="center reveal">
       <span class="badge">Integrations</span>
-      <h2 class="sec-title" style="letter-spacing:-.03em">Connected to the tools <span class="grad-text">your business already runs on.</span></h2>
-      <p class="sec-sub">Connect your store, CRM, calendar and courier with a login. No API key, no developer. Ask where an order is and your agent checks the courier rather than your shipping page.</p>
+      <h2 class="sec-title" style="letter-spacing:-.03em">Connect the tools <span class="grad-text">your business already uses.</span></h2>
+      <p class="sec-sub">Connect your store, CRM, calendar, support, and marketing tools so Steps AI can use real business data and take action.</p>
     </div>
 
     <!-- Dual Marquee Ticker Matching Reference Design -->
@@ -2913,51 +3255,55 @@
       <!-- Row 1: Scrolling Left -->
       <div class="app-marquee-track track-1">
         <!-- Set A -->
-        <div class="app-pill"><span class="ap-ic" style="background:#8b5cf6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span><span>Shiprocket</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#006bff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/></svg></span><span>Calendly</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#95bf47"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M15.3 4.2c-.1-.6-.6-1-1.2-1-.2 0-.4.1-.6.2C13.2 2 11.9 1 10.5 1 8 1 6.5 2.7 6.3 5.3L3.8 6.4c-.5.2-.8.8-.7 1.3l2.8 13.5c.1.7.7 1.2 1.4 1.2h10.3c.7 0 1.3-.5 1.4-1.2l2.3-13.8c.1-.6-.3-1.2-.9-1.3l-5.1-1.9z"/></svg></span><span>Shopify</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#9b5c8f"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">W</span></span><span>WooCommerce</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#006bff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/></svg></span><span>Calendly</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">C</span></span><span>Cal.com</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><rect x="8" y="8" width="8" height="8" rx="2" fill="#fff"/></svg></span><span>Square Appointments</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#fff;border:1px solid #e2e8f0"><svg width="16" height="16" viewBox="0 0 87.3 78"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.5l5.85 10.15z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg></span><span>Google Drive</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M4 4v16h16V4H4zm13.5 13.5h-2.3l-5-7.3v7.3H8V6.5h2.4l4.9 7.2V6.5h2.2v11z"/></svg></span><span>Notion</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#fcb400"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">A</span></span><span>Airtable</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M2 5h9v6H2zm11 0h9v6h-9zM2 13h9v6H2zm11 0h9v6h-9z"/></svg></span><span>Outlook</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#ff7a59"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M18.8 9.5c0-1.2-.8-2.2-2-2.4V5.6c.9-.4 1.5-1.3 1.5-2.3 0-1.5-1.2-2.7-2.7-2.7s-2.7 1.2-2.7 2.7c0 1 .6 1.9 1.5 2.3v1.5c-1.2.2-2 1.2-2 2.4 0 .5.2 1 .5 1.4L11 13.8c-.4-.2-.9-.3-1.4-.3-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3c0-.5-.1-1-.4-1.4l4.6-2.9c.4.3.9.5 1.4.5 1.4 0 2.6-1.2 2.6-2.6v-.6z"/></svg></span><span>HubSpot</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#c62026"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>DTDC</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#21759b"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 12c0 2.2.9 4.2 2.3 5.6L10.3 8 7.2 17.1c-1.6-1.3-2.7-3.3-2.7-5.1zm15 0c0 1.9-1 3.6-2.5 4.7l3-8.8c.4 1.3.5 2.7.5 4.1zm-8.8 7.3L7.9 11h2.3l2 5.9 1.8-5.9h2.2l-3.5 8.3c-.6.2-1.3.3-2 .3-.7 0-1.4-.1-2.1-.3z"/></svg></span><span>WordPress</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#03363d"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg></span><span>Zendesk</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">K</span></span><span>Klaviyo</span></div>
 
         <!-- Set B (Duplicate for smooth infinite scroll) -->
-        <div class="app-pill"><span class="ap-ic" style="background:#8b5cf6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span><span>Shiprocket</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#006bff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/></svg></span><span>Calendly</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#95bf47"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M15.3 4.2c-.1-.6-.6-1-1.2-1-.2 0-.4.1-.6.2C13.2 2 11.9 1 10.5 1 8 1 6.5 2.7 6.3 5.3L3.8 6.4c-.5.2-.8.8-.7 1.3l2.8 13.5c.1.7.7 1.2 1.4 1.2h10.3c.7 0 1.3-.5 1.4-1.2l2.3-13.8c.1-.6-.3-1.2-.9-1.3l-5.1-1.9z"/></svg></span><span>Shopify</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#9b5c8f"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">W</span></span><span>WooCommerce</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#006bff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/></svg></span><span>Calendly</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">C</span></span><span>Cal.com</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><rect x="8" y="8" width="8" height="8" rx="2" fill="#fff"/></svg></span><span>Square Appointments</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#fff;border:1px solid #e2e8f0"><svg width="16" height="16" viewBox="0 0 87.3 78"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.5l5.85 10.15z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg></span><span>Google Drive</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M4 4v16h16V4H4zm13.5 13.5h-2.3l-5-7.3v7.3H8V6.5h2.4l4.9 7.2V6.5h2.2v11z"/></svg></span><span>Notion</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#fcb400"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">A</span></span><span>Airtable</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M2 5h9v6H2zm11 0h9v6h-9zM2 13h9v6H2zm11 0h9v6h-9z"/></svg></span><span>Outlook</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#ff7a59"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M18.8 9.5c0-1.2-.8-2.2-2-2.4V5.6c.9-.4 1.5-1.3 1.5-2.3 0-1.5-1.2-2.7-2.7-2.7s-2.7 1.2-2.7 2.7c0 1 .6 1.9 1.5 2.3v1.5c-1.2.2-2 1.2-2 2.4 0 .5.2 1 .5 1.4L11 13.8c-.4-.2-.9-.3-1.4-.3-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3c0-.5-.1-1-.4-1.4l4.6-2.9c.4.3.9.5 1.4.5 1.4 0 2.6-1.2 2.6-2.6v-.6z"/></svg></span><span>HubSpot</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#c62026"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>DTDC</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#21759b"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 12c0 2.2.9 4.2 2.3 5.6L10.3 8 7.2 17.1c-1.6-1.3-2.7-3.3-2.7-5.1zm15 0c0 1.9-1 3.6-2.5 4.7l3-8.8c.4 1.3.5 2.7.5 4.1zm-8.8 7.3L7.9 11h2.3l2 5.9 1.8-5.9h2.2l-3.5 8.3c-.6.2-1.3.3-2 .3-.7 0-1.4-.1-2.1-.3z"/></svg></span><span>WordPress</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#03363d"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg></span><span>Zendesk</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">K</span></span><span>Klaviyo</span></div>
       </div>
 
       <!-- Row 2: Scrolling Right -->
       <div class="app-marquee-track track-2">
         <!-- Set A -->
-        <div class="app-pill"><span class="ap-ic" style="background:#03363d"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg></span><span>Zendesk</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M4 4v16h16V4H4zm13.5 13.5h-2.3l-5-7.3v7.3H8V6.5h2.4l4.9 7.2V6.5h2.2v11z"/></svg></span><span>Notion</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">K</span></span><span>Klaviyo</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">C</span></span><span>Cal.com</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#1a73e8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><text x="12" y="18" fill="#fff" font-size="7" font-weight="900" text-anchor="middle" stroke="none">31</text></svg></span><span>Google Calendar</span></div>
-        <div class="app-pill pill-more"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>20+ Integrations</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#dc2626"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>Delhivery</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#fff;border:1px solid #e2e8f0"><svg width="16" height="16" viewBox="0 0 87.3 78"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.5l5.85 10.15z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg></span><span>Google Drive</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><text x="12" y="18" fill="#fff" font-size="7" font-weight="900" text-anchor="middle" stroke="none">O</text></svg></span><span>Outlook Calendar</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#4a154b"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6 15a2 2 0 1 1-2-2h2v2zm1 0a2 2 0 1 1 2 2v-5H7v3zm2-8a2 2 0 1 1-2 2V7h2zm0 1a2 2 0 1 1 2-2H9v5h2zm8 2a2 2 0 1 1 2 2h-2v-2zm-1 0a2 2 0 1 1-2-2v5h2v-3zm-2 8a2 2 0 1 1 2-2v2h-2zm0-1a2 2 0 1 1-2 2h-2v-5h2v3z"/></svg></span><span>Slack</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M2 5h9v6H2zm11 0h9v6h-9zM2 13h9v6H2zm11 0h9v6h-9z"/></svg></span><span>Outlook</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#8b5cf6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span><span>Shiprocket</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#dc2626"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>Delhivery</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#c62026"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>DTDC</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0ea5e9"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">i</span></span><span>iThink Logistics</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#6366f1"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">W</span></span><span>WareIQ</span></div>
 
         <!-- Set B (Duplicate for smooth infinite scroll) -->
-        <div class="app-pill"><span class="ap-ic" style="background:#03363d"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg></span><span>Zendesk</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#000000"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M4 4v16h16V4H4zm13.5 13.5h-2.3l-5-7.3v7.3H8V6.5h2.4l4.9 7.2V6.5h2.2v11z"/></svg></span><span>Notion</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">K</span></span><span>Klaviyo</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#111827"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">C</span></span><span>Cal.com</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#1a73e8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><text x="12" y="18" fill="#fff" font-size="7" font-weight="900" text-anchor="middle" stroke="none">31</text></svg></span><span>Google Calendar</span></div>
-        <div class="app-pill pill-more"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>20+ Integrations</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#dc2626"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>Delhivery</span></div>
-        <div class="app-pill"><span class="ap-ic" style="background:#fff;border:1px solid #e2e8f0"><svg width="16" height="16" viewBox="0 0 87.3 78"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.5l5.85 10.15z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg></span><span>Google Drive</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><text x="12" y="18" fill="#fff" font-size="7" font-weight="900" text-anchor="middle" stroke="none">O</text></svg></span><span>Outlook Calendar</span></div>
         <div class="app-pill"><span class="ap-ic" style="background:#4a154b"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6 15a2 2 0 1 1-2-2h2v2zm1 0a2 2 0 1 1 2 2v-5H7v3zm2-8a2 2 0 1 1-2 2V7h2zm0 1a2 2 0 1 1 2-2H9v5h2zm8 2a2 2 0 1 1 2 2h-2v-2zm-1 0a2 2 0 1 1-2-2v5h2v-3zm-2 8a2 2 0 1 1 2-2v2h-2zm0-1a2 2 0 1 1-2 2h-2v-5h2v3z"/></svg></span><span>Slack</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0078d4"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M2 5h9v6H2zm11 0h9v6h-9zM2 13h9v6H2zm11 0h9v6h-9z"/></svg></span><span>Outlook</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#8b5cf6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span><span>Shiprocket</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#dc2626"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>Delhivery</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#c62026"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">D</span></span><span>DTDC</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#0ea5e9"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">i</span></span><span>iThink Logistics</span></div>
+        <div class="app-pill"><span class="ap-ic" style="background:#6366f1"><span style="color:#fff;font-weight:900;font-size:14px;line-height:1">W</span></span><span>WareIQ</span></div>
       </div>
     </div>
   </div>
@@ -3035,9 +3381,9 @@
 <section class="wa revenue-section" id="whatsapp">
   <div class="container">
     <div class="revenue-heading">
-      <div><span class="badge">WhatsApp · Instagram</span>
-      <h2 class="sec-title">Turn broadcasts and comments into <span class="grad-text">private conversations that sell.</span></h2></div>
-      <div><p class="sec-sub">Steps AI sends your offer to your whole WhatsApp list, DMs everyone who comments on Instagram, and handles every reply that comes back.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp automation <span aria-hidden="true">↗</span></a></div>
+      <div><span class="badge">WhatsApp Broadcast</span>
+      <h2 class="sec-title">Automate WhatsApp broadcasts <span class="grad-text">and replies.</span></h2></div>
+      <div><p class="sec-sub">Send campaigns once, then let your AI agent handle every response.</p><a class="editorial-link" href="whatsapp-broadcast.html">Explore WhatsApp Broadcast <span aria-hidden="true">↗</span></a></div>
     </div>
     <div class="revenue-studio" data-channel="whatsapp">
       <div class="studio-toolbar">
@@ -3086,8 +3432,8 @@
     <span class="ib-note hand" aria-hidden="true">All your conversations.<br>One inbox.</span>
     <div class="center reveal-right">
       <span class="badge">Unified Inbox</span>
-      <h2 class="sec-title">Four channels, one inbox. <span class="grad-text">You step in only when you are needed.</span></h2>
-      <p class="sec-sub">Steps AI answers, checks, books, and closes. When something genuinely needs you, it arrives with the full chat already there.</p>
+      <h2 class="sec-title">See all customer conversations <span class="grad-text">in one inbox.</span></h2>
+      <p class="sec-sub">Website, WhatsApp, Instagram, and Messenger messages stay together with their conversation history.</p>
     </div>
 
     <div class="dash-stage reveal" data-3d-stage="true">
@@ -3156,8 +3502,9 @@
       </div>
     </div>
 
-    <p class="ib-close reveal">Steps AI does the work. <span class="grad-text">You make the calls that matter.</span></p>
-    <p class="center reveal" style="margin-top:12px"><a href="#inbox-teaser" class="section-link-out">See how One Inbox works →</a></p>
+    <p class="ib-close reveal">Bring in a human without starting over. <span class="grad-text">Your team gets the full conversation and continues exactly where the AI stopped.</span></p>
+    <p class="center reveal" style="margin-top:12px"><a href="one-inbox.html" class="section-link-out">Explore Human Handover ↗</a></p>
+    <p class="center reveal" style="margin-top:12px"><a href="one-inbox.html" class="section-link-out">Explore Unified Inbox ↗</a></p>
   </div>
 </section>
 
@@ -3168,8 +3515,8 @@
     <!-- Centered Header -->
     <div class="auto-header-center reveal">
       <span class="auto-badge">Workflows</span>
-      <h2 class="auto-title">Steps AI answers the customer, then <span class="grad-text">does the work that follows.</span></h2>
-      <p class="auto-sub">Chases the abandoned cart at 2 am. Reminds the customer who forgot. Wakes up the lead that went quiet last week. Nobody has to remember any of it.</p>
+      <h2 class="auto-title">Automate repetitive work <span class="grad-text">with workflows.</span></h2>
+      <p class="auto-sub">Recover carts, send follow-ups, update systems, and trigger actions automatically.</p>
 
       <!-- Interactive Playbook Filter Tabs Bar -->
       <div class="auto-tabs-bar" id="autoTabsBar" role="tablist" aria-label="Workflow examples">
@@ -3366,9 +3713,9 @@
   <div class="container">
     <span class="crm-note hand" aria-hidden="true">Every record.<br>Always in sync.</span>
     <div class="center reveal-grow">
-      <span class="badge">CRM</span>
-      <h2 class="sec-title">The CRM you never have <span class="grad-text">to update.</span></h2>
-      <p class="sec-sub">Steps AI qualifies the lead, captures the details, and updates your CRM itself. No contact limit and no extra fee, however big your list gets.</p>
+      <span class="badge">Built-in CRM</span>
+      <h2 class="sec-title">Capture every lead <span class="grad-text">in your CRM.</span></h2>
+      <p class="sec-sub">Save customer details and conversation context automatically before interested visitors disappear.</p>
     </div>
 
     <div class="dash-stage reveal" data-3d-stage="true">
@@ -3443,7 +3790,7 @@
     </div>
 
     <p class="ib-close reveal">Synced automatically. <span class="grad-text">No copy and paste.</span></p>
-    <p class="center reveal" style="margin-top:12px"><a href="#integrations" class="section-link-out">See all platform capabilities →</a></p>
+    <p class="center reveal" style="margin-top:12px"><a href="crm.html" class="section-link-out">Explore Built-in CRM ↗</a></p>
   </div>
 </section>
 
@@ -3454,8 +3801,8 @@
     <span class="cc-note hand" aria-hidden="true">Insights today.<br>Bigger outcomes tomorrow.</span>
     <div class="center reveal-left">
       <span class="badge">Analytics</span>
-      <h2 class="sec-title">Analytics that tell you <span class="grad-text">what to fix.</span></h2>
-      <p class="sec-sub">See the top three questions your customers ask, the busiest hour of your week, and which channel is worth your time.</p>
+      <h2 class="sec-title">See customer activity <span class="grad-text">with analytics.</span></h2>
+      <p class="sec-sub">Track conversations, response times, channels, busy hours, and customer locations.</p>
     </div>
 
     <p class="panel-label reveal">A look at the Steps AI analytics dashboard.</p>
@@ -3570,7 +3917,7 @@
       </div>
     </div>
 
-    <p class="center reveal" style="margin-top:16px"><a href="#analytics-teaser" class="section-link-out">See the full analytics dashboard →</a></p>
+    <p class="center reveal" style="margin-top:16px"><a href="analytics.html" class="section-link-out">Explore Analytics ↗</a></p>
   </div>
 </section>
 
@@ -3581,8 +3928,8 @@
     <span class="setup-note-r hand pink" aria-hidden="true">No code<br>required.</span>
     <div class="center reveal-left">
       <span class="badge">Setup</span>
-      <h2 class="sec-title">Live in about <span class="grad-text">five minutes.</span></h2>
-      <p class="sec-sub">Test it free on your own business before you pay anything. Stuck? Our team will finish the setup with you on a call.</p>
+      <h2 class="sec-title">Go live in <span class="grad-text">four simple steps.</span></h2>
+      <p class="sec-sub">Paste your website, set how your agent should behave, give it access to your business data, and go live.</p>
       <p class="setup-micro-tags" style="font-size: 13.5px; color: #8896ab; margin-top: 12px; font-weight: 450; letter-spacing: 0.01em;">
         No code &nbsp;&middot;&nbsp; No developer &nbsp;&middot;&nbsp; No credit card required
       </p>
@@ -3593,8 +3940,8 @@
       <div>
         <div class="setup-card" style="height:100%">
           <span class="sn" style="background:var(--pink-soft);color:#1d4ed8">1</span>
-          <h4>Add your business</h4>
-          <p>Give StepsAI your website, products, FAQs and documents.</p>
+          <h4>Paste your website URL</h4>
+          <p>Steps AI learns your products, services, FAQs, and policies.</p>
           <div class="setup-ui">
             <h6>Add knowledge</h6>
             <div class="know-row">Website <span class="st">Added</span></div>
@@ -3611,8 +3958,8 @@
       <div>
         <div class="setup-card" style="height:100%">
           <span class="sn" style="background:var(--purple-soft);color:#1d4ed8">2</span>
-          <h4>Make it yours</h4>
-          <p>Choose its tone, appearance and instructions.</p>
+          <h4>Make it sound like your team</h4>
+          <p>Choose its tone, style, and the rules it should follow.</p>
           <div class="setup-ui">
             <h6>Chat appearance</h6>
             <div class="tone-wrap">
@@ -3637,7 +3984,7 @@
         <div class="setup-card" style="height:100%">
           <span class="sn" style="background:var(--green-soft);color:var(--green)">3</span>
           <h4>Connect your tools</h4>
-          <p>Add your store, CRM, calendar and customer channels.</p>
+          <p>Give it the business data it needs to answer and act.</p>
           <div class="setup-ui">
             <h6>Connect your tools</h6>
             <div class="tool-grid">
@@ -3658,8 +4005,8 @@
       <div>
         <div class="setup-card" style="height:100%">
           <span class="sn" style="background:var(--blue-soft);color:var(--blue)">4</span>
-          <h4>Go live</h4>
-          <p>Test it and publish. <span style="background:var(--blue-soft);color:var(--blue);font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px">No code required.</span></p>
+          <h4>Add one line. Go live.</h4>
+          <p>Paste one line of code and start handling real customer conversations.</p>
           <div class="setup-ui live-ui">
             <div class="win-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
             <div class="big-check">✓</div>
@@ -3987,16 +4334,15 @@
       <span class="final-cta-badge">AI agent for sales and support</span>
 
       <h2 class="final-cta-title">
-        Turn the messages you are getting<br>
-        <span class="final-title-blue">into the sales you are missing.</span>
+        Start turning conversations <span class="final-title-blue">into customers.</span>
       </h2>
 
       <p class="final-cta-sub">
-        StepsAI answers questions, recommends products, captures leads, books meetings and resolves support requests the moment customers reach out.
+        Launch Steps AI in minutes. Answer questions, capture leads, book meetings, and help more customers take the next step.
       </p>
 
       <div class="final-cta-actions">
-        <a href="pricing.html" class="final-btn-primary">Get Started For Free</a>
+        <a href="pricing.html" class="final-btn-primary">Start for free →</a>
       </div>
 
       <div class="final-cta-guarantee">
@@ -4012,12 +4358,12 @@
   <div class="container">
     <div class="center reveal-grow">
       <span class="badge">FAQ</span>
-      <h2 class="sec-title">Got questions? <span class="grad-text">We have you covered.</span></h2>
+      <h2 class="sec-title">Curious about something? <span class="grad-text">Start here.</span></h2>
     </div>
 
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>I tried a chatbot before and switched it off. Why is this different?</span><span class="faq-ic">+</span></button>
+        <button class="faq-q" aria-expanded="false"><span>I tried a chatbot before and switched it off. Why is Steps AI different?</span><span class="faq-ic">+</span></button>
         <div class="faq-a"><p>Most chatbots only read your website and repeat it back. Ask one where an order is and you get the shipping policy. Steps AI connects to your store and opens the actual order, so the customer gets the real answer. <strong>Connect your store and ask your agent where your last order is. That one test settles it.</strong></p></div>
       </div>
       <div class="faq-item">

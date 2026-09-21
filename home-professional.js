@@ -57,8 +57,14 @@
     studio.querySelector('.flow-result strong').textContent=whatsapp?'One broadcast. Individual conversations.':'Comment received. Product link sent by DM.';
     studio.querySelector('.flow-result div>span').textContent=whatsapp?'Customers can reply directly. StepsAI keeps helping.':'StepsAI handles the next question, too.';
     const link=document.querySelector('.revenue-heading .editorial-link');
+    const badge=document.querySelector('.revenue-heading .badge');
+    const secTitle=document.querySelector('.revenue-heading .sec-title');
+    const secSub=document.querySelector('.revenue-heading .sec-sub');
     link.href=whatsapp?'whatsapp-broadcast.html':'channel-instagram.html';
-    link.innerHTML=whatsapp?'Explore WhatsApp automation <span aria-hidden="true">↗</span>':'Explore Instagram automation <span aria-hidden="true">↗</span>';
+    link.innerHTML=whatsapp?'Explore WhatsApp Broadcast <span aria-hidden="true">↗</span>':'Explore Instagram Automation <span aria-hidden="true">↗</span>';
+    if(badge) badge.textContent=whatsapp?'WhatsApp Broadcast':'Instagram Comment-to-DM';
+    if(secTitle) secTitle.innerHTML=whatsapp?'Automate WhatsApp broadcasts <span class="grad-text">and replies.</span>':'Turn Instagram comments <span class="grad-text">into DMs.</span>';
+    if(secSub) secSub.textContent=whatsapp?'Send campaigns once, then let your AI agent handle every response.':'Message commenters automatically, answer questions and capture interested leads.';
   }
   const copy = {
     whatsapp: { image:'images/product-diamond-necklace.jpg', alt:'Jewellery collection used in the campaign example', context:'THE PRIVATE PREVIEW', title:'An invitation.<br>A conversation.<br>A new favourite.', subtitle:'Your collection. Their next discovery.', triggerTitle:'A campaign worth replying to', triggerText:'Personalized broadcast · VIP collection', first:'Hi Priya, your invitation to our new collection is here. Would you like a closer look?', reply:'Yes! Can you help me pick a gift?', answer:'Of course. This piece is a lovely place to start. Here’s the collection to explore.', product:'The signature collection', channel:'WhatsApp' },
