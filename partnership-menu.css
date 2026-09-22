@@ -4,11 +4,11 @@
   position: fixed;
   top: 83px;
   left: 50vw;
-  width: min(1080px, calc(100vw - 48px));
+  width: min(1020px, calc(100vw - 40px));
   min-width: 0;
   max-height: calc(100dvh - 100px);
   overflow-y: auto;
-  padding: 14px 0 20px;
+  padding: 12px 0 16px;
   background: #fcfdff;
   border: 1px solid #e2eafa;
   border-radius: 20px;
@@ -29,7 +29,7 @@
   display: block;
   flex: 0 0 auto;
   width: calc(100% + 60px);
-  height: calc(164 * var(--partner-scale));
+  height: calc(138 * var(--partner-scale));
   margin: 0 -30px 8px;
   background-image: url('images/nav-illustrations/partnership-reference.png');
   background-repeat: no-repeat;
@@ -39,25 +39,25 @@
 #nav .nav-res-item:nth-child(2) .nav-partner-art { background-position-x: calc(-364 * var(--partner-scale)); }
 #nav .nav-res-item:nth-child(3) .nav-partner-art { background-position-x: calc(-706 * var(--partner-scale)); }
 #nav .nav-mega-layout--partnership-v2 .nav-res-title {
-  font-size: 25px;
+  font-size: 21px;
   line-height: 1.08;
   letter-spacing: -.03em;
   font-weight: 700;
   color: #090c2c;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 #nav .nav-mega-layout--partnership-v2 .nav-res-desc {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.3;
   color: #7184a6;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   max-width: 285px;
 }
 #nav .nav-mega-layout--partnership-v2 .nav-res-item:last-child .nav-res-desc { margin-bottom: 0; }
 #nav .nav-mega-layout--partnership-v2 .nav-res-arrow {
-  width: 47px;
-  height: 47px;
-  padding: 11px;
+  width: 41px;
+  height: 41px;
+  padding: 10px;
   border-radius: 50%;
   margin-top: auto;
   color: #101b40;

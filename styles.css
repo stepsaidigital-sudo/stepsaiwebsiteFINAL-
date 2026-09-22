@@ -401,7 +401,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
    context, below .nav-dropdown-panel's z-index:60, so panels still render above it. */
 .nav::after {
   content: ''; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: rgba(17, 38, 76, 0.10); backdrop-filter: none; -webkit-backdrop-filter: none;
   opacity: 0; visibility: hidden; pointer-events: none; z-index: 1;
   transition: opacity 220ms var(--ease-ui), visibility 220ms var(--ease-ui);
 }
@@ -1491,4 +1491,30 @@ a.nav-mega-col-head--link:hover .nav-mega-header { color: #2563eb; }
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* Compact shared footer: preserves every destination while avoiding a second
+   page of decorative footer content on phones and small tablets. */
+@media (max-width: 1024px) {
+  .footer--9 { padding-top: 56px; }
+  .footer-9-container { gap: 34px; }
+  .footer-9-top { gap: 28px; padding-bottom: 34px; }
+  .footer-9-newsletter-card { padding: 22px; border-radius: 16px; }
+  .footer-9-wordmark-wrap { display: none; }
+}
+
+@media (max-width: 640px) {
+  .footer--9 { padding: 44px 0 22px; }
+  .footer-bg-atmosphere { display: none; }
+  .footer-9-container { gap: 26px; }
+  .footer-9-top { grid-template-columns: 1fr; gap: 18px; padding-bottom: 26px; }
+  .footer-9-brand-box { gap: 10px; }
+  .footer-9-tagline { font-size: 13px; line-height: 1.5; }
+  .footer-9-newsletter-card { display: none; }
+  .footer-9-sitemap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .footer-9-col { gap: 7px; }
+  .footer-9-col a { font-size: 12px; line-height: 1.35; }
+  .footer-9-bottom { gap: 14px; }
+  .footer-9-social-strip { gap: 8px; }
+  .footer-9-social-link { width: 36px; height: 36px; }
 }

@@ -1,0 +1,496 @@
+/* StepsAI home — final scoped visual and responsive layer. */
+
+#top {
+  --ui-ink: #0c1a3d;
+  --ui-body: #53627a;
+  --ui-blue: #1266e8;
+  --ui-blue-strong: #0759d6;
+  --ui-line: #dce5f1;
+  --ui-wash: #f3f8ff;
+  --ui-paper: #ffffff;
+  --ui-shadow-low: 0 12px 34px -24px rgba(20, 48, 92, .34);
+  --ui-shadow-focus: 0 28px 70px -38px rgba(18, 67, 151, .42);
+}
+
+#top #one-agent,
+#top #deploy-everywhere,
+#top #workflows-teaser,
+#top #crm-teaser {
+  color: var(--ui-ink);
+  isolation: isolate;
+}
+
+#top #one-agent .uc-kicker,
+#top #workflows-teaser .auto-badge,
+#top #crm-teaser > .container > .center > .badge {
+  display: none;
+}
+
+#top #one-agent .uc-hero-accent,
+#top #workflows-teaser .grad-text,
+#top #crm-teaser .grad-text {
+  color: var(--ui-blue);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+#top #one-agent.uc-section {
+  padding-block: 76px;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(167, 205, 255, .38), transparent 32%),
+    radial-gradient(circle at 92% 88%, rgba(242, 196, 221, .22), transparent 30%),
+    #f8fbff;
+}
+
+#top #one-agent .uc-container {
+  position: relative;
+  gap: 20px;
+}
+
+#top #one-agent .uc-agent-rail {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: calc(33.333% + 18px);
+  right: 0;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border: 1px solid #d7e5f8;
+  border-radius: 11px;
+  color: #51627c;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 10px 26px -22px rgba(18,67,151,.45);
+}
+
+#top #one-agent .uc-agent-rail strong {
+  color: var(--ui-ink);
+  font-size: 12px;
+}
+
+#top #one-agent .uc-agent-rail span:last-child {
+  font-size: 11.5px;
+}
+
+#top #one-agent .uc-agent-pulse {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #16a36a;
+  box-shadow: 0 0 0 4px rgba(22,163,106,.12);
+}
+
+#top #one-agent .uc-card {
+  margin-top: 50px;
+}
+
+@media (min-width: 801px) and (max-width: 1060px) {
+  #top #one-agent .uc-agent-rail {
+    position: static;
+    grid-column: 1 / -1;
+  }
+
+  #top #one-agent .uc-card {
+    margin-top: 0;
+  }
+}
+
+#top #one-agent .uc-card {
+  border-color: rgba(220, 229, 241, .88);
+  border-radius: 16px;
+  box-shadow: var(--ui-shadow-low);
+  transition: transform 180ms cubic-bezier(.16, 1, .3, 1), box-shadow 180ms ease, border-color 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #top #one-agent .uc-card:hover {
+    transform: translateY(-2px);
+    border-color: #cbdaf0;
+    box-shadow: var(--ui-shadow-focus);
+  }
+}
+
+.home-usecase-tabs {
+  display: none;
+}
+
+#top #deploy-everywhere {
+  padding-block: 72px;
+  background: #fff;
+}
+
+#top #deploy-everywhere .channels-grid {
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 34px;
+}
+
+#top #deploy-everywhere .ch-item {
+  min-height: 58px;
+  padding: 10px 12px;
+  border-radius: 13px;
+}
+
+#top #deploy-everywhere .ch-item:hover {
+  transform: translateY(-1px);
+}
+
+#top #deploy-everywhere .ch-stage {
+  padding: 16px;
+  border-radius: 18px;
+  box-shadow: var(--ui-shadow-focus);
+  overflow: hidden;
+}
+
+#top #deploy-everywhere .ch-panel {
+  border-radius: 15px;
+  box-shadow: var(--ui-shadow-low);
+}
+
+#top #workflows-teaser {
+  padding-block: 72px;
+  background: linear-gradient(180deg, #f6faff 0%, #fff 100%);
+}
+
+#top #workflows-teaser .wf-canvas-card {
+  border-radius: 18px;
+  border-color: var(--ui-line);
+  box-shadow: var(--ui-shadow-focus);
+}
+
+#top #workflows-teaser .wf-flownode,
+#top #workflows-teaser .wf-action-card {
+  border-radius: 14px;
+  box-shadow: var(--ui-shadow-low);
+}
+
+#top #workflows-teaser .wf-flownode:hover,
+#top #workflows-teaser .wf-action-card:hover {
+  transform: translateY(-1px);
+}
+
+#top #crm-teaser {
+  padding-block: 72px;
+  background: #f7faff;
+}
+
+#top #crm-teaser .dash-stage {
+  max-width: 1120px;
+  padding: 30px;
+  border-radius: 20px;
+  border-color: var(--ui-line);
+  background: linear-gradient(135deg, #e8f2ff, #f8fbff 62%, #edf7f3);
+  box-shadow: var(--ui-shadow-focus);
+}
+
+#top #crm-teaser .dash-stage-bg {
+  display: none;
+}
+
+#top #crm-teaser .dash-stage-overlay {
+  background: radial-gradient(circle at 76% 18%, rgba(126, 174, 255, .2), transparent 32%);
+  backdrop-filter: none;
+}
+
+#top #crm-teaser .dash {
+  border-radius: 15px;
+  box-shadow: 0 20px 44px -30px rgba(11, 43, 102, .44);
+}
+
+@media (max-width: 800px) {
+  #top #one-agent.uc-section,
+  #top #deploy-everywhere,
+  #top #workflows-teaser,
+  #top #crm-teaser {
+    padding-block: 44px !important;
+  }
+
+  #top #one-agent .uc-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding-inline: 16px;
+  }
+
+  #top #one-agent .uc-agent-rail {
+    position: static;
+    min-height: 0;
+    padding: 10px 12px;
+    flex-wrap: wrap;
+  }
+
+  #top #one-agent .uc-agent-rail span:last-child {
+    flex-basis: 100%;
+    padding-left: 17px;
+  }
+
+  #top #one-agent .uc-hero {
+    padding: 0;
+  }
+
+  #top #one-agent .uc-hero-title {
+    max-width: 330px;
+    margin-bottom: 12px;
+    font-size: clamp(30px, 9vw, 38px);
+    line-height: 1.05;
+  }
+
+  #top #one-agent .uc-hero-desc {
+    max-width: 34rem;
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  #top #one-agent .uc-hero-actions {
+    margin-bottom: 18px;
+  }
+
+  #top #one-agent .uc-trust-list {
+    gap: 8px 12px;
+  }
+
+  .home-usecase-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 4px 0 0;
+    padding: 3px 0 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .home-usecase-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-usecase-tabs button {
+    min-height: 42px;
+    padding: 0 14px;
+    flex: 0 0 auto;
+    border: 1px solid var(--ui-line);
+    border-radius: 10px;
+    color: #53627a;
+    background: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1;
+  }
+
+  .home-usecase-tabs button[aria-selected="true"] {
+    border-color: var(--ui-blue);
+    color: #fff;
+    background: var(--ui-blue);
+  }
+
+  #top #one-agent .uc-card {
+    display: none;
+    margin-top: 0;
+    min-height: 0;
+    padding: 18px 16px 16px;
+    border-radius: 15px;
+  }
+
+  #top #one-agent .uc-card.is-mobile-active {
+    display: flex;
+  }
+
+  #top #one-agent .uc-preview-box {
+    min-height: 0;
+  }
+
+  #top #deploy-everywhere .channels-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  #top #deploy-everywhere .ch-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  #top #deploy-everywhere .ch-item {
+    min-height: 62px;
+    padding: 8px 4px;
+    justify-content: center;
+    border-radius: 11px;
+  }
+
+  #top #deploy-everywhere .ch-item .ci {
+    width: 28px;
+    height: 28px;
+  }
+
+  #top #deploy-everywhere .ch-item h4 {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  #top #deploy-everywhere .ch-item p,
+  #top #deploy-everywhere .ch-item .car {
+    display: none;
+  }
+
+  #top #deploy-everywhere .ch-stage {
+    padding: 10px;
+    min-height: 0;
+    border-radius: 15px;
+  }
+
+  #top #deploy-everywhere .ch-scene-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #top #deploy-everywhere .ch-site-mock,
+  #top #deploy-everywhere .ch-storefront {
+    max-height: 260px;
+    overflow: hidden;
+  }
+
+  #top #deploy-everywhere .ch-scene-grid > :last-child {
+    display: none;
+  }
+
+  #top #workflows-teaser .auto-header-center {
+    margin-bottom: 18px;
+  }
+
+  #top #workflows-teaser .auto-tabs-bar {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  #top #workflows-teaser .auto-tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  #top #workflows-teaser .auto-tab-pill {
+    flex: 0 0 auto;
+    min-height: 42px;
+  }
+
+  #top #workflows-teaser .wf-canvas-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 18px !important;
+    border-radius: 15px;
+  }
+
+  #top #workflows-teaser .wf-canvas-toolbar {
+    padding: 12px;
+  }
+
+  #top #workflows-teaser .wf-autosaved-note,
+  #top #workflows-teaser .wf-mac-dots,
+  #top #workflows-teaser .wf-banner,
+  #top #workflows-teaser .end-flow-card,
+  #top #workflows-teaser .wf-canvas-foot-features {
+    display: none;
+  }
+
+  #top #workflows-teaser .wf-canvas-stage {
+    padding: 14px !important;
+  }
+
+  #top #workflows-teaser .wf-flownode,
+  #top #workflows-teaser .wf-action-card {
+    border-radius: 12px;
+  }
+
+  #top #crm-teaser .dash-stage {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 18px !important;
+    padding: 10px !important;
+    border-radius: 15px;
+  }
+
+  #top #crm-teaser .dash,
+  #top #crm-teaser .dash-body {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #top #crm-teaser .dash-body {
+    padding: 10px !important;
+  }
+
+  #top #crm-teaser .inbox {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  #top #crm-teaser .convo-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding: 0;
+    border: 0;
+  }
+
+  #top #crm-teaser .convo-search,
+  #top #crm-teaser .convo-list .convo:nth-of-type(n+3) {
+    display: none;
+  }
+
+  #top #crm-teaser .convo {
+    min-width: 0;
+    padding: 9px;
+    border: 1px solid var(--ui-line);
+    border-radius: 10px;
+  }
+
+  #top #crm-teaser .thread {
+    min-width: 0;
+    min-height: 0;
+    padding: 12px !important;
+    border: 1px solid var(--ui-line);
+    border-radius: 12px;
+  }
+
+  #top #crm-teaser .cust-side {
+    display: none !important;
+  }
+
+  #top #crm-teaser .crm-field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #top #crm-teaser .ib-close {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 430px) {
+  #top #deploy-everywhere .ch-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #top #crm-teaser .crm-field-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #top #crm-teaser .thread .act:nth-of-type(n+4) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #top #one-agent *,
+  #top #deploy-everywhere *,
+  #top #workflows-teaser *,
+  #top #crm-teaser * {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

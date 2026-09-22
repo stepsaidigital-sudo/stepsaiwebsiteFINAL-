@@ -25,6 +25,13 @@
 
   /* ---------- MOBILE MENU ---------- */
   var burger = document.getElementById('navBurger');
+  var mobilePanel = nav.querySelector('.nav-mobile');
+  function closeMobileMenu(restoreFocus) {
+    nav.classList.remove('open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (restoreFocus && burger) burger.focus();
+  }
   if (burger) {
     burger.addEventListener('click', function () {
       var isOpen = nav.classList.toggle('open');
@@ -34,20 +41,35 @@
          via the keydown handler below. */
       document.body.style.overflow = isOpen ? 'hidden' : '';
       closeAllDropdowns();
+      if (isOpen && mobilePanel) {
+        var first = mobilePanel.querySelector('summary, a[href], button:not([disabled])');
+        if (first) first.focus();
+      }
     });
   }
   Array.prototype.slice.call(document.querySelectorAll('.nav-mobile a, .nav-mobile button')).forEach(function (link) {
     link.addEventListener('click', function () {
-      nav.classList.remove('open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      closeMobileMenu(false);
     });
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      closeMobileMenu(true);
+    }
+    if (e.key === 'Tab' && nav.classList.contains('open') && mobilePanel) {
+      var focusable = Array.prototype.slice.call(mobilePanel.querySelectorAll('summary, a[href], button:not([disabled])')).filter(function (el) {
+        return el.offsetParent !== null;
+      });
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 
@@ -71,6 +93,7 @@
      mega-menu whose panel doesn't sit flush against its trigger. */
   var CLOSE_INTENT_DELAY = 300;
   var hoverTimer = null;
+  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* Nav bar background (white + blurred) and the page-content scrim behind
      the panel both key off .nav.menu-open, not .is-open on the individual
@@ -112,20 +135,22 @@
       if (!isOpen) openDropdown(dropdown, trigger);
     });
 
-    dropdown.addEventListener('mouseenter', function () {
-      clearTimeout(hoverTimer);
-      clearTimeout(closeTimer);
-      hoverTimer = setTimeout(function () { openDropdown(dropdown, trigger); }, HOVER_INTENT_DELAY);
-    });
-    dropdown.addEventListener('mouseleave', function () {
-      clearTimeout(hoverTimer);
-      clearTimeout(closeTimer);
-      closeTimer = setTimeout(function () {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        syncMenuOpenState();
-      }, CLOSE_INTENT_DELAY);
-    });
+    if (supportsHover) {
+      dropdown.addEventListener('mouseenter', function () {
+        clearTimeout(hoverTimer);
+        clearTimeout(closeTimer);
+        hoverTimer = setTimeout(function () { openDropdown(dropdown, trigger); }, HOVER_INTENT_DELAY);
+      });
+      dropdown.addEventListener('mouseleave', function () {
+        clearTimeout(hoverTimer);
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(function () {
+          dropdown.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+          syncMenuOpenState();
+        }, CLOSE_INTENT_DELAY);
+      });
+    }
   });
 
   document.addEventListener('click', closeAllDropdowns);

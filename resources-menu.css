@@ -7,7 +7,7 @@
   min-width: 0;
   max-height: calc(100dvh - 100px);
   overflow-y: auto;
-  padding: 19px 0 20px;
+  padding: 14px 0 16px;
   border: 1px solid #e3eaf7;
   border-radius: 20px;
   background: #fcfdff;
@@ -25,7 +25,7 @@
 #nav .nav-mega-layout--resources-v2 .nav-res-item:first-child { border-left: 0; }
 #nav .nav-resource-art {
   display: block;
-  flex: 0 0 120px;
+  flex: 0 0 105px;
   width: calc(100% + 48px);
   margin: 0 -24px 8px;
   background: url('images/nav-illustrations/resources-reference.png') no-repeat 0 -19px / 873px 293px;
@@ -34,7 +34,7 @@
 #nav .nav-res-item:nth-child(3) .nav-resource-art { background-position-x: -418px; }
 #nav .nav-res-item:nth-child(4) .nav-resource-art { background-position-x: -634px; }
 #nav .nav-mega-layout--resources-v2 .nav-res-title {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.25;
   font-weight: 700;
   letter-spacing: -.025em;
@@ -42,15 +42,15 @@
   margin-bottom: 8px;
 }
 #nav .nav-mega-layout--resources-v2 .nav-res-desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.45;
   color: #7585a2;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 #nav .nav-mega-layout--resources-v2 .nav-res-arrow {
-  width: 42px;
-  height: 42px;
-  padding: 10px;
+  width: 38px;
+  height: 38px;
+  padding: 9px;
   border-radius: 50%;
   background: #eaf0ff;
   color: #122044;
